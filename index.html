@@ -243,11 +243,11 @@ body{
 
 .score-picker{
   position:absolute;
-  top:calc(100% + 4px);
+  bottom:calc(100% + 4px);
   background:#fff;
   border:0.5px solid var(--border);
   border-radius:6px;
-  box-shadow:0 4px 16px rgba(0,0,0,0.08);
+  box-shadow:0 -4px 16px rgba(0,0,0,0.08);
   z-index:100;
   display:none;
   flex-direction:column;
@@ -528,13 +528,16 @@ body{
       <div class="preview-card" id="previewCard"></div>
     </div>
     <div class="modal-actions">
-      <div class="modal-title" id="lbl-modal-title">Copy scorecard text to share</div>
-      <button class="copy-btn" onclick="copyText()" id="lbl-copy">📋 Copy text</button>
+      <div class="modal-title" id="lbl-modal-title">Share your scorecard</div>
+      <button class="copy-btn" onclick="downloadImage()" id="lbl-download">⬇ Download image</button>
+      <button class="copy-btn" onclick="shareNative()" id="lbl-share-native" style="display:none;margin-top:6px;">↑ Share</button>
+      <button class="copy-btn" onclick="copyText()" id="lbl-copy" style="background:#333;margin-top:6px;">📋 Copy text</button>
       <button class="close-btn" onclick="closeShare()" id="lbl-close">Close</button>
     </div>
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 const ROUNDS = 12;
 const scores = Array.from({length:ROUNDS},()=>({red:null,blue:null}));
@@ -678,6 +681,8 @@ function togglePicker(e,round,side){
     closePickers();
   }
   const picker=document.getElementById(`picker-${round}-${side}`);
+  picker.style.bottom = round >= 8 ? 'calc(100% + 4px)' : 'auto';
+  picker.style.top = round >= 8 ? 'auto' : 'calc(100% + 4px)';
   const isOpen=picker.classList.contains('open');
   closePickers();
   if(!isOpen){
@@ -727,9 +732,62 @@ function resetAll(){
   updateTotals();
 }
 
+async function generateImage(){
+  const card=document.getElementById('previewCard');
+  const canvas=await html2canvas(card,{
+    backgroundColor:'#ffffff',
+    scale:2,
+    useCORS:true,
+    logging:false
+  });
+  return canvas;
+}
+
+async function downloadImage(){
+  const btn=document.getElementById('lbl-download');
+  const orig=btn.textContent;
+  btn.textContent='Generating...';
+  try{
+    const canvas=await generateImage();
+    const link=document.createElement('a');
+    const rn=document.getElementById('redName').value||'red';
+    const bn=document.getElementById('blueName').value||'blue';
+    link.download=`scorecard-${rn}-vs-${bn}.png`.replace(/\s+/g,'-').toLowerCase();
+    link.href=canvas.toDataURL('image/png');
+    link.click();
+    btn.textContent='✓ Downloaded!';
+    setTimeout(()=>btn.textContent=orig,2000);
+  }catch(e){
+    btn.textContent=orig;
+    alert('Error generating image');
+  }
+}
+
+async function shareNative(){
+  const btn=document.getElementById('lbl-share-native');
+  const orig=btn.textContent;
+  btn.textContent='Preparing...';
+  try{
+    const canvas=await generateImage();
+    const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));
+    const rn=document.getElementById('redName').value||'red';
+    const bn=document.getElementById('blueName').value||'blue';
+    const file=new File([blob],`scorecard-${rn}-vs-${bn}.png`,{type:'image/png'});
+    await navigator.share({
+      title:`${rn} vs ${bn} — Boxing 12x3 Scorecard`,
+      text:`My scorecard for ${rn} vs ${bn} | boxing12x3.com`,
+      files:[file]
+    });
+    btn.textContent=orig;
+  }catch(e){
+    btn.textContent=orig;
+  }
+}
+
 function openShare(){
   buildPreview();
   document.getElementById('modal').classList.add('open');
+  if(navigator.share&&navigator.canShare){document.getElementById('lbl-share-native').style.display='block';}
 }
 function closeShare(){document.getElementById('modal').classList.remove('open');}
 function closeShareOutside(e){if(e.target===document.getElementById('modal'))closeShare();}
