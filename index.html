@@ -612,6 +612,8 @@ function updateLabels(){
   document.getElementById('lbl-modal-title').textContent=t('modalTitle');
   document.getElementById('lbl-copy').textContent=t('copy');
   document.getElementById('lbl-close').textContent=t('close');
+  document.getElementById('redName').placeholder=lang==='uk'?"Ім'я бійця":"Fighter name";
+  document.getElementById('blueName').placeholder=lang==='uk'?"Ім'я бійця":"Fighter name";
   updateNames();
 }
 
