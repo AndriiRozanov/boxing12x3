@@ -553,13 +553,15 @@ const i18n = {
     pts:'PTS',
     total:'TOTAL\nSCORE',
     share:'SHARE SCORECARD',
+    download:'⬇ Download image',
+    shareNative:'↑ Share',
     reset:'Reset',
-    modalTitle:'Copy scorecard text to share',
+    modalTitle:'Share your scorecard',
     copy:'📋 Copy text',
     close:'Close',
     rdPlaceholder:'—',
-    leadsBy:(name,diff)=>`${name} leads by ${diff} pts`,
-    draw:'Even score',
+    winner:(name)=>`${name} wins`,
+    draw:'Draw',
     copied:'✓ Copied!',
     scored:'rounds scored',
     site:'boxing12x3.com',
@@ -573,13 +575,15 @@ const i18n = {
     pts:'БАЛИ',
     total:'РАХУНОК',
     share:'ПОДІЛИТИСЬ КАРТКОЮ',
+    download:'⬇ Завантажити картку',
+    shareNative:'↑ Поділитись',
     reset:'Скинути',
-    modalTitle:'Скопіюй текст і поділись',
+    modalTitle:'Поділитись карткою',
     copy:'📋 Скопіювати',
     close:'Закрити',
     rdPlaceholder:'—',
-    leadsBy:(name,diff)=>`${name} попереду на ${diff} балів`,
-    draw:'Рівний рахунок',
+    winner:(name)=>`${name} виграє`,
+    draw:'Нічия',
     copied:'✓ Скопійовано!',
     scored:'раундів проставлено',
     site:'boxing12x3.com',
@@ -616,6 +620,9 @@ function updateLabels(){
   document.getElementById('lbl-modal-title').textContent=t('modalTitle');
   document.getElementById('lbl-copy').textContent=t('copy');
   document.getElementById('lbl-close').textContent=t('close');
+  document.getElementById('lbl-download').textContent=t('download');
+  const sn=document.getElementById('lbl-share-native');
+  if(sn)sn.textContent=t('shareNative');
   document.getElementById('redName').placeholder=lang==='uk'?"Ім'я бійця":"Fighter name";
   document.getElementById('blueName').placeholder=lang==='uk'?"Ім'я бійця":"Fighter name";
   updateNames();
@@ -717,10 +724,12 @@ function updateTotals(){
   const redName=document.getElementById('redName').value||t('red');
   const blueName=document.getElementById('blueName').value||t('blue');
   if(!scored.length){lb.innerHTML='';return;}
-  const diff=Math.abs(tr-tb);
-  if(tr===tb){lb.innerHTML=`<span>${t('draw')}</span>`;}
-  else if(tr>tb){lb.innerHTML=`<span class="r">${t('leadsBy',redName,diff)}</span>`;}
-  else{lb.innerHTML=`<span class="b">${t('leadsBy',blueName,diff)}</span>`;}
+  const allDone=scores.every(s=>s.red!==null&&s.blue!==null);
+  if(tr===tb&&allDone){lb.innerHTML=`<span>${t('draw')}</span>`;}
+  else if(tr===tb){lb.innerHTML='';}
+  else if(tr>tb&&allDone){lb.innerHTML=`<span class="r">${t('winner',redName)}</span>`;}
+  else if(tb>tr&&allDone){lb.innerHTML=`<span class="b">${t('winner',blueName)}</span>`;}
+  else{lb.innerHTML='';}
 
   const allScored=scores.every(s=>s.red!==null&&s.blue!==null);
   document.getElementById('shareBtn').disabled=!allScored;
