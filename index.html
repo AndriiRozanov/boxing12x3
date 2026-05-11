@@ -179,11 +179,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 <script>
 const FIGHTS=[
-  {id:'usyk-verhoeven',date:'May 23',dateUk:'23 травня',red:'Oleksandr Usyk',redUk:'Олександр Усик',blue:'Rico Verhoeven',blueUk:'Ріко Верховен',rounds:12,featured:true},
-  {id:'chukhadzhian-donovan',date:'May 15',dateUk:'15 травня',red:'Karen Chukhadzhian',redUk:'Карен Чухаджян',blue:'Paddy Donovan',blueUk:'Педді Донован',rounds:12,featured:false},
-  {id:'lerena-merhy',date:'May 30',dateUk:'30 травня',red:'Kevin Lerena',redUk:'Кевін Лерена',blue:'Ryad Merhy',blueUk:'Ріяд Мерхі',rounds:12,featured:false},
-  {id:'serrano-hansen',date:'May 31',dateUk:'31 травня',red:'Amanda Serrano',redUk:'Аманда Серрано',blue:'Chayenne Hansen',blueUk:'Шайєнн Хансон',rounds:10,featured:false},
-  {id:'foster-ford',date:'May 31',dateUk:'31 травня',red:"O'Shaquie Foster",redUk:"О'Шакі Фостер",blue:'Raymond Ford',blueUk:'Реймонд Форд',rounds:12,featured:false}
+  {id:'chukhadzhian-donovan',date:'May 15',dateUk:'15 травня',red:'Karen Chukhadzhian',redUk:'Карен Чухаджян',blue:'Paddy Donovan',blueUk:'Педді Донован',rounds:12},
+  {id:'allen-hrgovic',date:'May 16',dateUk:'16 травня',red:'David Allen',redUk:'Девід Аллен',blue:'Filip Hrgovic',blueUk:'Філіп Хргович',rounds:10},
+  {id:'usyk-verhoeven',date:'May 23',dateUk:'23 травня',red:'Oleksandr Usyk',redUk:'Олександр Усик',blue:'Rico Verhoeven',blueUk:'Ріко Верховен',rounds:12},
+  {id:'lerena-merhy',date:'May 30',dateUk:'30 травня',red:'Kevin Lerena',redUk:'Кевін Лерена',blue:'Ryad Merhy',blueUk:'Ріяд Мерхі',rounds:12},
+  {id:'serrano-hansen',date:'May 31',dateUk:'31 травня',red:'Amanda Serrano',redUk:'Аманда Серрано',blue:'Chayenne Hansen',blueUk:'Шайєнн Хансон',rounds:10},
+  {id:'foster-ford',date:'May 31',dateUk:'31 травня',red:"O'Shaquie Foster",redUk:"О'Шакі Фостер",blue:'Raymond Ford',blueUk:'Реймонд Форд',rounds:12}
 ];
 
 const I={
@@ -242,10 +243,10 @@ function buildSel(){
     const d=lang==='uk'?f.dateUk:f.date;
     const r=lang==='uk'?f.redUk:f.red;
     const b=lang==='uk'?f.blueUk:f.blue;
-    o.textContent=(f.featured?'★ ':'')+d+' · '+r+' vs '+b;
+    o.textContent=d+' · '+r+' vs '+b;
     sel.appendChild(o);
   });
-  sel.value=cur||'usyk-verhoeven';
+  sel.value=cur||FIGHTS[0].id;
 }
 
 function onFightSelect(){
