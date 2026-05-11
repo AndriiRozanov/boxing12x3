@@ -7,452 +7,107 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23111'/><text x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'>12</text><line x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/><text x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'>%C3%973</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  --red:#c0392b;
-  --red-light:#fdf2f2;
-  --red-border:#f5b7b1;
-  --blue:#1a5276;
-  --blue-light:#eaf4fb;
-  --blue-border:#a9cce3;
-  --bg:#f7f6f3;
-  --card:#ffffff;
-  --text:#1a1a1a;
-  --text-muted:#888;
-  --border:#e5e3de;
-  --radius:10px;
+  --red:#c0392b;--red-light:#fdf2f2;--red-border:#f5b7b1;
+  --blue:#1a5276;--blue-light:#eaf4fb;--blue-border:#a9cce3;
+  --bg:#f7f6f3;--card:#ffffff;--text:#1a1a1a;--muted:#888;
+  --border:#e5e3de;--radius:10px;
 }
-
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  padding:1.5rem 1rem 4rem;
-}
-
-.lang-bar{
-  display:flex;
-  justify-content:flex-end;
-  gap:4px;
-  max-width:520px;
-  margin:0 auto 1.2rem;
-}
-.lang-btn{
-  font-family:'DM Sans',sans-serif;
-  font-size:11px;
-  font-weight:500;
-  padding:4px 10px;
-  border-radius:20px;
-  border:0.5px solid var(--border);
-  background:transparent;
-  color:var(--text-muted);
-  cursor:pointer;
-  letter-spacing:0.04em;
-  transition:all 0.15s;
-}
-.lang-btn.active{
-  background:var(--text);
-  color:#fff;
-  border-color:var(--text);
-}
-
-.site-brand{
-  text-align:center;
-  margin-bottom:1.5rem;
-}
-.site-brand-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:28px;
-  letter-spacing:0.12em;
-  color:var(--text);
-}
-.site-brand-sub{
-  font-size:10px;
-  color:var(--text-muted);
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  margin-top:1px;
-}
-
-.setup-card{
-  background:var(--card);
-  border:0.5px solid var(--border);
-  border-radius:var(--radius);
-  padding:1.2rem;
-  max-width:520px;
-  margin:0 auto 1.2rem;
-}
-.setup-title{
-  font-size:11px;
-  font-weight:500;
-  color:var(--text-muted);
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  margin-bottom:1rem;
-}
-.fighters-grid{
-  display:grid;
-  grid-template-columns:1fr 32px 1fr;
-  gap:8px;
-  align-items:center;
-}
-.vs-badge{
-  text-align:center;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:16px;
-  color:var(--text-muted);
-  letter-spacing:0.05em;
-}
-.fighter-input-wrap{}
-.fighter-label{
-  font-size:10px;
-  font-weight:500;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  margin-bottom:4px;
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
-.dot-red{width:7px;height:7px;border-radius:50%;background:var(--red);display:inline-block;}
-.dot-blue{width:7px;height:7px;border-radius:50%;background:var(--blue);display:inline-block;}
-.fighter-input{
-  width:100%;
-  font-family:'DM Sans',sans-serif;
-  font-size:13px;
-  font-weight:500;
-  color:var(--text);
-  background:var(--bg);
-  border:0.5px solid var(--border);
-  border-radius:6px;
-  padding:8px 10px;
-  outline:none;
-  transition:border-color 0.15s;
-}
-.fighter-input:focus{border-color:var(--text);}
-
-.scorecard{
-  max-width:520px;
-  margin:0 auto;
-  background:var(--card);
-  border:0.5px solid var(--border);
-  border-radius:var(--radius);
-  overflow:hidden;
-}
-
-.sc-header{
-  display:grid;
-  grid-template-columns:1fr 60px 1fr;
-  background:#111;
-}
-.sc-fighter{
-  padding:12px 14px;
-}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1.5rem 1rem 4rem;}
+.lang-bar{display:flex;justify-content:flex-end;gap:4px;max-width:520px;margin:0 auto 1rem;}
+.lang-btn{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;}
+.lang-btn.active{background:var(--text);color:#fff;border-color:var(--text);}
+.site-brand{text-align:center;margin-bottom:1.2rem;}
+.site-brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.12em;}
+.site-brand-sub{font-size:10px;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;margin-top:1px;}
+.fight-wrap{max-width:520px;margin:0 auto 1.2rem;position:relative;}
+.fight-select{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text);background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 36px 10px 12px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;}
+.fight-arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;}
+.scorecard{max-width:520px;margin:0 auto;background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius);overflow:visible;}
+.sc-header{display:grid;grid-template-columns:1fr 60px 1fr;background:#111;border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;}
+.sc-fighter{padding:12px 14px;}
 .sc-fighter.red{border-right:3px solid var(--red);}
 .sc-fighter.blue{border-left:3px solid var(--blue);text-align:right;}
 .sc-corner{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:0.1em;}
 .sc-name{font-size:14px;font-weight:500;color:#fff;margin-top:3px;font-family:'Bebas Neue',sans-serif;letter-spacing:0.06em;}
-.sc-mid{
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  background:#0a0a0a;
-  border-left:0.5px solid #1a1a1a;
-  border-right:0.5px solid #1a1a1a;
-  padding:6px 4px;
-}
+.sc-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;border-left:0.5px solid #1a1a1a;border-right:0.5px solid #1a1a1a;padding:6px 4px;}
 .sc-mid-brand{font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;letter-spacing:0.08em;}
 .sc-mid-sub{font-size:8px;color:#444;letter-spacing:0.12em;margin-top:1px;}
-
-.sc-col-heads{
-  display:grid;
-  grid-template-columns:40px 1fr 28px 1fr 40px;
-  gap:4px;
-  padding:5px 10px;
-  background:var(--bg);
-  border-bottom:0.5px solid var(--border);
-}
-.sc-col-head{font-size:9px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;text-align:center;}
-.sc-col-head.r{color:var(--red);}
-.sc-col-head.b{color:var(--blue);text-align:right;}
-
-.rounds-list{}
-.round-row{
-  display:grid;
-  grid-template-columns:40px 1fr 28px 1fr 40px;
-  gap:4px;
-  padding:5px 10px;
-  align-items:center;
-  border-bottom:0.5px solid var(--border);
-  transition:background 0.1s;
-}
+.sc-col-heads{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}
+.sch{font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;text-align:center;}
+.sch.r{color:var(--red);}
+.sch.b{color:var(--blue);text-align:right;}
+.round-row{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;align-items:center;border-bottom:0.5px solid var(--border);position:relative;}
 .round-row:last-child{border-bottom:none;}
 .round-row.scored{background:#fafaf8;}
-
-.rnum{
-  font-size:10px;
-  color:var(--text-muted);
-  text-align:center;
-  font-weight:500;
-}
-.win-indicator{
-  font-size:9px;
-  font-weight:500;
-  letter-spacing:0.06em;
-  text-align:center;
-}
-.win-indicator.r{color:var(--red);}
-.win-indicator.b{color:var(--blue);text-align:right;}
-.win-indicator.draw{color:var(--text-muted);}
-
-.score-select-wrap{position:relative;}
-.score-bar{
-  height:28px;
-  border-radius:4px;
-  display:flex;
-  align-items:center;
-  padding:0 8px;
-  cursor:pointer;
-  position:relative;
-  border:0.5px solid transparent;
-  transition:border-color 0.1s;
-}
-.score-bar.red-bar{
-  background:var(--red-light);
-  border-color:var(--red-border);
-}
-.score-bar.blue-bar{
-  background:var(--blue-light);
-  border-color:var(--blue-border);
-  justify-content:flex-end;
-}
-.score-bar.empty{
-  background:var(--bg);
-  border-color:var(--border);
-}
-.score-bar.empty.blue-bar{justify-content:flex-end;}
-.score-num{
-  font-size:13px;
-  font-weight:500;
-}
-.score-bar.red-bar .score-num{color:var(--red);}
-.score-bar.blue-bar .score-num{color:var(--blue);}
-.score-bar.empty .score-num{color:var(--text-muted);}
-
-.score-picker{
-  position:absolute;
-  bottom:calc(100% + 4px);
-  background:#fff;
-  border:0.5px solid var(--border);
-  border-radius:6px;
-  box-shadow:0 -4px 16px rgba(0,0,0,0.08);
-  z-index:100;
-  display:none;
-  flex-direction:column;
-  overflow:hidden;
-  min-width:52px;
-}
-.score-picker.red-picker{left:0;}
-.score-picker.blue-picker{right:0;}
-.score-picker.open{display:flex;}
-.picker-opt{
-  font-family:'DM Sans',sans-serif;
-  font-size:13px;
-  font-weight:500;
-  padding:7px 14px;
-  cursor:pointer;
-  border:none;
-  background:transparent;
-  text-align:center;
-  transition:background 0.1s;
-}
-.picker-opt:hover{background:var(--bg);}
-.picker-opt.selected-r{color:var(--red);}
-.picker-opt.selected-b{color:var(--blue);}
-
-.sep-dot{
-  width:6px;height:6px;
-  border-radius:50%;
-  background:var(--border);
-  margin:0 auto;
-}
-
-.sc-footer{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  background:#111;
-  padding:12px 14px;
-  align-items:center;
-}
-.sc-tot-r{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:32px;
-  color:var(--red);
-  letter-spacing:0.04em;
-}
-.sc-tot-b{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:32px;
-  color:#2e86c1;
-  text-align:right;
-  letter-spacing:0.04em;
-}
-.sc-tot-mid{
-  font-size:8px;
-  color:#444;
-  text-align:center;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  line-height:1.6;
-  padding:0 8px;
-}
-
-.leader-bar{
-  max-width:520px;
-  margin:0.8rem auto 0;
-  font-size:12px;
-  color:var(--text-muted);
-  text-align:center;
-  min-height:18px;
-  font-weight:500;
-}
-.leader-bar span.r{color:var(--red);}
-.leader-bar span.b{color:var(--blue);}
-
-.share-wrap{
-  max-width:520px;
-  margin:1.2rem auto 0;
-}
-.share-btn{
-  width:100%;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:18px;
-  letter-spacing:0.12em;
-  padding:14px;
-  background:#111;
-  color:#fff;
-  border:none;
-  border-radius:var(--radius);
-  cursor:pointer;
-  transition:background 0.15s,transform 0.1s;
-}
-.share-btn:hover{background:#222;}
-.share-btn:active{transform:scale(0.99);}
-.share-btn:disabled{background:var(--border);color:var(--text-muted);cursor:not-allowed;}
-
-.reset-btn{
-  width:100%;
-  font-family:'DM Sans',sans-serif;
-  font-size:12px;
-  font-weight:500;
-  letter-spacing:0.06em;
-  padding:10px;
-  background:transparent;
-  color:var(--text-muted);
-  border:0.5px solid var(--border);
-  border-radius:var(--radius);
-  cursor:pointer;
-  margin-top:8px;
-  transition:all 0.15s;
-}
-.reset-btn:hover{border-color:var(--text-muted);color:var(--text);}
-
-/* Share modal */
-.modal-overlay{
-  display:none;
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.6);
-  z-index:200;
-  align-items:center;
-  justify-content:center;
-  padding:1rem;
-}
-.modal-overlay.open{display:flex;}
-.modal{
-  background:#fff;
-  border-radius:var(--radius);
-  width:100%;
-  max-width:400px;
-  overflow:hidden;
-}
-.modal-preview{
-  padding:1.2rem;
-  background:var(--bg);
-  border-bottom:0.5px solid var(--border);
-}
-.preview-card{
-  background:#fff;
-  border:0.5px solid var(--border);
-  border-radius:8px;
-  overflow:hidden;
-  font-family:'DM Sans',sans-serif;
-}
-.preview-header{
-  display:grid;
-  grid-template-columns:1fr 52px 1fr;
-  background:#111;
-}
-.preview-fighter{padding:10px 12px;}
-.preview-fighter.r{border-right:2px solid var(--red);}
-.preview-fighter.b{border-left:2px solid var(--blue);text-align:right;}
-.preview-corner{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:0.08em;}
-.preview-name{font-size:12px;font-weight:500;color:#fff;margin-top:2px;font-family:'Bebas Neue',sans-serif;letter-spacing:0.06em;}
-.preview-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;padding:4px;}
-.preview-mid-brand{font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;letter-spacing:0.06em;}
-.preview-rounds{padding:4px 8px;}
-.preview-round{display:grid;grid-template-columns:24px 1fr 6px 1fr;gap:3px;align-items:center;margin-bottom:2px;}
-.preview-rn{font-size:9px;color:var(--text-muted);text-align:center;}
-.preview-bar-r{height:16px;background:var(--red-light);border:0.5px solid var(--red-border);border-radius:3px;display:flex;align-items:center;padding:0 5px;}
-.preview-bar-b{height:16px;background:var(--blue-light);border:0.5px solid var(--blue-border);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding:0 5px;}
-.preview-bar-r span,.preview-bar-b span{font-size:9px;font-weight:500;}
-.preview-bar-r span{color:var(--red);}
-.preview-bar-b span{color:var(--blue);}
-.preview-sep{width:4px;height:4px;border-radius:50%;background:var(--border);margin:0 auto;}
-.preview-footer{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:8px 10px;align-items:center;}
-.preview-tot-r{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--red);}
-.preview-tot-b{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#2e86c1;text-align:right;}
-.preview-tot-m{font-size:7px;color:#444;text-align:center;letter-spacing:0.1em;line-height:1.6;}
-.preview-brand-footer{background:#0a0a0a;padding:5px;text-align:center;font-size:8px;color:#333;letter-spacing:0.15em;font-family:'DM Sans',sans-serif;}
-
-.modal-actions{padding:1rem;}
-.modal-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:0.8rem;}
-.copy-btn{
-  width:100%;
-  font-family:'DM Sans',sans-serif;
-  font-size:13px;
-  font-weight:500;
-  padding:11px;
-  background:#111;
-  color:#fff;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  margin-bottom:6px;
-  transition:background 0.15s;
-}
-.copy-btn:hover{background:#333;}
-.close-btn{
-  width:100%;
-  font-family:'DM Sans',sans-serif;
-  font-size:12px;
-  font-weight:500;
-  padding:10px;
-  background:transparent;
-  color:var(--text-muted);
-  border:0.5px solid var(--border);
-  border-radius:6px;
-  cursor:pointer;
-  transition:all 0.15s;
-}
-.close-btn:hover{border-color:var(--text-muted);}
-
-@media(max-width:400px){
-  .sc-name{font-size:12px;}
-  .fighters-grid{grid-template-columns:1fr 24px 1fr;}
-  .vs-badge{font-size:13px;}
-}
+.rnum{font-size:10px;color:var(--muted);text-align:center;font-weight:500;}
+.wi{font-size:9px;font-weight:500;letter-spacing:0.06em;text-align:center;min-width:28px;}
+.wi.r{color:var(--red);}
+.wi.b{color:var(--blue);text-align:right;}
+.sw{position:relative;}
+.sb{height:28px;border-radius:4px;display:flex;align-items:center;padding:0 8px;cursor:pointer;border:0.5px solid transparent;}
+.sb.rb{background:var(--red-light);border-color:var(--red-border);}
+.sb.bb{background:var(--blue-light);border-color:var(--blue-border);justify-content:flex-end;}
+.sb.em{background:var(--bg);border-color:var(--border);}
+.sb.em.bb{justify-content:flex-end;}
+.sn{font-size:13px;font-weight:500;}
+.sb.rb .sn{color:var(--red);}
+.sb.bb .sn{color:var(--blue);}
+.sb.em .sn{color:var(--muted);}
+.sp{position:absolute;background:#fff;border:0.5px solid var(--border);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,0.1);z-index:999;display:none;flex-direction:column;overflow:hidden;min-width:52px;}
+.sp.open{display:flex;}
+.sp.rp{left:0;}
+.sp.bp{right:0;}
+.po{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:7px 14px;cursor:pointer;border:none;background:transparent;text-align:center;}
+.po:hover{background:var(--bg);}
+.po.sr{color:var(--red);}
+.po.sb2{color:var(--blue);}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--border);margin:0 auto;}
+.sc-footer{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:12px 14px;align-items:center;border-radius:0 0 var(--radius) var(--radius);}
+.tot-r{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--red);letter-spacing:0.04em;}
+.tot-b{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#2e86c1;text-align:right;letter-spacing:0.04em;}
+.tot-m{font-size:8px;color:#444;text-align:center;letter-spacing:0.1em;line-height:1.6;padding:0 8px;}
+.leader{max-width:520px;margin:0.8rem auto 0;font-size:12px;text-align:center;min-height:18px;font-weight:500;}
+.leader .r{color:var(--red);}
+.leader .b{color:var(--blue);}
+.btns{max-width:520px;margin:1.2rem auto 0;}
+.main-btn{width:100%;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.12em;padding:14px;background:#111;color:#fff;border:none;border-radius:var(--radius);cursor:pointer;}
+.main-btn:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
+.sec-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:var(--radius);cursor:pointer;margin-top:8px;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center;padding:1rem;}
+.overlay.open{display:flex;}
+.modal{background:#fff;border-radius:var(--radius);width:100%;max-width:400px;overflow:hidden;max-height:90vh;overflow-y:auto;}
+.mprev{padding:1.2rem;background:var(--bg);border-bottom:0.5px solid var(--border);}
+.pcard{background:#fff;border:0.5px solid var(--border);border-radius:8px;overflow:hidden;}
+.ph{display:grid;grid-template-columns:1fr 52px 1fr;background:#111;}
+.pf{padding:10px 12px;}
+.pf.r{border-right:2px solid var(--red);}
+.pf.b{border-left:2px solid var(--blue);text-align:right;}
+.pc{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:0.08em;}
+.pn{font-size:12px;font-weight:500;color:#fff;margin-top:2px;font-family:'Bebas Neue',sans-serif;letter-spacing:0.06em;}
+.pm{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;padding:4px;}
+.pmb{font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;letter-spacing:0.06em;}
+.prounds{padding:4px 8px;}
+.pr{display:grid;grid-template-columns:24px 1fr 6px 1fr;gap:3px;align-items:center;margin-bottom:2px;}
+.prn{font-size:9px;color:var(--muted);text-align:center;}
+.prr{height:16px;background:var(--red-light);border:0.5px solid var(--red-border);border-radius:3px;display:flex;align-items:center;padding:0 5px;}
+.prb{height:16px;background:var(--blue-light);border:0.5px solid var(--blue-border);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding:0 5px;}
+.prr span{font-size:9px;font-weight:500;color:var(--red);}
+.prb span{font-size:9px;font-weight:500;color:var(--blue);}
+.prs{width:4px;height:4px;border-radius:50%;background:var(--border);margin:0 auto;}
+.pfoot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:8px 10px;align-items:center;}
+.ptr{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--red);}
+.ptb{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#2e86c1;text-align:right;}
+.ptm{font-size:7px;color:#444;text-align:center;letter-spacing:0.1em;line-height:1.6;}
+.pbrand{background:#0a0a0a;padding:5px;text-align:center;font-size:8px;color:#333;letter-spacing:0.15em;}
+.mact{padding:1rem;}
+.mtitle{font-size:13px;font-weight:500;margin-bottom:0.8rem;}
+.abtn{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:11px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-bottom:6px;}
+.abtn.sec{background:#444;}
+.cbtn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:2px;}
 </style>
 </head>
 <body>
@@ -462,36 +117,21 @@ body{
   <button class="lang-btn" onclick="setLang('uk')">UA</button>
 </div>
 
-<div class="fight-selector-wrap" style="max-width:520px;margin:0 auto 1.2rem;">
-  <select id="fightSelect" onchange="selectFight()" style="width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text);background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 12px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;">
-  </select>
-</div>
-
 <div class="site-brand">
   <div class="site-brand-name">Boxing 12×3</div>
-  <div class="site-brand-sub" id="lbl-subtitle">Scorecard</div>
+  <div class="site-brand-sub" id="lbl-sub">Scorecard</div>
 </div>
 
-<div class="setup-card">
-  <div class="setup-title" id="lbl-setup">Fight</div>
-  <div class="fighters-grid">
-    <div class="fighter-input-wrap">
-      <div class="fighter-label"><span class="dot-red"></span> <span id="lbl-red">Red corner</span></div>
-      <input class="fighter-input" id="redName" type="text" placeholder="Fighter name" oninput="updateNames()">
-    </div>
-    <div class="vs-badge">VS</div>
-    <div class="fighter-input-wrap">
-      <div class="fighter-label"><span class="dot-blue"></span> <span id="lbl-blue">Blue corner</span></div>
-      <input class="fighter-input" id="blueName" type="text" placeholder="Fighter name" oninput="updateNames()">
-    </div>
-  </div>
+<div class="fight-wrap">
+  <select class="fight-select" id="fightSel" onchange="onFightSelect()"></select>
+  <svg class="fight-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#888" stroke-width="1.5" stroke-linecap="round"/></svg>
 </div>
 
 <div class="scorecard">
   <div class="sc-header">
     <div class="sc-fighter red">
       <div class="sc-corner" id="hdr-red">Red corner</div>
-      <div class="sc-name" id="hdr-redname">—</div>
+      <div class="sc-name" id="hdr-rn">—</div>
     </div>
     <div class="sc-mid">
       <div class="sc-mid-brand">12×3</div>
@@ -499,198 +139,76 @@ body{
     </div>
     <div class="sc-fighter blue">
       <div class="sc-corner" id="hdr-blue">Blue corner</div>
-      <div class="sc-name" id="hdr-bluename">—</div>
+      <div class="sc-name" id="hdr-bn">—</div>
     </div>
   </div>
-
   <div class="sc-col-heads">
-    <div class="sc-col-head r" id="lbl-win">WIN</div>
-    <div class="sc-col-head" style="text-align:left" id="lbl-pts">PTS</div>
-    <div class="sc-col-head">RD</div>
-    <div class="sc-col-head" style="text-align:right" id="lbl-pts2">PTS</div>
-    <div class="sc-col-head b" id="lbl-win2">WIN</div>
+    <div class="sch r" id="lbl-win">WIN</div>
+    <div class="sch" id="lbl-pts">PTS</div>
+    <div class="sch">RD</div>
+    <div class="sch" id="lbl-pts2">PTS</div>
+    <div class="sch b" id="lbl-win2">WIN</div>
   </div>
-
-  <div class="rounds-list" id="roundsList"></div>
-
+  <div id="roundsList"></div>
   <div class="sc-footer">
-    <div class="sc-tot-r" id="totRed">—</div>
-    <div class="sc-tot-mid" id="lbl-total">TOTAL<br>SCORE</div>
-    <div class="sc-tot-b" id="totBlue">—</div>
+    <div class="tot-r" id="totR">—</div>
+    <div class="tot-m" id="lbl-total">TOTAL<br>SCORE</div>
+    <div class="tot-b" id="totB">—</div>
   </div>
 </div>
 
-<div class="leader-bar" id="leaderBar"></div>
+<div class="leader" id="leaderBar"></div>
 
-<div class="share-wrap">
-  <button class="share-btn" id="shareBtn" onclick="openShare()" disabled id="lbl-share">SHARE SCORECARD</button>
-  <button class="reset-btn" onclick="resetAll()" id="lbl-reset">Reset</button>
+<div class="btns">
+  <button class="main-btn" id="shareBtn" onclick="openShare()" disabled>SHARE SCORECARD</button>
+  <button class="sec-btn" id="resetBtn" onclick="resetAll()">Reset</button>
 </div>
 
-<div class="modal-overlay" id="modal" onclick="closeShareOutside(event)">
+<div class="overlay" id="overlay" onclick="closeOut(event)">
   <div class="modal">
-    <div class="modal-preview">
-      <div class="preview-card" id="previewCard"></div>
-    </div>
-    <div class="modal-actions">
-      <div class="modal-title" id="lbl-modal-title">Share your scorecard</div>
-      <button class="copy-btn" onclick="downloadImage()" id="lbl-download">⬇ Download image</button>
-      <button class="copy-btn" onclick="shareNative()" id="lbl-share-native" style="display:none;margin-top:6px;">↑ Share</button>
-      <button class="copy-btn" onclick="copyText()" id="lbl-copy" style="background:#333;margin-top:6px;">📋 Copy text</button>
-      <button class="close-btn" onclick="closeShare()" id="lbl-close">Close</button>
+    <div class="mprev"><div class="pcard" id="pcard"></div></div>
+    <div class="mact">
+      <div class="mtitle" id="lbl-modal">Share your scorecard</div>
+      <button class="abtn" id="btnDl" onclick="dlImg()">⬇ Download image</button>
+      <button class="abtn sec" id="btnSh" onclick="shNative()" style="display:none;">↑ Share</button>
+      <button class="abtn sec" id="btnCp" onclick="cpText()">📋 Copy text</button>
+      <button class="cbtn" id="btnCl" onclick="closeShare()">Close</button>
     </div>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
-const FIGHTS = [
-  {
-    id:'usyk-verhoeven',
-    date:'May 23',
-    dateUk:'23 травня',
-    red:'Oleksandr Usyk',
-    redUk:'Олександр Усик',
-    blue:'Rico Verhoeven',
-    blueUk:'Ріко Верховен',
-    rounds:12,
-    title:'WBC Heavyweight',
-    titleUk:'Пояс WBC у хевівейті',
-    location:'Giza, Egypt',
-    locationUk:'Гіза, Єгипет',
-    featured:true
-  },
-  {
-    id:'chukhadzhian-donovan',
-    date:'May 15',
-    dateUk:'15 травня',
-    red:'Karen Chukhadzhian',
-    redUk:'Карен Чухаджян',
-    blue:'Paddy Donovan',
-    blueUk:'Педді Донован',
-    rounds:12,
-    title:'IBF Jr. Welterweight Eliminator',
-    titleUk:'Елімінатор IBF у напівсередній вазі',
-    location:'Mannheim, Germany',
-    locationUk:'Мангейм, Німеччина',
-    featured:false
-  },
-  {
-    id:'lerena-merhy',
-    date:'May 30',
-    dateUk:'30 травня',
-    red:'Kevin Lerena',
-    redUk:'Кевін Лерена',
-    blue:'Ryad Merhy',
-    blueUk:'Ріяд Мерхі',
-    rounds:12,
-    title:'Cruiserweight',
-    titleUk:'Крузервейт',
-    location:'Charleroi, Belgium',
-    locationUk:'Шарлеруа, Бельгія',
-    featured:false
-  },
-  {
-    id:'serrano-hanson',
-    date:'May 31',
-    dateUk:'31 травня',
-    red:'Amanda Serrano',
-    redUk:'Аманда Серрано',
-    blue:'Chayenne Hansen',
-    blueUk:'Шайєнн Хансон',
-    rounds:10,
-    title:'WBA/WBO Female Featherweight',
-    titleUk:'Пояси WBA, WBO у напівлегкій вазі',
-    location:'El Paso, USA',
-    locationUk:'Ель-Пасо, США',
-    featured:false
-  },
-  {
-    id:'foster-ford',
-    date:'May 31',
-    dateUk:'31 травня',
-    red:"O'Shaquie Foster",
-    redUk:"О'Шакі Фостер",
-    blue:'Raymond Ford',
-    blueUk:'Реймонд Форд',
-    rounds:12,
-    title:'WBC Super Featherweight',
-    titleUk:'Пояс WBC у другій напівлегкій вазі',
-    location:'Houston, USA',
-    locationUk:'Г'юстон, США',
-    featured:false
-  }
+const FIGHTS=[
+  {id:'usyk-verhoeven',date:'May 23',dateUk:'23 травня',red:'Oleksandr Usyk',redUk:'Олександр Усик',blue:'Rico Verhoeven',blueUk:'Ріко Верховен',rounds:12,featured:true},
+  {id:'chukhadzhian-donovan',date:'May 15',dateUk:'15 травня',red:'Karen Chukhadzhian',redUk:'Карен Чухаджян',blue:'Paddy Donovan',blueUk:'Педді Донован',rounds:12,featured:false},
+  {id:'lerena-merhy',date:'May 30',dateUk:'30 травня',red:'Kevin Lerena',redUk:'Кевін Лерена',blue:'Ryad Merhy',blueUk:'Ріяд Мерхі',rounds:12,featured:false},
+  {id:'serrano-hansen',date:'May 31',dateUk:'31 травня',red:'Amanda Serrano',redUk:'Аманда Серрано',blue:'Chayenne Hansen',blueUk:'Шайєнн Хансон',rounds:10,featured:false},
+  {id:'foster-ford',date:'May 31',dateUk:'31 травня',red:"O'Shaquie Foster",redUk:"О'Шакі Фостер",blue:'Raymond Ford',blueUk:'Реймонд Форд',rounds:12,featured:false}
 ];
 
-const ROUNDS = 12;
-const scores = Array.from({length:ROUNDS},()=>({red:null,blue:null}));
-let lang = 'en';
-
-const i18n = {
-  en:{
-    subtitle:'Scorecard',
-    setup:'Fight',
-    red:'Red corner',
-    blue:'Blue corner',
-    win:'WIN',
-    pts:'PTS',
-    total:'TOTAL\nSCORE',
-    share:'SHARE SCORECARD',
-    download:'⬇ Download image',
-    shareNative:'↑ Share',
-    reset:'Reset',
-    modalTitle:'Share your scorecard',
-    copy:'📋 Copy text',
-    close:'Close',
-    rdPlaceholder:'—',
-    winner:(name)=>`${name} wins`,
-    draw:'Draw',
-    copied:'✓ Copied!',
-    scored:'rounds scored',
-    site:'boxing12x3.com',
-  },
-  uk:{
-    subtitle:'Суддівська картка',
-    setup:'Бій',
-    red:'Червоний кут',
-    blue:'Синій кут',
-    win:'РАУНД',
-    pts:'БАЛИ',
-    total:'РАХУНОК',
-    share:'ПОДІЛИТИСЬ КАРТКОЮ',
-    download:'⬇ Завантажити картку',
-    shareNative:'↑ Поділитись',
-    reset:'Скинути',
-    modalTitle:'Поділитись карткою',
-    copy:'📋 Скопіювати',
-    close:'Закрити',
-    rdPlaceholder:'—',
-    winner:(name)=>`${name} виграє`,
-    draw:'Нічия',
-    copied:'✓ Скопійовано!',
-    scored:'раундів проставлено',
-    site:'boxing12x3.com',
-  }
+const I={
+  en:{sub:'Scorecard',red:'Red corner',blue:'Blue corner',win:'WIN',pts:'PTS',total:'TOTAL\nSCORE',share:'SHARE SCORECARD',reset:'Reset',modal:'Share your scorecard',dl:'⬇ Download image',sh:'↑ Share',cp:'📋 Copy text',cl:'Close',sel:'— Select a fight —',winner:n=>n+' wins',draw:'Draw',copied:'✓ Copied!',dled:'✓ Downloaded!'},
+  uk:{sub:'Суддівська картка',red:'Червоний кут',blue:'Синій кут',win:'РАУНД',pts:'БАЛИ',total:'РАХУНОК',share:'ПОДІЛИТИСЬ КАРТКОЮ',reset:'Скинути',modal:'Поділитись карткою',dl:'⬇ Завантажити картку',sh:'↑ Поділитись',cp:'📋 Скопіювати текст',cl:'Закрити',sel:'— Оберіть бій —',winner:n=>n+' виграє',draw:'Нічия',copied:'✓ Скопійовано!',dled:'✓ Завантажено!'}
 };
 
-function t(key,...args){
-  const v=i18n[lang][key];
-  return typeof v==='function'?v(...args):v;
-}
+let lang='en';
+let fight=FIGHTS[0];
+let scores=mk();
+let openPk=null;
+
+function mk(){return Array.from({length:12},()=>({red:null,blue:null}));}
+function t(k,...a){const v=I[lang][k];return typeof v==='function'?v(...a):v;}
+function rn(){return lang==='uk'?fight.redUk:fight.red;}
+function bn(){return lang==='uk'?fight.blueUk:fight.blue;}
 
 function setLang(l){
   lang=l;
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
-  updateLabels();
-  buildRounds();
-  updateTotals();
+  render();
 }
 
-function updateLabels(){
-  document.getElementById('lbl-subtitle').textContent=t('subtitle');
-  document.getElementById('lbl-setup').textContent=t('setup');
-  document.getElementById('lbl-red').textContent=t('red');
-  document.getElementById('lbl-blue').textContent=t('blue');
+function render(){
+  document.getElementById('lbl-sub').textContent=t('sub');
   document.getElementById('hdr-red').textContent=t('red');
   document.getElementById('hdr-blue').textContent=t('blue');
   document.getElementById('lbl-win').textContent=t('win');
@@ -699,295 +217,184 @@ function updateLabels(){
   document.getElementById('lbl-pts2').textContent=t('pts');
   document.getElementById('lbl-total').innerHTML=t('total').replace('\n','<br>');
   document.getElementById('shareBtn').textContent=t('share');
-  document.querySelector('.reset-btn').textContent=t('reset');
-  document.getElementById('lbl-modal-title').textContent=t('modalTitle');
-  document.getElementById('lbl-copy').textContent=t('copy');
-  document.getElementById('lbl-close').textContent=t('close');
-  document.getElementById('lbl-download').textContent=t('download');
-  const sn=document.getElementById('lbl-share-native');
-  if(sn)sn.textContent=t('shareNative');
-  document.getElementById('redName').placeholder=lang==='uk'?"Ім'я бійця":"Fighter name";
-  buildFightSelector();
-  document.getElementById('blueName').placeholder=lang==='uk'?"Ім'я бійця":"Fighter name";
-  updateNames();
+  document.getElementById('resetBtn').textContent=t('reset');
+  document.getElementById('lbl-modal').textContent=t('modal');
+  document.getElementById('btnDl').textContent=t('dl');
+  document.getElementById('btnSh').textContent=t('sh');
+  document.getElementById('btnCp').textContent=t('cp');
+  document.getElementById('btnCl').textContent=t('cl');
+  buildSel();
+  updateHeader();
+  buildRounds();
+  updateTotals();
 }
 
-function updateNames(){
-  const r=document.getElementById('redName').value||'—';
-  const b=document.getElementById('blueName').value||'—';
-  document.getElementById('hdr-redname').textContent=r;
-  document.getElementById('hdr-bluename').textContent=b;
+function buildSel(){
+  const sel=document.getElementById('fightSel');
+  const cur=fight?fight.id:'';
+  sel.innerHTML='';
+  const ph=document.createElement('option');
+  ph.value='';ph.textContent=t('sel');
+  sel.appendChild(ph);
+  FIGHTS.forEach(f=>{
+    const o=document.createElement('option');
+    o.value=f.id;
+    const d=lang==='uk'?f.dateUk:f.date;
+    const r=lang==='uk'?f.redUk:f.red;
+    const b=lang==='uk'?f.blueUk:f.blue;
+    o.textContent=(f.featured?'★ ':'')+d+' · '+r+' vs '+b;
+    sel.appendChild(o);
+  });
+  sel.value=cur||'usyk-verhoeven';
+}
+
+function onFightSelect(){
+  const id=document.getElementById('fightSel').value;
+  if(!id)return;
+  fight=FIGHTS.find(f=>f.id===id);
+  scores=mk();
+  updateHeader();
+  buildRounds();
   updateTotals();
+}
+
+function updateHeader(){
+  document.getElementById('hdr-rn').textContent=rn();
+  document.getElementById('hdr-bn').textContent=bn();
 }
 
 function buildRounds(){
   const list=document.getElementById('roundsList');
   list.innerHTML='';
-  for(let i=0;i<ROUNDS;i++){
+  const n=fight?fight.rounds:12;
+  for(let i=0;i<n;i++){
     const sc=scores[i];
+    const done=sc.red!==null&&sc.blue!==null;
+    const up=i>=n-4;
+    const dir=up?'bottom:calc(100% + 4px);top:auto;':'top:calc(100% + 4px);bottom:auto;';
+    const wL=wLabel(sc,true);
+    const wR=wLabel(sc,false);
     const row=document.createElement('div');
-    row.className='round-row'+(sc.red!==null&&sc.blue!==null?' scored':'');
-    row.innerHTML=`
-      <div class="win-indicator ${winClass(sc,true)}">${winLabel(sc,true)}</div>
-      <div class="score-select-wrap">
-        <div class="score-bar ${sc.red!==null?'red-bar':'empty'}" onclick="togglePicker(event,${i},'red')">
-          <span class="score-num">${sc.red!==null?sc.red:'—'}</span>
-        </div>
-        <div class="score-picker red-picker ${i===openPicker?.round&&openPicker?.side==='red'?'open':''}" id="picker-${i}-red">
-          ${[10,9,8,7,6].map(v=>`<button class="picker-opt${sc.red===v?' selected-r':''}" onclick="setScore(event,${i},'red',${v})">${v}</button>`).join('')}
-        </div>
-      </div>
-      <div class="sep-dot"></div>
-      <div class="score-select-wrap">
-        <div class="score-bar ${sc.blue!==null?'blue-bar':'empty'}" onclick="togglePicker(event,${i},'blue')">
-          <span class="score-num">${sc.blue!==null?sc.blue:'—'}</span>
-        </div>
-        <div class="score-picker blue-picker ${i===openPicker?.round&&openPicker?.side==='blue'?'open':''}" id="picker-${i}-blue">
-          ${[10,9,8,7,6].map(v=>`<button class="picker-opt${sc.blue===v?' selected-b':''}" onclick="setScore(event,${i},'blue',${v})">${v}</button>`).join('')}
-        </div>
-      </div>
-      <div class="win-indicator ${winClass(sc,false)}" style="text-align:right">${winLabel(sc,false)}</div>
-    `;
+    row.className='round-row'+(done?' scored':'');
+    row.innerHTML=
+      '<div class="wi'+(wL?' r':'')+'">'+wL+'</div>'+
+      '<div class="sw">'+
+        '<div class="sb '+(sc.red!==null?'rb':'em')+'" onclick="togPk(event,'+i+',\'red\')"><span class="sn">'+(sc.red!==null?sc.red:'—')+'</span></div>'+
+        '<div class="sp rp" id="pk'+i+'r" style="'+dir+'">'+
+          [10,9,8,7,6].map(v=>'<button class="po'+(sc.red===v?' sr':'')+'" onclick="setSc(event,'+i+',\'red\','+v+')">'+v+'</button>').join('')+
+        '</div>'+
+      '</div>'+
+      '<div class="dot"></div>'+
+      '<div class="sw">'+
+        '<div class="sb '+(sc.blue!==null?'bb':'em bb')+'" onclick="togPk(event,'+i+',\'blue\')"><span class="sn">'+(sc.blue!==null?sc.blue:'—')+'</span></div>'+
+        '<div class="sp bp" id="pk'+i+'b" style="'+dir+'">'+
+          [10,9,8,7,6].map(v=>'<button class="po'+(sc.blue===v?' sb2':'')+'" onclick="setSc(event,'+i+',\'blue\','+v+')">'+v+'</button>').join('')+
+        '</div>'+
+      '</div>'+
+      '<div class="wi'+(wR?' b':'')+'" style="text-align:right">'+wR+'</div>';
+    const rnum=document.createElement('div');
+    rnum.className='rnum';rnum.textContent='R'+(i+1);
+    row.insertBefore(rnum,row.children[1]);
     list.appendChild(row);
   }
 }
 
-function winClass(sc,isRed){
-  if(sc.red===null||sc.blue===null) return '';
-  if(sc.red===sc.blue) return 'draw';
-  return isRed?(sc.red>sc.blue?'r':''):(sc.blue>sc.red?'b':'');
+function wLabel(sc,isRed){
+  if(sc.red===null||sc.blue===null)return '';
+  if(sc.red===sc.blue)return lang==='uk'?'НР':'D';
+  if(isRed)return sc.red>sc.blue?'W':'';
+  return sc.blue>sc.red?'W':'';
 }
 
-function winLabel(sc,isRed){
-  if(sc.red===null||sc.blue===null) return '';
-  if(sc.red===sc.blue) return lang==='uk'?'НР':'D';
-  if(isRed) return sc.red>sc.blue?(lang==='uk'?'W':'W'):'';
-  return sc.blue>sc.red?(lang==='uk'?'W':'W'):'';
-}
-
-let openPicker=null;
-function togglePicker(e,round,side){
+function togPk(e,i,side){
   e.stopPropagation();
-  if(openPicker&&(openPicker.round!==round||openPicker.side!==side)){
-    closePickers();
-  }
-  const picker=document.getElementById(`picker-${round}-${side}`);
-  picker.style.bottom = round >= 8 ? 'calc(100% + 4px)' : 'auto';
-  picker.style.top = round >= 8 ? 'auto' : 'calc(100% + 4px)';
-  const isOpen=picker.classList.contains('open');
-  closePickers();
-  if(!isOpen){
-    picker.classList.add('open');
-    openPicker={round,side};
-  }
+  const id='pk'+i+(side==='red'?'r':'b');
+  const pk=document.getElementById(id);
+  const was=pk.classList.contains('open');
+  closePks();
+  if(!was){pk.classList.add('open');openPk=id;}
 }
-
-function closePickers(){
-  document.querySelectorAll('.score-picker').forEach(p=>p.classList.remove('open'));
-  openPicker=null;
+function closePks(){
+  document.querySelectorAll('.sp').forEach(p=>p.classList.remove('open'));
+  openPk=null;
 }
+document.addEventListener('click',closePks);
 
-document.addEventListener('click',()=>closePickers());
-
-function setScore(e,round,side,val){
+function setSc(e,i,side,v){
   e.stopPropagation();
-  scores[round][side]=val;
-  closePickers();
+  scores[i][side]=v;
+  closePks();
   buildRounds();
   updateTotals();
 }
 
 function updateTotals(){
-  const scored=scores.filter(s=>s.red!==null&&s.blue!==null);
-  const tr=scored.reduce((a,s)=>a+s.red,0);
-  const tb=scored.reduce((a,s)=>a+s.blue,0);
-  document.getElementById('totRed').textContent=scored.length?tr:'—';
-  document.getElementById('totBlue').textContent=scored.length?tb:'—';
-
+  const n=fight?fight.rounds:12;
+  const sc=scores.slice(0,n).filter(s=>s.red!==null&&s.blue!==null);
+  const tr=sc.reduce((a,s)=>a+s.red,0);
+  const tb=sc.reduce((a,s)=>a+s.blue,0);
+  document.getElementById('totR').textContent=sc.length?tr:'—';
+  document.getElementById('totB').textContent=sc.length?tb:'—';
   const lb=document.getElementById('leaderBar');
-  const redName=document.getElementById('redName').value||t('red');
-  const blueName=document.getElementById('blueName').value||t('blue');
-  if(!scored.length){lb.innerHTML='';return;}
-  const allDone=scores.every(s=>s.red!==null&&s.blue!==null);
-  if(tr===tb&&allDone){lb.innerHTML=`<span>${t('draw')}</span>`;}
-  else if(tr===tb){lb.innerHTML='';}
-  else if(tr>tb&&allDone){lb.innerHTML=`<span class="r">${t('winner',redName)}</span>`;}
-  else if(tb>tr&&allDone){lb.innerHTML=`<span class="b">${t('winner',blueName)}</span>`;}
-  else{lb.innerHTML='';}
-
-  const allScored=scores.every(s=>s.red!==null&&s.blue!==null);
-  document.getElementById('shareBtn').disabled=!allScored;
+  const all=sc.length===n;
+  if(!sc.length){lb.innerHTML='';document.getElementById('shareBtn').disabled=true;return;}
+  if(all&&tr===tb)lb.innerHTML='<span>'+t('draw')+'</span>';
+  else if(all&&tr>tb)lb.innerHTML='<span class="r">'+t('winner',rn())+'</span>';
+  else if(all&&tb>tr)lb.innerHTML='<span class="b">'+t('winner',bn())+'</span>';
+  else lb.innerHTML='';
+  document.getElementById('shareBtn').disabled=!all;
 }
 
-function resetAll(){
-  for(let i=0;i<ROUNDS;i++){scores[i]={red:null,blue:null};}
-  buildRounds();
-  updateTotals();
-}
+function resetAll(){scores=mk();buildRounds();updateTotals();}
 
-async function generateImage(){
-  const card=document.getElementById('previewCard');
-  const canvas=await html2canvas(card,{
-    backgroundColor:'#ffffff',
-    scale:2,
-    useCORS:true,
-    logging:false
-  });
-  return canvas;
-}
-
-async function downloadImage(){
-  const btn=document.getElementById('lbl-download');
-  const orig=btn.textContent;
-  btn.textContent='Generating...';
-  try{
-    const canvas=await generateImage();
-    const link=document.createElement('a');
-    const rn=document.getElementById('redName').value||'red';
-    const bn=document.getElementById('blueName').value||'blue';
-    link.download=`scorecard-${rn}-vs-${bn}.png`.replace(/\s+/g,'-').toLowerCase();
-    link.href=canvas.toDataURL('image/png');
-    link.click();
-    btn.textContent='✓ Downloaded!';
-    setTimeout(()=>btn.textContent=orig,2000);
-  }catch(e){
-    btn.textContent=orig;
-    alert('Error generating image');
-  }
-}
-
-async function shareNative(){
-  const btn=document.getElementById('lbl-share-native');
-  const orig=btn.textContent;
-  btn.textContent='Preparing...';
-  try{
-    const canvas=await generateImage();
-    const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));
-    const rn=document.getElementById('redName').value||'red';
-    const bn=document.getElementById('blueName').value||'blue';
-    const file=new File([blob],`scorecard-${rn}-vs-${bn}.png`,{type:'image/png'});
-    await navigator.share({
-      title:`${rn} vs ${bn} — Boxing 12x3 Scorecard`,
-      text:`My scorecard for ${rn} vs ${bn} | boxing12x3.com`,
-      files:[file]
-    });
-    btn.textContent=orig;
-  }catch(e){
-    btn.textContent=orig;
-  }
-}
-
-function openShare(){
-  buildPreview();
-  document.getElementById('modal').classList.add('open');
-  if(navigator.share&&navigator.canShare){document.getElementById('lbl-share-native').style.display='block';}
-}
-function closeShare(){document.getElementById('modal').classList.remove('open');}
-function closeShareOutside(e){if(e.target===document.getElementById('modal'))closeShare();}
+function openShare(){buildPreview();document.getElementById('overlay').classList.add('open');if(navigator.share&&navigator.canShare)document.getElementById('btnSh').style.display='block';}
+function closeShare(){document.getElementById('overlay').classList.remove('open');}
+function closeOut(e){if(e.target===document.getElementById('overlay'))closeShare();}
 
 function buildPreview(){
-  const rn=document.getElementById('redName').value||(lang==='uk'?t('red'):'Red corner');
-  const bn=document.getElementById('blueName').value||(lang==='uk'?t('blue'):'Blue corner');
-  const scored=scores.filter(s=>s.red!==null&&s.blue!==null);
-  const tr=scored.reduce((a,s)=>a+s.red,0);
-  const tb=scored.reduce((a,s)=>a+s.blue,0);
-  const showRounds=scores.slice(0,12);
-  const rows=showRounds.map((s,i)=>`
-    <div class="preview-round">
-      <div class="preview-rn">R${i+1}</div>
-      <div class="preview-bar-r"><span>${s.red!==null?s.red:'—'}</span></div>
-      <div class="preview-sep"></div>
-      <div class="preview-bar-b"><span>${s.blue!==null?s.blue:'—'}</span></div>
-    </div>
-  `).join('');
-  document.getElementById('previewCard').innerHTML=`
-    <div class="preview-header">
-      <div class="preview-fighter r">
-        <div class="preview-corner">${t('red')}</div>
-        <div class="preview-name">${rn}</div>
-      </div>
-      <div class="preview-mid"><div class="preview-mid-brand">12×3</div></div>
-      <div class="preview-fighter b">
-        <div class="preview-corner">${t('blue')}</div>
-        <div class="preview-name">${bn}</div>
-      </div>
-    </div>
-    <div class="preview-rounds">${rows}</div>
-    <div class="preview-footer">
-      <div class="preview-tot-r">${tr||'—'}</div>
-      <div class="preview-tot-m">TOTAL<br>SCORE</div>
-      <div class="preview-tot-b">${tb||'—'}</div>
-    </div>
-    <div class="preview-brand-footer">BOXING12X3.COM</div>
-  `;
+  const n=fight?fight.rounds:12;
+  const sc=scores.slice(0,n).filter(s=>s.red!==null&&s.blue!==null);
+  const tr=sc.reduce((a,s)=>a+s.red,0);
+  const tb=sc.reduce((a,s)=>a+s.blue,0);
+  const rows=scores.slice(0,n).map((s,i)=>
+    '<div class="pr"><div class="prn">R'+(i+1)+'</div><div class="prr"><span>'+(s.red!==null?s.red:'—')+'</span></div><div class="prs"></div><div class="prb"><span>'+(s.blue!==null?s.blue:'—')+'</span></div></div>'
+  ).join('');
+  document.getElementById('pcard').innerHTML=
+    '<div class="ph"><div class="pf r"><div class="pc">'+t('red')+'</div><div class="pn">'+rn()+'</div></div><div class="pm"><div class="pmb">12×3</div></div><div class="pf b"><div class="pc">'+t('blue')+'</div><div class="pn">'+bn()+'</div></div></div>'+
+    '<div class="prounds">'+rows+'</div>'+
+    '<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>'+
+    '<div class="pbrand">BOXING12X3.COM</div>';
 }
 
-function copyText(){
-  const rn=document.getElementById('redName').value||t('red');
-  const bn=document.getElementById('blueName').value||t('blue');
-  const tr=scores.reduce((a,s)=>a+(s.red||0),0);
-  const tb=scores.reduce((a,s)=>a+(s.blue||0),0);
-  let text=`🥊 ${rn} vs ${bn}\n`;
-  text+=`${lang==='uk'?'Моя суддівська картка':'My scorecard'} — boxing12x3.com\n\n`;
-  scores.forEach((s,i)=>{
-    if(s.red!==null&&s.blue!==null){
-      const w=s.red>s.blue?rn:s.blue>s.red?bn:'Draw';
-      text+=`R${i+1}: ${s.red}–${s.blue} (${w})\n`;
-    }
-  });
-  text+=`\n${lang==='uk'?'Разом':'Total'}: ${tr}–${tb}`;
-  if(tr>tb)text+=` → ${rn} ${lang==='uk'?'виграє':'wins'}`;
-  else if(tb>tr)text+=` → ${bn} ${lang==='uk'?'виграє':'wins'}`;
-  else text+=` → ${lang==='uk'?'Нічия':'Draw'}`;
-  navigator.clipboard.writeText(text).then(()=>{
-    const btn=document.querySelector('.copy-btn');
-    const orig=btn.textContent;
-    btn.textContent=t('copied');
-    setTimeout(()=>btn.textContent=orig,2000);
-  });
+async function genImg(){return await html2canvas(document.getElementById('pcard'),{backgroundColor:'#fff',scale:2,useCORS:true,logging:false});}
+
+async function dlImg(){
+  const btn=document.getElementById('btnDl');
+  const orig=btn.textContent;btn.textContent='...';
+  try{const c=await genImg();const a=document.createElement('a');a.download='scorecard-'+fight.id+'.png';a.href=c.toDataURL('image/png');a.click();btn.textContent=t('dled');setTimeout(()=>btn.textContent=orig,2000);}
+  catch(e){btn.textContent=orig;}
 }
 
-function buildFightSelector(){
-  const sel=document.getElementById('fightSelect');
-  sel.innerHTML='';
-  const placeholder=document.createElement('option');
-  placeholder.value='';
-  placeholder.textContent=lang==='uk'?'— Оберіть бій —':'— Select a fight —';
-  sel.appendChild(placeholder);
-  FIGHTS.forEach(f=>{
-    const opt=document.createElement('option');
-    opt.value=f.id;
-    const date=lang==='uk'?f.dateUk:f.date;
-    const red=lang==='uk'?f.redUk:f.red;
-    const blue=lang==='uk'?f.blueUk:f.blue;
-    const star=f.featured?'★ ':'';
-    opt.textContent=`${star}${date} · ${red} vs ${blue}`;
-    if(f.featured)opt.style.fontWeight='500';
-    sel.appendChild(opt);
-  });
-  sel.value='usyk-verhoeven';
-  selectFight();
+async function shNative(){
+  const btn=document.getElementById('btnSh');
+  const orig=btn.textContent;btn.textContent='...';
+  try{const c=await genImg();const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'scorecard-'+fight.id+'.png',{type:'image/png'});await navigator.share({title:rn()+' vs '+bn()+' — 12×3',text:'My scorecard | boxing12x3.com',files:[file]});}
+  catch(e){}
+  btn.textContent=orig;
 }
 
-function selectFight(){
-  const sel=document.getElementById('fightSelect');
-  const fightId=sel.value;
-  if(!fightId)return;
-  const fight=FIGHTS.find(f=>f.id===fightId);
-  if(!fight)return;
-  const red=lang==='uk'?fight.redUk:fight.red;
-  const blue=lang==='uk'?fight.blueUk:fight.blue;
-  document.getElementById('redName').value=red;
-  document.getElementById('blueName').value=blue;
-  for(let i=0;i<ROUNDS;i++){scores[i]={red:null,blue:null};}
-  buildRounds();
-  updateNames();
+function cpText(){
+  const n=fight?fight.rounds:12;
+  const tr=scores.slice(0,n).reduce((a,s)=>a+(s.red||0),0);
+  const tb=scores.slice(0,n).reduce((a,s)=>a+(s.blue||0),0);
+  let txt='🥊 '+rn()+' vs '+bn()+'\n'+(lang==='uk'?'Моя суддівська картка':'My scorecard')+' — boxing12x3.com\n\n';
+  scores.slice(0,n).forEach((s,i)=>{if(s.red!==null&&s.blue!==null){const w=s.red>s.blue?rn():s.blue>s.red?bn():(lang==='uk'?'Нічия':'Draw');txt+='R'+(i+1)+': '+s.red+'–'+s.blue+' ('+w+')\n';}});
+  txt+='\n'+(lang==='uk'?'Разом':'Total')+': '+tr+'–'+tb;
+  if(tr>tb)txt+=' → '+t('winner',rn());else if(tb>tr)txt+=' → '+t('winner',bn());else txt+=' → '+t('draw');
+  navigator.clipboard.writeText(txt).then(()=>{const btn=document.getElementById('btnCp');const orig=btn.textContent;btn.textContent=t('copied');setTimeout(()=>btn.textContent=orig,2000);});
 }
 
-buildFightSelector();
-buildRounds();
-updateTotals();
-updateLabels();
+render();
 </script>
 </body>
 </html>
