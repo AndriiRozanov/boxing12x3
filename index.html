@@ -462,6 +462,11 @@ body{
   <button class="lang-btn" onclick="setLang('uk')">UA</button>
 </div>
 
+<div class="fight-selector-wrap" style="max-width:520px;margin:0 auto 1.2rem;">
+  <select id="fightSelect" onchange="selectFight()" style="width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text);background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 12px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;">
+  </select>
+</div>
+
 <div class="site-brand">
   <div class="site-brand-name">Boxing 12×3</div>
   <div class="site-brand-sub" id="lbl-subtitle">Scorecard</div>
@@ -539,6 +544,84 @@ body{
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
+const FIGHTS = [
+  {
+    id:'usyk-verhoeven',
+    date:'May 23',
+    dateUk:'23 травня',
+    red:'Oleksandr Usyk',
+    redUk:'Олександр Усик',
+    blue:'Rico Verhoeven',
+    blueUk:'Ріко Верховен',
+    rounds:12,
+    title:'WBC Heavyweight',
+    titleUk:'Пояс WBC у хевівейті',
+    location:'Giza, Egypt',
+    locationUk:'Гіза, Єгипет',
+    featured:true
+  },
+  {
+    id:'chukhadzhian-donovan',
+    date:'May 15',
+    dateUk:'15 травня',
+    red:'Karen Chukhadzhian',
+    redUk:'Карен Чухаджян',
+    blue:'Paddy Donovan',
+    blueUk:'Педді Донован',
+    rounds:12,
+    title:'IBF Jr. Welterweight Eliminator',
+    titleUk:'Елімінатор IBF у напівсередній вазі',
+    location:'Mannheim, Germany',
+    locationUk:'Мангейм, Німеччина',
+    featured:false
+  },
+  {
+    id:'lerena-merhy',
+    date:'May 30',
+    dateUk:'30 травня',
+    red:'Kevin Lerena',
+    redUk:'Кевін Лерена',
+    blue:'Ryad Merhy',
+    blueUk:'Ріяд Мерхі',
+    rounds:12,
+    title:'Cruiserweight',
+    titleUk:'Крузервейт',
+    location:'Charleroi, Belgium',
+    locationUk:'Шарлеруа, Бельгія',
+    featured:false
+  },
+  {
+    id:'serrano-hanson',
+    date:'May 31',
+    dateUk:'31 травня',
+    red:'Amanda Serrano',
+    redUk:'Аманда Серрано',
+    blue:'Chayenne Hansen',
+    blueUk:'Шайєнн Хансон',
+    rounds:10,
+    title:'WBA/WBO Female Featherweight',
+    titleUk:'Пояси WBA, WBO у напівлегкій вазі',
+    location:'El Paso, USA',
+    locationUk:'Ель-Пасо, США',
+    featured:false
+  },
+  {
+    id:'foster-ford',
+    date:'May 31',
+    dateUk:'31 травня',
+    red:"O'Shaquie Foster",
+    redUk:"О'Шакі Фостер",
+    blue:'Raymond Ford',
+    blueUk:'Реймонд Форд',
+    rounds:12,
+    title:'WBC Super Featherweight',
+    titleUk:'Пояс WBC у другій напівлегкій вазі',
+    location:'Houston, USA',
+    locationUk:'Г'юстон, США',
+    featured:false
+  }
+];
+
 const ROUNDS = 12;
 const scores = Array.from({length:ROUNDS},()=>({red:null,blue:null}));
 let lang = 'en';
@@ -624,6 +707,7 @@ function updateLabels(){
   const sn=document.getElementById('lbl-share-native');
   if(sn)sn.textContent=t('shareNative');
   document.getElementById('redName').placeholder=lang==='uk'?"Ім'я бійця":"Fighter name";
+  buildFightSelector();
   document.getElementById('blueName').placeholder=lang==='uk'?"Ім'я бійця":"Fighter name";
   updateNames();
 }
@@ -863,6 +947,44 @@ function copyText(){
   });
 }
 
+function buildFightSelector(){
+  const sel=document.getElementById('fightSelect');
+  sel.innerHTML='';
+  const placeholder=document.createElement('option');
+  placeholder.value='';
+  placeholder.textContent=lang==='uk'?'— Оберіть бій —':'— Select a fight —';
+  sel.appendChild(placeholder);
+  FIGHTS.forEach(f=>{
+    const opt=document.createElement('option');
+    opt.value=f.id;
+    const date=lang==='uk'?f.dateUk:f.date;
+    const red=lang==='uk'?f.redUk:f.red;
+    const blue=lang==='uk'?f.blueUk:f.blue;
+    const star=f.featured?'★ ':'';
+    opt.textContent=`${star}${date} · ${red} vs ${blue}`;
+    if(f.featured)opt.style.fontWeight='500';
+    sel.appendChild(opt);
+  });
+  sel.value='usyk-verhoeven';
+  selectFight();
+}
+
+function selectFight(){
+  const sel=document.getElementById('fightSelect');
+  const fightId=sel.value;
+  if(!fightId)return;
+  const fight=FIGHTS.find(f=>f.id===fightId);
+  if(!fight)return;
+  const red=lang==='uk'?fight.redUk:fight.red;
+  const blue=lang==='uk'?fight.blueUk:fight.blue;
+  document.getElementById('redName').value=red;
+  document.getElementById('blueName').value=blue;
+  for(let i=0;i<ROUNDS;i++){scores[i]={red:null,blue:null};}
+  buildRounds();
+  updateNames();
+}
+
+buildFightSelector();
 buildRounds();
 updateTotals();
 updateLabels();
