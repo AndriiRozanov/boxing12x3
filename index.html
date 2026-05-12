@@ -231,8 +231,8 @@ const FIGHTS=[
 ];
 
 const I={
-  en:{sub:'Scorecard',stopBtn:'⏹ Stop fight early',stopTitle:'Stop fight',stopWinner:'Winner',stopType:'Stoppage type',stopConfirm:'CONFIRM',stopCancel:'Cancel',red:'Red corner',blue:'Blue corner',win:'WIN',pts:'PTS',total:'TOTAL\nSCORE',share:'SHARE SCORECARD',reset:'Reset',modal:'Share your scorecard',dl:'⬇ Download image',sh:'↑ Share',cp:'📋 Copy text',cl:'Close',sel:'— Select a fight —',winner:n=>n+' wins',draw:'Draw',copied:'✓ Copied!',dled:'✓ Downloaded!'},
-  uk:{sub:'Суддівська картка',stopBtn:'⏹ Зупинити бій',stopTitle:'Зупинка бою',stopWinner:'Переможець',stopType:'Тип зупинки',stopConfirm:'ПІДТВЕРДИТИ',stopCancel:'Скасувати',red:'Червоний кут',blue:'Синій кут',win:'РАУНД',pts:'БАЛИ',total:'РАХУНОК',share:'ПОДІЛИТИСЬ КАРТКОЮ',reset:'Скинути',modal:'Поділитись карткою',dl:'⬇ Завантажити картку',sh:'↑ Поділитись',cp:'📋 Скопіювати текст',cl:'Закрити',sel:'— Оберіть бій —',winner:n=>n+' виграє',draw:'Нічия',copied:'✓ Скопійовано!',dled:'✓ Завантажено!'}
+  en:{sub:'Scorecard',stopBtn:'⏹ Early finish',stopTitle:'Early finish',stopWinner:'Winner',stopType:'Stoppage type',stopConfirm:'CONFIRM',stopCancel:'Cancel',red:'Red corner',blue:'Blue corner',win:'WIN',pts:'PTS',total:'TOTAL\nSCORE',share:'SHARE SCORECARD',reset:'Reset',modal:'Share your scorecard',dl:'⬇ Download image',sh:'↑ Share',cp:'📋 Copy text',cl:'Close',sel:'— Select a fight —',winner:n=>n+' wins',draw:'Draw',copied:'✓ Copied!',dled:'✓ Downloaded!'},
+  uk:{sub:'Суддівська картка',stopBtn:'⏹ Достроковий фінал',stopTitle:'Достроковий фінал',stopWinner:'Переможець',stopType:'Тип зупинки',stopConfirm:'ПІДТВЕРДИТИ',stopCancel:'Скасувати',red:'Червоний кут',blue:'Синій кут',win:'РАУНД',pts:'БАЛИ',total:'РАХУНОК',share:'ПОДІЛИТИСЬ КАРТКОЮ',reset:'Скинути',modal:'Поділитись карткою',dl:'⬇ Завантажити картку',sh:'↑ Поділитись',cp:'📋 Скопіювати текст',cl:'Закрити',sel:'— Оберіть бій —',winner:n=>n+' виграє',draw:'Нічия',copied:'✓ Скопійовано!',dled:'✓ Завантажено!'}
 };
 
 let lang='en';
@@ -402,7 +402,7 @@ function buildRounds(){
           [10,9,8,7,6].map(v=>'<button class="po'+(sc.red===v?' sr':'')+'" onclick="setSc(event,'+i+',\'red\','+v+')">'+v+'</button>').join('')+
         '</div>'+
       '</div>'+
-      '<div class="dot"></div>'+
+      '<div class="rnum">R'+(i+1)+'</div>'+
       '<div class="sw">'+
         '<div class="sb '+(sc.blue!==null?'bb':'em bb')+'" onclick="togPk(event,'+i+',\'blue\')"><span class="sn">'+(sc.blue!==null?sc.blue:'—')+'</span></div>'+
         '<div class="sp bp" id="pk'+i+'b" style="'+dir+'">'+
@@ -412,6 +412,10 @@ function buildRounds(){
       '<div class="wi'+(wR?' b':'')+'" style="text-align:right">'+wR+'</div>';
     list.appendChild(row);
   }
+  // Re-check stop button state after building rounds
+  const scored=scores.slice(0,fight?fight.rounds:12).filter(s=>s.red!==null&&s.blue!==null).length;
+  const stopBtn=document.getElementById('stopBtn');
+  if(stopBtn)stopBtn.disabled=scored===0||stoppage!==null;
 }
 
 function wLabel(sc,isRed){
@@ -455,7 +459,7 @@ function updateTotals(){
   const all=sc.length===n;
   // Stop button — enable after at least 1 round scored
   const stopBtn=document.getElementById('stopBtn');
-  stopBtn.disabled=sc.length===0||stoppage!==null;
+  if(stopBtn)stopBtn.disabled=sc.length===0||stoppage!==null;
   // Stoppage case
   if(stoppage){
     const w=stoppage.winner==='red'?rn():bn();
