@@ -6,58 +6,72 @@
 <title>Boxing 12×3 — Scorecard</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23111'/><text x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'>12</text><line x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/><text x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'>%C3%973</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+button{outline:none;}
 :root{
-  --red:#c0392b;--red-light:#fdf2f2;--red-border:#f5b7b1;
-  --blue:#1a5276;--blue-light:#eaf4fb;--blue-border:#a9cce3;
-  --bg:#f7f6f3;--card:#ffffff;--text:#1a1a1a;--muted:#888;
-  --border:#e5e3de;--radius:10px;
+  --red:#c0392b;--red-l:#fdf2f2;--red-b:#f5b7b1;
+  --blue:#1a5276;--blue-l:#eaf4fb;--blue-b:#a9cce3;
+  --bg:#f7f6f3;--card:#fff;--text:#1a1a1a;--muted:#888;
+  --border:#e5e3de;--r:10px;
 }
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1.5rem 1rem 4rem;}
+
+/* Lang */
 .lang-bar{display:flex;justify-content:flex-end;gap:4px;max-width:520px;margin:0 auto 1rem;}
-.lang-btn{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;}
-.lang-btn{outline:none;}.lang-btn.active{background:var(--text);color:#fff;border-color:var(--text);}
-.site-brand{text-align:center;margin-bottom:1.2rem;}
-.site-brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.12em;}
-.site-brand-sub{font-size:10px;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;margin-top:1px;}
-.fight-wrap{max-width:520px;margin:0 auto 1.2rem;position:relative;}
-.fight-select{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text);background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 36px 10px 12px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;}
-.fight-arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;}
-.scorecard{max-width:520px;margin:0 auto;background:var(--card);border:0.5px solid var(--border);border-radius:var(--radius);overflow:visible;}
-.sc-header{display:grid;grid-template-columns:1fr 60px 1fr;background:#111;border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;}
-.sc-fighter{padding:12px 14px;}
-.sc-fighter.red{border-right:3px solid var(--red);}
-.sc-fighter.blue{border-left:3px solid var(--blue);text-align:right;}
-.sc-corner{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:0.1em;}
-.sc-name{font-size:14px;font-weight:500;color:#fff;margin-top:3px;font-family:'Bebas Neue',sans-serif;letter-spacing:0.06em;}
+.lb{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
+.lb.on{background:var(--text);color:#fff;border-color:var(--text);}
+
+/* Brand */
+.brand{text-align:center;margin-bottom:1.2rem;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
+
+/* Fight selector */
+.fw{max-width:520px;margin:0 auto 1.2rem;position:relative;}
+.fs{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text);background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:10px 36px 10px 12px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;}
+.fa{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;}
+
+/* Scorecard */
+.sc{max-width:520px;margin:0 auto;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:visible;}
+.sc-hdr{display:grid;grid-template-columns:1fr 60px 1fr;background:#111;border-radius:var(--r) var(--r) 0 0;overflow:hidden;}
+.sc-f{padding:12px 14px;}
+.sc-f.red{border-right:3px solid var(--red);}
+.sc-f.blue{border-left:3px solid var(--blue);text-align:right;}
+.sc-corner{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:.1em;}
+/* Fighter name — DM Sans Bold for universal cyrillic/latin support */
+.sc-name{font-size:13px;font-weight:700;color:#fff;margin-top:3px;letter-spacing:.02em;line-height:1.2;}
 .sc-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;border-left:0.5px solid #1a1a1a;border-right:0.5px solid #1a1a1a;padding:6px 4px;}
-.sc-mid-brand{font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;letter-spacing:0.08em;}
-.sc-mid-sub{font-size:8px;color:#444;letter-spacing:0.12em;margin-top:1px;}
-.sc-col-heads{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}
-.sch{font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;text-align:center;}
-.sch.r{color:var(--red);}
-.sch.b{color:var(--blue);text-align:right;}
-.round-row{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;align-items:center;border-bottom:0.5px solid var(--border);position:relative;}
-.round-row:last-child{border-bottom:none;}
-.round-row.scored{background:#fafaf8;}
-.rnum{font-size:10px;color:var(--muted);text-align:center;font-weight:500;}
-.wi{font-size:9px;font-weight:500;letter-spacing:0.06em;text-align:center;min-width:28px;}
+.sc-mid-brand{font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;letter-spacing:.08em;}
+.sc-mid-sub{font-size:8px;color:#444;letter-spacing:.12em;margin-top:1px;}
+
+/* Col heads */
+.sc-heads{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}
+.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
+.sh.r{color:var(--red);}
+.sh.b{color:var(--blue);text-align:right;}
+
+/* Round rows */
+.rrow{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;align-items:center;border-bottom:0.5px solid var(--border);}
+.rrow:last-child{border-bottom:none;}
+.rrow.done{background:#fafaf8;}
+.rn{font-size:10px;color:var(--muted);text-align:center;font-weight:500;}
+.wi{font-size:9px;font-weight:500;letter-spacing:.06em;text-align:center;}
 .wi.r{color:var(--red);}
 .wi.b{color:var(--blue);text-align:right;}
 .sw{position:relative;}
-.sb{height:28px;border-radius:4px;display:flex;align-items:center;padding:0 8px;cursor:pointer;border:0.5px solid transparent;}
-.sb.rb{background:var(--red-light);border-color:var(--red-border);}
-.sb.bb{background:var(--blue-light);border-color:var(--blue-border);justify-content:flex-end;}
+.sb{height:28px;border-radius:4px;display:flex;align-items:center;padding:0 8px;cursor:pointer;border:0.5px solid transparent;user-select:none;}
+.sb.rb{background:var(--red-l);border-color:var(--red-b);}
+.sb.bb{background:var(--blue-l);border-color:var(--blue-b);justify-content:flex-end;}
 .sb.em{background:var(--bg);border-color:var(--border);}
 .sb.em.bb{justify-content:flex-end;}
 .sn{font-size:13px;font-weight:500;}
 .sb.rb .sn{color:var(--red);}
 .sb.bb .sn{color:var(--blue);}
 .sb.em .sn{color:var(--muted);}
-.sp{position:absolute;background:#fff;border:0.5px solid var(--border);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,0.1);z-index:999;display:none;flex-direction:column;overflow:hidden;min-width:52px;}
+.sp{position:absolute;background:#fff;border:0.5px solid var(--border);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,.1);z-index:999;display:none;flex-direction:column;overflow:hidden;min-width:52px;}
 .sp.open{display:flex;}
 .sp.rp{left:0;}
 .sp.bp{right:0;}
@@ -65,89 +79,99 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .po:hover{background:var(--bg);}
 .po.sr{color:var(--red);}
 .po.sb2{color:var(--blue);}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--border);margin:0 auto;}
-.sc-footer{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:12px 14px;align-items:center;border-radius:0 0 var(--radius) var(--radius);}
-.tot-r{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--red);letter-spacing:0.04em;}
-.tot-b{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#2e86c1;text-align:right;letter-spacing:0.04em;}
-.tot-m{font-size:8px;color:#444;text-align:center;letter-spacing:0.1em;line-height:1.6;padding:0 8px;}
-.leader{max-width:520px;margin:0.8rem auto 0;font-size:12px;text-align:center;min-height:18px;font-weight:500;}
+
+/* Footer */
+.sc-foot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:12px 14px;align-items:center;border-radius:0 0 var(--r) var(--r);}
+.ft-r{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--red);letter-spacing:.04em;}
+.ft-b{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#2e86c1;text-align:right;letter-spacing:.04em;}
+.ft-m{font-size:8px;color:#444;text-align:center;letter-spacing:.1em;line-height:1.6;padding:0 8px;}
+
+/* Leader bar */
+.leader{max-width:520px;margin:.8rem auto 0;font-size:12px;text-align:center;min-height:18px;font-weight:500;}
 .leader .r{color:var(--red);}
 .leader .b{color:var(--blue);}
+
+/* Buttons */
 .btns{max-width:520px;margin:1.2rem auto 0;}
-.main-btn{width:100%;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.12em;padding:14px;background:#111;color:#fff;border:none;border-radius:var(--radius);cursor:pointer;}
+.main-btn{width:100%;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.12em;padding:14px;background:#111;color:#fff;border:none;border-radius:var(--r);cursor:pointer;transition:background .15s;}
+.main-btn:hover:not(:disabled){background:#222;}
 .main-btn:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
-.sec-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:var(--radius);cursor:pointer;margin-top:8px;}
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center;padding:1rem;}
+.stop-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--red);border:0.5px solid var(--red-b);border-radius:var(--r);cursor:pointer;margin-top:8px;transition:all .15s;}
+.stop-btn:hover:not(:disabled){background:var(--red-l);}
+.stop-btn:disabled{opacity:.35;cursor:not-allowed;}
+.sec-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:var(--r);cursor:pointer;margin-top:8px;}
+
+/* Share modal */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center;padding:1rem;}
 .overlay.open{display:flex;}
-.modal{background:#fff;border-radius:var(--radius);width:100%;max-width:400px;overflow:hidden;max-height:90vh;overflow-y:auto;}
+.modal{background:#fff;border-radius:var(--r);width:100%;max-width:400px;overflow:hidden;max-height:90vh;overflow-y:auto;}
 .mprev{padding:1.2rem;background:var(--bg);border-bottom:0.5px solid var(--border);}
 .pcard{background:#fff;border:0.5px solid var(--border);border-radius:8px;overflow:hidden;}
 .ph{display:grid;grid-template-columns:1fr 52px 1fr;background:#111;}
 .pf{padding:10px 12px;}
 .pf.r{border-right:2px solid var(--red);}
 .pf.b{border-left:2px solid var(--blue);text-align:right;}
-.pc{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:0.08em;}
-.pn{font-size:12px;font-weight:500;color:#fff;margin-top:2px;font-family:'Bebas Neue',sans-serif;letter-spacing:0.06em;}
+.pc{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:.08em;}
+.pn{font-size:11px;font-weight:700;color:#fff;margin-top:2px;letter-spacing:.02em;line-height:1.2;}
 .pm{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;padding:4px;}
-.pmb{font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;letter-spacing:0.06em;}
+.pmb{font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;letter-spacing:.06em;}
 .prounds{padding:4px 8px;}
 .pr{display:grid;grid-template-columns:24px 1fr 6px 1fr;gap:3px;align-items:center;margin-bottom:2px;}
 .prn{font-size:9px;color:var(--muted);text-align:center;}
-.prr{height:16px;background:var(--red-light);border:0.5px solid var(--red-border);border-radius:3px;display:flex;align-items:center;padding:0 5px;}
-.prb{height:16px;background:var(--blue-light);border:0.5px solid var(--blue-border);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding:0 5px;}
+.prr{height:16px;background:var(--red-l);border:0.5px solid var(--red-b);border-radius:3px;display:flex;align-items:center;padding:0 5px;}
+.prb{height:16px;background:var(--blue-l);border:0.5px solid var(--blue-b);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding:0 5px;}
 .prr span{font-size:9px;font-weight:500;color:var(--red);}
 .prb span{font-size:9px;font-weight:500;color:var(--blue);}
 .prs{width:4px;height:4px;border-radius:50%;background:var(--border);margin:0 auto;}
 .pfoot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:8px 10px;align-items:center;}
 .ptr{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--red);}
 .ptb{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#2e86c1;text-align:right;}
-.ptm{font-size:7px;color:#444;text-align:center;letter-spacing:0.1em;line-height:1.6;}
-.pbrand{background:#0a0a0a;padding:5px;text-align:center;font-size:8px;color:#333;letter-spacing:0.15em;}
+.ptm{font-size:7px;color:#444;text-align:center;letter-spacing:.1em;line-height:1.6;}
+.pstop{background:#111;padding:8px 10px;text-align:center;}
+.pstop-t{font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;letter-spacing:.08em;}
+.pstop-s{font-size:8px;color:#555;letter-spacing:.1em;margin-top:2px;}
+.pbrand{background:#0a0a0a;padding:5px;text-align:center;font-size:8px;color:#333;letter-spacing:.15em;}
 .mact{padding:1rem;}
-.mtitle{font-size:13px;font-weight:500;margin-bottom:0.8rem;}
+.mtitle{font-size:13px;font-weight:500;margin-bottom:.8rem;}
 .abtn{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:11px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-bottom:6px;}
 .abtn.sec{background:#444;}
 .cbtn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:2px;}
-.stop-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:#c0392b;border:0.5px solid #f5b7b1;border-radius:var(--radius);cursor:pointer;margin-top:8px;outline:none;}
-.stop-btn:disabled{opacity:0.4;cursor:not-allowed;}
-.stop-modal{background:#fff;border-radius:var(--radius);width:100%;max-width:360px;overflow:hidden;padding:1.2rem;}
+
+/* Stoppage modal */
+.stop-modal{background:#fff;border-radius:var(--r);width:100%;max-width:360px;padding:1.2rem;}
 .stop-title{font-size:15px;font-weight:500;margin-bottom:1rem;}
-.stop-section{margin-bottom:1rem;}
-.stop-label{font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;}
-.stop-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
-.stop-opt{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:9px;border:0.5px solid var(--border);border-radius:6px;background:transparent;cursor:pointer;text-align:center;transition:all 0.15s;}
-.stop-opt.sel-red{background:var(--red-light);border-color:var(--red-border);color:var(--red);}
-.stop-opt.sel-blue{background:var(--blue-light);border-color:var(--blue-border);color:var(--blue);}
-.stop-opt.sel-type{background:#111;border-color:#111;color:#fff;}
-.stop-confirm{width:100%;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;padding:12px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:4px;}
-.stop-confirm:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
+.stop-sec{margin-bottom:1rem;}
+.stop-lbl{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+.stop-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.sopt{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:9px;border:0.5px solid var(--border);border-radius:6px;background:transparent;cursor:pointer;text-align:center;transition:all .15s;}
+.sopt.sel-r{background:var(--red-l);border-color:var(--red-b);color:var(--red);}
+.sopt.sel-b{background:var(--blue-l);border-color:var(--blue-b);color:var(--blue);}
+.sopt.sel-t{background:#111;border-color:#111;color:#fff;}
+.stop-ok{width:100%;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;padding:12px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:4px;}
+.stop-ok:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
 .stop-cancel{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;padding:9px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:6px;}
-.badge{display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:0.08em;padding:3px 8px;border-radius:4px;background:#111;color:#fff;margin-top:4px;}
-.pstop{background:#111;padding:8px 10px;text-align:center;}
-.pstop-txt{font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;letter-spacing:0.08em;}
-.pstop-sub{font-size:9px;color:#555;letter-spacing:0.1em;margin-top:2px;}
 </style>
 </head>
 <body>
 
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('uk')">UA</button>
+  <button class="lb on" onclick="setLang('en')">EN</button>
+  <button class="lb" onclick="setLang('uk')">UA</button>
 </div>
 
-<div class="site-brand">
-  <div class="site-brand-name">Boxing 12×3</div>
-  <div class="site-brand-sub" id="lbl-sub">Scorecard</div>
+<div class="brand">
+  <div class="brand-name">Boxing 12×3</div>
+  <div class="brand-sub" id="lbl-sub">Scorecard</div>
 </div>
 
-<div class="fight-wrap">
-  <select class="fight-select" id="fightSel" onchange="onFightSelect()"></select>
-  <svg class="fight-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#888" stroke-width="1.5" stroke-linecap="round"/></svg>
+<div class="fw">
+  <select class="fs" id="fightSel" onchange="onFightChange()"></select>
+  <svg class="fa" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#888" stroke-width="1.5" stroke-linecap="round"/></svg>
 </div>
 
-<div class="scorecard">
-  <div class="sc-header">
-    <div class="sc-fighter red">
+<div class="sc">
+  <div class="sc-hdr">
+    <div class="sc-f red">
       <div class="sc-corner" id="hdr-red">Red corner</div>
       <div class="sc-name" id="hdr-rn">—</div>
     </div>
@@ -155,23 +179,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div class="sc-mid-brand">12×3</div>
       <div class="sc-mid-sub">SCORE</div>
     </div>
-    <div class="sc-fighter blue">
+    <div class="sc-f blue">
       <div class="sc-corner" id="hdr-blue">Blue corner</div>
       <div class="sc-name" id="hdr-bn">—</div>
     </div>
   </div>
-  <div class="sc-col-heads">
-    <div class="sch r" id="lbl-win">WIN</div>
-    <div class="sch" id="lbl-pts">PTS</div>
-    <div class="sch">RD</div>
-    <div class="sch" id="lbl-pts2">PTS</div>
-    <div class="sch b" id="lbl-win2">WIN</div>
+  <div class="sc-heads">
+    <div class="sh r" id="lbl-win">WIN</div>
+    <div class="sh" id="lbl-pts">PTS</div>
+    <div class="sh">RD</div>
+    <div class="sh" id="lbl-pts2">PTS</div>
+    <div class="sh b" id="lbl-win2">WIN</div>
   </div>
-  <div id="roundsList"></div>
-  <div class="sc-footer">
-    <div class="tot-r" id="totR">—</div>
-    <div class="tot-m" id="lbl-total">TOTAL<br>SCORE</div>
-    <div class="tot-b" id="totB">—</div>
+  <div id="rounds"></div>
+  <div class="sc-foot">
+    <div class="ft-r" id="totR">—</div>
+    <div class="ft-m" id="lbl-total">TOTAL<br>SCORE</div>
+    <div class="ft-b" id="totB">—</div>
   </div>
 </div>
 
@@ -179,366 +203,447 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 <div class="btns">
   <button class="main-btn" id="shareBtn" onclick="openShare()" disabled>SHARE SCORECARD</button>
-  <button class="stop-btn" id="stopBtn" onclick="openStop()" disabled>⏹ Stop fight early</button>
-  <button class="sec-btn" id="resetBtn" onclick="resetAll()">Reset</button>
+  <button class="stop-btn" id="stopBtn" onclick="openStop()" disabled>⏹ Early finish</button>
+  <button class="sec-btn" id="resetBtn" onclick="doReset()">Reset</button>
 </div>
 
-<div class="overlay" id="stopOverlay" onclick="closeStopOut(event)">
-  <div class="stop-modal">
-    <div class="stop-title" id="lbl-stop-title">Stop fight</div>
-    <div class="stop-section">
-      <div class="stop-label" id="lbl-stop-winner">Winner</div>
-      <div class="stop-options">
-        <button class="stop-opt" id="sopt-red" onclick="selWinner('red')"></button>
-        <button class="stop-opt" id="sopt-blue" onclick="selWinner('blue')"></button>
-      </div>
-    </div>
-    <div class="stop-section">
-      <div class="stop-label" id="lbl-stop-type">Stoppage type</div>
-      <div class="stop-options">
-        <button class="stop-opt" id="sopt-KO" onclick="selType('KO')">KO</button>
-        <button class="stop-opt" id="sopt-TKO" onclick="selType('TKO')">TKO</button>
-        <button class="stop-opt" id="sopt-RSC" onclick="selType('RSC')">RSC</button>
-        <button class="stop-opt" id="sopt-DQ" onclick="selType('DQ')">DQ</button>
-      </div>
-    </div>
-    <button class="stop-confirm" id="stopConfirmBtn" onclick="confirmStop()" disabled id="lbl-stop-confirm">CONFIRM</button>
-    <button class="stop-cancel" onclick="closeStop()" id="lbl-stop-cancel">Cancel</button>
-  </div>
-</div>
-
-<div class="overlay" id="overlay" onclick="closeOut(event)">
+<!-- Share overlay -->
+<div class="overlay" id="shareOverlay" onclick="closeShareOut(event)">
   <div class="modal">
     <div class="mprev"><div class="pcard" id="pcard"></div></div>
     <div class="mact">
       <div class="mtitle" id="lbl-modal">Share your scorecard</div>
       <button class="abtn" id="btnDl" onclick="dlImg()">⬇ Download image</button>
-      <button class="abtn sec" id="btnSh" onclick="shNative()" style="display:none;">↑ Share</button>
+      <button class="abtn sec" id="btnSh" onclick="shNative()" style="display:none">↑ Share</button>
       <button class="abtn sec" id="btnCp" onclick="cpText()">📋 Copy text</button>
       <button class="cbtn" id="btnCl" onclick="closeShare()">Close</button>
     </div>
   </div>
 </div>
 
+<!-- Stoppage overlay -->
+<div class="overlay" id="stopOverlay" onclick="closeStopOut(event)">
+  <div class="stop-modal">
+    <div class="stop-title" id="lbl-stop-title">Early finish</div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-stop-winner">Winner</div>
+      <div class="stop-opts">
+        <button class="sopt" id="sopt-red" onclick="selW('red')">—</button>
+        <button class="sopt" id="sopt-blue" onclick="selW('blue')">—</button>
+      </div>
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-stop-type">Stoppage type</div>
+      <div class="stop-opts">
+        <button class="sopt" id="sopt-KO" onclick="selT('KO')">KO</button>
+        <button class="sopt" id="sopt-TKO" onclick="selT('TKO')">TKO</button>
+        <button class="sopt" id="sopt-RSC" onclick="selT('RSC')">RSC</button>
+        <button class="sopt" id="sopt-DQ" onclick="selT('DQ')">DQ</button>
+      </div>
+    </div>
+    <button class="stop-ok" id="stopOkBtn" onclick="confirmStop()" disabled id="lbl-stop-ok">CONFIRM</button>
+    <button class="stop-cancel" onclick="closeStop()" id="lbl-stop-cancel">Cancel</button>
+  </div>
+</div>
+
 <script>
-const FIGHTS=[
-  {id:'chukhadzhian-donovan',date:'May 15',dateUk:'15 травня',red:'Karen Chukhadzhian',redUk:'Карен Чухаджян',blue:'Paddy Donovan',blueUk:'Педді Донован',rounds:12},
-  {id:'allen-hrgovic',date:'May 16',dateUk:'16 травня',red:'David Allen',redUk:'Девід Аллен',blue:'Filip Hrgovic',blueUk:'Філіп Хргович',rounds:10},
-  {id:'usyk-verhoeven',date:'May 23',dateUk:'23 травня',red:'Oleksandr Usyk',redUk:'Олександр Усик',blue:'Rico Verhoeven',blueUk:'Ріко Верховен',rounds:12},
-  {id:'lerena-merhy',date:'May 30',dateUk:'30 травня',red:'Kevin Lerena',redUk:'Кевін Лерена',blue:'Ryad Merhy',blueUk:'Ріяд Мерхі',rounds:12},
-  {id:'serrano-hansen',date:'May 31',dateUk:'31 травня',red:'Amanda Serrano',redUk:'Аманда Серрано',blue:'Chayenne Hansen',blueUk:'Шайєнн Хансон',rounds:10},
-  {id:'foster-ford',date:'May 31',dateUk:'31 травня',red:"O'Shaquie Foster",redUk:"О'Шакі Фостер",blue:'Raymond Ford',blueUk:'Реймонд Форд',rounds:12}
+// ── Data ──────────────────────────────────────────────────────────────────────
+const FIGHTS = [
+  {id:'chukhadzhian-donovan', date:'May 15', dateUk:'15 травня', red:'Karen Chukhadzhian', redUk:'Карен Чухаджян', blue:'Paddy Donovan', blueUk:'Педді Донован', rounds:12},
+  {id:'allen-hrgovic', date:'May 16', dateUk:'16 травня', red:'David Allen', redUk:'Девід Аллен', blue:'Filip Hrgovic', blueUk:'Філіп Хргович', rounds:10},
+  {id:'usyk-verhoeven', date:'May 23', dateUk:'23 травня', red:'Oleksandr Usyk', redUk:'Олександр Усик', blue:'Rico Verhoeven', blueUk:'Ріко Верховен', rounds:12},
+  {id:'lerena-merhy', date:'May 30', dateUk:'30 травня', red:'Kevin Lerena', redUk:'Кевін Лерена', blue:'Ryad Merhy', blueUk:'Ріяд Мерхі', rounds:12},
+  {id:'serrano-hansen', date:'May 31', dateUk:'31 травня', red:'Amanda Serrano', redUk:'Аманда Серрано', blue:'Chayenne Hansen', blueUk:'Шайєнн Хансон', rounds:10},
+  {id:'foster-ford', date:'May 31', dateUk:'31 травня', red:"O'Shaquie Foster", redUk:"О'Шакі Фостер", blue:'Raymond Ford', blueUk:'Реймонд Форд', rounds:12}
 ];
 
-const I={
-  en:{sub:'Scorecard',stopBtn:'⏹ Early finish',stopTitle:'Early finish',stopWinner:'Winner',stopType:'Stoppage type',stopConfirm:'CONFIRM',stopCancel:'Cancel',red:'Red corner',blue:'Blue corner',win:'WIN',pts:'PTS',total:'TOTAL\nSCORE',share:'SHARE SCORECARD',reset:'Reset',modal:'Share your scorecard',dl:'⬇ Download image',sh:'↑ Share',cp:'📋 Copy text',cl:'Close',sel:'— Select a fight —',winner:n=>n+' wins',draw:'Draw',copied:'✓ Copied!',dled:'✓ Downloaded!'},
-  uk:{sub:'Суддівська картка',stopBtn:'⏹ Достроковий фінал',stopTitle:'Достроковий фінал',stopWinner:'Переможець',stopType:'Тип зупинки',stopConfirm:'ПІДТВЕРДИТИ',stopCancel:'Скасувати',red:'Червоний кут',blue:'Синій кут',win:'РАУНД',pts:'БАЛИ',total:'РАХУНОК',share:'ПОДІЛИТИСЬ КАРТКОЮ',reset:'Скинути',modal:'Поділитись карткою',dl:'⬇ Завантажити картку',sh:'↑ Поділитись',cp:'📋 Скопіювати текст',cl:'Закрити',sel:'— Оберіть бій —',winner:n=>n+' виграє',draw:'Нічия',copied:'✓ Скопійовано!',dled:'✓ Завантажено!'}
+const I18N = {
+  en: {
+    sub:'Scorecard', redCorner:'Red corner', blueCorner:'Blue corner',
+    win:'WIN', pts:'PTS', total:'TOTAL\nSCORE',
+    share:'SHARE SCORECARD', stopBtn:'⏹ Early finish', reset:'Reset',
+    modal:'Share your scorecard', dl:'⬇ Download image', sh:'↑ Share',
+    cp:'📋 Copy text', cl:'Close', sel:'— Select a fight —',
+    stopTitle:'Early finish', stopWinner:'Winner', stopType:'Stoppage type',
+    stopOk:'CONFIRM', stopCancel:'Cancel',
+    winner: n => n + ' wins', draw:'Draw', copied:'✓ Copied!', dled:'✓ Downloaded!',
+    earlyStop:'EARLY STOPPAGE'
+  },
+  uk: {
+    sub:'Суддівська картка', redCorner:'Червоний кут', blueCorner:'Синій кут',
+    win:'РАУНД', pts:'БАЛИ', total:'РАХУНОК',
+    share:'ПОДІЛИТИСЬ КАРТКОЮ', stopBtn:'⏹ Достроковий фінал', reset:'Скинути',
+    modal:'Поділитись карткою', dl:'⬇ Завантажити картку', sh:'↑ Поділитись',
+    cp:'📋 Скопіювати текст', cl:'Закрити', sel:'— Оберіть бій —',
+    stopTitle:'Достроковий фінал', stopWinner:'Переможець', stopType:'Тип зупинки',
+    stopOk:'ПІДТВЕРДИТИ', stopCancel:'Скасувати',
+    winner: n => n + ' виграє', draw:'Нічия', copied:'✓ Скопійовано!', dled:'✓ Завантажено!',
+    earlyStop:'ДОСТРОКОВИЙ ФІНАЛ'
+  }
 };
 
-let lang='en';
-let fight=FIGHTS[0];
-let scores=mk();
-let openPk=null;
+// ── State ─────────────────────────────────────────────────────────────────────
+let lang = 'en';
+let fight = FIGHTS[0];
+let scores = mkScores();
+let stoppage = null;  // {winner:'red'|'blue', type, round}
+let selWinner = null;
+let selType = null;
+let openPk = null;
 
-function mk(){return Array.from({length:12},()=>({red:null,blue:null}));}
-function t(k,...a){const v=I[lang][k];return typeof v==='function'?v(...a):v;}
-function rn(){return lang==='uk'?fight.redUk:fight.red;}
-function bn(){return lang==='uk'?fight.blueUk:fight.blue;}
-
-function setLang(l){
-  lang=l;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));
-  // Stoppage state
-let stoppage=null; // {winner:'red'|'blue', type:'KO'|'TKO'|'RSC'|'DQ', round:N}
-let selW=null,selT=null;
-
-function openStop(){
-  selW=null;selT=null;
-  document.getElementById('sopt-red').textContent=rn();
-  document.getElementById('sopt-blue').textContent=bn();
-  document.getElementById('sopt-red').className='stop-opt';
-  document.getElementById('sopt-blue').className='stop-opt';
-  ['KO','TKO','RSC','DQ'].forEach(t=>document.getElementById('sopt-'+t).className='stop-opt');
-  document.getElementById('stopConfirmBtn').disabled=true;
-  document.getElementById('stopOverlay').classList.add('open');
-}
-function closeStop(){document.getElementById('stopOverlay').classList.remove('open');}
-function closeStopOut(e){if(e.target===document.getElementById('stopOverlay'))closeStop();}
-
-function selWinner(side){
-  selW=side;
-  document.getElementById('sopt-red').className='stop-opt'+(side==='red'?' sel-red':'');
-  document.getElementById('sopt-blue').className='stop-opt'+(side==='blue'?' sel-blue':'');
-  checkStopReady();
-}
-function selType(type){
-  selT=type;
-  ['KO','TKO','RSC','DQ'].forEach(tp=>document.getElementById('sopt-'+tp).className='stop-opt'+(tp===type?' sel-type':''));
-  checkStopReady();
-}
-function checkStopReady(){document.getElementById('stopConfirmBtn').disabled=!(selW&&selT);}
-
-function confirmStop(){
-  const n=fight?fight.rounds:12;
-  const scored=scores.slice(0,n).filter(s=>s.red!==null&&s.blue!==null).length;
-  stoppage={winner:selW,type:selT,round:scored+1};
-  closeStop();
-  updateTotals();
-  document.getElementById('shareBtn').disabled=false;
-  saveState();
+function mkScores() { return Array.from({length:12}, () => ({red:null, blue:null})); }
+function rn() { return lang==='uk' ? fight.redUk : fight.red; }
+function bn() { return lang==='uk' ? fight.blueUk : fight.blue; }
+function t(k, ...a) { const v=I18N[lang][k]; return typeof v==='function' ? v(...a) : v; }
+function scoredCount() {
+  return scores.slice(0, fight.rounds).filter(s => s.red!==null && s.blue!==null).length;
 }
 
-function clearStop(){stoppage=null;updateTotals();saveState();}
-
-// localStorage
-function saveState(){
-  try{
-    localStorage.setItem('b12x3_fight',fight.id);
-    localStorage.setItem('b12x3_scores',JSON.stringify(scores));
-    localStorage.setItem('b12x3_lang',lang);
-    if(stoppage)localStorage.setItem('b12x3_stop',JSON.stringify(stoppage));
-    else localStorage.removeItem('b12x3_stop');
-  }catch(e){}
-}
-function loadState(){
-  try{
-    const fid=localStorage.getItem('b12x3_fight');
-    const sc=localStorage.getItem('b12x3_scores');
-    const lg=localStorage.getItem('b12x3_lang');
-    const st=localStorage.getItem('b12x3_stop');
-    if(lg)lang=lg;
-    if(fid){const f=FIGHTS.find(x=>x.id===fid);if(f)fight=f;}
-    if(sc)scores=JSON.parse(sc);
-    if(st)stoppage=JSON.parse(st);
-  }catch(e){}
-}
-
+// ── Init ──────────────────────────────────────────────────────────────────────
 loadState();
-render();
+renderAll();
+
+// ── Language ──────────────────────────────────────────────────────────────────
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lb').forEach(b => {
+    b.classList.toggle('on', b.textContent === l.toUpperCase());
+  });
+  renderAll();
 }
 
-function render(){
-  document.getElementById('lbl-sub').textContent=t('sub');
-  document.getElementById('hdr-red').textContent=t('red');
-  document.getElementById('hdr-blue').textContent=t('blue');
-  document.getElementById('lbl-win').textContent=t('win');
-  document.getElementById('lbl-win2').textContent=t('win');
-  document.getElementById('lbl-pts').textContent=t('pts');
-  document.getElementById('lbl-pts2').textContent=t('pts');
-  document.getElementById('lbl-total').innerHTML=t('total').replace('\n','<br>');
-  document.getElementById('shareBtn').textContent=t('share');
-  document.getElementById('resetBtn').textContent=t('reset');
-  document.getElementById('lbl-modal').textContent=t('modal');
-  document.getElementById('btnDl').textContent=t('dl');
-  document.getElementById('btnSh').textContent=t('sh');
-  document.getElementById('btnCp').textContent=t('cp');
-  document.getElementById('btnCl').textContent=t('cl');
-  document.getElementById('stopBtn').textContent=t('stopBtn');
-  document.getElementById('lbl-stop-title').textContent=t('stopTitle');
-  document.getElementById('lbl-stop-winner').textContent=t('stopWinner');
-  document.getElementById('lbl-stop-type').textContent=t('stopType');
-  document.getElementById('stopConfirmBtn').textContent=t('stopConfirm');
-  document.getElementById('lbl-stop-cancel').textContent=t('stopCancel');
-  buildSel();
-  updateHeader();
+// ── Full render ───────────────────────────────────────────────────────────────
+function renderAll() {
+  // Labels
+  document.getElementById('lbl-sub').textContent = t('sub');
+  document.getElementById('hdr-red').textContent = t('redCorner');
+  document.getElementById('hdr-blue').textContent = t('blueCorner');
+  document.getElementById('lbl-win').textContent = t('win');
+  document.getElementById('lbl-win2').textContent = t('win');
+  document.getElementById('lbl-pts').textContent = t('pts');
+  document.getElementById('lbl-pts2').textContent = t('pts');
+  document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
+  document.getElementById('shareBtn').textContent = t('share');
+  document.getElementById('stopBtn').textContent = t('stopBtn');
+  document.getElementById('resetBtn').textContent = t('reset');
+  document.getElementById('lbl-modal').textContent = t('modal');
+  document.getElementById('btnDl').textContent = t('dl');
+  document.getElementById('btnSh').textContent = t('sh');
+  document.getElementById('btnCp').textContent = t('cp');
+  document.getElementById('btnCl').textContent = t('cl');
+  document.getElementById('lbl-stop-title').textContent = t('stopTitle');
+  document.getElementById('lbl-stop-winner').textContent = t('stopWinner');
+  document.getElementById('lbl-stop-type').textContent = t('stopType');
+  document.getElementById('stopOkBtn').textContent = t('stopOk');
+  document.getElementById('lbl-stop-cancel').textContent = t('stopCancel');
+
+  // Header names
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
+
+  // Fight selector
+  buildSelector();
+
+  // Rounds
   buildRounds();
-  updateTotals();
+
+  // Totals + button states
+  updateUI();
 }
 
-function buildSel(){
-  const sel=document.getElementById('fightSel');
-  const cur=fight?fight.id:'';
-  sel.innerHTML='';
-  const ph=document.createElement('option');
-  ph.value='';ph.textContent=t('sel');
+// ── Fight selector ────────────────────────────────────────────────────────────
+function buildSelector() {
+  const sel = document.getElementById('fightSel');
+  sel.innerHTML = '';
+  const ph = document.createElement('option');
+  ph.value = ''; ph.textContent = t('sel');
   sel.appendChild(ph);
-  FIGHTS.forEach(f=>{
-    const o=document.createElement('option');
-    o.value=f.id;
-    const d=lang==='uk'?f.dateUk:f.date;
-    const r=lang==='uk'?f.redUk:f.red;
-    const b=lang==='uk'?f.blueUk:f.blue;
-    o.textContent=d+' · '+r+' vs '+b;
+  FIGHTS.forEach(f => {
+    const o = document.createElement('option');
+    o.value = f.id;
+    const d = lang==='uk' ? f.dateUk : f.date;
+    const r = lang==='uk' ? f.redUk : f.red;
+    const b = lang==='uk' ? f.blueUk : f.blue;
+    o.textContent = d + ' · ' + r + ' vs ' + b;
     sel.appendChild(o);
   });
-  sel.value=cur||FIGHTS[0].id;
+  sel.value = fight.id;
 }
 
-function onFightSelect(){
-  const id=document.getElementById('fightSel').value;
-  if(!id)return;
-  fight=FIGHTS.find(f=>f.id===id);
-  scores=mk();
-  stoppage=null;
-  updateHeader();
+function onFightChange() {
+  const id = document.getElementById('fightSel').value;
+  if (!id) return;
+  fight = FIGHTS.find(f => f.id === id);
+  scores = mkScores();
+  stoppage = null;
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
   buildRounds();
-  updateTotals();
+  updateUI();
   saveState();
 }
 
-function updateHeader(){
-  document.getElementById('hdr-rn').textContent=rn();
-  document.getElementById('hdr-bn').textContent=bn();
-}
+// ── Rounds ────────────────────────────────────────────────────────────────────
+function buildRounds() {
+  const list = document.getElementById('rounds');
+  list.innerHTML = '';
+  const n = fight.rounds;
+  for (let i = 0; i < n; i++) {
+    const sc = scores[i];
+    const done = sc.red !== null && sc.blue !== null;
+    const up = i >= n - 4;
+    const dir = up ? 'bottom:calc(100% + 4px);top:auto;' : 'top:calc(100% + 4px);bottom:auto;';
+    const wL = winLbl(sc, true);
+    const wR = winLbl(sc, false);
 
-function buildRounds(){
-  const list=document.getElementById('roundsList');
-  list.innerHTML='';
-  const n=fight?fight.rounds:12;
-  for(let i=0;i<n;i++){
-    const sc=scores[i];
-    const done=sc.red!==null&&sc.blue!==null;
-    const up=i>=n-4;
-    const dir=up?'bottom:calc(100% + 4px);top:auto;':'top:calc(100% + 4px);bottom:auto;';
-    const wL=wLabel(sc,true);
-    const wR=wLabel(sc,false);
-    const row=document.createElement('div');
-    row.className='round-row'+(done?' scored':'');
-    row.innerHTML=
-      '<div class="wi'+(wL?' r':'')+'">'+wL+'</div>'+
-      '<div class="sw">'+
-        '<div class="sb '+(sc.red!==null?'rb':'em')+'" onclick="togPk(event,'+i+',\'red\')"><span class="sn">'+(sc.red!==null?sc.red:'—')+'</span></div>'+
-        '<div class="sp rp" id="pk'+i+'r" style="'+dir+'">'+
-          [10,9,8,7,6].map(v=>'<button class="po'+(sc.red===v?' sr':'')+'" onclick="setSc(event,'+i+',\'red\','+v+')">'+v+'</button>').join('')+
-        '</div>'+
-      '</div>'+
-      '<div class="rnum">R'+(i+1)+'</div>'+
-      '<div class="sw">'+
-        '<div class="sb '+(sc.blue!==null?'bb':'em bb')+'" onclick="togPk(event,'+i+',\'blue\')"><span class="sn">'+(sc.blue!==null?sc.blue:'—')+'</span></div>'+
-        '<div class="sp bp" id="pk'+i+'b" style="'+dir+'">'+
-          [10,9,8,7,6].map(v=>'<button class="po'+(sc.blue===v?' sb2':'')+'" onclick="setSc(event,'+i+',\'blue\','+v+')">'+v+'</button>').join('')+
-        '</div>'+
-      '</div>'+
-      '<div class="wi'+(wR?' b':'')+'" style="text-align:right">'+wR+'</div>';
+    const row = document.createElement('div');
+    row.className = 'rrow' + (done ? ' done' : '');
+    row.innerHTML =
+      '<div class="wi' + (wL ? ' r' : '') + '">' + wL + '</div>' +
+      '<div class="sw">' +
+        '<div class="sb ' + (sc.red !== null ? 'rb' : 'em') + '" onclick="togPk(event,' + i + ',\'red\')">' +
+          '<span class="sn">' + (sc.red !== null ? sc.red : '—') + '</span>' +
+        '</div>' +
+        '<div class="sp rp" id="pk' + i + 'r" style="' + dir + '">' +
+          [10,9,8,7,6].map(v => '<button class="po' + (sc.red===v?' sr':'') + '" onclick="setSc(event,' + i + ',\'red\',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+      '<div class="rn">R' + (i+1) + '</div>' +
+      '<div class="sw">' +
+        '<div class="sb ' + (sc.blue !== null ? 'bb' : 'em bb') + '" onclick="togPk(event,' + i + ',\'blue\')">' +
+          '<span class="sn">' + (sc.blue !== null ? sc.blue : '—') + '</span>' +
+        '</div>' +
+        '<div class="sp bp" id="pk' + i + 'b" style="' + dir + '">' +
+          [10,9,8,7,6].map(v => '<button class="po' + (sc.blue===v?' sb2':'') + '" onclick="setSc(event,' + i + ',\'blue\',' + v + ')">' + v + '</button>').join('') +
+        '</div>' +
+      '</div>' +
+      '<div class="wi' + (wR ? ' b' : '') + '" style="text-align:right">' + wR + '</div>';
     list.appendChild(row);
   }
-
 }
 
-function wLabel(sc,isRed){
-  if(sc.red===null||sc.blue===null)return '';
-  if(sc.red===sc.blue)return lang==='uk'?'НР':'D';
-  if(isRed)return sc.red>sc.blue?'W':'';
-  return sc.blue>sc.red?'W':'';
+function winLbl(sc, isRed) {
+  if (sc.red === null || sc.blue === null) return '';
+  if (sc.red === sc.blue) return lang==='uk' ? 'НР' : 'D';
+  if (isRed) return sc.red > sc.blue ? 'W' : '';
+  return sc.blue > sc.red ? 'W' : '';
 }
 
-function togPk(e,i,side){
+// ── Pickers ───────────────────────────────────────────────────────────────────
+function togPk(e, i, side) {
   e.stopPropagation();
-  const id='pk'+i+(side==='red'?'r':'b');
-  const pk=document.getElementById(id);
-  const was=pk.classList.contains('open');
+  const id = 'pk' + i + (side==='red' ? 'r' : 'b');
+  const pk = document.getElementById(id);
+  const was = pk.classList.contains('open');
   closePks();
-  if(!was){pk.classList.add('open');openPk=id;}
+  if (!was) { pk.classList.add('open'); openPk = id; }
 }
-function closePks(){
-  document.querySelectorAll('.sp').forEach(p=>p.classList.remove('open'));
-  openPk=null;
+function closePks() {
+  document.querySelectorAll('.sp').forEach(p => p.classList.remove('open'));
+  openPk = null;
 }
-document.addEventListener('click',closePks);
+document.addEventListener('click', closePks);
 
-function setSc(e,i,side,v){
+function setSc(e, i, side, v) {
   e.stopPropagation();
-  scores[i][side]=v;
+  scores[i][side] = v;
   closePks();
+  // Update just this row without full rebuild
   buildRounds();
-  updateTotals();
+  updateUI();
   saveState();
-  // Explicitly enable stop button
-  const n=fight?fight.rounds:12;
-  const scored=scores.slice(0,n).filter(s=>s.red!==null&&s.blue!==null).length;
-  const sb=document.getElementById('stopBtn');
-  if(sb)sb.disabled=scored===0||!!stoppage;
 }
 
-function updateTotals(){
-  const n=fight?fight.rounds:12;
-  const sc=scores.slice(0,n).filter(s=>s.red!==null&&s.blue!==null);
-  const tr=sc.reduce((a,s)=>a+s.red,0);
-  const tb=sc.reduce((a,s)=>a+s.blue,0);
-  document.getElementById('totR').textContent=sc.length?tr:'—';
-  document.getElementById('totB').textContent=sc.length?tb:'—';
-  const lb=document.getElementById('leaderBar');
-  const all=sc.length===n;
+// ── UI state ──────────────────────────────────────────────────────────────────
+function updateUI() {
+  const n = fight.rounds;
+  const sc = scores.slice(0, n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+  const all = sc.length === n;
+  const any = sc.length > 0;
 
-  // Stoppage case
-  if(stoppage){
-    const w=stoppage.winner==='red'?rn():bn();
-    const cls=stoppage.winner==='red'?'r':'b';
-    lb.innerHTML='<span class="'+cls+'">'+w+' — '+stoppage.type+' R'+stoppage.round+'</span>';
-    document.getElementById('shareBtn').disabled=false;
-    document.getElementById('totM')||null;
-    const totM=document.getElementById('lbl-total');
-    if(totM)totM.innerHTML=stoppage.type+'<br>R'+stoppage.round;
+  document.getElementById('totR').textContent = any ? tr : '—';
+  document.getElementById('totB').textContent = any ? tb : '—';
+
+  const lb = document.getElementById('leaderBar');
+  const shareBtn = document.getElementById('shareBtn');
+  const stopBtn = document.getElementById('stopBtn');
+
+  // Stop button: active if ≥1 round scored AND no stoppage yet
+  stopBtn.disabled = !any || stoppage !== null;
+
+  if (stoppage) {
+    const w = stoppage.winner === 'red' ? rn() : bn();
+    const cls = stoppage.winner === 'red' ? 'r' : 'b';
+    lb.innerHTML = '<span class="' + cls + '">' + w + ' — ' + stoppage.type + ' R' + stoppage.round + '</span>';
+    document.getElementById('lbl-total').innerHTML = stoppage.type + '<br>R' + stoppage.round;
+    shareBtn.disabled = false;
     return;
   }
+
   // Reset footer label
-  const totM=document.getElementById('lbl-total');
-  if(totM)totM.innerHTML=t('total').replace('\n','<br>');
-  if(!sc.length){lb.innerHTML='';document.getElementById('shareBtn').disabled=true;return;}
-  if(all&&tr===tb)lb.innerHTML='<span>'+t('draw')+'</span>';
-  else if(all&&tr>tb)lb.innerHTML='<span class="r">'+t('winner',rn())+'</span>';
-  else if(all&&tb>tr)lb.innerHTML='<span class="b">'+t('winner',bn())+'</span>';
-  else lb.innerHTML='';
-  document.getElementById('shareBtn').disabled=!all;
+  document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
+
+  if (!any) { lb.innerHTML = ''; shareBtn.disabled = true; return; }
+  if (all && tr === tb) lb.innerHTML = '<span>' + t('draw') + '</span>';
+  else if (all && tr > tb) lb.innerHTML = '<span class="r">' + t('winner', rn()) + '</span>';
+  else if (all && tb > tr) lb.innerHTML = '<span class="b">' + t('winner', bn()) + '</span>';
+  else lb.innerHTML = '';
+  shareBtn.disabled = !all;
 }
 
-function resetAll(){scores=mk();stoppage=null;buildRounds();updateTotals();saveState();}
+// ── Reset ─────────────────────────────────────────────────────────────────────
+function doReset() {
+  scores = mkScores();
+  stoppage = null;
+  buildRounds();
+  updateUI();
+  saveState();
+}
 
-function openShare(){buildPreview();document.getElementById('overlay').classList.add('open');if(navigator.share&&navigator.canShare)document.getElementById('btnSh').style.display='block';}
-function closeShare(){document.getElementById('overlay').classList.remove('open');}
-function closeOut(e){if(e.target===document.getElementById('overlay'))closeShare();}
+// ── Stoppage modal ────────────────────────────────────────────────────────────
+function openStop() {
+  selWinner = null; selType = null;
+  document.getElementById('sopt-red').textContent = rn();
+  document.getElementById('sopt-blue').textContent = bn();
+  document.getElementById('sopt-red').className = 'sopt';
+  document.getElementById('sopt-blue').className = 'sopt';
+  ['KO','TKO','RSC','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt');
+  document.getElementById('stopOkBtn').disabled = true;
+  document.getElementById('stopOverlay').classList.add('open');
+}
+function closeStop() { document.getElementById('stopOverlay').classList.remove('open'); }
+function closeStopOut(e) { if (e.target===document.getElementById('stopOverlay')) closeStop(); }
 
-function buildPreview(){
-  const n=fight?fight.rounds:12;
-  const sc=scores.slice(0,n).filter(s=>s.red!==null&&s.blue!==null);
-  const tr=sc.reduce((a,s)=>a+s.red,0);
-  const tb=sc.reduce((a,s)=>a+s.blue,0);
-  const rows=scores.slice(0,n).map((s,i)=>
-    '<div class="pr"><div class="prn">R'+(i+1)+'</div><div class="prr"><span>'+(s.red!==null?s.red:'—')+'</span></div><div class="prs"></div><div class="prb"><span>'+(s.blue!==null?s.blue:'—')+'</span></div></div>'
+function selW(side) {
+  selWinner = side;
+  document.getElementById('sopt-red').className = 'sopt' + (side==='red' ? ' sel-r' : '');
+  document.getElementById('sopt-blue').className = 'sopt' + (side==='blue' ? ' sel-b' : '');
+  document.getElementById('stopOkBtn').disabled = !(selWinner && selType);
+}
+function selT(type) {
+  selType = type;
+  ['KO','TKO','RSC','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt' + (tp===type ? ' sel-t' : ''));
+  document.getElementById('stopOkBtn').disabled = !(selWinner && selType);
+}
+function confirmStop() {
+  stoppage = {winner: selWinner, type: selType, round: scoredCount() + 1};
+  closeStop();
+  updateUI();
+  saveState();
+}
+
+// ── Share modal ───────────────────────────────────────────────────────────────
+function openShare() {
+  buildPreview();
+  document.getElementById('shareOverlay').classList.add('open');
+  if (navigator.share && navigator.canShare) document.getElementById('btnSh').style.display = 'block';
+}
+function closeShare() { document.getElementById('shareOverlay').classList.remove('open'); }
+function closeShareOut(e) { if (e.target===document.getElementById('shareOverlay')) closeShare(); }
+
+function buildPreview() {
+  const n = fight.rounds;
+  const sc = scores.slice(0,n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+  const rows = scores.slice(0,n).map((s,i) =>
+    '<div class="pr"><div class="prn">R'+(i+1)+'</div>' +
+    '<div class="prr"><span>'+(s.red!==null?s.red:'—')+'</span></div>' +
+    '<div class="prs"></div>' +
+    '<div class="prb"><span>'+(s.blue!==null?s.blue:'—')+'</span></div></div>'
   ).join('');
-  let footerHTML='';
-  if(stoppage){
-    const w=stoppage.winner==='red'?rn():bn();
-    footerHTML='<div class="pstop"><div class="pstop-txt">'+w+' — '+stoppage.type+' R'+stoppage.round+'</div><div class="pstop-sub">'+(lang==='uk'?'ДОСТРОКОВА ЗУПИНКА':'EARLY STOPPAGE')+'</div></div>';
-  } else {
-    footerHTML='<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>';
-  }
-  document.getElementById('pcard').innerHTML=
-    '<div class="ph"><div class="pf r"><div class="pc">'+t('red')+'</div><div class="pn">'+rn()+'</div></div><div class="pm"><div class="pmb">12×3</div></div><div class="pf b"><div class="pc">'+t('blue')+'</div><div class="pn">'+bn()+'</div></div></div>'+
-    '<div class="prounds">'+rows+'</div>'+
-    footerHTML+
+  const foot = stoppage
+    ? '<div class="pstop"><div class="pstop-t">'+(stoppage.winner==='red'?rn():bn())+' — '+stoppage.type+' R'+stoppage.round+'</div><div class="pstop-s">'+t('earlyStop')+'</div></div>'
+    : '<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>';
+  document.getElementById('pcard').innerHTML =
+    '<div class="ph"><div class="pf r"><div class="pc">'+t('redCorner')+'</div><div class="pn">'+rn()+'</div></div>' +
+    '<div class="pm"><div class="pmb">12×3</div></div>' +
+    '<div class="pf b"><div class="pc">'+t('blueCorner')+'</div><div class="pn">'+bn()+'</div></div></div>' +
+    '<div class="prounds">'+rows+'</div>' +
+    foot +
     '<div class="pbrand">BOXING12X3.COM</div>';
 }
 
-async function genImg(){return await html2canvas(document.getElementById('pcard'),{backgroundColor:'#fff',scale:2,useCORS:true,logging:false});}
-
-async function dlImg(){
-  const btn=document.getElementById('btnDl');
-  const orig=btn.textContent;btn.textContent='...';
-  try{const c=await genImg();const a=document.createElement('a');a.download='scorecard-'+fight.id+'.png';a.href=c.toDataURL('image/png');a.click();btn.textContent=t('dled');setTimeout(()=>btn.textContent=orig,2000);}
-  catch(e){btn.textContent=orig;}
+async function genImg() {
+  return await html2canvas(document.getElementById('pcard'), {backgroundColor:'#fff', scale:2, useCORS:true, logging:false});
+}
+async function dlImg() {
+  const btn = document.getElementById('btnDl');
+  const orig = btn.textContent; btn.textContent = '...';
+  try {
+    const c = await genImg();
+    const a = document.createElement('a');
+    a.download = 'scorecard-' + fight.id + '.png';
+    a.href = c.toDataURL('image/png'); a.click();
+    btn.textContent = t('dled'); setTimeout(() => btn.textContent = orig, 2000);
+  } catch(e) { btn.textContent = orig; }
+}
+async function shNative() {
+  const btn = document.getElementById('btnSh');
+  const orig = btn.textContent; btn.textContent = '...';
+  try {
+    const c = await genImg();
+    const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+    const file = new File([blob], 'scorecard-'+fight.id+'.png', {type:'image/png'});
+    await navigator.share({title: rn()+' vs '+bn()+' — 12×3', text:'My scorecard | boxing12x3.com', files:[file]});
+  } catch(e) {}
+  btn.textContent = orig;
+}
+function cpText() {
+  const n = fight.rounds;
+  const tr = scores.slice(0,n).reduce((a,s) => a+(s.red||0), 0);
+  const tb = scores.slice(0,n).reduce((a,s) => a+(s.blue||0), 0);
+  let txt = '🥊 '+rn()+' vs '+bn()+'\n'+(lang==='uk'?'Моя суддівська картка':'My scorecard')+' — boxing12x3.com\n\n';
+  scores.slice(0,n).forEach((s,i) => {
+    if (s.red!==null && s.blue!==null) {
+      const w = s.red>s.blue ? rn() : s.blue>s.red ? bn() : t('draw');
+      txt += 'R'+(i+1)+': '+s.red+'–'+s.blue+' ('+w+')\n';
+    }
+  });
+  if (stoppage) {
+    const w = stoppage.winner==='red' ? rn() : bn();
+    txt += '\n'+w+' — '+stoppage.type+' R'+stoppage.round;
+  } else {
+    txt += '\n'+(lang==='uk'?'Разом':'Total')+': '+tr+'–'+tb;
+    if (tr>tb) txt += ' → '+t('winner',rn());
+    else if (tb>tr) txt += ' → '+t('winner',bn());
+    else txt += ' → '+t('draw');
+  }
+  navigator.clipboard.writeText(txt).then(() => {
+    const btn = document.getElementById('btnCp');
+    const orig = btn.textContent;
+    btn.textContent = t('copied');
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
 }
 
-async function shNative(){
-  const btn=document.getElementById('btnSh');
-  const orig=btn.textContent;btn.textContent='...';
-  try{const c=await genImg();const blob=await new Promise(r=>c.toBlob(r,'image/png'));const file=new File([blob],'scorecard-'+fight.id+'.png',{type:'image/png'});await navigator.share({title:rn()+' vs '+bn()+' — 12×3',text:'My scorecard | boxing12x3.com',files:[file]});}
-  catch(e){}
-  btn.textContent=orig;
+// ── localStorage ──────────────────────────────────────────────────────────────
+function saveState() {
+  try {
+    localStorage.setItem('b12x3_fight', fight.id);
+    localStorage.setItem('b12x3_scores', JSON.stringify(scores));
+    localStorage.setItem('b12x3_lang', lang);
+    if (stoppage) localStorage.setItem('b12x3_stop', JSON.stringify(stoppage));
+    else localStorage.removeItem('b12x3_stop');
+  } catch(e) {}
 }
-
-function cpText(){
-  const n=fight?fight.rounds:12;
-  const tr=scores.slice(0,n).reduce((a,s)=>a+(s.red||0),0);
-  const tb=scores.slice(0,n).reduce((a,s)=>a+(s.blue||0),0);
-  let txt='🥊 '+rn()+' vs '+bn()+'\n'+(lang==='uk'?'Моя суддівська картка':'My scorecard')+' — boxing12x3.com\n\n';
-  scores.slice(0,n).forEach((s,i)=>{if(s.red!==null&&s.blue!==null){const w=s.red>s.blue?rn():s.blue>s.red?bn():(lang==='uk'?'Нічия':'Draw');txt+='R'+(i+1)+': '+s.red+'–'+s.blue+' ('+w+')\n';}});
-  txt+='\n'+(lang==='uk'?'Разом':'Total')+': '+tr+'–'+tb;
-  if(tr>tb)txt+=' → '+t('winner',rn());else if(tb>tr)txt+=' → '+t('winner',bn());else txt+=' → '+t('draw');
-  navigator.clipboard.writeText(txt).then(()=>{const btn=document.getElementById('btnCp');const orig=btn.textContent;btn.textContent=t('copied');setTimeout(()=>btn.textContent=orig,2000);});
+function loadState() {
+  try {
+    const sl = localStorage.getItem('b12x3_lang');
+    const sf = localStorage.getItem('b12x3_fight');
+    const ss = localStorage.getItem('b12x3_scores');
+    const st = localStorage.getItem('b12x3_stop');
+    if (sl) {
+      lang = sl;
+      document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.textContent===sl.toUpperCase()));
+    }
+    if (sf) { const f = FIGHTS.find(x => x.id===sf); if (f) fight = f; }
+    if (ss) scores = JSON.parse(ss);
+    if (st) stoppage = JSON.parse(st);
+  } catch(e) {}
 }
-
-render();
 </script>
 </body>
 </html>
