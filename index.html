@@ -7,7 +7,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23111'/><text x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'>12</text><line x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/><text x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'>%C3%973</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 button{outline:none;}
@@ -470,7 +470,7 @@ function updateUI() {
   const shareBtn = document.getElementById('shareBtn');
   const stopBtn = document.getElementById('stopBtn');
 
-  // Stop button: active if ≥1 round scored AND no stoppage yet
+  // Stop button: active if ≥1 full round scored (both sides) AND no stoppage yet
   stopBtn.disabled = !any || stoppage !== null;
 
   if (stoppage) {
@@ -538,7 +538,10 @@ function confirmStop() {
 function openShare() {
   buildPreview();
   document.getElementById('shareOverlay').classList.add('open');
-  if (navigator.share && navigator.canShare) document.getElementById('btnSh').style.display = 'block';
+  // Show native share only if device supports file sharing (mobile)
+  const testFile = new File([''], 'test.png', {type:'image/png'});
+  const supportsFileShare = navigator.canShare && navigator.canShare({files:[testFile]});
+  document.getElementById('btnSh').style.display = supportsFileShare ? 'block' : 'none';
 }
 function closeShare() { document.getElementById('shareOverlay').classList.remove('open'); }
 function closeShareOut(e) { if (e.target===document.getElementById('shareOverlay')) closeShare(); }
@@ -567,7 +570,210 @@ function buildPreview() {
 }
 
 async function genImg() {
-  return await html2canvas(document.getElementById('pcard'), {backgroundColor:'#fff', scale:2, useCORS:true, logging:false});
+  const n = fight.rounds;
+  const sc = scores.slice(0,n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+  const W = 600, ROW = 28, PAD = 16;
+  const headerH = 72, colHeadH = 28, footerH = 64, brandH = 24;
+  const totalH = headerH + colHeadH + (n * ROW) + footerH + brandH;
+  const canvas = document.createElement('canvas');
+  const dpr = 2;
+  canvas.width = W * dpr;
+  canvas.height = totalH * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const RED = '#c0392b', BLUE = '#1a5276', DARK = '#111111';
+  const RED_L = '#fdf2f2', BLUE_L = '#eaf4fb';
+  const BORDER = '#e5e3de', MUTED = '#888888';
+
+  // Header background
+  ctx.fillStyle = DARK;
+  ctx.fillRect(0, 0, W, headerH);
+
+  // Red corner stripe
+  ctx.fillStyle = RED;
+  ctx.fillRect(0, 0, 3, headerH);
+
+  // Blue corner stripe
+  ctx.fillStyle = BLUE;
+  ctx.fillRect(W-3, 0, 3, headerH);
+
+  // Corner labels
+  ctx.fillStyle = '#666666';
+  ctx.font = '500 9px DM Sans, sans-serif';
+  ctx.textBaseline = 'top';
+  ctx.fillText((lang==='uk'?'ЧЕРВОНИЙ КУТ':'RED CORNER'), PAD, 14);
+  ctx.textAlign = 'right';
+  ctx.fillText((lang==='uk'?'СИНІЙ КУТ':'BLUE CORNER'), W-PAD, 14);
+  ctx.textAlign = 'left';
+
+  // Fighter names
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 18px DM Sans, sans-serif';
+  ctx.textBaseline = 'top';
+  ctx.fillText(rn(), PAD, 30);
+  ctx.textAlign = 'right';
+  ctx.fillText(bn(), W-PAD, 30);
+  ctx.textAlign = 'left';
+
+  // Brand center
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 14px DM Sans, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('12×3', W/2, 20);
+  ctx.fillStyle = '#444444';
+  ctx.font = '9px DM Sans, sans-serif';
+  ctx.fillText('SCORE', W/2, 38);
+  ctx.textAlign = 'left';
+
+  // Col heads row
+  let y = headerH;
+  ctx.fillStyle = '#f7f6f3';
+  ctx.fillRect(0, y, W, colHeadH);
+  ctx.strokeStyle = BORDER;
+  ctx.lineWidth = 0.5;
+  ctx.beginPath(); ctx.moveTo(0, y+colHeadH); ctx.lineTo(W, y+colHeadH); ctx.stroke();
+
+  ctx.font = '500 9px DM Sans, sans-serif';
+  ctx.fillStyle = RED;
+  ctx.textBaseline = 'middle';
+  ctx.textAlign = 'center';
+  ctx.fillText(lang==='uk'?'РАУНД':'WIN', 20, y+colHeadH/2);
+  ctx.fillStyle = MUTED;
+  ctx.fillText('PTS', 120, y+colHeadH/2);
+  ctx.fillText('RD', W/2, y+colHeadH/2);
+  ctx.fillStyle = BLUE;
+  ctx.fillText(lang==='uk'?'РАУНД':'WIN', W-20, y+colHeadH/2);
+  ctx.fillStyle = MUTED;
+  ctx.fillText('PTS', W-120, y+colHeadH/2);
+  ctx.textAlign = 'left';
+
+  // Rounds
+  y = headerH + colHeadH;
+  for (let i = 0; i < n; i++) {
+    const s = scores[i];
+    const done = s.red!==null && s.blue!==null;
+    ctx.fillStyle = done ? '#fafaf8' : '#ffffff';
+    ctx.fillRect(0, y, W, ROW);
+    ctx.strokeStyle = BORDER;
+    ctx.lineWidth = 0.5;
+    ctx.beginPath(); ctx.moveTo(0, y+ROW); ctx.lineTo(W, y+ROW); ctx.stroke();
+
+    // Red score bar
+    if (s.red !== null) {
+      ctx.fillStyle = RED_L;
+      ctx.beginPath();
+      ctx.roundRect(PAD, y+4, 180, 20, 3);
+      ctx.fill();
+      ctx.fillStyle = RED;
+      ctx.font = '500 12px DM Sans, sans-serif';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(s.red, PAD+8, y+14);
+    } else {
+      ctx.fillStyle = '#f7f6f3';
+      ctx.beginPath();
+      ctx.roundRect(PAD, y+4, 180, 20, 3);
+      ctx.fill();
+      ctx.fillStyle = MUTED;
+      ctx.font = '500 12px DM Sans, sans-serif';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('—', PAD+8, y+14);
+    }
+
+    // Round number
+    ctx.fillStyle = MUTED;
+    ctx.font = '500 10px DM Sans, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('R'+(i+1), W/2, y+14);
+    ctx.textAlign = 'left';
+
+    // Blue score bar
+    if (s.blue !== null) {
+      ctx.fillStyle = BLUE_L;
+      ctx.beginPath();
+      ctx.roundRect(W-PAD-180, y+4, 180, 20, 3);
+      ctx.fill();
+      ctx.fillStyle = BLUE;
+      ctx.font = '500 12px DM Sans, sans-serif';
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'right';
+      ctx.fillText(s.blue, W-PAD-8, y+14);
+      ctx.textAlign = 'left';
+    } else {
+      ctx.fillStyle = '#f7f6f3';
+      ctx.beginPath();
+      ctx.roundRect(W-PAD-180, y+4, 180, 20, 3);
+      ctx.fill();
+      ctx.fillStyle = MUTED;
+      ctx.font = '500 12px DM Sans, sans-serif';
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'right';
+      ctx.fillText('—', W-PAD-8, y+14);
+      ctx.textAlign = 'left';
+    }
+
+    // Win indicators
+    if (done) {
+      ctx.font = '500 9px DM Sans, sans-serif';
+      ctx.textBaseline = 'middle';
+      if (s.red > s.blue) {
+        ctx.fillStyle = RED;
+        ctx.fillText('W', 4, y+14);
+      } else if (s.blue > s.red) {
+        ctx.fillStyle = BLUE;
+        ctx.textAlign = 'right';
+        ctx.fillText('W', W-4, y+14);
+        ctx.textAlign = 'left';
+      }
+    }
+    y += ROW;
+  }
+
+  // Footer
+  if (stoppage) {
+    ctx.fillStyle = DARK;
+    ctx.fillRect(0, y, W, footerH);
+    const w = stoppage.winner==='red' ? rn() : bn();
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 16px DM Sans, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(w + ' — ' + stoppage.type + ' R' + stoppage.round, W/2, y+footerH/2-8);
+    ctx.fillStyle = '#555555';
+    ctx.font = '9px DM Sans, sans-serif';
+    ctx.fillText(lang==='uk'?'ДОСТРОКОВИЙ ФІНАЛ':'EARLY STOPPAGE', W/2, y+footerH/2+12);
+    ctx.textAlign = 'left';
+  } else {
+    ctx.fillStyle = DARK;
+    ctx.fillRect(0, y, W, footerH);
+    ctx.fillStyle = RED;
+    ctx.font = 'bold 36px DM Sans, sans-serif';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(sc.length ? tr : '—', PAD, y+footerH/2);
+    ctx.fillStyle = BLUE;
+    ctx.textAlign = 'right';
+    ctx.fillText(sc.length ? tb : '—', W-PAD, y+footerH/2);
+    ctx.fillStyle = '#444444';
+    ctx.font = '8px DM Sans, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('TOTAL SCORE', W/2, y+footerH/2);
+    ctx.textAlign = 'left';
+  }
+
+  // Brand footer
+  y += footerH;
+  ctx.fillStyle = '#0a0a0a';
+  ctx.fillRect(0, y, W, brandH);
+  ctx.fillStyle = '#333333';
+  ctx.font = '8px DM Sans, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('BOXING12X3.COM', W/2, y+brandH/2);
+  ctx.textAlign = 'left';
+
+  return canvas;
 }
 async function dlImg() {
   const btn = document.getElementById('btnDl');
@@ -587,8 +793,15 @@ async function shNative() {
     const c = await genImg();
     const blob = await new Promise(r => c.toBlob(r, 'image/png'));
     const file = new File([blob], 'scorecard-'+fight.id+'.png', {type:'image/png'});
-    await navigator.share({title: rn()+' vs '+bn()+' — 12×3', text:'My scorecard | boxing12x3.com', files:[file]});
-  } catch(e) {}
+    if (navigator.canShare && navigator.canShare({files:[file]})) {
+      await navigator.share({files:[file], title: rn()+' vs '+bn()+' — 12×3'});
+    } else {
+      // Fallback: download instead
+      const a = document.createElement('a');
+      a.download = 'scorecard-'+fight.id+'.png';
+      a.href = c.toDataURL('image/png'); a.click();
+    }
+  } catch(e) { console.log('Share error:', e); }
   btn.textContent = orig;
 }
 function cpText() {
