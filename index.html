@@ -19,7 +19,7 @@
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1.5rem 1rem 4rem;}
 .lang-bar{display:flex;justify-content:flex-end;gap:4px;max-width:520px;margin:0 auto 1rem;}
 .lang-btn{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;}
-.lang-btn.active{background:var(--text);color:#fff;border-color:var(--text);}
+.lang-btn{outline:none;}.lang-btn.active{background:var(--text);color:#fff;border-color:var(--text);}
 .site-brand{text-align:center;margin-bottom:1.2rem;}
 .site-brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.12em;}
 .site-brand-sub{font-size:10px;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;margin-top:1px;}
@@ -108,7 +108,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .abtn{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:11px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-bottom:6px;}
 .abtn.sec{background:#444;}
 .cbtn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:2px;}
-.stop-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:#c0392b;border:0.5px solid #f5b7b1;border-radius:var(--radius);cursor:pointer;margin-top:8px;}
+.stop-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:#c0392b;border:0.5px solid #f5b7b1;border-radius:var(--radius);cursor:pointer;margin-top:8px;outline:none;}
 .stop-btn:disabled{opacity:0.4;cursor:not-allowed;}
 .stop-modal{background:#fff;border-radius:var(--radius);width:100%;max-width:360px;overflow:hidden;padding:1.2rem;}
 .stop-title{font-size:15px;font-weight:500;margin-bottom:1rem;}
@@ -412,10 +412,7 @@ function buildRounds(){
       '<div class="wi'+(wR?' b':'')+'" style="text-align:right">'+wR+'</div>';
     list.appendChild(row);
   }
-  // Re-check stop button state after building rounds
-  const scored=scores.slice(0,fight?fight.rounds:12).filter(s=>s.red!==null&&s.blue!==null).length;
-  const stopBtn=document.getElementById('stopBtn');
-  if(stopBtn)stopBtn.disabled=scored===0||stoppage!==null;
+
 }
 
 function wLabel(sc,isRed){
@@ -446,6 +443,11 @@ function setSc(e,i,side,v){
   buildRounds();
   updateTotals();
   saveState();
+  // Explicitly enable stop button
+  const n=fight?fight.rounds:12;
+  const scored=scores.slice(0,n).filter(s=>s.red!==null&&s.blue!==null).length;
+  const sb=document.getElementById('stopBtn');
+  if(sb)sb.disabled=scored===0||!!stoppage;
 }
 
 function updateTotals(){
@@ -457,9 +459,7 @@ function updateTotals(){
   document.getElementById('totB').textContent=sc.length?tb:'—';
   const lb=document.getElementById('leaderBar');
   const all=sc.length===n;
-  // Stop button — enable after at least 1 round scored
-  const stopBtn=document.getElementById('stopBtn');
-  if(stopBtn)stopBtn.disabled=sc.length===0||stoppage!==null;
+
   // Stoppage case
   if(stoppage){
     const w=stoppage.winner==='red'?rn():bn();
