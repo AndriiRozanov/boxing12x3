@@ -237,7 +237,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div class="stop-opts">
         <button class="sopt" id="sopt-KO" onclick="selT('KO')">KO</button>
         <button class="sopt" id="sopt-TKO" onclick="selT('TKO')">TKO</button>
-        <button class="sopt" id="sopt-RSC" onclick="selT('RSC')">RSC</button>
+        <button class="sopt" id="sopt-RTD" onclick="selT('RTD')">RTD</button>
         <button class="sopt" id="sopt-DQ" onclick="selT('DQ')">DQ</button>
       </div>
     </div>
@@ -314,6 +314,8 @@ function setLang(l) {
 
 // ── Full render ───────────────────────────────────────────────────────────────
 function renderAll() {
+  // Sync lang buttons
+  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.textContent === lang.toUpperCase()));
   // Labels
   document.getElementById('lbl-sub').textContent = t('sub');
   document.getElementById('hdr-red').textContent = t('redCorner');
