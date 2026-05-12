@@ -538,9 +538,10 @@ function confirmStop() {
 function openShare() {
   buildPreview();
   document.getElementById('shareOverlay').classList.add('open');
-  // Show native share only if device supports file sharing (mobile)
+  // Show native share only on mobile devices
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const testFile = new File([''], 'test.png', {type:'image/png'});
-  const supportsFileShare = navigator.canShare && navigator.canShare({files:[testFile]});
+  const supportsFileShare = isMobile && navigator.canShare && navigator.canShare({files:[testFile]});
   document.getElementById('btnSh').style.display = supportsFileShare ? 'block' : 'none';
 }
 function closeShare() { document.getElementById('shareOverlay').classList.remove('open'); }
