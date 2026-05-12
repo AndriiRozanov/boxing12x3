@@ -155,8 +155,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <body>
 
 <div class="lang-bar">
-  <button class="lb on" onclick="setLang('en')">EN</button>
-  <button class="lb" onclick="setLang('uk')">UA</button>
+  <button class="lb on" data-lang="en" onclick="setLang('en')">EN</button>
+  <button class="lb" data-lang="uk" onclick="setLang('uk')">UA</button>
 </div>
 
 <div class="brand">
@@ -306,16 +306,14 @@ renderAll();
 // ── Language ──────────────────────────────────────────────────────────────────
 function setLang(l) {
   lang = l;
-  document.querySelectorAll('.lb').forEach(b => {
-    b.classList.toggle('on', b.textContent === l.toUpperCase());
-  });
+  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
   renderAll();
 }
 
 // ── Full render ───────────────────────────────────────────────────────────────
 function renderAll() {
   // Sync lang buttons
-  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.textContent === lang.toUpperCase()));
+  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
   // Labels
   document.getElementById('lbl-sub').textContent = t('sub');
   document.getElementById('hdr-red').textContent = t('redCorner');
@@ -511,7 +509,7 @@ function openStop() {
   document.getElementById('sopt-blue').textContent = bn();
   document.getElementById('sopt-red').className = 'sopt';
   document.getElementById('sopt-blue').className = 'sopt';
-  ['KO','TKO','RSC','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt');
+  ['KO','TKO','RTD','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt');
   document.getElementById('stopOkBtn').disabled = true;
   document.getElementById('stopOverlay').classList.add('open');
 }
@@ -526,7 +524,7 @@ function selW(side) {
 }
 function selT(type) {
   selType = type;
-  ['KO','TKO','RSC','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt' + (tp===type ? ' sel-t' : ''));
+  ['KO','TKO','RTD','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt' + (tp===type ? ' sel-t' : ''));
   document.getElementById('stopOkBtn').disabled = !(selWinner && selType);
 }
 function confirmStop() {
@@ -639,7 +637,7 @@ function loadState() {
     const st = localStorage.getItem('b12x3_stop');
     if (sl) {
       lang = sl;
-      document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.textContent===sl.toUpperCase()));
+      document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === sl));
     }
     if (sf) { const f = FIGHTS.find(x => x.id===sf); if (f) fight = f; }
     if (ss) scores = JSON.parse(ss);
