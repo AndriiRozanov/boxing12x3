@@ -574,206 +574,202 @@ async function genImg() {
   const sc = scores.slice(0,n).filter(s => s.red!==null && s.blue!==null);
   const tr = sc.reduce((a,s) => a+s.red, 0);
   const tb = sc.reduce((a,s) => a+s.blue, 0);
-  const W = 600, ROW = 28, PAD = 16;
-  const headerH = 72, colHeadH = 28, footerH = 64, brandH = 24;
-  const totalH = headerH + colHeadH + (n * ROW) + footerH + brandH;
+
+  // Instagram 4:5 format
+  const W = 1080, H = 1350;
   const canvas = document.createElement('canvas');
-  const dpr = 2;
-  canvas.width = W * dpr;
-  canvas.height = totalH * dpr;
+  canvas.width = W; canvas.height = H;
   const ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
 
-  const RED = '#c0392b', BLUE = '#1a5276', DARK = '#111111';
+  const RED = '#c0392b', BLUE = '#1a5276';
   const RED_L = '#fdf2f2', BLUE_L = '#eaf4fb';
-  const BORDER = '#e5e3de', MUTED = '#888888';
+  const RED_B = '#f5b7b1', BLUE_B = '#a9cce3';
+  const DARK = '#111111', MUTED = '#888888', BORDER = '#e5e3de';
 
-  // Header background
+  // Background
+  ctx.fillStyle = '#f7f6f3';
+  ctx.fillRect(0, 0, W, H);
+
+  // Card margins
+  const MX = 48, MY = 48;
+  const CW = W - MX*2;
+
+  // Header
+  const HDR_H = 120;
   ctx.fillStyle = DARK;
-  ctx.fillRect(0, 0, W, headerH);
+  roundRect(ctx, MX, MY, CW, HDR_H, 16, true, false);
 
-  // Red corner stripe
+  // Red/blue stripes
   ctx.fillStyle = RED;
-  ctx.fillRect(0, 0, 3, headerH);
-
-  // Blue corner stripe
+  ctx.fillRect(MX, MY, 4, HDR_H);
   ctx.fillStyle = BLUE;
-  ctx.fillRect(W-3, 0, 3, headerH);
+  ctx.fillRect(MX+CW-4, MY, 4, HDR_H);
 
   // Corner labels
   ctx.fillStyle = '#666666';
-  ctx.font = '500 9px DM Sans, sans-serif';
+  ctx.font = '500 18px DM Sans, sans-serif';
   ctx.textBaseline = 'top';
-  ctx.fillText((lang==='uk'?'ЧЕРВОНИЙ КУТ':'RED CORNER'), PAD, 14);
-  ctx.textAlign = 'right';
-  ctx.fillText((lang==='uk'?'СИНІЙ КУТ':'BLUE CORNER'), W-PAD, 14);
   ctx.textAlign = 'left';
+  ctx.fillText(lang==='uk'?'ЧЕРВОНИЙ КУТ':'RED CORNER', MX+24, MY+18);
+  ctx.textAlign = 'right';
+  ctx.fillText(lang==='uk'?'СИНІЙ КУТ':'BLUE CORNER', MX+CW-24, MY+18);
 
   // Fighter names
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 18px DM Sans, sans-serif';
+  ctx.font = 'bold 34px DM Sans, sans-serif';
   ctx.textBaseline = 'top';
-  ctx.fillText(rn(), PAD, 30);
-  ctx.textAlign = 'right';
-  ctx.fillText(bn(), W-PAD, 30);
   ctx.textAlign = 'left';
+  ctx.fillText(rn(), MX+24, MY+46);
+  ctx.textAlign = 'right';
+  ctx.fillText(bn(), MX+CW-24, MY+46);
 
   // Brand center
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 14px DM Sans, sans-serif';
+  ctx.font = 'bold 22px DM Sans, sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('12×3', W/2, 20);
-  ctx.fillStyle = '#444444';
-  ctx.font = '9px DM Sans, sans-serif';
-  ctx.fillText('SCORE', W/2, 38);
-  ctx.textAlign = 'left';
-
-  // Col heads row
-  let y = headerH;
-  ctx.fillStyle = '#f7f6f3';
-  ctx.fillRect(0, y, W, colHeadH);
-  ctx.strokeStyle = BORDER;
-  ctx.lineWidth = 0.5;
-  ctx.beginPath(); ctx.moveTo(0, y+colHeadH); ctx.lineTo(W, y+colHeadH); ctx.stroke();
-
-  ctx.font = '500 9px DM Sans, sans-serif';
-  ctx.fillStyle = RED;
   ctx.textBaseline = 'middle';
-  ctx.textAlign = 'center';
-  ctx.fillText(lang==='uk'?'РАУНД':'WIN', 20, y+colHeadH/2);
-  ctx.fillStyle = MUTED;
-  ctx.fillText('PTS', 120, y+colHeadH/2);
-  ctx.fillText('RD', W/2, y+colHeadH/2);
-  ctx.fillStyle = BLUE;
-  ctx.fillText(lang==='uk'?'РАУНД':'WIN', W-20, y+colHeadH/2);
-  ctx.fillStyle = MUTED;
-  ctx.fillText('PTS', W-120, y+colHeadH/2);
+  ctx.fillText('12×3', W/2, MY+HDR_H/2-8);
+  ctx.fillStyle = '#555555';
+  ctx.font = '13px DM Sans, sans-serif';
+  ctx.fillText('SCORE', W/2, MY+HDR_H/2+14);
+
+  // Column headers
+  const COL_Y = MY + HDR_H + 2;
+  const COL_H = 40;
+  ctx.fillStyle = '#f0ede8';
+  ctx.fillRect(MX, COL_Y, CW, COL_H);
+  ctx.fillStyle = RED;
+  ctx.font = '600 14px DM Sans, sans-serif';
   ctx.textAlign = 'left';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(lang==='uk'?'РАУНД':'WIN', MX+24, COL_Y+COL_H/2);
+  ctx.fillStyle = MUTED;
+  ctx.fillText(lang==='uk'?'БАЛИ':'PTS', MX+90, COL_Y+COL_H/2);
+  ctx.textAlign = 'center';
+  ctx.fillText('RD', W/2, COL_Y+COL_H/2);
+  ctx.fillStyle = BLUE;
+  ctx.textAlign = 'right';
+  ctx.fillText(lang==='uk'?'РАУНД':'WIN', MX+CW-24, COL_Y+COL_H/2);
+  ctx.fillStyle = MUTED;
+  ctx.fillText(lang==='uk'?'БАЛИ':'PTS', MX+CW-90, COL_Y+COL_H/2);
 
   // Rounds
-  y = headerH + colHeadH;
+  const ROW_H = Math.floor((H - MY*2 - HDR_H - 2 - COL_H - 110 - 40) / n);
+  let ry = COL_Y + COL_H;
+  const BAR_W = 340, BAR_H = Math.min(ROW_H-10, 36), BAR_R = 6;
+  const BAR_PAD = 70;
+
   for (let i = 0; i < n; i++) {
     const s = scores[i];
     const done = s.red!==null && s.blue!==null;
+
+    // Row bg
     ctx.fillStyle = done ? '#fafaf8' : '#ffffff';
-    ctx.fillRect(0, y, W, ROW);
+    ctx.fillRect(MX, ry, CW, ROW_H);
+
+    // Row border
     ctx.strokeStyle = BORDER;
-    ctx.lineWidth = 0.5;
-    ctx.beginPath(); ctx.moveTo(0, y+ROW); ctx.lineTo(W, y+ROW); ctx.stroke();
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(MX, ry+ROW_H); ctx.lineTo(MX+CW, ry+ROW_H); ctx.stroke();
 
-    // Red score bar
-    if (s.red !== null) {
-      ctx.fillStyle = RED_L;
-      ctx.beginPath();
-      ctx.roundRect(PAD, y+4, 180, 20, 3);
-      ctx.fill();
-      ctx.fillStyle = RED;
-      ctx.font = '500 12px DM Sans, sans-serif';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(s.red, PAD+8, y+14);
-    } else {
-      ctx.fillStyle = '#f7f6f3';
-      ctx.beginPath();
-      ctx.roundRect(PAD, y+4, 180, 20, 3);
-      ctx.fill();
-      ctx.fillStyle = MUTED;
-      ctx.font = '500 12px DM Sans, sans-serif';
-      ctx.textBaseline = 'middle';
-      ctx.fillText('—', PAD+8, y+14);
+    const cy = ry + ROW_H/2;
+
+    // Red bar
+    const rbx = MX + BAR_PAD;
+    ctx.fillStyle = s.red!==null ? RED_L : '#f0ede8';
+    roundRect(ctx, rbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, true, false);
+    if (s.red!==null) {
+      ctx.strokeStyle = RED_B; ctx.lineWidth = 1;
+      roundRect(ctx, rbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, false, true);
     }
+    ctx.fillStyle = s.red!==null ? RED : MUTED;
+    ctx.font = 'bold 22px DM Sans, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.red!==null ? s.red : '—', rbx+14, cy);
 
-    // Round number
+    // Blue bar
+    const bbx = MX+CW - BAR_PAD - BAR_W;
+    ctx.fillStyle = s.blue!==null ? BLUE_L : '#f0ede8';
+    roundRect(ctx, bbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, true, false);
+    if (s.blue!==null) {
+      ctx.strokeStyle = BLUE_B; ctx.lineWidth = 1;
+      roundRect(ctx, bbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, false, true);
+    }
+    ctx.fillStyle = s.blue!==null ? BLUE : MUTED;
+    ctx.font = 'bold 22px DM Sans, sans-serif';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.blue!==null ? s.blue : '—', bbx+BAR_W-14, cy);
+
+    // Round number center
     ctx.fillStyle = MUTED;
-    ctx.font = '500 10px DM Sans, sans-serif';
+    ctx.font = '500 16px DM Sans, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('R'+(i+1), W/2, y+14);
-    ctx.textAlign = 'left';
-
-    // Blue score bar
-    if (s.blue !== null) {
-      ctx.fillStyle = BLUE_L;
-      ctx.beginPath();
-      ctx.roundRect(W-PAD-180, y+4, 180, 20, 3);
-      ctx.fill();
-      ctx.fillStyle = BLUE;
-      ctx.font = '500 12px DM Sans, sans-serif';
-      ctx.textBaseline = 'middle';
-      ctx.textAlign = 'right';
-      ctx.fillText(s.blue, W-PAD-8, y+14);
-      ctx.textAlign = 'left';
-    } else {
-      ctx.fillStyle = '#f7f6f3';
-      ctx.beginPath();
-      ctx.roundRect(W-PAD-180, y+4, 180, 20, 3);
-      ctx.fill();
-      ctx.fillStyle = MUTED;
-      ctx.font = '500 12px DM Sans, sans-serif';
-      ctx.textBaseline = 'middle';
-      ctx.textAlign = 'right';
-      ctx.fillText('—', W-PAD-8, y+14);
-      ctx.textAlign = 'left';
-    }
+    ctx.fillText('R'+(i+1), W/2, cy);
 
     // Win indicators
     if (done) {
-      ctx.font = '500 9px DM Sans, sans-serif';
-      ctx.textBaseline = 'middle';
+      ctx.font = '600 14px DM Sans, sans-serif';
       if (s.red > s.blue) {
-        ctx.fillStyle = RED;
-        ctx.fillText('W', 4, y+14);
+        ctx.fillStyle = RED; ctx.textAlign = 'left';
+        ctx.fillText('W', MX+8, cy);
       } else if (s.blue > s.red) {
-        ctx.fillStyle = BLUE;
-        ctx.textAlign = 'right';
-        ctx.fillText('W', W-4, y+14);
-        ctx.textAlign = 'left';
+        ctx.fillStyle = BLUE; ctx.textAlign = 'right';
+        ctx.fillText('W', MX+CW-8, cy);
       }
     }
-    y += ROW;
+    ry += ROW_H;
   }
 
   // Footer
+  const FY = ry + 2;
+  const FH = 110;
+  ctx.fillStyle = DARK;
+  roundRect(ctx, MX, FY, CW, FH, [0,0,16,16], true, false);
+
   if (stoppage) {
-    ctx.fillStyle = DARK;
-    ctx.fillRect(0, y, W, footerH);
     const w = stoppage.winner==='red' ? rn() : bn();
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 16px DM Sans, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(w + ' — ' + stoppage.type + ' R' + stoppage.round, W/2, y+footerH/2-8);
+    ctx.font = 'bold 28px DM Sans, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(w + ' — ' + stoppage.type + ' R' + stoppage.round, W/2, FY+FH/2-12);
     ctx.fillStyle = '#555555';
-    ctx.font = '9px DM Sans, sans-serif';
-    ctx.fillText(lang==='uk'?'ДОСТРОКОВИЙ ФІНАЛ':'EARLY STOPPAGE', W/2, y+footerH/2+12);
-    ctx.textAlign = 'left';
+    ctx.font = '14px DM Sans, sans-serif';
+    ctx.fillText(lang==='uk'?'ДОСТРОКОВИЙ ФІНАЛ':'EARLY STOPPAGE', W/2, FY+FH/2+18);
   } else {
-    ctx.fillStyle = DARK;
-    ctx.fillRect(0, y, W, footerH);
     ctx.fillStyle = RED;
-    ctx.font = 'bold 36px DM Sans, sans-serif';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(sc.length ? tr : '—', PAD, y+footerH/2);
+    ctx.font = 'bold 52px DM Sans, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(sc.length ? tr : '—', MX+32, FY+FH/2);
     ctx.fillStyle = BLUE;
     ctx.textAlign = 'right';
-    ctx.fillText(sc.length ? tb : '—', W-PAD, y+footerH/2);
+    ctx.fillText(sc.length ? tb : '—', MX+CW-32, FY+FH/2);
     ctx.fillStyle = '#444444';
-    ctx.font = '8px DM Sans, sans-serif';
+    ctx.font = '13px DM Sans, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('TOTAL SCORE', W/2, y+footerH/2);
-    ctx.textAlign = 'left';
+    ctx.fillText('TOTAL SCORE', W/2, FY+FH/2);
   }
 
   // Brand footer
-  y += footerH;
-  ctx.fillStyle = '#0a0a0a';
-  ctx.fillRect(0, y, W, brandH);
-  ctx.fillStyle = '#333333';
-  ctx.font = '8px DM Sans, sans-serif';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText('BOXING12X3.COM', W/2, y+brandH/2);
-  ctx.textAlign = 'left';
+  const BY = FY + FH + 16;
+  ctx.fillStyle = MUTED;
+  ctx.font = '500 18px DM Sans, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('BOXING12X3.COM', W/2, BY+12);
 
   return canvas;
+}
+
+function roundRect(ctx, x, y, w, h, r, fill, stroke) {
+  if (typeof r === 'number') r = [r,r,r,r];
+  ctx.beginPath();
+  ctx.moveTo(x+r[0], y);
+  ctx.lineTo(x+w-r[1], y); ctx.arcTo(x+w, y, x+w, y+r[1], r[1]);
+  ctx.lineTo(x+w, y+h-r[2]); ctx.arcTo(x+w, y+h, x+w-r[2], y+h, r[2]);
+  ctx.lineTo(x+r[3], y+h); ctx.arcTo(x, y+h, x, y+h-r[3], r[3]);
+  ctx.lineTo(x, y+r[0]); ctx.arcTo(x, y, x+r[0], y, r[0]);
+  ctx.closePath();
+  if (fill) ctx.fill();
+  if (stroke) ctx.stroke();
 }
 async function dlImg() {
   const btn = document.getElementById('btnDl');
