@@ -249,12 +249,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <script>
 // ── Data ──────────────────────────────────────────────────────────────────────
 const FIGHTS = [
-  {id:'chukhadzhian-donovan', date:'May 15', dateUk:'15 травня', red:'Karen Chukhadzhian', redUk:'Карен Чухаджян', blue:'Paddy Donovan', blueUk:'Педді Донован', rounds:12},
-  {id:'allen-hrgovic', date:'May 16', dateUk:'16 травня', red:'David Allen', redUk:'Девід Аллен', blue:'Filip Hrgovic', blueUk:'Філіп Хргович', rounds:10},
-  {id:'usyk-verhoeven', date:'May 23', dateUk:'23 травня', red:'Oleksandr Usyk', redUk:'Олександр Усик', blue:'Rico Verhoeven', blueUk:'Ріко Верховен', rounds:12},
-  {id:'lerena-merhy', date:'May 30', dateUk:'30 травня', red:'Kevin Lerena', redUk:'Кевін Лерена', blue:'Ryad Merhy', blueUk:'Ріяд Мерхі', rounds:12},
-  {id:'serrano-hansen', date:'May 31', dateUk:'31 травня', red:'Amanda Serrano', redUk:'Аманда Серрано', blue:'Chayenne Hansen', blueUk:'Шайєнн Хансон', rounds:10},
-  {id:'foster-ford', date:'May 31', dateUk:'31 травня', red:"O'Shaquie Foster", redUk:"О'Шакі Фостер", blue:'Raymond Ford', blueUk:'Реймонд Форд', rounds:12}
+  {id:'chukhadzhian-donovan', date:'May 15', dateUk:'15 травня', red:'Karen Chukhadzhian', redUk:'Карен Чухаджян', blue:'Paddy Donovan', blueUk:'Педді Донован', rounds:12, completed:true},
+  {id:'allen-hrgovic', date:'May 16', dateUk:'16 травня', red:'David Allen', redUk:'Девід Аллен', blue:'Filip Hrgovic', blueUk:'Філіп Хргович', rounds:10, completed:true},
+  {id:'usyk-verhoeven', date:'May 23', dateUk:'23 травня', red:'Oleksandr Usyk', redUk:'Олександр Усик', blue:'Rico Verhoeven', blueUk:'Ріко Верховен', rounds:12, completed:false},
+  {id:'lerena-merhy', date:'May 30', dateUk:'30 травня', red:'Kevin Lerena', redUk:'Кевін Лерена', blue:'Ryad Merhy', blueUk:'Ріяд Мерхі', rounds:12, completed:false},
+  {id:'serrano-hansen', date:'May 31', dateUk:'31 травня', red:'Amanda Serrano', redUk:'Аманда Серрано', blue:'Chayenne Hansen', blueUk:'Шайєнн Хансон', rounds:10, completed:false},
+  {id:'foster-ford', date:'May 31', dateUk:'31 травня', red:"O'Shaquie Foster", redUk:"О'Шакі Фостер", blue:'Raymond Ford', blueUk:'Реймонд Форд', rounds:12, completed:false}
 ];
 
 const I18N = {
@@ -358,15 +358,40 @@ function buildSelector() {
   const ph = document.createElement('option');
   ph.value = ''; ph.textContent = t('sel');
   sel.appendChild(ph);
-  FIGHTS.forEach(f => {
-    const o = document.createElement('option');
-    o.value = f.id;
-    const d = lang==='uk' ? f.dateUk : f.date;
-    const r = lang==='uk' ? f.redUk : f.red;
-    const b = lang==='uk' ? f.blueUk : f.blue;
-    o.textContent = d + ' · ' + r + ' vs ' + b;
-    sel.appendChild(o);
-  });
+
+  const upcoming = FIGHTS.filter(f => !f.completed);
+  const completed = FIGHTS.filter(f => f.completed);
+
+  if (upcoming.length) {
+    const grp1 = document.createElement('optgroup');
+    grp1.label = lang==='uk' ? 'Майбутні' : 'Upcoming';
+    upcoming.forEach(f => {
+      const o = document.createElement('option');
+      o.value = f.id;
+      const d = lang==='uk' ? f.dateUk : f.date;
+      const r = lang==='uk' ? f.redUk : f.red;
+      const b = lang==='uk' ? f.blueUk : f.blue;
+      o.textContent = d + ' · ' + r + ' vs ' + b;
+      grp1.appendChild(o);
+    });
+    sel.appendChild(grp1);
+  }
+
+  if (completed.length) {
+    const grp2 = document.createElement('optgroup');
+    grp2.label = lang==='uk' ? 'Завершені' : 'Completed';
+    completed.forEach(f => {
+      const o = document.createElement('option');
+      o.value = f.id;
+      const d = lang==='uk' ? f.dateUk : f.date;
+      const r = lang==='uk' ? f.redUk : f.red;
+      const b = lang==='uk' ? f.blueUk : f.blue;
+      o.textContent = d + ' · ' + r + ' vs ' + b;
+      grp2.appendChild(o);
+    });
+    sel.appendChild(grp2);
+  }
+
   sel.value = fight.id;
 }
 
