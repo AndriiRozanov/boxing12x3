@@ -585,7 +585,8 @@ function buildPreview() {
     '<div class="prb"><span>'+(s.blue!==null?s.blue:'—')+'</span></div></div>'
   ).join('');
   const foot = stoppage
-    ? '<div class="pstop"><div class="pstop-t">'+(stoppage.winner==='red'?rn():bn())+' — '+stoppage.type+' R'+stoppage.round+'</div><div class="pstop-s">'+t('earlyStop')+'</div></div>'
+    ? '<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>'+
+      '<div class="pstop"><div class="pstop-t">'+(stoppage.winner==='red'?rn():bn())+' — '+stoppage.type+' R'+stoppage.round+'</div><div class="pstop-s">'+t('earlyStop')+'</div></div>'
     : '<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>';
   document.getElementById('pcard').innerHTML =
     '<div class="ph"><div class="pf r"><div class="pc">'+t('redCorner')+'</div><div class="pn">'+rn()+'</div></div>' +
@@ -749,19 +750,28 @@ async function genImg() {
 
   // Footer
   const FY = ry + 2;
-  const FH = 110;
+  const FH = stoppage ? 130 : 110;
   ctx.fillStyle = DARK;
   roundRect(ctx, MX, FY, CW, FH, [0,0,16,16], true, false);
 
   if (stoppage) {
     const w = stoppage.winner==='red' ? rn() : bn();
+    // Show score on top
+    ctx.fillStyle = RED;
+    ctx.font = 'bold 42px DM Sans, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(sc.length ? tr : '—', MX+32, FY+30);
+    ctx.fillStyle = BLUE;
+    ctx.textAlign = 'right';
+    ctx.fillText(sc.length ? tb : '—', MX+CW-32, FY+30);
+    // Stoppage info below
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 28px DM Sans, sans-serif';
+    ctx.font = 'bold 22px DM Sans, sans-serif';
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(w + ' — ' + stoppage.type + ' R' + stoppage.round, W/2, FY+FH/2-12);
+    ctx.fillText(w + ' — ' + stoppage.type + ' R' + stoppage.round, W/2, FY+72);
     ctx.fillStyle = '#555555';
-    ctx.font = '14px DM Sans, sans-serif';
-    ctx.fillText(lang==='uk'?'ДОСТРОКОВИЙ ФІНАЛ':'EARLY STOPPAGE', W/2, FY+FH/2+18);
+    ctx.font = '13px DM Sans, sans-serif';
+    ctx.fillText(lang==='uk'?'ДОСТРОКОВИЙ ФІНАЛ':'EARLY STOPPAGE', W/2, FY+96);
   } else {
     ctx.fillStyle = RED;
     ctx.font = 'bold 52px DM Sans, sans-serif';
