@@ -150,6 +150,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .stop-ok{width:100%;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;padding:12px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:4px;}
 .stop-ok:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
 .stop-cancel{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;padding:9px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:6px;}
+.custom-input{width:100%;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--text);background:var(--bg);border:0.5px solid var(--border);border-radius:6px;padding:10px 12px;outline:none;}
+.custom-input:focus{border-color:var(--text);}
+.ua-links{max-width:520px;margin:1.5rem auto 0;}
+.ua-links-title{text-align:center;font-size:11px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;}
+.ua-link{display:flex;align-items:center;gap:12px;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;text-decoration:none;}
+.ua-link-ico{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ua-link-txt{flex:1;}
+.ua-link-name{font-size:14px;font-weight:500;color:var(--text);}
+.ua-link-sub{font-size:12px;color:var(--muted);margin-top:1px;}
+.ua-link-arr{color:#ccc;font-size:20px;}
+.podcast-sub{display:flex;flex-direction:column;gap:0;margin:-4px 0 8px;padding-left:48px;}
+.pod-platform{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;padding:8px 0;border-bottom:0.5px solid var(--border);}
+.pod-platform:last-child{border-bottom:none;}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -222,6 +235,73 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </div>
 </div>
 
+<!-- UA links section (shown only in Ukrainian) -->
+<div class="ua-links" id="uaLinks" style="display:none;">
+  <div class="ua-links-title" id="lbl-more">Більше боксу від 12×3</div>
+  <a href="https://t.me/boxing12x3" class="ua-link" target="_blank">
+    <div class="ua-link-ico" style="background:#229ED9;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-tg-t">Telegram-канал автора</div>
+      <div class="ua-link-sub" id="lbl-tg-s">Спілкуємось про бокс серйозно та не дуже</div>
+    </div>
+    <span class="ua-link-arr">›</span>
+  </a>
+  <div class="ua-link" onclick="togglePodcast()" style="cursor:pointer;">
+    <div class="ua-link-ico" style="background:#111;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm5 9a1 1 0 0 0-2 0 3 3 0 0 1-6 0 1 1 0 0 0-2 0 5 5 0 0 0 4 4.9V19H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2h-3v-3.1a5 5 0 0 0 4-4.9z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-pod-t">Подкаст «12×3»</div>
+      <div class="ua-link-sub" id="lbl-pod-s">Apple · Spotify · YouTube</div>
+    </div>
+    <span class="ua-link-arr" id="podArrow">›</span>
+  </div>
+  <div class="podcast-sub" id="podcastSub" style="display:none;">
+    <a href="https://podcasts.apple.com/ua/podcast/12%D1%853/id1828939896" target="_blank" class="pod-platform">Apple Podcasts</a>
+    <a href="https://open.spotify.com/show/0v4PfK4rGs82cvaL2rJ6ID" target="_blank" class="pod-platform">Spotify</a>
+    <a href="https://www.youtube.com/playlist?list=PLjq-Sbkf-rUKAFluWXsE-We35N-rjdQ4w" target="_blank" class="pod-platform">YouTube</a>
+  </div>
+  <a href="https://ua.tribuna.com/uk/blogs/brave_hearts/" class="ua-link" target="_blank">
+    <div class="ua-link-ico" style="background:#c0392b;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-2 6H7V7h10v2zm0 4H7v-2h10v2zm-3 4H7v-2h7v2z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-blog-t">Матеріали про бокс</div>
+      <div class="ua-link-sub" id="lbl-blog-s">Блог 12×3: від боксерських історій до детального аналізу</div>
+    </div>
+    <span class="ua-link-arr">›</span>
+  </a>
+</div>
+
+<!-- Custom fight overlay -->
+<div class="overlay" id="customOverlay" onclick="closeCustomOut(event)">
+  <div class="stop-modal">
+    <div class="stop-title" id="lbl-custom-title">Додати свій бій</div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-red">Ім'я червоного кута</div>
+      <input type="text" id="customRed" class="custom-input" placeholder="">
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-blue">Ім'я синього кута</div>
+      <input type="text" id="customBlue" class="custom-input" placeholder="">
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-rounds">Раундів</div>
+      <select id="customRoundsSel" class="custom-input">
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12" selected>12</option>
+      </select>
+    </div>
+    <button class="stop-ok" id="lbl-custom-start" onclick="startCustom()">ПОЧАТИ</button>
+    <button class="stop-cancel" onclick="closeCustom()" id="lbl-custom-cancel">Cancel</button>
+  </div>
+</div>
+
 <!-- Stoppage overlay -->
 <div class="overlay" id="stopOverlay" onclick="closeStopOut(event)">
   <div class="stop-modal">
@@ -250,19 +330,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <script>
 // ── Data ──────────────────────────────────────────────────────────────────────
 const FIGHTS = [
-  {id:'chukhadzhian-donovan', date:'May 15', dateUk:'15 травня', red:'Karen Chukhadzhian', redUk:'Карен Чухаджян', blue:'Paddy Donovan', blueUk:'Педді Донован', rounds:12, completed:true},
-  {id:'allen-hrgovic', date:'May 16', dateUk:'16 травня', red:'David Allen', redUk:'Девід Аллен', blue:'Filip Hrgovic', blueUk:'Філіп Хргович', rounds:10, completed:true},
-  {id:'usyk-verhoeven', date:'May 23', dateUk:'23 травня', red:'Oleksandr Usyk', redUk:'Олександр Усик', blue:'Rico Verhoeven', blueUk:'Ріко Верховен', rounds:12, completed:true},
-  {id:'lerena-merhy', date:'May 30', dateUk:'30 травня', red:'Kevin Lerena', redUk:'Кевін Лерена', blue:'Ryad Merhy', blueUk:'Ріяд Мерхі', rounds:12, completed:false},
-  {id:'serrano-hansen', date:'May 31', dateUk:'31 травня', red:'Amanda Serrano', redUk:'Аманда Серрано', blue:'Chayenne Hansen', blueUk:'Шайєнн Хансон', rounds:10, completed:false},
-  {id:'foster-ford', date:'May 31', dateUk:'31 травня', red:"O'Shaquie Foster", redUk:"О'Шакі Фостер", blue:'Raymond Ford', blueUk:'Реймонд Форд', rounds:12, completed:false},
   {id:'garcia-moloney', date:'Jun 6', dateUk:'6 червня', red:'Willibaldo Garcia', redUk:'Віллібальдо Гарсія', blue:'Andrew Moloney', blueUk:'Ендрю Молоні', rounds:12, completed:false},
   {id:'nery-casimero', date:'Jun 6', dateUk:'6 червня', red:'Luis Nery', redUk:'Луїс Нері', blue:'John Riel Casimero', blueUk:'Джон Касімеро', rounds:10, completed:false},
   {id:'billam-smith-rozicki', date:'Jun 6', dateUk:'6 червня', red:'Chris Billam-Smith', redUk:'Кріс Біллем-Сміт', blue:'Ryan Rozicki', blueUk:'Раян Розицький', rounds:10, completed:false},
   {id:'rodriguez-vargas', date:'Jun 14', dateUk:'14 червня', red:'Jesse Rodriguez', redUk:'Джессі Родрігес', blue:'Antonio Vargas', blueUk:'Антоніо Варгас', rounds:12, completed:false},
   {id:'allen-chvakrov', date:'Jun 20', dateUk:'20 червня', red:'David Allen', redUk:'Девід Аллен', blue:'Viktar Chvakrou', blueUk:'Віктар Чвакров', rounds:4, completed:false},
   {id:'crocker-paro', date:'Jun 24', dateUk:'24 червня', red:'Lewis Crocker', redUk:'Льюїс Крокер', blue:'Liam Paro', blueUk:'Ліам Паро', rounds:12, completed:false},
-  {id:'whittaker-rivera', date:'Jun 27', dateUk:'27 червня', red:'Ben Whittaker', redUk:'Бен Віттакер', blue:'Richard Rivera', blueUk:'Річард Рів'єра', rounds:10, completed:false},
+  {id:'whittaker-rivera', date:'Jun 27', dateUk:'27 червня', red:'Ben Whittaker', redUk:'Бен Віттакер', blue:'Richard Rivera', blueUk:"Річард Рів'єра", rounds:10, completed:false},
   {id:'vargas-millis', date:'Jun 27', dateUk:'27 червня', red:'Emiliano Vargas', redUk:'Еміліано Варгас', blue:'Bruce Milles', blueUk:'Брюс Мілліс', rounds:10, completed:false},
   {id:'zayas-ennis', date:'Jun 27', dateUk:'27 червня', red:'Xander Zayas', redUk:'Ксандер Заяс', blue:'Jaron Ennis', blueUk:'Джарон Енніс', rounds:12, completed:false}
 ];
@@ -273,10 +347,10 @@ const I18N = {
     win:'WIN', pts:'PTS', total:'TOTAL\nSCORE',
     share:'SHARE SCORECARD', stopBtn:'⏹ Early finish', reset:'Reset',
     modal:'Share your scorecard', dl:'⬇ Download image', sh:'↑ Share',
-    cp:'📋 Copy text', cl:'Close', sel:'— Select a fight —',
+    cp:'📋 Copy text', cl:'Close', sel:'— Select a fight —', customFight:'+ Add your own fight',
     stopTitle:'Early finish', stopWinner:'Winner', stopType:'Stoppage type',
     stopOk:'CONFIRM', stopCancel:'Cancel',
-    winner: n => n + ' wins', draw:'Draw', copied:'✓ Copied!', dled:'✓ Downloaded!',
+    winner: n => n + ' wins', draw:'Draw', copied:'✓ Copied!', dled:'✓ Downloaded!', customTitle:'Add your own fight', customRedName:'Red corner name', customBlueName:'Blue corner name', customRounds:'Rounds', customStart:'START SCORING', moreBoxing:'More boxing from 12×3', tgTitle:"Author's Telegram", tgSub:'Boxing talk — serious and not so much', podTitle:'Podcast «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Boxing articles', blogSub:'12×3 blog: from boxing stories to deep analysis',
     earlyStop:'EARLY STOPPAGE'
   },
   uk: {
@@ -284,10 +358,10 @@ const I18N = {
     win:'РАУНД', pts:'БАЛИ', total:'РАХУНОК',
     share:'ПОДІЛИТИСЬ КАРТКОЮ', stopBtn:'⏹ Достроковий фінал', reset:'Скинути',
     modal:'Поділитись карткою', dl:'⬇ Завантажити картку', sh:'↑ Поділитись',
-    cp:'📋 Скопіювати текст', cl:'Закрити', sel:'— Оберіть бій —',
+    cp:'📋 Скопіювати текст', cl:'Закрити', sel:'— Оберіть бій —', customFight:'+ Додати свій бій',
     stopTitle:'Достроковий фінал', stopWinner:'Переможець', stopType:'Тип зупинки',
     stopOk:'ПІДТВЕРДИТИ', stopCancel:'Скасувати',
-    winner: n => n + ' виграє', draw:'Нічия', copied:'✓ Скопійовано!', dled:'✓ Завантажено!',
+    winner: n => n + ' виграє', draw:'Нічия', copied:'✓ Скопійовано!', dled:'✓ Завантажено!', customTitle:'Додати свій бій', customRedName:"Ім'я червоного кута", customBlueName:"Ім'я синього кута", customRounds:'Раундів', customStart:'ПОЧАТИ', moreBoxing:'Більше боксу від 12×3', tgTitle:'Telegram-канал автора', tgSub:'Спілкуємось про бокс серйозно та не дуже', podTitle:'Подкаст «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Матеріали про бокс', blogSub:'Блог 12×3: від боксерських історій до детального аналізу',
     earlyStop:'ДОСТРОКОВИЙ ФІНАЛ'
   }
 };
@@ -351,6 +425,27 @@ function renderAll() {
   document.getElementById('hdr-rn').textContent = rn();
   document.getElementById('hdr-bn').textContent = bn();
 
+  // UA links section — show only in Ukrainian
+  const uaLinks = document.getElementById('uaLinks');
+  if (uaLinks) {
+    uaLinks.style.display = lang === 'uk' ? 'block' : 'none';
+    document.getElementById('lbl-more').textContent = t('moreBoxing');
+    document.getElementById('lbl-tg-t').textContent = t('tgTitle');
+    document.getElementById('lbl-tg-s').textContent = t('tgSub');
+    document.getElementById('lbl-pod-t').textContent = t('podTitle');
+    document.getElementById('lbl-pod-s').textContent = t('podSub');
+    document.getElementById('lbl-blog-t').textContent = t('blogTitle');
+    document.getElementById('lbl-blog-s').textContent = t('blogSub');
+  }
+
+  // Custom modal labels
+  document.getElementById('lbl-custom-title').textContent = t('customTitle');
+  document.getElementById('lbl-custom-red').textContent = t('customRedName');
+  document.getElementById('lbl-custom-blue').textContent = t('customBlueName');
+  document.getElementById('lbl-custom-rounds').textContent = t('customRounds');
+  document.getElementById('lbl-custom-start').textContent = t('customStart');
+  document.getElementById('lbl-custom-cancel').textContent = t('stopCancel');
+
   // Fight selector
   buildSelector();
 
@@ -402,12 +497,23 @@ function buildSelector() {
     sel.appendChild(grp2);
   }
 
+  // Custom fight option
+  const customOpt = document.createElement('option');
+  customOpt.value = '__custom__';
+  customOpt.textContent = t('customFight');
+  sel.appendChild(customOpt);
+
   sel.value = fight.id;
 }
 
 function onFightChange() {
   const id = document.getElementById('fightSel').value;
   if (!id) return;
+  if (id === '__custom__') {
+    openCustom();
+    document.getElementById('fightSel').value = fight.id;
+    return;
+  }
   fight = FIGHTS.find(f => f.id === id);
   scores = mkScores();
   stoppage = null;
@@ -416,6 +522,36 @@ function onFightChange() {
   buildRounds();
   updateUI();
   saveState();
+}
+
+function togglePodcast() {
+  const sub = document.getElementById('podcastSub');
+  const arrow = document.getElementById('podArrow');
+  const isOpen = sub.style.display === 'flex';
+  sub.style.display = isOpen ? 'none' : 'flex';
+  arrow.textContent = isOpen ? '›' : '⌄';
+}
+
+function openCustom() {
+  document.getElementById('customRed').value = '';
+  document.getElementById('customBlue').value = '';
+  document.getElementById('customRoundsSel').value = '12';
+  document.getElementById('customOverlay').classList.add('open');
+}
+function closeCustom() { document.getElementById('customOverlay').classList.remove('open'); }
+function closeCustomOut(e) { if (e.target===document.getElementById('customOverlay')) closeCustom(); }
+function startCustom() {
+  const r = document.getElementById('customRed').value.trim() || (lang==='uk'?'Червоний кут':'Red corner');
+  const b = document.getElementById('customBlue').value.trim() || (lang==='uk'?'Синій кут':'Blue corner');
+  const rounds = parseInt(document.getElementById('customRoundsSel').value);
+  fight = {id:'custom', date:'', dateUk:'', red:r, redUk:r, blue:b, blueUk:b, rounds:rounds, completed:false};
+  scores = mkScores();
+  stoppage = null;
+  closeCustom();
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
+  buildRounds();
+  updateUI();
 }
 
 // ── Rounds ────────────────────────────────────────────────────────────────────
