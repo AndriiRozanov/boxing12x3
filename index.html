@@ -542,6 +542,7 @@ function onFightChange() {
   stoppage = null;
   document.getElementById('hdr-rn').textContent = rn();
   document.getElementById('hdr-bn').textContent = bn();
+  updateStatBanner();
   buildRounds();
   updateUI();
   saveState();
@@ -573,6 +574,7 @@ function startCustom() {
   closeCustom();
   document.getElementById('hdr-rn').textContent = rn();
   document.getElementById('hdr-bn').textContent = bn();
+  updateStatBanner();
   buildRounds();
   updateUI();
 }
