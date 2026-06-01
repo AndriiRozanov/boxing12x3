@@ -46,10 +46,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .sc-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;border-left:0.5px solid #1a1a1a;border-right:0.5px solid #1a1a1a;padding:6px 4px;}
 .sc-mid-brand{font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;letter-spacing:.08em;}
 .sc-mid-sub{font-size:8px;color:#444;letter-spacing:.12em;margin-top:1px;}
+.sc-statlink{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:var(--card);border-bottom:0.5px solid var(--border);text-decoration:none;color:var(--red);font-size:13px;font-weight:500;transition:background .15s;}
+.sc-statlink:hover{background:var(--red-l);}
+.sc-statlink-arr{font-size:14px;}
 
 /* Col heads */
-.sc-heads{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}
-.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
+.sc-heads{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
 .sh.r{color:var(--red);}
 .sh.b{color:var(--blue);text-align:right;}
 
@@ -198,6 +200,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <div class="sc-name" id="hdr-bn">—</div>
     </div>
   </div>
+  <a class="sc-statlink" id="statBanner" href="#" style="display:none;">
+    <span id="statBannerText">Статистика та аналіз бою</span>
+    <span class="sc-statlink-arr">→</span>
+  </a>
   <div class="sc-heads">
     <div class="sh r" id="lbl-win">WIN</div>
     <div class="sh" id="lbl-pts">PTS</div>
@@ -330,7 +336,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <script>
 // ── Data ──────────────────────────────────────────────────────────────────────
 const FIGHTS = [
-  {id:'garcia-moloney', date:'Jun 6', dateUk:'6 червня', red:'Willibaldo Garcia', redUk:'Віллібальдо Гарсія', blue:'Andrew Moloney', blueUk:'Ендрю Молоні', rounds:12, completed:false},
+  {id:'garcia-moloney', date:'Jun 6', dateUk:'6 червня', red:'Willibaldo Garcia', redUk:'Віллібальдо Гарсія', blue:'Andrew Moloney', blueUk:'Ендрю Молоні', rounds:12, completed:false, hasPage:true},
   {id:'nery-casimero', date:'Jun 6', dateUk:'6 червня', red:'Luis Nery', redUk:'Луїс Нері', blue:'John Riel Casimero', blueUk:'Джон Касімеро', rounds:10, completed:false},
   {id:'billam-smith-rozicki', date:'Jun 6', dateUk:'6 червня', red:'Chris Billam-Smith', redUk:'Кріс Біллем-Сміт', blue:'Ryan Rozicki', blueUk:'Раян Розицький', rounds:10, completed:false},
   {id:'rodriguez-vargas', date:'Jun 14', dateUk:'14 червня', red:'Jesse Rodriguez', redUk:'Джессі Родрігес', blue:'Antonio Vargas', blueUk:'Антоніо Варгас', rounds:12, completed:false},
@@ -395,6 +401,20 @@ function setLang(l) {
 }
 
 // ── Full render ───────────────────────────────────────────────────────────────
+function updateStatBanner() {
+  const banner = document.getElementById('statBanner');
+  const txt = document.getElementById('statBannerText');
+  if (!banner) return;
+  if (fight && fight.hasPage && fight.id !== 'custom') {
+    const base = lang === 'uk' ? '/ua/' + fight.id : '/en/' + fight.id;
+    banner.href = base;
+    txt.textContent = lang === 'uk' ? 'Статистика та аналіз бою' : 'Fight stats & analysis';
+    banner.style.display = 'flex';
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
 function renderAll() {
   // Sync lang buttons
   document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
@@ -424,6 +444,9 @@ function renderAll() {
   // Header names
   document.getElementById('hdr-rn').textContent = rn();
   document.getElementById('hdr-bn').textContent = bn();
+
+  // Stats banner — show only if fight has a stats page
+  updateStatBanner();
 
   // UA links section — show only in Ukrainian
   const uaLinks = document.getElementById('uaLinks');
@@ -1033,6 +1056,19 @@ function loadState() {
     if (sf) { const f = FIGHTS.find(x => x.id===sf); if (f) fight = f; }
     if (ss) scores = JSON.parse(ss);
     if (st) stoppage = JSON.parse(st);
+
+    // URL param overrides saved fight (for links from stats pages)
+    const params = new URLSearchParams(location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'uk' || urlLang === 'en') {
+      lang = urlLang;
+      document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+    }
+    const urlFight = params.get('fight');
+    if (urlFight) {
+      const f = FIGHTS.find(x => x.id === urlFight);
+      if (f) { fight = f; scores = mkScores(); stoppage = null; }
+    }
   } catch(e) {}
 }
 </script>
