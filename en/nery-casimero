@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nery vs Casimero: stats before the June 6, 2026 fight | Boxing 12×3</title>
+<meta name="description" content="Luis Nery vs John Riel Casimero on June 6, 2026 — stats, records, and form before the fight in Japan. Score your own card.">
+<link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/nery-casimero">
+<link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/nery-casimero">
+<link rel="alternate" hreflang="x-default" href="https://boxing12x3.com/en/nery-casimero">
+<link rel="canonical" href="https://boxing12x3.com/en/nery-casimero">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23111'/><text x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'>12</text><line x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/><text x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'>%C3%973</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#c0392b;--red-l:#fdf2f2;--red-b:#f5b7b1;
+  --blue:#1a5276;--blue-l:#eaf4fb;--blue-b:#a9cce3;
+  --bg:#f7f6f3;--card:#fff;--text:#1a1a1a;--muted:#888;
+  --border:#e5e3de;--r:10px;
+  --win:#2e7d32;--loss:#c62828;--draw:#999;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.6;}
+.wrap{max-width:620px;margin:0 auto;}
+.brand{text-align:center;margin-bottom:1.5rem;}
+.brand a{text-decoration:none;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
+h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spacing:-.01em;}
+.meta{font-size:13px;color:var(--muted);margin-bottom:24px;padding-bottom:20px;border-bottom:0.5px solid var(--border);}
+.fcomp{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:28px;}
+.fcomp-top{display:grid;grid-template-columns:1fr 1fr;}
+.fcomp-f{padding:14px 16px;}
+.fcomp-f.r{border-right:0.5px solid var(--border);}
+.fcomp-f.b{text-align:right;}
+.fcomp-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-bottom:8px;}
+.fcomp-name{font-size:16px;font-weight:700;line-height:1.2;}
+.fcomp-loc{font-size:11px;color:var(--muted);margin-top:3px;}
+.fcomp-rows{border-top:0.5px solid var(--border);}
+.fcomp-row{display:grid;grid-template-columns:1fr auto 1fr;padding:9px 14px;border-bottom:0.5px solid #f0ede8;align-items:center;}
+.fcomp-row:last-child{border-bottom:none;}
+.fcomp-v{font-size:14px;font-weight:500;}
+.fcomp-v.r{color:var(--red);text-align:left;}
+.fcomp-v.b{color:var(--blue);text-align:right;}
+.fcomp-v.n{color:var(--text);}
+.fcomp-lbl{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:.06em;padding:0 12px;}
+article{margin-bottom:28px;}
+article h2{font-size:19px;font-weight:700;margin:26px 0 10px;letter-spacing:-.01em;}
+article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;}
+.info{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:20px 18px;margin:28px 0;}
+.info-title{text-align:center;font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.info-block{margin-bottom:20px;}
+.info-block:last-child{margin-bottom:0;}
+.info-head{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+.info-head .c{color:var(--text);font-weight:500;}
+.info-bar{display:flex;align-items:center;gap:8px;}
+.info-val{font-size:13px;font-weight:700;width:46px;}
+.info-val.r{color:var(--red);}
+.info-val.b{color:var(--blue);text-align:right;}
+.info-track{flex:1;display:flex;height:18px;border-radius:4px;overflow:hidden;background:#e8e6e0;}
+.info-fill-r{background:var(--red);}
+.info-fill-b{background:var(--blue);}
+.info-gap{flex:1;}
+.form-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.form-row:last-of-type{margin-bottom:0;}
+.form-name{font-size:12px;color:var(--muted);width:62px;}
+.form-cells{display:flex;gap:5px;}
+.fc{width:26px;height:26px;border-radius:5px;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+.fc.w{background:var(--win);}
+.fc.l{background:var(--loss);}
+.fc.d{background:var(--draw);}
+.form-legend{display:flex;gap:14px;justify-content:center;margin-top:14px;font-size:10px;color:var(--muted);}
+.form-legend span span{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:middle;}
+.cta{background:#111;border-radius:var(--r);padding:24px 20px;text-align:center;margin:28px 0;}
+.cta-t{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
+.cta-s{font-size:13px;color:#aaa;margin-bottom:16px;}
+.cta-btn{display:inline-block;background:var(--red);color:#fff;font-weight:500;font-size:14px;padding:11px 28px;border-radius:6px;text-decoration:none;}
+.sources{font-size:11px;color:var(--muted);border-top:0.5px solid var(--border);padding-top:16px;margin-top:28px;}
+.sources b{color:var(--text);font-weight:500;}
+.back{text-align:center;margin-top:24px;}
+.back a{font-size:13px;color:var(--red);font-weight:500;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div style="display:flex;justify-content:flex-end;gap:4px;margin-bottom:1rem;">
+    <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--text);background:var(--text);color:#fff;">EN</span>
+    <a href="/ua/nery-casimero" style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;">UA</a>
+  </div>
+
+  <div class="brand">
+    <a href="/?lang=en">
+      <div class="brand-name">BOXING 12×3</div>
+      <div class="brand-sub">Scorecard</div>
+    </a>
+  </div>
+
+  <h1>Nery vs Casimero: the stats before the June 6, 2026 fight</h1>
+  <div class="meta">Catchweight ~124 lbs · Aichi Sky Expo, Tokoname, Japan · 10 rounds</div>
+
+  <div class="fcomp">
+    <div class="fcomp-top">
+      <div class="fcomp-f r">
+        <div class="fcomp-dot" style="background:var(--red);"></div>
+        <div class="fcomp-name">Luis Nery</div>
+        <div class="fcomp-loc">🇲🇽 Mexico · age 31</div>
+      </div>
+      <div class="fcomp-f b">
+        <div class="fcomp-dot" style="background:var(--blue);"></div>
+        <div class="fcomp-name">John Riel Casimero</div>
+        <div class="fcomp-loc">🇵🇭 Philippines · age 37</div>
+      </div>
+    </div>
+    <div class="fcomp-rows">
+      <div class="fcomp-row"><span class="fcomp-v r">37-2-0</span><span class="fcomp-lbl">Record</span><span class="fcomp-v b">35-5-1</span></div>
+      <div class="fcomp-row"><span class="fcomp-v n">28</span><span class="fcomp-lbl">Knockouts</span><span class="fcomp-v n" style="text-align:right;">24</span></div>
+      <div class="fcomp-row"><span class="fcomp-v n">165 cm</span><span class="fcomp-lbl">Height</span><span class="fcomp-v n" style="text-align:right;">163 cm</span></div>
+      <div class="fcomp-row"><span class="fcomp-v n">167 cm</span><span class="fcomp-lbl">Reach</span><span class="fcomp-v n" style="text-align:right;">163 cm</span></div>
+      <div class="fcomp-row"><span class="fcomp-v n">Southpaw</span><span class="fcomp-lbl">Stance</span><span class="fcomp-v n" style="text-align:right;">Orthodox</span></div>
+    </div>
+  </div>
+
+  <article>
+    <p>On June 6, at the same Aichi Sky Expo arena in Japan where Garcia will defend his title, a fight with no belts on the line but two big names will take place. Luis "Pantera" Nery against John Riel "Quadro Alas" Casimero — a ten-round showdown between two former world champions, each of whom has known both the heights and the falls.</p>
+
+    <p>This is a crossroads fight. For both, an attempt to prove they aren't finished yet.</p>
+
+    <h2>A Mexican with a stained reputation</h2>
+
+    <p>Luis Nery is one of the most talented and at the same time most scandalous boxers of his generation. A two-time world champion (WBC at bantamweight, WBC at super bantamweight), a knockout artist with 28 stoppage wins to his name. But in Japan, his name is spoken through gritted teeth.</p>
+
+    <p>The story goes like this: in 2017 Nery came to Japan and knocked out local hero Shinsuke Yamanaka, taking the WBC title. After the fight, the Mexican failed a drug test. A rematch was ordered — and Nery catastrophically missed weight, stepping on the scale several pounds over the limit. The fight happened anyway, Nery won again, but the Japanese Boxing Commission banned him for years.</p>
+
+    <p>There was talk that the Mexican might not be allowed to fight in Japan at all. The attitude toward weight in the country is incredibly serious — local athletes do everything to hit their limits precisely. Luis's behavior was seen, among other things, as disrespect.</p>
+
+    <p>The return came only six years later — in 2024, when Japan forgave (or rather, came to terms) and allowed Nery to face national idol Naoya Inoue. You could say it was "The Monster" himself who brought Luis back to the country. That fight became unforgettable: Nery sent the undefeated Inoue to the canvas in the first round — the first time in his career he'd been down. But "The Monster" got up and brutally stopped the Mexican in the sixth.</p>
+
+    <p>Since then Nery has been rebuilding: a stoppage win over Kyonosuke Kameda and a technical decision against Sathaporn Saart. He comes into the Casimero fight as the favorite — bookmakers give him around 64% to win.</p>
+
+    <h2>A Filipino veteran who won't quit</h2>
+
+    <p>John Riel Casimero is an entire era. A world champion in three weight classes (light flyweight, flyweight, bantamweight), a fighter who has spent 19 years in the pro ring. At 37, he should have long been thinking about retirement, but he keeps fighting — and quite often winning.</p>
+
+    <p>He's known as a tenacious, aggressive warrior. Casimero burned brightest when he beat Guillermo Rigondeaux. John Riel became the second man after Vasyl Lomachenko to do it.</p>
+
+    <p>That said, Casimero has had an uneven few years: 2-1-1 over his last four fights. In October 2025 he lost a unanimous decision to Kyonosuke Kameda — the same man Nery stopped early. And in December he answered with a knockout of Tom Mizokoshi in Japan, in that very Aichi where the fight with Nery will take place.</p>
+
+    <p>An interesting detail: three of Casimero's last four fights took place in Japan. For the Filipino it's almost a second home — whereas for Nery, Japan has always been a place of drama.</p>
+
+    <h2>What's at stake</h2>
+
+    <p>There are no belts in this fight — it's a catchweight on the border of super bantamweight and featherweight (around 124 pounds). The bout is scheduled for 10 rounds. But calling it a throwaway would be wrong: two former champions with five titles between them across different weights don't step into the ring for nothing.</p>
+
+    <p>The fight was postponed twice. It was first supposed to take place on April 18 in Bishkek, Kyrgyzstan, but promoter 3150Fight canceled the event over the "international situation." Eventually it was moved to Japan, onto the loaded SAIKOU x Lush card, topped by two IBF title fights (Garcia-Moloney and Yabuki-Calixto). Broadcast on YouTube.</p>
+
+    <p>Stylistically, the meeting promises to be explosive. Nery is a southpaw knockout artist who applies pressure and hunts for the early finish. Casimero is also a puncher, but more unpredictable, capable of both a brilliant combination and a lapse in pace. Neither is the type to run around the ring for 10 rounds. The fans are in for a brawl. And, most likely, a knockdown.</p>
+
+    <h2>The numbers</h2>
+
+    <p>Nery is younger (31 to 37) and has a higher knockout percentage. Casimero leads in experience — 19 years in the pro ring against the younger Mexican. The main intrigue: will the veteran withstand Nery's pace and punching power, or will his experience and unpredictability outweigh his opponent's freshness?</p>
+  </article>
+
+  <div class="info">
+    <div class="info-title">The numbers compared</div>
+
+    <div class="info-block">
+      <div class="info-head"><span>Nery</span><span class="c">KO percentage</span><span>Casimero</span></div>
+      <div class="info-bar">
+        <span class="info-val r">75.7%</span>
+        <div class="info-track"><div class="info-fill-r" style="width:52%;"></div><div class="info-gap"></div><div class="info-fill-b" style="width:48%;"></div></div>
+        <span class="info-val b">68.6%</span>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-head"><span>Nery</span><span class="c">Pro rounds boxed</span><span>Casimero</span></div>
+      <div class="info-bar">
+        <span class="info-val r">196</span>
+        <div class="info-track"><div class="info-fill-r" style="width:42%;"></div><div class="info-gap"></div><div class="info-fill-b" style="width:58%;"></div></div>
+        <span class="info-val b">268</span>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <div class="info-title" style="margin-bottom:12px;">Last 5 fights</div>
+      <div class="form-row">
+        <span class="form-name">Nery</span>
+        <div class="form-cells">
+          <span class="fc w">W</span><span class="fc w">W</span><span class="fc l">L</span><span class="fc w">W</span><span class="fc w">W</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <span class="form-name">Casimero</span>
+        <div class="form-cells">
+          <span class="fc w">W</span><span class="fc d">D</span><span class="fc w">W</span><span class="fc l">L</span><span class="fc w">W</span>
+        </div>
+      </div>
+      <div class="form-legend">
+        <span><span style="background:var(--win);"></span>Win</span>
+        <span><span style="background:var(--loss);"></span>Loss</span>
+        <span><span style="background:var(--draw);"></span>Draw</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="cta-t">Who won on your card?</div>
+    <div class="cta-s">Score it round by round and compare with the official judges</div>
+    <a class="cta-btn" href="/?fight=nery-casimero&lang=en">Open the scorecard →</a>
+  </div>
+
+  <div class="sources">
+    <b>Statistics sources:</b> BoxRec, The Ring, BoxingScene, FIGHTMAG, Boxing Social, DAZN, ESPN. All data as of fight night.
+  </div>
+
+  <div class="back">
+    <a href="/?lang=en">← All fights and scorecards on boxing12x3.com</a>
+  </div>
+
+</div>
+</body>
+</html>
