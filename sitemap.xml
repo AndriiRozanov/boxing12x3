@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://boxing12x3.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/garcia-moloney</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/garcia-moloney"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/garcia-moloney"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/garcia-moloney</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/garcia-moloney"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/garcia-moloney"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/nery-casimero</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/nery-casimero"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/nery-casimero"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/nery-casimero</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/nery-casimero"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/nery-casimero"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/billam-smith-rozicki</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/billam-smith-rozicki"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/billam-smith-rozicki"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/billam-smith-rozicki</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/billam-smith-rozicki"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/billam-smith-rozicki"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/rodriguez-vargas</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rodriguez-vargas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rodriguez-vargas"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rodriguez-vargas</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rodriguez-vargas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rodriguez-vargas"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/crocker-paro</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/crocker-paro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/crocker-paro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/crocker-paro</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/crocker-paro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/crocker-paro"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/zayas-ennis</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/zayas-ennis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/zayas-ennis"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/zayas-ennis</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/zayas-ennis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/zayas-ennis"/>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
