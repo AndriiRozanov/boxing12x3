@@ -59,7 +59,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .sc-statlink-arr{font-size:14px;}
 
 /* Col heads */
-.sc-heads{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
+.sc-heads{display:grid;grid-template-columns:1fr 40px 1fr;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
 .sh.r{color:var(--red);}
 .sh.b{color:var(--blue);text-align:right;}
 
@@ -234,17 +234,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="won-strip" id="wonStrip" style="display:none;">
     <div class="won-val r" id="wonR">0</div>
     <div class="won-mid">
-      <div class="won-lbl">Виграних<br>раундів</div>
+      <div class="won-lbl" id="wonLbl">Виграних раундів</div>
       <div class="won-bar"><div class="won-fill" id="wonFill"></div></div>
     </div>
     <div class="won-val b" id="wonB">0</div>
   </div>
   <div class="sc-heads">
-    <div class="sh r" id="lbl-win">WIN</div>
-    <div class="sh" id="lbl-pts">PTS</div>
+    <div class="sh r" id="lbl-pts">PTS</div>
     <div class="sh">RD</div>
-    <div class="sh" id="lbl-pts2">PTS</div>
-    <div class="sh b" id="lbl-win2">WIN</div>
+    <div class="sh b" id="lbl-pts2">PTS</div>
   </div>
   <div id="rounds"></div>
   <div class="sc-foot">
@@ -457,10 +455,10 @@ function renderAll() {
   document.getElementById('lbl-sub').textContent = t('sub');
   document.getElementById('hdr-red').textContent = t('redCorner');
   document.getElementById('hdr-blue').textContent = t('blueCorner');
-  document.getElementById('lbl-win').textContent = t('win');
-  document.getElementById('lbl-win2').textContent = t('win');
   document.getElementById('lbl-pts').textContent = t('pts');
   document.getElementById('lbl-pts2').textContent = t('pts');
+  const wonLbl = document.getElementById('wonLbl');
+  if (wonLbl) wonLbl.textContent = lang === 'uk' ? 'Виграних раундів' : 'Rounds won';
   document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
   document.getElementById('shareBtn').textContent = t('share');
   document.getElementById('stopBtn').textContent = t('stopBtn');
