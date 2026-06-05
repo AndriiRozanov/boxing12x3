@@ -57,6 +57,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .sc-statlink{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:var(--card);border-bottom:0.5px solid var(--border);text-decoration:none;color:var(--red);font-size:13px;font-weight:500;transition:background .15s;}
 .sc-statlink:hover{background:var(--red-l);}
 .sc-statlink-arr{font-size:14px;}
+/* Scoring hint */
+.hint-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--muted);padding:8px 0 2px;margin:0 auto;}
+.hint-toggle:hover{color:var(--text);}
+.hint-body{display:none;background:var(--card);border:0.5px solid var(--border);border-radius:8px;padding:12px 14px;margin-top:8px;}
+.hint-body.open{display:block;}
+.hint-row{display:flex;gap:8px;align-items:baseline;font-size:12px;color:#666;margin-bottom:6px;}
+.hint-row:last-child{margin-bottom:0;}
+.hint-key{background:#111;color:#fff;font-size:10px;font-weight:600;border-radius:4px;padding:2px 7px;white-space:nowrap;flex-shrink:0;}
 
 /* Col heads */
 .sc-heads{display:grid;grid-template-columns:1fr 40px 1fr;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
@@ -258,6 +266,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <button class="main-btn" id="shareBtn" onclick="openShare()" disabled>SHARE SCORECARD</button>
   <button class="stop-btn" id="stopBtn" onclick="openStop()" disabled>⏹ Early finish</button>
   <button class="sec-btn" id="resetBtn" onclick="doReset()">Reset</button>
+</div>
+
+<!-- Scoring hint -->
+<div style="text-align:center;">
+  <button class="hint-toggle" onclick="document.getElementById('hintBody').classList.toggle('open');this.querySelector('.hint-arr').textContent=document.getElementById('hintBody').classList.contains('open')?'▲':'▼'">
+    <span id="lbl-hint-toggle">Як судити?</span> <span class="hint-arr">▼</span>
+  </button>
+  <div class="hint-body" id="hintBody">
+    <div class="hint-row"><span class="hint-key" id="lbl-h1k">1 тап</span><span id="lbl-h1">Переможець раунду (10:9)</span></div>
+    <div class="hint-row"><span class="hint-key" id="lbl-h2k">Ще тап</span><span id="lbl-h2">Знижує рахунок (10:8, 10:7, 10:6)</span></div>
+    <div class="hint-row"><span class="hint-key">RD</span><span id="lbl-h3">Нічия в раунді (10:10)</span></div>
+    <div class="hint-row"><span class="hint-key" id="lbl-h4k">Інша сторона</span><span id="lbl-h4">Змінює переможця раунду</span></div>
+  </div>
 </div>
 
 <!-- Share overlay -->
@@ -478,6 +499,17 @@ function renderAll() {
   document.getElementById('hdr-rn').textContent = rn();
   document.getElementById('hdr-bn').textContent = bn();
 
+  // Scoring hint translations
+  const isUk = lang === 'uk';
+  document.getElementById('lbl-hint-toggle').textContent = isUk ? 'Як судити?' : 'How to score?';
+  document.getElementById('lbl-h1k').textContent = isUk ? '1 тап' : '1 tap';
+  document.getElementById('lbl-h1').textContent = isUk ? 'Переможець раунду (10:9)' : 'Round winner (10:9)';
+  document.getElementById('lbl-h2k').textContent = isUk ? 'Ще тап' : 'Tap again';
+  document.getElementById('lbl-h2').textContent = isUk ? 'Знижує рахунок (10:8, 10:7, 10:6)' : 'Lower the score (10:8, 10:7, 10:6)';
+  document.getElementById('lbl-h3').textContent = isUk ? 'Нічия в раунді (10:10)' : 'Draw round (10:10)';
+  document.getElementById('lbl-h4k').textContent = isUk ? 'Інша сторона' : 'Other side';
+  document.getElementById('lbl-h4').textContent = isUk ? 'Змінює переможця раунду' : 'Switch round winner';
+
   // Stats banner — show only if fight has a stats page
   updateStatBanner();
 
@@ -645,6 +677,19 @@ function tapSide(i, side) {
   saveState();
 }
 
+function tapCenter(i) {
+  const sc = scores[i];
+  if (sc.red === 10 && sc.blue === 10) {
+    sc.red = null; sc.blue = null; // reset
+  } else {
+    sc.red = 10; sc.blue = 10; // 10:10
+  }
+  renderRound(i);
+  updateUI();
+  saveState();
+}
+
+
 function getIntensity(diff) {
   if (diff <= 0) return 0.12;
   if (diff === 1) return 0.18;
@@ -709,7 +754,7 @@ function buildRounds() {
       '<div class="rside lft" id="rs-' + i + '-l" onclick="tapSide(' + i + ',\'red\')">' +
         '<span class="rpts" id="rp-' + i + '-l">–</span>' +
       '</div>' +
-      '<div class="rn">R' + (i + 1) + '</div>' +
+      '<div class="rn" onclick="tapCenter(' + i + ')" style="cursor:pointer;">R' + (i + 1) + '</div>' +
       '<div class="rside rgt" id="rs-' + i + '-r" onclick="tapSide(' + i + ',\'blue\')">' +
         '<span class="rpts" id="rp-' + i + '-r">–</span>' +
       '</div>';
