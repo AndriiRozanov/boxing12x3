@@ -59,36 +59,55 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .sc-statlink-arr{font-size:14px;}
 
 /* Col heads */
-.sc-heads{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
-.sh.r{color:var(--red);}
+.sc-heads{display:grid;grid-template-columns:1fr 40px 1fr;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
+.sh.r{color:var(--red);text-align:left;}
 .sh.b{color:var(--blue);text-align:right;}
 
-/* Round rows */
-.rrow{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;align-items:center;border-bottom:0.5px solid var(--border);}
+/* Round rows — v2 tap model */
+.rrow{
+  display:grid;grid-template-columns:1fr 40px 1fr;
+  align-items:stretch;min-height:54px;
+  border-bottom:0.5px solid var(--border);
+  transition:background .2s;
+}
 .rrow:last-child{border-bottom:none;}
-.rrow.done{background:#fafaf8;}
-.rn{font-size:10px;color:var(--muted);text-align:center;font-weight:500;}
-.wi{font-size:9px;font-weight:500;letter-spacing:.06em;text-align:center;}
-.wi.r{color:var(--red);}
-.wi.b{color:var(--blue);text-align:right;}
-.sw{position:relative;}
-.sb{height:28px;border-radius:4px;display:flex;align-items:center;padding:0 8px;cursor:pointer;border:0.5px solid transparent;user-select:none;}
-.sb.rb{background:var(--red-l);border-color:var(--red-b);}
-.sb.bb{background:var(--blue-l);border-color:var(--blue-b);justify-content:flex-end;}
-.sb.em{background:var(--bg);border-color:var(--border);}
-.sb.em.bb{justify-content:flex-end;}
-.sn{font-size:13px;font-weight:500;}
-.sb.rb .sn{color:var(--red);}
-.sb.bb .sn{color:var(--blue);}
-.sb.em .sn{color:var(--muted);}
-.sp{position:absolute;background:#fff;border:0.5px solid var(--border);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,.1);z-index:999;display:none;flex-direction:column;overflow:hidden;min-width:52px;}
-.sp.open{display:flex;}
-.sp.rp{left:0;}
-.sp.bp{right:0;}
-.po{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:7px 14px;cursor:pointer;border:none;background:transparent;text-align:center;}
-.po:hover{background:var(--bg);}
-.po.sr{color:var(--red);}
-.po.sb2{color:var(--blue);}
+.rside{
+  display:flex;align-items:center;
+  cursor:pointer;
+  user-select:none;-webkit-tap-highlight-color:transparent;
+  padding:0 14px;
+  transition:background .22s ease;
+}
+.rside.lft{justify-content:flex-start;}
+.rside.rgt{justify-content:flex-end;}
+.rside:active{opacity:.8;}
+.rpts{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;letter-spacing:.04em;
+  color:#d0cdc8;line-height:1;
+  transition:color .22s ease;
+}
+.rn{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);
+  font-size:11px;font-weight:600;color:#bbb;letter-spacing:.04em;
+  border-left:0.5px solid var(--border);border-right:0.5px solid var(--border);
+}
+/* won-rounds strip */
+.won-strip{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  background:#0f0f0f;padding:7px 14px;
+}
+.won-val{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.04em;}
+.won-val.r{color:var(--red);text-align:left;}
+.won-val.b{color:var(--blue);text-align:right;}
+.won-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
+.won-lbl{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:.1em;text-align:center;line-height:1.3;}
+.won-bar{width:72px;height:3px;background:#222;border-radius:2px;overflow:hidden;}
+.won-fill{height:100%;background:var(--red);border-radius:2px;width:50%;transition:width .4s ease, background .3s ease;}
+/* bump animation */
+.bump{animation:v2bump .25s ease;}
+@keyframes v2bump{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
 
 /* Footer */
 .sc-foot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:12px 14px;align-items:center;border-radius:0 0 var(--r) var(--r);}
@@ -212,12 +231,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <span id="statBannerText">Статистика та аналіз бою</span>
     <span class="sc-statlink-arr">→</span>
   </a>
+  <div class="won-strip" id="wonStrip" style="display:none;">
+    <div class="won-val r" id="wonR">0</div>
+    <div class="won-mid">
+      <div class="won-lbl" id="wonLbl">Виграних раундів</div>
+      <div class="won-bar"><div class="won-fill" id="wonFill"></div></div>
+    </div>
+    <div class="won-val b" id="wonB">0</div>
+  </div>
   <div class="sc-heads">
-    <div class="sh r" id="lbl-win">WIN</div>
-    <div class="sh" id="lbl-pts">PTS</div>
+    <div class="sh r" id="lbl-pts">PTS</div>
     <div class="sh">RD</div>
-    <div class="sh" id="lbl-pts2">PTS</div>
-    <div class="sh b" id="lbl-win2">WIN</div>
+    <div class="sh b" id="lbl-pts2">PTS</div>
   </div>
   <div id="rounds"></div>
   <div class="sc-foot">
@@ -430,10 +455,10 @@ function renderAll() {
   document.getElementById('lbl-sub').textContent = t('sub');
   document.getElementById('hdr-red').textContent = t('redCorner');
   document.getElementById('hdr-blue').textContent = t('blueCorner');
-  document.getElementById('lbl-win').textContent = t('win');
-  document.getElementById('lbl-win2').textContent = t('win');
   document.getElementById('lbl-pts').textContent = t('pts');
   document.getElementById('lbl-pts2').textContent = t('pts');
+  const wonLbl = document.getElementById('wonLbl');
+  if (wonLbl) wonLbl.textContent = lang === 'uk' ? 'Виграних раундів' : 'Rounds won';
   document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
   document.getElementById('shareBtn').textContent = t('share');
   document.getElementById('stopBtn').textContent = t('stopBtn');
@@ -587,42 +612,109 @@ function startCustom() {
   updateUI();
 }
 
-// ── Rounds ────────────────────────────────────────────────────────────────────
+// ── Rounds — v2 tap model ─────────────────────────────────────────────────────
+const SCORE_CYCLE = [10, 9, 8, 7, 6];
+
+function nextScore(current) {
+  if (current === null) return 10;
+  const idx = SCORE_CYCLE.indexOf(current);
+  if (idx === -1 || idx === SCORE_CYCLE.length - 1) return null;
+  return SCORE_CYCLE[idx + 1];
+}
+
+function tapSide(i, side) {
+  // side: 'red' | 'blue'
+  const sc = scores[i];
+  const other = side === 'red' ? 'blue' : 'red';
+
+  if (sc.red === null && sc.blue === null) {
+    // Smart default: first tap → 10:9
+    sc[side] = 10;
+    sc[other] = 9;
+  } else {
+    const next = nextScore(sc[side]);
+    if (next === null) {
+      // Reset round
+      sc.red = null; sc.blue = null;
+    } else {
+      sc[side] = next;
+    }
+  }
+  renderRound(i);
+  updateUI();
+  saveState();
+}
+
+function getIntensity(diff) {
+  if (diff <= 0) return 0.12;
+  if (diff === 1) return 0.18;
+  if (diff === 2) return 0.38;
+  if (diff === 3) return 0.60;
+  return 0.80;
+}
+
+function renderRound(i) {
+  const sc = scores[i];
+  const sl = document.getElementById('rs-' + i + '-l');
+  const sr = document.getElementById('rs-' + i + '-r');
+  const pl = document.getElementById('rp-' + i + '-l');
+  const pr = document.getElementById('rp-' + i + '-r');
+  if (!sl) return;
+
+  sl.style.background = '';
+  sr.style.background = '';
+  pl.style.color = '';
+  pr.style.color = '';
+
+  if (sc.red === null && sc.blue === null) {
+    pl.textContent = '–'; pr.textContent = '–';
+  } else {
+    pl.textContent = sc.red !== null ? sc.red : '–';
+    pr.textContent = sc.blue !== null ? sc.blue : '–';
+    if (sc.red !== null && sc.blue !== null) {
+      const diff = Math.abs(sc.red - sc.blue);
+      const intensity = getIntensity(diff);
+      if (sc.red > sc.blue) {
+        sl.style.background = 'linear-gradient(90deg, rgba(192,57,43,' + intensity + ') 0%, transparent 85%)';
+        pl.style.color = 'var(--red)';
+        pr.style.color = '#bbb';
+      } else if (sc.blue > sc.red) {
+        sr.style.background = 'linear-gradient(270deg, rgba(26,82,118,' + intensity + ') 0%, transparent 85%)';
+        pr.style.color = 'var(--blue)';
+        pl.style.color = '#bbb';
+      } else {
+        // draw round
+        sl.style.background = 'rgba(200,197,191,0.10)';
+        sr.style.background = 'rgba(200,197,191,0.10)';
+        pl.style.color = '#999'; pr.style.color = '#999';
+      }
+    } else {
+      if (sc.red !== null) pl.style.color = 'var(--text)';
+      if (sc.blue !== null) pr.style.color = 'var(--text)';
+    }
+  }
+  [pl, pr].forEach(el => {
+    el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  });
+}
+
 function buildRounds() {
   const list = document.getElementById('rounds');
   list.innerHTML = '';
   const n = fight.rounds;
   for (let i = 0; i < n; i++) {
-    const sc = scores[i];
-    const done = sc.red !== null && sc.blue !== null;
-    const up = i >= n - 4;
-    const dir = up ? 'bottom:calc(100% + 4px);top:auto;' : 'top:calc(100% + 4px);bottom:auto;';
-    const wL = winLbl(sc, true);
-    const wR = winLbl(sc, false);
-
     const row = document.createElement('div');
-    row.className = 'rrow' + (done ? ' done' : '');
+    row.className = 'rrow';
     row.innerHTML =
-      '<div class="wi' + (wL ? ' r' : '') + '">' + wL + '</div>' +
-      '<div class="sw">' +
-        '<div class="sb ' + (sc.red !== null ? 'rb' : 'em') + '" onclick="togPk(event,' + i + ',\'red\')">' +
-          '<span class="sn">' + (sc.red !== null ? sc.red : '—') + '</span>' +
-        '</div>' +
-        '<div class="sp rp" id="pk' + i + 'r" style="' + dir + '">' +
-          [10,9,8,7,6].map(v => '<button class="po' + (sc.red===v?' sr':'') + '" onclick="setSc(event,' + i + ',\'red\',' + v + ')">' + v + '</button>').join('') +
-        '</div>' +
+      '<div class="rside lft" id="rs-' + i + '-l" onclick="tapSide(' + i + ',\'red\')">' +
+        '<span class="rpts" id="rp-' + i + '-l">–</span>' +
       '</div>' +
-      '<div class="rn">R' + (i+1) + '</div>' +
-      '<div class="sw">' +
-        '<div class="sb ' + (sc.blue !== null ? 'bb' : 'em bb') + '" onclick="togPk(event,' + i + ',\'blue\')">' +
-          '<span class="sn">' + (sc.blue !== null ? sc.blue : '—') + '</span>' +
-        '</div>' +
-        '<div class="sp bp" id="pk' + i + 'b" style="' + dir + '">' +
-          [10,9,8,7,6].map(v => '<button class="po' + (sc.blue===v?' sb2':'') + '" onclick="setSc(event,' + i + ',\'blue\',' + v + ')">' + v + '</button>').join('') +
-        '</div>' +
-      '</div>' +
-      '<div class="wi' + (wR ? ' b' : '') + '" style="text-align:right">' + wR + '</div>';
+      '<div class="rn">R' + (i + 1) + '</div>' +
+      '<div class="rside rgt" id="rs-' + i + '-r" onclick="tapSide(' + i + ',\'blue\')">' +
+        '<span class="rpts" id="rp-' + i + '-r">–</span>' +
+      '</div>';
     list.appendChild(row);
+    renderRound(i);
   }
 }
 
@@ -631,31 +723,6 @@ function winLbl(sc, isRed) {
   if (sc.red === sc.blue) return lang==='uk' ? 'НР' : 'D';
   if (isRed) return sc.red > sc.blue ? 'W' : '';
   return sc.blue > sc.red ? 'W' : '';
-}
-
-// ── Pickers ───────────────────────────────────────────────────────────────────
-function togPk(e, i, side) {
-  e.stopPropagation();
-  const id = 'pk' + i + (side==='red' ? 'r' : 'b');
-  const pk = document.getElementById(id);
-  const was = pk.classList.contains('open');
-  closePks();
-  if (!was) { pk.classList.add('open'); openPk = id; }
-}
-function closePks() {
-  document.querySelectorAll('.sp').forEach(p => p.classList.remove('open'));
-  openPk = null;
-}
-document.addEventListener('click', closePks);
-
-function setSc(e, i, side, v) {
-  e.stopPropagation();
-  scores[i][side] = v;
-  closePks();
-  // Update just this row without full rebuild
-  buildRounds();
-  updateUI();
-  saveState();
 }
 
 // ── UI state ──────────────────────────────────────────────────────────────────
@@ -670,11 +737,27 @@ function updateUI() {
   document.getElementById('totR').textContent = any ? tr : '—';
   document.getElementById('totB').textContent = any ? tb : '—';
 
+  // Won rounds strip
+  const wonStrip = document.getElementById('wonStrip');
+  if (any) {
+    const wR = sc.filter(s => s.red > s.blue).length;
+    const wB = sc.filter(s => s.blue > s.red).length;
+    document.getElementById('wonR').textContent = wR;
+    document.getElementById('wonB').textContent = wB;
+    const total = wR + wB;
+    const pct = total === 0 ? 50 : Math.round((wR / total) * 100);
+    const fill = document.getElementById('wonFill');
+    fill.style.width = pct + '%';
+    fill.style.background = wR >= wB ? 'var(--red)' : 'var(--blue)';
+    wonStrip.style.display = 'grid';
+  } else {
+    wonStrip.style.display = 'none';
+  }
+
   const lb = document.getElementById('leaderBar');
   const shareBtn = document.getElementById('shareBtn');
   const stopBtn = document.getElementById('stopBtn');
 
-  // Stop button: active if ≥1 full round scored (both sides) AND no stoppage yet
   stopBtn.disabled = !any || stoppage !== null;
 
   if (stoppage) {
@@ -686,7 +769,6 @@ function updateUI() {
     return;
   }
 
-  // Reset footer label
   document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
 
   if (!any) { lb.innerHTML = ''; shareBtn.disabled = true; return; }
