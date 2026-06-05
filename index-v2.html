@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boxing 12×3 — Scorecard</title>
+<meta name="description" content="Суди боксерські бої сам — раунд за раундом. Інтерактивна суддівська картка: виставляй бали, створи картинку і поділись. Score boxing fights round by round.">
+<meta property="og:title" content="Boxing 12×3 — Суддівська картка">
+<meta property="og:description" content="Суди боксерські бої сам — раунд за раундом. Створи свою картку і поділись нею.">
+<meta property="og:image" content="https://boxing12x3.com/og-default.png">
+<meta property="og:url" content="https://boxing12x3.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://boxing12x3.com/og-default.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23111'/><text x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'>12</text><line x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/><text x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'>%C3%973</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+button{outline:none;}
+:root{
+  --red:#c0392b;--red-l:#fdf2f2;--red-b:#f5b7b1;
+  --blue:#1a5276;--blue-l:#eaf4fb;--blue-b:#a9cce3;
+  --bg:#f7f6f3;--card:#fff;--text:#1a1a1a;--muted:#888;
+  --border:#e5e3de;--r:10px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1.5rem 1rem 4rem;}
+
+/* Lang */
+.lang-bar{display:flex;justify-content:flex-end;gap:4px;max-width:520px;margin:0 auto 1rem;}
+.lb{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
+.lb.on{background:var(--text);color:#fff;border-color:var(--text);}
+
+/* Brand */
+.brand{text-align:center;margin-bottom:1.2rem;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
+
+/* Fight selector */
+.fw{max-width:520px;margin:0 auto 1.2rem;position:relative;}
+.fs{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--text);background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:10px 36px 10px 12px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;}
+.fa{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;}
+
+/* Scorecard */
+.sc{max-width:520px;margin:0 auto;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:visible;}
+.sc-hdr{display:grid;grid-template-columns:1fr 60px 1fr;background:#111;border-radius:var(--r) var(--r) 0 0;overflow:hidden;}
+.sc-f{padding:12px 14px;}
+.sc-f.red{border-right:3px solid var(--red);}
+.sc-f.blue{border-left:3px solid var(--blue);text-align:right;}
+.sc-corner{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:.1em;}
+/* Fighter name — DM Sans Bold for universal cyrillic/latin support */
+.sc-name{font-size:13px;font-weight:700;color:#fff;margin-top:3px;letter-spacing:.02em;line-height:1.2;}
+.sc-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;border-left:0.5px solid #1a1a1a;border-right:0.5px solid #1a1a1a;padding:6px 4px;}
+.sc-mid-brand{font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;letter-spacing:.08em;}
+.sc-mid-sub{font-size:8px;color:#444;letter-spacing:.12em;margin-top:1px;}
+.sc-statlink{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:var(--card);border-bottom:0.5px solid var(--border);text-decoration:none;color:var(--red);font-size:13px;font-weight:500;transition:background .15s;}
+.sc-statlink:hover{background:var(--red-l);}
+.sc-statlink-arr{font-size:14px;}
+
+/* Col heads */
+.sc-heads{display:grid;grid-template-columns:40px 1fr 28px 1fr 40px;gap:4px;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
+.sh.r{color:var(--red);}
+.sh.b{color:var(--blue);text-align:right;}
+
+/* Round rows — v2 tap model */
+.rrow{
+  display:grid;grid-template-columns:1fr 40px 1fr;
+  align-items:stretch;min-height:54px;
+  border-bottom:0.5px solid var(--border);
+  transition:background .2s;
+}
+.rrow:last-child{border-bottom:none;}
+.rside{
+  display:flex;align-items:center;
+  cursor:pointer;
+  user-select:none;-webkit-tap-highlight-color:transparent;
+  padding:0 14px;
+  transition:background .22s ease;
+}
+.rside.lft{justify-content:flex-start;}
+.rside.rgt{justify-content:flex-end;}
+.rside:active{opacity:.8;}
+.rpts{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;letter-spacing:.04em;
+  color:#d0cdc8;line-height:1;
+  transition:color .22s ease;
+}
+.rn{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);
+  font-size:11px;font-weight:600;color:#bbb;letter-spacing:.04em;
+  border-left:0.5px solid var(--border);border-right:0.5px solid var(--border);
+}
+/* won-rounds strip */
+.won-strip{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  background:#0f0f0f;padding:7px 14px;
+}
+.won-val{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.04em;}
+.won-val.r{color:var(--red);text-align:left;}
+.won-val.b{color:var(--blue);text-align:right;}
+.won-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
+.won-lbl{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:.1em;text-align:center;line-height:1.3;}
+.won-bar{width:72px;height:3px;background:#222;border-radius:2px;overflow:hidden;}
+.won-fill{height:100%;background:var(--red);border-radius:2px;width:50%;transition:width .4s ease, background .3s ease;}
+/* bump animation */
+.bump{animation:v2bump .25s ease;}
+@keyframes v2bump{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
+
+/* Footer */
+.sc-foot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:12px 14px;align-items:center;border-radius:0 0 var(--r) var(--r);}
+.ft-r{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--red);letter-spacing:.04em;}
+.ft-b{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#2e86c1;text-align:right;letter-spacing:.04em;}
+.ft-m{font-size:8px;color:#444;text-align:center;letter-spacing:.1em;line-height:1.6;padding:0 8px;}
+
+/* Leader bar */
+.leader{max-width:520px;margin:.8rem auto 0;font-size:12px;text-align:center;min-height:18px;font-weight:500;}
+.leader .r{color:var(--red);}
+.leader .b{color:var(--blue);}
+
+/* Buttons */
+.btns{max-width:520px;margin:1.2rem auto 0;}
+.main-btn{width:100%;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.12em;padding:14px;background:#111;color:#fff;border:none;border-radius:var(--r);cursor:pointer;transition:background .15s;}
+.main-btn:hover:not(:disabled){background:#222;}
+.main-btn:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
+.stop-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--red);border:0.5px solid var(--red-b);border-radius:var(--r);cursor:pointer;margin-top:8px;transition:all .15s;}
+.stop-btn:hover:not(:disabled){background:var(--red-l);}
+.stop-btn:disabled{opacity:.35;cursor:not-allowed;}
+.sec-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:var(--r);cursor:pointer;margin-top:8px;}
+
+/* Share modal */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center;padding:1rem;}
+.overlay.open{display:flex;}
+.modal{background:#fff;border-radius:var(--r);width:100%;max-width:400px;overflow:hidden;max-height:90vh;overflow-y:auto;}
+.mprev{padding:1.2rem;background:var(--bg);border-bottom:0.5px solid var(--border);}
+.pcard{background:#fff;border:0.5px solid var(--border);border-radius:8px;overflow:hidden;}
+.ph{display:grid;grid-template-columns:1fr 52px 1fr;background:#111;}
+.pf{padding:10px 12px;}
+.pf.r{border-right:2px solid var(--red);}
+.pf.b{border-left:2px solid var(--blue);text-align:right;}
+.pc{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:.08em;}
+.pn{font-size:11px;font-weight:700;color:#fff;margin-top:2px;letter-spacing:.02em;line-height:1.2;}
+.pm{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;padding:4px;}
+.pmb{font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;letter-spacing:.06em;}
+.prounds{padding:4px 8px;}
+.pr{display:grid;grid-template-columns:24px 1fr 6px 1fr;gap:3px;align-items:center;margin-bottom:2px;}
+.prn{font-size:9px;color:var(--muted);text-align:center;}
+.prr{height:16px;background:var(--red-l);border:0.5px solid var(--red-b);border-radius:3px;display:flex;align-items:center;padding:0 5px;}
+.prb{height:16px;background:var(--blue-l);border:0.5px solid var(--blue-b);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding:0 5px;}
+.prr span{font-size:9px;font-weight:500;color:var(--red);}
+.prb span{font-size:9px;font-weight:500;color:var(--blue);}
+.prs{width:4px;height:4px;border-radius:50%;background:var(--border);margin:0 auto;}
+.pfoot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:8px 10px;align-items:center;}
+.ptr{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--red);}
+.ptb{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#2e86c1;text-align:right;}
+.ptm{font-size:7px;color:#444;text-align:center;letter-spacing:.1em;line-height:1.6;}
+.pstop{background:#111;padding:8px 10px;text-align:center;}
+.pstop-t{font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;letter-spacing:.08em;}
+.pstop-s{font-size:8px;color:#555;letter-spacing:.1em;margin-top:2px;}
+.pbrand{background:#0a0a0a;padding:5px;text-align:center;font-size:8px;color:#333;letter-spacing:.15em;}
+.mact{padding:1rem;}
+.mtitle{font-size:13px;font-weight:500;margin-bottom:.8rem;}
+.abtn{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:11px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-bottom:6px;}
+.abtn.sec{background:#444;}
+.cbtn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:2px;}
+
+/* Stoppage modal */
+.stop-modal{background:#fff;border-radius:var(--r);width:100%;max-width:360px;padding:1.2rem;}
+.stop-title{font-size:15px;font-weight:500;margin-bottom:1rem;}
+.stop-sec{margin-bottom:1rem;}
+.stop-lbl{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+.stop-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.sopt{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:9px;border:0.5px solid var(--border);border-radius:6px;background:transparent;cursor:pointer;text-align:center;transition:all .15s;}
+.sopt.sel-r{background:var(--red-l);border-color:var(--red-b);color:var(--red);}
+.sopt.sel-b{background:var(--blue-l);border-color:var(--blue-b);color:var(--blue);}
+.sopt.sel-t{background:#111;border-color:#111;color:#fff;}
+.stop-ok{width:100%;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;padding:12px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:4px;}
+.stop-ok:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
+.stop-cancel{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;padding:9px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:6px;}
+.custom-input{width:100%;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:var(--text);background:var(--bg);border:0.5px solid var(--border);border-radius:6px;padding:10px 12px;outline:none;}
+.custom-input:focus{border-color:var(--text);}
+.ua-links{max-width:520px;margin:1.5rem auto 0;}
+.ua-links-title{text-align:center;font-size:11px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;}
+.ua-link{display:flex;align-items:center;gap:12px;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;text-decoration:none;}
+.ua-link-ico{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ua-link-txt{flex:1;}
+.ua-link-name{font-size:14px;font-weight:500;color:var(--text);}
+.ua-link-sub{font-size:12px;color:var(--muted);margin-top:1px;}
+.ua-link-arr{color:#ccc;font-size:20px;}
+.podcast-sub{display:flex;flex-direction:column;gap:0;margin:-4px 0 8px;padding-left:48px;}
+.pod-platform{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;padding:8px 0;border-bottom:0.5px solid var(--border);}
+.pod-platform:last-child{border-bottom:none;}
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lb on" data-lang="en" onclick="setLang('en')">EN</button>
+  <button class="lb" data-lang="uk" onclick="setLang('uk')">UA</button>
+</div>
+
+<div class="brand">
+  <div class="brand-name">Boxing 12×3</div>
+  <div class="brand-sub" id="lbl-sub">Scorecard</div>
+</div>
+
+<div class="fw">
+  <select class="fs" id="fightSel" onchange="onFightChange()"></select>
+  <svg class="fa" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#888" stroke-width="1.5" stroke-linecap="round"/></svg>
+</div>
+
+<div class="sc">
+  <div class="sc-hdr">
+    <div class="sc-f red">
+      <div class="sc-corner" id="hdr-red">Red corner</div>
+      <div class="sc-name" id="hdr-rn">—</div>
+    </div>
+    <div class="sc-mid">
+      <div class="sc-mid-brand">12×3</div>
+      <div class="sc-mid-sub">SCORE</div>
+    </div>
+    <div class="sc-f blue">
+      <div class="sc-corner" id="hdr-blue">Blue corner</div>
+      <div class="sc-name" id="hdr-bn">—</div>
+    </div>
+  </div>
+  <a class="sc-statlink" id="statBanner" href="#" style="display:none;">
+    <span id="statBannerText">Статистика та аналіз бою</span>
+    <span class="sc-statlink-arr">→</span>
+  </a>
+  <div class="won-strip" id="wonStrip" style="display:none;">
+    <div class="won-val r" id="wonR">0</div>
+    <div class="won-mid">
+      <div class="won-lbl">Виграних<br>раундів</div>
+      <div class="won-bar"><div class="won-fill" id="wonFill"></div></div>
+    </div>
+    <div class="won-val b" id="wonB">0</div>
+  </div>
+  <div class="sc-heads">
+    <div class="sh r" id="lbl-win">WIN</div>
+    <div class="sh" id="lbl-pts">PTS</div>
+    <div class="sh">RD</div>
+    <div class="sh" id="lbl-pts2">PTS</div>
+    <div class="sh b" id="lbl-win2">WIN</div>
+  </div>
+  <div id="rounds"></div>
+  <div class="sc-foot">
+    <div class="ft-r" id="totR">—</div>
+    <div class="ft-m" id="lbl-total">TOTAL<br>SCORE</div>
+    <div class="ft-b" id="totB">—</div>
+  </div>
+</div>
+
+<div class="leader" id="leaderBar"></div>
+
+<div class="btns">
+  <button class="main-btn" id="shareBtn" onclick="openShare()" disabled>SHARE SCORECARD</button>
+  <button class="stop-btn" id="stopBtn" onclick="openStop()" disabled>⏹ Early finish</button>
+  <button class="sec-btn" id="resetBtn" onclick="doReset()">Reset</button>
+</div>
+
+<!-- Share overlay -->
+<div class="overlay" id="shareOverlay" onclick="closeShareOut(event)">
+  <div class="modal">
+    <div class="mprev"><div class="pcard" id="pcard"></div></div>
+    <div class="mact">
+      <div class="mtitle" id="lbl-modal">Share your scorecard</div>
+      <button class="abtn" id="btnDl" onclick="dlImg()">⬇ Download image</button>
+      <button class="abtn sec" id="btnSh" onclick="shNative()" style="display:none">↑ Share</button>
+      <button class="abtn sec" id="btnCp" onclick="cpText()">📋 Copy text</button>
+      <button class="cbtn" id="btnCl" onclick="closeShare()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- UA links section (shown only in Ukrainian) -->
+<div class="ua-links" id="uaLinks" style="display:none;">
+  <div class="ua-links-title" id="lbl-more">Більше боксу від 12×3</div>
+  <a href="https://t.me/boxing12x3" class="ua-link" target="_blank">
+    <div class="ua-link-ico" style="background:#229ED9;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-tg-t">Telegram-канал автора</div>
+      <div class="ua-link-sub" id="lbl-tg-s">Спілкуємось про бокс серйозно та не дуже</div>
+    </div>
+    <span class="ua-link-arr">›</span>
+  </a>
+  <div class="ua-link" onclick="togglePodcast()" style="cursor:pointer;">
+    <div class="ua-link-ico" style="background:#111;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm5 9a1 1 0 0 0-2 0 3 3 0 0 1-6 0 1 1 0 0 0-2 0 5 5 0 0 0 4 4.9V19H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2h-3v-3.1a5 5 0 0 0 4-4.9z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-pod-t">Подкаст «12×3»</div>
+      <div class="ua-link-sub" id="lbl-pod-s">Apple · Spotify · YouTube</div>
+    </div>
+    <span class="ua-link-arr" id="podArrow">›</span>
+  </div>
+  <div class="podcast-sub" id="podcastSub" style="display:none;">
+    <a href="https://podcasts.apple.com/ua/podcast/12%D1%853/id1828939896" target="_blank" class="pod-platform">Apple Podcasts</a>
+    <a href="https://open.spotify.com/show/0v4PfK4rGs82cvaL2rJ6ID" target="_blank" class="pod-platform">Spotify</a>
+    <a href="https://www.youtube.com/playlist?list=PLjq-Sbkf-rUKAFluWXsE-We35N-rjdQ4w" target="_blank" class="pod-platform">YouTube</a>
+  </div>
+  <a href="https://ua.tribuna.com/uk/blogs/brave_hearts/" class="ua-link" target="_blank">
+    <div class="ua-link-ico" style="background:#c0392b;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-2 6H7V7h10v2zm0 4H7v-2h10v2zm-3 4H7v-2h7v2z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-blog-t">Матеріали про бокс</div>
+      <div class="ua-link-sub" id="lbl-blog-s">Блог 12×3: від боксерських історій до детального аналізу</div>
+    </div>
+    <span class="ua-link-arr">›</span>
+  </a>
+</div>
+
+<!-- Custom fight overlay -->
+<div class="overlay" id="customOverlay" onclick="closeCustomOut(event)">
+  <div class="stop-modal">
+    <div class="stop-title" id="lbl-custom-title">Додати свій бій</div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-red">Ім'я червоного кута</div>
+      <input type="text" id="customRed" class="custom-input" placeholder="">
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-blue">Ім'я синього кута</div>
+      <input type="text" id="customBlue" class="custom-input" placeholder="">
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-rounds">Раундів</div>
+      <select id="customRoundsSel" class="custom-input">
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12" selected>12</option>
+      </select>
+    </div>
+    <button class="stop-ok" id="lbl-custom-start" onclick="startCustom()">ПОЧАТИ</button>
+    <button class="stop-cancel" onclick="closeCustom()" id="lbl-custom-cancel">Cancel</button>
+  </div>
+</div>
+
+<!-- Stoppage overlay -->
+<div class="overlay" id="stopOverlay" onclick="closeStopOut(event)">
+  <div class="stop-modal">
+    <div class="stop-title" id="lbl-stop-title">Early finish</div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-stop-winner">Winner</div>
+      <div class="stop-opts">
+        <button class="sopt" id="sopt-red" onclick="selW('red')">—</button>
+        <button class="sopt" id="sopt-blue" onclick="selW('blue')">—</button>
+      </div>
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-stop-type">Stoppage type</div>
+      <div class="stop-opts">
+        <button class="sopt" id="sopt-KO" onclick="selT('KO')">KO</button>
+        <button class="sopt" id="sopt-TKO" onclick="selT('TKO')">TKO</button>
+        <button class="sopt" id="sopt-RTD" onclick="selT('RTD')">RTD</button>
+        <button class="sopt" id="sopt-DQ" onclick="selT('DQ')">DQ</button>
+      </div>
+    </div>
+    <button class="stop-ok" id="stopOkBtn" onclick="confirmStop()" disabled id="lbl-stop-ok">CONFIRM</button>
+    <button class="stop-cancel" onclick="closeStop()" id="lbl-stop-cancel">Cancel</button>
+  </div>
+</div>
+
+<script>
+// ── Data ──────────────────────────────────────────────────────────────────────
+const FIGHTS = [
+  {id:'garcia-moloney', date:'Jun 6', dateUk:'6 червня', red:'Willibaldo Garcia', redUk:'Віллібальдо Гарсія', blue:'Andrew Moloney', blueUk:'Ендрю Молоні', rounds:12, completed:false, hasPage:true},
+  {id:'nery-casimero', date:'Jun 6', dateUk:'6 червня', red:'Luis Nery', redUk:'Луїс Нері', blue:'John Riel Casimero', blueUk:'Джон Касімеро', rounds:10, completed:false, hasPage:true},
+  {id:'billam-smith-rozicki', date:'Jun 6', dateUk:'6 червня', red:'Chris Billam-Smith', redUk:'Кріс Біллем-Сміт', blue:'Ryan Rozicki', blueUk:'Раян Розицький', rounds:10, completed:false, hasPage:true},
+  {id:'rodriguez-vargas', date:'Jun 13', dateUk:'13 червня', red:'Jesse Rodriguez', redUk:'Джессі Родрігес', blue:'Antonio Vargas', blueUk:'Антоніо Варгас', rounds:12, completed:false, hasPage:true},
+  {id:'allen-chvakrov', date:'Jun 20', dateUk:'20 червня', red:'David Allen', redUk:'Девід Аллен', blue:'Viktar Chvakrou', blueUk:'Віктар Чвакров', rounds:4, completed:false},
+  {id:'crocker-paro', date:'Jun 24', dateUk:'24 червня', red:'Lewis Crocker', redUk:'Льюїс Крокер', blue:'Liam Paro', blueUk:'Ліам Паро', rounds:12, completed:false, hasPage:true},
+  {id:'whittaker-rivera', date:'Jun 27', dateUk:'27 червня', red:'Ben Whittaker', redUk:'Бен Віттакер', blue:'Richard Rivera', blueUk:"Річард Рів'єра", rounds:10, completed:false},
+  {id:'vargas-millis', date:'Jun 27', dateUk:'27 червня', red:'Emiliano Vargas', redUk:'Еміліано Варгас', blue:'Bruce Milles', blueUk:'Брюс Мілліс', rounds:10, completed:false},
+  {id:'zayas-ennis', date:'Jun 27', dateUk:'27 червня', red:'Xander Zayas', redUk:'Ксандер Заяс', blue:'Jaron Ennis', blueUk:'Джарон Енніс', rounds:12, completed:false, hasPage:true}
+];
+
+const I18N = {
+  en: {
+    sub:'Scorecard', redCorner:'Red corner', blueCorner:'Blue corner',
+    win:'WIN', pts:'PTS', total:'TOTAL\nSCORE',
+    share:'SHARE SCORECARD', stopBtn:'⏹ Early finish', reset:'Reset',
+    modal:'Share your scorecard', dl:'⬇ Download image', sh:'↑ Share',
+    cp:'📋 Copy text', cl:'Close', sel:'— Select a fight —', customFight:'+ Add your own fight',
+    stopTitle:'Early finish', stopWinner:'Winner', stopType:'Stoppage type',
+    stopOk:'CONFIRM', stopCancel:'Cancel',
+    winner: n => n + ' wins', draw:'Draw', copied:'✓ Copied!', dled:'✓ Downloaded!', customTitle:'Add your own fight', customRedName:'Red corner name', customBlueName:'Blue corner name', customRounds:'Rounds', customStart:'START SCORING', moreBoxing:'More boxing from 12×3', tgTitle:"Author's Telegram", tgSub:'Boxing talk — serious and not so much', podTitle:'Podcast «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Boxing articles', blogSub:'12×3 blog: from boxing stories to deep analysis',
+    earlyStop:'EARLY STOPPAGE'
+  },
+  uk: {
+    sub:'Суддівська картка', redCorner:'Червоний кут', blueCorner:'Синій кут',
+    win:'РАУНД', pts:'БАЛИ', total:'РАХУНОК',
+    share:'ПОДІЛИТИСЬ КАРТКОЮ', stopBtn:'⏹ Достроковий фінал', reset:'Скинути',
+    modal:'Поділитись карткою', dl:'⬇ Завантажити картку', sh:'↑ Поділитись',
+    cp:'📋 Скопіювати текст', cl:'Закрити', sel:'— Оберіть бій —', customFight:'+ Додати свій бій',
+    stopTitle:'Достроковий фінал', stopWinner:'Переможець', stopType:'Тип зупинки',
+    stopOk:'ПІДТВЕРДИТИ', stopCancel:'Скасувати',
+    winner: n => n + ' виграє', draw:'Нічия', copied:'✓ Скопійовано!', dled:'✓ Завантажено!', customTitle:'Додати свій бій', customRedName:"Ім'я червоного кута", customBlueName:"Ім'я синього кута", customRounds:'Раундів', customStart:'ПОЧАТИ', moreBoxing:'Більше боксу від 12×3', tgTitle:'Telegram-канал автора', tgSub:'Спілкуємось про бокс серйозно та не дуже', podTitle:'Подкаст «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Матеріали про бокс', blogSub:'Блог 12×3: від боксерських історій до детального аналізу',
+    earlyStop:'ДОСТРОКОВИЙ ФІНАЛ'
+  }
+};
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let lang = 'en';
+let fight = FIGHTS[0];
+let scores = mkScores();
+let stoppage = null;  // {winner:'red'|'blue', type, round}
+let selWinner = null;
+let selType = null;
+let openPk = null;
+
+function mkScores() { return Array.from({length:12}, () => ({red:null, blue:null})); }
+function rn() { return lang==='uk' ? fight.redUk : fight.red; }
+function bn() { return lang==='uk' ? fight.blueUk : fight.blue; }
+function t(k, ...a) { const v=I18N[lang][k]; return typeof v==='function' ? v(...a) : v; }
+function scoredCount() {
+  return scores.slice(0, fight.rounds).filter(s => s.red!==null && s.blue!==null).length;
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+loadState();
+renderAll();
+
+// ── Language ──────────────────────────────────────────────────────────────────
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
+  renderAll();
+}
+
+// ── Full render ───────────────────────────────────────────────────────────────
+function updateStatBanner() {
+  const banner = document.getElementById('statBanner');
+  const txt = document.getElementById('statBannerText');
+  if (!banner) return;
+  if (fight && fight.hasPage && fight.id !== 'custom') {
+    const base = lang === 'uk' ? '/ua/' + fight.id : '/en/' + fight.id;
+    banner.href = base;
+    txt.textContent = lang === 'uk' ? 'Статистика та аналіз бою' : 'Fight stats & analysis';
+    banner.style.display = 'flex';
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+function renderAll() {
+  // Sync lang buttons
+  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+  // Labels
+  document.getElementById('lbl-sub').textContent = t('sub');
+  document.getElementById('hdr-red').textContent = t('redCorner');
+  document.getElementById('hdr-blue').textContent = t('blueCorner');
+  document.getElementById('lbl-win').textContent = t('win');
+  document.getElementById('lbl-win2').textContent = t('win');
+  document.getElementById('lbl-pts').textContent = t('pts');
+  document.getElementById('lbl-pts2').textContent = t('pts');
+  document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
+  document.getElementById('shareBtn').textContent = t('share');
+  document.getElementById('stopBtn').textContent = t('stopBtn');
+  document.getElementById('resetBtn').textContent = t('reset');
+  document.getElementById('lbl-modal').textContent = t('modal');
+  document.getElementById('btnDl').textContent = t('dl');
+  document.getElementById('btnSh').textContent = t('sh');
+  document.getElementById('btnCp').textContent = t('cp');
+  document.getElementById('btnCl').textContent = t('cl');
+  document.getElementById('lbl-stop-title').textContent = t('stopTitle');
+  document.getElementById('lbl-stop-winner').textContent = t('stopWinner');
+  document.getElementById('lbl-stop-type').textContent = t('stopType');
+  document.getElementById('stopOkBtn').textContent = t('stopOk');
+  document.getElementById('lbl-stop-cancel').textContent = t('stopCancel');
+
+  // Header names
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
+
+  // Stats banner — show only if fight has a stats page
+  updateStatBanner();
+
+  // UA links section — show only in Ukrainian
+  const uaLinks = document.getElementById('uaLinks');
+  if (uaLinks) {
+    uaLinks.style.display = lang === 'uk' ? 'block' : 'none';
+    document.getElementById('lbl-more').textContent = t('moreBoxing');
+    document.getElementById('lbl-tg-t').textContent = t('tgTitle');
+    document.getElementById('lbl-tg-s').textContent = t('tgSub');
+    document.getElementById('lbl-pod-t').textContent = t('podTitle');
+    document.getElementById('lbl-pod-s').textContent = t('podSub');
+    document.getElementById('lbl-blog-t').textContent = t('blogTitle');
+    document.getElementById('lbl-blog-s').textContent = t('blogSub');
+  }
+
+  // Custom modal labels
+  document.getElementById('lbl-custom-title').textContent = t('customTitle');
+  document.getElementById('lbl-custom-red').textContent = t('customRedName');
+  document.getElementById('lbl-custom-blue').textContent = t('customBlueName');
+  document.getElementById('lbl-custom-rounds').textContent = t('customRounds');
+  document.getElementById('lbl-custom-start').textContent = t('customStart');
+  document.getElementById('lbl-custom-cancel').textContent = t('stopCancel');
+
+  // Fight selector
+  buildSelector();
+
+  // Rounds
+  buildRounds();
+
+  // Totals + button states
+  updateUI();
+}
+
+// ── Fight selector ────────────────────────────────────────────────────────────
+function buildSelector() {
+  const sel = document.getElementById('fightSel');
+  sel.innerHTML = '';
+  const ph = document.createElement('option');
+  ph.value = ''; ph.textContent = t('sel');
+  sel.appendChild(ph);
+
+  const upcoming = FIGHTS.filter(f => !f.completed);
+  const completed = FIGHTS.filter(f => f.completed);
+
+  if (upcoming.length) {
+    const grp1 = document.createElement('optgroup');
+    grp1.label = lang==='uk' ? 'Майбутні' : 'Upcoming';
+    upcoming.forEach(f => {
+      const o = document.createElement('option');
+      o.value = f.id;
+      const d = lang==='uk' ? f.dateUk : f.date;
+      const r = lang==='uk' ? f.redUk : f.red;
+      const b = lang==='uk' ? f.blueUk : f.blue;
+      o.textContent = d + ' · ' + r + ' vs ' + b;
+      grp1.appendChild(o);
+    });
+    sel.appendChild(grp1);
+  }
+
+  if (completed.length) {
+    const grp2 = document.createElement('optgroup');
+    grp2.label = lang==='uk' ? 'Завершені' : 'Completed';
+    completed.forEach(f => {
+      const o = document.createElement('option');
+      o.value = f.id;
+      const d = lang==='uk' ? f.dateUk : f.date;
+      const r = lang==='uk' ? f.redUk : f.red;
+      const b = lang==='uk' ? f.blueUk : f.blue;
+      o.textContent = d + ' · ' + r + ' vs ' + b;
+      grp2.appendChild(o);
+    });
+    sel.appendChild(grp2);
+  }
+
+  // Custom fight option
+  const customOpt = document.createElement('option');
+  customOpt.value = '__custom__';
+  customOpt.textContent = t('customFight');
+  sel.appendChild(customOpt);
+
+  sel.value = fight.id;
+}
+
+function onFightChange() {
+  const id = document.getElementById('fightSel').value;
+  if (!id) return;
+  if (id === '__custom__') {
+    openCustom();
+    document.getElementById('fightSel').value = fight.id;
+    return;
+  }
+  fight = FIGHTS.find(f => f.id === id);
+  scores = mkScores();
+  stoppage = null;
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
+  updateStatBanner();
+  buildRounds();
+  updateUI();
+  saveState();
+}
+
+function togglePodcast() {
+  const sub = document.getElementById('podcastSub');
+  const arrow = document.getElementById('podArrow');
+  const isOpen = sub.style.display === 'flex';
+  sub.style.display = isOpen ? 'none' : 'flex';
+  arrow.textContent = isOpen ? '›' : '⌄';
+}
+
+function openCustom() {
+  document.getElementById('customRed').value = '';
+  document.getElementById('customBlue').value = '';
+  document.getElementById('customRoundsSel').value = '12';
+  document.getElementById('customOverlay').classList.add('open');
+}
+function closeCustom() { document.getElementById('customOverlay').classList.remove('open'); }
+function closeCustomOut(e) { if (e.target===document.getElementById('customOverlay')) closeCustom(); }
+function startCustom() {
+  const r = document.getElementById('customRed').value.trim() || (lang==='uk'?'Червоний кут':'Red corner');
+  const b = document.getElementById('customBlue').value.trim() || (lang==='uk'?'Синій кут':'Blue corner');
+  const rounds = parseInt(document.getElementById('customRoundsSel').value);
+  fight = {id:'custom', date:'', dateUk:'', red:r, redUk:r, blue:b, blueUk:b, rounds:rounds, completed:false};
+  scores = mkScores();
+  stoppage = null;
+  closeCustom();
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
+  updateStatBanner();
+  buildRounds();
+  updateUI();
+}
+
+// ── Rounds — v2 tap model ─────────────────────────────────────────────────────
+const SCORE_CYCLE = [10, 9, 8, 7, 6];
+
+function nextScore(current) {
+  if (current === null) return 10;
+  const idx = SCORE_CYCLE.indexOf(current);
+  if (idx === -1 || idx === SCORE_CYCLE.length - 1) return null;
+  return SCORE_CYCLE[idx + 1];
+}
+
+function tapSide(i, side) {
+  // side: 'red' | 'blue'
+  const sc = scores[i];
+  const other = side === 'red' ? 'blue' : 'red';
+
+  if (sc.red === null && sc.blue === null) {
+    // Smart default: first tap → 10:9
+    sc[side] = 10;
+    sc[other] = 9;
+  } else {
+    const next = nextScore(sc[side]);
+    if (next === null) {
+      // Reset round
+      sc.red = null; sc.blue = null;
+    } else {
+      sc[side] = next;
+    }
+  }
+  renderRound(i);
+  updateUI();
+  saveState();
+}
+
+function getIntensity(diff) {
+  if (diff <= 0) return 0.12;
+  if (diff === 1) return 0.18;
+  if (diff === 2) return 0.38;
+  if (diff === 3) return 0.60;
+  return 0.80;
+}
+
+function renderRound(i) {
+  const sc = scores[i];
+  const sl = document.getElementById('rs-' + i + '-l');
+  const sr = document.getElementById('rs-' + i + '-r');
+  const pl = document.getElementById('rp-' + i + '-l');
+  const pr = document.getElementById('rp-' + i + '-r');
+  if (!sl) return;
+
+  sl.style.background = '';
+  sr.style.background = '';
+  pl.style.color = '';
+  pr.style.color = '';
+
+  if (sc.red === null && sc.blue === null) {
+    pl.textContent = '–'; pr.textContent = '–';
+  } else {
+    pl.textContent = sc.red !== null ? sc.red : '–';
+    pr.textContent = sc.blue !== null ? sc.blue : '–';
+    if (sc.red !== null && sc.blue !== null) {
+      const diff = Math.abs(sc.red - sc.blue);
+      const intensity = getIntensity(diff);
+      if (sc.red > sc.blue) {
+        sl.style.background = `linear-gradient(90deg, rgba(192,57,43,${intensity}) 0%, transparent 85%)`;
+        pl.style.color = 'var(--red)';
+        pr.style.color = '#bbb';
+      } else if (sc.blue > sc.red) {
+        sr.style.background = `linear-gradient(270deg, rgba(26,82,118,${intensity}) 0%, transparent 85%)`;
+        pr.style.color = 'var(--blue)';
+        pl.style.color = '#bbb';
+      } else {
+        // draw round
+        sl.style.background = 'rgba(200,197,191,0.10)';
+        sr.style.background = 'rgba(200,197,191,0.10)';
+        pl.style.color = '#999'; pr.style.color = '#999';
+      }
+    } else {
+      if (sc.red !== null) pl.style.color = 'var(--text)';
+      if (sc.blue !== null) pr.style.color = 'var(--text)';
+    }
+  }
+  [pl, pr].forEach(el => {
+    el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  });
+}
+
+function buildRounds() {
+  const list = document.getElementById('rounds');
+  list.innerHTML = '';
+  const n = fight.rounds;
+  for (let i = 0; i < n; i++) {
+    const row = document.createElement('div');
+    row.className = 'rrow';
+    row.innerHTML =
+      '<div class="rside lft" id="rs-' + i + '-l" onclick="tapSide(' + i + ',\'red\')">' +
+        '<span class="rpts" id="rp-' + i + '-l">–</span>' +
+      '</div>' +
+      '<div class="rn">R' + (i + 1) + '</div>' +
+      '<div class="rside rgt" id="rs-' + i + '-r" onclick="tapSide(' + i + ',\'blue\')">' +
+        '<span class="rpts" id="rp-' + i + '-r">–</span>' +
+      '</div>';
+    list.appendChild(row);
+    renderRound(i);
+  }
+}
+
+function winLbl(sc, isRed) {
+  if (sc.red === null || sc.blue === null) return '';
+  if (sc.red === sc.blue) return lang==='uk' ? 'НР' : 'D';
+  if (isRed) return sc.red > sc.blue ? 'W' : '';
+  return sc.blue > sc.red ? 'W' : '';
+}
+
+// ── UI state ──────────────────────────────────────────────────────────────────
+function updateUI() {
+  const n = fight.rounds;
+  const sc = scores.slice(0, n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+  const all = sc.length === n;
+  const any = sc.length > 0;
+
+  document.getElementById('totR').textContent = any ? tr : '—';
+  document.getElementById('totB').textContent = any ? tb : '—';
+
+  // Won rounds strip
+  const wonStrip = document.getElementById('wonStrip');
+  if (any) {
+    const wR = sc.filter(s => s.red > s.blue).length;
+    const wB = sc.filter(s => s.blue > s.red).length;
+    document.getElementById('wonR').textContent = wR;
+    document.getElementById('wonB').textContent = wB;
+    const total = wR + wB;
+    const pct = total === 0 ? 50 : Math.round((wR / total) * 100);
+    const fill = document.getElementById('wonFill');
+    fill.style.width = pct + '%';
+    fill.style.background = wR >= wB ? 'var(--red)' : 'var(--blue)';
+    wonStrip.style.display = 'grid';
+  } else {
+    wonStrip.style.display = 'none';
+  }
+
+  const lb = document.getElementById('leaderBar');
+  const shareBtn = document.getElementById('shareBtn');
+  const stopBtn = document.getElementById('stopBtn');
+
+  stopBtn.disabled = !any || stoppage !== null;
+
+  if (stoppage) {
+    const w = stoppage.winner === 'red' ? rn() : bn();
+    const cls = stoppage.winner === 'red' ? 'r' : 'b';
+    lb.innerHTML = '<span class="' + cls + '">' + w + ' — ' + stoppage.type + ' R' + stoppage.round + '</span>';
+    document.getElementById('lbl-total').innerHTML = stoppage.type + '<br>R' + stoppage.round;
+    shareBtn.disabled = false;
+    return;
+  }
+
+  document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
+
+  if (!any) { lb.innerHTML = ''; shareBtn.disabled = true; return; }
+  if (all && tr === tb) lb.innerHTML = '<span>' + t('draw') + '</span>';
+  else if (all && tr > tb) lb.innerHTML = '<span class="r">' + t('winner', rn()) + '</span>';
+  else if (all && tb > tr) lb.innerHTML = '<span class="b">' + t('winner', bn()) + '</span>';
+  else lb.innerHTML = '';
+  shareBtn.disabled = !all;
+}
+
+// ── Reset ─────────────────────────────────────────────────────────────────────
+function doReset() {
+  scores = mkScores();
+  stoppage = null;
+  buildRounds();
+  updateUI();
+  saveState();
+}
+
+// ── Stoppage modal ────────────────────────────────────────────────────────────
+function openStop() {
+  selWinner = null; selType = null;
+  document.getElementById('sopt-red').textContent = rn();
+  document.getElementById('sopt-blue').textContent = bn();
+  document.getElementById('sopt-red').className = 'sopt';
+  document.getElementById('sopt-blue').className = 'sopt';
+  ['KO','TKO','RTD','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt');
+  document.getElementById('stopOkBtn').disabled = true;
+  document.getElementById('stopOverlay').classList.add('open');
+}
+function closeStop() { document.getElementById('stopOverlay').classList.remove('open'); }
+function closeStopOut(e) { if (e.target===document.getElementById('stopOverlay')) closeStop(); }
+
+function selW(side) {
+  selWinner = side;
+  document.getElementById('sopt-red').className = 'sopt' + (side==='red' ? ' sel-r' : '');
+  document.getElementById('sopt-blue').className = 'sopt' + (side==='blue' ? ' sel-b' : '');
+  document.getElementById('stopOkBtn').disabled = !(selWinner && selType);
+}
+function selT(type) {
+  selType = type;
+  ['KO','TKO','RTD','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt' + (tp===type ? ' sel-t' : ''));
+  document.getElementById('stopOkBtn').disabled = !(selWinner && selType);
+}
+function confirmStop() {
+  stoppage = {winner: selWinner, type: selType, round: scoredCount() + 1};
+  closeStop();
+  updateUI();
+  saveState();
+}
+
+// ── Share modal ───────────────────────────────────────────────────────────────
+function openShare() {
+  buildPreview();
+  document.getElementById('shareOverlay').classList.add('open');
+  // Show native share only on mobile devices
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const testFile = new File([''], 'test.png', {type:'image/png'});
+  const supportsFileShare = isMobile && navigator.canShare && navigator.canShare({files:[testFile]});
+  document.getElementById('btnSh').style.display = supportsFileShare ? 'block' : 'none';
+}
+function closeShare() { document.getElementById('shareOverlay').classList.remove('open'); }
+function closeShareOut(e) { if (e.target===document.getElementById('shareOverlay')) closeShare(); }
+
+function buildPreview() {
+  const n = fight.rounds;
+  const sc = scores.slice(0,n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+  const rows = scores.slice(0,n).map((s,i) =>
+    '<div class="pr"><div class="prn">R'+(i+1)+'</div>' +
+    '<div class="prr"><span>'+(s.red!==null?s.red:'—')+'</span></div>' +
+    '<div class="prs"></div>' +
+    '<div class="prb"><span>'+(s.blue!==null?s.blue:'—')+'</span></div></div>'
+  ).join('');
+  const foot = stoppage
+    ? '<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>'+
+      '<div class="pstop"><div class="pstop-t">'+(stoppage.winner==='red'?rn():bn())+' — '+stoppage.type+' R'+stoppage.round+'</div><div class="pstop-s">'+t('earlyStop')+'</div></div>'
+    : '<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>';
+  document.getElementById('pcard').innerHTML =
+    '<div class="ph"><div class="pf r"><div class="pc">'+t('redCorner')+'</div><div class="pn">'+rn()+'</div></div>' +
+    '<div class="pm"><div class="pmb">12×3</div></div>' +
+    '<div class="pf b"><div class="pc">'+t('blueCorner')+'</div><div class="pn">'+bn()+'</div></div></div>' +
+    '<div class="prounds">'+rows+'</div>' +
+    foot +
+    '<div class="pbrand">BOXING12X3.COM</div>';
+}
+
+async function genImg() {
+  const n = fight.rounds;
+  const sc = scores.slice(0,n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+
+  // Instagram 4:5 format
+  const W = 1080, H = 1350;
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  const RED = '#c0392b', BLUE = '#1a5276';
+  const RED_L = '#fdf2f2', BLUE_L = '#eaf4fb';
+  const RED_B = '#f5b7b1', BLUE_B = '#a9cce3';
+  const DARK = '#111111', MUTED = '#888888', BORDER = '#e5e3de';
+
+  // Background
+  ctx.fillStyle = '#f7f6f3';
+  ctx.fillRect(0, 0, W, H);
+
+  // Card margins
+  const MX = 48, MY = 48;
+  const CW = W - MX*2;
+
+  // Header
+  const HDR_H = 120;
+  ctx.fillStyle = DARK;
+  roundRect(ctx, MX, MY, CW, HDR_H, 16, true, false);
+
+  // Red/blue stripes
+  ctx.fillStyle = RED;
+  ctx.fillRect(MX, MY, 4, HDR_H);
+  ctx.fillStyle = BLUE;
+  ctx.fillRect(MX+CW-4, MY, 4, HDR_H);
+
+  // Corner labels
+  ctx.fillStyle = '#666666';
+  ctx.font = '500 18px DM Sans, sans-serif';
+  ctx.textBaseline = 'top';
+  ctx.textAlign = 'left';
+  ctx.fillText(lang==='uk'?'ЧЕРВОНИЙ КУТ':'RED CORNER', MX+24, MY+18);
+  ctx.textAlign = 'right';
+  ctx.fillText(lang==='uk'?'СИНІЙ КУТ':'BLUE CORNER', MX+CW-24, MY+18);
+
+  // Fighter names
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 34px DM Sans, sans-serif';
+  ctx.textBaseline = 'top';
+  ctx.textAlign = 'left';
+  ctx.fillText(rn(), MX+24, MY+46);
+  ctx.textAlign = 'right';
+  ctx.fillText(bn(), MX+CW-24, MY+46);
+
+  // Brand center
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 22px DM Sans, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('12×3', W/2, MY+HDR_H/2-8);
+  ctx.fillStyle = '#555555';
+  ctx.font = '13px DM Sans, sans-serif';
+  ctx.fillText('SCORE', W/2, MY+HDR_H/2+14);
+
+  // Column headers
+  const COL_Y = MY + HDR_H + 2;
+  const COL_H = 40;
+  ctx.fillStyle = '#f0ede8';
+  ctx.fillRect(MX, COL_Y, CW, COL_H);
+  ctx.fillStyle = RED;
+  ctx.font = '600 14px DM Sans, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(lang==='uk'?'РАУНД':'WIN', MX+24, COL_Y+COL_H/2);
+  ctx.fillStyle = MUTED;
+  ctx.fillText(lang==='uk'?'БАЛИ':'PTS', MX+90, COL_Y+COL_H/2);
+  ctx.textAlign = 'center';
+  ctx.fillText('RD', W/2, COL_Y+COL_H/2);
+  ctx.fillStyle = BLUE;
+  ctx.textAlign = 'right';
+  ctx.fillText(lang==='uk'?'РАУНД':'WIN', MX+CW-24, COL_Y+COL_H/2);
+  ctx.fillStyle = MUTED;
+  ctx.fillText(lang==='uk'?'БАЛИ':'PTS', MX+CW-90, COL_Y+COL_H/2);
+
+  // Rounds
+  const ROW_H = Math.floor((H - MY*2 - HDR_H - 2 - COL_H - 110 - 40) / n);
+  let ry = COL_Y + COL_H;
+  const BAR_W = 340, BAR_H = Math.min(ROW_H-10, 36), BAR_R = 6;
+  const BAR_PAD = 70;
+
+  for (let i = 0; i < n; i++) {
+    const s = scores[i];
+    const done = s.red!==null && s.blue!==null;
+
+    // Row bg
+    ctx.fillStyle = done ? '#fafaf8' : '#ffffff';
+    ctx.fillRect(MX, ry, CW, ROW_H);
+
+    // Row border
+    ctx.strokeStyle = BORDER;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(MX, ry+ROW_H); ctx.lineTo(MX+CW, ry+ROW_H); ctx.stroke();
+
+    const cy = ry + ROW_H/2;
+
+    // Red bar
+    const rbx = MX + BAR_PAD;
+    ctx.fillStyle = s.red!==null ? RED_L : '#f0ede8';
+    roundRect(ctx, rbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, true, false);
+    if (s.red!==null) {
+      ctx.strokeStyle = RED_B; ctx.lineWidth = 1;
+      roundRect(ctx, rbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, false, true);
+    }
+    ctx.fillStyle = s.red!==null ? RED : MUTED;
+    ctx.font = 'bold 22px DM Sans, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.red!==null ? s.red : '—', rbx+14, cy);
+
+    // Blue bar
+    const bbx = MX+CW - BAR_PAD - BAR_W;
+    ctx.fillStyle = s.blue!==null ? BLUE_L : '#f0ede8';
+    roundRect(ctx, bbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, true, false);
+    if (s.blue!==null) {
+      ctx.strokeStyle = BLUE_B; ctx.lineWidth = 1;
+      roundRect(ctx, bbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, false, true);
+    }
+    ctx.fillStyle = s.blue!==null ? BLUE : MUTED;
+    ctx.font = 'bold 22px DM Sans, sans-serif';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.blue!==null ? s.blue : '—', bbx+BAR_W-14, cy);
+
+    // Round number center
+    ctx.fillStyle = MUTED;
+    ctx.font = '500 16px DM Sans, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('R'+(i+1), W/2, cy);
+
+    // Win indicators
+    if (done) {
+      ctx.font = '600 14px DM Sans, sans-serif';
+      if (s.red > s.blue) {
+        ctx.fillStyle = RED; ctx.textAlign = 'left';
+        ctx.fillText('W', MX+8, cy);
+      } else if (s.blue > s.red) {
+        ctx.fillStyle = BLUE; ctx.textAlign = 'right';
+        ctx.fillText('W', MX+CW-8, cy);
+      }
+    }
+    ry += ROW_H;
+  }
+
+  // Footer
+  const FY = ry + 2;
+  const FH = stoppage ? 130 : 110;
+  ctx.fillStyle = DARK;
+  roundRect(ctx, MX, FY, CW, FH, [0,0,16,16], true, false);
+
+  if (stoppage) {
+    const w = stoppage.winner==='red' ? rn() : bn();
+    // Show score on top
+    ctx.fillStyle = RED;
+    ctx.font = 'bold 42px DM Sans, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(sc.length ? tr : '—', MX+32, FY+30);
+    ctx.fillStyle = BLUE;
+    ctx.textAlign = 'right';
+    ctx.fillText(sc.length ? tb : '—', MX+CW-32, FY+30);
+    // Stoppage info below
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 22px DM Sans, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(w + ' — ' + stoppage.type + ' R' + stoppage.round, W/2, FY+72);
+    ctx.fillStyle = '#555555';
+    ctx.font = '13px DM Sans, sans-serif';
+    ctx.fillText(lang==='uk'?'ДОСТРОКОВИЙ ФІНАЛ':'EARLY STOPPAGE', W/2, FY+96);
+  } else {
+    ctx.fillStyle = RED;
+    ctx.font = 'bold 52px DM Sans, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(sc.length ? tr : '—', MX+32, FY+FH/2);
+    ctx.fillStyle = BLUE;
+    ctx.textAlign = 'right';
+    ctx.fillText(sc.length ? tb : '—', MX+CW-32, FY+FH/2);
+    ctx.fillStyle = '#444444';
+    ctx.font = '13px DM Sans, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('TOTAL SCORE', W/2, FY+FH/2);
+  }
+
+  // Brand footer
+  const BY = FY + FH + 16;
+  ctx.fillStyle = MUTED;
+  ctx.font = '500 18px DM Sans, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('BOXING12X3.COM', W/2, BY+12);
+
+  return canvas;
+}
+
+function roundRect(ctx, x, y, w, h, r, fill, stroke) {
+  if (typeof r === 'number') r = [r,r,r,r];
+  ctx.beginPath();
+  ctx.moveTo(x+r[0], y);
+  ctx.lineTo(x+w-r[1], y); ctx.arcTo(x+w, y, x+w, y+r[1], r[1]);
+  ctx.lineTo(x+w, y+h-r[2]); ctx.arcTo(x+w, y+h, x+w-r[2], y+h, r[2]);
+  ctx.lineTo(x+r[3], y+h); ctx.arcTo(x, y+h, x, y+h-r[3], r[3]);
+  ctx.lineTo(x, y+r[0]); ctx.arcTo(x, y, x+r[0], y, r[0]);
+  ctx.closePath();
+  if (fill) ctx.fill();
+  if (stroke) ctx.stroke();
+}
+async function dlImg() {
+  const btn = document.getElementById('btnDl');
+  const orig = btn.textContent; btn.textContent = '...';
+  try {
+    const c = await genImg();
+    const a = document.createElement('a');
+    a.download = 'scorecard-' + fight.id + '.png';
+    a.href = c.toDataURL('image/png'); a.click();
+    btn.textContent = t('dled'); setTimeout(() => btn.textContent = orig, 2000);
+  } catch(e) { btn.textContent = orig; }
+}
+async function shNative() {
+  const btn = document.getElementById('btnSh');
+  const orig = btn.textContent; btn.textContent = '...';
+  try {
+    const c = await genImg();
+    const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+    const file = new File([blob], 'scorecard-'+fight.id+'.png', {type:'image/png'});
+    if (navigator.canShare && navigator.canShare({files:[file]})) {
+      await navigator.share({files:[file], title: rn()+' vs '+bn()+' — 12×3'});
+    } else {
+      // Fallback: download instead
+      const a = document.createElement('a');
+      a.download = 'scorecard-'+fight.id+'.png';
+      a.href = c.toDataURL('image/png'); a.click();
+    }
+  } catch(e) { console.log('Share error:', e); }
+  btn.textContent = orig;
+}
+function cpText() {
+  const n = fight.rounds;
+  const tr = scores.slice(0,n).reduce((a,s) => a+(s.red||0), 0);
+  const tb = scores.slice(0,n).reduce((a,s) => a+(s.blue||0), 0);
+  let txt = '🥊 '+rn()+' vs '+bn()+'\n'+(lang==='uk'?'Моя суддівська картка':'My scorecard')+' — boxing12x3.com\n\n';
+  scores.slice(0,n).forEach((s,i) => {
+    if (s.red!==null && s.blue!==null) {
+      const w = s.red>s.blue ? rn() : s.blue>s.red ? bn() : t('draw');
+      txt += 'R'+(i+1)+': '+s.red+'–'+s.blue+' ('+w+')\n';
+    }
+  });
+  if (stoppage) {
+    const w = stoppage.winner==='red' ? rn() : bn();
+    txt += '\n'+w+' — '+stoppage.type+' R'+stoppage.round;
+  } else {
+    txt += '\n'+(lang==='uk'?'Разом':'Total')+': '+tr+'–'+tb;
+    if (tr>tb) txt += ' → '+t('winner',rn());
+    else if (tb>tr) txt += ' → '+t('winner',bn());
+    else txt += ' → '+t('draw');
+  }
+  navigator.clipboard.writeText(txt).then(() => {
+    const btn = document.getElementById('btnCp');
+    const orig = btn.textContent;
+    btn.textContent = t('copied');
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+
+// ── localStorage ──────────────────────────────────────────────────────────────
+function saveState() {
+  try {
+    localStorage.setItem('b12x3_fight', fight.id);
+    localStorage.setItem('b12x3_scores', JSON.stringify(scores));
+    localStorage.setItem('b12x3_lang', lang);
+    if (stoppage) localStorage.setItem('b12x3_stop', JSON.stringify(stoppage));
+    else localStorage.removeItem('b12x3_stop');
+  } catch(e) {}
+}
+function loadState() {
+  try {
+    const sl = localStorage.getItem('b12x3_lang');
+    const sf = localStorage.getItem('b12x3_fight');
+    const ss = localStorage.getItem('b12x3_scores');
+    const st = localStorage.getItem('b12x3_stop');
+    if (sl) {
+      lang = sl;
+      document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === sl));
+    }
+    if (sf) { const f = FIGHTS.find(x => x.id===sf); if (f) fight = f; }
+    if (ss) scores = JSON.parse(ss);
+    if (st) stoppage = JSON.parse(st);
+
+    // URL param overrides saved fight (for links from stats pages)
+    const params = new URLSearchParams(location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'uk' || urlLang === 'en') {
+      lang = urlLang;
+      document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+    }
+    const urlFight = params.get('fight');
+    if (urlFight) {
+      const f = FIGHTS.find(x => x.id === urlFight);
+      if (f) { fight = f; scores = mkScores(); stoppage = null; }
+    }
+  } catch(e) {}
+}
+</script>
+</body>
+</html>
