@@ -65,6 +65,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .hint-row{display:flex;gap:8px;align-items:baseline;font-size:12px;color:#666;margin-bottom:6px;}
 .hint-row:last-child{margin-bottom:0;}
 .hint-key{background:#111;color:#fff;font-size:10px;font-weight:600;border-radius:4px;padding:2px 7px;white-space:nowrap;flex-shrink:0;}
+/* Analytics block */
+.analytics-block{margin-top:16px;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.analytics-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 16px 8px;}
+.analytics-link{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-top:0.5px solid var(--border);text-decoration:none;color:var(--text);font-size:13px;font-weight:500;transition:background .15s;}
+.analytics-link:hover{background:var(--bg);}
+.analytics-link-right{display:flex;align-items:center;gap:8px;}
+.analytics-link-date{font-size:11px;color:var(--muted);}
+.analytics-link-arr{font-size:14px;color:var(--muted);}
+.analytics-more{display:block;text-align:center;padding:10px;font-size:12px;font-weight:600;color:var(--red);text-decoration:none;border-top:0.5px solid var(--border);}
+.analytics-more:hover{background:var(--bg);}
 
 /* Col heads */
 .sc-heads{display:grid;grid-template-columns:1fr 40px 1fr;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
@@ -335,6 +345,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </a>
 </div>
 
+<!-- Fight analytics links — both languages -->
+<div class="analytics-block" id="analyticsBlock">
+  <div class="analytics-title" id="lbl-analytics">Статистика та аналіз боїв</div>
+  <div id="analyticsList"></div>
+  <a class="analytics-more" id="analyticsMore" href="/ua/fights">Всі бої →</a>
+</div>
+
+<!-- Guide block — shown only when articles exist -->
+<div class="analytics-block" id="guideBlock" style="display:none;">
+  <div class="analytics-title" id="lbl-guide">Довідник боксу</div>
+  <div id="guideList"></div>
+  <a class="analytics-more" id="guideMore" href="/ua/guide">Весь довідник →</a>
+</div>
+
 <!-- Custom fight overlay -->
 <div class="overlay" id="customOverlay" onclick="closeCustomOut(event)">
   <div class="stop-modal">
@@ -401,6 +425,10 @@ const FIGHTS = [
   {id:'zayas-ennis', date:'Jun 27', dateUk:'27 червня', red:'Xander Zayas', redUk:'Ксандер Заяс', blue:'Jaron Ennis', blueUk:'Джарон Енніс', rounds:12, completed:false, hasPage:true}
 ];
 
+// Guide articles — add entry when article is ready: {id, titleUk, titleEn}
+const GUIDE_ARTICLES = [
+];
+
 const I18N = {
   en: {
     sub:'Scorecard', redCorner:'Red corner', blueCorner:'Blue corner',
@@ -455,6 +483,78 @@ function setLang(l) {
 }
 
 // ── Full render ───────────────────────────────────────────────────────────────
+function buildAnalyticsBlock() {
+  const block = document.getElementById('analyticsBlock');
+  const list = document.getElementById('analyticsList');
+  const title = document.getElementById('lbl-analytics');
+  const more = document.getElementById('analyticsMore');
+  const isUk = lang === 'uk';
+
+  // ── Fight block ──
+  if (block && list) {
+    const pages = FIGHTS.filter(f => f.hasPage);
+    const recent = pages.slice(-5); // 5 most recent
+    const hasMore = pages.length > 5;
+
+    title.textContent = isUk ? 'Статистика та аналіз боїв' : 'Fight stats & analysis';
+    if (more) {
+      more.textContent = isUk ? 'Всі бої →' : 'All fights →';
+      more.href = isUk ? '/ua/fights' : '/en/fights';
+      more.style.display = hasMore ? 'block' : 'none';
+    }
+
+    list.innerHTML = '';
+    recent.reverse().forEach(f => {
+      const base = isUk ? '/ua/' + f.id : '/en/' + f.id;
+      const red  = isUk ? f.redUk  : f.red;
+      const blue = isUk ? f.blueUk : f.blue;
+      const date = isUk ? f.dateUk : f.date;
+      const a = document.createElement('a');
+      a.className = 'analytics-link';
+      a.href = base;
+      a.innerHTML =
+        '<span>' + red + ' — ' + blue + '</span>' +
+        '<span class="analytics-link-right">' +
+          '<span class="analytics-link-date">' + date + '</span>' +
+          '<span class="analytics-link-arr">›</span>' +
+        '</span>';
+      list.appendChild(a);
+    });
+    block.style.display = pages.length ? 'block' : 'none';
+  }
+
+  // ── Guide block ──
+  const guideBlock = document.getElementById('guideBlock');
+  const guideList = document.getElementById('guideList');
+  const guideTitle = document.getElementById('lbl-guide');
+  const guideMore = document.getElementById('guideMore');
+
+  if (guideBlock && guideList) {
+    if (!GUIDE_ARTICLES.length) {
+      guideBlock.style.display = 'none';
+      return;
+    }
+    guideTitle.textContent = isUk ? 'Довідник боксу' : 'Boxing guide';
+    if (guideMore) {
+      guideMore.textContent = isUk ? 'Весь довідник →' : 'Full guide →';
+      guideMore.href = isUk ? '/ua/guide' : '/en/guide';
+    }
+    guideList.innerHTML = '';
+    GUIDE_ARTICLES.slice(0, 3).forEach(art => {
+      const base = isUk ? '/ua/' + art.id : '/en/' + art.id;
+      const title_txt = isUk ? art.titleUk : art.titleEn;
+      const a = document.createElement('a');
+      a.className = 'analytics-link';
+      a.href = base;
+      a.innerHTML =
+        '<span>' + title_txt + '</span>' +
+        '<span class="analytics-link-arr">›</span>';
+      guideList.appendChild(a);
+    });
+    guideBlock.style.display = 'block';
+  }
+}
+
 function updateStatBanner() {
   const banner = document.getElementById('statBanner');
   const txt = document.getElementById('statBannerText');
@@ -525,6 +625,8 @@ function renderAll() {
     document.getElementById('lbl-blog-t').textContent = t('blogTitle');
     document.getElementById('lbl-blog-s').textContent = t('blogSub');
   }
+
+  buildAnalyticsBlock();
 
   // Custom modal labels
   document.getElementById('lbl-custom-title').textContent = t('customTitle');
@@ -644,7 +746,7 @@ function startCustom() {
   updateUI();
 }
 
-// ── Rounds — v2 tap model ─────────────────────────────────────────────────────
+// ── Rounds — v2 tap model ────────────────────────────────────────────────────
 const SCORE_CYCLE = [10, 9, 8, 7, 6];
 
 function nextScore(current) {
