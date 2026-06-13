@@ -44,7 +44,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .fa{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;}
 
 /* Scorecard */
-.sc{max-width:520px;margin:0 auto;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:visible;}
+.sc{max-width:520px;margin:0 auto;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:visible;box-shadow:0 16px 48px rgba(0,0,0,.11),0 4px 14px rgba(0,0,0,.06);}
 .sc-hdr{display:grid;grid-template-columns:1fr 60px 1fr;background:#111;border-radius:var(--r) var(--r) 0 0;overflow:hidden;}
 .sc-f{padding:12px 14px;}
 .sc-f.red{border-right:3px solid var(--red);}
@@ -100,15 +100,20 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   cursor:pointer;
   user-select:none;-webkit-tap-highlight-color:transparent;
   padding:0 14px;
-  transition:background .22s ease;
+  position:relative;overflow:hidden;
+  transition:background .04s;
 }
 .rside.lft{justify-content:flex-start;}
 .rside.rgt{justify-content:flex-end;}
 .rside:active{opacity:.8;}
+.rside-fill{position:absolute;inset:0;pointer-events:none;opacity:0;}
+@keyframes pourFromLeft{from{clip-path:inset(0 100% 0 0);}to{clip-path:inset(0 0 0 0);}}
+@keyframes pourFromRight{from{clip-path:inset(0 0 0 100%);}to{clip-path:inset(0 0 0 0);}}
 .rpts{
   font-family:'Bebas Neue',sans-serif;
   font-size:28px;letter-spacing:.04em;
   color:#d0cdc8;line-height:1;
+  position:relative;z-index:1;
   transition:color .22s ease;
 }
 .rn{
@@ -828,14 +833,30 @@ function renderRound(i) {
   const sc = scores[i];
   const sl = document.getElementById('rs-' + i + '-l');
   const sr = document.getElementById('rs-' + i + '-r');
+  const fl = document.getElementById('rf-' + i + '-l');
+  const fr = document.getElementById('rf-' + i + '-r');
   const pl = document.getElementById('rp-' + i + '-l');
   const pr = document.getElementById('rp-' + i + '-r');
   if (!sl) return;
 
-  sl.style.background = '';
-  sr.style.background = '';
-  pl.style.color = '';
-  pr.style.color = '';
+  // Clear fills
+  function clearFill(fill) {
+    fill.style.opacity = '0';
+    fill.style.animation = 'none';
+    fill.style.background = '';
+  }
+  if (fl) clearFill(fl);
+  if (fr) clearFill(fr);
+  pl.style.color = ''; pr.style.color = '';
+
+  // Pour animation helper
+  function pour(fill, bg, anim) {
+    fill.style.background = bg;
+    fill.style.opacity = '1';
+    fill.style.animation = 'none';
+    void fill.offsetWidth;
+    fill.style.animation = anim + ' .28s cubic-bezier(.4,0,.2,1) both';
+  }
 
   if (sc.red === null && sc.blue === null) {
     pl.textContent = '–'; pr.textContent = '–';
@@ -846,17 +867,16 @@ function renderRound(i) {
       const diff = Math.abs(sc.red - sc.blue);
       const intensity = getIntensity(diff);
       if (sc.red > sc.blue) {
-        sl.style.background = 'linear-gradient(90deg, rgba(192,57,43,' + intensity + ') 0%, transparent 85%)';
-        pl.style.color = 'var(--red)';
-        pr.style.color = '#bbb';
+        if (fl) pour(fl, 'linear-gradient(90deg,rgba(192,57,43,' + intensity + ') 0%,transparent 85%)', 'pourFromLeft');
+        if (fr) clearFill(fr);
+        pl.style.color = 'var(--red)'; pr.style.color = '#bbb';
       } else if (sc.blue > sc.red) {
-        sr.style.background = 'linear-gradient(270deg, rgba(26,82,118,' + intensity + ') 0%, transparent 85%)';
-        pr.style.color = 'var(--blue)';
-        pl.style.color = '#bbb';
+        if (fr) pour(fr, 'linear-gradient(270deg,rgba(26,82,118,' + intensity + ') 0%,transparent 85%)', 'pourFromRight');
+        if (fl) clearFill(fl);
+        pr.style.color = 'var(--blue)'; pl.style.color = '#bbb';
       } else {
-        // draw round
-        sl.style.background = 'rgba(200,197,191,0.10)';
-        sr.style.background = 'rgba(200,197,191,0.10)';
+        if (fl) { fl.style.background='rgba(200,197,191,0.10)'; fl.style.opacity='1'; }
+        if (fr) { fr.style.background='rgba(200,197,191,0.10)'; fr.style.opacity='1'; }
         pl.style.color = '#999'; pr.style.color = '#999';
       }
     } else {
@@ -878,10 +898,12 @@ function buildRounds() {
     row.className = 'rrow';
     row.innerHTML =
       '<div class="rside lft" id="rs-' + i + '-l" onclick="tapSide(' + i + ',\'red\')">' +
+        '<div class="rside-fill" id="rf-' + i + '-l"></div>' +
         '<span class="rpts" id="rp-' + i + '-l">–</span>' +
       '</div>' +
       '<div class="rn" onclick="tapCenter(' + i + ')" style="cursor:pointer;">R' + (i + 1) + '</div>' +
       '<div class="rside rgt" id="rs-' + i + '-r" onclick="tapSide(' + i + ',\'blue\')">' +
+        '<div class="rside-fill" id="rf-' + i + '-r"></div>' +
         '<span class="rpts" id="rp-' + i + '-r">–</span>' +
       '</div>';
     list.appendChild(row);
