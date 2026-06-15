@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Boxing Scoring Works: The 10-Point Must System | Boxing 12×3</title>
+<meta name="description" content="How the 10-point must system works in boxing: rounds, judging criteria, when 10:8 happens without a knockdown, and how three judges determine the winner.">
+<link rel="canonical" href="https://boxing12x3.com/en/boxing-scoring">
+<link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxing-scoring">
+<link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-scoring">
+<link rel="alternate" hreflang="x-default" href="https://boxing12x3.com/en/boxing-scoring">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23111'/%3E%3Ctext x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3E12%3C/text%3E%3Cline x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'%3E%C3%973%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Boxing Scoring Works: The 10-Point Must System",
+  "description": "How the 10-point must system works in boxing: rounds, judging criteria, when 10:8 happens without a knockdown.",
+  "author": {"@type": "Organization", "name": "Boxing 12×3"},
+  "publisher": {"@type": "Organization", "name": "Boxing 12×3", "url": "https://boxing12x3.com"},
+  "url": "https://boxing12x3.com/en/boxing-scoring",
+  "inLanguage": "en"
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#c0392b;--blue:#1a5276;--bg:#f7f6f3;--card:#fff;
+  --text:#1a1a1a;--muted:#888;--border:#e5e3de;--r:10px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.7;}
+.wrap{max-width:640px;margin:0 auto;}
+.lang-row{display:flex;justify-content:flex-end;gap:4px;margin-bottom:1rem;}
+.lang-btn{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;}
+.lang-btn.on{background:var(--text);color:#fff;border-color:var(--text);}
+.brand{text-align:center;margin-bottom:1.5rem;}
+.brand a{text-decoration:none;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
+.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:20px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--red);}
+h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:10px;letter-spacing:-.01em;}
+.meta{font-size:13px;color:var(--muted);margin-bottom:28px;padding-bottom:20px;border-bottom:0.5px solid var(--border);}
+article h2{font-size:19px;font-weight:700;margin:32px 0 10px;letter-spacing:-.01em;}
+article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;}
+article ul{margin:0 0 14px 20px;}
+article li{font-size:15px;color:#2a2a2a;margin-bottom:6px;line-height:1.6;}
+.sources{font-size:11px;color:var(--muted);border-top:0.5px solid var(--border);padding-top:16px;margin-top:32px;line-height:1.8;}
+.sources b{color:var(--text);font-weight:500;}
+.cta{background:#111;border-radius:var(--r);padding:24px 20px;text-align:center;margin:32px 0;}
+.cta-t{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
+.cta-s{font-size:13px;color:#aaa;margin-bottom:16px;}
+.cta-btn{display:inline-block;background:var(--red);color:#fff;font-weight:500;font-size:14px;padding:11px 28px;border-radius:6px;text-decoration:none;}
+.back{text-align:center;margin-top:24px;}
+.back a{font-size:13px;color:var(--red);font-weight:500;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lang-row">
+    <a class="lang-btn" href="/ua/boxing-scoring">UA</a>
+    <span class="lang-btn on">EN</span>
+  </div>
+
+  <div class="brand">
+    <a href="/?lang=en">
+      <div class="brand-name">BOXING 12×3</div>
+      <div class="brand-sub">Scorecard</div>
+    </a>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="/?lang=en">Home</a> · <a href="/en/guide">Guide</a> · How boxing scoring works
+  </div>
+
+  <h1>How Boxing Scoring Works: The 10-Point Must System</h1>
+  <div class="meta">Boxing guide · Based on ABC and BBBofC official rules</div>
+
+  <article>
+    <p>Boxing is one of those sports where spectators often think they can easily determine the winner. After all, whoever is stronger wins. Yet the closer the contest, the more often the opinions of ringside judges and fans diverge. In simple terms, let's explain how scorecards work and how points are awarded.</p>
+
+    <h2>How Many Rounds and Why Not Always 12</h2>
+
+    <p>The number of rounds is always agreed upon in advance and written into the contract. Two key regulatory bodies:</p>
+
+    <p><b>Association of Boxing Commissions (ABC)</b> — a North American non-profit organization regulating most professional fights in the U.S. <b>BBBofC (British Boxing Board of Control)</b> — the governing body of professional boxing in the United Kingdom.</p>
+
+    <p>According to both, as well as the rules of all major organizations (WBA, WBO, WBC, IBF, EBU, etc.), official contests cannot exceed 12 rounds. Fewer than 12 is the standard for non-title fights: 4, 6, or 8 rounds.</p>
+
+    <p>The logic is simple: fights for full championship belts are always 12 rounds. Shorter distances are agreed upon by the fighters' teams — sometimes a debut level, a tune-up fight, or a secondary title (which may go 10 rounds instead of 12). Four rounds do not mean the fight is unserious — it simply means one or both fighters are not yet ready for the full distance.</p>
+
+    <p>One round lasts 3 minutes. In women's boxing — 2 minutes, though the push for equal rights continues. The 12-round limit was an important milestone in boxing history, helping prevent health issues caused by prolonged strain. The extra two rounds compared to non-title fights add opportunities for both sides — and created the concept of "championship rounds," where victory can be snatched in the final seconds of an otherwise losing fight.</p>
+
+    <h2>What Judges Evaluate: Four Criteria</h2>
+
+    <p>According to the Unified Rules of ABC, judges score based on four criteria in strict hierarchy:</p>
+
+    <p><b>First and most important — clean, effective punches.</b> A punch counts if delivered with the knuckle part of the glove to a legal area and clearly lands. BBBofC Rule 3.31 specifies: "a direct clean hit with the knuckle part of the glove to any part of the head or body above the belt."</p>
+
+    <p><b>Second — effective aggression.</b> Not just moving forward, but attacking in a way that creates genuine threat. In boxing, they say "who is leading the fight."</p>
+
+    <p><b>Third — defense.</b> Avoiding punches, blocking. The one who absorbs fewer shots has the advantage.</p>
+
+    <p><b>Fourth — ring generalship.</b> Positioning, dictating pace, choosing distance. A boxer doesn't have to constantly move forward, but can control where and how the fight takes place.</p>
+
+    <p>This is why a fighter who throws more punches may lose a round to one who throws fewer but lands cleaner and more damaging shots. If a fighter lands in illegal areas (back of the head, spine) or with an open glove, he should lose the round. Conversely, if an opponent moves a lot but barely throws, has long pauses between attacks, and fights under the opponent's control — he loses the round too.</p>
+
+    <h2>10:9 Standard — Why and When 10:10 Happens</h2>
+
+    <p>Under the 10-point must system, the winner of a round always gets 10. BBBofC Rule 3.29 states: "The referee awards a maximum of ten points per round to the better boxer and a proportionate number to the other." The loser gets 9.</p>
+
+    <p>This doesn't mean one landed 10 punches and the other 9 — it simply reflects a round where one fighter won but not dominantly. If the round is even, the score is 10:10.</p>
+
+    <h2>10:8 Is Not Only After Knockdowns</h2>
+
+    <p>Most fans think 10:8 is only possible after a knockdown. That's a misconception. Under WBO rules, a judge may award 10:8 when "a boxer completely dominated the round" — even without a knockdown. Though this is rare: judges usually avoid giving 10:8 without a knockdown.</p>
+
+    <p>The most common reason is a knockdown (officially: touching the canvas with any part of the body other than the feet). Another reason is a point deduction for fouls. BBBofC Rule 3.38.2 allows referees to deduct points for rough or systematic foul play. If a fighter loses a point in an otherwise even round, it automatically becomes 10:8 for the opponent.</p>
+
+    <h2>Rare Scores: 9:9, 8:8, 10:7 and Lower</h2>
+
+    <p>9:9 can occur when both fighters are knocked down in the same round — the knockdowns cancel each other out, and the round is scored on overall content. 8:8 is theoretically possible with two knockdowns each, but almost never happens in practice.</p>
+
+    <p>10:7 occurs with two knockdowns in one round; 10:6 with three knockdowns. Lower than 6 is theoretically possible with deductions plus knockdowns — but in practice, fights are stopped well before that point.</p>
+
+    <h2>Three Judges — Three Scorecards — One Decision</h2>
+
+    <p>Each judge scores independently. They don't communicate or see each other's cards during the fight. After each round, judges hand their cards to the referee, who passes them to the head judge. Scores are recorded throughout the fight — both for control and for cases where the bout must be stopped early due to injury, with the winner determined from scorecards up to that round.</p>
+
+    <p>At the end, the three cards are tallied separately:</p>
+
+    <ul>
+      <li><b>Unanimous Decision (UD)</b> — all three judges scored for one fighter.</li>
+      <li><b>Split Decision (SD)</b> — two judges for Fighter A, one for Fighter B.</li>
+      <li><b>Majority Decision (MD)</b> — two judges for Fighter A, one scored a draw.</li>
+      <li><b>Majority Draw (D-MD)</b> — two judges scored a draw, one for Fighter B.</li>
+    </ul>
+
+    <p>Three independent people can see the same fight differently — and all may be technically correct. Factors range from personal judgment to the literal angle of view. That's why judges are placed around the ring — to collectively capture the contest as fully as possible.</p>
+  </article>
+
+  <div class="cta">
+    <div class="cta-t">Score it yourself</div>
+    <div class="cta-s">Open the scorecard and judge rounds in real time</div>
+    <a class="cta-btn" href="/?lang=en">Open scorecard →</a>
+  </div>
+
+  <div class="sources">
+    <b>Sources:</b> ABC Unified Rules of Boxing (abcboxing.com, updated 2016) ·
+    BBBofC Rules of Boxing 2025 (bbbofc.com) ·
+    WBC Championship Rules ·
+    WBO 10-Point System Guidelines
+  </div>
+
+  <div class="back">
+    <a href="/en/guide">← Boxing guide</a>
+  </div>
+
+</div>
+</body>
+</html>
