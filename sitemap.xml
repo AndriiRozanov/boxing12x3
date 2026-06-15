@@ -85,5 +85,43 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/zayas-ennis"/>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/guide</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/guide</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxing-scoring</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxing-scoring"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-scoring"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxing-scoring</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxing-scoring"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-scoring"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/fights</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/fights</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>
