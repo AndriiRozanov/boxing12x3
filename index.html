@@ -473,7 +473,11 @@ const I18N = {
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let lang = 'en';
-let fight = FIGHTS[0];
+function getDefaultFight() {
+  const upcoming = FIGHTS.filter(f => !f.completed).sort((a, b) => new Date(a.date + ', 2026') - new Date(b.date + ', 2026'));
+  return upcoming.length ? upcoming[0] : FIGHTS[0];
+}
+let fight = getDefaultFight();
 let scores = mkScores();
 let stoppage = null;  // {winner:'red'|'blue', type, round}
 let selWinner = null;
@@ -682,9 +686,11 @@ function buildSelector() {
   sel.innerHTML = '';
   const ph = document.createElement('option');
   ph.value = ''; ph.textContent = t('sel');
+  ph.disabled = true;
+  ph.hidden = true;
   sel.appendChild(ph);
 
-  const upcoming = FIGHTS.filter(f => !f.completed);
+  const upcoming = FIGHTS.filter(f => !f.completed).sort((a, b) => new Date(a.date + ', 2026') - new Date(b.date + ', 2026'));
   const completed = FIGHTS.filter(f => f.completed);
 
   if (upcoming.length) {
