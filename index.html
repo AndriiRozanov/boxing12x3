@@ -221,6 +221,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .podcast-sub{display:flex;flex-direction:column;gap:0;margin:-4px 0 8px;padding-left:48px;}
 .pod-platform{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;padding:8px 0;border-bottom:0.5px solid var(--border);}
 .pod-platform:last-child{border-bottom:none;}
+
+/* Site footer */
+.site-footer{text-align:center;padding:24px 0 8px;font-size:12px;color:var(--muted);}
+.site-footer a{color:var(--muted);text-decoration:none;}
+.site-footer a:hover{color:var(--red);}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -434,7 +439,7 @@ const FIGHTS = [
   {id:'nery-casimero', date:'Jun 6', dateUk:'6 червня', red:'Luis Nery', redUk:'Луїс Нері', blue:'John Riel Casimero', blueUk:'Джон Касімеро', rounds:10, completed:true, hasPage:true},
   {id:'billam-smith-rozicki', date:'Jun 6', dateUk:'6 червня', red:'Chris Billam-Smith', redUk:'Кріс Біллем-Сміт', blue:'Ryan Rozicki', blueUk:'Раян Розицький', rounds:10, completed:true, hasPage:true},
   {id:'rodriguez-vargas', date:'Jun 13', dateUk:'13 червня', red:'Jesse Rodriguez', redUk:'Джессі Родрігес', blue:'Antonio Vargas', blueUk:'Антоніо Варгас', rounds:12, completed:true, hasPage:true},
-  {id:'allen-chvakrov', date:'Jun 20', dateUk:'20 червня', red:'David Allen', redUk:'Девід Аллен', blue:'Viktar Chvakrou', blueUk:'Віктар Чвакров', rounds:4, completed:false},
+  {id:'allen-mcguigan', date:'Jun 20', dateUk:'20 червня', red:'David Allen', redUk:'Девід Аллен', blue:'Ross McGuigan', blueUk:'Росс МакГіган', rounds:4, completed:true},
   {id:'crocker-paro', date:'Jun 24', dateUk:'24 червня', red:'Lewis Crocker', redUk:'Льюїс Крокер', blue:'Liam Paro', blueUk:'Ліам Паро', rounds:12, completed:false, hasPage:true},
   {id:'whittaker-rivera', date:'Jun 27', dateUk:'27 червня', red:'Ben Whittaker', redUk:'Бен Віттакер', blue:'Richard Rivera', blueUk:"Річард Рів'єра", rounds:10, completed:false},
   {id:'vargas-millis', date:'Jun 27', dateUk:'27 червня', red:'Emiliano Vargas', redUk:'Еміліано Варгас', blue:'Bruce Milles', blueUk:'Брюс Мілліс', rounds:10, completed:false},
