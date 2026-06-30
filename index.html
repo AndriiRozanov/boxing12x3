@@ -437,15 +437,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <script>
 // ── Data ──────────────────────────────────────────────────────────────────────
 const FIGHTS = [
-  {id:'garcia-moloney', date:'Jun 6', dateUk:'6 червня', red:'Willibaldo Garcia', redUk:'Віллібальдо Гарсія', blue:'Andrew Moloney', blueUk:'Ендрю Молоні', rounds:12, completed:true, hasPage:true},
-  {id:'nery-casimero', date:'Jun 6', dateUk:'6 червня', red:'Luis Nery', redUk:'Луїс Нері', blue:'John Riel Casimero', blueUk:'Джон Касімеро', rounds:10, completed:true, hasPage:true},
-  {id:'billam-smith-rozicki', date:'Jun 6', dateUk:'6 червня', red:'Chris Billam-Smith', redUk:'Кріс Біллем-Сміт', blue:'Ryan Rozicki', blueUk:'Раян Розицький', rounds:10, completed:true, hasPage:true},
-  {id:'rodriguez-vargas', date:'Jun 13', dateUk:'13 червня', red:'Jesse Rodriguez', redUk:'Джессі Родрігес', blue:'Antonio Vargas', blueUk:'Антоніо Варгас', rounds:12, completed:true, hasPage:true},
-  {id:'allen-mcguigan', date:'Jun 20', dateUk:'20 червня', red:'David Allen', redUk:'Девід Аллен', blue:'Ross McGuigan', blueUk:'Росс МакГіган', rounds:4, completed:true},
-  {id:'crocker-paro', date:'Jun 24', dateUk:'24 червня', red:'Lewis Crocker', redUk:'Льюїс Крокер', blue:'Liam Paro', blueUk:'Ліам Паро', rounds:12, completed:true, hasPage:true},
-  {id:'whittaker-rivera', date:'Jun 27', dateUk:'27 червня', red:'Ben Whittaker', redUk:'Бен Віттакер', blue:'Richard Rivera', blueUk:"Річард Рів'єра", rounds:10, completed:false},
-  {id:'vargas-millis', date:'Jun 27', dateUk:'27 червня', red:'Emiliano Vargas', redUk:'Еміліано Варгас', blue:'Bruce Milles', blueUk:'Брюс Мілліс', rounds:10, completed:false},
-  {id:'zayas-ennis', date:'Jun 27', dateUk:'27 червня', red:'Xander Zayas', redUk:'Ксандер Заяс', blue:'Jaron Ennis', blueUk:'Джарон Енніс', rounds:12, completed:true, hasPage:true}
+  {id:'mason-bell', date:'Jul 5', dateUk:'5 липня', red:'Abdullah Mason', redUk:'Абдулла Мейсон', blue:'Albert Bell', blueUk:'Альберт Белл', rounds:12, completed:false},
+  {id:'carrington-palacios', date:'Jul 5', dateUk:'5 липня', red:'Bruce Carrington', redUk:'Брюс Каррінгтон', blue:'Rene Palacios', blueUk:'Рене Паласіос', rounds:12, completed:false},
+  {id:'joshua-prenga', date:'Jul 25', dateUk:'25 липня', red:'Anthony Joshua', redUk:'Ентоні Джошуа', blue:'Kristian Prenga', blueUk:'Крістіан Пренга', rounds:12, completed:false},
+  {id:'spence-tszyu', date:'Jul 25', dateUk:'25 липня', red:'Errol Spence', redUk:'Еррол Спенс', blue:'Tim Tszyu', blueUk:'Тім Цзю', rounds:12, completed:false},
+  {id:'berlanga-butler', date:'Jul 25', dateUk:'25 липня', red:'Edgar Berlanga', redUk:'Едгар Берланга', blue:'Steven Butler', blueUk:'Стівен Батлер', rounds:12, completed:false},
+  {id:'hitchins-salas', date:'Jul 25', dateUk:'25 липня', red:'Richardson Hitchins', redUk:'Річардсон Гітчінс', blue:'Ricardo Salas', blueUk:'Рікардо Салас', rounds:12, completed:false},
+  {id:'derevyanchenko-hackett', date:'Jul 25', dateUk:'25 липня', red:'Sergiy Derevyanchenko', redUk:"Сергій Дерев'янченко", blue:'Jalil Hackett', blueUk:'Джаліл Хекетт', rounds:10, completed:false}
 ];
 
 // Guide articles — add entry when article is ready: {id, titleUk, titleEn}
@@ -1352,9 +1350,18 @@ function loadState() {
       lang = sl;
       document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === sl));
     }
-    if (sf) { const f = FIGHTS.find(x => x.id===sf); if (f) fight = f; }
-    if (ss) scores = JSON.parse(ss);
-    if (st) stoppage = JSON.parse(st);
+    if (sf) {
+      const f = FIGHTS.find(x => x.id===sf);
+      if (f) {
+        fight = f;
+        if (ss) scores = JSON.parse(ss);
+        if (st) stoppage = JSON.parse(st);
+      }
+      // if saved fight id no longer exists, keep default fight + fresh scores
+    } else {
+      if (ss) scores = JSON.parse(ss);
+      if (st) stoppage = JSON.parse(st);
+    }
 
     // URL param overrides saved fight (for links from stats pages)
     const params = new URLSearchParams(location.search);
