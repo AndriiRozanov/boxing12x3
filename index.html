@@ -533,7 +533,7 @@ function buildAnalyticsBlock() {
   if (block && list) {
     const pages = FIGHTS.filter(f => f.hasPage);
     const recent = pages.slice(-5); // 5 most recent
-    const hasMore = pages.length > 5;
+    const hasMore = pages.length > 0;
 
     title.textContent = isUk ? 'Статистика та аналіз боїв' : 'Fight stats & analysis';
     if (more) {
