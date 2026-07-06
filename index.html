@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boxing 12×3 — Scorecard</title>
+<title>Boxing 12×3 – Scorecard</title>
 <link rel="canonical" href="https://boxing12x3.com/">
-<meta name="description" content="Суди боксерські бої сам — раунд за раундом. Інтерактивна суддівська картка: виставляй бали, створи картинку і поділись. Score boxing fights round by round.">
-<meta property="og:title" content="Boxing 12×3 — Суддівська картка">
-<meta property="og:description" content="Суди боксерські бої сам — раунд за раундом. Створи свою картку і поділись нею.">
+<meta name="description" content="Суди боксерські бої сам – раунд за раундом. Інтерактивна суддівська картка: виставляй бали, створи картинку і поділись. Score boxing fights round by round.">
+<meta property="og:title" content="Boxing 12×3 – Суддівська картка">
+<meta property="og:description" content="Суди боксерські бої сам – раунд за раундом. Створи свою картку і поділись нею.">
 <meta property="og:image" content="https://boxing12x3.com/og-default.png">
 <meta property="og:url" content="https://boxing12x3.com/">
 <meta property="og:type" content="website">
@@ -50,13 +50,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .sc-f.red{border-right:3px solid var(--red);}
 .sc-f.blue{border-left:3px solid var(--blue);text-align:right;}
 .sc-corner{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:.1em;}
-/* Fighter name — DM Sans Bold for universal cyrillic/latin support */
+/* Fighter name – DM Sans Bold for universal cyrillic/latin support */
 .sc-name{font-size:13px;font-weight:700;color:#fff;margin-top:3px;letter-spacing:.02em;line-height:1.2;}
 .sc-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;border-left:0.5px solid #1a1a1a;border-right:0.5px solid #1a1a1a;padding:6px 4px;}
 .sc-mid-brand{font-family:'Bebas Neue',sans-serif;font-size:13px;color:#fff;letter-spacing:.08em;}
 .sc-mid-sub{font-size:8px;color:#444;letter-spacing:.12em;margin-top:1px;}
 .sc-statlink{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:var(--card);border-bottom:0.5px solid var(--border);text-decoration:none;color:var(--red);font-size:13px;font-weight:500;transition:background .15s;}
-.sc-statlink:hover{background:var(--red-l);}
 .sc-statlink-arr{font-size:14px;}
 /* Scoring hint */
 .hint-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;color:var(--muted);padding:8px 0 2px;margin:0 auto;}
@@ -87,7 +86,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .sh.r{color:var(--red);text-align:left;}
 .sh.b{color:var(--blue);text-align:right;}
 
-/* Round rows — v2 tap model */
+/* Round rows – v2 tap model */
 .rrow{
   display:grid;grid-template-columns:1fr 40px 1fr;
   align-items:stretch;min-height:54px;
@@ -136,7 +135,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .won-fill{height:100%;background:var(--red);border-radius:2px;width:50%;transition:width .4s ease, background .3s ease;}
 /* bump animation */
 .bump{animation:v2bump .25s ease;}
-@keyframes v2bump{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
+@keyframes v2bump{0%{transform:scale(1)}40%{transform:scale(1.06)}100%{transform:scale(1)}}
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Hover only on devices that support it */
+@media (hover: hover) and (pointer: fine) {
+  .rside:hover{opacity:.92;}
+  .rn:hover{background:#e5e3de;}
+  .analytics-link:hover{background:var(--bg);}
+  .analytics-more:hover{background:var(--bg);}
+  .hint-toggle:hover{color:var(--text);}
+  .sc-statlink:hover{background:var(--red-l);}
+}
 
 /* Footer */
 .sc-foot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:12px 14px;align-items:center;border-radius:0 0 var(--r) var(--r);}
@@ -250,7 +266,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <div class="sc-hdr">
     <div class="sc-f red">
       <div class="sc-corner" id="hdr-red">Red corner</div>
-      <div class="sc-name" id="hdr-rn">—</div>
+      <div class="sc-name" id="hdr-rn">–</div>
     </div>
     <div class="sc-mid">
       <div class="sc-mid-brand">12×3</div>
@@ -258,7 +274,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
     <div class="sc-f blue">
       <div class="sc-corner" id="hdr-blue">Blue corner</div>
-      <div class="sc-name" id="hdr-bn">—</div>
+      <div class="sc-name" id="hdr-bn">–</div>
     </div>
   </div>
   <a class="sc-statlink" id="statBanner" href="#" style="display:none;">
@@ -280,9 +296,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </div>
   <div id="rounds"></div>
   <div class="sc-foot">
-    <div class="ft-r" id="totR">—</div>
+    <div class="ft-r" id="totR">–</div>
     <div class="ft-m" id="lbl-total">TOTAL<br>SCORE</div>
-    <div class="ft-b" id="totB">—</div>
+    <div class="ft-b" id="totB">–</div>
   </div>
 </div>
 
@@ -307,7 +323,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </div>
 </div>
 
-<!-- Powered by — widget mode only -->
+<!-- Powered by – widget mode only -->
 <div class="powered-by" id="poweredBy">
   <a href="https://boxing12x3.com" target="_blank">Powered by Boxing 12×3 →</a>
 </div>
@@ -366,14 +382,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </a>
 </div>
 
-<!-- Fight analytics links — both languages -->
+<!-- Fight analytics links – both languages -->
 <div class="analytics-block" id="analyticsBlock">
   <div class="analytics-title" id="lbl-analytics">Статистика та аналіз боїв</div>
   <div id="analyticsList"></div>
   <a class="analytics-more" id="analyticsMore" href="/ua/fights">Всі бої →</a>
 </div>
 
-<!-- Guide block — shown only when articles exist -->
+<!-- Guide block – shown only when articles exist -->
 <div class="analytics-block" id="guideBlock" style="display:none;">
   <div class="analytics-title" id="lbl-guide">Довідник боксу</div>
   <div id="guideList"></div>
@@ -416,8 +432,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <div class="stop-sec">
       <div class="stop-lbl" id="lbl-stop-winner">Winner</div>
       <div class="stop-opts">
-        <button class="sopt" id="sopt-red" onclick="selW('red')">—</button>
-        <button class="sopt" id="sopt-blue" onclick="selW('blue')">—</button>
+        <button class="sopt" id="sopt-red" onclick="selW('red')">–</button>
+        <button class="sopt" id="sopt-blue" onclick="selW('blue')">–</button>
       </div>
     </div>
     <div class="stop-sec">
@@ -446,7 +462,7 @@ const FIGHTS = [
   {id:'derevyanchenko-hackett', date:'Jul 25', dateUk:'25 липня', red:'Sergiy Derevyanchenko', redUk:"Сергій Дерев'янченко", blue:'Jalil Hackett', blueUk:'Джаліл Хекетт', rounds:10, completed:false}
 ];
 
-// Guide articles — add entry when article is ready: {id, titleUk, titleEn}
+// Guide articles – add entry when article is ready: {id, titleUk, titleEn}
 const GUIDE_ARTICLES = [
   {id:'boxing-scoring', titleUk:'Як судять бокс: система 10 балів', titleEn:'How Boxing Scoring Works: The 10-Point Must System'},
 ];
@@ -457,10 +473,10 @@ const I18N = {
     win:'WIN', pts:'PTS', total:'TOTAL\nSCORE',
     share:'SHARE SCORECARD', stopBtn:'⏹ Early finish', reset:'Reset',
     modal:'Share your scorecard', dl:'⬇ Download image', sh:'↑ Share',
-    cp:'📋 Copy text', cl:'Close', sel:'— Select a fight —', customFight:'+ Add your own fight',
+    cp:'📋 Copy text', cl:'Close', sel:'– Select a fight –', customFight:'+ Add your own fight',
     stopTitle:'Early finish', stopWinner:'Winner', stopType:'Stoppage type',
     stopOk:'CONFIRM', stopCancel:'Cancel',
-    winner: n => n + ' wins', draw:'Draw', copied:'✓ Copied!', dled:'✓ Downloaded!', customTitle:'Add your own fight', customRedName:'Red corner name', customBlueName:'Blue corner name', customRounds:'Rounds', customStart:'START SCORING', moreBoxing:'More boxing from 12×3', tgTitle:"Author's Telegram", tgSub:'Boxing talk — serious and not so much', podTitle:'Podcast «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Boxing articles', blogSub:'12×3 blog: from boxing stories to deep analysis',
+    winner: n => n + ' wins', draw:'Draw', copied:'✓ Copied!', dled:'✓ Downloaded!', customTitle:'Add your own fight', customRedName:'Red corner name', customBlueName:'Blue corner name', customRounds:'Rounds', customStart:'START SCORING', moreBoxing:'More boxing from 12×3', tgTitle:"Author's Telegram", tgSub:'Boxing talk – serious and not so much', podTitle:'Podcast «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Boxing articles', blogSub:'12×3 blog: from boxing stories to deep analysis',
     earlyStop:'EARLY STOPPAGE'
   },
   uk: {
@@ -468,7 +484,7 @@ const I18N = {
     win:'РАУНД', pts:'БАЛИ', total:'РАХУНОК',
     share:'ПОДІЛИТИСЬ КАРТКОЮ', stopBtn:'⏹ Достроковий фінал', reset:'Скинути',
     modal:'Поділитись карткою', dl:'⬇ Завантажити картку', sh:'↑ Поділитись',
-    cp:'📋 Скопіювати текст', cl:'Закрити', sel:'— Оберіть бій —', customFight:'+ Додати свій бій',
+    cp:'📋 Скопіювати текст', cl:'Закрити', sel:'– Оберіть бій –', customFight:'+ Додати свій бій',
     stopTitle:'Достроковий фінал', stopWinner:'Переможець', stopType:'Тип зупинки',
     stopOk:'ПІДТВЕРДИТИ', stopCancel:'Скасувати',
     winner: n => n + ' виграє', draw:'Нічия', copied:'✓ Скопійовано!', dled:'✓ Завантажено!', customTitle:'Додати свій бій', customRedName:"Ім'я червоного кута", customBlueName:"Ім'я синього кута", customRounds:'Раундів', customStart:'ПОЧАТИ', moreBoxing:'Більше боксу від 12×3', tgTitle:'Telegram-канал автора', tgSub:'Спілкуємось про бокс серйозно та не дуже', podTitle:'Подкаст «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Матеріали про бокс', blogSub:'Блог 12×3: від боксерських історій до детального аналізу',
@@ -501,7 +517,7 @@ function scoredCount() {
 loadState();
 renderAll();
 
-// Widget mode — hide non-essential elements
+// Widget mode – hide non-essential elements
 const isWidget = new URLSearchParams(window.location.search).has('widget');
 if (isWidget) {
   ['uaLinks','analyticsBlock','guideBlock'].forEach(function(id) {
@@ -552,7 +568,7 @@ function buildAnalyticsBlock() {
       a.className = 'analytics-link';
       a.href = base;
       a.innerHTML =
-        '<span>' + red + ' — ' + blue + '</span>' +
+        '<span>' + red + ' – ' + blue + '</span>' +
         '<span class="analytics-link-right">' +
           '<span class="analytics-link-date">' + date + '</span>' +
           '<span class="analytics-link-arr">›</span>' +
@@ -649,10 +665,10 @@ function renderAll() {
   document.getElementById('lbl-h4k').textContent = isUk ? 'Інша сторона' : 'Other side';
   document.getElementById('lbl-h4').textContent = isUk ? 'Змінює переможця раунду' : 'Switch round winner';
 
-  // Stats banner — show only if fight has a stats page
+  // Stats banner – show only if fight has a stats page
   updateStatBanner();
 
-  // UA links section — show only in Ukrainian
+  // UA links section – show only in Ukrainian
   const uaLinks = document.getElementById('uaLinks');
   if (uaLinks) {
     uaLinks.style.display = lang === 'uk' ? 'block' : 'none';
@@ -787,7 +803,7 @@ function startCustom() {
   updateUI();
 }
 
-// ── Rounds — v2 tap model ────────────────────────────────────────────────────
+// ── Rounds – v2 tap model ────────────────────────────────────────────────────
 const SCORE_CYCLE = [10, 9, 8, 7, 6];
 
 function nextScore(current) {
@@ -939,8 +955,8 @@ function updateUI() {
   const all = sc.length === n;
   const any = sc.length > 0;
 
-  document.getElementById('totR').textContent = any ? tr : '—';
-  document.getElementById('totB').textContent = any ? tb : '—';
+  document.getElementById('totR').textContent = any ? tr : '–';
+  document.getElementById('totB').textContent = any ? tb : '–';
 
   // Won rounds strip
   const wonStrip = document.getElementById('wonStrip');
@@ -968,7 +984,7 @@ function updateUI() {
   if (stoppage) {
     const w = stoppage.winner === 'red' ? rn() : bn();
     const cls = stoppage.winner === 'red' ? 'r' : 'b';
-    lb.innerHTML = '<span class="' + cls + '">' + w + ' — ' + stoppage.type + ' R' + stoppage.round + '</span>';
+    lb.innerHTML = '<span class="' + cls + '">' + w + ' – ' + stoppage.type + ' R' + stoppage.round + '</span>';
     document.getElementById('lbl-total').innerHTML = stoppage.type + '<br>R' + stoppage.round;
     shareBtn.disabled = false;
     return;
@@ -1045,14 +1061,14 @@ function buildPreview() {
   const tb = sc.reduce((a,s) => a+s.blue, 0);
   const rows = scores.slice(0,n).map((s,i) =>
     '<div class="pr"><div class="prn">R'+(i+1)+'</div>' +
-    '<div class="prr"><span>'+(s.red!==null?s.red:'—')+'</span></div>' +
+    '<div class="prr"><span>'+(s.red!==null?s.red:'–')+'</span></div>' +
     '<div class="prs"></div>' +
-    '<div class="prb"><span>'+(s.blue!==null?s.blue:'—')+'</span></div></div>'
+    '<div class="prb"><span>'+(s.blue!==null?s.blue:'–')+'</span></div></div>'
   ).join('');
   const foot = stoppage
-    ? '<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>'+
-      '<div class="pstop"><div class="pstop-t">'+(stoppage.winner==='red'?rn():bn())+' — '+stoppage.type+' R'+stoppage.round+'</div><div class="pstop-s">'+t('earlyStop')+'</div></div>'
-    : '<div class="pfoot"><div class="ptr">'+(tr||'—')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'—')+'</div></div>';
+    ? '<div class="pfoot"><div class="ptr">'+(tr||'–')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'–')+'</div></div>'+
+      '<div class="pstop"><div class="pstop-t">'+(stoppage.winner==='red'?rn():bn())+' – '+stoppage.type+' R'+stoppage.round+'</div><div class="pstop-s">'+t('earlyStop')+'</div></div>'
+    : '<div class="pfoot"><div class="ptr">'+(tr||'–')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'–')+'</div></div>';
   document.getElementById('pcard').innerHTML =
     '<div class="ph"><div class="pf r"><div class="pc">'+t('redCorner')+'</div><div class="pn">'+rn()+'</div></div>' +
     '<div class="pm"><div class="pmb">12×3</div></div>' +
@@ -1178,7 +1194,7 @@ async function genImg() {
     ctx.fillStyle = s.red!==null ? RED : MUTED;
     ctx.font = 'bold 22px DM Sans, sans-serif';
     ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-    ctx.fillText(s.red!==null ? s.red : '—', rbx+14, cy);
+    ctx.fillText(s.red!==null ? s.red : '–', rbx+14, cy);
 
     // Blue bar
     const bbx = MX+CW - BAR_PAD - BAR_W;
@@ -1191,7 +1207,7 @@ async function genImg() {
     ctx.fillStyle = s.blue!==null ? BLUE : MUTED;
     ctx.font = 'bold 22px DM Sans, sans-serif';
     ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
-    ctx.fillText(s.blue!==null ? s.blue : '—', bbx+BAR_W-14, cy);
+    ctx.fillText(s.blue!==null ? s.blue : '–', bbx+BAR_W-14, cy);
 
     // Round number center
     ctx.fillStyle = MUTED;
@@ -1225,15 +1241,15 @@ async function genImg() {
     ctx.fillStyle = RED;
     ctx.font = 'bold 42px DM Sans, sans-serif';
     ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-    ctx.fillText(sc.length ? tr : '—', MX+32, FY+30);
+    ctx.fillText(sc.length ? tr : '–', MX+32, FY+30);
     ctx.fillStyle = BLUE;
     ctx.textAlign = 'right';
-    ctx.fillText(sc.length ? tb : '—', MX+CW-32, FY+30);
+    ctx.fillText(sc.length ? tb : '–', MX+CW-32, FY+30);
     // Stoppage info below
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 22px DM Sans, sans-serif';
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText(w + ' — ' + stoppage.type + ' R' + stoppage.round, W/2, FY+72);
+    ctx.fillText(w + ' – ' + stoppage.type + ' R' + stoppage.round, W/2, FY+72);
     ctx.fillStyle = '#555555';
     ctx.font = '13px DM Sans, sans-serif';
     ctx.fillText(lang==='uk'?'ДОСТРОКОВИЙ ФІНАЛ':'EARLY STOPPAGE', W/2, FY+96);
@@ -1241,10 +1257,10 @@ async function genImg() {
     ctx.fillStyle = RED;
     ctx.font = 'bold 52px DM Sans, sans-serif';
     ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-    ctx.fillText(sc.length ? tr : '—', MX+32, FY+FH/2);
+    ctx.fillText(sc.length ? tr : '–', MX+32, FY+FH/2);
     ctx.fillStyle = BLUE;
     ctx.textAlign = 'right';
-    ctx.fillText(sc.length ? tb : '—', MX+CW-32, FY+FH/2);
+    ctx.fillText(sc.length ? tb : '–', MX+CW-32, FY+FH/2);
     ctx.fillStyle = '#444444';
     ctx.font = '13px DM Sans, sans-serif';
     ctx.textAlign = 'center';
@@ -1292,7 +1308,7 @@ async function shNative() {
     const blob = await new Promise(r => c.toBlob(r, 'image/png'));
     const file = new File([blob], 'scorecard-'+fight.id+'.png', {type:'image/png'});
     if (navigator.canShare && navigator.canShare({files:[file]})) {
-      await navigator.share({files:[file], title: rn()+' vs '+bn()+' — 12×3'});
+      await navigator.share({files:[file], title: rn()+' vs '+bn()+' – 12×3'});
     } else {
       // Fallback: download instead
       const a = document.createElement('a');
@@ -1306,7 +1322,7 @@ function cpText() {
   const n = fight.rounds;
   const tr = scores.slice(0,n).reduce((a,s) => a+(s.red||0), 0);
   const tb = scores.slice(0,n).reduce((a,s) => a+(s.blue||0), 0);
-  let txt = '🥊 '+rn()+' vs '+bn()+'\n'+(lang==='uk'?'Моя суддівська картка':'My scorecard')+' — boxing12x3.com\n\n';
+  let txt = '🥊 '+rn()+' vs '+bn()+'\n'+(lang==='uk'?'Моя суддівська картка':'My scorecard')+' – boxing12x3.com\n\n';
   scores.slice(0,n).forEach((s,i) => {
     if (s.red!==null && s.blue!==null) {
       const w = s.red>s.blue ? rn() : s.blue>s.red ? bn() : t('draw');
@@ -1315,7 +1331,7 @@ function cpText() {
   });
   if (stoppage) {
     const w = stoppage.winner==='red' ? rn() : bn();
-    txt += '\n'+w+' — '+stoppage.type+' R'+stoppage.round;
+    txt += '\n'+w+' – '+stoppage.type+' R'+stoppage.round;
   } else {
     txt += '\n'+(lang==='uk'?'Разом':'Total')+': '+tr+'–'+tb;
     if (tr>tb) txt += ' → '+t('winner',rn());
