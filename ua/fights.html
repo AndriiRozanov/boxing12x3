@@ -3,22 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Архів боїв — статистика та аналіз | Boxing 12×3</title>
-<meta name="description" content="Архів боїв з детальною статистикою, аналізом та суддівськими картками. Всі матеріали Boxing 12×3.">
-<link rel="canonical" href="https://boxing12x3.com/ua/fights">
-<link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/fights">
-<link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/fights">
+<title>Як судять бокс: система 10 балів | Boxing 12×3</title>
+<meta name="description" content="Як працює система 10 балів у боксі: скільки раундів, що оцінюють судді, коли ставлять 10:8 без нокдауну і чому буває 9:9. Пояснення з офіційних правил ABC і BBBofC.">
+<link rel="canonical" href="https://boxing12x3.com/ua/boxing-scoring">
+<link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxing-scoring">
+<link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-scoring">
+<link rel="alternate" hreflang="x-default" href="https://boxing12x3.com/en/boxing-scoring">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23111'/%3E%3Ctext x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3E12%3C/text%3E%3Cline x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'%3E%C3%973%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Як судять бокс: система 10 балів",
+  "description": "Як працює система 10 балів у боксі: скільки раундів, що оцінюють судді, коли ставлять 10:8 без нокдауну.",
+  "author": {"@type": "Organization", "name": "Boxing 12×3"},
+  "publisher": {"@type": "Organization", "name": "Boxing 12×3", "url": "https://boxing12x3.com"},
+  "url": "https://boxing12x3.com/ua/boxing-scoring",
+  "inLanguage": "uk"
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --red:#c0392b;--blue:#1a5276;--bg:#f7f6f3;--card:#fff;
   --text:#1a1a1a;--muted:#888;--border:#e5e3de;--r:10px;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.6;}
-.wrap{max-width:620px;margin:0 auto;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.7;}
+.wrap{max-width:640px;margin:0 auto;}
 .lang-row{display:flex;justify-content:flex-end;gap:4px;margin-bottom:1rem;}
 .lang-btn{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;}
 .lang-btn.on{background:var(--text);color:#fff;border-color:var(--text);}
@@ -26,43 +39,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);pad
 .brand a{text-decoration:none;}
 .brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);}
 .brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
-h1{font-size:22px;font-weight:700;margin-bottom:6px;}
-.page-sub{font-size:13px;color:var(--muted);margin-bottom:24px;padding-bottom:20px;border-bottom:0.5px solid var(--border);}
-/* Accordion */
-.month-block{margin-bottom:8px;}
-.month-header{
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--card);border:0.5px solid var(--border);
-  border-radius:var(--r);padding:13px 16px;
-  cursor:pointer;user-select:none;
-  transition:background .15s;
-}
-.month-header:hover{background:#f0ede8;}
-.month-header.open{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-color:transparent;}
-.month-title{font-size:14px;font-weight:600;}
-.month-count{font-size:12px;color:var(--muted);}
-.month-arr{font-size:16px;color:var(--muted);transition:transform .2s;}
-.month-header.open .month-arr{transform:rotate(90deg);}
-.month-body{
-  display:none;
-  background:var(--card);
-  border:0.5px solid var(--border);border-top:none;
-  border-bottom-left-radius:var(--r);border-bottom-right-radius:var(--r);
-  overflow:hidden;
-}
-.month-body.open{display:block;}
-.fight-link{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:11px 16px;border-top:0.5px solid var(--border);
-  text-decoration:none;color:var(--text);font-size:13px;font-weight:500;
-  transition:background .15s;
-}
-.fight-link:first-child{border-top:none;}
-.fight-link:hover{background:var(--bg);}
-.fight-link-right{display:flex;align-items:center;gap:8px;}
-.fight-date{font-size:11px;color:var(--muted);}
-.fight-arr{font-size:14px;color:var(--muted);}
-.back{text-align:center;margin-top:28px;}
+.breadcrumb{font-size:12px;color:var(--muted);margin-bottom:20px;}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--red);}
+h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:10px;letter-spacing:-.01em;}
+.meta{font-size:13px;color:var(--muted);margin-bottom:28px;padding-bottom:20px;border-bottom:0.5px solid var(--border);}
+article h2{font-size:19px;font-weight:700;margin:32px 0 10px;letter-spacing:-.01em;}
+article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;}
+article ul{margin:0 0 14px 20px;}
+article li{font-size:15px;color:#2a2a2a;margin-bottom:6px;line-height:1.6;}
+.sources{font-size:11px;color:var(--muted);border-top:0.5px solid var(--border);padding-top:16px;margin-top:32px;line-height:1.8;}
+.sources b{color:var(--text);font-weight:500;}
+.cta{background:#111;border-radius:var(--r);padding:24px 20px;text-align:center;margin:32px 0;}
+.cta-t{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
+.cta-s{font-size:13px;color:#aaa;margin-bottom:16px;}
+.cta-btn{display:inline-block;background:var(--red);color:#fff;font-weight:500;font-size:14px;padding:11px 28px;border-radius:6px;text-decoration:none;}
+.back{text-align:center;margin-top:24px;}
 .back a{font-size:13px;color:var(--red);font-weight:500;text-decoration:none;}
 
 /* Site footer */
@@ -76,7 +68,7 @@ h1{font-size:22px;font-weight:700;margin-bottom:6px;}
 
   <div class="lang-row">
     <span class="lang-btn on">UA</span>
-    <a class="lang-btn" href="/en/fights">EN</a>
+    <a class="lang-btn" href="/en/boxing-scoring">EN</a>
   </div>
 
   <div class="brand">
@@ -86,93 +78,96 @@ h1{font-size:22px;font-weight:700;margin-bottom:6px;}
     </a>
   </div>
 
-  <h1>Архів боїв</h1>
-  <div class="page-sub">Статистика та аналіз протистоянь</div>
-
-  <div id="archive"></div>
-
-  <div class="back">
-    <a href="/?lang=uk">← На головну</a>
+  <div class="breadcrumb">
+    <a href="/?lang=uk">Головна</a> · <a href="/ua/guide">Довідник</a> · Як судять бокс
   </div>
 
+  <h1>Як судять бокс: система 10 балів</h1>
+  <div class="meta">Довідник · Офіційні правила ABC та BBBofC</div>
+
+  <article>
+    <p>Бокс – один із тих видів спорту, де глядачам здається, що вони легко визначать переможця. Адже, хто сильніший – той і переміг. Проте, чим більш щільним є протистояння, тим частіше думки бокових суддів та фанатів розділяються. Простими словами пояснимо, як працюють суддівські записки і кому та як нараховуються бали у протистояннях.</p>
+
+    <h2>Скільки раундів та чому не завжди 12</h2>
+
+    <p>Кількість раундів у бою завжди обговорюється заздалегідь і прописується в контракті. Спиратимемось у цьому питанні на дві організації:</p>
+
+    <p><b>Association of Boxing Commissions (ABC)</b> – північноамериканська некомерційна організація, яка регулює більшість професійних боїв у США. <b>BBBofC (Британська боксерська рада контролю)</b> – керівний орган професійного боксу у Великій Британії.</p>
+
+    <p>Згідно з їхніми регламентами, а також правилами всіх авторитетних організацій (WBA, WBO, WBC, IBF, EBU тощо) – понад 12 раундів в офіційних протистояннях боксувати не можна. Менше 12 – стандарт для боїв без титулу: 4, 6 або 8 раундів.</p>
+
+    <p>Логіка проста: бої за повноцінні чемпіонські пояси – лише 12 раундів. Скорочена дистанція визначається за домовленістю команд. Іноді це дебютний рівень, або бій-розминка для досвідченого боксера, або другорядний титул – в останньому випадку іноді 10 раундів замість 12. Чотири раунди не означають несерйозності – просто один або обидва бійці ще не готові до повної дистанції.</p>
+
+    <p>Один раунд триває 3 хвилини. У жіночому боксі – 2 хвилини, хоча боротьба за рівноправність триває. Перехід до норми не більше 12 раундів – важливий етап в історії боксу, що допоміг уникнути проблем зі здоров'ям спортсменів. Водночас наявність додаткових двох раундів порівняно з нечемпіонськими боями додає можливостей обом сторонам. Так виникло суто боксерське поняття «чемпіонських раундів», де перемогу можна вирвати на останніх секундах навіть програного поєдинку.</p>
+
+    <h2>Що оцінює суддя: чотири критерії</h2>
+
+    <p>Перш ніж говорити про бали, треба розуміти що саме оцінюється. За Unified Rules ABC судді оцінюють чотири критерії в чіткій ієрархії:</p>
+
+    <p><b>Перший і найважливіший – чисті, акцентовані, точні удари.</b> Удар рахується якщо він нанесений кістяшками рукавички по дозволеній зоні і явно досяг мети. BBBofC у Правилі 3.31 уточнює: «пряме чисте влучання кістяшковою частиною рукавички по будь-якій частині голови або тіла вище пояса».</p>
+
+    <p><b>Другий – ефективна агресія.</b> Не просто рух вперед, а наступ, що створює загрозу. У боксі кажуть «хто веде бій» – тобто хто диктує умови і створює правильний тиск.</p>
+
+    <p><b>Третій – захист.</b> Уникання ударів, блокування. Той, хто пропускає менше – має перевагу.</p>
+
+    <p><b>Четвертий – контроль рингу.</b> Позиціонування, нав'язування темпу, вибір дистанції. Боксер не зобов'язаний безперестанку йти вперед – але саме він може визначати на якій дистанції і з якою швидкістю відбуватиметься бій.</p>
+
+    <p>Саме тому боєць, що більше рухається і завдає більше ударів, може програти раунд тому, хто б'є рідше, але точніше і небезпечніше. Якщо спортсмен влучає у недозволені зони (потилиця, спина) або відкритою рукавичкою – він має програти раунд. І навпаки: якщо опонент багато рухається, але сам майже не б'є і діє під диктовку суперника – він також програє.</p>
+
+    <h2>10:9 – стандарт. Чому так і коли буває 10:10</h2>
+
+    <p>За системою 10 балів переможець раунду завжди отримує 10. Це буквально записано у Правилі 3.29 BBBofC: «Рефері присуджує максимум десять балів за кожен раунд кращому боксеру і пропорційну кількість іншому». Той, хто програв раунд, отримує 9.</p>
+
+    <p>Це не означає, що переможець доніс 10 ударів, а програвший – 9. Просто таке формулювання найточніше відображає раунд, де один боєць переміг, але не нищівно домінував. Якщо раунд рівний – рахунок буде 10:10.</p>
+
+    <h2>10:8 ставлять не тільки після нокдауну</h2>
+
+    <p>Більшість фанатів думають що 10:8 можливо лише після нокдауну. Це хибне уявлення. За правилами WBO суддя може поставити 10:8 коли «боксер повністю домінував у раунді» – навіть без падіння суперника на канвас. Проте це нечаста практика: зазвичай бокові судді не ризикують ставити 10:8 без нокдауну.</p>
+
+    <p>Найчастіша причина такого рахунку – нокдаун (офіційно: дотик третьою частиною тіла). Ще одна – зняття балу за порушення. BBBofC у Правилі 3.38.2 прямо дозволяє рефері знімати бали за грубий або систематичний брудний бокс. Якщо в рівному раунді одному бійцю зняли бал – раунд автоматично стає 10:8 на користь іншого.</p>
+
+    <h2>Чи буває 9:9 або 8:8</h2>
+
+    <p>Так, але рідко. 9:9 можливо коли обидва бійці побували в нокдауні в одному раунді – нокдауни скасовують один одного, і раунд оцінюється за загальним змістом. 8:8 теоретично можливо при двох нокдаунах з кожного боку, але на практиці майже не зустрічається.</p>
+
+    <h2>Чи буває 10:7 і нижче</h2>
+
+    <p>Так. Два нокдауни в одному раунді = 10:7. Три нокдауни = 10:6. Це вже межа того що прописано в правилах великих організацій. Нижче 6 балів за раунд теоретично можна дійти через одночасне зняття балів і кілька нокдаунів – але таке на практиці не зустрічається. Зазвичай бій зупиняється раніше.</p>
+
+    <h2>Три судді – три картки – одне рішення</h2>
+
+    <p>Кожен суддя ставить бали незалежно від двох інших. Вони не спілкуються під час бою і не бачать записок колег. Після кожного раунду судді передають картки рефері, а той – голові суддівської колегії. Підрахунок ведеться протягом усього двобою – і для контролю ситуації, і для випадків коли бій зупиняється достроково через травму та переможця визначають за картками на момент зупинення.</p>
+
+    <p>У стандартних випадках після фінального дзвоника три картки підсумовуються окремо:</p>
+
+    <ul>
+      <li><b>Одностайне рішення (UD)</b> – всі троє суддів віддали перемогу одному боксеру.</li>
+      <li><b>Розділене рішення (SD)</b> – двоє за боксера А, один за боксера Б.</li>
+      <li><b>Рішення більшістю (MD)</b> – двоє за боксера А, один побачив нічию.</li>
+      <li><b>Нічия рішенням більшості (D-MD)</b> – двоє суддів нічия, один за боксера Б.</li>
+    </ul>
+
+    <p>Три незалежні людини можуть бачити той самий бій по-різному – і всі троє можуть бути формально правими. На рішення бокових суддів впливає багато факторів: від особистих до банального кута зору. Саме тому судді розміщуються довкола рингу – щоб колегіально бачити протистояння максимально детально.</p>
+  </article>
+
+  <div class="cta">
+    <div class="cta-t">Спробуй відсудити сам</div>
+    <div class="cta-s">Відкрий картку і виставляй бали по раундах у реальному часі</div>
+    <a class="cta-btn" href="/?lang=uk">Відкрити картку →</a>
+  </div>
+
+  <div class="sources">
+    <b>Джерела:</b> ABC Unified Rules of Boxing (abcboxing.com, оновлено 2016) ·
+    BBBofC Rules of Boxing 2025 (bbbofc.com) ·
+    WBC Championship Rules ·
+    WBO 10-Point System Guidelines
+  </div>
+
+  <div class="back">
+    <a href="/ua/guide">← Довідник боксу</a>
+  </div>
+
+<div class="site-footer"><a href="/privacy">Privacy Policy</a></div>
 </div>
-<script>
-// ── Дані боїв ─────────────────────────────────────────────────────────────
-// Додавати нові бої на початок відповідного місяця.
-// Формат: {month, year, fights: [{id, nameUk, dateUk}]}
-const ARCHIVE = [
-  {
-    month: 'Липень', year: 2026,
-    fights: [
-      {id:'mason-bell', nameUk:'Абдулла Мейсон — Альберт Белл', dateUk:'5 липня'},
-      {id:'joshua-prenga', nameUk:'Ентоні Джошуа — Крістіан Пренга', dateUk:'25 липня'},
-    ]
-  },
-  {
-    month: 'Червень', year: 2026,
-    fights: [
-      {id:'zayas-ennis',           nameUk:'Ксандер Заяс — Джарон Енніс',       dateUk:'27 червня'},
-      {id:'crocker-paro',          nameUk:'Льюїс Крокер — Ліам Паро',           dateUk:'24 червня'},
-      {id:'rodriguez-vargas',      nameUk:'Джессі Родрігес — Антоніо Варгас',   dateUk:'13 червня'},
-      {id:'billam-smith-rozicki',  nameUk:'Кріс Біллем-Сміт — Раян Розицький', dateUk:'6 червня'},
-      {id:'nery-casimero',         nameUk:'Луїс Нері — Джон Касімеро',          dateUk:'6 червня'},
-      {id:'garcia-moloney',        nameUk:'Віллібальдо Гарсія — Ендрю Молоні', dateUk:'6 червня'},
-    ]
-  },
-  // Наступний місяць — додати блок вище:
-  // {
-  //   month: 'Липень', year: 2026,
-  //   fights: [
-  //     {id:'fight-id', nameUk:'Боєць — Боєць', dateUk:'5 липня'},
-  //   ]
-  // },
-];
-
-// ── Рендер ────────────────────────────────────────────────────────────────
-function build() {
-  const container = document.getElementById('archive');
-  ARCHIVE.forEach(function(block, idx) {
-    const id = 'month-' + idx;
-    const isOpen = idx === 0;
-    const div = document.createElement('div');
-    div.className = 'month-block';
-    div.innerHTML =
-      '<div class="month-header' + (isOpen ? ' open' : '') + '" onclick="toggle(\'' + id + '\')">' +
-        '<span class="month-title">' + block.month + ' ' + block.year + '</span>' +
-        '<span class="month-right" style="display:flex;align-items:center;gap:10px;">' +
-          '<span class="month-count">' + block.fights.length + ' ' + pluralUk(block.fights.length) + '</span>' +
-          '<span class="month-arr">›</span>' +
-        '</span>' +
-      '</div>' +
-      '<div class="month-body' + (isOpen ? ' open' : '') + '" id="' + id + '">' +
-        block.fights.map(function(f) {
-          return '<a class="fight-link" href="/ua/' + f.id + '">' +
-            '<span>' + f.nameUk + '</span>' +
-            '<span class="fight-link-right">' +
-              '<span class="fight-date">' + f.dateUk + '</span>' +
-              '<span class="fight-arr">›</span>' +
-            '</span>' +
-          '</a>';
-        }).join('') +
-      '</div>';
-    container.appendChild(div);
-  });
-}
-
-function toggle(id) {
-  var body = document.getElementById(id);
-  var header = body.previousElementSibling;
-  body.classList.toggle('open');
-  header.classList.toggle('open');
-}
-
-function pluralUk(n) {
-  if (n === 1) return 'бій';
-  if (n >= 2 && n <= 4) return 'бої';
-  return 'боїв';
-}
-
-build();
-</script>
 </body>
 </html>
