@@ -137,5 +137,19 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxing-organizations</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxing-organizations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-organizations"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxing-organizations</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxing-organizations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-organizations"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
