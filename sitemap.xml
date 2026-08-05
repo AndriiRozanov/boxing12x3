@@ -151,5 +151,71 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/mason-bell</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/mason-bell"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/mason-bell"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/mason-bell</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/mason-bell"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/mason-bell"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/joshua-prenga</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/joshua-prenga"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/joshua-prenga"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/joshua-prenga</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/joshua-prenga"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/joshua-prenga"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/spence-tszyu</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/spence-tszyu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/spence-tszyu"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/spence-tszyu</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/spence-tszyu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/spence-tszyu"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/derevyanchenko-hackett</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/derevyanchenko-hackett"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/derevyanchenko-hackett"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/derevyanchenko-hackett</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/derevyanchenko-hackett"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/derevyanchenko-hackett"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/romero-lopez</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/romero-lopez"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/romero-lopez"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/romero-lopez</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/romero-lopez"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/romero-lopez"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
 </urlset>
