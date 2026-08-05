@@ -39,6 +39,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 button{outline:none;}
+button:focus-visible, a:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:4px;}
 :root{
   --red:#c0392b;--red-l:#fdf2f2;--red-b:#f5b7b1;
   --blue:#1a5276;--blue-l:#eaf4fb;--blue-b:#a9cce3;
@@ -186,8 +187,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* Buttons */
 .btns{max-width:520px;margin:1.2rem auto 0;}
-.main-btn{width:100%;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.12em;padding:14px;background:#111;color:#fff;border:none;border-radius:var(--r);cursor:pointer;transition:background .15s;}
-.main-btn:hover:not(:disabled){background:#222;}
+.main-btn{width:100%;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.12em;padding:14px;background:var(--red);color:#fff;border:none;border-radius:var(--r);cursor:pointer;transition:background .15s;}
+.main-btn:hover:not(:disabled){background:#a93226;}
 .main-btn:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
 .stop-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--red);border:0.5px solid var(--red-b);border-radius:var(--r);cursor:pointer;margin-top:8px;transition:all .15s;}
 .stop-btn:hover:not(:disabled){background:var(--red-l);}
@@ -542,6 +543,15 @@ if (isWidget) {
     if (el) el.classList.add('widget-hidden');
   });
   var hintWrap = document.querySelector('.hint-toggle');
+  // Show hint open on first visit
+  if (!localStorage.getItem('b12x3_hint_seen')) {
+    var hintBody = document.getElementById('hintBody');
+    if (hintBody) {
+      hintBody.classList.add('open');
+      var arr = document.querySelector('.hint-arr');
+      if (arr) arr.textContent = '▲';
+    }
+  }
   if (hintWrap) hintWrap.classList.add('widget-hidden');
   var pb = document.getElementById('poweredBy');
   if (pb) pb.style.display = 'block';
@@ -832,6 +842,12 @@ function nextScore(current) {
 
 function tapSide(i, side) {
   // side: 'red' | 'blue'
+  // Close hint on first interaction
+  if (!localStorage.getItem('b12x3_hint_seen')) {
+    localStorage.setItem('b12x3_hint_seen', '1');
+    var hb = document.getElementById('hintBody');
+    if (hb) { hb.classList.remove('open'); var arr = document.querySelector('.hint-arr'); if (arr) arr.textContent = '▼'; }
+  }
   const sc = scores[i];
   const other = side === 'red' ? 'blue' : 'red';
 
