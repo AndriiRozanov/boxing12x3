@@ -227,5 +227,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/itauma-hrgovic</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/itauma-hrgovic"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/itauma-hrgovic"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/itauma-hrgovic</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/itauma-hrgovic"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/itauma-hrgovic"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://boxing12x3.com/ua/berinchyk-noakes</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/berinchyk-noakes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/berinchyk-noakes"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/berinchyk-noakes</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/berinchyk-noakes"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/berinchyk-noakes"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
 </urlset>
