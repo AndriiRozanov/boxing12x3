@@ -417,8 +417,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 </div>
 
 <div class="site-footer">
-  <a href="/about">Про проєкт</a>
-  <a href="/contact" style="margin-left:12px;">Контакти</a>
+  <a href="/about" id="footer-about">Про проєкт</a>
+  <a href="/contact" style="margin-left:12px;" id="footer-contact">Контакти</a>
   <a href="/privacy" style="margin-left:12px;">Privacy Policy</a>
 </div>
 
@@ -564,6 +564,17 @@ if (isWidget) {
 // ── Language ──────────────────────────────────────────────────────────────────
 function setLang(l) {
   lang = l;
+  // Update html lang attribute
+  document.documentElement.lang = l;
+  // Update page title
+  document.title = l === 'en'
+    ? 'Boxing 12×3 – Interactive Boxing Scorecard'
+    : 'Boxing 12×3 – Інтерактивна суддівська картка боксерського бою';
+  // Update footer links
+  var fa = document.getElementById('footer-about');
+  var fc = document.getElementById('footer-contact');
+  if (fa) fa.textContent = l === 'en' ? 'About' : 'Про проєкт';
+  if (fc) fc.textContent = l === 'en' ? 'Contact' : 'Контакти';
   document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
   renderAll();
 }
@@ -1422,6 +1433,14 @@ function loadState() {
     if (urlLang === 'uk' || urlLang === 'en') {
       lang = urlLang;
       document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+      document.documentElement.lang = lang;
+      if (lang === 'en') {
+        document.title = 'Boxing 12×3 – Interactive Boxing Scorecard';
+        var fa = document.getElementById('footer-about');
+        var fc = document.getElementById('footer-contact');
+        if (fa) fa.textContent = 'About';
+        if (fc) fc.textContent = 'Contact';
+      }
     }
     const urlFight = params.get('fight');
     if (urlFight) {
