@@ -104,6 +104,22 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;max-width:65ch;}
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}
 }
+
+/* Result block */
+.result{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:24px;}
+.result-top{background:#111;padding:14px 18px;display:flex;flex-direction:column;gap:4px;}
+.result-label{font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#555;}
+.result-winner{font-size:17px;font-weight:700;color:#fff;}
+.result-method{font-size:13px;color:#999;margin-top:2px;}
+.result-judges{padding:14px 18px;display:flex;flex-direction:column;gap:8px;}
+.result-judge-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.result-judge-row{display:flex;align-items:center;justify-content:space-between;font-size:13px;}
+.rj-name{color:var(--muted);}
+.rj-scores{display:flex;gap:6px;align-items:center;}
+.rj-score{font-weight:700;}
+.rj-score.w{color:#2e7d32;}
+.rj-score.l{color:var(--red);}
+.rj-dash{color:#ccc;font-size:11px;}
 </style>
 </head>
 <body>
@@ -122,7 +138,7 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;max-width:65ch;}
   </div>
 
   <h1>Берінчик – Ноукс: статистика перед боєм</h1>
-  <div class="meta">Легка вага · O2 Arena, Лондон · 29 серпня 2026 · 12 раундів</div>
+  <div class="meta">Легка вага · O2 Arena, Лондон · 29 серпня 2026 · 10 раундів</div>
 
   <div class="fcomp">
     <div class="fcomp-top">
@@ -203,6 +219,20 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;max-width:65ch;}
           <div class="fc w">П</div><div class="fc l">П</div><div class="fc w">П</div><div class="fc w">П</div><div class="fc w">П</div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="result">
+    <div class="result-top">
+      <div class="result-label">Переможець</div>
+      <div class="result-winner">Сем Ноукс</div>
+      <div class="result-method">Одностайне рішення суддів · 10 раундів</div>
+    </div>
+    <div class="result-judges">
+      <div class="result-judge-title">Рахунки суддів</div>
+      <div class="result-judge-row"><span class="rj-name">Jean Houblon</span><div class="rj-scores"><span class="rj-score w">98</span><span class="rj-dash">–</span><span class="rj-score l">92</span></div></div>
+      <div class="result-judge-row"><span class="rj-name">Marcus McDonnell</span><div class="rj-scores"><span class="rj-score w">100</span><span class="rj-dash">–</span><span class="rj-score l">90</span></div></div>
+      <div class="result-judge-row"><span class="rj-name">Manuel Oliver Palomo</span><div class="rj-scores"><span class="rj-score w">99</span><span class="rj-dash">–</span><span class="rj-score l">91</span></div></div>
     </div>
   </div>
 
