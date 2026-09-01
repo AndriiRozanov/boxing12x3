@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вбудуй картку на свій сайт | Boxing 12×3</title>
+<meta name="description" content="Безкоштовний інтерактивний віджет суддівської картки для боксерських боїв. Вбудуй на будь-який сайт за хвилину.">
+<link rel="canonical" href="https://boxing12x3.com/widget">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23111'/%3E%3Ctext x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3E12%3C/text%3E%3Cline x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'%3E%C3%973%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#c0392b;--bg:#f7f6f3;--card:#fff;--text:#1a1a1a;--muted:#888;--border:#e5e3de;--r:10px;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.7;}
+.wrap{max-width:620px;margin:0 auto;}
+.brand{text-align:center;margin-bottom:2rem;}
+.brand a{text-decoration:none;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);margin:0;}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
+.page-head{margin-bottom:28px;padding-bottom:22px;border-bottom:0.5px solid var(--border);}
+.page-head h1{font-size:22px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em;}
+.page-head p{font-size:14px;color:#555;max-width:52ch;}
+.card{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:10px;}
+.card-head{background:#111;padding:11px 18px;display:flex;align-items:center;gap:10px;}
+.card-num{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--red);letter-spacing:.06em;line-height:1;}
+.card-title{font-size:12px;font-weight:600;color:#fff;letter-spacing:.06em;text-transform:uppercase;}
+.card-body{padding:18px;}
+.toggle-row{display:flex;border:0.5px solid var(--border);border-radius:6px;overflow:hidden;}
+.toggle-opt{flex:1;padding:9px 12px;text-align:center;font-size:13px;font-weight:500;cursor:pointer;color:var(--muted);background:transparent;border:none;font-family:'DM Sans',sans-serif;transition:background .1s,color .1s;}
+.toggle-opt.on{background:var(--text);color:#fff;}
+.toggle-sep{width:0.5px;background:var(--border);flex-shrink:0;}
+.field{margin-bottom:14px;}
+.field:last-child{margin-bottom:0;}
+.field-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;display:block;}
+select{width:100%;padding:10px 12px;border:0.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:14px;background:var(--bg);color:var(--text);outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
+.note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.7;}
+.hidden{display:none;}
+.code-wrap{position:relative;background:#0f0f0f;border-radius:8px;padding:16px;}
+.code-text{font-family:'Courier New',monospace;font-size:11.5px;color:#9cdcb0;line-height:1.7;white-space:pre-wrap;word-break:break-all;}
+.copy-btn{position:absolute;top:12px;right:12px;background:transparent;border:0.5px solid #333;color:#666;font-size:10px;font-weight:600;padding:4px 10px;border-radius:4px;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:all .15s;}
+.copy-btn.done{border-color:var(--red);color:var(--red);}
+.preview-shell{border:0.5px solid var(--border);border-radius:8px;overflow:hidden;}
+.preview-bar{background:#1a1a1a;padding:8px 14px;display:flex;align-items:center;gap:5px;}
+.pdot{width:9px;height:9px;border-radius:50%;}
+.preview-url{font-size:10px;color:#444;font-family:'Courier New',monospace;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:340px;}
+.preview-frame{width:100%;height:460px;border:none;display:block;}
+.qa-list{padding:0 18px;}
+.qa-item{padding:16px 0;border-bottom:0.5px solid var(--border);}
+.qa-item:last-child{border-bottom:none;}
+.qa-q{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.qa-a{font-size:15px;color:var(--text);line-height:1.6;}
+.site-footer{text-align:center;padding:24px 0 8px;font-size:12px;color:var(--muted);}
+.site-footer a{color:var(--muted);text-decoration:none;margin:0 6px;}
+@media (hover: hover) and (pointer: fine) {
+  .site-footer a:hover{color:var(--red);}
+}
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <a href="/">
+      <h1 class="brand-name">BOXING 12×3</h1>
+      <div class="brand-sub">Суддівська картка</div>
+    </a>
+  </div>
+
+  <div class="page-head">
+    <h1>Вбудуй картку на свій сайт</h1>
+    <p>Інтерактивний інструмент для суддівства боїв. Безкоштовно для будь-якого ресурсу.</p>
+  </div>
+
+  <!-- 01 -->
+  <div class="card">
+    <div class="card-head">
+      <span class="card-num">01</span>
+      <span class="card-title">Що вбудовуємо</span>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <label class="field-label">Режим</label>
+        <div class="toggle-row" id="typeToggle">
+          <button class="toggle-opt on">Всі бої</button>
+          <div class="toggle-sep"></div>
+          <button class="toggle-opt">Конкретний бій</button>
+        </div>
+        <p class="note" id="typeNote">Відвідувач сам обирає бій зі списку. Підходить для загальних боксерських ресурсів.</p>
+      </div>
+
+      <div id="fightField" class="field hidden">
+        <label class="field-label">Бій</label>
+        <select id="fightSel">
+          <option value="ruiz-knyba">Andy Ruiz Jr. vs Damian Knyba — 4 вересня</option>
+          <option value="garcia-benn">Ryan Garcia vs Conor Benn — 12 вересня</option>
+          <option value="opetaia-mikaelyan">Jai Opetaia vs Noel Mikaelyan — 12 вересня</option>
+          <option value="cruz-bravo">Isaac Cruz vs Nestor Bravo — 19 вересня</option>
+          <option value="fisher-protton">Jonnie Fisher vs Michael Protton — 26 вересня</option>
+          <option value="nishida-goodman">Ryosuke Nishida vs Sam Goodman — 27 вересня</option>
+          <option value="inoue-nasukawa">Takuma Inoue vs Tenshin Nasukawa — 27 вересня</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label">Мова картки</label>
+        <div class="toggle-row" id="langToggle">
+          <button class="toggle-opt on">UA</button>
+          <div class="toggle-sep"></div>
+          <button class="toggle-opt">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="card">
+    <div class="card-head">
+      <span class="card-num">02</span>
+      <span class="card-title">Код для вставки</span>
+    </div>
+    <div class="card-body">
+      <div class="code-wrap">
+        <pre class="code-text" id="codeText"></pre>
+        <button class="copy-btn" id="copyBtn" onclick="copyCode()">Копіювати</button>
+      </div>
+      <p class="note">Вставте у HTML своєї сторінки. Працює на WordPress, Tilda, Webflow та будь-якому сайті з доступом до HTML.</p>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="card">
+    <div class="card-head">
+      <span class="card-num">03</span>
+      <span class="card-title">Попередній перегляд</span>
+    </div>
+    <div class="card-body" style="padding:14px;">
+      <div class="preview-shell">
+        <div class="preview-bar">
+          <div class="pdot" style="background:#ff5f57;"></div>
+          <div class="pdot" style="background:#febc2e;"></div>
+          <div class="pdot" style="background:#28c840;"></div>
+          <span class="preview-url" id="previewUrl"></span>
+        </div>
+        <iframe class="preview-frame" id="previewFrame"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q&A -->
+  <div class="card">
+    <div class="card-head">
+      <span class="card-num" style="color:#555;">—</span>
+      <span class="card-title">Питання та відповіді</span>
+    </div>
+    <div class="qa-list">
+      <div class="qa-item">
+        <div class="qa-q">Скільки це коштує?</div>
+        <div class="qa-a">Безкоштовно. Без реєстрації і без умов.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Чи потрібно щось налаштовувати після вставки?</div>
+        <div class="qa-a">Ні. Список боїв оновлюється автоматично — нові бої з'являються самі.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Чи буде брендинг Boxing 12×3?</div>
+        <div class="qa-a">Так, внизу картки є посилання «Powered by Boxing 12×3». Це єдина умова використання.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Чи працює на WordPress, Tilda та інших CMS?</div>
+        <div class="qa-a">Так, скрізь де є доступ до HTML-блоку.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer">
+    <a href="/">Картка</a>
+    <a href="/about">Про проєкт</a>
+    <a href="/contact">Контакти</a>
+    <a href="/privacy">Privacy Policy</a>
+  </div>
+
+</div>
+<script>
+var type = 'all', lang = 'uk';
+
+function setupToggle(id, vals, cb) {
+  var row = document.getElementById(id);
+  var btns = row.querySelectorAll('.toggle-opt');
+  btns.forEach(function(btn, i) {
+    btn.addEventListener('click', function() {
+      btns.forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      cb(vals[i]);
+    });
+  });
+}
+
+setupToggle('typeToggle', ['all', 'one'], function(v) {
+  type = v;
+  document.getElementById('fightField').className = 'field' + (v === 'one' ? '' : ' hidden');
+  document.getElementById('typeNote').textContent = v === 'all'
+    ? 'Відвідувач сам обирає бій зі списку. Підходить для загальних боксерських ресурсів.'
+    : 'Картка одразу відкривається на обраному бою. Підходить для статей про конкретний поєдинок.';
+  updateCode();
+});
+
+setupToggle('langToggle', ['uk', 'en'], function(v) {
+  lang = v;
+  updateCode();
+});
+
+document.getElementById('fightSel').addEventListener('change', updateCode);
+
+function updateCode() {
+  var fight = document.getElementById('fightSel').value;
+  var url = 'https://boxing12x3.com/?widget=1&lang=' + lang + (type === 'one' ? '&fight=' + fight : '');
+  var code = '<iframe\n  src="' + url + '"\n  width="100%"\n  height="600"\n  frameborder="0"\n  style="border-radius:10px"\n></iframe>';
+  document.getElementById('codeText').textContent = code;
+  document.getElementById('previewFrame').src = url;
+  document.getElementById('previewUrl').textContent = url;
+}
+
+function copyCode() {
+  navigator.clipboard.writeText(document.getElementById('codeText').textContent).then(function() {
+    var btn = document.getElementById('copyBtn');
+    btn.textContent = 'Скопійовано';
+    btn.classList.add('done');
+    setTimeout(function(){ btn.textContent = 'Копіювати'; btn.classList.remove('done'); }, 2000);
+  });
+}
+
+updateCode();
+</script>
+</body>
+</html>
