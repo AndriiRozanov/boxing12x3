@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Порівняння зросту боксерів | Boxing 12×3</title>
+<meta name="description" content="Порівняй зріст будь-яких боксерів – активних і легенд. Фундора vs Іноуе, Ф'юрі vs Усик та сотні інших.">
+<link rel="canonical" href="https://boxing12x3.com/height-compare">
+<link rel="alternate" hreflang="uk" href="https://boxing12x3.com/height-compare?lang=uk">
+<link rel="alternate" hreflang="en" href="https://boxing12x3.com/height-compare?lang=en">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23111'/%3E%3Ctext x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3E12%3C/text%3E%3Cline x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'%3E%C3%973%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#c0392b;--bg:#f7f6f3;--card:#fff;--text:#1a1a1a;--muted:#888;--border:#e5e3de;--r:10px;
+  --c0:#c0392b;--c1:#1a5276;--c2:#1e8449;--c3:#6c3483;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.7;}
+.wrap{max-width:640px;margin:0 auto;}
+
+/* Brand */
+.lang-row{display:flex;justify-content:flex-end;gap:4px;margin-bottom:1rem;}
+.lang-btn{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;}
+.lang-btn.on{background:var(--text);color:#fff;border-color:var(--text);}
+.brand{text-align:center;margin-bottom:1.5rem;}
+.brand a{text-decoration:none;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);margin:0;}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
+.page-head{margin-bottom:24px;padding-bottom:18px;border-bottom:0.5px solid var(--border);}
+.page-head h1{font-size:20px;font-weight:700;margin-bottom:4px;letter-spacing:-.01em;}
+.page-head p{font-size:13px;color:#555;}
+
+/* Controls */
+.controls{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:10px;}
+.slots-grid{display:flex;flex-direction:column;gap:8px;}
+.slot-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;}
+.slot-inner{position:relative;}
+.slot-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;display:block;}
+.slot-input{width:100%;padding:9px 32px 9px 10px;border:0.5px solid var(--border);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--bg);color:var(--text);outline:none;}
+.slot-input:focus{border-color:#aaa;}
+.slot-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:16px;line-height:1;display:none;padding:2px;}
+.slot-input:not(:placeholder-shown) + .slot-clear{display:block;}
+.dd{position:absolute;top:calc(100% + 3px);left:0;right:0;background:var(--card);border:0.5px solid var(--border);border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.1);z-index:100;max-height:220px;overflow-y:auto;display:none;}
+.dd.open{display:block;}
+.dd-item{padding:8px 12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid #f5f3ef;}
+.dd-item:last-child{border-bottom:none;}
+.dd-item:hover,.dd-item.hi{background:#faf9f7;}
+.dd-name{font-size:13px;font-weight:500;}
+.dd-meta{display:flex;align-items:center;gap:5px;}
+.dd-ret{font-size:12px;}
+.dd-div{font-size:10px;color:var(--muted);}
+.rm-btn{background:none;border:0.5px solid var(--border);border-radius:5px;color:var(--muted);font-size:12px;cursor:pointer;padding:4px 8px;white-space:nowrap;font-family:'DM Sans',sans-serif;margin-top:22px;transition:all .1s;}
+.rm-btn:hover{border-color:var(--red);color:var(--red);}
+.add-btn{width:100%;margin-top:8px;padding:9px;border:0.5px dashed var(--border);border-radius:6px;background:transparent;color:var(--muted);font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.add-btn:hover:not(:disabled){border-color:#888;color:var(--text);}
+.add-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* CARD */
+.card-wrap{margin-bottom:10px;}
+.sharecard{background:#111;border-radius:var(--r);overflow:hidden;position:relative;box-shadow:0 4px 28px rgba(0,0,0,.18);}
+.wm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:60px;letter-spacing:.2em;color:rgba(255,255,255,.04);white-space:nowrap;pointer-events:none;user-select:none;z-index:0;}
+.card-body{position:relative;z-index:1;padding:20px 20px 16px;}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.ct-brand{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:.16em;color:#333;}
+.ct-badge{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:#1a1a1a;border:0.5px solid #2a2a2a;color:#555;padding:3px 8px;border-radius:3px;}
+
+/* Columns */
+.cols{display:flex;align-items:flex-end;height:240px;position:relative;margin-bottom:2px;}
+.ruler{position:absolute;inset:0;pointer-events:none;z-index:0;}
+.r-line{position:absolute;left:0;right:0;border-top:0.5px dashed rgba(255,255,255,.06);}
+.r-lbl{position:absolute;right:0;font-size:9px;color:rgba(255,255,255,.18);font-family:'Bebas Neue',sans-serif;transform:translateY(-50%);letter-spacing:.04em;padding-right:3px;}
+.col-wrap{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;position:relative;z-index:1;}
+.col-h{font-family:'Bebas Neue',sans-serif;letter-spacing:.06em;line-height:1;margin-bottom:4px;}
+.col-bar{border-radius:5px 5px 0 0;overflow:hidden;transition:height 1s cubic-bezier(.22,.61,.36,1);position:relative;}
+.col-bar::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent,transparent 9px,rgba(0,0,0,.07) 9px,rgba(0,0,0,.07) 10px);}
+.vs-gap{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 5px;padding-bottom:2px;gap:3px;flex-shrink:0;z-index:1;}
+.vs-lbl{font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:.06em;color:#252525;background:#1a1a1a;border:0.5px solid #252525;padding:2px 5px;border-radius:2px;}
+.vs-diff{font-size:8px;color:#3a3a3a;letter-spacing:.02em;white-space:nowrap;}
+.floor{height:1px;background:#1e1e1e;margin:0 -20px;}
+
+/* Fighter names */
+.f-names{display:flex;padding:11px 0 9px;overflow:hidden;}
+.f-block{flex:1;min-width:0;}
+.f-block+.f-block{padding-left:8px;border-left:0.5px solid #1e1e1e;margin-left:8px;}
+.f-n{font-family:'Bebas Neue',sans-serif;letter-spacing:.05em;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.f-sub{font-size:10px;color:#444;margin-top:2px;line-height:1.4;}
+
+/* Card footer */
+.card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:9px;border-top:0.5px solid #1a1a1a;}
+.cf-l{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.14em;color:#2d2d2d;}
+.cf-r{font-size:9px;color:#2d2d2d;}
+
+/* Empty state */
+.empty{height:240px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.1em;color:#2a2a2a;}
+
+/* Share btn */
+.share-btn{width:100%;padding:13px;background:var(--red);color:#fff;border:none;border-radius:6px;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;cursor:pointer;margin-bottom:10px;transition:opacity .15s;}
+.share-btn:hover{opacity:.9;}
+.share-btn:disabled{opacity:.5;cursor:not-allowed;}
+
+/* Note */
+.note{font-size:12px;color:var(--muted);text-align:center;margin-bottom:24px;}
+
+/* Footer */
+.site-footer{text-align:center;padding:20px 0 8px;font-size:12px;color:var(--muted);}
+.site-footer a{color:var(--muted);text-decoration:none;margin:0 6px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="lang-row">
+  <button class="lang-btn on" onclick="setLang('uk')" id="btnUk">UA</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btnEn">EN</button>
+</div>
+
+<div class="brand">
+  <a href="/">
+    <h1 class="brand-name">BOXING 12×3</h1>
+    <div class="brand-sub" id="brandSub">Суддівська картка</div>
+  </a>
+</div>
+
+<div class="page-head">
+  <h1 id="pageTitle">Порівняння зросту боксерів</h1>
+  <p id="pageDesc">Обери від 2 до 4 боксерів і порівняй їхній зріст</p>
+</div>
+
+<div class="controls">
+  <div class="slots-grid" id="slotsGrid"></div>
+  <button class="add-btn" id="addBtn" onclick="addSlot()">+ Додати бійця</button>
+</div>
+
+<div class="card-wrap">
+  <div class="sharecard" id="shareCard">
+    <div class="wm">BOXING 12×3</div>
+    <div class="card-body">
+      <div class="card-top">
+        <span class="ct-brand">BOXING 12×3</span>
+        <span class="ct-badge" id="cardBadge">Порівняння зросту</span>
+      </div>
+      <div class="cols" id="cols">
+        <div class="empty" id="emptyMsg">ОБЕРИ БОКСЕРІВ</div>
+      </div>
+      <div class="floor"></div>
+      <div class="f-names" id="fNames"></div>
+      <div class="card-footer">
+        <span class="cf-l">BOXING 12×3</span>
+        <span class="cf-r">boxing12x3.com</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="share-btn" id="shareBtn" onclick="shareCard()">↓ ЗБЕРЕГТИ ЯК ЗОБРАЖЕННЯ</button>
+<p class="note" id="shareNote">Збережи картку і поділись нею в соцмережах</p>
+
+<div class="site-footer">
+  <a href="/" id="footerHome">Картка</a>
+  <a href="/ua/guide" id="footerGuide">Довідник</a>
+  <a href="/about">Про проєкт</a>
+  <a href="/widget">Вбудувати</a>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// ── BOXER DATABASE ────────────────────────────────────────────────────
+var BOXERS = [
+  // НАДВАЖКА / HEAVYWEIGHT
+  {id:'zakhozhyi',    name:'Oleksandr Zakhozhyi', h:206, div:'hw', ret:false},
+  {id:'fury',         name:'Tyson Fury',           h:206, div:'hw', ret:false},
+  {id:'aliev_m',      name:'Mourad Aliev',         h:202, div:'hw', ret:false},
+  {id:'klitschko_v',  name:'Vitali Klitschko',     h:201, div:'hw', ret:true},
+  {id:'wilder',       name:'Deontay Wilder',       h:201, div:'hw', ret:false},
+  {id:'jalolov',      name:'Bakhodir Jalolov',     h:201, div:'hw', ret:false},
+  {id:'hovhannisyan', name:'Gurgen Hovhannisyan',  h:201, div:'hw', ret:false},
+  {id:'knyba',        name:'Damian Knyba',         h:201, div:'hw', ret:false},
+  {id:'ajagba',       name:'Efe Ajagba',           h:198, div:'hw', ret:false},
+  {id:'joshua',       name:'Anthony Joshua',       h:198, div:'hw', ret:false},
+  {id:'hrgovic',      name:'Filip Hrgovic',        h:198, div:'hw', ret:false},
+  {id:'klitschko_w',  name:'Wladimir Klitschko',  h:198, div:'hw', ret:true},
+  {id:'hugefury',     name:'Hughie Fury',          h:198, div:'hw', ret:false},
+  {id:'vianello',     name:'Guido Vianello',       h:198, div:'hw', ret:false},
+  {id:'kyakonye',     name:'Willy Kyakonye',       h:198, div:'hw', ret:false},
+  {id:'teremoana',    name:'Teremoana Teremoana',  h:198, div:'hw', ret:false},
+  {id:'mckean',       name:'Demsey McKean',        h:198, div:'hw', ret:false},
+  {id:'moore_b',      name:'Brandon Moore',        h:198, div:'hw', ret:false},
+  {id:'novytskyi',    name:'Andrii Novytskyi',     h:198, div:'hw', ret:false},
+  {id:'makhmudov',    name:'Arslanbek Makhmudov',  h:197, div:'hw', ret:false},
+  {id:'lewis',        name:'Lennox Lewis',         h:196, div:'hw', ret:true},
+  {id:'bowe',         name:'Riddick Bowe',         h:196, div:'hw', ret:true},
+  {id:'dubois',       name:'Daniel Dubois',        h:196, div:'hw', ret:false},
+  {id:'wardley',      name:'Fabio Wardley',        h:196, div:'hw', ret:false},
+  {id:'riakporhe',    name:'Richard Riakporhe',    h:196, div:'hw', ret:false},
+  {id:'vykhryst',     name:'Viktor Vykhryst',      h:196, div:'hw', ret:false},
+  {id:'myronets',     name:'Bohdan Myronets',      h:195, div:'hw', ret:false},
+  {id:'itauma',       name:'Moses Itauma',         h:194, div:'hw', ret:false},
+  {id:'pulev',        name:'Kubrat Pulev',         h:194, div:'hw', ret:false},
+  {id:'milas',        name:'Petar Milas',          h:194, div:'hw', ret:false},
+  {id:'parker',       name:'Joseph Parker',        h:193, div:'hw', ret:false},
+  {id:'miller',       name:'Jarrell Miller',       h:193, div:'hw', ret:false},
+  {id:'huni',         name:'Justis Huni',          h:193, div:'hw', ret:false},
+  {id:'yallyev',      name:'Arslan Yallyev',       h:193, div:'hw', ret:false},
+  {id:'mullojonov',   name:'Lazizbek Mullojonov',  h:192, div:'hw', ret:false},
+  {id:'rogava',       name:'Tsotne Rogava',        h:191, div:'hw', ret:false},
+  {id:'ali',          name:'Muhammad Ali',         h:191, div:'hw', ret:true},
+  {id:'foreman',      name:'George Foreman',       h:191, div:'hw', ret:true},
+  {id:'holmes',       name:'Larry Holmes',         h:191, div:'hw', ret:true},
+  {id:'norton',       name:'Ken Norton',           h:191, div:'hw', ret:true},
+  {id:'kabayel',      name:'Agit Kabayel',         h:191, div:'hw', ret:false},
+  {id:'usyk',         name:'Oleksandr Usyk',       h:191, div:'hw', ret:false},
+  {id:'sanchez_f',    name:'Frank Sanchez',        h:191, div:'hw', ret:false},
+  {id:'gassiev',      name:'Murat Gassiev',        h:189, div:'hw', ret:false},
+  {id:'holyfield',    name:'Evander Holyfield',    h:189, div:'hw', ret:true},
+  {id:'suslenkov',    name:'Artem Suslenkov',      h:186, div:'hw', ret:false},
+  {id:'mccall',       name:'Oliver McCall',        h:188, div:'hw', ret:true},
+  {id:'hunter',       name:'Michael Hunter',       h:188, div:'hw', ret:false},
+  {id:'torrez',       name:'Richard Torrez Jr',    h:188, div:'hw', ret:false},
+  {id:'ruiz',         name:'Andy Ruiz Jr',         h:188, div:'hw', ret:false},
+  {id:'louis',        name:'Joe Louis',            h:187, div:'hw', ret:true},
+  {id:'chisora',      name:'Derek Chisora',        h:187, div:'hw', ret:false},
+  {id:'meyna',        name:'Kacper Meyna',         h:187, div:'hw', ret:false},
+  {id:'schmeling',    name:'Max Schmeling',        h:185, div:'hw', ret:true},
+  {id:'dempsey',      name:'Jack Dempsey',         h:185, div:'hw', ret:true},
+  {id:'liston',       name:'Sonny Liston',         h:185, div:'hw', ret:true},
+  {id:'arutyunyan',   name:'Vartan Arutyunyan',    h:185, div:'hw', ret:false},
+  {id:'tunney',       name:'Gene Tunney',          h:183, div:'hw', ret:true},
+  {id:'charles',      name:'Ezzard Charles',       h:183, div:'hw', ret:true},
+  {id:'patterson',    name:'Floyd Patterson',      h:183, div:'hw', ret:true},
+  {id:'xhoxhaj',      name:'Labinot Xhoxhaj',      h:183, div:'hw', ret:false},
+  {id:'merhy',        name:'Ryad Merhy',           h:181, div:'hw', ret:false},
+  {id:'frazier',      name:'Joe Frazier',          h:179, div:'hw', ret:true},
+  {id:'marciano',     name:'Rocky Marciano',       h:179, div:'hw', ret:true},
+  {id:'tyson',        name:'Mike Tyson',           h:178, div:'hw', ret:true},
+  {id:'tua',          name:'David Tua',            h:178, div:'hw', ret:true},
+
+  // КРУЗЕРВЕЙТ / CRUISERWEIGHT
+  {id:'gomez_jc',     name:'Juan Carlos Gomez',    h:196, div:'cw', ret:true},
+  {id:'haye',         name:'David Haye',           h:191, div:'cw', ret:true},
+  {id:'bellew',       name:'Tony Bellew',          h:191, div:'cw', ret:true},
+  {id:'ramirez_g',    name:'Gilberto Ramirez',     h:191, div:'cw', ret:false},
+  {id:'cunningham',   name:'Steve Cunningham',     h:190, div:'cw', ret:true},
+  {id:'maccarinelli', name:'Enzo Maccarinelli',    h:190, div:'cw', ret:true},
+  {id:'adamek',       name:'Tomasz Adamek',        h:187, div:'cw', ret:true},
+  {id:'opetaia',      name:'Jai Opetaia',          h:186, div:'cw', ret:false},
+  {id:'briedis',      name:'Mairis Briedis',       h:186, div:'cw', ret:true},
+  {id:'benavidez',    name:'David Benavidez',      h:183, div:'cw', ret:false},
+  {id:'billamsmith',  name:'Chris Billam-Smith',   h:183, div:'cw', ret:false},
+  {id:'glowacki',     name:'Krzysztof Glowacki',   h:183, div:'cw', ret:true},
+  {id:'jirov',        name:'Vassiliy Jirov',       h:183, div:'cw', ret:true},
+  {id:'nyika',        name:'David Nyika',          h:193, div:'cw', ret:false},
+
+  // НАПІВВАЖКА / LIGHT HEAVYWEIGHT
+  {id:'spinks_m',     name:'Michael Spinks',       h:189, div:'lhw', ret:true},
+  {id:'buatsi',       name:'Joshua Buatsi',        h:188, div:'lhw', ret:false},
+  {id:'kalajdzic',    name:'Radivoje Kalajdzic',   h:188, div:'lhw', ret:false},
+  {id:'whittaker_b',  name:'Ben Whittaker',        h:191, div:'lhw', ret:false},
+  {id:'lopez_n',      name:'Najee Lopez',          h:188, div:'lhw', ret:false},
+  {id:'gvozdyk',      name:'Oleksandr Gvozdyk',    h:188, div:'lhw', ret:true},
+  {id:'hutchinson',   name:'Willy Hutchinson',     h:185, div:'lhw', ret:false},
+  {id:'richards_c',   name:'Craig Richards',       h:185, div:'lhw', ret:false},
+  {id:'akhmedov',     name:'Ali Akhmedov',         h:185, div:'lhw', ret:false},
+  {id:'dzambekov',    name:'Umar Dzambekov',       h:185, div:'lhw', ret:false},
+  {id:'ataev',        name:'Sharabutdin Ataev',    h:184, div:'lhw', ret:false},
+  {id:'bivol',        name:'Dmitry Bivol',         h:183, div:'lhw', ret:false},
+  {id:'beterbiev',    name:'Artur Beterbiev',      h:183, div:'lhw', ret:false},
+  {id:'yarde',        name:'Anthony Yarde',        h:183, div:'lhw', ret:false},
+  {id:'parker_z',     name:'Zach Parker',          h:183, div:'lhw', ret:false},
+  {id:'ramirez_a',    name:'Albert Ramirez',       h:182, div:'lhw', ret:false},
+  {id:'izmailov',     name:'Ali Izmailov',         h:180, div:'lhw', ret:false},
+  {id:'aokuso',       name:'Paulo Aokuso',         h:180, div:'lhw', ret:false},
+  {id:'rjones',       name:'Roy Jones Jr',         h:180, div:'lhw', ret:true},
+  {id:'moore_a',      name:'Archie Moore',         h:180, div:'lhw', ret:true},
+  {id:'khataev',      name:'Imam Khataev',         h:179, div:'lhw', ret:false},
+
+  // ДРУГА СЕРЕДНЯ / SUPER MIDDLEWEIGHT
+  {id:'pacheco_d',    name:'Diego Pacheco',        h:193, div:'smw', ret:false},
+  {id:'iglesias',     name:'Osleys Iglesias',      h:189, div:'smw', ret:false},
+  {id:'sheeraz',      name:'Hamzah Sheeraz',       h:191, div:'smw', ret:false},
+  {id:'froch',        name:'Carl Froch',           h:185, div:'smw', ret:true},
+  {id:'ward_a',       name:'Andre Ward',           h:183, div:'smw', ret:true},
+  {id:'munguia',      name:'Jaime Munguia',        h:183, div:'smw', ret:false},
+  {id:'calzaghe',     name:'Joe Calzaghe',         h:180, div:'smw', ret:true},
+  {id:'eubank_sr',    name:'Chris Eubank',         h:178, div:'smw', ret:true},
+  {id:'canelo',       name:'Canelo Alvarez',       h:170, div:'smw', ret:false},
+
+  // СЕРЕДНЯ / MIDDLEWEIGHT
+  {id:'mckenna_a',    name:'Aaron McKenna',        h:191, div:'mw', ret:false},
+  {id:'hernandez_y',  name:'Yoenli Hernandez',     h:188, div:'mw', ret:false},
+  {id:'czerkaszyn',   name:'Fiodor Czerkaszyn',    h:185, div:'mw', ret:false},
+  {id:'mosley_jr',    name:'Shane Mosley Jr',      h:185, div:'mw', ret:false},
+  {id:'hopkins',      name:'Bernard Hopkins',      h:185, div:'mw', ret:true},
+  {id:'walsh_c',      name:'Callum Walsh',         h:183, div:'mw', ret:false},
+  {id:'jones_a',      name:'Amari Jones',          h:183, div:'mw', ret:false},
+  {id:'mielnicki',    name:'Vito Mielnicki Jr',    h:183, div:'mw', ret:false},
+  {id:'williams_a',   name:'Austin Williams',      h:183, div:'mw', ret:false},
+  {id:'tukov',        name:'Vadim Tukov',          h:183, div:'mw', ret:false},
+  {id:'alimkhanuly',  name:'Janibek Alimkhanuly',  h:182, div:'mw', ret:false},
+  {id:'monzon',       name:'Carlos Monzon',        h:181, div:'mw', ret:true},
+  {id:'bohachuk',     name:'Serhii Bohachuk',      h:180, div:'mw', ret:false},
+  {id:'adames',       name:'Carlos Adames',        h:180, div:'mw', ret:false},
+  {id:'zerafa',       name:'Michael Zerafa',       h:180, div:'mw', ret:false},
+  {id:'bentley',      name:'Denzel Bentley',       h:180, div:'mw', ret:false},
+  {id:'liddard',      name:'George Liddard',       h:180, div:'mw', ret:false},
+  {id:'tucker_j',     name:'Jahi Tucker',          h:180, div:'mw', ret:false},
+  {id:'robinson_sr',  name:'Sugar Ray Robinson',   h:180, div:'mw', ret:true},
+  {id:'soro',         name:'Michel Soro',          h:179, div:'mw', ret:false},
+  {id:'golovkin',     name:'Gennadiy Golovkin',    h:179, div:'mw', ret:true},
+  {id:'ramos_j',      name:'Jesus Ramos Jr',       h:178, div:'mw', ret:false},
+  {id:'hagler',       name:'Marvin Hagler',        h:177, div:'mw', ret:true},
+  {id:'gibbons_m',    name:'Mike Gibbons',         h:175, div:'mw', ret:true},
+  {id:'lara_e',       name:'Erislandy Lara',       h:175, div:'mw', ret:false},
+  {id:'katzourakis',  name:'Andreas Katzourakis',  h:175, div:'mw', ret:false},
+  {id:'derevyanchenko',name:'Sergiy Derevyanchenko',h:175, div:'mw', ret:true},
+  {id:'tszyu_t',      name:'Tim Tszyu',            h:174, div:'mw', ret:false},
+  {id:'greb',         name:'Harry Greb',           h:173, div:'mw', ret:true},
+
+  // ПЕРША СЕРЕДНЯ / SUPER WELTERWEIGHT
+  {id:'fundora',      name:'Sebastian Fundora',    h:197, div:'sww', ret:false},
+  {id:'garcia_j',     name:'Jorge Garcia Perez',   h:183, div:'sww', ret:false},
+  {id:'murtazaliev',  name:'Bakhram Murtazaliev',  h:182, div:'sww', ret:false},
+  {id:'hearns',       name:'Thomas Hearns',        h:185, div:'sww', ret:true},
+  {id:'dzinziruk',    name:'Serhiy Dzinziruk',     h:183, div:'sww', ret:true},
+  {id:'ennis_j',      name:'Jaron Ennis',          h:178, div:'sww', ret:false},
+  {id:'ortiz_v',      name:'Vergil Ortiz Jr',      h:178, div:'sww', ret:false},
+  {id:'zayas',        name:'Xander Zayas',         h:178, div:'sww', ret:false},
+  {id:'kelly_j',      name:'Josh Kelly',           h:178, div:'sww', ret:false},
+  {id:'benitez',      name:'Wilfred Benitez',      h:178, div:'sww', ret:true},
+  {id:'petrosian',    name:'Zoravor Petrosian',    h:177, div:'sww', ret:false},
+  {id:'norris_t',     name:'Terry Norris',         h:177, div:'sww', ret:true},
+  {id:'thurman',      name:'Keith Thurman',        h:177, div:'sww', ret:true},
+  {id:'wright_r',     name:'Ronald Wright',        h:179, div:'sww', ret:true},
+  {id:'mccallum',     name:'Mike McCallum',        h:182, div:'sww', ret:true},
+  {id:'baraou',       name:'Abass Baraou',         h:176, div:'sww', ret:false},
+  {id:'madrimov',     name:'Israil Madrimov',      h:174, div:'sww', ret:false},
+  {id:'alexander_d',  name:'Devon Alexander',      h:174, div:'sww', ret:true},
+  {id:'garcia_d',     name:'Danny Garcia',         h:173, div:'sww', ret:true},
+  {id:'dupas',        name:'Ralph Dupas',          h:173, div:'sww', ret:true},
+
+  // НАПІВСЕРЕДНЯ / WELTERWEIGHT
+  {id:'benn_c',       name:'Conor Benn',           h:185, div:'ww', ret:false},
+  {id:'williams_p',   name:'Paul Williams',        h:185, div:'ww', ret:true},
+  {id:'delahoye',     name:'Oscar De La Hoya',     h:179, div:'ww', ret:true},
+  {id:'haney',        name:'Devin Haney',          h:175, div:'ww', ret:false},
+  {id:'garcia_r',     name:'Ryan Garcia',          h:174, div:'ww', ret:false},
+  {id:'lopez_t',      name:'Teofimo Lopez',        h:173, div:'ww', ret:false},
+  {id:'mayweather',   name:'Floyd Mayweather',     h:173, div:'ww', ret:true},
+  {id:'duran_r',      name:'Roberto Duran',        h:170, div:'ww', ret:true},
+  {id:'pacquiao',     name:'Manny Pacquiao',       h:166, div:'ww', ret:true},
+
+  // ПЕРША НАПІВСЕРЕДНЯ / SUPER LIGHTWEIGHT
+  {id:'azim',         name:'Adam Azim',            h:178, div:'slw', ret:false},
+  {id:'mercado',      name:'Ernesto Mercado',      h:178, div:'slw', ret:false},
+  {id:'russell_ga',   name:'Gary Antuanne Russell', h:178, div:'slw', ret:false},
+  {id:'taylor_j',     name:'Josh Taylor',          h:178, div:'slw', ret:true},
+  {id:'smith_d',      name:'Dalton Smith',         h:176, div:'slw', ret:false},
+  {id:'davis_k',      name:'Keyshawn Davis',       h:175, div:'slw', ret:false},
+  {id:'abdullaev',    name:'Zaur Abdullaev',       h:175, div:'slw', ret:false},
+  {id:'chamberlain',  name:'Mark Chamberlain',     h:175, div:'slw', ret:false},
+  {id:'biyarslanov',  name:'Arthur Biyarslanov',   h:174, div:'slw', ret:false},
+  {id:'cervantes',    name:'Antonio Cervantes',    h:174, div:'slw', ret:true},
+  {id:'khan',         name:'Amir Khan',            h:174, div:'slw', ret:true},
+  {id:'stevenson_sh', name:'Shakur Stevenson',     h:173, div:'slw', ret:false},
+  {id:'matias',       name:'Subriel Matias',       h:173, div:'slw', ret:false},
+  {id:'ward_m',       name:'Micky Ward',           h:173, div:'slw', ret:true},
+  {id:'chavez_jc',    name:'Julio Cesar Chavez',   h:171, div:'slw', ret:true},
+  {id:'hatton',       name:'Ricky Hatton',         h:171, div:'slw', ret:true},
+  {id:'matthysse',    name:'Lucas Matthysse',      h:169, div:'slw', ret:true},
+  {id:'mitchell_s',   name:'Sharmba Mitchell',     h:170, div:'slw', ret:true},
+  {id:'pryor',        name:'Aaron Pryor',          h:168, div:'slw', ret:true},
+  {id:'bradley',      name:'Timothy Bradley Jr',   h:168, div:'slw', ret:true},
+
+  // ЛЕГКА / LIGHTWEIGHT
+  {id:'arguello',     name:'Alexis Arguello',      h:178, div:'lw', ret:true},
+  {id:'noakes',       name:'Sam Noakes',           h:173, div:'lw', ret:false},
+  {id:'duran_lw',     name:'Roberto Duran',        h:170, div:'lw', ret:true},
+  {id:'berinchyk',    name:'Denys Berinchyk',      h:168, div:'lw', ret:false},
+  {id:'lomachenko',   name:'Vasyl Lomachenko',     h:168, div:'lw', ret:false},
+  {id:'gdavis',       name:'Gervonta Davis',       h:165, div:'lw', ret:false},
+  {id:'whitaker_p',   name:'Pernell Whitaker',     h:168, div:'lw', ret:true},
+
+  // ДРУГА НАПІВЛЕГКА / SUPER FEATHERWEIGHT
+  {id:'navarrete',    name:'Emanuel Navarrete',    h:168, div:'sfw', ret:false},
+  {id:'barrera',      name:'Marco Antonio Barrera',h:168, div:'sfw', ret:true},
+  {id:'morales',      name:'Erik Morales',         h:170, div:'sfw', ret:true},
+  {id:'cacace',       name:'Anthony Cacace',       h:176, div:'sfw', ret:false},
+  {id:'valdez',       name:'Oscar Valdez',         h:166, div:'sfw', ret:false},
+  {id:'nick_ball',    name:'Nick Ball',            h:167, div:'sfw', ret:false},
+
+  // НАПІВЛЕГКА / FEATHERWEIGHT
+  {id:'marquez_jm',   name:'Juan Manuel Marquez',  h:170, div:'fw', ret:true},
+  {id:'pep',          name:'Willie Pep',           h:170, div:'fw', ret:true},
+  {id:'barrera_fw',   name:'Marco Antonio Barrera',h:168, div:'fw', ret:true},
+
+  // ДРУГА ЛЕГША / SUPER BANTAMWEIGHT
+  {id:'inoue_n',      name:'Naoya Inoue',          h:165, div:'sbw', ret:false},
+  {id:'nakatani',     name:'Junto Nakatani',       h:163, div:'sbw', ret:false},
+  {id:'goodman',      name:'Sam Goodman',          h:170, div:'sbw', ret:false},
+  {id:'morales_sbw',  name:'Erik Morales',         h:170, div:'sbw', ret:true},
+
+  // ЛЕГША / BANTAMWEIGHT
+  {id:'inoue_t',      name:'Takuma Inoue',         h:165, div:'bw', ret:false},
+  {id:'donaire',      name:'Nonito Donaire',       h:165, div:'bw', ret:true},
+  {id:'rodriguez_j',  name:'Jesse Rodriguez',      h:163, div:'bw', ret:false},
+  {id:'nasukawa',     name:'Tenshin Nasukawa',     h:163, div:'bw', ret:false},
+  {id:'gonzalez_r',   name:'Roman Gonzalez',       h:160, div:'bw', ret:true},
+  {id:'casimero',     name:'John Riel Casimero',   h:163, div:'bw', ret:false},
+];
+
+// ── DIVISION LABELS ───────────────────────────────────────────────────
+var DIVS = {
+  hw:  {uk:'Надважка',           en:'Heavyweight'},
+  cw:  {uk:'Крузервейт',         en:'Cruiserweight'},
+  lhw: {uk:'Напівважка',         en:'Light Heavyweight'},
+  smw: {uk:'Друга середня',      en:'Super Middleweight'},
+  mw:  {uk:'Середня',            en:'Middleweight'},
+  sww: {uk:'Перша середня',      en:'Super Welterweight'},
+  ww:  {uk:'Напівсередня',       en:'Welterweight'},
+  slw: {uk:'Перша напівсередня', en:'Super Lightweight'},
+  lw:  {uk:'Легка',              en:'Lightweight'},
+  sfw: {uk:'Друга напівлегка',   en:'Super Featherweight'},
+  fw:  {uk:'Напівлегка',         en:'Featherweight'},
+  sbw: {uk:'Друга легша',        en:'Super Bantamweight'},
+  bw:  {uk:'Легша',              en:'Bantamweight'},
+};
+
+// ── TRANSLATIONS ──────────────────────────────────────────────────────
+var T = {
+  uk: {
+    brandSub:'Суддівська картка',
+    pageTitle:'Порівняння зросту боксерів',
+    pageDesc:'Обери від 2 до 4 боксерів і порівняй їхній зріст',
+    cardBadge:'Порівняння зросту',
+    emptyMsg:'ОБЕРИ БОКСЕРІВ',
+    slotLabel:['Перший боєць','Другий боєць','Третій боєць','Четвертий боєць'],
+    placeholder:'Введи ім\'я боксера...',
+    addBtn:'+ Додати бійця',
+    addBtnMax:'Максимум 4 бійці',
+    rmBtn:'× Видалити',
+    shareBtn:'↓ ЗБЕРЕГТИ ЯК ЗОБРАЖЕННЯ',
+    shareNote:'Збережи картку і поділись нею в соцмережах',
+    footerHome:'Картка',
+    footerGuide:'Довідник',
+    retiredLabel:'завершив',
+    activeLabel:'',
+  },
+  en: {
+    brandSub:'Scorecard',
+    pageTitle:'Boxing Height Comparison',
+    pageDesc:'Pick 2 to 4 boxers and compare their heights',
+    cardBadge:'Height Comparison',
+    emptyMsg:'SELECT BOXERS',
+    slotLabel:['Fighter 1','Fighter 2','Fighter 3','Fighter 4'],
+    placeholder:'Type a boxer\'s name...',
+    addBtn:'+ Add fighter',
+    addBtnMax:'Maximum 4 fighters',
+    rmBtn:'× Remove',
+    shareBtn:'↓ SAVE AS IMAGE',
+    shareNote:'Save the card and share it on social media',
+    footerHome:'Scorecard',
+    footerGuide:'Guide',
+    retiredLabel:'retired',
+    activeLabel:'',
+  }
+};
+
+// ── STATE ─────────────────────────────────────────────────────────────
+var lang = 'uk';
+var slots = [null, null]; // up to 4
+var COLORS = ['--c0','--c1','--c2','--c3'];
+var MAX_PX = 220;
+
+// ── LANGUAGE ──────────────────────────────────────────────────────────
+function setLang(l) {
+  lang = l;
+  document.getElementById('btnUk').className = 'lang-btn' + (l==='uk'?' on':'');
+  document.getElementById('btnEn').className = 'lang-btn' + (l==='en'?' on':'');
+  document.documentElement.lang = l==='uk'?'uk':'en';
+  var t = T[l];
+  document.getElementById('brandSub').textContent = t.brandSub;
+  document.getElementById('pageTitle').textContent = t.pageTitle;
+  document.getElementById('pageDesc').textContent = t.pageDesc;
+  document.getElementById('cardBadge').textContent = t.cardBadge;
+  document.getElementById('emptyMsg') && (document.getElementById('emptyMsg').textContent = t.emptyMsg);
+  document.getElementById('addBtn').textContent = slots.length>=4 ? t.addBtnMax : t.addBtn;
+  document.getElementById('shareBtn').textContent = t.shareBtn;
+  document.getElementById('shareNote').textContent = t.shareNote;
+  document.getElementById('footerHome').textContent = t.footerHome;
+  document.getElementById('footerGuide').textContent = t.footerGuide;
+  buildControls();
+  renderCard();
+}
+
+// ── CONTROLS ──────────────────────────────────────────────────────────
+function buildControls() {
+  var t = T[lang];
+  var grid = document.getElementById('slotsGrid');
+  grid.innerHTML = '';
+
+  slots.forEach(function(boxer, idx) {
+    var row = document.createElement('div');
+    row.className = 'slot-row';
+
+    var inner = document.createElement('div');
+    inner.className = 'slot-inner';
+
+    var lbl = document.createElement('label');
+    lbl.className = 'slot-label';
+    lbl.style.color = 'var('+COLORS[idx]+')';
+    lbl.textContent = t.slotLabel[idx];
+
+    var inp = document.createElement('input');
+    inp.type = 'text';
+    inp.className = 'slot-input';
+    inp.placeholder = t.placeholder;
+    inp.value = boxer ? boxer.name : '';
+    inp.dataset.idx = idx;
+
+    var clr = document.createElement('button');
+    clr.className = 'slot-clear';
+    clr.textContent = '×';
+    (function(i){ clr.onclick = function(){ clearSlot(i); }; })(idx);
+
+    var dd = document.createElement('div');
+    dd.className = 'dd';
+    dd.id = 'dd'+idx;
+
+    inp.addEventListener('input',  function(){ onSearch(this, idx); });
+    inp.addEventListener('focus',  function(){ onSearch(this, idx); });
+    inp.addEventListener('blur',   function(){ setTimeout(function(){ var d=document.getElementById('dd'+idx);if(d)d.classList.remove('open'); }, 200); });
+    inp.addEventListener('keydown', function(e){ onKey(e, idx); });
+
+    inner.appendChild(lbl);
+    inner.appendChild(inp);
+    inner.appendChild(clr);
+    inner.appendChild(dd);
+    row.appendChild(inner);
+
+    if (idx >= 2) {
+      var rm = document.createElement('button');
+      rm.className = 'rm-btn';
+      rm.textContent = t.rmBtn;
+      (function(i){ rm.onclick = function(){ removeSlot(i); }; })(idx);
+      row.appendChild(rm);
+    }
+
+    grid.appendChild(row);
+  });
+
+  var addBtn = document.getElementById('addBtn');
+  addBtn.disabled = slots.length >= 4;
+  addBtn.textContent = slots.length >= 4 ? t.addBtnMax : t.addBtn;
+}
+
+function onSearch(inp, idx) {
+  var q = inp.value.trim().toLowerCase();
+  var dd = document.getElementById('dd'+idx);
+  if (!dd) return;
+
+  var results = BOXERS.filter(function(b) {
+    return q.length === 0 || b.name.toLowerCase().includes(q);
+  }).slice(0, 10);
+
+  dd.innerHTML = '';
+  if (!results.length) { dd.classList.remove('open'); return; }
+
+  results.forEach(function(b, i) {
+    var item = document.createElement('div');
+    item.className = 'dd-item';
+    item.dataset.i = i;
+
+    var nm = document.createElement('span');
+    nm.className = 'dd-name';
+    nm.textContent = b.name;
+
+    var meta = document.createElement('div');
+    meta.className = 'dd-meta';
+
+    if (b.ret) {
+      var ret = document.createElement('span');
+      ret.className = 'dd-ret';
+      ret.textContent = '🎖';
+      meta.appendChild(ret);
+    }
+
+    var divSpan = document.createElement('span');
+    divSpan.className = 'dd-div';
+    divSpan.textContent = DIVS[b.div] ? DIVS[b.div][lang] : b.div;
+    meta.appendChild(divSpan);
+
+    item.appendChild(nm);
+    item.appendChild(meta);
+
+    (function(boxer, i_inner) {
+      item.onmousedown = function(e) {
+        e.preventDefault();
+        slots[idx] = boxer;
+        inp.value = boxer.name;
+        dd.classList.remove('open');
+        buildControls();
+        renderCard();
+      };
+    })(b, i);
+
+    dd.appendChild(item);
+  });
+  dd.classList.add('open');
+}
+
+function onKey(e, idx) {
+  var dd = document.getElementById('dd'+idx);
+  if (!dd || !dd.classList.contains('open')) return;
+  var items = dd.querySelectorAll('.dd-item');
+  var hi = dd.querySelector('.hi');
+  var hiIdx = hi ? Array.from(items).indexOf(hi) : -1;
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (hi) hi.classList.remove('hi');
+    items[Math.min(hiIdx+1, items.length-1)].classList.add('hi');
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (hi) hi.classList.remove('hi');
+    if (hiIdx > 0) items[hiIdx-1].classList.add('hi');
+  } else if (e.key === 'Enter' && hi) {
+    hi.onmousedown({preventDefault:function(){}});
+  } else if (e.key === 'Escape') {
+    dd.classList.remove('open');
+  }
+}
+
+function clearSlot(idx) {
+  slots[idx] = null;
+  buildControls();
+  renderCard();
+}
+
+function addSlot() {
+  if (slots.length >= 4) return;
+  slots.push(null);
+  buildControls();
+}
+
+function removeSlot(idx) {
+  slots.splice(idx, 1);
+  buildControls();
+  renderCard();
+}
+
+// ── CARD RENDER ───────────────────────────────────────────────────────
+function renderCard() {
+  var active = [];
+  slots.forEach(function(b, i){ if (b) active.push({boxer:b, colorIdx:i}); });
+
+  var cols = document.getElementById('cols');
+  var fNames = document.getElementById('fNames');
+  var t = T[lang];
+
+  if (active.length === 0) {
+    cols.innerHTML = '<div class="empty" id="emptyMsg">'+t.emptyMsg+'</div>';
+    fNames.innerHTML = '';
+    return;
+  }
+
+  var maxH = Math.max.apply(null, active.map(function(a){ return a.boxer.h; }));
+  var n = active.length;
+  var barW = n===1?120 : n===2?88 : n===3?70 : 58;
+  var nameFontSize = n<=2?'19px' : n===3?'15px' : '12px';
+  var heightFontSize = n<=2?'22px' : '17px';
+
+  // Build ruler
+  var rulerHtml = '<div class="ruler">';
+  var colsH = 240;
+  var topPad = 34; // space for height text above bar
+  [160,170,180,190,200,210].forEach(function(mark) {
+    if (mark > maxH + 4) return;
+    var barPx = Math.round((mark/maxH) * MAX_PX * 0.9);
+    var topPx = colsH - barPx - topPad;
+    if (topPx < 4) return;
+    rulerHtml += '<div class="r-line" style="top:'+topPx+'px"></div>';
+    rulerHtml += '<div class="r-lbl" style="top:'+topPx+'px">'+mark+'</div>';
+  });
+  rulerHtml += '</div>';
+
+  // Build columns
+  var colsHtml = rulerHtml;
+  active.forEach(function(a, pos) {
+    var b = a.boxer;
+    var ci = a.colorIdx;
+    var color = 'var('+COLORS[ci]+')';
+    var px = Math.round((b.h/maxH) * MAX_PX * 0.9);
+    var gradDark = ci===0?'#6b1208' : ci===1?'#0a1f30' : ci===2?'#0b3d1e' : '#2d0f4a';
+
+    colsHtml += '<div class="col-wrap">';
+    colsHtml += '<div class="col-h" style="color:'+color+';font-size:'+heightFontSize+'">'+b.h+' см</div>';
+    colsHtml += '<div class="col-bar" id="bar'+ci+'" style="width:'+barW+'px;height:0px;background:linear-gradient(to top,'+gradDark+','+color+');box-shadow:0 0 28px '+color+'33;"></div>';
+    colsHtml += '</div>';
+
+    if (pos < active.length-1) {
+      var next = active[pos+1];
+      var diff = next.boxer.h - b.h;
+      var diffTxt = diff===0 ? '=' : (diff>0?'▲+':'▼')+Math.abs(diff)+' см';
+      colsHtml += '<div class="vs-gap"><div class="vs-lbl">VS</div><div class="vs-diff">'+diffTxt+'</div></div>';
+    }
+  });
+
+  cols.innerHTML = colsHtml;
+
+  // Animate bars
+  setTimeout(function() {
+    active.forEach(function(a) {
+      var ci = a.colorIdx;
+      var px = Math.round((a.boxer.h/maxH) * MAX_PX * 0.9);
+      var el = document.getElementById('bar'+ci);
+      if (el) el.style.height = px+'px';
+    });
+  }, 60);
+
+  // Fighter names
+  var namesHtml = '';
+  active.forEach(function(a) {
+    var b = a.boxer;
+    var ci = a.colorIdx;
+    var color = 'var('+COLORS[ci]+')';
+    var divName = DIVS[b.div] ? DIVS[b.div][lang] : b.div;
+    var retStr = b.ret ? ' · 🎖' : '';
+    namesHtml += '<div class="f-block">';
+    namesHtml += '<div class="f-n" style="color:'+color+';font-size:'+nameFontSize+'">'+b.name+'</div>';
+    namesHtml += '<div class="f-sub">'+b.h+' см · '+divName+retStr+'</div>';
+    namesHtml += '</div>';
+  });
+  fNames.innerHTML = namesHtml;
+}
+
+// ── SHARE ─────────────────────────────────────────────────────────────
+function shareCard() {
+  var btn = document.getElementById('shareBtn');
+  btn.disabled = true;
+  btn.textContent = '...';
+
+  var el = document.getElementById('shareCard');
+  html2canvas(el, {
+    backgroundColor:'#111',
+    scale:2,
+    useCORS:true,
+    logging:false
+  }).then(function(canvas) {
+    var link = document.createElement('a');
+    link.download = 'boxing12x3-compare.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    btn.disabled = false;
+    btn.textContent = T[lang].shareBtn;
+  }).catch(function() {
+    btn.disabled = false;
+    btn.textContent = T[lang].shareBtn;
+  });
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────
+function init() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('lang') === 'en') lang = 'en';
+
+  // Default: Usyk vs Fury
+  slots[0] = BOXERS.find(function(b){ return b.id==='usyk'; });
+  slots[1] = BOXERS.find(function(b){ return b.id==='fury'; });
+
+  setLang(lang);
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
