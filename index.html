@@ -1067,7 +1067,7 @@ function updateUI() {
   else if (all && tr > tb) lb.innerHTML = '<span class="r">' + t('winner', rn()) + '</span>';
   else if (all && tb > tr) lb.innerHTML = '<span class="b">' + t('winner', bn()) + '</span>';
   else lb.innerHTML = '';
-  shareBtn.disabled = !all;
+  shareBtn.disabled = false;
 }
 
 // ── Reset ─────────────────────────────────────────────────────────────────────
