@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYWWVSZKGY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GYWWVSZKGY');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boxing 12×3 – Інтерактивна суддівська картка боксерського бою</title>
@@ -806,6 +814,9 @@ function buildSelector() {
 function onFightChange() {
   const id = document.getElementById('fightSel').value;
   if (!id) return;
+  if (typeof gtag !== 'undefined' && id !== '__custom__') {
+    gtag('event', 'fight_selected', {fight_id: id});
+  }
   if (id === '__custom__') {
     openCustom();
     document.getElementById('fightSel').value = fight.id;
@@ -890,6 +901,9 @@ function tapSide(i, side) {
   renderRound(i);
   updateUI();
   saveState();
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'round_scored', {round: i + 1, fight: fight ? fight.id : ''});
+  }
 }
 
 function tapCenter(i) {
@@ -1101,6 +1115,9 @@ function confirmStop() {
 function openShare() {
   buildPreview();
   document.getElementById('shareOverlay').classList.add('open');
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'scorecard_shared', {fight: fight ? fight.id : ''});
+  }
   // Show native share only on mobile devices
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const testFile = new File([''], 'test.png', {type:'image/png'});
