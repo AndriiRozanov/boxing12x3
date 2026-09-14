@@ -550,7 +550,7 @@ const FIGHTS = [
   {id:'opetaia-mikaelyan', dateUk:'12 вересня', dateEn:'Sep 12', dateNum:12, monthUk:'вер', red:'Jai Opetaia',   redUk:'Джей Опетая',   redEn:'Jai Opetaia',      blue:'Noel Mikaelyan', blueUk:'Ноель Мікаелян',   blueEn:'Noel Mikaelyan',   divUk:'Крузервейт',         divEn:'Cruiserweight',      rounds:12, belts:['WBC'],         completed:true,  hasPage:false, featured:false},
   {id:'ruiz-knyba',        date:'Sep 4',  dateUk:'4 вересня',  dateEn:'Sep 4',  dateNum:4,  monthUk:'вер', red:'Andy Ruiz Jr.',     redUk:'Енді Руїс',     redEn:'Andy Ruiz Jr.',    blue:'Damian Knyba', blueUk:'Дам\'ян Книба',    blueEn:'Damian Knyba',     divUk:'Надважка',           divEn:'Heavyweight',        rounds:12, belts:[],              completed:true,  hasPage:false, featured:false},
   // МАЙБУТНІ
-  {id:'cruz-bravo',        date:'Sep 19', dateUk:'19 вересня', dateEn:'Sep 19', dateNum:19, monthUk:'вер', red:'Isaac Cruz',    redUk:'Ісаак Крус',    redEn:'Isaac Cruz',       blue:'Nestor Bravo', blueUk:'Нестор Браво',     blueEn:'Nestor Bravo',     divUk:'Перша напівсередня', divEn:'Super Lightweight',  rounds:12, belts:['WBC'],         completed:false, hasPage:false, featured:false},
+  {id:'cruz-bravo',        date:'Sep 19', dateUk:'19 вересня', dateEn:'Sep 19', dateNum:19, monthUk:'вер', red:'Isaac Cruz',    redUk:'Ісаак Крус',    redEn:'Isaac Cruz',       blue:'Nestor Bravo', blueUk:'Нестор Браво',     blueEn:'Nestor Bravo',     divUk:'Перша напівсередня', divEn:'Super Lightweight',  rounds:12, belts:['WBC Interim'], completed:false, hasPage:true,  featured:true},
   {id:'fisher-protton',    date:'Sep 26', dateUk:'26 вересня', dateEn:'Sep 26', dateNum:26, monthUk:'вер', red:'Jonnie Fisher',  redUk:'Джонні Фішер',  redEn:'Jonnie Fisher',    blue:'Michael Protton', blueUk:'Майкл Проттон',    blueEn:'Michael Protton',  divUk:'Важка вага',         divEn:'Heavyweight',        rounds:10, belts:[],              completed:false, hasPage:false, featured:false},
   {id:'nishida-goodman',   date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', red:'Ryosuke Nishida',redUk:'Рьосуке Нішіда',redEn:'Ryosuke Nishida',  blue:'Sam Goodman', blueUk:'Сем Гудман',       blueEn:'Sam Goodman',      divUk:'Друга легша',        divEn:'Super Bantamweight', rounds:12, belts:['IBF'],         completed:false, hasPage:false, featured:false},
   {id:'inoue-nasukawa',    date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', red:'Takuma Inoue',  redUk:'Такума Іноуе',  redEn:'Takuma Inoue',     blue:'Tenshin Nasukawa', blueUk:'Теншін Насукава',  blueEn:'Tenshin Nasukawa', divUk:'Легша вага',         divEn:'Bantamweight',       rounds:12, belts:['WBC'],         completed:false, hasPage:false, featured:false},
@@ -674,9 +674,11 @@ function renderSections() {
   // Upcoming fights (not completed)
   var upcoming = FIGHTS.filter(function(f){ return !f.completed; });
 
-  // Picks tile — static, activate manually when fight page ready
+  // Picks tile — link to featured fight page when available
+  var featuredFight = FIGHTS.find(function(f){ return f.featured && !f.completed && f.hasPage; });
   var picksName = isUk ? 'Ваш прогноз на наступний бій' : 'Your pick for the next fight';
-  var picksActive = false;
+  var picksActive = !!featuredFight;
+  var picksHref = featuredFight ? '/' + langPath + '/' + featuredFight.id : '#';
 
   var langPath = isUk ? 'ua' : 'en';
 
@@ -697,9 +699,9 @@ function renderSections() {
 
   // Picks
   if (picksActive) {
-    html += '<a class="tool-row" href="/' + langPath + '/' + featured.id + '">';
+    html += '<a class="tool-row" href="' + picksHref + '">';
   } else {
-    html += '<div class="tool-row' + (picksActive ? '' : '') + '">';
+    html += '<div class="tool-row">';
   }
   html += '<div class="tool-icon">🎯</div>';
   html += '<div class="tool-body"><div class="tool-name">' + picksName + '</div>';
