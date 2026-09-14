@@ -270,6 +270,61 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .site-footer{text-align:center;padding:24px 0 8px;font-size:12px;color:var(--muted);}
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
+
+/* ── Sections below scorecard ── */
+.sections-wrap{max-width:640px;margin:0 auto;padding:2rem 1rem 2rem;}
+.sec{margin-bottom:28px;}
+.sec-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
+.sec-lbl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.sec-all{font-size:11px;color:var(--red);text-decoration:none;cursor:pointer;}
+.sec-all:hover{opacity:.8;}
+
+/* Tools list */
+.tools-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+.tool-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:0.5px solid var(--border);cursor:pointer;text-decoration:none;color:var(--text);}
+.tool-row:last-child{border-bottom:none;}
+.tool-row.dim{opacity:.55;cursor:default;pointer-events:none;}
+.tool-row:not(.dim):hover{background:#faf9f7;}
+.tool-icon{width:36px;height:36px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#111;font-size:18px;}
+.tool-icon.dim-icon{background:var(--bg);border:0.5px solid var(--border);}
+.tool-body{flex:1;min-width:0;}
+.tool-name{font-size:13px;font-weight:600;line-height:1.3;}
+.tool-desc{font-size:11px;color:var(--muted);margin-top:2px;}
+.tool-badge{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap;}
+.tool-badge.cta{background:var(--red);color:#fff;}
+.tool-badge.soon{background:var(--bg);border:0.5px solid var(--border);color:var(--muted);}
+.tool-arr{font-size:14px;color:var(--muted);flex-shrink:0;}
+
+/* Guide list */
+.guide-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+.guide-row{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-bottom:0.5px solid var(--border);text-decoration:none;color:var(--text);}
+.guide-row:last-child{border-bottom:none;}
+.guide-row:hover{background:#faf9f7;}
+.guide-title{font-size:13px;font-weight:500;}
+.guide-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+
+/* Fights list */
+.fights-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+.fights-month{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:9px 14px 7px;border-bottom:0.5px solid var(--border);}
+.fight-row{display:flex;align-items:stretch;border-bottom:0.5px solid var(--border);position:relative;text-decoration:none;color:var(--text);}
+.fight-row:last-child{border-bottom:none;}
+.fight-row.clickable::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red);}
+.fight-row.clickable{cursor:pointer;}
+.fight-row.clickable:hover{background:#faf9f7;}
+.fight-row.muted{opacity:.6;}
+.fight-dc{flex-shrink:0;width:40px;padding:11px 0 11px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.fight-dn{font-size:15px;font-weight:500;line-height:1;}
+.fight-dm{font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+.fight-div{width:0.5px;background:var(--border);margin:9px 11px;flex-shrink:0;}
+.fight-info{flex:1;min-width:0;padding:11px 0;}
+.fight-pair{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fight-vs{font-size:10px;color:var(--muted);margin:0 3px;}
+.fight-meta{font-size:11px;color:var(--muted);margin-top:3px;}
+.fight-tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap;}
+.fight-tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 6px;border-radius:3px;}
+.fight-tag.belt{background:#f0ede8;color:#555;}
+.fight-tag.preview{background:#eaf3de;color:#3b6d11;}
+.fight-arr-col{flex-shrink:0;padding:0 13px;display:flex;align-items:center;font-size:14px;color:var(--muted);}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -424,10 +479,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   <a class="analytics-more" id="guideMore" href="/ua/guide">Весь довідник →</a>
 </div>
 
+
+<!-- ── Sections below scorecard ── -->
+<div class="sections-wrap" id="sectionsWrap"></div>
+
 <div class="site-footer">
   <a href="/about" id="footer-about">Про проєкт</a>
   <a href="/contact" style="margin-left:12px;" id="footer-contact">Контакти</a>
-  <a href="/height-compare" style="margin-left:12px;" id="footer-compare">Порівняй зріст</a>
   <a href="/widget" style="margin-left:12px;">Вбудувати картку</a>
   <a href="/privacy" style="margin-left:12px;">Privacy Policy</a>
 </div>
@@ -487,13 +545,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <script>
 // ── Data ──────────────────────────────────────────────────────────────────────
 const FIGHTS = [
-  {id:'garcia-benn', date:'Sep 12', dateUk:'12 вересня', red:'Ryan Garcia', redUk:'Раян Гарсія', blue:'Conor Benn', blueUk:'Конор Бенн', rounds:12, completed:false, hasPage:true},
-  {id:'opetaia-mikaelyan', date:'Sep 12', dateUk:'12 вересня', red:'Jai Opetaia', redUk:'Джей Опетая', blue:'Noel Mikaelyan', blueUk:'Ноель Мікаелян', rounds:12, completed:false},
-  {id:'cruz-bravo', date:'Sep 19', dateUk:'19 вересня', red:'Isaac Cruz', redUk:'Ісаак Крус', blue:'Nestor Bravo', blueUk:'Нестор Браво', rounds:12, completed:false},
-  {id:'fisher-protton', date:'Sep 26', dateUk:'26 вересня', red:'Jonnie Fisher', redUk:'Джонні Фішер', blue:'Michael Protton', blueUk:'Майкл Проттон', rounds:10, completed:false},
-  {id:'nishida-goodman', date:'Sep 27', dateUk:'27 вересня', red:'Ryosuke Nishida', redUk:'Рьосуке Нішіда', blue:'Sam Goodman', blueUk:'Сем Гудман', rounds:12, completed:false},
-  {id:'inoue-nasukawa', date:'Sep 27', dateUk:'27 вересня', red:'Takuma Inoue', redUk:'Такума Іноуе', blue:'Tenshin Nasukawa', blueUk:'Теншін Насукава', rounds:12, completed:false},
-  {id:'ruiz-knyba', date:'Sep 4', dateUk:'4 вересня', red:'Andy Ruiz Jr.', redUk:'Енді Руїс', blue:'Damian Knyba', blueUk:'Дам\'ян Книба', rounds:12, completed:true, hasPage:false},
+  // ЗАВЕРШЕНІ
+  {id:'garcia-benn',       date:'Sep 12', dateUk:'12 вересня', dateEn:'Sep 12', dateNum:12, monthUk:'вер', red:'Ryan Garcia',    redUk:'Раян Гарсія',    redEn:'Ryan Garcia',      blue:'Conor Benn', blueUk:'Конор Бенн',       blueEn:'Conor Benn',       divUk:'Напівсередня',       divEn:'Welterweight',       rounds:12, belts:['WBC','Zuffa'], completed:true,  hasPage:true,  featured:false},
+  {id:'opetaia-mikaelyan', dateUk:'12 вересня', dateEn:'Sep 12', dateNum:12, monthUk:'вер', red:'Jai Opetaia',   redUk:'Джей Опетая',   redEn:'Jai Opetaia',      blue:'Noel Mikaelyan', blueUk:'Ноель Мікаелян',   blueEn:'Noel Mikaelyan',   divUk:'Крузервейт',         divEn:'Cruiserweight',      rounds:12, belts:['WBC'],         completed:true,  hasPage:false, featured:false},
+  {id:'ruiz-knyba',        date:'Sep 4',  dateUk:'4 вересня',  dateEn:'Sep 4',  dateNum:4,  monthUk:'вер', red:'Andy Ruiz Jr.',     redUk:'Енді Руїс',     redEn:'Andy Ruiz Jr.',    blue:'Damian Knyba', blueUk:'Дам\'ян Книба',    blueEn:'Damian Knyba',     divUk:'Надважка',           divEn:'Heavyweight',        rounds:12, belts:[],              completed:true,  hasPage:false, featured:false},
+  // МАЙБУТНІ
+  {id:'cruz-bravo',        date:'Sep 19', dateUk:'19 вересня', dateEn:'Sep 19', dateNum:19, monthUk:'вер', red:'Isaac Cruz',    redUk:'Ісаак Крус',    redEn:'Isaac Cruz',       blue:'Nestor Bravo', blueUk:'Нестор Браво',     blueEn:'Nestor Bravo',     divUk:'Перша напівсередня', divEn:'Super Lightweight',  rounds:12, belts:['WBC'],         completed:false, hasPage:false, featured:false},
+  {id:'fisher-protton',    date:'Sep 26', dateUk:'26 вересня', dateEn:'Sep 26', dateNum:26, monthUk:'вер', red:'Jonnie Fisher',  redUk:'Джонні Фішер',  redEn:'Jonnie Fisher',    blue:'Michael Protton', blueUk:'Майкл Проттон',    blueEn:'Michael Protton',  divUk:'Важка вага',         divEn:'Heavyweight',        rounds:10, belts:[],              completed:false, hasPage:false, featured:false},
+  {id:'nishida-goodman',   date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', red:'Ryosuke Nishida',redUk:'Рьосуке Нішіда',redEn:'Ryosuke Nishida',  blue:'Sam Goodman', blueUk:'Сем Гудман',       blueEn:'Sam Goodman',      divUk:'Друга легша',        divEn:'Super Bantamweight', rounds:12, belts:['IBF'],         completed:false, hasPage:false, featured:false},
+  {id:'inoue-nasukawa',    date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', red:'Takuma Inoue',  redUk:'Такума Іноуе',  redEn:'Takuma Inoue',     blue:'Tenshin Nasukawa', blueUk:'Теншін Насукава',  blueEn:'Tenshin Nasukawa', divUk:'Легша вага',         divEn:'Bantamweight',       rounds:12, belts:['WBC'],         completed:false, hasPage:false, featured:false},
 ];
 
 // Guide articles – add entry when article is ready: {id, titleUk, titleEn}
@@ -507,7 +567,14 @@ const GUIDE_ARTICLES = [
 
 const I18N = {
   en: {
-    sub:'Scorecard', redCorner:'Red corner', blueCorner:'Blue corner',
+    sub:'Scorecard',
+    secTools:'Tools', secGuide:'Boxing Guide', secFights:'Fight Stats',
+    secAllArticles:'All articles →', secAllFights:'All fights →',
+    toolTry:'Try it', toolSoon:'Soon',
+    toolHeightName:'Height Comparison', toolHeightDesc:'370+ boxers, 17 divisions',
+    toolPicksDesc:'Who will win?', toolPicksNoFight:'Predict the next fight',
+    toolFansName:'Fan Verdict', toolFansDesc:'Scorecard aggregate and picks',
+    vsWord:'vs', monthSep:'Sep', preview:'Preview', redCorner:'Red corner', blueCorner:'Blue corner',
     win:'WIN', pts:'PTS', total:'TOTAL\nSCORE',
     share:'SHARE SCORECARD', stopBtn:'⏹ Early finish', reset:'Reset',
     modal:'Share your scorecard', dl:'⬇ Download image', sh:'↑ Share',
@@ -518,7 +585,14 @@ const I18N = {
     earlyStop:'EARLY STOPPAGE'
   },
   uk: {
-    sub:'Суддівська картка', redCorner:'Червоний кут', blueCorner:'Синій кут',
+    sub:'Суддівська картка',
+    secTools:'Інструменти', secGuide:'Довідник боксу', secFights:'Статистика боїв',
+    secAllArticles:'Всі статті →', secAllFights:'Всі бої →',
+    toolTry:'Спробувати', toolSoon:'Скоро',
+    toolHeightName:'Порівняння габаритів', toolHeightDesc:'370+ боксерів, 17 дивізіонів',
+    toolPicksDesc:'Хто переможе?', toolPicksNoFight:'Прогноз на наступний бій',
+    toolFansName:'Думка фанатів', toolFansDesc:'Агрегат карток і прогнозів',
+    vsWord:'vs', monthSep:'Вер', preview:'Прев’ю', redCorner:'Червоний кут', blueCorner:'Синій кут',
     win:'РАУНД', pts:'БАЛИ', total:'РАХУНОК',
     share:'ПОДІЛИТИСЬ КАРТКОЮ', stopBtn:'⏹ Достроковий фінал', reset:'Скинути',
     modal:'Поділитись карткою', dl:'⬇ Завантажити картку', sh:'↑ Поділитись',
@@ -554,6 +628,7 @@ function scoredCount() {
 // ── Init ──────────────────────────────────────────────────────────────────────
 loadState();
 renderAll();
+renderSections();
 
 // Widget mode – hide non-essential elements
 const isWidget = new URLSearchParams(window.location.search).has('widget');
@@ -578,6 +653,136 @@ if (isWidget) {
 }
 
 // ── Language ──────────────────────────────────────────────────────────────────
+
+// ── Sections below scorecard ─────────────────────────────────────────────────
+function renderSections() {
+  var wrap = document.getElementById('sectionsWrap');
+  if (!wrap) return;
+  var isUk = lang === 'uk';
+  var T = t;
+
+  // Guide articles
+  var guideItems = [
+    {id:'boxing-scoring',       titleUk:'Як судять бокс',              subUk:'Система 10 балів',
+                                titleEn:'How Boxing Scoring Works',     subEn:'The 10-Point Must System'},
+    {id:'boxing-scorecards',    titleUk:'Як читати суддівські записки', subUk:'Особливості підрахунку',
+                                titleEn:'How to Read a Scorecard',      subEn:'Judging criteria explained'},
+    {id:'boxing-organizations', titleUk:'Що таке WBA, WBC, WBO та IBF',subUk:'Розповідаємо про головні організації',
+                                titleEn:'WBC, WBA, IBF and WBO Explained', subEn:'Major boxing organizations'},
+  ];
+
+  // Upcoming fights (not completed)
+  var upcoming = FIGHTS.filter(function(f){ return !f.completed; });
+
+  // Picks tile — static, activate manually when fight page ready
+  var picksName = isUk ? 'Ваш прогноз на наступний бій' : 'Your pick for the next fight';
+  var picksActive = false;
+
+  var langPath = isUk ? 'ua' : 'en';
+
+  var html = '';
+
+  // ── TOOLS ──
+  html += '<div class="sec">';
+  html += '<div class="sec-header"><span class="sec-lbl">' + t('secTools') + '</span></div>';
+  html += '<div class="tools-list">';
+
+  // Height compare
+  html += '<a class="tool-row" href="/height-compare">';
+  html += '<div class="tool-icon">📏</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + t('toolHeightName') + '</div>';
+  html += '<div class="tool-desc">' + t('toolHeightDesc') + '</div></div>';
+  html += '<span class="tool-badge cta">' + t('toolTry') + '</span>';
+  html += '<span class="tool-arr">›</span></a>';
+
+  // Picks
+  if (picksActive) {
+    html += '<a class="tool-row" href="/' + langPath + '/' + featured.id + '">';
+  } else {
+    html += '<div class="tool-row' + (picksActive ? '' : '') + '">';
+  }
+  html += '<div class="tool-icon">🎯</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + picksName + '</div>';
+  html += '<div class="tool-desc">' + t('toolPicksDesc') + '</div></div>';
+  html += '<span class="tool-badge ' + (picksActive ? 'cta' : 'soon') + '">' + (picksActive ? t('toolTry') : t('toolSoon')) + '</span>';
+  if (picksActive) html += '<span class="tool-arr">›</span>';
+  html += picksActive ? '</a>' : '</div>';
+
+  // Fan verdict
+  html += '<div class="tool-row dim">';
+  html += '<div class="tool-icon dim-icon">👥</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + t('toolFansName') + '</div>';
+  html += '<div class="tool-desc">' + t('toolFansDesc') + '</div></div>';
+  html += '<span class="tool-badge soon">' + t('toolSoon') + '</span>';
+  html += '</div>';
+
+  html += '</div></div>'; // tools-list, sec
+
+  // ── GUIDE ──
+  html += '<div class="sec">';
+  html += '<div class="sec-header">';
+  html += '<span class="sec-lbl">' + t('secGuide') + '</span>';
+  html += '<a class="sec-all" href="/' + langPath + '/guide">' + t('secAllArticles') + '</a>';
+  html += '</div>';
+  html += '<div class="guide-list">';
+  guideItems.forEach(function(g) {
+    var title = isUk ? g.titleUk : g.titleEn;
+    var sub   = isUk ? g.subUk   : g.subEn;
+    html += '<a class="guide-row" href="/' + langPath + '/' + g.id + '">';
+    html += '<div><div class="guide-title">' + title + '</div>';
+    html += '<div class="guide-sub">' + sub + '</div></div>';
+    html += '<span class="tool-arr">›</span></a>';
+  });
+  html += '</div></div>';
+
+  // ── FIGHTS ──
+  html += '<div class="sec">';
+  html += '<div class="sec-header">';
+  html += '<span class="sec-lbl">' + t('secFights') + '</span>';
+  html += '<a class="sec-all" href="/' + langPath + '/fights">' + t('secAllFights') + '</a>';
+  html += '</div>';
+  html += '<div class="fights-list">';
+  html += '<div class="fights-month">';
+  html += (isUk ? 'Вересень 2026' : 'September 2026');
+  html += '</div>';
+
+  upcoming.forEach(function(f) {
+    var hasP = f.hasPage;
+    var rowClass = 'fight-row' + (hasP ? ' clickable' : ' muted');
+    var pair = (isUk ? f.redUk : f.redEn) + ' <span class="fight-vs">vs</span> ' + (isUk ? f.blueUk : f.blueEn);
+    var div  = isUk ? f.divUk : f.divEn;
+    var rds  = isUk ? f.rounds + ' раундів' : f.rounds + ' rounds';
+
+    if (hasP) {
+      html += '<a class="' + rowClass + '" href="/' + langPath + '/' + f.id + '">';
+    } else {
+      html += '<div class="' + rowClass + '">';
+    }
+
+    var monthStr = isUk ? f.monthUk : (f.dateEn ? f.dateEn.split(' ')[0].toLowerCase() : '');
+    html += '<div class="fight-dc"><div class="fight-dn">' + f.dateNum + '</div><div class="fight-dm">' + monthStr + '</div></div>';
+    html += '<div class="fight-div"></div>';
+    html += '<div class="fight-info">';
+    html += '<div class="fight-pair">' + pair + '</div>';
+    html += '<div class="fight-meta">' + div + ' · ' + rds + '</div>';
+
+    if (f.belts && f.belts.length) {
+      html += '<div class="fight-tags">';
+      f.belts.forEach(function(b){ html += '<span class="fight-tag belt">' + b + '</span>'; });
+      if (hasP) html += '<span class="fight-tag preview">' + t('preview') + '</span>';
+      html += '</div>';
+    }
+
+    html += '</div>';
+    if (hasP) html += '<div class="fight-arr-col">›</div>';
+    html += hasP ? '</a>' : '</div>';
+  });
+
+  html += '</div></div>';
+
+  wrap.innerHTML = html;
+}
+
 function setLang(l) {
   lang = l;
   // Update html lang attribute
@@ -593,6 +798,7 @@ function setLang(l) {
   if (fc) fc.textContent = l === 'en' ? 'Contact' : 'Контакти';
   document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
   renderAll();
+  renderSections();
 }
 
 // ── Full render ───────────────────────────────────────────────────────────────
@@ -1472,6 +1678,7 @@ function loadState() {
       const f = FIGHTS.find(x => x.id === urlFight);
       if (f) { fight = f; scores = mkScores(); stoppage = null; }
     }
+    renderSections();
   } catch(e) {}
 }
 </script>
