@@ -1647,12 +1647,12 @@ function loadState() {
     }
     if (sf) {
       const f = FIGHTS.find(x => x.id===sf);
-      if (f) {
+      if (f && !f.completed) {
         fight = f;
         if (ss) scores = JSON.parse(ss);
         if (st) stoppage = JSON.parse(st);
       }
-      // if saved fight id no longer exists, keep default fight + fresh scores
+      // if saved fight is completed or not found — keep default upcoming fight
     } else {
       if (ss) scores = JSON.parse(ss);
       if (st) stoppage = JSON.parse(st);
