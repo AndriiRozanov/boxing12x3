@@ -315,8 +315,8 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
   <h2 class="picks-title">Прогноз на Крус – Браво: хто переможе?</h2>
   <div class="picks-sub">Анонімне голосування – без реєстрації</div>
   <div class="picks-btns">
-    <button class="picks-btn red" id="btnRed" onclick="vote('red')">Isaac Cruz</button>
-    <button class="picks-btn blue" id="btnBlue" onclick="vote('blue')">Nestor Bravo</button>
+    <button class="picks-btn red" id="btnRed" onclick="vote('red')">Ісаак Крус</button>
+    <button class="picks-btn blue" id="btnBlue" onclick="vote('blue')">Нестор Браво</button>
   </div>
   <div class="picks-voted-msg" id="votedMsg">Ваш голос враховано 👊</div>
   <div class="picks-results" id="picksResults">
@@ -420,8 +420,12 @@ function vote(side){
   document.getElementById('btn'+(side==='red'?'Red':'Blue')).classList.add('voted');
   setCookie(COOKIE,side);
   document.getElementById('votedMsg').classList.add('show');
+  // Optimistic UI: show result immediately
+  var opt={red:side==='red'?1:0,blue:side==='blue'?1:0,total:1,redPct:side==='red'?100:0,bluePct:side==='blue'?100:0};
+  showResults(opt);
+  // Then update with real server data
   fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:FIGHT_ID,side:side})})
-  .then(function(r){return r.json();}).then(function(d){showResults(d.data);}).catch(function(){loadResults();});
+  .then(function(r){return r.json();}).then(function(d){showResults(d.data);}).catch(function(){});
 }
 
 function loadResults(){
