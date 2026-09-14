@@ -420,8 +420,10 @@ function vote(side){
   document.getElementById('btn'+(side==='red'?'Red':'Blue')).classList.add('voted');
   setCookie(COOKIE,side);
   document.getElementById('votedMsg').classList.add('show');
+  var opt={red:side==='red'?1:0,blue:side==='blue'?1:0,total:1,redPct:side==='red'?100:0,bluePct:side==='blue'?100:0};
+  showResults(opt);
   fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:FIGHT_ID,side:side})})
-  .then(function(r){return r.json();}).then(function(d){showResults(d.data);}).catch(function(){loadResults();});
+  .then(function(r){return r.json();}).then(function(d){showResults(d.data);}).catch(function(){});
 }
 
 function loadResults(){
