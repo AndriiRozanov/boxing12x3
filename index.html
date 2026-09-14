@@ -676,11 +676,10 @@ function renderSections() {
 
   // Picks tile — link to featured fight page when available
   var featuredFight = FIGHTS.find(function(f){ return f.featured && !f.completed && f.hasPage; });
+  var langPath = isUk ? 'ua' : 'en';
   var picksName = isUk ? 'Ваш прогноз на наступний бій' : 'Your pick for the next fight';
   var picksActive = !!featuredFight;
   var picksHref = featuredFight ? '/' + langPath + '/' + featuredFight.id : '#';
-
-  var langPath = isUk ? 'ua' : 'en';
 
   var html = '';
 
