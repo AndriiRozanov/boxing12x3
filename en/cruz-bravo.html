@@ -400,14 +400,16 @@ function getCookie(name){ var m=document.cookie.match('(^|;)\\s*'+name+'\\s*=\\s
 function setCookie(name,val){ document.cookie=name+'='+val+';path=/;max-age='+(60*60*24*365); }
 
 function showResults(data){
+  var total=data.total!==undefined?data.total:(data.red+data.blue);
+  var redPct=data.redPct!==undefined?data.redPct:(total?Math.round(data.red/total*100):0);
+  var bluePct=data.bluePct!==undefined?data.bluePct:(total?Math.round(data.blue/total*100):0);
   document.getElementById('picksResults').classList.add('show');
-  document.getElementById('redPct').textContent=data.redPct+'%';
-  document.getElementById('bluePct').textContent=data.bluePct+'%';
+  document.getElementById('redPct').textContent=redPct+'%';
+  document.getElementById('bluePct').textContent=bluePct+'%';
   setTimeout(function(){
-    document.getElementById('redBar').style.width=data.redPct+'%';
-    document.getElementById('blueBar').style.width=data.bluePct+'%';
+    document.getElementById('redBar').style.width=redPct+'%';
+    document.getElementById('blueBar').style.width=bluePct+'%';
   },60);
-  var total=data.total;
   document.getElementById('picksTotal').textContent=
     total===0?'No votes yet':
     'Votes: '+total;
@@ -420,10 +422,8 @@ function vote(side){
   document.getElementById('btn'+(side==='red'?'Red':'Blue')).classList.add('voted');
   setCookie(COOKIE,side);
   document.getElementById('votedMsg').classList.add('show');
-  var opt={red:side==='red'?1:0,blue:side==='blue'?1:0,total:1,redPct:side==='red'?100:0,bluePct:side==='blue'?100:0};
-  showResults(opt);
   fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:FIGHT_ID,side:side})})
-  .then(function(r){return r.json();}).then(function(d){showResults(d.data);}).catch(function(){});
+  .then(function(r){return r.json();}).then(function(d){if(d.data)showResults(d.data);}).catch(function(){loadResults();});
 }
 
 function loadResults(){
