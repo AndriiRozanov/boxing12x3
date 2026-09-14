@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function(){
 // Picks
 var WORKER = 'https://boxing12x3-picks.rozanovandriy88.workers.dev';
 var FIGHT_ID = 'cruz-bravo';
-var COOKIE = 'pick_' + FIGHT_ID;
+var COOKIE = 'pick_v2_' + FIGHT_ID;
 
 function getCookie(name){ var m=document.cookie.match('(^|;)\\s*'+name+'\\s*=\\s*([^;]+)'); return m?m.pop():''; }
 function setCookie(name,val){ document.cookie=name+'='+val+';path=/;max-age='+(60*60*24*365); }
@@ -410,7 +410,7 @@ function showResults(data){
     document.getElementById('redBar').style.width=redPct+'%';
     document.getElementById('blueBar').style.width=bluePct+'%';
   },60);
-  document.getElementById('picksTotal').textContent=total===0?'Поки немає голосів':'Проголосувало: '+total+(total===1?' читач':total<5?' читачі':' читачів');
+  document.getElementById('picksTotal').textContent='';
 }
 
 function vote(side){
