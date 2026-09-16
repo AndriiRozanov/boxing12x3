@@ -323,7 +323,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .fight-tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap;}
 .fight-tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 6px;border-radius:3px;}
 .fight-tag.belt{background:#f0ede8;color:#555;}
-.fight-tag.preview{background:#eaf3de;color:#3b6d11;}
+.fight-tag.statistics{background:#eaf3de;color:#3b6d11;}
 .fight-arr-col{flex-shrink:0;padding:0 13px;display:flex;align-items:center;font-size:14px;color:var(--muted);}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -574,7 +574,7 @@ const I18N = {
     toolHeightName:'Height Comparison', toolHeightDesc:'370+ boxers, 17 divisions',
     toolPicksDesc:'Who will win?', toolPicksNoFight:'Predict the next fight',
     toolFansName:'Fan Verdict', toolFansDesc:'Scorecard aggregate and picks',
-    vsWord:'vs', monthSep:'Sep', preview:'Preview', redCorner:'Red corner', blueCorner:'Blue corner',
+    vsWord:'vs', monthSep:'Sep', statistics:'Statistics', redCorner:'Red corner', blueCorner:'Blue corner',
     win:'WIN', pts:'PTS', total:'TOTAL\nSCORE',
     share:'SHARE SCORECARD', stopBtn:'⏹ Early finish', reset:'Reset',
     modal:'Share your scorecard', dl:'⬇ Download image', sh:'↑ Share',
@@ -592,7 +592,7 @@ const I18N = {
     toolHeightName:'Порівняння габаритів', toolHeightDesc:'370+ боксерів, 17 дивізіонів',
     toolPicksDesc:'Хто переможе?', toolPicksNoFight:'Прогноз на наступний бій',
     toolFansName:'Думка фанатів', toolFansDesc:'Агрегат карток і прогнозів',
-    vsWord:'vs', monthSep:'Вер', preview:'Прев’ю', redCorner:'Червоний кут', blueCorner:'Синій кут',
+    vsWord:'vs', monthSep:'Вер', statistics:'Статистика', redCorner:'Червоний кут', blueCorner:'Синій кут',
     win:'РАУНД', pts:'БАЛИ', total:'РАХУНОК',
     share:'ПОДІЛИТИСЬ КАРТКОЮ', stopBtn:'⏹ Достроковий фінал', reset:'Скинути',
     modal:'Поділитись карткою', dl:'⬇ Завантажити картку', sh:'↑ Поділитись',
@@ -770,7 +770,7 @@ function renderSections() {
     if (f.belts && f.belts.length) {
       html += '<div class="fight-tags">';
       f.belts.forEach(function(b){ html += '<span class="fight-tag belt">' + b + '</span>'; });
-      if (hasP) html += '<span class="fight-tag preview">' + t('preview') + '</span>';
+      if (hasP) html += '<span class="fight-tag statistics">' + t('statistics') + '</span>';
       html += '</div>';
     }
 
