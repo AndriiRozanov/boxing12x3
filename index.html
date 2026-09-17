@@ -766,9 +766,11 @@ function renderSections() {
     html += '<div class="fight-pair">' + pair + '</div>';
     html += '<div class="fight-meta">' + div + ' · ' + rds + '</div>';
 
-    if (f.belts && f.belts.length) {
+    if ((f.belts && f.belts.length) || hasP) {
       html += '<div class="fight-tags">';
-      f.belts.forEach(function(b){ html += '<span class="fight-tag belt">' + b + '</span>'; });
+      if (f.belts && f.belts.length) {
+        f.belts.forEach(function(b){ html += '<span class="fight-tag belt">' + b + '</span>'; });
+      }
       if (hasP) html += '<span class="fight-tag statistics">' + t('statistics') + '</span>';
       html += '</div>';
     }
