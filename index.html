@@ -550,7 +550,7 @@ const FIGHTS = [
   {id:'opetaia-mikaelyan', dateUk:'12 вересня', dateEn:'Sep 12', dateNum:12, monthUk:'вер', red:'Jai Opetaia',   redUk:'Джей Опетая',   redEn:'Jai Opetaia',      blue:'Noel Mikaelyan', blueUk:'Ноель Мікаелян',   blueEn:'Noel Mikaelyan',   divUk:'Крузервейт',         divEn:'Cruiserweight',      rounds:12, belts:['WBC'],         completed:true,  hasPage:false, featured:false},
   {id:'ruiz-knyba',        date:'Sep 4',  dateUk:'4 вересня',  dateEn:'Sep 4',  dateNum:4,  monthUk:'вер', red:'Andy Ruiz Jr.',     redUk:'Енді Руїс',     redEn:'Andy Ruiz Jr.',    blue:'Damian Knyba', blueUk:'Дам\'ян Книба',    blueEn:'Damian Knyba',     divUk:'Надважка',           divEn:'Heavyweight',        rounds:12, belts:[],              completed:true,  hasPage:false, featured:false},
   // МАЙБУТНІ
-  {id:'cruz-bravo',        date:'Sep 19', dateUk:'19 вересня', dateEn:'Sep 19', dateNum:19, monthUk:'вер', red:'Isaac Cruz',    redUk:'Ісаак Крус',    redEn:'Isaac Cruz',       blue:'Nestor Bravo', blueUk:'Нестор Браво',     blueEn:'Nestor Bravo',     divUk:'Перша напівсередня', divEn:'Super Lightweight',  rounds:12, belts:['WBC Interim'], completed:false, hasPage:true,  featured:true},
+  {id:'cruz-bravo',        date:'Sep 19', dateUk:'19 вересня', dateEn:'Sep 19', dateNum:19, monthUk:'вер', red:'Isaac Cruz',    redUk:'Ісаак Крус',    redEn:'Isaac Cruz',       blue:'Nestor Bravo', blueUk:'Нестор Браво',     blueEn:'Nestor Bravo',     divUk:'Перша напівсередня', divEn:'Super Lightweight',  rounds:12, belts:['WBC Interim'], completed:true,  hasPage:true,  featured:false},
   {id:'fisher-protton',    date:'Sep 26', dateUk:'26 вересня', dateEn:'Sep 26', dateNum:26, monthUk:'вер', red:'Johnny Fisher',  redUk:'Джонні Фішер',  redEn:'Johnny Fisher',    blue:'Michael Protton', blueUk:'Майкл Проттон',    blueEn:'Michael Protton',  divUk:'Важка вага',         divEn:'Heavyweight',        rounds:10, belts:[],              completed:false, hasPage:true,  featured:true},
   {id:'nishida-goodman',   date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', red:'Ryosuke Nishida',redUk:'Рьосуке Нішіда',redEn:'Ryosuke Nishida',  blue:'Sam Goodman', blueUk:'Сем Гудман',       blueEn:'Sam Goodman',      divUk:'Друга легша',        divEn:'Super Bantamweight', rounds:12, belts:['IBF Interim'], completed:false, hasPage:true,  featured:false},
   {id:'inoue-nasukawa',    date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', red:'Takuma Inoue',  redUk:'Такума Іноуе',  redEn:'Takuma Inoue',     blue:'Tenshin Nasukawa', blueUk:'Теншін Насукава',  blueEn:'Tenshin Nasukawa', divUk:'Легша вага',         divEn:'Bantamweight',       rounds:12, belts:['WBC Interim'], completed:false, hasPage:true,  featured:false},
@@ -673,7 +673,7 @@ function renderSections() {
   // Upcoming fights (not completed)
   var upcoming = FIGHTS.filter(function(f){ return !f.completed; });
 
-  // Picks tile — link to featured fight page when available
+  // Picks tile - link to featured fight page when available
   var featuredFight = FIGHTS.find(function(f){ return f.featured && !f.completed && f.hasPage; });
   var langPath = isUk ? 'ua' : 'en';
   var picksName = isUk ? 'Ваш прогноз на наступний бій' : 'Your pick for the next fight';
@@ -829,7 +829,7 @@ function buildAnalyticsBlock() {
       const base = isUk ? '/ua/' + f.id : '/en/' + f.id;
       const red  = isUk ? f.redUk  : f.red;
       const blue = isUk ? f.blueUk : f.blue;
-      const date = isUk ? f.dateUk : f.date;
+      const date = isUk ? f.dateUk : f.dateEn;
       const a = document.createElement('a');
       a.className = 'analytics-link';
       a.href = base;
@@ -986,7 +986,7 @@ function buildSelector() {
     upcoming.forEach(f => {
       const o = document.createElement('option');
       o.value = f.id;
-      const d = lang==='uk' ? f.dateUk : f.date;
+      const d = lang==='uk' ? f.dateUk : f.dateEn;
       const r = lang==='uk' ? f.redUk : f.red;
       const b = lang==='uk' ? f.blueUk : f.blue;
       o.textContent = d + ' · ' + r + ' vs ' + b;
@@ -1001,7 +1001,7 @@ function buildSelector() {
     completed.forEach(f => {
       const o = document.createElement('option');
       o.value = f.id;
-      const d = lang==='uk' ? f.dateUk : f.date;
+      const d = lang==='uk' ? f.dateUk : f.dateEn;
       const r = lang==='uk' ? f.redUk : f.red;
       const b = lang==='uk' ? f.blueUk : f.blue;
       o.textContent = d + ' · ' + r + ' vs ' + b;
@@ -1654,7 +1654,7 @@ function loadState() {
         if (ss) scores = JSON.parse(ss);
         if (st) stoppage = JSON.parse(st);
       }
-      // if saved fight is completed or not found — keep default upcoming fight
+      // if saved fight is completed or not found - keep default upcoming fight
     } else {
       if (ss) scores = JSON.parse(ss);
       if (st) stoppage = JSON.parse(st);
