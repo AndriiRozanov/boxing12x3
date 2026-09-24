@@ -249,6 +249,7 @@ var BOXERS = [
 // НАДВАЖКА історичні
 {id:'klitschko_v',name:'Vitali Klitschko',h:201,div:'hw',ret:true},
 {id:'klitschko_w',name:'Wladimir Klitschko',h:198,div:'hw',ret:true},
+{id:'peter',name:'Samuel Peter',h:188,div:'hw',ret:true},
 {id:'lewis',name:'Lennox Lewis',h:196,div:'hw',ret:true},
 {id:'bowe',name:'Riddick Bowe',h:196,div:'hw',ret:true},
 {id:'holmes',name:'Larry Holmes',h:191,div:'hw',ret:true},
@@ -738,8 +739,14 @@ function shareCard(){
 function init(){
   var p=new URLSearchParams(window.location.search);
   if(p.get('lang')==='en')lang='en';
-  slots[0]=BOXERS.find(function(b){return b.id==='usyk';});
-  slots[1]=BOXERS.find(function(b){return b.id==='fury';});
+  var boxerA=p.get('a'), boxerB=p.get('b');
+  if(boxerA || boxerB){
+    slots[0]=boxerA?BOXERS.find(function(b){return b.id===boxerA;}):null;
+    slots[1]=boxerB?BOXERS.find(function(b){return b.id===boxerB;}):null;
+  } else {
+    slots[0]=BOXERS.find(function(b){return b.id==='usyk';});
+    slots[1]=BOXERS.find(function(b){return b.id==='fury';});
+  }
   setLang(lang);
 }
 document.addEventListener('DOMContentLoaded',init);
