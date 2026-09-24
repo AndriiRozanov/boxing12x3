@@ -364,5 +364,19 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxing-history/september</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxing-history/september"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-history/september"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxing-history/september</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxing-history/september"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-history/september"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
