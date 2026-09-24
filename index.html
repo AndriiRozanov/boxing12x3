@@ -302,6 +302,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .guide-row:hover{background:#faf9f7;}
 .guide-title{font-size:13px;font-weight:500;}
 .guide-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.hist-top-link{display:block;text-align:right;font-size:11px;font-weight:600;color:var(--red);text-decoration:none;margin-bottom:6px;}
+.hist-top-link:hover{text-decoration:underline;}
 .hist-widget{display:flex;background:#fff;border:0.5px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:24px;}
 .hist-badge{background:var(--red);color:#fff;padding:18px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:84px;position:relative;flex-shrink:0;}
 .hist-badge-month{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.08em;opacity:.9;}
@@ -650,6 +652,7 @@ const I18N = {
     toolTry:'Спробувати', toolSoon:'Скоро',
     toolHeightName:'Порівняння габаритів', toolHeightDesc:'370+ боксерів, 17 дивізіонів',
     toolPicksDesc:'Хто переможе?', toolPicksNoFight:'Прогноз на наступний бій',
+    toolFansName:'Думка фанатів', toolFansDesc:'Агрегат карток і прогнозів',
     vsWord:'vs', monthSep:'Вер', statistics:'Статистика', redCorner:'Червоний кут', blueCorner:'Синій кут',
     win:'РАУНД', pts:'БАЛИ', total:'РАХУНОК',
     share:'ПОДІЛИТИСЬ КАРТКОЮ', stopBtn:'⏹ Достроковий фінал', reset:'Скинути',
@@ -691,10 +694,14 @@ renderSections();
 // Widget mode – hide non-essential elements
 const isWidget = new URLSearchParams(window.location.search).has('widget');
 if (isWidget) {
-  ['uaLinks','analyticsBlock','guideBlock'].forEach(function(id) {
+  ['uaLinks','analyticsBlock','guideBlock','sectionsWrap'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.classList.add('widget-hidden');
   });
+  var brandEl = document.querySelector('.brand');
+  if (brandEl) brandEl.classList.add('widget-hidden');
+  var langBarEl = document.querySelector('.lang-bar');
+  if (langBarEl) langBarEl.classList.add('widget-hidden');
   var hintWrap = document.querySelector('.hint-toggle');
   // Show hint open on first visit
   if (!localStorage.getItem('b12x3_hint_seen')) {
@@ -757,13 +764,16 @@ function renderSections() {
       var monthLbl = isUk ? 'Вер' : 'Sep';
       var btn1 = (isUk ? 'Події ' + entryDay + ' вересня' : 'Events on Sep ' + entryDay);
       var btn2 = isUk ? 'Визначні боксерські дні' : 'This Day in Boxing';
+      var topLink = isUk ? 'Усі події місяця' : 'All events of the month';
       var hrefBase = '/' + langPath + '/boxing-history/september';
+      var hrefHub = '/' + langPath + '/boxing-history';
+      html += '<a class="hist-top-link" href="' + hrefBase + '">' + topLink + ' →</a>';
       html += '<div class="hist-widget">';
       html += '<div class="hist-badge"><div class="hist-badge-month">' + monthLbl + '</div><div class="hist-badge-day">' + entryDay + '</div><div class="hist-badge-year">' + entry.gp.y + '</div></div>';
       html += '<div class="hist-perf"></div>';
       html += '<div class="hist-content">';
       html += '<div class="hist-eyebrow"><span>' + eyebrow + '</span>';
-      html += '<svg class="hist-clock" width="14" height="14" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="none" stroke="#e5e3de" stroke-width="1"/><line x1="9" y1="9" x2="9" y2="4.5" stroke="#aaa" stroke-width="1" stroke-linecap="round"/><line class="hist-hand" x1="9" y1="9" x2="12.2" y2="9" stroke="#c0392b" stroke-width="1" stroke-linecap="round"/></svg>';
+      html += '<svg class="hist-clock" width="20" height="20" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="none" stroke="#ccc" stroke-width="1.2"/><line x1="9" y1="9" x2="9" y2="4.5" stroke="#888" stroke-width="1.2" stroke-linecap="round"/><line class="hist-hand" x1="9" y1="9" x2="12.2" y2="9" stroke="#c0392b" stroke-width="1.2" stroke-linecap="round"/></svg>';
       html += '</div>';
       html += '<div class="hist-title">' + gpTitle + '</div>';
       if(entry.sg){
@@ -773,7 +783,7 @@ function renderSections() {
       }
       html += '<div class="hist-btns">';
       html += '<a class="hist-btn primary" href="' + hrefBase + '#d' + entryDay + '">' + btn1 + '</a>';
-      html += '<a class="hist-btn secondary" href="' + hrefBase + '">' + btn2 + '</a>';
+      html += '<a class="hist-btn secondary" href="' + hrefHub + '">' + btn2 + '</a>';
       html += '</div></div></div>';
     }
   })();
