@@ -32,6 +32,28 @@
   "inLanguage": "en"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is a 10-9 round in boxing?", "acceptedAnswer": {"@type": "Answer", "text": "A 10-9 round means the judge awarded 10 points to the winner of the round and 9 points to the other fighter - the standard score for a round where one boxer won but not dominantly."}},
+    {"@type": "Question", "name": "When is 10:8 scored without a knockdown?", "acceptedAnswer": {"@type": "Answer", "text": "Under WBO rules a judge may award 10:8 if a boxer completely dominated the round, even without a knockdown, though this is rare. The most common reason for 10:8 without a knockdown is a point deduction for a foul."}},
+    {"@type": "Question", "name": "How many rounds is a championship boxing match?", "acceptedAnswer": {"@type": "Answer", "text": "A fight for a full championship belt is always 12 rounds. Non-title fights can be shorter - 4, 6, or 8 rounds."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://boxing12x3.com/?lang=en"},
+    {"@type": "ListItem", "position": 2, "name": "Guide", "item": "https://boxing12x3.com/en/guide"},
+    {"@type": "ListItem", "position": 3, "name": "How Boxing Scoring Works", "item": "https://boxing12x3.com/en/boxing-scoring"}
+  ]
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -58,6 +80,13 @@ article ul{margin:0 0 14px 20px;}
 article li{font-size:15px;color:#2a2a2a;margin-bottom:6px;line-height:1.6;}
 .sources{font-size:11px;color:var(--muted);border-top:0.5px solid var(--border);padding-top:16px;margin-top:32px;line-height:1.8;}
 .sources b{color:var(--text);font-weight:500;}
+.read-next{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:28px;}
+.read-next-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.read-next-link{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--text);padding:8px 0;border-top:0.5px solid var(--border);}
+.read-next-link:first-of-type{border-top:none;}
+.read-next-title{font-size:14px;font-weight:500;}
+.read-next-sub{font-size:12px;color:var(--muted);margin-top:3px;}
+.read-next-arr{font-size:18px;color:var(--muted);}
 .cta{background:#111;border-radius:var(--r);padding:24px 20px;text-align:center;margin:32px 0;}
 .cta-t{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
 .cta-s{font-size:13px;color:#aaa;margin-bottom:16px;}
@@ -178,14 +207,49 @@ article li{font-size:15px;color:#2a2a2a;margin-bottom:6px;line-height:1.6;}
     <a class="cta-btn" href="/?lang=en">Open scorecard →</a>
   </div>
 
-  <div style="background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:28px;">
-    <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Read next</div>
-    <a href="/en/boxing-scorecards" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--text);">
+  <div class="read-next">
+    <div class="read-next-label">Read also</div>
+    <a class="read-next-link" href="/en/boxing-scorecards">
       <div>
-        <div style="font-size:14px;font-weight:500;">How to Read Boxing Scorecards</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:3px;">What the numbers mean, UD, SD, MD and draws</div>
+        <div class="read-next-title">How to Read Boxing Scorecards</div>
+        <div class="read-next-sub">What the numbers mean, UD, SD, MD and draws</div>
       </div>
-      <span style="font-size:18px;color:var(--muted);">›</span>
+      <span class="read-next-arr">›</span>
+    </a>
+    <a class="read-next-link" href="/en/boxing-organizations">
+      <div>
+        <div class="read-next-title">WBC, WBA, IBF and WBO Explained</div>
+        <div class="read-next-sub">Where belts came from and what an undisputed champion is</div>
+      </div>
+      <span class="read-next-arr">›</span>
+    </a>
+    <a class="read-next-link" href="/en/boxing-weight-classes">
+      <div>
+        <div class="read-next-title">Boxing Weight Classes</div>
+        <div class="read-next-sub">17 classes, catchweight, Bridgerweight and the Zuffa Boxing system</div>
+      </div>
+      <span class="read-next-arr">›</span>
+    </a>
+    <a class="read-next-link" href="/en/boxing-knockouts">
+      <div>
+        <div class="read-next-title">Knockouts and Knockdowns in Boxing</div>
+        <div class="read-next-sub">KO vs TKO, the 8-count rule</div>
+      </div>
+      <span class="read-next-arr">›</span>
+    </a>
+    <a class="read-next-link" href="/height-compare?lang=en">
+      <div>
+        <div class="read-next-title">Compare Boxer Heights</div>
+        <div class="read-next-sub">Fundora vs Inoue, Fury vs Usyk and hundreds more</div>
+      </div>
+      <span class="read-next-arr">›</span>
+    </a>
+    <a class="read-next-link" href="/en/boxing-history">
+      <div>
+        <div class="read-next-title">This Day in Boxing History</div>
+        <div class="read-next-sub">Births and deaths of legends, title fights, records</div>
+      </div>
+      <span class="read-next-arr">›</span>
     </a>
   </div>
 
