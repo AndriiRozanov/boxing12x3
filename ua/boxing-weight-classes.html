@@ -37,7 +37,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Скільки вагових категорій у боксі?", "acceptedAnswer": {"@type": "Answer", "text": "17 офіційних вагових категорій – від мінімальної (до 47,6 кг) до важкої (понад 90,7 кг)."}},
+    {"@type": "Question", "name": "Скільки вагових категорій у боксі?", "acceptedAnswer": {"@type": "Answer", "text": "17 офіційних вагових категорій – від мінімальної (до 47,6 кг) до надважкої (понад 90,7 кг)."}},
     {"@type": "Question", "name": "Що таке кетчвейт у боксі?", "acceptedAnswer": {"@type": "Answer", "text": "Кетчвейт – не офіційна категорія, а погоджена вага для конкретного поєдинку, яку команди узгоджують між собою; організації такі бої не санкціонують."}},
     {"@type": "Question", "name": "Скільки вагових категорій у Zuffa Boxing?", "acceptedAnswer": {"@type": "Answer", "text": "Лише вісім – без жодних «супер» чи «першої/другої» проміжних вагових категорій, на відміну від 17 категорій традиційних організацій."}}
   ]
@@ -73,13 +73,16 @@ h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:10px;letter-spac
 article h2{font-size:19px;font-weight:700;margin:32px 0 10px;letter-spacing:-.01em;}
 article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;max-width:65ch;}
 article a{color:var(--red);text-decoration:none;}
-.wt{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
-.wt th{background:#111;color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:12px;letter-spacing:.04em;}
-.wt td{padding:8px 12px;border-bottom:0.5px solid var(--border);color:#2a2a2a;}
+.wt{width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:14px;}
+.wt th{padding:0 4px 8px;text-align:left;font-weight:600;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:0.5px solid var(--border);}
+.wt th:last-child,.wt td:last-child{text-align:right;}
+.wt td{padding:10px 4px;border-bottom:0.5px solid var(--border);vertical-align:middle;}
 .wt tr:last-child td{border-bottom:none;}
-.wt tr:nth-child(even) td{background:#faf9f7;}
-.wt td:first-child{font-weight:500;}
-.wt td:nth-child(3),.wt td:nth-child(4){color:var(--red);font-weight:600;white-space:nowrap;}
+.wt .wt-n{display:block;font-weight:600;color:var(--text);}
+.wt .wt-e{display:block;font-size:12px;color:var(--muted);margin-top:1px;}
+.wt .wt-l b{display:block;font-weight:600;color:var(--text);white-space:nowrap;}
+.wt .wt-l span{display:block;font-size:12px;color:var(--muted);white-space:nowrap;}
+.wt tr:target td{background:#faf1ef;}
 .read-next{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:16px 20px;margin-bottom:28px;}
 .read-next-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
 .read-next-link{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--text);padding:8px 0;border-top:0.5px solid var(--border);}
@@ -158,26 +161,26 @@ article a{color:var(--red);text-decoration:none;}
     <h2>17 вагових категорій у боксі – які вони</h2>
     <table class="wt">
       <thead>
-        <tr><th>Назва</th><th>Англійська назва</th><th>Ліміт (фунти)</th><th>Ліміт (кг)</th></tr>
+        <tr><th>Назва</th><th>Ліміт</th></tr>
       </thead>
       <tbody>
-        <tr><td>Мінімальна вага</td><td>Minimumweight / Strawweight</td><td>до 105</td><td>до 47,6</td></tr>
-        <tr><td>Перша найлегша</td><td>Light Flyweight</td><td>до 108</td><td>до 49</td></tr>
-        <tr><td>Найлегша вага</td><td>Flyweight</td><td>до 112</td><td>до 50,8</td></tr>
-        <tr><td>Перша напівлегша</td><td>Super Flyweight</td><td>до 115</td><td>до 52,2</td></tr>
-        <tr><td>Легша вага</td><td>Bantamweight</td><td>до 118</td><td>до 53,5</td></tr>
-        <tr><td>Перша легша</td><td>Super Bantamweight</td><td>до 122</td><td>до 55,3</td></tr>
-        <tr><td>Пір'яна вага</td><td>Featherweight</td><td>до 126</td><td>до 57,2</td></tr>
-        <tr><td>Перша напівлегка</td><td>Super Featherweight</td><td>до 130</td><td>до 59</td></tr>
-        <tr><td>Напівлегка вага</td><td>Lightweight</td><td>до 135</td><td>до 61,2</td></tr>
-        <tr><td>Перша напівсередня</td><td>Super Lightweight</td><td>до 140</td><td>до 63,5</td></tr>
-        <tr><td>Напівсередня вага</td><td>Welterweight</td><td>до 147</td><td>до 66,7</td></tr>
-        <tr><td>Перша середня</td><td>Super Welterweight</td><td>до 154</td><td>до 69,9</td></tr>
-        <tr><td>Середня вага</td><td>Middleweight</td><td>до 160</td><td>до 72,6</td></tr>
-        <tr><td>Друга середня</td><td>Super Middleweight</td><td>до 168</td><td>до 76,2</td></tr>
-        <tr><td>Напівважка вага</td><td>Light Heavyweight</td><td>до 175</td><td>до 79,4</td></tr>
-        <tr><td>Крузервейт</td><td>Cruiserweight</td><td>до 200</td><td>до 90,7</td></tr>
-        <tr><td>Важка вага</td><td>Heavyweight</td><td>понад 200</td><td>понад 90,7</td></tr>
+        <tr id="div-mfw"><td><span class="wt-n">Мінімальна вага</span><span class="wt-e">Miniflyweight</span></td><td class="wt-l"><b>до 47,6 кг</b><span>до 105 фунтів</span></td></tr>
+        <tr id="div-lfl"><td><span class="wt-n">Перша найлегша вага</span><span class="wt-e">Light flyweight</span></td><td class="wt-l"><b>до 49,0 кг</b><span>до 108 фунтів</span></td></tr>
+        <tr id="div-fl"><td><span class="wt-n">Найлегша вага</span><span class="wt-e">Flyweight</span></td><td class="wt-l"><b>до 50,8 кг</b><span>до 112 фунтів</span></td></tr>
+        <tr id="div-sfl"><td><span class="wt-n">Друга найлегша вага</span><span class="wt-e">Super flyweight</span></td><td class="wt-l"><b>до 52,2 кг</b><span>до 115 фунтів</span></td></tr>
+        <tr id="div-bw"><td><span class="wt-n">Легша вага</span><span class="wt-e">Bantamweight</span></td><td class="wt-l"><b>до 53,5 кг</b><span>до 118 фунтів</span></td></tr>
+        <tr id="div-sbw"><td><span class="wt-n">Друга легша вага</span><span class="wt-e">Super bantamweight</span></td><td class="wt-l"><b>до 55,3 кг</b><span>до 122 фунтів</span></td></tr>
+        <tr id="div-fw"><td><span class="wt-n">Напівлегка вага</span><span class="wt-e">Featherweight</span></td><td class="wt-l"><b>до 57,2 кг</b><span>до 126 фунтів</span></td></tr>
+        <tr id="div-sfw"><td><span class="wt-n">Друга напівлегка вага</span><span class="wt-e">Super featherweight</span></td><td class="wt-l"><b>до 59,0 кг</b><span>до 130 фунтів</span></td></tr>
+        <tr id="div-lw"><td><span class="wt-n">Легка вага</span><span class="wt-e">Lightweight</span></td><td class="wt-l"><b>до 61,2 кг</b><span>до 135 фунтів</span></td></tr>
+        <tr id="div-slw"><td><span class="wt-n">Перша напівсередня вага</span><span class="wt-e">Super lightweight</span></td><td class="wt-l"><b>до 63,5 кг</b><span>до 140 фунтів</span></td></tr>
+        <tr id="div-ww"><td><span class="wt-n">Напівсередня вага</span><span class="wt-e">Welterweight</span></td><td class="wt-l"><b>до 66,7 кг</b><span>до 147 фунтів</span></td></tr>
+        <tr id="div-sww"><td><span class="wt-n">Перша середня вага</span><span class="wt-e">Super welterweight</span></td><td class="wt-l"><b>до 69,9 кг</b><span>до 154 фунтів</span></td></tr>
+        <tr id="div-mw"><td><span class="wt-n">Середня вага</span><span class="wt-e">Middleweight</span></td><td class="wt-l"><b>до 72,6 кг</b><span>до 160 фунтів</span></td></tr>
+        <tr id="div-smw"><td><span class="wt-n">Друга середня вага</span><span class="wt-e">Super middleweight</span></td><td class="wt-l"><b>до 76,2 кг</b><span>до 168 фунтів</span></td></tr>
+        <tr id="div-lhw"><td><span class="wt-n">Напівважка вага</span><span class="wt-e">Light heavyweight</span></td><td class="wt-l"><b>до 79,4 кг</b><span>до 175 фунтів</span></td></tr>
+        <tr id="div-cw"><td><span class="wt-n">Важка вага</span><span class="wt-e">Cruiserweight</span></td><td class="wt-l"><b>до 90,7 кг</b><span>до 200 фунтів</span></td></tr>
+        <tr id="div-hw"><td><span class="wt-n">Надважка вага</span><span class="wt-e">Heavyweight</span></td><td class="wt-l"><b>понад 90,7 кг</b><span>понад 200 фунтів</span></td></tr>
       </tbody>
     </table>
 
@@ -188,16 +191,16 @@ article a{color:var(--red);text-decoration:none;}
     <p>Протистояння у такій вазі здебільшого йде в офіційний рекорд спортсменів. Але не просуває їх у рейтингах існуючих категорій.</p>
 
     <h2>Бріджервейт: найновіша категорія, яка вже частково зникла</h2>
-    <p>Ідея бріджервейту виникла з простої спостережуваної проблеми: хевівейт останніми роками суттєво збільшився. Хлопці вагою в 90-95 кілограмів вже не великі. Хлопці, які важать близько 100 кг – теж не є найбільшими у дивізіоні.</p>
-    <p>Через це виникла прірва між крузервейтом (до 200 фунтів) і реальними важковаговиками – де 220-230 фунтів вважається нормою. Кількість боксерів, які не поміщались у крузервейт, але губились серед справжніх велетнів поступово збільшилась. Можна згадати приклад Девіда Хея чи Олександра Усика. Перший став чемпіоном хеві після крузервейту. Другий завоював абсолютні чемпіонства в обох дивізіонах. Але цей успіх – виключення з правил.</p>
+    <p>Ідея бріджервейту виникла з простої спостережуваної проблеми: боксери надважкої ваги останніми роками суттєво збільшились. Хлопці вагою в 90-95 кілограмів вже не великі. Хлопці, які важать близько 100 кг – теж не є найбільшими у дивізіоні.</p>
+    <p>Через це виникла прірва між важкою вагою (до 200 фунтів) і реальними велетнями надважкої ваги – де 220-230 фунтів вважається нормою. Кількість боксерів, які не поміщались у важку вагу, але губились серед справжніх велетнів поступово збільшилась. Можна згадати приклад Девіда Хея чи Олександра Усика. Перший став чемпіоном надважкої ваги після важкої. Другий завоював абсолютні чемпіонства в обох дивізіонах. Але цей успіх – виключення з правил.</p>
     <p>WBC спробувала вирішити проблему у листопаді 2020 року, оголосивши про нову категорію – Бріджервейт – з лімітом 224 фунти (101,6 кг). Назва – це ім'я Бріджера Уокера. Семирічний хлопчик із США, який захистив молодшу сестру від нападу собаки і отримав серйозні травми обличчя. WBC вирішила вшанувати його мужність, назвавши нову категорію на його честь.</p>
     <p>Першим чемпіоном WBC у бріджервейті став Оскар Рівас у 2021 році. Але вже у 2023-му WBC оголосила пояс вакантним після того як Рівас отримав травму сітківки. Відтоді категорія існує і нові чемпіони з'являються, але загального визнання так і не здобула.</p>
-    <p>WBA приєдналась у грудні 2023-го – назвала категорію «супер крузервейт» та починала розбудовувати власний рейтинг. Але вже у червні 2026-го WBA офіційно скасувала бріджервейт рішенням конвенції в Орландо. Причина – категорія так і не набрала глибини: боксери воліли або залишатись у крузервейті, або стрибати одразу у важку. Чинні чемпіони Гаджімагомедов і Арутюнян переведені до сусідніх дивізіонів.</p>
+    <p>WBA приєдналась у грудні 2023-го – назвала категорію «супер крузервейт» та починала розбудовувати власний рейтинг. Але вже у червні 2026-го WBA офіційно скасувала бріджервейт рішенням конвенції в Орландо. Причина – категорія так і не набрала глибини: боксери воліли або залишатись у важкій вазі, або стрибати одразу в надважку. Чинні чемпіони Гаджімагомедов і Арутюнян переведені до сусідніх дивізіонів.</p>
     <p>Наразі бріджервейт існує тільки у WBC. У IBF та WBO не стоїть на порядку денному впровадження нової ваги. Дивізіон не став популярним, а отже і проблема з різницею у кілограмах не була настільки нагальною, як здавалось. Можна сказати, що експеримент не спрацював. Наскільки довго WBC підтримуватиме функціонування бріджервейту – відкрите питання.</p>
 
     <h2>Zuffa Boxing: 8 дивізіонів замість 17</h2>
     <p>Промоушен Zuffa Boxing, запущений у 2026 році, пішов кардинально іншим шляхом. Замість 17 категорій – лише вісім, без жодної «першої» чи «другої» проміжної ваги.</p>
-    <p>Важка, крузервейт, напівважка, середня, напівсередня, легка, напівлегка та легша.</p>
+    <p>Надважка, важка, напівважка, середня, напівсередня, легка, напівлегка та легша.</p>
     <p>Це означає, що боксерів які виступали у «першій середній» (154 фунти) – просто не існує у системі Zuffa. Вони змушені обирати між 147 і 160 фунтами. Калум Волш – перший боксер, якого промотувала Zuffa, наприклад, перейшов у середню вагу для свого дебюту в промоушені.</p>
     <p>Одночасно Zuffa використовує рейтинги журналу The Ring для визначення претендентів. Один пояс – один чемпіон на категорію. Жодних «суперчемпіонів», «регулярних» і «тимчасових».</p>
     <p>Важливо розуміти: Zuffa – це промоушен, а не санкціонувальна організація. WBC, WBA, IBF і WBO не визнають їхні пояси і не співпрацюють з ними. Це паралельні системи та конкуренти у найближчому майбутньому. Промоушен представляє бізнес-модель UFC, яку вони впроваджують у боксі. Традиційні організації представляють той бокс, до якого всі ми звикли.</p>
