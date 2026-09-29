@@ -4,6 +4,15 @@
 
   <url>
     <loc>https://boxing12x3.com/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -291,6 +300,15 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/height-compare</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/height-compare"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/height-compare"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/height-compare</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/height-compare"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/height-compare"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
