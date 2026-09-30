@@ -633,6 +633,7 @@ const I18N = {
     secAllArticles:'All articles →', secAllFights:'All fights →',
     toolTry:'Try it', toolSoon:'Soon',
     toolHeightName:'Height Comparison', toolHeightDesc:'370+ boxers, 17 divisions',
+    toolBoxersName:'Boxers', toolBoxersDesc:'Champion profiles by division',
     toolPicksDesc:'Who will win?', toolPicksNoFight:'Predict the next fight',
     toolFansName:'Fan Verdict', toolFansDesc:'Scorecard aggregate and picks',
     vsWord:'vs', monthSep:'Sep', statistics:'Statistics', redCorner:'Red corner', blueCorner:'Blue corner',
@@ -651,6 +652,7 @@ const I18N = {
     secAllArticles:'Всі статті →', secAllFights:'Всі бої →',
     toolTry:'Спробувати', toolSoon:'Скоро',
     toolHeightName:'Порівняння габаритів', toolHeightDesc:'370+ боксерів, 17 дивізіонів',
+    toolBoxersName:'Боксери', toolBoxersDesc:'Профілі чемпіонів за дивізіонами',
     toolPicksDesc:'Хто переможе?', toolPicksNoFight:'Прогноз на наступний бій',
     toolFansName:'Думка фанатів', toolFansDesc:'Агрегат карток і прогнозів',
     vsWord:'vs', monthSep:'Вер', statistics:'Статистика', redCorner:'Червоний кут', blueCorner:'Синій кут',
@@ -813,6 +815,14 @@ function renderSections() {
   html += '<div class="tool-icon">📏</div>';
   html += '<div class="tool-body"><div class="tool-name">' + t('toolHeightName') + '</div>';
   html += '<div class="tool-desc">' + t('toolHeightDesc') + '</div></div>';
+  html += '<span class="tool-badge cta">' + t('toolTry') + '</span>';
+  html += '<span class="tool-arr">›</span></a>';
+
+  // Boxers catalog
+  html += '<a class="tool-row" href="/' + langPath + '/boxers">';
+  html += '<div class="tool-icon">🥊</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + t('toolBoxersName') + '</div>';
+  html += '<div class="tool-desc">' + t('toolBoxersDesc') + '</div></div>';
   html += '<span class="tool-badge cta">' + t('toolTry') + '</span>';
   html += '<span class="tool-arr">›</span></a>';
 
