@@ -719,6 +719,15 @@ if (isWidget) {
   if (brandEl) brandEl.classList.add('widget-hidden');
   var langBarEl = document.querySelector('.lang-bar');
   if (langBarEl) langBarEl.classList.add('widget-hidden');
+  // Вбудовування конкретного бою (?widget=1&fight=ID) - ховаємо ще й
+  // дропдаун вибору іншої пари та підвал сайту, які тут не мають сенсу.
+  var hasSpecificFight = new URLSearchParams(window.location.search).has('fight');
+  if (hasSpecificFight) {
+    var fightSelWrap = document.querySelector('.fw');
+    if (fightSelWrap) fightSelWrap.classList.add('widget-hidden');
+    var siteFooterEl = document.querySelector('.site-footer');
+    if (siteFooterEl) siteFooterEl.classList.add('widget-hidden');
+  }
   var hintWrap = document.querySelector('.hint-toggle');
   // Show hint open on first visit
   if (!localStorage.getItem('b12x3_hint_seen')) {
