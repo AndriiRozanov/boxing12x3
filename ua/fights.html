@@ -64,6 +64,11 @@ h1{font-size:22px;font-weight:700;margin-bottom:6px;}
 .fight-arr{font-size:14px;color:var(--muted);}
 .back{text-align:center;margin-top:28px;}
 .back a{font-size:13px;color:var(--red);font-weight:500;text-decoration:none;}
+.sec-divider{text-align:center;margin:28px 0 16px;position:relative;}
+.sec-divider::before,.sec-divider::after{content:'';position:absolute;top:50%;width:calc(50% - 75px);height:0.5px;background:var(--border);}
+.sec-divider::before{left:0;}
+.sec-divider::after{right:0;}
+.sec-divider span{background:var(--bg);padding:0 12px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;}
 
 /* Site footer */
 .site-footer{text-align:center;padding:24px 0 8px;font-size:12px;color:var(--muted);}
@@ -90,6 +95,10 @@ h1{font-size:22px;font-weight:700;margin-bottom:6px;}
   <div class="page-sub">Статистика та аналіз протистоянь</div>
 
   <div id="archive"></div>
+
+  <div class="sec-divider"><span>Легендарні бої</span></div>
+  <div class="page-sub" style="border-bottom:none;margin-bottom:16px;">Окремі історичні поєдинки, не пов'язані з поточним висвітленням сайту</div>
+  <div id="legendary"></div>
 
   <div class="back">
     <a href="/?lang=uk">← На головну</a>
@@ -148,6 +157,19 @@ const ARCHIVE = [
   // },
 ];
 
+// ── Легендарні бої ──────────────────────────────────────────────────────
+// Окремий список: історичні поєдинки з власною сторінкою на сайті, не
+// пов'язані з поточним висвітленням. Групування за роком, не місяцем.
+// Формат: {year, fights: [{id, nameUk, dateUk}]}
+const LEGENDARY = [
+  {
+    year: 2004,
+    fights: [
+      {id:'corrales-freitas', nameUk:'Дієго Корралес – Аселіно Фрейтас', dateUk:'7 серпня'},
+    ]
+  },
+];
+
 // ── Рендер ────────────────────────────────────────────────────────────────
 function build() {
   const container = document.getElementById('archive');
@@ -159,6 +181,36 @@ function build() {
     div.innerHTML =
       '<div class="month-header' + (isOpen ? ' open' : '') + '" onclick="toggle(\'' + id + '\')">' +
         '<span class="month-title">' + block.month + ' ' + block.year + '</span>' +
+        '<span class="month-right" style="display:flex;align-items:center;gap:10px;">' +
+          '<span class="month-count">' + block.fights.length + ' ' + pluralUk(block.fights.length) + '</span>' +
+          '<span class="month-arr">›</span>' +
+        '</span>' +
+      '</div>' +
+      '<div class="month-body' + (isOpen ? ' open' : '') + '" id="' + id + '">' +
+        block.fights.map(function(f) {
+          return '<a class="fight-link" href="/ua/' + f.id + '">' +
+            '<span>' + f.nameUk + '</span>' +
+            '<span class="fight-link-right">' +
+              '<span class="fight-date">' + f.dateUk + '</span>' +
+              '<span class="fight-arr">›</span>' +
+            '</span>' +
+          '</a>';
+        }).join('') +
+      '</div>';
+    container.appendChild(div);
+  });
+}
+
+function buildLegendary() {
+  const container = document.getElementById('legendary');
+  LEGENDARY.forEach(function(block, idx) {
+    const id = 'legend-' + idx;
+    const isOpen = idx === 0;
+    const div = document.createElement('div');
+    div.className = 'month-block';
+    div.innerHTML =
+      '<div class="month-header' + (isOpen ? ' open' : '') + '" onclick="toggle(\'' + id + '\')">' +
+        '<span class="month-title">' + block.year + '</span>' +
         '<span class="month-right" style="display:flex;align-items:center;gap:10px;">' +
           '<span class="month-count">' + block.fights.length + ' ' + pluralUk(block.fights.length) + '</span>' +
           '<span class="month-arr">›</span>' +
@@ -193,6 +245,7 @@ function pluralUk(n) {
 }
 
 build();
+buildLegendary();
 </script>
 </body>
 </html>
