@@ -115,6 +115,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);pad
 .f-block+.f-block{padding-left:8px;border-left:0.5px solid #1e1e1e;margin-left:8px;}
 .f-n{font-family:'Bebas Neue',sans-serif;letter-spacing:.05em;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .f-sub{font-size:10px;color:#444;margin-top:2px;line-height:1.4;}
+.f-profile{display:inline-block;font-size:10px;font-weight:600;color:var(--red);text-decoration:none;margin-top:3px;}
+.f-profile:hover{text-decoration:underline;}
 .card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:9px;border-top:0.5px solid #1a1a1a;}
 .cf-l{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.14em;color:#2d2d2d;}
 .cf-r{font-size:9px;color:#2d2d2d;}
@@ -607,6 +609,15 @@ var BOXERS = [
 {id:'porpaoin',name:'Chana Porpaoin',h:157,div:'mfw',ret:true}
 ];
 
+// A small shared list of boxers who have their own profile page on the site.
+// One row per division the boxer actually held a title in (not just one "primary" division).
+// This same list is duplicated in /ua(/en)/boxers.html - keep both in sync.
+const BOXER_PROFILES = [
+  {id:'freitas', slug:'acelino-freitas', name:'Acelino Freitas', nameUk:'Аселіно Фрейтас', div:'sfw', org:'WBO', orgColor:'#111'},
+  {id:'freitas', slug:'acelino-freitas', name:'Acelino Freitas', nameUk:'Аселіно Фрейтас', div:'lw',  org:'WBO', orgColor:'#111'}
+];
+function profileUrl(slug){ return '/'+(lang==='uk'?'ua':'en')+'/boxers/'+slug; }
+
 var lang='en', slots=[null,null], COLORS=['--c0','--c1','--c2','--c3'], MAX_PX=220;
 
 function setLang(l){
@@ -722,7 +733,9 @@ function renderCard(){
   var nHtml='';
   active.forEach(function(a){
     var b=a.boxer, color='var('+COLORS[a.ci]+')', dn=DIVS[b.div]?DIVS[b.div][lang]:b.div;
-    nHtml+='<div class="f-block"><div class="f-n" style="color:'+color+';font-size:'+nameFSz+'">'+b.name+'</div><div class="f-sub">'+b.h+' cm · '+dn+(b.ret?' · 🎖':'')+'</div></div>';
+    var prof=BOXER_PROFILES.find(function(p){return p.id===b.id;});
+    var profLink=prof?'<a class="f-profile" href="'+profileUrl(prof.slug)+'">'+(lang==='uk'?'Профіль →':'Profile →')+'</a>':'';
+    nHtml+='<div class="f-block"><div class="f-n" style="color:'+color+';font-size:'+nameFSz+'">'+b.name+'</div><div class="f-sub">'+b.h+' cm · '+dn+(b.ret?' · 🎖':'')+'</div>'+profLink+'</div>';
   });
   fNames.innerHTML=nHtml;
 }
