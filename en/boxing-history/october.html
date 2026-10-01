@@ -203,7 +203,7 @@ var DAYS = [
 {y:2009,t:"<a class=\"boxer-link\" href=\"/height-compare?a=froch&lang=en\">Carl Froch</a> SD 12 Andre Dirrell",p:"Nottingham, Great Britain",x:"Froch defended his WBC super middleweight belt."},
 {y:2015,t:"<a class=\"boxer-link\" href=\"/height-compare?a=gonzalez_r&lang=en\">Roman Gonzalez</a> TKO 9 Brian Viloria",p:"New York, USA",x:"Gonzalez defended his WBC flyweight title."},
 {y:2015,t:"Gennadiy Golovkin KO 8 David Lemieux",p:"New York, USA",x:"Golovkin defended his WBC middleweight title."},
-{y:2020,t:"<a class=\"boxer-link\" href=\"/height-compare?a=lopez_t&lang=en\">Teofimo Lopez</a> UD 12 Vasiliy Lomachenko",p:"Las Vegas, USA",v:"e--kj3Uh7xs",x:"Bout for the lightweight undisputed championship."}
+{y:2020,t:"<a class=\"boxer-link\" href=\"/height-compare?a=lopez_t&lang=en\">Teofimo Lopez</a> UD 12 Vasiliy Lomachenko",p:"Las Vegas, USA",v:"e--kj3Uh7xs",x:"Bout for the lightweight undisputed championship.",live:{intro:"Score this fight yourself, right now, while watching it with our tool:",src:"/?widget=1&lang=en&fight=lopez-lomachenko"}}
 ]},
 {d:18,events:[
 {y:1991,t:"Ray Mercer KO 5 Tommy Morrison",p:"Atlantic City, USA",x:"Mercer defended his WBO heavyweight title. Morrison was undefeated at the time of the meeting."},
@@ -248,7 +248,7 @@ var DAYS = [
 ]},
 {d:31,events:[
 {y:1998,t:"Naseem Hamed UD 12 Wayne McCullough",p:"Atlantic City, USA",x:"Hamed retained the WBO and lineal featherweight titles."},
-{y:2020,t:"Oleksandr Usyk UD 12 <a class=\"boxer-link\" href=\"/height-compare?a=chisora&lang=en\">Derek Chisora</a>",p:"London, Great Britain",x:"Oleksandr Usyk's second matchup in heavyweight. The bout ended with scores of twice 115-113 and 117-112 for the Ukrainian."}
+{y:2020,t:"Oleksandr Usyk UD 12 <a class=\"boxer-link\" href=\"/height-compare?a=chisora&lang=en\">Derek Chisora</a>",p:"London, Great Britain",x:"Oleksandr Usyk's second matchup in heavyweight. The bout ended with scores of twice 115-113 and 117-112 for the Ukrainian.",img:{src:"/images/history/usyk-chisora-compare.png",alt:"Height comparison of Oleksandr Usyk and Derek Chisora",cta:"Compare the height of Usyk and Chisora - and any other boxers, active or retired",href:"/height-compare?a=usyk&b=chisora"}}
 ]}
 ];
 
@@ -283,7 +283,7 @@ var DAYS = [
       if(ev.v) html += '<div class="video-embed" data-vid="' + ev.v + '"><img src="https://img.youtube.com/vi/' + ev.v + '/hqdefault.jpg" alt="' + ev.t.replace(/<[^>]+>/g,'') + ' - video"><div class="video-play"></div></div>';
       if(ev.x) html += '<div class="event-body">' + ev.x + '</div>';
       if(ev.photo) html += '<div class="hist-photo"><img src="' + ev.photo.src + '" alt="' + ev.photo.alt + '" loading="lazy"><div class="hist-photo-cap">Photo: ' + ev.photo.srcEn + '</div></div>';
-      if(ev.img) html += '<div class="hist-photo"><img src="' + ev.img.src + '" alt="' + ev.img.alt + '" loading="lazy"><div class="tool-cta"><div class="tool-cta-text">' + ev.img.cta + '</div><a class="tool-cta-btn" href="' + ev.img.href + '?lang=en">Compare heights →</a></div></div>';
+      if(ev.img) html += '<div class="hist-photo"><img src="' + ev.img.src + '" alt="' + ev.img.alt + '" loading="lazy"><div class="tool-cta"><div class="tool-cta-text">' + ev.img.cta + '</div><a class="tool-cta-btn" href="' + ev.img.href + (ev.img.href.indexOf('?')>-1?'&lang=en':'?lang=en') + '">Compare heights →</a></div></div>';
       if(ev.live) html += '<div class="live-widget"><div class="live-widget-intro">' + ev.live.intro + '</div><iframe src="' + ev.live.src + '" loading="lazy" title="Scorecard"></iframe></div>';
       e.innerHTML = html;
       block.appendChild(e);
