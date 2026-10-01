@@ -337,7 +337,7 @@ var DAYS = [
       var html = '<div class="event-year">' + ev.y + '</div>';
       html += '<h3 class="event-title">' + ev.t + '</h3>';
       if(ev.p) html += '<div class="event-place">' + ev.p + '</div>';
-      if(ev.v) html += '<div class="video-embed" data-vid="' + ev.v + '"><img src="https://img.youtube.com/vi/' + ev.v + '/hqdefault.jpg" alt="' + ev.t + ' - video"><div class="video-play"></div></div>';
+      if(ev.v) html += '<div class="video-embed" data-vid="' + ev.v + '"><img src="https://img.youtube.com/vi/' + ev.v + '/hqdefault.jpg" alt="' + ev.t.replace(/<[^>]+>/g,'') + ' - video"><div class="video-play"></div></div>';
       if(ev.x) html += '<div class="event-body">' + ev.x + '</div>';
       if(ev.photo) html += '<div class="hist-photo"><img src="' + ev.photo.src + '" alt="' + ev.photo.alt + '" loading="lazy"><div class="hist-photo-cap">Photo: ' + ev.photo.srcEn + '</div></div>';
       if(ev.img) html += '<div class="hist-photo"><img src="' + ev.img.src + '" alt="' + ev.img.alt + '" loading="lazy"><div class="tool-cta"><div class="tool-cta-text">' + ev.img.cta + '</div><a class="tool-cta-btn" href="' + ev.img.href + '?lang=en">Compare heights →</a></div></div>';
