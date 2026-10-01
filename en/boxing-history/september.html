@@ -340,7 +340,7 @@ var DAYS = [
       if(ev.v) html += '<div class="video-embed" data-vid="' + ev.v + '"><img src="https://img.youtube.com/vi/' + ev.v + '/hqdefault.jpg" alt="' + ev.t.replace(/<[^>]+>/g,'') + ' - video"><div class="video-play"></div></div>';
       if(ev.x) html += '<div class="event-body">' + ev.x + '</div>';
       if(ev.photo) html += '<div class="hist-photo"><img src="' + ev.photo.src + '" alt="' + ev.photo.alt + '" loading="lazy"><div class="hist-photo-cap">Photo: ' + ev.photo.srcEn + '</div></div>';
-      if(ev.img) html += '<div class="hist-photo"><img src="' + ev.img.src + '" alt="' + ev.img.alt + '" loading="lazy"><div class="tool-cta"><div class="tool-cta-text">' + ev.img.cta + '</div><a class="tool-cta-btn" href="' + ev.img.href + '?lang=en">Compare heights →</a></div></div>';
+      if(ev.img) html += '<div class="hist-photo"><img src="' + ev.img.src + '" alt="' + ev.img.alt + '" loading="lazy"><div class="tool-cta"><div class="tool-cta-text">' + ev.img.cta + '</div><a class="tool-cta-btn" href="' + ev.img.href + (ev.img.href.indexOf('?')>-1?'&lang=en':'?lang=en') + '">Compare heights →</a></div></div>';
       if(ev.live) html += '<div class="live-widget"><div class="live-widget-intro">' + ev.live.intro + '</div><iframe src="' + ev.live.src + '" loading="lazy" title="Scorecard"></iframe></div>';
       e.innerHTML = html;
       block.appendChild(e);
