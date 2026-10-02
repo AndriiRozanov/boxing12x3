@@ -401,17 +401,20 @@ function vote(side){
 }
 
 function loadResults(){
+  var voted = getCookie(COOKIE);
+  if(voted){
+    document.getElementById('btnRed').disabled=true;
+    document.getElementById('btnBlue').disabled=true;
+    document.getElementById('btn'+(voted==='red'?'Red':'Blue')).classList.add('voted');
+    document.getElementById('votedMsg').classList.add('show');
+  }
+  // Результат показуємо тільки тому, хто вже проголосував - щоб не впливати
+  // на чужий вибір готовими цифрами до голосування.
+  if(!voted) return;
   fetch(WORKER+'/picks?fightId='+FIGHT_ID)
   .then(function(r){return r.json();})
   .then(function(d){
     if(d.total>0) showResults(d);
-    if(getCookie(COOKIE)){
-      document.getElementById('btnRed').disabled=true;
-      document.getElementById('btnBlue').disabled=true;
-      var voted=getCookie(COOKIE);
-      document.getElementById('btn'+(voted==='red'?'Red':'Blue')).classList.add('voted');
-      document.getElementById('votedMsg').classList.add('show');
-    }
   }).catch(function(){});
 }
 </script>
