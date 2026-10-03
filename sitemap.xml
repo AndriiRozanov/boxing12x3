@@ -383,6 +383,20 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://boxing12x3.com/ua/dubois-wardley-2</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/dubois-wardley-2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/dubois-wardley-2"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/dubois-wardley-2</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/dubois-wardley-2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/dubois-wardley-2"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://boxing12x3.com/ua/fisher-protton</loc>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/fisher-protton"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/fisher-protton"/>
