@@ -950,8 +950,20 @@ function setLang(l) {
   if (fa) fa.textContent = l === 'en' ? 'About' : 'Про проєкт';
   if (fc) fc.textContent = l === 'en' ? 'Contact' : 'Контакти';
   document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
+  syncUrlToLang(l);
   renderAll();
   renderSections();
+}
+
+// Адреса завжди відповідає мові: / - українська, /en - англійська (без перезавантаження).
+function syncUrlToLang(l) {
+  try {
+    if (isWidget) return;
+    var u = new URL(window.location.href);
+    u.searchParams.delete('lang');
+    u.pathname = (l === 'en') ? '/en' : '/';
+    history.replaceState(null, '', u.pathname + u.search + u.hash);
+  } catch (e) {}
 }
 
 // ── Full render ───────────────────────────────────────────────────────────────
@@ -1814,21 +1826,17 @@ function saveState() {
   try {
     localStorage.setItem('b12x3_fight', fight.id);
     localStorage.setItem('b12x3_scores', JSON.stringify(scores));
-    localStorage.setItem('b12x3_lang', lang);
     if (stoppage) localStorage.setItem('b12x3_stop', JSON.stringify(stoppage));
     else localStorage.removeItem('b12x3_stop');
   } catch(e) {}
 }
 function loadState() {
   try {
-    const sl = localStorage.getItem('b12x3_lang');
     const sf = localStorage.getItem('b12x3_fight');
     const ss = localStorage.getItem('b12x3_scores');
     const st = localStorage.getItem('b12x3_stop');
-    if (sl) {
-      lang = sl;
-      document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === sl));
-    }
+    // Мову визначає сама сторінка: / - українська, /en - англійська; параметр ?lang= головніший.
+    // Збережену в браузері мову більше не підставляємо - вона перебивала мову адреси.
     if (sf) {
       const f = FIGHTS.find(x => x.id===sf);
       if (f && !f.completed) {
