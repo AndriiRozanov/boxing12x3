@@ -159,6 +159,15 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .broadcast-platform{font-weight:600;font-size:13px;}
 .broadcast-label{font-weight:400;color:var(--muted);}
 .broadcast-time{font-size:12px;color:var(--muted);}
+.faq{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:18px 18px 8px;margin-bottom:20px;}
+.faq h2{font-size:15px;font-weight:700;margin-bottom:6px;}
+.faq details{border-bottom:0.5px solid var(--border);padding:11px 0;}
+.faq details:last-child{border-bottom:none;}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;font-weight:600;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--muted);font-size:18px;font-weight:400;line-height:1;flex-shrink:0;}
+.faq details[open] summary::after{content:"\2013";}
+.faq details p{font-size:13px;color:#555;line-height:1.65;margin-top:8px;}
 </style>
 </head>
 <body>
@@ -353,6 +362,15 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
     </div>
     <div class="picks-total" id="picksTotal"></div>
   </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+  <h2>Iglesias vs Zaren: frequently asked questions</h2>
+  <details><summary>Where to watch Iglesias vs Zaren?</summary><p>Iglesias vs Zaren is broadcast on DAZN. The broadcast starts on October 8 at 6:30 PM ET / 3:30 PM PT / 11:30 PM BST.</p></details>
+  <details><summary>When and where is Iglesias vs Zaren?</summary><p>The fight takes place on October 8, 2026 in Quebec City, Canada, at Capitole de Quebec.</p></details>
+  <details><summary>What's on the line at Iglesias vs Zaren?</summary><p>The IBF and IBO super middleweight titles are on the line, defended by Osleys Iglesias.</p></details>
+  <details><summary>What are the records of Iglesias and Zaren?</summary><p>Osleys Iglesias is unbeaten at 15-0 (14 KOs). Oliver Zaren is also unbeaten at 19-0-1 (8 KOs).</p></details>
 </div>
 
 <!-- Read next -->
