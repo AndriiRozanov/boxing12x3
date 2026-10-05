@@ -159,6 +159,15 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .broadcast-platform{font-weight:600;font-size:13px;}
 .broadcast-label{font-weight:400;color:var(--muted);}
 .broadcast-time{font-size:12px;color:var(--muted);}
+.faq{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:18px 18px 8px;margin-bottom:20px;}
+.faq h2{font-size:15px;font-weight:700;margin-bottom:6px;}
+.faq details{border-bottom:0.5px solid var(--border);padding:11px 0;}
+.faq details:last-child{border-bottom:none;}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;font-weight:600;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--muted);font-size:18px;font-weight:400;line-height:1;flex-shrink:0;}
+.faq details[open] summary::after{content:"\2013";}
+.faq details p{font-size:13px;color:#555;line-height:1.65;margin-top:8px;}
 </style>
 </head>
 <body>
@@ -353,6 +362,15 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
     </div>
     <div class="picks-total" id="picksTotal"></div>
   </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+  <h2>Часті питання про Іглесіас – Зарен</h2>
+  <details><summary>Де дивитись бій Іглесіас – Зарен в Україні?</summary><p>Бій Іглесіас – Зарен транслюватиме DAZN. Трансляція починається 9 жовтня о 01:30 за Києвом (8 жовтня о 18:30 за Східним часом США).</p></details>
+  <details><summary>Коли і де відбудеться бій Іглесіас – Зарен?</summary><p>Бій відбудеться 8 жовтня 2026 у Квебеку, Канада, на арені Capitole de Quebec.</p></details>
+  <details><summary>За що борються Іглесіас і Зарен?</summary><p>На кону пояси IBF та IBO у другій середній вазі, які захищає Ослейс Іглесіас.</p></details>
+  <details><summary>Який рекорд у Іглесіаса і Зарена?</summary><p>Ослейс Іглесіас непереможений, 15-0 (14 нокаутів). Олівер Зарен також без поразок, 19-0-1 (8 нокаутів).</p></details>
 </div>
 
 <!-- Read next -->
