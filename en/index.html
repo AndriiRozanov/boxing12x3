@@ -63,8 +63,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 /* Brand */
 .brand{text-align:center;margin-bottom:1.2rem;}
-.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;margin:0;}
-.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;margin:0;font-weight:700;}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;font-weight:400;}
 
 /* Fight selector */
 .fw{max-width:520px;margin:0 auto 1.2rem;position:relative;}
@@ -90,6 +90,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .hint-toggle:hover{color:var(--text);}
 .hint-body{display:none;background:var(--card);border:0.5px solid var(--border);border-radius:8px;padding:12px 14px;margin-top:8px;}
 .hint-body.open{display:block;}
+.hint-more{display:block;margin-top:8px;font-size:12px;font-weight:500;color:var(--red);text-decoration:none;}
+.hint-more:hover{text-decoration:underline;}
+.how-block{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-top:18px;}
+.how-block h2{font-size:14px;font-weight:700;margin-bottom:8px;}
+.how-block p{font-size:12.5px;color:#555;line-height:1.7;margin-bottom:8px;}
+.how-block p:last-child{margin-bottom:0;}
+.how-block a{color:var(--red);text-decoration:none;font-weight:500;}
+.how-block a:hover{text-decoration:underline;}
 .hint-row{display:flex;gap:8px;align-items:baseline;font-size:12px;color:#666;margin-bottom:6px;}
 .hint-row:last-child{margin-bottom:0;}
 .hint-key{background:#111;color:#fff;font-size:10px;font-weight:600;border-radius:4px;padding:2px 7px;white-space:nowrap;flex-shrink:0;}
@@ -360,8 +368,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 </div>
 
 <div class="brand">
-  <h1 class="brand-name">Boxing 12×3</h1>
-  <div class="brand-sub" id="lbl-sub">Scorecard</div>
+  <div class="brand-name">Boxing 12×3</div>
+  <h1 class="brand-sub" id="lbl-sub">Boxing scorecard</h1>
 </div>
 
 <div class="fw">
@@ -385,13 +393,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     </div>
   </div>
   <a class="sc-statlink" id="statBanner" href="#" style="display:none;">
-    <span id="statBannerText">Статистика та аналіз бою</span>
+    <span id="statBannerText">Fight stats &amp; analysis</span>
     <span class="sc-statlink-arr">→</span>
   </a>
   <div class="won-strip" id="wonStrip" style="display:none;">
     <div class="won-val r" id="wonR">0</div>
     <div class="won-mid">
-      <div class="won-lbl" id="wonLbl">Виграних раундів</div>
+      <div class="won-lbl" id="wonLbl">Rounds won</div>
       <div class="won-bar"><div class="won-fill" id="wonFill"></div></div>
     </div>
     <div class="won-val b" id="wonB">0</div>
@@ -420,13 +428,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <!-- Scoring hint -->
 <div style="text-align:center;">
   <button class="hint-toggle" onclick="document.getElementById('hintBody').classList.toggle('open');this.querySelector('.hint-arr').textContent=document.getElementById('hintBody').classList.contains('open')?'▲':'▼'">
-    <span id="lbl-hint-toggle">Як судити?</span> <span class="hint-arr">▼</span>
+    <span id="lbl-hint-toggle">How to score?</span> <span class="hint-arr">▼</span>
   </button>
   <div class="hint-body" id="hintBody">
-    <div class="hint-row"><span class="hint-key" id="lbl-h1k">1 тап</span><span id="lbl-h1">Переможець раунду (10:9)</span></div>
-    <div class="hint-row"><span class="hint-key" id="lbl-h2k">Ще тап</span><span id="lbl-h2">Знижує рахунок (10:8, 10:7, 10:6)</span></div>
-    <div class="hint-row"><span class="hint-key">RD</span><span id="lbl-h3">Нічия в раунді (10:10)</span></div>
-    <div class="hint-row"><span class="hint-key" id="lbl-h4k">Інша сторона</span><span id="lbl-h4">Змінює переможця раунду</span></div>
+    <div class="hint-row"><span class="hint-key" id="lbl-h1k">1 tap</span><span id="lbl-h1">Round winner (10:9)</span></div>
+    <div class="hint-row"><span class="hint-key" id="lbl-h2k">Tap again</span><span id="lbl-h2">Lower the score (10:8, 10:7, 10:6)</span></div>
+    <div class="hint-row"><span class="hint-key">RD</span><span id="lbl-h3">Draw round (10:10)</span></div>
+    <div class="hint-row"><span class="hint-key" id="lbl-h4k">Other side</span><span id="lbl-h4">Switch round winner</span></div>
+    <a class="hint-more" id="hint-more" href="/en/boxing-scoring">More about the 10-point system →</a>
   </div>
 </div>
 
@@ -451,14 +460,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 <!-- UA links section (shown only in Ukrainian) -->
 <div class="ua-links" id="uaLinks" style="display:none;">
-  <div class="ua-links-title" id="lbl-more">Більше боксу від 12×3</div>
+  <div class="ua-links-title" id="lbl-more">More boxing from 12×3</div>
   <a href="https://t.me/boxing12x3" class="ua-link" target="_blank">
     <div class="ua-link-ico" style="background:#229ED9;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
     </div>
     <div class="ua-link-txt">
-      <div class="ua-link-name" id="lbl-tg-t">Telegram-канал автора</div>
-      <div class="ua-link-sub" id="lbl-tg-s">Спілкуємось про бокс серйозно та не дуже</div>
+      <div class="ua-link-name" id="lbl-tg-t">Author's Telegram</div>
+      <div class="ua-link-sub" id="lbl-tg-s">Boxing talk – serious and not so much</div>
     </div>
     <span class="ua-link-arr">›</span>
   </a>
@@ -467,7 +476,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm5 9a1 1 0 0 0-2 0 3 3 0 0 1-6 0 1 1 0 0 0-2 0 5 5 0 0 0 4 4.9V19H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2h-3v-3.1a5 5 0 0 0 4-4.9z"/></svg>
     </div>
     <div class="ua-link-txt">
-      <div class="ua-link-name" id="lbl-pod-t">Подкаст «12×3»</div>
+      <div class="ua-link-name" id="lbl-pod-t">Podcast «12×3»</div>
       <div class="ua-link-sub" id="lbl-pod-s">Apple · Spotify · YouTube</div>
     </div>
     <span class="ua-link-arr" id="podArrow">›</span>
@@ -482,8 +491,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-2 6H7V7h10v2zm0 4H7v-2h10v2zm-3 4H7v-2h7v2z"/></svg>
     </div>
     <div class="ua-link-txt">
-      <div class="ua-link-name" id="lbl-blog-t">Матеріали про бокс</div>
-      <div class="ua-link-sub" id="lbl-blog-s">Блог 12×3: від боксерських історій до детального аналізу</div>
+      <div class="ua-link-name" id="lbl-blog-t">Boxing articles</div>
+      <div class="ua-link-sub" id="lbl-blog-s">12×3 blog: from boxing stories to deep analysis</div>
     </div>
     <span class="ua-link-arr">›</span>
   </a>
@@ -492,44 +501,51 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <!-- Fight archive – both languages -->
 <div class="sec" id="analyticsBlock" style="margin-top:16px;">
   <div class="sec-header">
-    <span class="sec-lbl" id="lbl-analytics">Архів боїв</span>
-    <a class="sec-all" id="analyticsMore" href="/ua/fights">Всі бої →</a>
+    <span class="sec-lbl" id="lbl-analytics">Fight Archive</span>
+    <a class="sec-all" id="analyticsMore" href="/en/fights">All fights →</a>
   </div>
   <div class="fights-list" id="analyticsList"></div>
 </div>
 
 <!-- Guide block – shown only when articles exist -->
 <div class="analytics-block" id="guideBlock" style="display:none;">
-  <div class="analytics-title" id="lbl-guide">Довідник боксу</div>
+  <div class="analytics-title" id="lbl-guide">Boxing guide</div>
   <div id="guideList"></div>
-  <a class="analytics-more" id="guideMore" href="/ua/guide">Весь довідник →</a>
+  <a class="analytics-more" id="guideMore" href="/en/guide">Full guide →</a>
 </div>
 
 
 <!-- ── Sections below scorecard ── -->
 <div class="sections-wrap" id="sectionsWrap"></div>
 
+<div class="how-block" id="howBlock">
+<h2 id="how-title">How the Boxing 12×3 scorecard works</h2>
+<p id="how-p1">Pick a fight from the list or add your own. After each round, score it with the 10-point must system: 10-9, 10-8 or 10-10. The scorecard totals the result for you, and you can save it as an image and share it.</p>
+<p id="how-p2">Not sure about the rules? Read <a href="/en/boxing-scoring">how boxing scoring works</a> and <a href="/en/boxing-scorecards">how to read boxing scorecards</a>. After the fight, compare your score with the judges' decision on the fight page in the <a href="/en/fights">fight archive</a>.</p>
+<p id="how-p3">Also on the site: <a href="/en/height-compare">height comparison</a> of 370+ boxers, <a href="/en/boxers">legend profiles</a> and <a href="/en/boxing-history">what happened on each day in boxing history</a>.</p>
+</div>
+
 <div class="site-footer">
-  <a href="/about" id="footer-about">Про проєкт</a>
-  <a href="/contact" style="margin-left:12px;" id="footer-contact">Контакти</a>
-  <a href="/widget" style="margin-left:12px;">Вбудувати картку</a>
+  <a href="/about" id="footer-about">About</a>
+  <a href="/contact" style="margin-left:12px;" id="footer-contact">Contact</a>
+  <a href="/widget" style="margin-left:12px;" id="footer-embed">Embed the scorecard</a>
   <a href="/privacy" style="margin-left:12px;">Privacy Policy</a>
 </div>
 
 <!-- Custom fight overlay -->
 <div class="overlay" id="customOverlay" onclick="closeCustomOut(event)">
   <div class="stop-modal">
-    <div class="stop-title" id="lbl-custom-title">Додати свій бій</div>
+    <div class="stop-title" id="lbl-custom-title">Add your own fight</div>
     <div class="stop-sec">
-      <div class="stop-lbl" id="lbl-custom-red">Ім'я червоного кута</div>
+      <div class="stop-lbl" id="lbl-custom-red">Red corner name</div>
       <input type="text" id="customRed" class="custom-input" placeholder="">
     </div>
     <div class="stop-sec">
-      <div class="stop-lbl" id="lbl-custom-blue">Ім'я синього кута</div>
+      <div class="stop-lbl" id="lbl-custom-blue">Blue corner name</div>
       <input type="text" id="customBlue" class="custom-input" placeholder="">
     </div>
     <div class="stop-sec">
-      <div class="stop-lbl" id="lbl-custom-rounds">Раундів</div>
+      <div class="stop-lbl" id="lbl-custom-rounds">Rounds</div>
       <select id="customRoundsSel" class="custom-input">
         <option value="4">4</option>
         <option value="6">6</option>
@@ -538,7 +554,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
         <option value="12" selected>12</option>
       </select>
     </div>
-    <button class="stop-ok" id="lbl-custom-start" onclick="startCustom()">ПОЧАТИ</button>
+    <button class="stop-ok" id="lbl-custom-start" onclick="startCustom()">START SCORING</button>
     <button class="stop-cancel" onclick="closeCustom()" id="lbl-custom-cancel">Cancel</button>
   </div>
 </div>
@@ -679,7 +695,13 @@ const GUIDE_ARTICLES = [
 
 const I18N = {
   en: {
-    sub:'Scorecard',
+    sub:'Boxing scorecard',
+howTitle:'How the Boxing 12×3 scorecard works',
+howP1:'Pick a fight from the list or add your own. After each round, score it with the 10-point must system: 10-9, 10-8 or 10-10. The scorecard totals the result for you, and you can save it as an image and share it.',
+howP2:'Not sure about the rules? Read <a href="/en/boxing-scoring">how boxing scoring works</a> and <a href="/en/boxing-scorecards">how to read boxing scorecards</a>. After the fight, compare your score with the judges\' decision on the fight page in the <a href="/en/fights">fight archive</a>.',
+howP3:'Also on the site: <a href="/en/height-compare">height comparison</a> of 370+ boxers, <a href="/en/boxers">legend profiles</a> and <a href="/en/boxing-history">what happened on each day in boxing history</a>.',
+hintMore:'More about the 10-point system →',
+footAbout:'About', footContact:'Contact', footEmbed:'Embed the scorecard',
     secTools:'Tools', secGuide:'Boxing Guide', secFights:'Fight Stats',
     secAllArticles:'All articles →', secAllFights:'All fights →',
     toolTry:'Try it', toolSoon:'Soon',
@@ -698,7 +720,13 @@ const I18N = {
     earlyStop:'EARLY STOPPAGE'
   },
   uk: {
-    sub:'Суддівська картка',
+    sub:'Боксерська суддівська картка',
+howTitle:'Як працює суддівська картка Boxing 12×3',
+howP1:'Обери поєдинок зі списку або додай власний бій. Після кожного раунду постав бали за системою 10 балів: 10-9, 10-8 або 10-10. Картка сама рахує підсумок, а результат можна зберегти картинкою й поділитися нею.',
+howP2:'Є сумніви щодо правил? Прочитай, <a href="/ua/boxing-scoring">як судять бокс</a> і <a href="/ua/boxing-scorecards">як читати суддівські картки</a>. Після бою порівняй свій рахунок із рішенням суддів на сторінці поєдинку в <a href="/ua/fights">архіві боїв</a>.',
+howP3:'Ще на сайті: <a href="/height-compare">порівняння зросту</a> 370+ боксерів, <a href="/ua/boxers">профілі легенд</a> і <a href="/ua/boxing-history">події кожного дня в історії боксу</a>.',
+hintMore:'Докладніше про систему 10 балів →',
+footAbout:'Про проєкт', footContact:'Контакти', footEmbed:'Вбудувати картку',
     secTools:'Інструменти', secGuide:'Довідник боксу', secFights:'Статистика боїв',
     secAllArticles:'Всі статті →', secAllFights:'Всі бої →',
     toolTry:'Спробувати', toolSoon:'Скоро',
@@ -762,7 +790,7 @@ renderSections();
 // Widget mode – hide non-essential elements
 const isWidget = new URLSearchParams(window.location.search).has('widget');
 if (isWidget) {
-  ['uaLinks','analyticsBlock','guideBlock','sectionsWrap'].forEach(function(id) {
+  ['uaLinks','analyticsBlock','guideBlock','sectionsWrap','howBlock'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.classList.add('widget-hidden');
   });
@@ -944,11 +972,6 @@ function setLang(l) {
   document.title = l === 'en'
     ? 'Boxing 12×3 – Interactive Boxing Scorecard'
     : 'Boxing 12×3 – Інтерактивна суддівська картка боксерського бою';
-  // Update footer links
-  var fa = document.getElementById('footer-about');
-  var fc = document.getElementById('footer-contact');
-  if (fa) fa.textContent = l === 'en' ? 'About' : 'Про проєкт';
-  if (fc) fc.textContent = l === 'en' ? 'Contact' : 'Контакти';
   document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
   syncUrlToLang(l);
   renderAll();
@@ -1120,6 +1143,17 @@ function renderAll() {
   document.getElementById('lbl-h3').textContent = isUk ? 'Нічия в раунді (10:10)' : 'Draw round (10:10)';
   document.getElementById('lbl-h4k').textContent = isUk ? 'Інша сторона' : 'Other side';
   document.getElementById('lbl-h4').textContent = isUk ? 'Змінює переможця раунду' : 'Switch round winner';
+
+// Блок "Як працює", посилання підказки та підвал
+document.getElementById('how-title').textContent = t('howTitle');
+document.getElementById('how-p1').innerHTML = t('howP1');
+document.getElementById('how-p2').innerHTML = t('howP2');
+document.getElementById('how-p3').innerHTML = t('howP3');
+const hintMore = document.getElementById('hint-more');
+if (hintMore) { hintMore.textContent = t('hintMore'); hintMore.href = isUk ? '/ua/boxing-scoring' : '/en/boxing-scoring'; }
+const fAbout = document.getElementById('footer-about'); if (fAbout) fAbout.textContent = t('footAbout');
+const fContact = document.getElementById('footer-contact'); if (fContact) fContact.textContent = t('footContact');
+const fEmbed = document.getElementById('footer-embed'); if (fEmbed) fEmbed.textContent = t('footEmbed');
 
   // Stats banner – show only if fight has a stats page
   updateStatBanner();
