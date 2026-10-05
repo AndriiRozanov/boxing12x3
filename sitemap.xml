@@ -552,6 +552,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://boxing12x3.com/ua/boxers</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers</loc>
+    <lastmod>2026-09-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://boxing12x3.com/ua/boxers/acelino-freitas</loc>
     <lastmod>2026-09-29</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/acelino-freitas"/>
