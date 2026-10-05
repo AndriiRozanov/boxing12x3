@@ -119,6 +119,15 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .broadcast-platform{font-weight:600;font-size:13px;}
 .broadcast-label{font-weight:400;color:var(--muted);}
 .broadcast-time{font-size:12px;color:var(--muted);}
+.faq{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:18px 18px 8px;margin-bottom:20px;}
+.faq h2{font-size:15px;font-weight:700;margin-bottom:6px;}
+.faq details{border-bottom:0.5px solid var(--border);padding:11px 0;}
+.faq details:last-child{border-bottom:none;}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;font-weight:600;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--muted);font-size:18px;font-weight:400;line-height:1;flex-shrink:0;}
+.faq details[open] summary::after{content:"3";}
+.faq details p{font-size:13px;color:#555;line-height:1.65;margin-top:8px;}
 .sec-divider{text-align:center;margin:28px 0 20px;position:relative;}
 .sec-divider::before,.sec-divider::after{content:'';position:absolute;top:50%;width:calc(50% - 65px);height:0.5px;background:var(--border);}
 .sec-divider::before{left:0;}
@@ -381,6 +390,15 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
     </div>
     <div class="picks-total" id="picksTotal"></div>
   </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+  <h2>Часті питання про Дюбуа – Вордлі 2</h2>
+  <details><summary>Де дивитись бій Дюбуа – Вордлі 2 в Україні?</summary><p>Бій Дюбуа – Вордлі 2 транслюватиме DAZN. Турнір починається 17 жовтня о 19:00, головний кард о 21:00 за Києвом.</p></details>
+  <details><summary>Коли бій Дюбуа – Вордлі 2?</summary><p>Бій відбудеться 17 жовтня 2026 у Лондоні, Велика Британія, на арені O2 Arena. Турнір починається о 19:00, головний кард о 21:00 за Києвом.</p></details>
+  <details><summary>За який пояс бореться Дюбуа – Вордлі 2?</summary><p>На кону пояс WBO у надважкій вазі. Це реванш: у першому бою Даніель Дюбуа здобув цей пояс.</p></details>
+  <details><summary>Хто переміг у першому бою Дюбуа – Вордлі?</summary><p>Перший бій відбувся 9 травня 2026 у Манчестері. Даніель Дюбуа переміг технічним нокаутом у 11 раунді та забрав пояс WBO у Фабіо Вордлі.</p></details>
 </div>
 
 <!-- Read next -->
