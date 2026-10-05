@@ -28,7 +28,10 @@
   "author": {
     "@type": "Person",
     "name": "Андрій Розанов",
-    "url": "https://ua.tribuna.com/uk/blogs/brave_hearts/"
+    "alternateName": "Andrii Rozanov",
+    "url": "https://boxing12x3.com/about",
+    "jobTitle": "Автор розділу бокс та єдиноборства ua.tribuna.com",
+    "sameAs": ["https://ua.tribuna.com/uk/blogs/brave_hearts/"]
   }
 }
 </script>
@@ -97,7 +100,7 @@ p:last-child{margin-bottom:0;}
   <div class="section">
     <div class="section-label" id="lbl-author">Про автора</div>
     <p id="author-name" style="font-weight:600;font-size:16px;margin-bottom:8px;">Андрій Розанов</p>
-    <p id="author-desc">Редактор розділу бокс та єдиноборства ua.tribuna.com, автор подкасту і аудіосеріалу «12×3», співкоментатор Київстар ТБ, експерт студії MEGOGO.</p>
+    <p id="author-desc">Автор розділу бокс та єдиноборства ua.tribuna.com, автор подкасту і аудіосеріалу «12×3», співкоментатор Київстар ТБ, експерт студії MEGOGO.</p>
     <p id="author-quote" style="color:var(--muted);font-style:italic;">Бокс і загалом єдиноборства – це єдине справжнє змагання серед усіх видів спорту. Де ризик, мистецтво і характер існують одночасно.</p>
     <div class="author-links">
       <a class="author-link" href="https://ua.tribuna.com/uk/blogs/brave_hearts/" target="_blank" rel="noopener" id="link-tribuna">Блог на Трибуні →</a>
@@ -127,7 +130,8 @@ var t = {
   ua: {
     'lbl-author': 'Про автора',
     'lbl-project': 'Про проєкт',
-    'author-desc': 'Редактор розділу бокс та єдиноборства ua.tribuna.com, автор подкасту і аудіосеріалу «12×3», співкоментатор Київстар ТБ, експерт студії MEGOGO.',
+    'author-name': 'Андрій Розанов',
+    'author-desc': 'Автор розділу бокс та єдиноборства ua.tribuna.com, автор подкасту і аудіосеріалу «12×3», співкоментатор Київстар ТБ, експерт студії MEGOGO.',
     'author-quote': 'Бокс і загалом єдиноборства – це єдине справжнє змагання серед усіх видів спорту. Де ризик, мистецтво і характер існують одночасно.',
     'link-tribuna': 'Блог на Трибуні →',
     'project-what': 'Boxing 12×3 – інтерактивна суддівська картка для оцінювання боксерських боїв. Обери поєдинок, виставляй бали раунд за раундом – і отримай власний результат.',
@@ -141,7 +145,8 @@ var t = {
   en: {
     'lbl-author': 'About the author',
     'lbl-project': 'About the project',
-    'author-desc': 'Boxing and combat sports editor at ua.tribuna.com, author of the «12×3» podcast and audio series, co-commentator at Kyivstar TV, expert at MEGOGO studio.',
+    'author-name': 'Andrii Rozanov',
+    'author-desc': 'Author of the boxing and combat sports section at ua.tribuna.com, author of the «12×3» podcast and audio series, co-commentator at Kyivstar TV, expert at MEGOGO studio.',
     'author-quote': 'Boxing and combat sports are the only true competition among all sports. Where risk, art and character exist simultaneously.',
     'link-tribuna': 'Blog on Tribuna →',
     'project-what': 'Boxing 12×3 is an interactive scorecard for evaluating boxing fights. Choose a bout, score it round by round – and get your own result.',
@@ -163,6 +168,7 @@ function setLang(lang) {
   document.getElementById('btn-en').className = 'lang-btn' + (lang === 'en' ? ' on' : '');
   document.querySelector('.brand a').href = lang === 'en' ? '/?lang=en' : '/';
 }
+if (/[?&]lang=en(&|$)/.test(location.search)) setLang('en');
 </script>
 </body>
 </html>
