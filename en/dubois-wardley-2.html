@@ -119,6 +119,15 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .broadcast-platform{font-weight:600;font-size:13px;}
 .broadcast-label{font-weight:400;color:var(--muted);}
 .broadcast-time{font-size:12px;color:var(--muted);}
+.faq{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:18px 18px 8px;margin-bottom:20px;}
+.faq h2{font-size:15px;font-weight:700;margin-bottom:6px;}
+.faq details{border-bottom:0.5px solid var(--border);padding:11px 0;}
+.faq details:last-child{border-bottom:none;}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;font-weight:600;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--muted);font-size:18px;font-weight:400;line-height:1;flex-shrink:0;}
+.faq details[open] summary::after{content:"3";}
+.faq details p{font-size:13px;color:#555;line-height:1.65;margin-top:8px;}
 .sec-divider{text-align:center;margin:28px 0 20px;position:relative;}
 .sec-divider::before,.sec-divider::after{content:'';position:absolute;top:50%;width:calc(50% - 65px);height:0.5px;background:var(--border);}
 .sec-divider::before{left:0;}
@@ -381,6 +390,15 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
     </div>
     <div class="picks-total" id="picksTotal"></div>
   </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq">
+  <h2>Dubois vs Wardley 2: frequently asked questions</h2>
+  <details><summary>Where to watch Dubois vs Wardley 2?</summary><p>Dubois vs Wardley 2 is broadcast on DAZN. The event starts on October 17 at 12:00 PM ET / 9:00 AM PT / 5:00 PM BST, and the main card at 2:00 PM ET / 11:00 AM PT / 7:00 PM BST.</p></details>
+  <details><summary>When is Dubois vs Wardley 2?</summary><p>The fight takes place on October 17, 2026 in London, United Kingdom, at the O2 Arena. The event starts at 12:00 PM ET / 9:00 AM PT / 5:00 PM BST, the main card at 2:00 PM ET / 11:00 AM PT / 7:00 PM BST.</p></details>
+  <details><summary>What title is on the line at Dubois vs Wardley 2?</summary><p>The WBO heavyweight title is on the line. It is a rematch: Daniel Dubois won this title in the first fight.</p></details>
+  <details><summary>Who won the first Dubois vs Wardley fight?</summary><p>The first fight took place on May 9, 2026 in Manchester. Daniel Dubois won by TKO in round 11 and took the WBO title from Fabio Wardley.</p></details>
 </div>
 
 <!-- Read next -->
