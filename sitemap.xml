@@ -337,7 +337,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/height-compare</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/height-compare"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/height-compare"/>
     <changefreq>monthly</changefreq>
@@ -345,7 +345,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/en/height-compare</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/height-compare"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/height-compare"/>
     <changefreq>monthly</changefreq>
@@ -657,7 +657,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/ua/boxers</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers"/>
     <changefreq>monthly</changefreq>
@@ -665,7 +665,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/en/boxers</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers"/>
     <changefreq>monthly</changefreq>
@@ -684,6 +684,86 @@
     <lastmod>2026-09-29</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/acelino-freitas"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/acelino-freitas"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/amir-khan</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/amir-khan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/amir-khan"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/amir-khan</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/amir-khan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/amir-khan"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/andre-ward</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/andre-ward"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/andre-ward"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/andre-ward</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/andre-ward"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/andre-ward"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/antonio-margarito</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/antonio-margarito"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/antonio-margarito"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/antonio-margarito</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/antonio-margarito"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/antonio-margarito"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/arthur-abraham</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/arthur-abraham"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/arthur-abraham"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/arthur-abraham</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/arthur-abraham"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/arthur-abraham"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/bernard-hopkins</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/bernard-hopkins"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/bernard-hopkins"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/bernard-hopkins</loc>
+    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/bernard-hopkins"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/bernard-hopkins"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
