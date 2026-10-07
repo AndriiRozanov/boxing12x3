@@ -63,7 +63,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);pad
 .lang-btn.on{background:var(--text);color:#fff;border-color:var(--text);}
 .brand{text-align:center;margin-bottom:1.5rem;}
 .brand a{text-decoration:none;}
-.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);margin:0;}
+.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);margin:0;font-weight:700;}
 .brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
 .page-head{margin-bottom:24px;padding-bottom:18px;border-bottom:0.5px solid var(--border);}
 .page-head h1{font-size:20px;font-weight:700;margin-bottom:4px;letter-spacing:-.01em;}
@@ -137,8 +137,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);pad
   <button class="lang-btn on" onclick="setLang('en')" id="btnEn">EN</button>
 </div>
 <div class="brand">
-  <a href="/"><div class="brand-name">BOXING 12x3</div>
-  <div class="brand-sub" id="brandSub">Scorecard</div></a>
+  <a href="/"><div class="brand-name">Boxing 12×3</div>
+  <div class="brand-sub" id="brandSub">Boxing scorecard</div></a>
 </div>
 <div class="page-head">
   <h1 id="pageTitle">Boxing Height Comparison</h1>
@@ -149,17 +149,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);pad
   <button class="add-btn" id="addBtn" onclick="addSlot()">+ Додати бійця</button>
 </div>
 <div class="sharecard" id="shareCard">
-  <div class="wm">BOXING 12x3</div>
+  <div class="wm">Boxing 12×3</div>
   <div class="card-body">
     <div class="card-top">
-      <span class="ct-brand">BOXING 12x3</span>
+      <span class="ct-brand">Boxing 12×3</span>
       <span class="ct-badge" id="cardBadge">Height Comparison</span>
     </div>
     <div class="cols" id="cols"><div class="empty" id="emptyMsg">ОБЕРИ БОКСЕРІВ</div></div>
     <div class="floor"></div>
     <div class="f-names" id="fNames"></div>
     <div class="card-footer">
-      <span class="cf-l">BOXING 12x3</span>
+      <span class="cf-l">Boxing 12×3</span>
       <span class="cf-r">boxing12x3.com</span>
     </div>
   </div>
@@ -197,8 +197,8 @@ var DIVS = {
 };
 
 var T = {
-  uk:{brandSub:'Суддівська картка',pageTitle:'Порівняння зросту боксерів',pageDesc:'Обери від 2 до 4 боксерів і порівняй їхній зріст',cardBadge:'Порівняння зросту',emptyMsg:'ОБЕРИ БОКСЕРІВ',slotLabel:['Перший боєць','Другий боєць','Третій боєць','Четвертий боєць'],ph:'Введи імя боксера...',addBtn:'+ Додати бійця',addBtnMax:'Максимум 4 бійці',rmBtn:'Видалити',shareBtn:'ЗБЕРЕГТИ ЯК ЗОБРАЖЕННЯ',shareNote:'Збережи картку і поділись нею в соцмережах',hint:'Спробуй: Fury, Usyk, Inoue, Canelo...'},
-  en:{brandSub:'Scorecard',pageTitle:'Boxing Height Comparison',pageDesc:'Pick 2 to 4 boxers and compare their heights',cardBadge:'Height Comparison',emptyMsg:'SELECT BOXERS',slotLabel:['Fighter 1','Fighter 2','Fighter 3','Fighter 4'],ph:'Type a boxer\'s name...',addBtn:'+ Add fighter',addBtnMax:'Maximum 4 fighters',rmBtn:'Remove',shareBtn:'SAVE AS IMAGE',shareNote:'Save the card and share it on social media',hint:'Try: Fury, Usyk, Inoue, Canelo...'}
+  uk:{brandSub:'Боксерська суддівська картка',pageTitle:'Порівняння зросту боксерів',pageDesc:'Обери від 2 до 4 боксерів і порівняй їхній зріст',cardBadge:'Порівняння зросту',emptyMsg:'ОБЕРИ БОКСЕРІВ',slotLabel:['Перший боєць','Другий боєць','Третій боєць','Четвертий боєць'],ph:'Введи імя боксера...',addBtn:'+ Додати бійця',addBtnMax:'Максимум 4 бійці',rmBtn:'Видалити',shareBtn:'ЗБЕРЕГТИ ЯК ЗОБРАЖЕННЯ',shareNote:'Збережи картку і поділись нею в соцмережах',hint:'Спробуй: Fury, Usyk, Inoue, Canelo...'},
+  en:{brandSub:'Boxing scorecard',pageTitle:'Boxing Height Comparison',pageDesc:'Pick 2 to 4 boxers and compare their heights',cardBadge:'Height Comparison',emptyMsg:'SELECT BOXERS',slotLabel:['Fighter 1','Fighter 2','Fighter 3','Fighter 4'],ph:'Type a boxer\'s name...',addBtn:'+ Add fighter',addBtnMax:'Maximum 4 fighters',rmBtn:'Remove',shareBtn:'SAVE AS IMAGE',shareNote:'Save the card and share it on social media',hint:'Try: Fury, Usyk, Inoue, Canelo...'}
 };
 
 var BOXERS = [
