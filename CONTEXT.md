@@ -2,7 +2,7 @@
 
 Shared domain language and project decisions for AI agents working on this codebase.
 Read this file before making any changes to the project.
-Last updated: October 2026 (rewritten after the September–October rebuild; the older text described the August state)
+Last updated: October 8 2026 (rewritten after the September–October rebuild; boxer profile rules added after the 70 legends were finished)
 
 ---
 
@@ -75,7 +75,7 @@ Only fights with a page (`hasPage: true`) appear in the archive.
 
 **HISTORY_MONTHS** – array in index.html (`{idx, slug, data, days, ...}`) driving the "This day in boxing" homepage widget; add a month when its `ua/boxing-history/{slug}.html` page exists. If the current month is not covered, the widget falls back to the last covered month.
 
-**BOXER_PROFILES** – shared list of boxers who have a profile page. It is copied into FOUR files (`height-compare.html`, `en/height-compare.html`, `ua/boxers.html`, `en/boxers.html`); update all four when a profile ships. Use the profile `slug`, not the short `id`, in URLs.
+**BOXER_PROFILES** – shared list of boxers who have a profile page. It is copied into FOUR files (`height-compare.html`, `en/height-compare.html`, `ua/boxers.html`, `en/boxers.html`); update all four when a profile ships (full checklist in "Boxer Profile Cards"). Use the profile `slug`, not the short `id`, in URLs.
 
 ### CSS Classes
 
@@ -143,7 +143,7 @@ boxing12x3.com/   (GitHub: AndriiRozanov/boxing12x3)
 │   ├── guide.html  fights.html  boxers.html  boxing-history.html      <- hubs
 │   ├── boxing-scoring | boxing-scorecards | boxing-organizations | boxing-knockouts | boxing-weight-classes .html
 │   │                          <- 5 evergreen guides
-│   ├── boxers/acelino-freitas.html          <- boxer profiles (catalog: boxers.html)
+│   ├── boxers/{slug}.html                   <- 70 boxer profiles (catalog: boxers.html)
 │   ├── boxing-history/september.html  october.html   <- "This day in boxing" months
 │   └── {fight-id}.html        <- one page per fight (e.g. tsiupka-beyda, whittaker-wallace, iglesias-zaren, dubois-wardley-2)
 ├── en/                        <- mirrors ua/ and adds index.html (English homepage, GENERATED) and height-compare.html
@@ -292,6 +292,44 @@ Shows: `#poweredBy` ("Powered by Boxing 12×3 →")
 
 ---
 
+## Boxer Profile Cards
+
+70 legend profiles are live (UA + EN, `ua/boxers/{slug}.html` and `en/boxers/{slug}.html`), catalogue at `/ua/boxers` and `/en/boxers`. Data source was the owner's table `rtfight_legends.numbers` (open the .numbers file, not the .xlsx: titles and nicknames live only there). 55 more legends ("Not on RTFight" sheet) are not done and need a separate list of height and reach.
+
+### Every new boxer touches
+1. Both HTML cards (copy the latest card, change data only; never write a card from scratch).
+2. `BOXER_PROFILES` in all four files (`height-compare.html`, `en/height-compare.html`, `ua/boxers.html`, `en/boxers.html`): one row per title division `{id, slug, nameUk/name, div, org, orgColor}` (height-compare files carry both `name` and `nameUk`; `ua/boxers.html` only `nameUk`; `en/boxers.html` only `name`).
+3. The `ItemList` JSON-LD at the top of `ua/boxers.html` and `en/boxers.html` (`numberOfItems` and positions, alphabetical by slug).
+4. `sitemap.xml`: two URLs per boxer (UA with hreflang pair), priority 0.6, monthly.
+5. Height and reach in the `height-compare` database must match the card; the id (`hc`) there is the link key, the `slug` is used in URLs.
+
+### Working loop (batches of five, table order)
+The owner sends each boxer's last fight (method, rounds, date, opponent); Claude reads the table row, lists discrepancies and questions, the owner answers, Claude builds on a branch `boxers-batchN`, shows UA and EN screenshots at 480 px, and merges fast-forward into `main` only after "Затверджую". Verify the live commit via `raw.githubusercontent.com/.../<commit>/...`. Never code before the owner confirms.
+
+### Card content rules
+- Blocks: header with the brand logo and caption, breadcrumb "Головна / Боксери / Ім'я", name and status line, Wins / Losses / KOs cells, record bar, fact grid, "Порівняти зріст" row (3 peers), last fight, titles, optional achievements, footer.
+- KO cell: "N% перемог нокаутом" / "N% of wins by KO" (share of wins by KO). The "з них N нокаутом" line under Losses shows only when it is above 0.
+- Draws are never shown as 0: only when above 0 a legend under the record bar ("Нічиї · N" / "Draws · N", colour #5c6bc0). No contests: grey legend "Без результату · N" / "No contests · N", only when above 0.
+- "Дивізіони" / "Divisions" cell lists every division where the boxer held a title; with 3 or more divisions it is full-width and the debut sits beside the birthplace. No nickname means no nickname cell (birthplace/division cell becomes full-width). Southpaw: "Шульга" / "Southpaw".
+- Titles: one line per title division in chronological order; pills coloured by organisation (WBO #111, WBA #1a5276, WBC #2e7d32, IBF #7d2942, The Ring gold, IBO purple); open-ended period written "з РРРР". Interim belts and Inter-Continental belts are NOT counted; WBU/WBF are not written. Regular WBA is "WBA (регулярний)" / "WBA (Regular)", super is "WBA (Super)". A promotion to Super is not a separate line, it is written as "2010–2016 (Super з 2015)". The cruiserweight is called "Важка" on the site (the table says "Перша важка").
+- Undisputed ("Абсолютний чемпіон", boxed tag above the belts plus status "Абсолютний чемпіон світу в ...") is the OWNER's call, not a formula: three main belts overlapping is not enough (Darchinyan and Wladimir Klitschko were deliberately left without it). Ask when in doubt.
+- "Досягнення" card: Olympic medals (gold default dot, silver #9aa0a6), Ring Fighter of the Year, European (EBU) titles, big tournaments. A boxer with no pro titles gets only this card (Tua).
+- Last fight: result in colour (win green, loss red, draw #5c6bc0). The owner's notation "9/12" means ended in round 9 of 12 scheduled; for a fight that did not go the distance the card says "Бій на N раундів" / "Scheduled for N rounds", for a full distance "N раундів" / "N rounds".
+- A deceased boxer's status line ends "помер у ГГГГ році" only if the owner stated it.
+- Nicknames stay in English in both languages; a boxer with two nicknames keeps both as written in the table.
+- Peers for "Порівняти зріст" are chosen by Claude from the same division; the owner checks them.
+
+### SEO rules for cards
+Title up to 60 characters ("Ім'я: рекорд, титули, останній бій | Boxing 12×3"), description up to 160, og:image `og-default.png` (UA) / `og-default-en.png` (EN), JSON-LD `Person` (alternateName = nicknames plus the name in the other language, birthPlace, nationality, url) and `BreadcrumbList`. The English transliteration of a UA name appears only in markup, never in visible text. No em-dashes anywhere (check `\u2014` count is 0 before delivery).
+
+### Spelling decisions (UA names, keep consistent across cards and peer links)
+Кальзаге, Мастернак, Хопкінс, Фроч, Мікель Кесслер, Ноніто Донейр, Пак'яо, Ріккі Хаттон, Ріддік Боу, Шейн Мозлі, Свен Оттке, Тоні Белью, Аарон Прайор, Томас Хернс, Террі Норріс, Володимир і Віталій Кличко, Вік Дарчинян.
+
+### Planned next for profiles
+Personal OG images per boxer; "Важливі бої" block (clickable fight card to a historical fight page with an already-published YouTube video and a short "when, for what, where" text); the 55 legends not on RTFight; submit the new URLs in Search Console.
+
+---
+
 ## Monetization Roadmap
 
 | Stage | Mechanism | Condition |
@@ -308,7 +346,7 @@ Shows: `#poweredBy` ("Powered by Boxing 12×3 →")
 
 **Evergreen articles (done):** how boxing is judged (`boxing-scoring`), how to read scorecards (`boxing-scorecards`), WBC/WBA/IBF/WBO (`boxing-organizations`), knockout and knockdown (`boxing-knockouts`), weight classes (`boxing-weight-classes`).
 
-**Also live:** boxer profiles (`/ua/boxers`, first profile Acelino Freitas; BOXER_PROFILES sync rule above), "This day in boxing" months (September, October), legendary fights archive, height comparison.
+**Also live:** 70 boxer profiles (`/ua/boxers`; rules in "Boxer Profile Cards"), "This day in boxing" months (September, October), legendary fights archive, height comparison.
 
 **Fight pages workflow:**
 - Texts and results come from the owner (UA first, then EN translation)
