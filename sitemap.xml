@@ -863,5 +863,85 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/david-tua</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/david-tua"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/david-tua"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/david-tua</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/david-tua"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/david-tua"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/devon-alexander</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/devon-alexander"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/devon-alexander"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/devon-alexander</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/devon-alexander"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/devon-alexander"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/edwin-valero</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/edwin-valero"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/edwin-valero"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/edwin-valero</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/edwin-valero"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/edwin-valero"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/enzo-maccarinelli</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/enzo-maccarinelli"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/enzo-maccarinelli"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/enzo-maccarinelli</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/enzo-maccarinelli"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/enzo-maccarinelli"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/erik-morales</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/erik-morales"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/erik-morales"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/erik-morales</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/erik-morales"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/erik-morales"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
 </urlset>
