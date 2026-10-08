@@ -441,6 +441,7 @@ var BOXERS = [
 {id:'mayweather',name:'Floyd Mayweather Jr',h:173,div:'ww',ret:true},
 {id:'napoles',name:'Jose Napoles',h:171,div:'ww',ret:true},
 {id:'cotto',name:'Miguel Cotto',h:170,div:'ww',ret:true},
+{id:'matthysse',name:'Lucas Matthysse',h:169,div:'ww',ret:true},
 {id:'mclarnin',name:'Jimmy McLarnin',h:168,div:'ww',ret:true},
 {id:'armstrong_h',name:'Henry Armstrong',h:166,div:'ww',ret:true},
 {id:'pacquiao',name:'Manny Pacquiao',h:166,div:'ww',ret:true},
@@ -460,7 +461,6 @@ var BOXERS = [
 {id:'cervantes',name:'Antonio Cervantes',h:174,div:'slw',ret:true},
 {id:'khan',name:'Amir Khan',h:174,div:'slw',ret:true},
 {id:'ward_m',name:'Micky Ward',h:173,div:'slw',ret:true},
-{id:'matthysse',name:'Lucas Matthysse',h:169,div:'slw',ret:true},
 {id:'mitchell_s',name:'Sharmba Mitchell',h:170,div:'slw',ret:true},
 {id:'chavez_jc',name:'Julio Cesar Chavez',h:171,div:'slw',ret:true},
 {id:'hatton',name:'Ricky Hatton',h:171,div:'slw',ret:true},
@@ -670,7 +670,19 @@ const BOXER_PROFILES = [
   {id:'chavez_jc', slug:'julio-cesar-chavez', name:'Julio Cesar Chavez', nameUk:'Хуліо Сесар Чавес', div:'slw', org:'WBC', orgColor:'#2e7d32'},
   {id:'thurman', slug:'keith-thurman', name:'Keith Thurman', nameUk:'Кіт Турман', div:'ww', org:'WBA', orgColor:'#1a5276'},
   {id:'brook', slug:'kell-brook', name:'Kell Brook', nameUk:'Келл Брук', div:'ww', org:'IBF', orgColor:'#7d2942'},
-  {id:'glowacki', slug:'krzysztof-glowacki', name:'Krzysztof Glowacki', nameUk:'Кшиштоф Гловацький', div:'cw', org:'WBO', orgColor:'#111'}
+  {id:'glowacki', slug:'krzysztof-glowacki', name:'Krzysztof Glowacki', nameUk:'Кшиштоф Гловацький', div:'cw', org:'WBO', orgColor:'#111'},
+  {id:'holmes', slug:'larry-holmes', name:'Larry Holmes', nameUk:'Ларрі Холмс', div:'hw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'lewis', slug:'lennox-lewis', name:'Lennox Lewis', nameUk:'Леннокс Льюїс', div:'hw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'matthysse', slug:'lucas-matthysse', name:'Lucas Matthysse', nameUk:'Лукас Маттіссе', div:'ww', org:'WBA', orgColor:'#1a5276'},
+  {id:'briedis', slug:'mairis-briedis', name:'Mairis Briedis', nameUk:'Майріс Брієдіс', div:'cw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'pacquiao', slug:'manny-pacquiao', name:'Manny Pacquiao', nameUk:'Менні Пак\'яо', div:'fl', org:'WBC', orgColor:'#2e7d32'},
+  {id:'pacquiao', slug:'manny-pacquiao', name:'Manny Pacquiao', nameUk:'Менні Пак\'яо', div:'sbw', org:'IBF', orgColor:'#7d2942'},
+  {id:'pacquiao', slug:'manny-pacquiao', name:'Manny Pacquiao', nameUk:'Менні Пак\'яо', div:'fw', org:'The Ring', orgColor:'#a9791f'},
+  {id:'pacquiao', slug:'manny-pacquiao', name:'Manny Pacquiao', nameUk:'Менні Пак\'яо', div:'sfw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'pacquiao', slug:'manny-pacquiao', name:'Manny Pacquiao', nameUk:'Менні Пак\'яо', div:'lw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'pacquiao', slug:'manny-pacquiao', name:'Manny Pacquiao', nameUk:'Менні Пак\'яо', div:'slw', org:'The Ring', orgColor:'#a9791f'},
+  {id:'pacquiao', slug:'manny-pacquiao', name:'Manny Pacquiao', nameUk:'Менні Пак\'яо', div:'ww', org:'WBO', orgColor:'#111'},
+  {id:'pacquiao', slug:'manny-pacquiao', name:'Manny Pacquiao', nameUk:'Менні Пак\'яо', div:'sww', org:'WBC', orgColor:'#2e7d32'}
 ];
 function profileUrl(slug){ return '/'+(lang==='uk'?'ua':'en')+'/boxers/'+slug; }
 
