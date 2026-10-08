@@ -410,7 +410,6 @@ var BOXERS = [
 {id:'wright_r',name:'Ronald Wright',h:179,div:'sww',ret:true},
 {id:'benitez',name:'Wilfred Benitez',h:178,div:'sww',ret:true},
 {id:'norris_t',name:'Terry Norris',h:177,div:'sww',ret:true},
-{id:'thurman',name:'Keith Thurman',h:177,div:'sww',ret:true},
 {id:'alexander_d',name:'Devon Alexander',h:174,div:'sww',ret:true},
 {id:'garcia_d',name:'Danny Garcia',h:174,div:'sww',ret:true},
 {id:'dupas',name:'Ralph Dupas',h:173,div:'sww',ret:true},
@@ -438,6 +437,7 @@ var BOXERS = [
 {id:'spence',name:'Errol Spence Jr',h:177,div:'ww',ret:true},
 {id:'mosley_s',name:'Shane Mosley',h:175,div:'ww',ret:true},
 {id:'brook',name:'Kell Brook',h:175,div:'ww',ret:true},
+{id:'thurman',name:'Keith Thurman',h:174,div:'ww',ret:true},
 {id:'mayweather',name:'Floyd Mayweather Jr',h:173,div:'ww',ret:true},
 {id:'napoles',name:'Jose Napoles',h:171,div:'ww',ret:true},
 {id:'cotto',name:'Miguel Cotto',h:170,div:'ww',ret:true},
@@ -660,7 +660,17 @@ const BOXER_PROFILES = [
   {id:'arce', slug:'jorge-arce', name:'Jorge Arce', nameUk:'Хорхе Арсе', div:'bw', org:'WBO', orgColor:'#111'},
   {id:'arce', slug:'jorge-arce', name:'Jorge Arce', nameUk:'Хорхе Арсе', div:'sbw', org:'WBO', orgColor:'#111'},
   {id:'taylor_j', slug:'josh-taylor', name:'Josh Taylor', nameUk:'Джош Тейлор', div:'slw', org:'WBC', orgColor:'#2e7d32'},
-  {id:'gomez_jc', slug:'juan-carlos-gomez', name:'Juan Carlos Gomez', nameUk:'Хуан Карлос Гомес', div:'cw', org:'WBC', orgColor:'#2e7d32'}
+  {id:'gomez_jc', slug:'juan-carlos-gomez', name:'Juan Carlos Gomez', nameUk:'Хуан Карлос Гомес', div:'cw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'marquez_jm', slug:'juan-manuel-marquez', name:'Juan Manuel Marquez', nameUk:'Хуан Мануель Маркес', div:'fw', org:'WBA', orgColor:'#1a5276'},
+  {id:'marquez_jm', slug:'juan-manuel-marquez', name:'Juan Manuel Marquez', nameUk:'Хуан Мануель Маркес', div:'sfw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'marquez_jm', slug:'juan-manuel-marquez', name:'Juan Manuel Marquez', nameUk:'Хуан Мануель Маркес', div:'lw', org:'WBO', orgColor:'#111'},
+  {id:'marquez_jm', slug:'juan-manuel-marquez', name:'Juan Manuel Marquez', nameUk:'Хуан Мануель Маркес', div:'slw', org:'WBO', orgColor:'#111'},
+  {id:'chavez_jc', slug:'julio-cesar-chavez', name:'Julio Cesar Chavez', nameUk:'Хуліо Сесар Чавес', div:'sfw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'chavez_jc', slug:'julio-cesar-chavez', name:'Julio Cesar Chavez', nameUk:'Хуліо Сесар Чавес', div:'lw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'chavez_jc', slug:'julio-cesar-chavez', name:'Julio Cesar Chavez', nameUk:'Хуліо Сесар Чавес', div:'slw', org:'WBC', orgColor:'#2e7d32'},
+  {id:'thurman', slug:'keith-thurman', name:'Keith Thurman', nameUk:'Кіт Турман', div:'ww', org:'WBA', orgColor:'#1a5276'},
+  {id:'brook', slug:'kell-brook', name:'Kell Brook', nameUk:'Келл Брук', div:'ww', org:'IBF', orgColor:'#7d2942'},
+  {id:'glowacki', slug:'krzysztof-glowacki', name:'Krzysztof Glowacki', nameUk:'Кшиштоф Гловацький', div:'cw', org:'WBO', orgColor:'#111'}
 ];
 function profileUrl(slug){ return '/'+(lang==='uk'?'ua':'en')+'/boxers/'+slug; }
 
