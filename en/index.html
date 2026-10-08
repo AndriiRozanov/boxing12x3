@@ -791,6 +791,8 @@ renderSections();
 
 // Widget mode – hide non-essential elements
 const isWidget = new URLSearchParams(window.location.search).has('widget');
+// Прибираємо ?lang= з адреси, коли сторінку відкрито за посиланням /?lang=uk (мова вже застосована).
+if (new URLSearchParams(window.location.search).has('lang')) syncUrlToLang(lang);
 if (isWidget) {
   ['uaLinks','analyticsBlock','guideBlock','sectionsWrap','howBlock'].forEach(function(id) {
     var el = document.getElementById(id);
