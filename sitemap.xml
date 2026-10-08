@@ -1624,4 +1624,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/toshiaki-nishioka</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/toshiaki-nishioka"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/toshiaki-nishioka"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/vic-darchinyan</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/vic-darchinyan"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/vic-darchinyan"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/vitali-klitschko</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/vitali-klitschko"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/vitali-klitschko"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/wladimir-klitschko</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/wladimir-klitschko"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/wladimir-klitschko"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
