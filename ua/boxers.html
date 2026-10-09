@@ -306,7 +306,13 @@ const DIV_NAMES_UK = {mfw:'Мінімальна',lfl:'Перша найлегш�
 // ── Рендер ────────────────────────────────────────────────────────────────
 function build() {
   var groups = {};
-  BOXER_PROFILES.forEach(function(p){ (groups[p.div] = groups[p.div] || []).push(p); });
+  // One entry per boxer in a division; all his belts are shown as chips next to the name.
+  BOXER_PROFILES.forEach(function(p){
+    var g = (groups[p.div] = groups[p.div] || []);
+    var ex = g.find(function(x){ return x.id === p.id; });
+    if (!ex) { ex = Object.assign({}, p, {orgs: []}); g.push(ex); }
+    if (p.org) ex.orgs.push({org: p.org, color: p.orgColor});
+  });
   var divs = DIV_ORDER.filter(function(d){ return groups[d] && groups[d].length; });
   if (!divs.length) return;
   var openDiv = divs.reduce(function(best, d){ return groups[d].length > groups[best].length ? d : best; }, divs[0]);
@@ -329,7 +335,7 @@ function build() {
         groups[d].map(function(p) {
           return '<a class="boxer-link" href="/ua/boxers/' + p.slug + '">' +
             '<span class="boxer-name">' + p.nameUk +
-              (p.org ? ' <span class="boxer-chip" style="background:' + p.orgColor + '">' + p.org + '</span>' : '') +
+              p.orgs.map(function(o){ return ' <span class="boxer-chip" style="background:' + o.color + '">' + o.org + '</span>'; }).join('') +
             '</span>' +
             '<span class="boxer-arr">›</span>' +
           '</a>';
