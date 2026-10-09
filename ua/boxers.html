@@ -353,8 +353,9 @@ function toggle(id) {
 }
 
 function plural(n) {
-  if (n === 1) return 'боксер';
-  if (n >= 2 && n <= 4) return 'боксери';
+  var m10 = n % 10, m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return 'боксер';
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'боксери';
   return 'боксерів';
 }
 
