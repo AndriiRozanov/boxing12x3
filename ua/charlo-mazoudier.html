@@ -486,6 +486,7 @@ function vote(side){
   document.getElementById('btnBlue').disabled=true;
   document.getElementById('btn'+(side==='red'?'Red':'Blue')).classList.add('voted');
   setCookie(COOKIE,side);
+  if(typeof gtag!=='undefined')gtag('event','pick_voted',{fight:FIGHT_ID,side:side});
   document.getElementById('votedMsg').classList.add('show');
   fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:FIGHT_ID,side:side})})
   .then(function(r){return r.json();}).then(function(d){if(d.data)showResults(d.data);}).catch(function(){loadResults();});

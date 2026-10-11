@@ -463,7 +463,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <!-- UA links section (shown only in Ukrainian) -->
 <div class="ua-links" id="uaLinks" style="display:none;">
   <div class="ua-links-title" id="lbl-more">Більше боксу від 12×3</div>
-  <a href="https://t.me/boxing12x3" class="ua-link" target="_blank">
+  <a href="https://t.me/boxing12x3" class="ua-link" target="_blank" onclick="trackOut('telegram')">
     <div class="ua-link-ico" style="background:#229ED9;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
     </div>
@@ -484,11 +484,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
     <span class="ua-link-arr" id="podArrow">›</span>
   </div>
   <div class="podcast-sub" id="podcastSub" style="display:none;">
-    <a href="https://podcasts.apple.com/ua/podcast/12%D1%853/id1828939896" target="_blank" class="pod-platform">Apple Podcasts</a>
-    <a href="https://open.spotify.com/show/0v4PfK4rGs82cvaL2rJ6ID" target="_blank" class="pod-platform">Spotify</a>
-    <a href="https://www.youtube.com/playlist?list=PLjq-Sbkf-rUKAFluWXsE-We35N-rjdQ4w" target="_blank" class="pod-platform">YouTube</a>
+    <a href="https://podcasts.apple.com/ua/podcast/12%D1%853/id1828939896" target="_blank" class="pod-platform" onclick="trackOut('podcast_apple')">Apple Podcasts</a>
+    <a href="https://open.spotify.com/show/0v4PfK4rGs82cvaL2rJ6ID" target="_blank" class="pod-platform" onclick="trackOut('podcast_spotify')">Spotify</a>
+    <a href="https://www.youtube.com/playlist?list=PLjq-Sbkf-rUKAFluWXsE-We35N-rjdQ4w" target="_blank" class="pod-platform" onclick="trackOut('podcast_youtube')">YouTube</a>
   </div>
-  <a href="https://ua.tribuna.com/uk/blogs/brave_hearts/" class="ua-link" target="_blank">
+  <a href="https://ua.tribuna.com/uk/blogs/brave_hearts/" class="ua-link" target="_blank" onclick="trackOut('blog')">
     <div class="ua-link-ico" style="background:#c0392b;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-2 6H7V7h10v2zm0 4H7v-2h10v2zm-3 4H7v-2h7v2z"/></svg>
     </div>
@@ -1031,7 +1031,7 @@ function buildAnalyticsBlock() {
       var base = isUk ? '/ua/' + f.id : '/en/' + f.id;
 
       if (hasP) {
-        fHtml += '<a class="' + rowClass + '" href="' + base + '">';
+        fHtml += '<a class="' + rowClass + '" href="' + base + '" onclick="trackFightOpen(\'' + f.id + '\')">';
       } else {
         fHtml += '<div class="' + rowClass + '">';
       }
@@ -1344,6 +1344,38 @@ function tapSide(i, side) {
   if (typeof gtag !== 'undefined') {
     gtag('event', 'round_scored', {round: i + 1, fight: fight ? fight.id : ''});
   }
+  trackCompletion();
+}
+
+// ── GA4: card completed (full decision or stoppage) ──────────────────────────
+var cardSent = {};
+function trackCompletion() {
+  if (typeof gtag === 'undefined' || !fight) return;
+  var sc = scores.slice(0, fight.rounds).filter(function(x){ return x.red!==null && x.blue!==null; });
+  var tr = sc.reduce(function(a,x){ return a+x.red; }, 0);
+  var tb = sc.reduce(function(a,x){ return a+x.blue; }, 0);
+  var key, result, winner;
+  if (stoppage) {
+    key = fight.id + '|stop'; result = stoppage.type; winner = stoppage.winner;
+  } else if (sc.length === fight.rounds) {
+    key = fight.id + '|dec'; result = 'decision';
+    winner = tr === tb ? 'draw' : (tr > tb ? 'red' : 'blue');
+  } else { return; }
+  if (cardSent[key]) return;
+  cardSent[key] = true;
+  var p = {fight: fight.id, rounds: fight.rounds, result: result, winner: winner,
+           rounds_scored: sc.length, score_red: tr, score_blue: tb};
+  if (stoppage) p.stop_round = stoppage.round;
+  gtag('event', 'card_completed', p);
+}
+
+function trackFightOpen(id) {
+  if (typeof gtag !== 'undefined') gtag('event', 'fight_page_open', {fight: id});
+}
+
+function trackOut(target) {
+  if (typeof gtag === 'undefined') return;
+  gtag('event', 'outbound_click', {target: target, page: 'home', lang: (typeof lang !== 'undefined' ? lang : '')});
 }
 
 function tapCenter(i) {
@@ -1356,6 +1388,7 @@ function tapCenter(i) {
   renderRound(i);
   updateUI();
   saveState();
+  trackCompletion();
 }
 
 
@@ -1512,6 +1545,7 @@ function updateUI() {
 
 // ── Reset ─────────────────────────────────────────────────────────────────────
 function doReset() {
+  cardSent = {};
   scores = mkScores();
   stoppage = null;
   buildRounds();
@@ -1549,6 +1583,7 @@ function confirmStop() {
   closeStop();
   updateUI();
   saveState();
+  trackCompletion();
 }
 
 // ── Share modal ───────────────────────────────────────────────────────────────
