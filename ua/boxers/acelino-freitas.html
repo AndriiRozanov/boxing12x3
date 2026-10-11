@@ -104,32 +104,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .site-footer{display:flex;justify-content:center;gap:20px;margin-top:30px;padding-top:20px;border-top:0.5px solid var(--border);font-size:12px;}
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
-
-.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
-.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
-.kf-date{text-align:center;padding-top:1px;}
-.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
-.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
-.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
-.kf-opp a{color:var(--text);text-decoration:none;}
-.kf-opp a:hover{color:var(--red);text-decoration:underline;}
-.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
-.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
-.kf-res span{font-weight:500;color:#555;}
-.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
-.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
-.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
-.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
-.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
-.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
-.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
-.kf-video.on::before,.kf-video.on::after{display:none;}
-.kf-extra{display:none;}
-.kf-open .kf-extra{display:grid;}
-.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
-.kf-h{display:none;}
-.kf-open .kf-s{display:none;}
-.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -219,29 +193,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="feat-sub">TKO 10 · 07.08.2004 · Перша поразка в кар'єрі Фрейтаса, титул WBO у легкій вазі</div>
   </div>
 </a>
-
-<div class="card" id="key-fights">
-  <div class="section-lbl">Важливі бої</div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1999</div><div class="kf-day">07.08</div></div>
-    <div><div class="kf-opp">Анатолій Александров</div><div class="kf-res">Перемога <span>KO, раунд 1 з 12</span></div>
-    <div class="kf-stake">Здобув титул WBO у другій напівлегкій вазі</div><div class="kf-venue">La Palestre, Ле-Канне, Франція</div><div class="kf-why">Перший світовий титул, нокаут у 1-му раунді</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2002</div><div class="kf-day">12.01</div></div>
-    <div><div class="kf-opp">Хоель Касамайор</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Захистив титул WBO; здобув титул WBA (Super) у другій напівлегкій вазі</div><div class="kf-venue">Cox Pavilion, Лас-Вегас, США</div><div class="kf-why">Об'єднання титулів WBO і WBA</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2004</div><div class="kf-day">03.01</div></div>
-    <div><div class="kf-opp">Артур Григорян</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Здобув титул WBO у легкій вазі</div><div class="kf-venue">Foxwoods Resort, Машантакет, США</div><div class="kf-why">Титул у другій вазі</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2004</div><div class="kf-day">07.08</div></div>
-    <div><div class="kf-opp">Дієго Корралес</div><div class="kf-res">Поразка <span>TKO, раунд 10 з 12</span></div>
-    <div class="kf-stake">Втратив титул WBO у легкій вазі</div><div class="kf-venue">Foxwoods Resort, Машантакет, США</div><div class="kf-why">Втрата титулу зупиненням у 10-му раунді</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2006</div><div class="kf-day">29.04</div></div>
-    <div><div class="kf-opp">Захір Рахім</div><div class="kf-res">Перемога <span>SD, 12 раундів</span></div>
-    <div class="kf-stake">Здобув вакантний титул WBO у легкій вазі</div><div class="kf-venue">Foxwoods Resort, Машантакет, США</div><div class="kf-why">Повернув титул WBO</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2007</div><div class="kf-day">28.04</div></div>
-    <div><div class="kf-opp">Хуан Діас</div><div class="kf-res">Поразка <span>RTD, раунд 8 з 12</span></div>
-    <div class="kf-stake">Втратив титул WBO у легкій вазі; бій за титул WBA у легкій вазі</div><div class="kf-venue">Foxwoods Resort, Машантакет, США</div><div class="kf-why">Об'єднавчий бій; втрата титулу, суперник Діас тримав пояс WBA</div></div></div>
-  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Показати всі 6 боїв ▾</span><span class="kf-h">Сховати ▴</span></button>
-</div>
 
 <div class="site-footer">
   <a href="/?lang=uk">Картка</a>

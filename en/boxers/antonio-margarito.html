@@ -98,32 +98,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
 .loss{color:#c62828;font-weight:700;}
-
-.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
-.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
-.kf-date{text-align:center;padding-top:1px;}
-.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
-.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
-.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
-.kf-opp a{color:var(--text);text-decoration:none;}
-.kf-opp a:hover{color:var(--red);text-decoration:underline;}
-.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
-.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
-.kf-res span{font-weight:500;color:#555;}
-.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
-.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
-.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
-.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
-.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
-.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
-.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
-.kf-video.on::before,.kf-video.on::after{display:none;}
-.kf-extra{display:none;}
-.kf-open .kf-extra{display:grid;}
-.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
-.kf-h{display:none;}
-.kf-open .kf-s{display:none;}
-.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -201,38 +175,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="ladder" id="ladder"></div>
     <div class="ladder-ax"><span>min</span><span>heavy</span></div>
   </div>
-</div>
-
-<div class="card" id="key-fights">
-  <div class="section-lbl">Key fights</div>
-  <div class="kf-item kf-extra" style="--c:#888"><div class="kf-date"><div class="kf-year">2001</div><div class="kf-day">Jul 21</div></div>
-    <div><div class="kf-opp">Daniel Santos</div><div class="kf-res">No contest, <span>round 1 of 12</span></div>
-    <div class="kf-stake">WBO welterweight title at stake; Margarito cut from an accidental head clash</div><div class="kf-venue">Coliseo Rubén Rodríguez, Bayamón, Puerto Rico</div><div class="kf-why">First world title fight, stopped in round 1</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2002</div><div class="kf-day">Mar 16</div></div>
-    <div><div class="kf-opp">Antonio Diaz</div><div class="kf-res">Win <span>TKO, round 10 of 12</span></div>
-    <div class="kf-stake">Won vacant WBO welterweight title</div><div class="kf-venue">Bally's Las Vegas, Paradise, U.S.</div><div class="kf-why">First world title</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2004</div><div class="kf-day">Sep 11</div></div>
-    <div><div class="kf-opp">Daniel Santos</div><div class="kf-res">Loss <span>TD, round 10 of 12</span></div>
-    <div class="kf-stake">For WBO light middleweight title; Split TD: Margarito cut from an accidental head clash</div><div class="kf-venue">José Miguel Agrelot Coliseum, San Juan, Puerto Rico</div><div class="kf-why">Rematch; lost on a cut, fight for the WBO title in a new weight class</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2007</div><div class="kf-day">Jul 14</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/paul-williams">Paul Williams</a></div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
-    <div class="kf-stake">Lost WBO welterweight title</div><div class="kf-venue">Home Depot Center, Carson, U.S.</div><div class="kf-why">Lost the title</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">Apr 12</div></div>
-    <div><div class="kf-opp">Kermit Cintron</div><div class="kf-res">Win <span>KO, round 6 of 12</span></div>
-    <div class="kf-stake">Won IBF welterweight title</div><div class="kf-venue">Boardwalk Hall, Atlantic City, U.S.</div><div class="kf-why">Rematch, won the IBF belt</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">Jul 26</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/miguel-cotto">Miguel Cotto</a></div><div class="kf-res">Win <span>TKO, round 11 of 12</span></div>
-    <div class="kf-stake">Won WBA welterweight title</div><div class="kf-venue">MGM Grand Garden Arena, Paradise, U.S.</div><div class="kf-why">Stopped Cotto and took the WBA belt</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2009</div><div class="kf-day">Jan 24</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/shane-mosley">Shane Mosley</a></div><div class="kf-res">Loss <span>TKO, round 9 of 12</span></div>
-    <div class="kf-stake">Lost WBA (Super) welterweight title</div><div class="kf-venue">Staples Center, Los Angeles, U.S.</div><div class="kf-why">Banned substance found in Margarito's hand wraps before the fight; lost by stoppage</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2010</div><div class="kf-day">Nov 13</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/manny-pacquiao">Manny Pacquiao</a></div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
-    <div class="kf-stake">For vacant WBC light middleweight title</div><div class="kf-venue">Cowboys Stadium, Arlington, U.S.</div><div class="kf-why">Fight with Pacquiao for the vacant WBC belt</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">Dec 3</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/miguel-cotto">Miguel Cotto</a></div><div class="kf-res">Loss <span>TKO, round 9 of 12</span></div>
-    <div class="kf-stake">For WBA (Super) light middleweight title</div><div class="kf-venue">Madison Square Garden, New York City, U.S.</div><div class="kf-why">Rematch with Cotto; lost by stoppage, serious eye injury</div></div></div>
-  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Show all 9 fights ▾</span><span class="kf-h">Hide ▴</span></button>
 </div>
 
 <div class="site-footer">

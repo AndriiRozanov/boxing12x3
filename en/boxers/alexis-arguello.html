@@ -102,32 +102,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .abs-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#111;border:0.5px solid #111;padding:1px 7px;border-radius:4px;line-height:1.7;}
 .loss{color:#c62828;font-weight:700;}
 .draw{color:#5c6bc0;font-weight:700;}
-
-.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
-.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
-.kf-date{text-align:center;padding-top:1px;}
-.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
-.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
-.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
-.kf-opp a{color:var(--text);text-decoration:none;}
-.kf-opp a:hover{color:var(--red);text-decoration:underline;}
-.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
-.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
-.kf-res span{font-weight:500;color:#555;}
-.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
-.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
-.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
-.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
-.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
-.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
-.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
-.kf-video.on::before,.kf-video.on::after{display:none;}
-.kf-extra{display:none;}
-.kf-open .kf-extra{display:grid;}
-.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
-.kf-h{display:none;}
-.kf-open .kf-s{display:none;}
-.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -215,44 +189,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="ladder" id="ladder"></div>
     <div class="ladder-ax"><span>min</span><span>heavy</span></div>
   </div>
-</div>
-
-<div class="card" id="key-fights">
-  <div class="section-lbl">Key fights</div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1974</div><div class="kf-day">Feb 16</div></div>
-    <div><div class="kf-opp">Ernesto Marcel</div><div class="kf-res">Loss <span>UD, 15 rounds</span></div>
-    <div class="kf-stake">For WBA featherweight title</div><div class="kf-venue">Gimnasio Nuevo, Panama City, Panama</div><div class="kf-why">First title attempt, lost by unanimous decision</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1974</div><div class="kf-day">Nov 23</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/ruben-olivares">Rubén Olivares</a></div><div class="kf-res">Win <span>KO, round 13 of 15</span></div>
-    <div class="kf-stake">Won WBA featherweight title</div><div class="kf-venue">The Forum, Inglewood, U.S.</div><div class="kf-why">First world title, knockout of the legendary Olivares</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1978</div><div class="kf-day">Jan 28</div></div>
-    <div><div class="kf-opp">Alfredo Escalera</div><div class="kf-res">Win <span>TKO, round 13 of 15</span></div>
-    <div class="kf-stake">Won WBC super featherweight title</div><div class="kf-venue">Juan Ramón Loubriel Stadium, Bayamon, Puerto Rico</div><div class="kf-why">Title in a second weight class</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1979</div><div class="kf-day">Feb 4</div></div>
-    <div><div class="kf-opp">Alfredo Escalera</div><div class="kf-res">Win <span>TKO, round 13 of 15</span></div>
-    <div class="kf-stake">Retained WBC super featherweight title</div><div class="kf-venue">Sports Palace, Rimini, Italy</div><div class="kf-why">Rematch, second win over Escalera</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1979</div><div class="kf-day">Nov 16</div></div>
-    <div><div class="kf-opp">Bobby Chacon</div><div class="kf-res">Win <span>RTD, round 7 of 15</span></div>
-    <div class="kf-stake">Retained WBC super featherweight title</div><div class="kf-venue">The Forum, Inglewood, U.S.</div><div class="kf-why">Defence against the well-known Chacon</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1980</div><div class="kf-day">Aug 9</div></div>
-    <div><div class="kf-opp">Cornelius Boza-Edwards</div><div class="kf-res">Win <span>TKO, round 8 of 10</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Steel Pier, Atlantic City, U.S.</div><div class="kf-why">Knockout of a former WBC champion on the road to lightweight</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1981</div><div class="kf-day">Jun 20</div></div>
-    <div><div class="kf-opp">Jim Watt</div><div class="kf-res">Win <span>UD, 15 rounds</span></div>
-    <div class="kf-stake">Won WBC and The Ring lightweight titles</div><div class="kf-venue">Empire Pool, London, England</div><div class="kf-why">Title in a third weight class, win in London</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1981</div><div class="kf-day">Oct 3</div></div>
-    <div><div class="kf-opp">Ray Mancini</div><div class="kf-res">Win <span>TKO, round 14 of 15</span></div>
-    <div class="kf-stake">Retained WBC and The Ring lightweight titles</div><div class="kf-venue">Bally's Park Place, Atlantic City, U.S.</div><div class="kf-why">Defence against the popular Mancini, stopped in round 14</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1982</div><div class="kf-day">Nov 12</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/aaron-pryor">Aaron Pryor</a></div><div class="kf-res">Loss <span>TKO, round 14 of 15</span></div>
-    <div class="kf-stake">For WBA and The Ring light welterweight titles</div><div class="kf-venue">Miami Orange Bowl, Miami, U.S.</div><div class="kf-why">"The Battle of the Century", an attempt to win a title in a fourth weight class, one of the defining fights of the 1980s</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1983</div><div class="kf-day">Sep 9</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/aaron-pryor">Aaron Pryor</a></div><div class="kf-res">Loss <span>KO, round 10 of 15</span></div>
-    <div class="kf-stake">For WBA and The Ring light welterweight titles</div><div class="kf-venue">Caesars Palace, Paradise, U.S.</div><div class="kf-why">Rematch with Pryor, second defeat by knockout</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1995</div><div class="kf-day">Jan 21</div></div>
-    <div><div class="kf-opp">Scott Walker</div><div class="kf-res">Loss <span>UD, 10 rounds</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Arizona Charlie's Decatur, Las Vegas, U.S.</div><div class="kf-why">Last fight of his career after a comeback</div></div></div>
-  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Show all 11 fights ▾</span><span class="kf-h">Hide ▴</span></button>
 </div>
 
 <div class="site-footer">

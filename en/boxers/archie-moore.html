@@ -102,32 +102,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .abs-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#111;border:0.5px solid #111;padding:1px 7px;border-radius:4px;line-height:1.7;}
 .loss{color:#c62828;font-weight:700;}
 .draw{color:#5c6bc0;font-weight:700;}
-
-.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
-.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
-.kf-date{text-align:center;padding-top:1px;}
-.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
-.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
-.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
-.kf-opp a{color:var(--text);text-decoration:none;}
-.kf-opp a:hover{color:var(--red);text-decoration:underline;}
-.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
-.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
-.kf-res span{font-weight:500;color:#555;}
-.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
-.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
-.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
-.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
-.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
-.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
-.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
-.kf-video.on::before,.kf-video.on::after{display:none;}
-.kf-extra{display:none;}
-.kf-open .kf-extra{display:grid;}
-.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
-.kf-h{display:none;}
-.kf-open .kf-s{display:none;}
-.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -204,89 +178,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="ladder" id="ladder"></div>
     <div class="ladder-ax"><span>min</span><span>heavy</span></div>
   </div>
-</div>
-
-<div class="card" id="key-fights">
-  <div class="section-lbl">Key fights</div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1937</div><div class="kf-day">Sep 1</div></div>
-    <div><div class="kf-opp">Billy Adams</div><div class="kf-res">Loss <span>PTS, 8 rounds</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Parkway Arena, Cincinnati, U.S.</div><div class="kf-why">First defeat of his career</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1943</div><div class="kf-day">May 8</div></div>
-    <div><div class="kf-opp">Jack Chase</div><div class="kf-res">Win <span>UD, 15 rounds</span></div>
-    <div class="kf-stake">Won California state middleweight title</div><div class="kf-venue">Lane Field, San Diego, U.S.</div><div class="kf-why">First regional title</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1944</div><div class="kf-day">Jan 21</div></div>
-    <div><div class="kf-opp">Eddie Booker</div><div class="kf-res">Loss <span>TKO, round 8 of 10</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Legion Stadium, Hollywood, U.S.</div><div class="kf-why">Lost to one of the "unrecognised" contenders of that era</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1944</div><div class="kf-day">Apr 21</div></div>
-    <div><div class="kf-opp">Charley Burley</div><div class="kf-res">Loss <span>PTS, 10 rounds</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Legion Stadium, Hollywood, U.S.</div><div class="kf-why">Lost to Burley, a legend avoided by champions</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1945</div><div class="kf-day">Jun 26</div></div>
-    <div><div class="kf-opp">Lloyd Marshall</div><div class="kf-res">Win <span>TKO, round 10 of 10</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Lakefront Stadium, Cleveland, U.S.</div><div class="kf-why">Win over a well-known contender</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1946</div><div class="kf-day">May 20</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/ezzard-charles">Ezzard Charles</a></div><div class="kf-res">Loss <span>UD, 10 rounds</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Forbes Field, Pittsburgh, U.S.</div><div class="kf-why">First meeting with Charles, a future world champion</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1947</div><div class="kf-day">May 5</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/ezzard-charles">Ezzard Charles</a></div><div class="kf-res">Loss <span>MD, 10 rounds</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Music Hall Arena, Cincinnati, U.S.</div><div class="kf-why">Second meeting with Charles</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1947</div><div class="kf-day">Jul 30</div></div>
-    <div><div class="kf-opp">Bobby Zander</div><div class="kf-res">Win <span>PTS, 12 rounds</span></div>
-    <div class="kf-stake">Won vacant USA California state light heavyweight title</div><div class="kf-venue">Auditorium, Oakland, U.S.</div><div class="kf-why">Regional title at light heavyweight</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1948</div><div class="kf-day">Jan 13</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/ezzard-charles">Ezzard Charles</a></div><div class="kf-res">Loss <span>KO, round 8 of 15</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Arena, Cleveland, U.S.</div><div class="kf-why">Third loss to Charles, end of the trilogy</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1949</div><div class="kf-day">Apr 11</div></div>
-    <div><div class="kf-opp">Jimmy Bivins</div><div class="kf-res">Win <span>KO, round 8 of 10</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Sports Arena, Toledo, U.S.</div><div class="kf-why">Win over Bivins, one of the best contenders</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1951</div><div class="kf-day">Feb 21</div></div>
-    <div><div class="kf-opp">Jimmy Bivins</div><div class="kf-res">Win <span>TKO, round 9 of 10</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">St. Nicholas Arena, New York City, U.S.</div><div class="kf-why">Rematch in the series with Bivins</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1951</div><div class="kf-day">Dec 10</div></div>
-    <div><div class="kf-opp">Harold Johnson</div><div class="kf-res">Loss <span>UD, 10 rounds</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Arena, Milwaukee, U.S.</div><div class="kf-why">Lost to Johnson, one of his main rivals</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1952</div><div class="kf-day">Dec 17</div></div>
-    <div><div class="kf-opp">Joey Maxim</div><div class="kf-res">Win <span>UD, 15 rounds</span></div>
-    <div class="kf-stake">Won NYSAC, NBA and The Ring light heavyweight titles</div><div class="kf-venue">Arena, St. Louis, U.S.</div><div class="kf-why">World title at age 36 after 15 years of waiting</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1953</div><div class="kf-day">Jun 24</div></div>
-    <div><div class="kf-opp">Joey Maxim</div><div class="kf-res">Win <span>UD, 15 rounds</span></div>
-    <div class="kf-stake">Retained NYSAC, NBA and The Ring light heavyweight titles</div><div class="kf-venue">Ogden, U.S.</div><div class="kf-why">Rematch with Maxim</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1954</div><div class="kf-day">Jan 27</div></div>
-    <div><div class="kf-opp">Joey Maxim</div><div class="kf-res">Win <span>UD, 15 rounds</span></div>
-    <div class="kf-stake">Retained NYSAC, NBA and The Ring light heavyweight titles</div><div class="kf-venue">Orange Bowl, Miami, U.S.</div><div class="kf-why">Third win over Maxim</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1954</div><div class="kf-day">Aug 11</div></div>
-    <div><div class="kf-opp">Harold Johnson</div><div class="kf-res">Win <span>TKO, round 14 of 15</span></div>
-    <div class="kf-stake">Retained NYSAC, NBA and The Ring light heavyweight titles</div><div class="kf-venue">Madison Square Garden, New York City, U.S.</div><div class="kf-why">Rematch and title defence against Johnson</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1955</div><div class="kf-day">May 2</div></div>
-    <div><div class="kf-opp">Niño Valdés</div><div class="kf-res">Win <span>PTS, 15 rounds</span></div>
-    <div class="kf-stake">Won vacant world heavyweight title recognized only by Nevada</div><div class="kf-venue">Cashman Field, Las Vegas, U.S.</div><div class="kf-why">Attempt at heavyweight, title recognised only in Nevada</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1955</div><div class="kf-day">Jun 22</div></div>
-    <div><div class="kf-opp">Bobo Olson</div><div class="kf-res">Win <span>KO, round 3 of 15</span></div>
-    <div class="kf-stake">Retained NYSAC, NBA and The Ring light heavyweight titles</div><div class="kf-venue">Polo Grounds, New York City, U.S.</div><div class="kf-why">Defence against former champion Olson</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1955</div><div class="kf-day">Sep 21</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/rocky-marciano">Rocky Marciano</a></div><div class="kf-res">Loss <span>KO, round 9 of 15</span></div>
-    <div class="kf-stake">For NYSAC, NBA and The Ring heavyweight titles</div><div class="kf-venue">Yankee Stadium, Bronx, U.S.</div><div class="kf-why">Title attempt against champion Marciano</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1956</div><div class="kf-day">Nov 30</div></div>
-    <div><div class="kf-opp"><a href="/en/boxers/floyd-patterson">Floyd Patterson</a></div><div class="kf-res">Loss <span>KO, round 5 of 15</span></div>
-    <div class="kf-stake">For vacant NYSAC, NBA and The Ring heavyweight titles</div><div class="kf-venue">Chicago Stadium, Chicago, U.S.</div><div class="kf-why">Fight for the vacant heavyweight title with Patterson</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1958</div><div class="kf-day">Dec 10</div></div>
-    <div><div class="kf-opp">Yvon Durelle</div><div class="kf-res">Win <span>KO, round 11 of 15</span></div>
-    <div class="kf-stake">Retained NYSAC, NBA and The Ring light heavyweight titles</div><div class="kf-venue">Forum, Montreal, Canada</div><div class="kf-why">One of Moore's most famous fights: knocked down three times in round 1 but won by knockout</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1959</div><div class="kf-day">Aug 12</div></div>
-    <div><div class="kf-opp">Yvon Durelle</div><div class="kf-res">Win <span>KO, round 3 of 15</span></div>
-    <div class="kf-stake">Retained NYSAC, NBA and The Ring light heavyweight titles</div><div class="kf-venue">Forum, Montreal, Canada</div><div class="kf-why">Rematch with Durelle</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1960</div><div class="kf-day">Oct 29</div></div>
-    <div><div class="kf-opp">Giulio Rinaldi</div><div class="kf-res">Loss <span>PTS, 10 rounds</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Palazzetto dello Sport, Rome, Italy</div><div class="kf-why">Lost to Rinaldi in Rome</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1961</div><div class="kf-day">Jun 10</div></div>
-    <div><div class="kf-opp">Giulio Rinaldi</div><div class="kf-res">Win <span>UD, 15 rounds</span></div>
-    <div class="kf-stake">Retained NYSAC and The Ring light heavyweight titles</div><div class="kf-venue">Madison Square Garden, New York City, U.S.</div><div class="kf-why">Rematch and title defence</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1962</div><div class="kf-day">Nov 15</div></div>
-    <div><div class="kf-opp">Cassius Clay</div><div class="kf-res">Loss <span>TKO, round 4 of 12</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Sports Arena, Los Angeles, U.S.</div><div class="kf-why">Fight with the young Cassius Clay (Muhammad Ali), who predicted a knockout in round 4 before the fight</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1963</div><div class="kf-day">Mar 15</div></div>
-    <div><div class="kf-opp">Mike DiBiase</div><div class="kf-res">Win <span>TKO, round 3 of 10</span></div>
-    <div class="kf-stake">Non-title</div><div class="kf-venue">Madison Square Garden, Phoenix, U.S.</div><div class="kf-why">Last fight of his career</div></div></div>
-  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Show all 26 fights ▾</span><span class="kf-h">Hide ▴</span></button>
 </div>
 
 <div class="site-footer">

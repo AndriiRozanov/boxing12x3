@@ -109,32 +109,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .abs-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#111;border:0.5px solid #111;padding:1px 7px;border-radius:4px;line-height:1.7;}
 .loss{color:#c62828;font-weight:700;}
 .draw{color:#5c6bc0;font-weight:700;}
-
-.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
-.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
-.kf-date{text-align:center;padding-top:1px;}
-.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
-.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
-.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
-.kf-opp a{color:var(--text);text-decoration:none;}
-.kf-opp a:hover{color:var(--red);text-decoration:underline;}
-.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
-.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
-.kf-res span{font-weight:500;color:#555;}
-.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
-.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
-.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
-.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
-.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
-.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
-.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
-.kf-video.on::before,.kf-video.on::after{display:none;}
-.kf-extra{display:none;}
-.kf-open .kf-extra{display:grid;}
-.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
-.kf-h{display:none;}
-.kf-open .kf-s{display:none;}
-.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -222,44 +196,6 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="ladder" id="ladder"></div>
     <div class="ladder-ax"><span>мінімальна</span><span>надважка</span></div>
   </div>
-</div>
-
-<div class="card" id="key-fights">
-  <div class="section-lbl">Важливі бої</div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1974</div><div class="kf-day">16.02</div></div>
-    <div><div class="kf-opp">Ернесто Марсель</div><div class="kf-res">Поразка <span>UD, 15 раундів</span></div>
-    <div class="kf-stake">Бій за титул WBA у напівлегкій вазі</div><div class="kf-venue">Gimnasio Nuevo, Панама, Панама</div><div class="kf-why">Перша титульна спроба, поразка одностайним рішенням</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1974</div><div class="kf-day">23.11</div></div>
-    <div><div class="kf-opp"><a href="/ua/boxers/ruben-olivares">Рубен Оліварес</a></div><div class="kf-res">Перемога <span>KO, раунд 13 з 15</span></div>
-    <div class="kf-stake">Здобув титул WBA у напівлегкій вазі</div><div class="kf-venue">The Forum, Інглвуд, США</div><div class="kf-why">Перший світовий титул, нокаут легенди Олівареса</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1978</div><div class="kf-day">28.01</div></div>
-    <div><div class="kf-opp">Альфредо Ескалера</div><div class="kf-res">Перемога <span>TKO, раунд 13 з 15</span></div>
-    <div class="kf-stake">Здобув титул WBC у другій напівлегкій вазі</div><div class="kf-venue">Juan Ramón Loubriel Stadium, Баямон, Пуерто-Рико</div><div class="kf-why">Титул у другій ваговій категорії</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1979</div><div class="kf-day">04.02</div></div>
-    <div><div class="kf-opp">Альфредо Ескалера</div><div class="kf-res">Перемога <span>TKO, раунд 13 з 15</span></div>
-    <div class="kf-stake">Захистив титул WBC у другій напівлегкій вазі</div><div class="kf-venue">Sports Palace, Ріміні, Італія</div><div class="kf-why">Матч-реванш, повторна перемога над Ескалерою</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1979</div><div class="kf-day">16.11</div></div>
-    <div><div class="kf-opp">Боббі Чакон</div><div class="kf-res">Перемога <span>RTD, раунд 7 з 15</span></div>
-    <div class="kf-stake">Захистив титул WBC у другій напівлегкій вазі</div><div class="kf-venue">The Forum, Інглвуд, США</div><div class="kf-why">Захист проти відомого Чакона</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1980</div><div class="kf-day">09.08</div></div>
-    <div><div class="kf-opp">Корнеліус Боза-Едвардс</div><div class="kf-res">Перемога <span>TKO, раунд 8 з 10</span></div>
-    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Steel Pier, Атлантик-Сіті, США</div><div class="kf-why">Нокаут колишнього чемпіона WBC, шлях до легкої ваги</div></div></div>
-  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1981</div><div class="kf-day">20.06</div></div>
-    <div><div class="kf-opp">Джим Ватт</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
-    <div class="kf-stake">Здобув титули WBC і The Ring у легкій вазі</div><div class="kf-venue">Empire Pool, Лондон, Англія</div><div class="kf-why">Титул у третій ваговій категорії, перемога в Лондоні</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1981</div><div class="kf-day">03.10</div></div>
-    <div><div class="kf-opp">Рей Манчіні</div><div class="kf-res">Перемога <span>TKO, раунд 14 з 15</span></div>
-    <div class="kf-stake">Захистив титули WBC і The Ring у легкій вазі</div><div class="kf-venue">Bally's Park Place, Атлантик-Сіті, США</div><div class="kf-why">Захист проти популярного Манчіні, зупинка у 14-му раунді</div></div></div>
-  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1982</div><div class="kf-day">12.11</div></div>
-    <div><div class="kf-opp"><a href="/ua/boxers/aaron-pryor">Аарон Прайор</a></div><div class="kf-res">Поразка <span>TKO, раунд 14 з 15</span></div>
-    <div class="kf-stake">Бій за титули WBA і The Ring у першій напівсередній вазі</div><div class="kf-venue">Miami Orange Bowl, Маямі, США</div><div class="kf-why">«Битва століття», спроба взяти титул у четвертій ваговій категорії, один з найвизначніших боїв 1980-х</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1983</div><div class="kf-day">09.09</div></div>
-    <div><div class="kf-opp"><a href="/ua/boxers/aaron-pryor">Аарон Прайор</a></div><div class="kf-res">Поразка <span>KO, раунд 10 з 15</span></div>
-    <div class="kf-stake">Бій за титули WBA і The Ring у першій напівсередній вазі</div><div class="kf-venue">Caesars Palace, Парадайз, США</div><div class="kf-why">Реванш з Прайором, друга поразка нокаутом</div></div></div>
-  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1995</div><div class="kf-day">21.01</div></div>
-    <div><div class="kf-opp">Скотт Вокер</div><div class="kf-res">Поразка <span>UD, 10 раундів</span></div>
-    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Arizona Charlie's Decatur, Лас-Вегас, США</div><div class="kf-why">Останній бій у кар'єрі після повернення</div></div></div>
-  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Показати всі 11 боїв ▾</span><span class="kf-h">Сховати ▴</span></button>
 </div>
 
 <div class="site-footer">
