@@ -101,6 +101,32 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .draw{color:#5c6bc0;font-weight:700;}
 .draw-legend{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px;font-weight:700;color:#5c6bc0;}
 .draw-dot{width:9px;height:9px;border-radius:2px;background:#5c6bc0;display:inline-block;}
+
+.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
+.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
+.kf-date{text-align:center;padding-top:1px;}
+.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
+.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
+.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
+.kf-opp a{color:var(--text);text-decoration:none;}
+.kf-opp a:hover{color:var(--red);text-decoration:underline;}
+.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
+.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
+.kf-res span{font-weight:500;color:#555;}
+.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
+.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
+.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
+.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
+.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
+.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
+.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
+.kf-video.on::before,.kf-video.on::after{display:none;}
+.kf-extra{display:none;}
+.kf-open .kf-extra{display:grid;}
+.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
+.kf-h{display:none;}
+.kf-open .kf-s{display:none;}
+.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>

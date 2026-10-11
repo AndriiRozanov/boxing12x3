@@ -98,6 +98,32 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
 .loss{color:#c62828;font-weight:700;}
+
+.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
+.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
+.kf-date{text-align:center;padding-top:1px;}
+.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
+.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
+.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
+.kf-opp a{color:var(--text);text-decoration:none;}
+.kf-opp a:hover{color:var(--red);text-decoration:underline;}
+.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
+.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
+.kf-res span{font-weight:500;color:#555;}
+.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
+.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
+.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
+.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
+.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
+.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
+.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
+.kf-video.on::before,.kf-video.on::after{display:none;}
+.kf-extra{display:none;}
+.kf-open .kf-extra{display:grid;}
+.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
+.kf-h{display:none;}
+.kf-open .kf-s{display:none;}
+.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -179,6 +205,41 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="ladder" id="ladder"></div>
     <div class="ladder-ax"><span>min</span><span>heavy</span></div>
   </div>
+</div>
+
+<div class="card" id="key-fights">
+  <div class="section-lbl">Key fights</div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2005</div><div class="kf-day">Dec 10</div></div>
+    <div><div class="kf-opp">Kingsley Ikeke</div><div class="kf-res">Win <span>KO, round 5 of 12</span></div>
+    <div class="kf-stake">Won vacant IBF middleweight title</div><div class="kf-venue">Arena Leipzig, Leipzig, Germany</div><div class="kf-why">First world title, start of a streak of 10 defences</div></div></div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2009</div><div class="kf-day">Oct 17</div></div>
+    <div><div class="kf-opp">Jermain Taylor</div><div class="kf-res">Win <span>KO, round 12 of 12</span></div>
+    <div class="kf-stake">Super Six World Boxing Classic: group stage 1</div><div class="kf-venue">O2 World, Berlin, Germany</div><div class="kf-why">Knockout in round 12, first stage of the Super Six</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2010</div><div class="kf-day">Mar 27</div></div>
+    <div><div class="kf-opp">Andre Dirrell</div><div class="kf-res">Loss <span>DQ, round 11 of 12</span></div>
+    <div class="kf-stake">Super Six World Boxing Classic: group stage 2; Abraham disqualified for hitting after a slip</div><div class="kf-venue">Joe Louis Arena, Detroit, U.S.</div><div class="kf-why">Disqualified for hitting after the opponent slipped</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2010</div><div class="kf-day">Nov 27</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/carl-froch">Carl Froch</a></div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">For vacant WBC super middleweight title; Super Six World Boxing Classic: group stage 3</div><div class="kf-venue">Hartwall Arena, Helsinki, Finland</div><div class="kf-why">Fight for the WBC belt in the Super Six</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">May 14</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/andre-ward">Andre Ward</a></div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">For WBA (Super) super middleweight title; Super Six World Boxing Classic: semi-final</div><div class="kf-venue">Home Depot Center, Carson, U.S.</div><div class="kf-why">Super Six semi-final</div></div></div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">Aug 25</div></div>
+    <div><div class="kf-opp">Robert Stieglitz</div><div class="kf-res">Win <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">Won WBO super middleweight title</div><div class="kf-venue">O2 World, Berlin, Germany</div><div class="kf-why">First title in a second weight class, first of three fights with Stieglitz</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2013</div><div class="kf-day">Mar 23</div></div>
+    <div><div class="kf-opp">Robert Stieglitz</div><div class="kf-res">Loss <span>TKO, round 4 of 12</span></div>
+    <div class="kf-stake">Lost WBO super middleweight title</div><div class="kf-venue">GETEC Arena, Magdeburg, Germany</div><div class="kf-why">Lost the title one second before the end of round 4</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2014</div><div class="kf-day">Mar 21</div></div>
+    <div><div class="kf-opp">Robert Stieglitz</div><div class="kf-res">Win <span>SD, 12 rounds</span></div>
+    <div class="kf-stake">Won WBO super middleweight title</div><div class="kf-venue">GETEC Arena, Magdeburg, Germany</div><div class="kf-why">Third fight of the series, regained the title</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2016</div><div class="kf-day">Apr 9</div></div>
+    <div><div class="kf-opp">Gilberto Ramirez</div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">Lost WBO super middleweight title</div><div class="kf-venue">MGM Grand Garden Arena, Paradise, U.S.</div><div class="kf-why">Lost the title in the United States</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2017</div><div class="kf-day">Jul 15</div></div>
+    <div><div class="kf-opp">Chris Eubank Jr.</div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">For IBO super middleweight title</div><div class="kf-venue">The SSE Arena Wembley, London, England</div><div class="kf-why">Fight for the IBO belt against Eubank Jr.</div></div></div>
+  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Show all 10 fights ▾</span><span class="kf-h">Hide ▴</span></button>
 </div>
 
 <div class="site-footer">

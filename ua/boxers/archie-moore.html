@@ -109,6 +109,32 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .abs-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#111;border:0.5px solid #111;padding:1px 7px;border-radius:4px;line-height:1.7;}
 .loss{color:#c62828;font-weight:700;}
 .draw{color:#5c6bc0;font-weight:700;}
+
+.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
+.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
+.kf-date{text-align:center;padding-top:1px;}
+.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
+.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
+.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
+.kf-opp a{color:var(--text);text-decoration:none;}
+.kf-opp a:hover{color:var(--red);text-decoration:underline;}
+.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
+.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
+.kf-res span{font-weight:500;color:#555;}
+.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
+.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
+.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
+.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
+.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
+.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
+.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
+.kf-video.on::before,.kf-video.on::after{display:none;}
+.kf-extra{display:none;}
+.kf-open .kf-extra{display:grid;}
+.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
+.kf-h{display:none;}
+.kf-open .kf-s{display:none;}
+.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -185,6 +211,89 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="ladder" id="ladder"></div>
     <div class="ladder-ax"><span>мінімальна</span><span>надважка</span></div>
   </div>
+</div>
+
+<div class="card" id="key-fights">
+  <div class="section-lbl">Важливі бої</div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1937</div><div class="kf-day">01.09</div></div>
+    <div><div class="kf-opp">Біллі Адамс</div><div class="kf-res">Поразка <span>PTS, 8 раундів</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Parkway Arena, Цинциннаті, США</div><div class="kf-why">Перша поразка в кар'єрі</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1943</div><div class="kf-day">08.05</div></div>
+    <div><div class="kf-opp">Джек Чейз</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
+    <div class="kf-stake">Здобув титул штату Каліфорнія в середній вазі</div><div class="kf-venue">Lane Field, Сан-Дієго, США</div><div class="kf-why">Перший регіональний титул</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1944</div><div class="kf-day">21.01</div></div>
+    <div><div class="kf-opp">Едді Букер</div><div class="kf-res">Поразка <span>TKO, раунд 8 з 10</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Legion Stadium, Голлівуд, США</div><div class="kf-why">Поразка від одного з «непризнаних» претендентів тієї епохи</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1944</div><div class="kf-day">21.04</div></div>
+    <div><div class="kf-opp">Чарлі Берлі</div><div class="kf-res">Поразка <span>PTS, 10 раундів</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Legion Stadium, Голлівуд, США</div><div class="kf-why">Поразка Берлі, легенді, якого уникали чемпіони</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1945</div><div class="kf-day">26.06</div></div>
+    <div><div class="kf-opp">Ллойд Маршалл</div><div class="kf-res">Перемога <span>TKO, раунд 10 з 10</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Lakefront Stadium, Клівленд, США</div><div class="kf-why">Перемога над відомим претендентом</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1946</div><div class="kf-day">20.05</div></div>
+    <div><div class="kf-opp"><a href="/ua/boxers/ezzard-charles">Еззард Чарльз</a></div><div class="kf-res">Поразка <span>UD, 10 раундів</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Forbes Field, Піттсбург, США</div><div class="kf-why">Перша зустріч з Чарльзом, майбутнім чемпіоном світу</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1947</div><div class="kf-day">05.05</div></div>
+    <div><div class="kf-opp"><a href="/ua/boxers/ezzard-charles">Еззард Чарльз</a></div><div class="kf-res">Поразка <span>MD, 10 раундів</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Music Hall Arena, Цинциннаті, США</div><div class="kf-why">Друга зустріч з Чарльзом</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1947</div><div class="kf-day">30.07</div></div>
+    <div><div class="kf-opp">Боббі Зандер</div><div class="kf-res">Перемога <span>PTS, 12 раундів</span></div>
+    <div class="kf-stake">Здобув вакантний титул штату Каліфорнія (США) у напівважкій вазі</div><div class="kf-venue">Auditorium, Окленд, США</div><div class="kf-why">Регіональний титул у напівважкій вазі</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1948</div><div class="kf-day">13.01</div></div>
+    <div><div class="kf-opp"><a href="/ua/boxers/ezzard-charles">Еззард Чарльз</a></div><div class="kf-res">Поразка <span>KO, раунд 8 з 15</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Arena, Клівленд, США</div><div class="kf-why">Третя поразка від Чарльза, завершення трилогії</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1949</div><div class="kf-day">11.04</div></div>
+    <div><div class="kf-opp">Джиммі Бівінс</div><div class="kf-res">Перемога <span>KO, раунд 8 з 10</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Sports Arena, Толідо, США</div><div class="kf-why">Перемога над Бівінсом, одним з найкращих претендентів</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1951</div><div class="kf-day">21.02</div></div>
+    <div><div class="kf-opp">Джиммі Бівінс</div><div class="kf-res">Перемога <span>TKO, раунд 9 з 10</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">St. Nicholas Arena, Нью-Йорк, США</div><div class="kf-why">Реванш у серії з Бівінсом</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1951</div><div class="kf-day">10.12</div></div>
+    <div><div class="kf-opp">Гарольд Джонсон</div><div class="kf-res">Поразка <span>UD, 10 раундів</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Arena, Мілуокі, США</div><div class="kf-why">Поразка Джонсону, одному з головних суперників</div></div></div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1952</div><div class="kf-day">17.12</div></div>
+    <div><div class="kf-opp">Джої Максім</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
+    <div class="kf-stake">Здобув титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Arena, Сент-Луїс, США</div><div class="kf-why">Світовий титул у 36 років після 15 років чекання</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1953</div><div class="kf-day">24.06</div></div>
+    <div><div class="kf-opp">Джої Максім</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
+    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Огден, США</div><div class="kf-why">Реванш з Максімом</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1954</div><div class="kf-day">27.01</div></div>
+    <div><div class="kf-opp">Джої Максім</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
+    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Orange Bowl, Маямі, США</div><div class="kf-why">Третя перемога над Максімом</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1954</div><div class="kf-day">11.08</div></div>
+    <div><div class="kf-opp">Гарольд Джонсон</div><div class="kf-res">Перемога <span>TKO, раунд 14 з 15</span></div>
+    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Реванш і титульний захист проти Джонсона</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1955</div><div class="kf-day">02.05</div></div>
+    <div><div class="kf-opp">Ніньйо Вальдес</div><div class="kf-res">Перемога <span>PTS, 15 раундів</span></div>
+    <div class="kf-stake">Здобув вакантний титул чемпіона світу у важкій вазі, визнаний лише штатом Невада</div><div class="kf-venue">Cashman Field, Лас-Вегас, США</div><div class="kf-why">Спроба у важкій вазі, титул визнаний лише в Неваді</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1955</div><div class="kf-day">22.06</div></div>
+    <div><div class="kf-opp">Бобо Олсон</div><div class="kf-res">Перемога <span>KO, раунд 3 з 15</span></div>
+    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Polo Grounds, Нью-Йорк, США</div><div class="kf-why">Захист проти колишнього чемпіона Олсона</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1955</div><div class="kf-day">21.09</div></div>
+    <div><div class="kf-opp"><a href="/ua/boxers/rocky-marciano">Роккі Марчіано</a></div><div class="kf-res">Поразка <span>KO, раунд 9 з 15</span></div>
+    <div class="kf-stake">Бій за титули NYSAC, NBA і The Ring у важкій вазі</div><div class="kf-venue">Yankee Stadium, Бронкс, США</div><div class="kf-why">Титульна спроба проти чемпіона Маркіано</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1956</div><div class="kf-day">30.11</div></div>
+    <div><div class="kf-opp"><a href="/ua/boxers/floyd-patterson">Флойд Паттерсон</a></div><div class="kf-res">Поразка <span>KO, раунд 5 з 15</span></div>
+    <div class="kf-stake">Бій за вакантні титули NYSAC, NBA і The Ring у важкій вазі</div><div class="kf-venue">Chicago Stadium, Чикаго, США</div><div class="kf-why">Бій за вакантний титул у важкій вазі з Паттерсоном</div></div></div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1958</div><div class="kf-day">10.12</div></div>
+    <div><div class="kf-opp">Івон Дюрель</div><div class="kf-res">Перемога <span>KO, раунд 11 з 15</span></div>
+    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Forum, Монреаль, Канада</div><div class="kf-why">Один з найвідоміших боїв Мура: у 1-му раунді тричі падав, але виграв нокаутом</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1959</div><div class="kf-day">12.08</div></div>
+    <div><div class="kf-opp">Івон Дюрель</div><div class="kf-res">Перемога <span>KO, раунд 3 з 15</span></div>
+    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Forum, Монреаль, Канада</div><div class="kf-why">Реванш з Дюреллем</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1960</div><div class="kf-day">29.10</div></div>
+    <div><div class="kf-opp">Джуліо Рінальді</div><div class="kf-res">Поразка <span>PTS, 10 раундів</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Palazzetto dello Sport, Рим, Італія</div><div class="kf-why">Поразка Рінальді в Римі</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1961</div><div class="kf-day">10.06</div></div>
+    <div><div class="kf-opp">Джуліо Рінальді</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
+    <div class="kf-stake">Захистив титули NYSAC і The Ring у напівважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Реванш і титульний захист</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1962</div><div class="kf-day">15.11</div></div>
+    <div><div class="kf-opp">Кассіус Клей</div><div class="kf-res">Поразка <span>TKO, раунд 4 з 12</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Sports Arena, Лос-Анджелес, США</div><div class="kf-why">Бій з молодим Кассіусом Клеєм (Мухаммедом Алі), який перед боєм пророкував нокаут у 4-му раунді</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1963</div><div class="kf-day">15.03</div></div>
+    <div><div class="kf-opp">Майк Дібіас</div><div class="kf-res">Перемога <span>TKO, раунд 3 з 10</span></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Madison Square Garden, Фінікс, США</div><div class="kf-why">Останній бій у кар'єрі</div></div></div>
+  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Показати всі 26 боїв ▾</span><span class="kf-h">Сховати ▴</span></button>
 </div>
 
 <div class="site-footer">

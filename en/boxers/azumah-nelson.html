@@ -102,6 +102,32 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .abs-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#111;border:0.5px solid #111;padding:1px 7px;border-radius:4px;line-height:1.7;}
 .loss{color:#c62828;font-weight:700;}
 .draw{color:#5c6bc0;font-weight:700;}
+
+.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
+.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
+.kf-date{text-align:center;padding-top:1px;}
+.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
+.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
+.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
+.kf-opp a{color:var(--text);text-decoration:none;}
+.kf-opp a:hover{color:var(--red);text-decoration:underline;}
+.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
+.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
+.kf-res span{font-weight:500;color:#555;}
+.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
+.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
+.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
+.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
+.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
+.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
+.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
+.kf-video.on::before,.kf-video.on::after{display:none;}
+.kf-extra{display:none;}
+.kf-open .kf-extra{display:grid;}
+.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
+.kf-h{display:none;}
+.kf-open .kf-s{display:none;}
+.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -184,6 +210,59 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="ladder" id="ladder"></div>
     <div class="ladder-ax"><span>min</span><span>heavy</span></div>
   </div>
+</div>
+
+<div class="card" id="key-fights">
+  <div class="section-lbl">Key fights</div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1982</div><div class="kf-day">Jul 21</div></div>
+    <div><div class="kf-opp">Salvador Sánchez</div><div class="kf-res">Loss <span>TKO, round 15 of 15</span></div>
+    <div class="kf-stake">For WBC and The Ring featherweight titles</div><div class="kf-venue">Madison Square Garden, New York, U.S.</div><div class="kf-why">First title attempt against champion Sánchez, stopped in the last round</div></div></div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1984</div><div class="kf-day">Dec 8</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/wilfredo-gomez">Wilfredo Gómez</a></div><div class="kf-res">Win <span>KO, round 11 of 12</span></div>
+    <div class="kf-stake">Won WBC featherweight title</div><div class="kf-venue">Hiram Bithorn Stadium, San Juan, Puerto Rico</div><div class="kf-why">First world title, knockout of the legendary Gómez on his home ground</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1986</div><div class="kf-day">Feb 25</div></div>
+    <div><div class="kf-opp">Marcos Villasana</div><div class="kf-res">Win <span>MD, 12 rounds</span></div>
+    <div class="kf-stake">Retained WBC featherweight title</div><div class="kf-venue">Inglewood Forum, Los Angeles, U.S.</div><div class="kf-why">A tough defence, majority decision</div></div></div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1988</div><div class="kf-day">Feb 29</div></div>
+    <div><div class="kf-opp">Mario Martínez</div><div class="kf-res">Win <span>SD, 12 rounds</span></div>
+    <div class="kf-stake">Won vacant WBC super-featherweight title</div><div class="kf-venue">Great Western Forum, Inglewood, U.S.</div><div class="kf-why">Title in a second weight class</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1989</div><div class="kf-day">Feb 25</div></div>
+    <div><div class="kf-opp">Mario Martínez</div><div class="kf-res">Win <span>TKO, round 12 of 12</span></div>
+    <div class="kf-stake">Retained WBC super-featherweight title</div><div class="kf-venue">Hilton Hotel, Las Vegas, U.S.</div><div class="kf-why">Rematch, stopped in the last round</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1989</div><div class="kf-day">Nov 5</div></div>
+    <div><div class="kf-opp">Jim McDonnell</div><div class="kf-res">Win <span>KO, round 12 of 12</span></div>
+    <div class="kf-stake">Retained WBC super-featherweight title</div><div class="kf-venue">Royal Albert Hall, London, England</div><div class="kf-why">Defence in London, knockout in round 12</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1990</div><div class="kf-day">May 19</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/pernell-whitaker">Pernell Whitaker</a></div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">For WBC and IBF lightweight titles</div><div class="kf-venue">Caesars Palace, Las Vegas, U.S.</div><div class="kf-why">Attempt to move up to lightweight against Whitaker, lost by unanimous decision</div></div></div>
+  <div class="kf-item" style="--c:#5c6bc0"><div class="kf-date"><div class="kf-year">1991</div><div class="kf-day">Jun 28</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/jeff-fenech">Jeff Fenech</a></div><div class="kf-res">Draw <span>SD, 12 rounds</span></div>
+    <div class="kf-stake">Retained WBC super-featherweight title</div><div class="kf-venue">The Mirage, Las Vegas, U.S.</div><div class="kf-why">Controversial draw with Fenech; in 2022 the WBC retroactively recognised Fenech as champion after a review</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1992</div><div class="kf-day">Mar 1</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/jeff-fenech">Jeff Fenech</a></div><div class="kf-res">Win <span>TKO, round 8 of 12</span></div>
+    <div class="kf-stake">Retained WBC super-featherweight title</div><div class="kf-venue">Princes Park Football Ground, Melbourne, Australia</div><div class="kf-why">Rematch in Australia, stopped in round 8</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1993</div><div class="kf-day">Feb 20</div></div>
+    <div><div class="kf-opp">Gabriel Ruelas</div><div class="kf-res">Win <span>MD, 12 rounds</span></div>
+    <div class="kf-stake">Retained WBC super-featherweight title</div><div class="kf-venue">Estadio Azteca, Mexico City, Mexico</div><div class="kf-why">Defence in Mexico by majority decision</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#5c6bc0"><div class="kf-date"><div class="kf-year">1993</div><div class="kf-day">Sep 10</div></div>
+    <div><div class="kf-opp">Jesse James Leija</div><div class="kf-res">Draw <span>SD, 12 rounds</span></div>
+    <div class="kf-stake">Retained WBC super-featherweight title</div><div class="kf-venue">Alamodome, San Antonio, U.S.</div><div class="kf-why">First draw with Leija, start of a trilogy</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1994</div><div class="kf-day">May 7</div></div>
+    <div><div class="kf-opp">Jesse James Leija</div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">Lost WBC super-featherweight title</div><div class="kf-venue">MGM Grand, Las Vegas, U.S.</div><div class="kf-why">Lost the title</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1995</div><div class="kf-day">Dec 1</div></div>
+    <div><div class="kf-opp">Gabriel Ruelas</div><div class="kf-res">Win <span>TKO, round 5 of 12</span></div>
+    <div class="kf-stake">Won WBC super-featherweight title</div><div class="kf-venue">Fantasy Springs Resort Casino, Indio, U.S.</div><div class="kf-why">Regained the title, second reign</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1996</div><div class="kf-day">Jun 1</div></div>
+    <div><div class="kf-opp">Jesse James Leija</div><div class="kf-res">Win <span>TKO, round 6 of 12</span></div>
+    <div class="kf-stake">Retained WBC super-featherweight title</div><div class="kf-venue">Boulder Station, Las Vegas, U.S.</div><div class="kf-why">Rematch in the trilogy with Leija</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1997</div><div class="kf-day">Mar 22</div></div>
+    <div><div class="kf-opp">Genaro Hernández</div><div class="kf-res">Loss <span>SD, 12 rounds</span></div>
+    <div class="kf-stake">Lost WBC super-featherweight title</div><div class="kf-venue">Memorial Coliseum, Corpus Christi, U.S.</div><div class="kf-why">Lost the title in Texas</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">Jun 24</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/jeff-fenech">Jeff Fenech</a></div><div class="kf-res">Loss <span>MD, 10 rounds</span></div>
+    <div class="kf-stake">Non-title</div><div class="kf-venue">Hisense Arena, Melbourne, Australia</div><div class="kf-why">Last fight, third meeting with Fenech after 16 years</div></div></div>
+  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Show all 16 fights ▾</span><span class="kf-h">Hide ▴</span></button>
 </div>
 
 <div class="site-footer">
