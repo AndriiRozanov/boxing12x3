@@ -98,6 +98,32 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
 .loss{color:#c62828;font-weight:700;}
+
+.kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
+.kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
+.kf-date{text-align:center;padding-top:1px;}
+.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
+.kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
+.kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
+.kf-opp a{color:var(--text);text-decoration:none;}
+.kf-opp a:hover{color:var(--red);text-decoration:underline;}
+.kf-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;background:#f0ede8;color:#666;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:1px;}
+.kf-res{font-size:12.5px;font-weight:700;color:var(--c);margin-top:2px;}
+.kf-res span{font-weight:500;color:#555;}
+.kf-stake{font-size:12.5px;color:#444;margin-top:5px;line-height:1.45;}
+.kf-venue{font-size:11px;color:var(--muted);margin-top:3px;}
+.kf-why{font-size:12px;color:#666;margin-top:5px;line-height:1.45;}
+.kf-video{position:relative;aspect-ratio:16/9;margin-top:10px;border-radius:8px;overflow:hidden;background:#111;display:block;}
+.kf-video img,.kf-video iframe{width:100%;height:100%;border:0;object-fit:cover;display:block;}
+.kf-video::after{content:'';position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(255,255,255,.92);pointer-events:none;}
+.kf-video::before{content:'';position:absolute;left:50%;top:50%;margin:-8px 0 0 -5px;border-left:14px solid #111;border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:2;pointer-events:none;}
+.kf-video.on::before,.kf-video.on::after{display:none;}
+.kf-extra{display:none;}
+.kf-open .kf-extra{display:grid;}
+.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
+.kf-h{display:none;}
+.kf-open .kf-s{display:none;}
+.kf-open .kf-h{display:inline;}
 </style>
 </head>
 <body>
@@ -174,6 +200,47 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="ladder" id="ladder"></div>
     <div class="ladder-ax"><span>min</span><span>heavy</span></div>
   </div>
+</div>
+
+<div class="card" id="key-fights">
+  <div class="section-lbl">Key fights</div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2007</div><div class="kf-day">Jul 14</div></div>
+    <div><div class="kf-opp">Willie Limond</div><div class="kf-res">Win <span>TKO, round 8 of 12</span></div>
+    <div class="kf-stake">Won Commonwealth lightweight title</div><div class="kf-venue">The O2 Arena, London, England</div><div class="kf-why">First significant title, win over the experienced Limond</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">Sep 6</div></div>
+    <div><div class="kf-opp">Breidis Prescott</div><div class="kf-res">Loss <span>KO, round 1 of 12</span></div>
+    <div class="kf-stake">Lost WBO Inter-Continental lightweight title</div><div class="kf-venue">MEN Arena, Manchester, England</div><div class="kf-why">Shock defeat by knockout in 54 seconds that ended his unbeaten image</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2009</div><div class="kf-day">Mar 14</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/marco-antonio-barrera">Marco Antonio Barrera</a></div><div class="kf-res">Win <span>TD, round 5 of 12</span></div>
+    <div class="kf-stake">Retained WBA International title; won vacant WBO Inter-Continental title</div><div class="kf-venue">MEN Arena, Manchester, England</div><div class="kf-why">Win over a legend, technical decision after an accidental clash of heads</div></div></div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2009</div><div class="kf-day">Jul 18</div></div>
+    <div><div class="kf-opp">Andreas Kotelnik</div><div class="kf-res">Win <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">Won WBA light welterweight title</div><div class="kf-venue">MEN Arena, Manchester, England</div><div class="kf-why">First world title</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2010</div><div class="kf-day">May 15</div></div>
+    <div><div class="kf-opp">Paulie Malignaggi</div><div class="kf-res">Win <span>TKO, round 11 of 12</span></div>
+    <div class="kf-stake">Retained WBA light welterweight title</div><div class="kf-venue">The Theater at Madison Square Garden, New York City, U.S.</div><div class="kf-why">New York debut, defence against Malignaggi</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2010</div><div class="kf-day">Dec 11</div></div>
+    <div><div class="kf-opp">Marcos Maidana</div><div class="kf-res">Win <span>UD, 12 rounds</span></div>
+    <div class="kf-stake">Retained WBA light welterweight title</div><div class="kf-venue">Mandalay Bay Events Center, Paradise, U.S.</div><div class="kf-why">A hard fight against the puncher Maidana, one of the toughest of his career</div></div></div>
+  <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">Jul 23</div></div>
+    <div><div class="kf-opp">Zab Judah</div><div class="kf-res">Win <span>KO, round 5 of 12</span></div>
+    <div class="kf-stake">Retained WBA (Super) title; won IBF light welterweight title</div><div class="kf-venue">Mandalay Bay Events Center, Paradise, U.S.</div><div class="kf-why">Unified the WBA and IBF titles</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">Dec 10</div></div>
+    <div><div class="kf-opp">Lamont Peterson</div><div class="kf-res">Loss <span>SD, 12 rounds</span></div>
+    <div class="kf-stake">Lost WBA (Super) and IBF titles</div><div class="kf-venue">Walter E. Washington Convention Center, Washington, U.S.</div><div class="kf-why">Disputed defeat; Peterson later failed a doping test and the WBA returned the title to Khan</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">Jul 14</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/danny-garcia">Danny García</a></div><div class="kf-res">Loss <span>TKO, round 4 of 12</span></div>
+    <div class="kf-stake">Lost WBA (Super) title; for WBC and vacant The Ring light welterweight titles</div><div class="kf-venue">Mandalay Bay Events Center, Paradise, U.S.</div><div class="kf-why">Knockout in round 4, move up in weight</div></div></div>
+  <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2016</div><div class="kf-day">May 7</div></div>
+    <div><div class="kf-opp">Canelo Álvarez</div><div class="kf-res">Loss <span>KO, round 6 of 12</span></div>
+    <div class="kf-stake">For WBC, The Ring and lineal middleweight titles</div><div class="kf-venue">T-Mobile Arena, Paradise, U.S.</div><div class="kf-why">Attempt to win a middleweight title against Canelo, knockout in round 6</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2022</div><div class="kf-day">Feb 19</div></div>
+    <div><div class="kf-opp"><a href="/en/boxers/kell-brook">Kell Brook</a></div><div class="kf-res">Loss <span>TKO, round 6 of 12</span></div>
+    <div class="kf-stake">Non-title</div><div class="kf-venue">AO Arena, Manchester, England</div><div class="kf-why">Long-awaited all-British fight, last fight of his career</div></div></div>
+  <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2022</div><div class="kf-day">Apr 23</div></div>
+    <div><div class="kf-opp">Terence Crawford</div><div class="kf-res">Loss <span>TKO, round 6 of 12</span></div>
+    <div class="kf-stake">For WBO welterweight title</div><div class="kf-venue">Madison Square Garden, New York City, U.S.</div><div class="kf-why">Title fight against Crawford, lost to a body shot</div></div></div>
+  <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Show all 12 fights ▾</span><span class="kf-h">Hide ▴</span></button>
 </div>
 
 <div class="site-footer">
