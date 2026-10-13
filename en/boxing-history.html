@@ -81,7 +81,7 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 <h1>This Day in Boxing History</h1>
 <div class="hub-sub">Births and deaths of legends, title fights, records and tragedies. Pick a month.</div>
 
-<div class="month-grid" id="monthGrid"></div>
+<div class="month-grid" id="monthGrid"><!--bake:start--><div class="month-cell inactive"><div class="m-name">January</div><div class="m-badge">Coming soon</div></div><div class="month-cell inactive"><div class="m-name">February</div><div class="m-badge">Coming soon</div></div><div class="month-cell inactive"><div class="m-name">March</div><div class="m-badge">Coming soon</div></div><div class="month-cell inactive"><div class="m-name">April</div><div class="m-badge">Coming soon</div></div><div class="month-cell inactive"><div class="m-name">May</div><div class="m-badge">Coming soon</div></div><div class="month-cell inactive"><div class="m-name">June</div><div class="m-badge">Coming soon</div></div><div class="month-cell inactive"><div class="m-name">July</div><div class="m-badge">Coming soon</div></div><div class="month-cell inactive"><div class="m-name">August</div><div class="m-badge">Coming soon</div></div><a class="month-cell active" href="/en/boxing-history/september"><div><div class="m-name">September</div><div class="m-ev">Canelo – Golovkin</div><div class="m-ev">Gene Tunney – Jack Dempsey</div><div class="m-ev">Muhammad Ali – Ken Norton</div><div class="m-ev">Klitschko – Peter</div></div><div class="m-more">and more</div></a><a class="month-cell active current" href="/en/boxing-history/october"><div><div class="m-name">October</div><div class="m-ev">Muhammad Ali – Joe Frazier</div><div class="m-ev">Muhammad Ali – George Foreman</div><div class="m-ev">Larry Holmes – Muhammad Ali</div><div class="m-ev">Wladimir Klitschko – Alexander Povetkin</div></div><div class="m-more">and more</div></a><div class="month-cell inactive"><div class="m-name">November</div><div class="m-badge">Coming soon</div></div><div class="month-cell inactive"><div class="m-name">December</div><div class="m-badge">Coming soon</div></div><!--bake:end--></div>
 
 <div class="hist-guide">
   <div class="hist-guide-lbl">Read also</div>
@@ -130,6 +130,7 @@ var MONTHS = [
 
 (function(){
   var grid = document.getElementById('monthGrid');
+  grid.innerHTML = ''; // the static copy (scripts/bake_catalog.py) is replaced by the live render
   var now = new Date();
   var currentMonthIdx = now.getMonth();
 

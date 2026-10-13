@@ -131,6 +131,8 @@ When a round is scored, JS sets `background` on the fill div and triggers
 
 **Static fights lists:** `/ua/fights` and `/en/fights` are baked the same way (`#archive` and `#legendary`, data arrays `ARCHIVE` / `LEGENDARY`). After adding a fight to those arrays, run `python3 scripts/bake_catalog.py` and commit `ua/fights.html` and `en/fights.html`. `build()` and `buildLegendary()` clear their container first.
 
+**Static month grid:** `/ua/boxing-history` and `/en/boxing-history` bake `#monthGrid` (the `MONTHS` array) the same way. Run `python3 scripts/bake_catalog.py` whenever a month is activated or the current month changes, and commit both pages.
+
 
 ## File Structure
 

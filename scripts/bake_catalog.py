@@ -18,6 +18,8 @@ TARGETS = [
     ('ua/fights.html', 'legendary', '.month-block', 'fight-link'),
     ('en/fights.html', 'archive', '.month-block', 'fight-link'),
     ('en/fights.html', 'legendary', '.month-block', 'fight-link'),
+    ('ua/boxing-history.html', 'monthGrid', '.month-cell', 'month-cell active'),
+    ('en/boxing-history.html', 'monthGrid', '.month-cell', 'month-cell active'),
 ]
 START, END = '<!--bake:start-->', '<!--bake:end-->'
 
@@ -35,7 +37,7 @@ with sync_playwright() as p:
         page.close()
         html = re.sub(r'\s*' + re.escape(START) + '.*?' + re.escape(END), '', html, flags=re.S)
         block = START + html + END
-        open_tag = '<div id="%s">' % cid
+        open_tag = '<div class="month-grid" id="%s">' % cid if cid == 'monthGrid' else '<div id="%s">' % cid
         pat = re.compile(re.escape(open_tag) + re.escape(START) + '.*?' + re.escape(END), re.S)
         if pat.search(src):
             src = pat.sub(lambda m: open_tag + block, src, 1)
@@ -43,5 +45,5 @@ with sync_playwright() as p:
             assert open_tag + '</div>' in src, (f, cid)
             src = src.replace(open_tag + '</div>', open_tag + block + '</div>', 1)
         path.write_text(src, encoding='utf-8')
-        print(f, cid, 'links:', len(re.findall(r'<a class="%s"' % cls, block)))
+        print(f, cid, 'links:', len(re.findall(r'<a class="%s' % cls, block)))
     b.close()

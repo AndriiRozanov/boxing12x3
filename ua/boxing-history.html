@@ -81,7 +81,7 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 <h1>Визначні дні в історії боксу</h1>
 <div class="hub-sub">Народження і смерті легенд, титульні бої, рекорди та трагедії. Обери місяць.</div>
 
-<div class="month-grid" id="monthGrid"></div>
+<div class="month-grid" id="monthGrid"><!--bake:start--><div class="month-cell inactive"><div class="m-name">Січень</div><div class="m-badge">Згодом</div></div><div class="month-cell inactive"><div class="m-name">Лютий</div><div class="m-badge">Згодом</div></div><div class="month-cell inactive"><div class="m-name">Березень</div><div class="m-badge">Згодом</div></div><div class="month-cell inactive"><div class="m-name">Квітень</div><div class="m-badge">Згодом</div></div><div class="month-cell inactive"><div class="m-name">Травень</div><div class="m-badge">Згодом</div></div><div class="month-cell inactive"><div class="m-name">Червень</div><div class="m-badge">Згодом</div></div><div class="month-cell inactive"><div class="m-name">Липень</div><div class="m-badge">Згодом</div></div><div class="month-cell inactive"><div class="m-name">Серпень</div><div class="m-badge">Згодом</div></div><a class="month-cell active" href="/ua/boxing-history/september"><div><div class="m-name">Вересень</div><div class="m-ev">Канело – Головкін</div><div class="m-ev">Джин Танні – Джек Демпсі</div><div class="m-ev">Мухаммед Алі – Кен Нортон</div><div class="m-ev">Кличко – Пітер</div></div><div class="m-more">та інші</div></a><a class="month-cell active current" href="/ua/boxing-history/october"><div><div class="m-name">Жовтень</div><div class="m-ev">Мухаммед Алі – Джо Фрейзер</div><div class="m-ev">Мухаммед Алі – Джордж Форман</div><div class="m-ev">Ларрі Холмс – Мухаммед Алі</div><div class="m-ev">Володимир Кличко – Олександр Повєткін</div></div><div class="m-more">та інші</div></a><div class="month-cell inactive"><div class="m-name">Листопад</div><div class="m-badge">Згодом</div></div><div class="month-cell inactive"><div class="m-name">Грудень</div><div class="m-badge">Згодом</div></div><!--bake:end--></div>
 
 <div class="hist-guide">
   <div class="hist-guide-lbl">Читай також</div>
@@ -130,6 +130,7 @@ var MONTHS = [
 
 (function(){
   var grid = document.getElementById('monthGrid');
+  grid.innerHTML = ''; // the static copy (scripts/bake_catalog.py) is replaced by the live render
   var now = new Date();
   var currentMonthIdx = now.getMonth(); // 0-indexed, matches MONTHS array order
 
