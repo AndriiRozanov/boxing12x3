@@ -106,6 +106,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .site-footer{display:flex;justify-content:center;gap:20px;margin-top:30px;padding-top:20px;border-top:0.5px solid var(--border);font-size:12px;}
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
+/*related*/.rel-link{display:flex;align-items:center;justify-content:space-between;padding:11px 20px;border-top:0.5px solid var(--border);text-decoration:none;color:var(--text);font-size:13px;font-weight:500;transition:background .15s;}.rel-link:hover{background:var(--bg);}.rel-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}.rel-chip{font-size:9px;font-weight:700;color:#fff;padding:2px 6px;border-radius:3px;}.rel-arr{font-size:14px;color:var(--muted);}
 .draw-legend{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px;font-weight:700;color:#5c6bc0;}
 .draw-dot{width:9px;height:9px;border-radius:2px;background:#5c6bc0;display:inline-block;}
 .abs-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#111;border:0.5px solid #111;padding:1px 7px;border-radius:4px;line-height:1.7;}
@@ -297,6 +298,8 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Показати всі 22 бої ▾</span><span class="kf-h">Сховати ▴</span></button>
 </div>
 
+<!--related:start--><div class="card"><div class="section-lbl">Інші боксери дивізіону: перша середня</div><a class="rel-link" href="/ua/boxers/wilfred-benitez"><span class="rel-name">Вілфред Бенітес <span class="rel-chip" style="background:#2e7d32">WBC</span></span><span class="rel-arr">›</span></a><a class="rel-link" href="/ua/boxers/felix-trinidad"><span class="rel-name">Фелікс Трінідад <span class="rel-chip" style="background:#1a5276">WBA</span> <span class="rel-chip" style="background:#7d2942">IBF</span></span><span class="rel-arr">›</span></a><a class="rel-link" href="/ua/boxers/floyd-mayweather-jr"><span class="rel-name">Флойд Мейвезер <span class="rel-chip" style="background:#2e7d32">WBC</span> <span class="rel-chip" style="background:#1a5276">WBA</span></span><span class="rel-arr">›</span></a><a class="rel-link" href="/ua/boxers/manny-pacquiao"><span class="rel-name">Менні Пак'яо <span class="rel-chip" style="background:#2e7d32">WBC</span></span><span class="rel-arr">›</span></a><a class="rel-link" href="/ua/boxers/miguel-cotto"><span class="rel-name">Мігель Котто <span class="rel-chip" style="background:#1a5276">WBA</span> <span class="rel-chip" style="background:#111">WBO</span></span><span class="rel-arr">›</span></a><a class="rel-link" href="/ua/boxers/mike-mccallum"><span class="rel-name">Майк Маккалум <span class="rel-chip" style="background:#1a5276">WBA</span></span><span class="rel-arr">›</span></a></div>
+<!--related:end-->
 <div class="site-footer">
   <a href="/?lang=uk">Картка</a>
   <a href="/ua/guide">Довідник</a>
