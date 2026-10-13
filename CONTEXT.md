@@ -127,6 +127,9 @@ When a round is scored, JS sets `background` on the fill div and triggers
 
 ---
 
+**Static catalog links (crawlers without JavaScript):** `/ua/boxers` and `/en/boxers` build the catalog in JS from `BOXER_PROFILES`, but the same markup is also baked into the raw HTML between `<!--bake:start-->` and `<!--bake:end-->` inside `<div id="catalog">`. After every change to `BOXER_PROFILES` (each new boxer batch) run `python3 scripts/bake_catalog.py` from the repo root (needs Playwright) and commit both pages. `build()` clears the container first, so users always see the live render.
+
+
 ## File Structure
 
 ```
