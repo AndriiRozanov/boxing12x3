@@ -129,6 +129,8 @@ When a round is scored, JS sets `background` on the fill div and triggers
 
 **Static catalog links (crawlers without JavaScript):** `/ua/boxers` and `/en/boxers` build the catalog in JS from `BOXER_PROFILES`, but the same markup is also baked into the raw HTML between `<!--bake:start-->` and `<!--bake:end-->` inside `<div id="catalog">`. After every change to `BOXER_PROFILES` (each new boxer batch) run `python3 scripts/bake_catalog.py` from the repo root (needs Playwright) and commit both pages. `build()` clears the container first, so users always see the live render.
 
+**Static fights lists:** `/ua/fights` and `/en/fights` are baked the same way (`#archive` and `#legendary`, data arrays `ARCHIVE` / `LEGENDARY`). After adding a fight to those arrays, run `python3 scripts/bake_catalog.py` and commit `ua/fights.html` and `en/fights.html`. `build()` and `buildLegendary()` clear their container first.
+
 
 ## File Structure
 
