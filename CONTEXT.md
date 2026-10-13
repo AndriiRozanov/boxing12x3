@@ -279,6 +279,7 @@ Shows: `#poweredBy` ("Powered by Boxing 12×3 →")
 - **Footer labels** – set in `renderAll()` (load AND toggle); "Вбудувати картку" used to stay Ukrainian after the toggle
 - **Language buttons copied from a template** – once pointed to another fight's slug; every page must link to its own
 - **EN scorecard CTA** – must be `/en?fight=ID`; `/?fight=ID&lang=en` loses the fight in the `/?lang=en` redirect
+- **Internal links never use `?lang=`:** UA = `/`, `/height-compare?a=X&b=Y`, `/?fight=ID`; EN = `/en`, `/en/height-compare?a=X&b=Y`, `/en?fight=ID`. The middleware redirects stay only for old external links. Exceptions: `/about?lang=en` (no `/en/about` yet) and the widget generator URLs (`?widget=1&lang=`).
 - **Root assets keep their file names** – icons were once uploaded as `1-favicon.ico`; strip any numbering from delivered files and verify the live repo afterwards
 - **Byte-based shell tools on Cyrillic** – `cut -c` and similar corrupt UTF-8 output; use Python
 
