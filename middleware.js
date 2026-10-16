@@ -9,9 +9,13 @@ export default function middleware(request) {
     return Response.redirect(new URL('/en/height-compare', url.origin), 308);
   }
 
+  if (url.pathname === '/ua/charlo-mazoudier' || url.pathname === '/en/charlo-mazoudier') {
+    return Response.redirect(new URL(url.pathname.replace('charlo-mazoudier', 'resendiz-mazoudier'), url.origin), 308);
+  }
+
   return fetch(request);
 }
 
 export const config = {
-  matcher: ['/', '/height-compare'],
+  matcher: ['/', '/height-compare', '/ua/charlo-mazoudier', '/en/charlo-mazoudier'],
 };
