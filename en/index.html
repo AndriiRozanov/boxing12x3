@@ -607,7 +607,7 @@ const FIGHTS = [
   {id:'dubois-wardley-2',    date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Daniel Dubois',  redUk:'Даніель Дюбуа',  redEn:'Daniel Dubois',    blue:'Fabio Wardley', blueUk:'Фабіо Вордлі',    blueEn:'Fabio Wardley',    divUk:'Надважка вага',           divEn:'Heavyweight',        rounds:12, belts:['WBO'],          completed:true, hasPage:true, featured:false},
   {id:'jalolov-dacres',    date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Bakhodir Jalolov',redUk:'Баходір Жалолов',redEn:'Bakhodir Jalolov', blue:'Solomon Dacres', blueUk:'Соломон Дакрес',  blueEn:'Solomon Dacres',   divUk:'Надважка вага',           divEn:'Heavyweight',        rounds:10, belts:[],               completed:true, hasPage:true, featured:false},
   {id:'fundora-hadribeaj', date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Sebastian Fundora',redUk:'Себастьян Фундора',redEn:'Sebastian Fundora', blue:'Ermal Hadribeaj', blueUk:'Ермал Хадрібеадж', blueEn:'Ermal Hadribeaj', divUk:'Перша середня вага',      divEn:'Super Welterweight', rounds:12, belts:['WBC'],          completed:true, hasPage:true, featured:false},
-  {id:'figueroa-kameda',   date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Brandon Figueroa',redUk:'Брендон Фігероа',redEn:'Brandon Figueroa', blue:'Tomoki Kameda', blueUk:'Томокі Камеда',   blueEn:'Tomoki Kameda',   divUk:'Напівлегка вага',         divEn:'Featherweight',      rounds:12, belts:['WBA'],          completed:false, hasPage:true, featured:false},
+  {id:'figueroa-kameda',   date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Brandon Figueroa',redUk:'Брендон Фігероа',redEn:'Brandon Figueroa', blue:'Tomoki Kameda', blueUk:'Томокі Камеда',   blueEn:'Tomoki Kameda',   divUk:'Напівлегка вага',         divEn:'Featherweight',      rounds:12, belts:['WBA'],          completed:true, cancelled:true, hasPage:true, featured:false},
   {id:'resendiz-mazoudier',  date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Armando Resendiz', redUk:'Армандо Ресендіс', redEn:'Armando Resendiz',   blue:'Koen Mazoudier', blueUk:'Коен Мазудьє',    blueEn:'Koen Mazoudier',   divUk:'Друга середня вага',      divEn:'Super Middleweight', rounds:10, belts:[],               completed:true, hasPage:true, featured:false},
   {id:'smith-puello',      date:'Oct 24', dateUk:'24 жовтня', dateEn:'Oct 24', dateNum:24, monthUk:'жов', monthIdx:9, red:'Dalton Smith',   redUk:'Далтон Сміт',    redEn:'Dalton Smith',     blue:'Alberto Puello', blueUk:'Альберто Пуельйо', blueEn:'Alberto Puello',  divUk:'Перша напівсередня вага', divEn:'Super Lightweight',  rounds:12, belts:['WBC'],          completed:false, hasPage:true, featured:true},
   {id:'navarrete-foster',  date:'Oct 24', dateUk:'24 жовтня', dateEn:'Oct 24', dateNum:24, monthUk:'жов', monthIdx:9, red:'Emanuel Navarrete',redUk:'Емануель Наваррете',redEn:'Emanuel Navarrete', blue:"O'Shaquie Foster", blueUk:'О\'Шакі Фостер', blueEn:"O'Shaquie Foster", divUk:'Друга напівлегка вага',   divEn:'Super Featherweight',rounds:12, belts:['WBO','IBF','WBC'], completed:false, hasPage:true, featured:false},
@@ -759,7 +759,7 @@ function fightTime(f) {
 // Latest completed fights that have their own page (newest first; on the same date the later entry wins)
 function recentFights(n) {
   return FIGHTS.map(function(f, i){ return {f: f, i: i}; })
-    .filter(function(o){ return o.f.completed && o.f.hasPage && !o.f.unlisted; })
+    .filter(function(o){ return o.f.completed && !o.f.cancelled && o.f.hasPage && !o.f.unlisted; })
     .sort(function(a, b){ return (fightTime(b.f) - fightTime(a.f)) || (b.i - a.i); })
     .slice(0, n).map(function(o){ return o.f; });
 }
@@ -1210,7 +1210,7 @@ function buildSelector() {
   // Коли місяць минув, їх і далі можна знайти на власній сторінці бою
   // та в /fights - просто більше не через цей список на головній.
   const curMonthIdx = new Date().getMonth();
-  const completed = FIGHTS.filter(f => f.completed && !f.unlisted && f.monthIdx === curMonthIdx);
+  const completed = FIGHTS.filter(f => f.completed && !f.cancelled && !f.unlisted && f.monthIdx === curMonthIdx);
 
   if (upcoming.length) {
     const grp1 = document.createElement('optgroup');
