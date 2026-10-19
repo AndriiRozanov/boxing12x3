@@ -129,6 +129,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -216,7 +225,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Non-title</div><div class="kf-venue">Korakuen Hall, Tokyo, Japan</div><div class="kf-why">First defeat of his career, in his second fight</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2000</div><div class="kf-day">Jun 25</div></div>
     <div><div class="kf-opp">Veeraphol Sahaprom</div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
-    <div class="kf-stake">For WBC bantamweight title</div><div class="kf-venue">City gymnasium, Takasago, Japan</div><div class="kf-why">First title attempt in a series of four fights against Veeraphol Sahaprom</div></div></div>
+    <div class="kf-stake">For WBC bantamweight title</div><div class="kf-venue">City gymnasium, Takasago, Japan</div><div class="kf-why">First title attempt in a series of four fights against Veeraphol Sahaprom</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=HzzzVcZdTf0" target="_blank" rel="noopener" data-vid="HzzzVcZdTf0" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#5c6bc0"><div class="kf-date"><div class="kf-year">2001</div><div class="kf-day">Sep 1</div></div>
     <div><div class="kf-opp">Veeraphol Sahaprom</div><div class="kf-res">Draw <span>SD, 12 rounds</span></div>
     <div class="kf-stake">For WBC bantamweight title</div><div class="kf-venue">Yokohama Arena, Yokohama, Japan</div><div class="kf-why">A draw in the second title fight with Sahaprom</div></div></div>
@@ -225,7 +234,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">For WBC bantamweight title</div><div class="kf-venue">Ryōgoku Kokugikan, Tokyo, Japan</div><div class="kf-why">A second draw in a row with Sahaprom</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2004</div><div class="kf-day">Mar 6</div></div>
     <div><div class="kf-opp">Veeraphol Sahaprom</div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
-    <div class="kf-stake">For WBC bantamweight title</div><div class="kf-venue">Super Arena, Saitama, Japan</div><div class="kf-why">Fourth and last fight with Sahaprom: lost a unanimous decision</div></div></div>
+    <div class="kf-stake">For WBC bantamweight title</div><div class="kf-venue">Super Arena, Saitama, Japan</div><div class="kf-why">Fourth and last fight with Sahaprom: lost a unanimous decision</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=fnpjgFXbMKY" target="_blank" rel="noopener" data-vid="fnpjgFXbMKY" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">Sep 15</div></div>
     <div><div class="kf-opp">Napapol Kiatisakchokchai</div><div class="kf-res">Win <span>UD, 12 rounds</span></div>
     <div class="kf-stake">Won WBC interim super-bantamweight title</div><div class="kf-venue">Pacifico, Yokohama, Japan</div><div class="kf-why">A fresh start in a second weight class and his first title</div></div></div>
@@ -240,10 +249,10 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Retained WBC super-bantamweight title</div><div class="kf-venue">World Memorial Hall, Kobe, Japan</div><div class="kf-why">Title defence by knockout</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">Oct 1</div></div>
     <div><div class="kf-opp">Rafael Márquez</div><div class="kf-res">Win <span>UD, 12 rounds</span></div>
-    <div class="kf-stake">Retained WBC super-bantamweight title</div><div class="kf-venue">MGM Grand Marquee Ballroom, Paradise, U.S.</div><div class="kf-why">Win in Las Vegas over the legendary Mexican Rafael Márquez</div></div></div>
+    <div class="kf-stake">Retained WBC super-bantamweight title</div><div class="kf-venue">MGM Grand Marquee Ballroom, Paradise, U.S.</div><div class="kf-why">Win in Las Vegas over the legendary Mexican Rafael Márquez</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=A2Mee5s__kE" target="_blank" rel="noopener" data-vid="A2Mee5s__kE" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">Oct 13</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/nonito-donaire">Nonito Donaire</a></div><div class="kf-res">Loss <span>TKO, round 9 of 12</span></div>
-    <div class="kf-stake">For WBO and vacant The Ring super-bantamweight titles</div><div class="kf-venue">Home Depot Center, Carson, U.S.</div><div class="kf-why">Last fight of his career: a unification fight with Donaire, stopped in round 9</div></div></div>
+    <div class="kf-stake">For WBO and vacant The Ring super-bantamweight titles</div><div class="kf-venue">Home Depot Center, Carson, U.S.</div><div class="kf-why">Last fight of his career: a unification fight with Donaire, stopped in round 9</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=QEPhJ88k1LY" target="_blank" rel="noopener" data-vid="QEPhJ88k1LY" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Show all 12 fights ▾</span><span class="kf-h">Hide ▴</span></button>
 </div>
 
@@ -269,5 +278,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

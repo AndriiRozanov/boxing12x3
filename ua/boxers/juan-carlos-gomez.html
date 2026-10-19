@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -220,13 +229,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Здобув вакантний титул WBC International у важкій вазі</div><div class="kf-venue">Zoological Garden, Франкфурт, Німеччина</div><div class="kf-why">Перший значущий титул</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1998</div><div class="kf-day">21.02</div></div>
     <div><div class="kf-opp">Марсело Домінгес</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Здобув титул WBC у важкій вазі</div><div class="kf-venue">Polideportivo Islas Malvinas, Мар-дель-Плата, Аргентина</div><div class="kf-why">Світовий титул, перемога в Аргентині на території суперника</div></div></div>
+    <div class="kf-stake">Здобув титул WBC у важкій вазі</div><div class="kf-venue">Polideportivo Islas Malvinas, Мар-дель-Плата, Аргентина</div><div class="kf-why">Світовий титул, перемога в Аргентині на території суперника</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=Mz-FgsU8was" target="_blank" rel="noopener" data-vid="Mz-FgsU8was" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1999</div><div class="kf-day">13.03</div></div>
     <div><div class="kf-opp">Марсело Домінгес</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Захистив титул WBC у важкій вазі</div><div class="kf-venue">Hansehalle, Любек, Німеччина</div><div class="kf-why">Реванш і захист титулу</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2004</div><div class="kf-day">13.08</div></div>
     <div><div class="kf-opp">Янкі Діас</div><div class="kf-res">Поразка <span>TKO, раунд 1 з 8</span></div>
-    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Entertainment Center, Ларедо, США</div><div class="kf-why">Перша поразка в кар'єрі</div></div></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Entertainment Center, Ларедо, США</div><div class="kf-why">Перша поразка в кар'єрі</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=xcfN_3TuAZ0" target="_blank" rel="noopener" data-vid="xcfN_3TuAZ0" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#888"><div class="kf-date"><div class="kf-year">2005</div><div class="kf-day">15.10</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/oliver-mccall">Олівер Маккол</a></div><div class="kf-res">Без результату, <span>10 раундів</span></div>
     <div class="kf-stake">Бій без титулу; спочатку перемога Гомеса одностайним рішенням, пізніше бій визнано таким, що не відбувся, після допінг-тесту</div><div class="kf-venue">Burg-Wächter Castello, Дюссельдорф, Німеччина</div><div class="kf-why">Бій визнано таким, що не відбувся, після провального допінг-тесту</div></div></div>
@@ -235,10 +244,10 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Здобув титул WBC International у надважкій вазі</div><div class="kf-venue">Estrel Hotel, Берлін, Німеччина</div><div class="kf-why">Реванш з Макколлом, титул у надважкій вазі</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2009</div><div class="kf-day">21.03</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/vitali-klitschko">Віталій Кличко</a></div><div class="kf-res">Поразка <span>TKO, раунд 9 з 12</span></div>
-    <div class="kf-stake">Бій за титул WBC у надважкій вазі</div><div class="kf-venue">Hanns-Martin-Schleyer-Halle, Штутгарт, Німеччина</div><div class="kf-why">Єдина титульна спроба в надважкій вазі, зупинка у 9-му раунді</div></div></div>
+    <div class="kf-stake">Бій за титул WBC у надважкій вазі</div><div class="kf-venue">Hanns-Martin-Schleyer-Halle, Штутгарт, Німеччина</div><div class="kf-why">Єдина титульна спроба в надважкій вазі, зупинка у 9-му раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=EV9vm3ofB-M" target="_blank" rel="noopener" data-vid="EV9vm3ofB-M" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2014</div><div class="kf-day">28.11</div></div>
     <div><div class="kf-opp">Дмітрій Кудряшов</div><div class="kf-res">Поразка <span>KO, раунд 1 з 10</span></div>
-    <div class="kf-stake">Втратив титул WBA International у важкій вазі</div><div class="kf-venue">Luzhniki Stadium, Москва, Росія</div><div class="kf-why">Останній бій у кар'єрі, нокаут за 22 секунди</div></div></div>
+    <div class="kf-stake">Втратив титул WBA International у важкій вазі</div><div class="kf-venue">Luzhniki Stadium, Москва, Росія</div><div class="kf-why">Останній бій у кар'єрі, нокаут за 22 секунди</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=1JT549_xL3Y" target="_blank" rel="noopener" data-vid="1JT549_xL3Y" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Показати всі 8 боїв ▾</span><span class="kf-h">Сховати ▴</span></button>
 </div>
 
@@ -266,5 +275,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

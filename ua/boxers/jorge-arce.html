@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -252,19 +261,19 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Бій за титул WBC у другій найлегшій вазі</div><div class="kf-venue">Alamodome, Сан-Антоніо, США</div><div class="kf-why">Титульна спроба у вазі вище</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2009</div><div class="kf-day">07.02</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/vic-darchinyan">Вік Дарчинян</a></div><div class="kf-res">Поразка <span>RTD, раунд 11 з 12</span></div>
-    <div class="kf-stake">Бій за титули WBA (Super), WBC і IBF у другій найлегшій вазі</div><div class="kf-venue">Honda Center, Анагайм, США</div><div class="kf-why">Бій за три титули проти Дарчиняна</div></div></div>
+    <div class="kf-stake">Бій за титули WBA (Super), WBC і IBF у другій найлегшій вазі</div><div class="kf-venue">Honda Center, Анагайм, США</div><div class="kf-why">Бій за три титули проти Дарчиняна</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=TspHd-KbBAc" target="_blank" rel="noopener" data-vid="TspHd-KbBAc" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2010</div><div class="kf-day">30.01</div></div>
     <div><div class="kf-opp">Енкі Енкотта</div><div class="kf-res">Перемога <span>TD, раунд 7 з 12</span></div>
     <div class="kf-stake">Здобув вакантний титул WBO у другій найлегшій вазі</div><div class="kf-venue">Restaurante Arroyo, Мехіко, Мексика</div><div class="kf-why">Титул WBO в наступній вазі, технічне рішення після випадкового зіткнення головами</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">07.05</div></div>
     <div><div class="kf-opp">Вілфредо Васкес-молодший</div><div class="kf-res">Перемога <span>TKO, раунд 12 з 12</span></div>
-    <div class="kf-stake">Здобув титул WBO у другій легшій вазі</div><div class="kf-venue">MGM Grand Garden Arena, Парадайз, США</div><div class="kf-why">Титул у ще вищій вазі, технічний нокаут в останньому раунді</div></div></div>
+    <div class="kf-stake">Здобув титул WBO у другій легшій вазі</div><div class="kf-venue">MGM Grand Garden Arena, Парадайз, США</div><div class="kf-why">Титул у ще вищій вазі, технічний нокаут в останньому раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=GoYbKcBGj8U" target="_blank" rel="noopener" data-vid="GoYbKcBGj8U" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">26.11</div></div>
     <div><div class="kf-opp">Енкі Енкотта</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Здобув вакантний титул WBO у легшій вазі</div><div class="kf-venue">Plaza de Toros Rea, Масатлан, Мексика</div><div class="kf-why">Ще один титул WBO, у п'ятій ваговій категорії</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">15.12</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/nonito-donaire">Ноніто Донейр</a></div><div class="kf-res">Поразка <span>TKO, раунд 3 з 12</span></div>
-    <div class="kf-stake">Бій за титули WBO і The Ring у другій легшій вазі</div><div class="kf-venue">Toyota Center, Г'юстон, США</div><div class="kf-why">Бій за два титули проти Донейра, зупинка у 3-му раунді</div></div></div>
+    <div class="kf-stake">Бій за титули WBO і The Ring у другій легшій вазі</div><div class="kf-venue">Toyota Center, Г'юстон, США</div><div class="kf-why">Бій за два титули проти Донейра, зупинка у 3-му раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=STZAs8zy_KQ" target="_blank" rel="noopener" data-vid="STZAs8zy_KQ" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2014</div><div class="kf-day">04.10</div></div>
     <div><div class="kf-opp">Джонні Гонсалес</div><div class="kf-res">Поразка <span>TKO, раунд 11 з 12</span></div>
     <div class="kf-stake">Бій за титул WBC у напівлегкій вазі</div><div class="kf-venue">Gimnasio Polifuncional, Лос-Мочис, Мексика</div><div class="kf-why">Спроба взяти титул у шостій ваговій категорії, останній бій у кар'єрі</div></div></div>
@@ -295,5 +304,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

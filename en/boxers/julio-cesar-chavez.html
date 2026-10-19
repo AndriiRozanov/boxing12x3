@@ -129,6 +129,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -224,7 +233,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   <div class="section-lbl">Key fights</div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1984</div><div class="kf-day">Sep 13</div></div>
     <div><div class="kf-opp">Mario Martínez</div><div class="kf-res">Win <span>TKO, round 8 of 12</span></div>
-    <div class="kf-stake">Won vacant WBC super-featherweight title</div><div class="kf-venue">Grand Olympic Auditorium, Los Angeles, U.S.</div><div class="kf-why">First world title</div></div></div>
+    <div class="kf-stake">Won vacant WBC super-featherweight title</div><div class="kf-venue">Grand Olympic Auditorium, Los Angeles, U.S.</div><div class="kf-why">First world title</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=UBizjJIPjjQ" target="_blank" rel="noopener" data-vid="UBizjJIPjjQ" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1985</div><div class="kf-day">Jul 7</div></div>
     <div><div class="kf-opp">Roger Mayweather</div><div class="kf-res">Win <span>TKO, round 2 of 12</span></div>
     <div class="kf-stake">Retained WBC super-featherweight title</div><div class="kf-venue">Riviera, Winchester, U.S.</div><div class="kf-why">Defence against Roger Mayweather</div></div></div>
@@ -245,16 +254,16 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Won WBC light-welterweight title</div><div class="kf-venue">Great Western Forum, Inglewood, U.S.</div><div class="kf-why">Title in a third weight class</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1990</div><div class="kf-day">Mar 17</div></div>
     <div><div class="kf-opp">Meldrick Taylor</div><div class="kf-res">Win <span>TKO, round 12 of 12</span></div>
-    <div class="kf-stake">Won IBF light-welterweight title; defended WBC title</div><div class="kf-venue">Las Vegas Hilton, Winchester, U.S.</div><div class="kf-why">"Triumph and Tragedy": stopped two seconds before the final bell with Taylor ahead on points</div></div></div>
+    <div class="kf-stake">Won IBF light-welterweight title; defended WBC title</div><div class="kf-venue">Las Vegas Hilton, Winchester, U.S.</div><div class="kf-why">"Triumph and Tragedy": stopped two seconds before the final bell with Taylor ahead on points</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=LQYscDiQUS8" target="_blank" rel="noopener" data-vid="LQYscDiQUS8" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1992</div><div class="kf-day">Sep 12</div></div>
     <div><div class="kf-opp">Héctor Camacho</div><div class="kf-res">Win <span>UD, 12 rounds</span></div>
     <div class="kf-stake">Defended WBC light-welterweight title</div><div class="kf-venue">Thomas &amp; Mack Center, Paradise, U.S.</div><div class="kf-why">A win over Camacho</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1993</div><div class="kf-day">Feb 20</div></div>
     <div><div class="kf-opp">Greg Haugen</div><div class="kf-res">Win <span>TKO, round 5 of 12</span></div>
-    <div class="kf-stake">Defended WBC light-welterweight title</div><div class="kf-venue">Estadio Azteca, Mexico City, Mexico</div><div class="kf-why">One of the best-attended fights in history, over 130,000 spectators</div></div></div>
+    <div class="kf-stake">Defended WBC light-welterweight title</div><div class="kf-venue">Estadio Azteca, Mexico City, Mexico</div><div class="kf-why">One of the best-attended fights in history, over 130,000 spectators</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=9ioYXSX5XMI" target="_blank" rel="noopener" data-vid="9ioYXSX5XMI" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#5c6bc0"><div class="kf-date"><div class="kf-year">1993</div><div class="kf-day">Sep 10</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/pernell-whitaker">Pernell Whitaker</a></div><div class="kf-res">Draw <span>MD, 12 rounds</span></div>
-    <div class="kf-stake">Title bid for WBC welterweight title</div><div class="kf-venue">Alamodome, San Antonio, U.S.</div><div class="kf-why">A fight between the two best of the time; a draw still seen as controversial</div></div></div>
+    <div class="kf-stake">Title bid for WBC welterweight title</div><div class="kf-venue">Alamodome, San Antonio, U.S.</div><div class="kf-why">A fight between the two best of the time; a draw still seen as controversial</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=Dqe3X0qB_aw" target="_blank" rel="noopener" data-vid="Dqe3X0qB_aw" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1994</div><div class="kf-day">Jan 29</div></div>
     <div><div class="kf-opp">Frankie Randall</div><div class="kf-res">Loss <span>SD, 12 rounds</span></div>
     <div class="kf-stake">Lost WBC light-welterweight title</div><div class="kf-venue">MGM Grand Garden Arena, Paradise, U.S.</div><div class="kf-why">First defeat of his career after 90 fights unbeaten</div></div></div>
@@ -263,7 +272,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Regained WBC light-welterweight title</div><div class="kf-venue">MGM Grand Garden Arena, Paradise, U.S.</div><div class="kf-why">Rematch, regained the title by technical decision</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1996</div><div class="kf-day">Jun 7</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/oscar-de-la-hoya">Oscar De La Hoya</a></div><div class="kf-res">Loss <span>TKO, round 4 of 12</span></div>
-    <div class="kf-stake">Lost WBC light-welterweight title</div><div class="kf-venue">Caesars Palace, Paradise, U.S.</div><div class="kf-why">Lost the title to a young Oscar De La Hoya</div></div></div>
+    <div class="kf-stake">Lost WBC light-welterweight title</div><div class="kf-venue">Caesars Palace, Paradise, U.S.</div><div class="kf-why">Lost the title to a young Oscar De La Hoya</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=Rqn4HukOhM8" target="_blank" rel="noopener" data-vid="Rqn4HukOhM8" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1998</div><div class="kf-day">Sep 18</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/oscar-de-la-hoya">Oscar De La Hoya</a></div><div class="kf-res">Loss <span>RTD, round 8 of 12</span></div>
     <div class="kf-stake">Title bid for WBC welterweight title</div><div class="kf-venue">Thomas &amp; Mack Center, Paradise, U.S.</div><div class="kf-why">Rematch with De La Hoya, a second defeat</div></div></div>
@@ -300,5 +309,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

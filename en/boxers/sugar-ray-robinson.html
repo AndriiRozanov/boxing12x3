@@ -131,6 +131,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -255,13 +264,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Retained NYSAC, NBA, and The Ring welterweight titles</div><div class="kf-venue">Philadelphia Municipal Stadium, Philadelphia, U.S.</div><div class="kf-why">Title defence against Gavilán</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1951</div><div class="kf-day">Feb 14</div></div>
     <div><div class="kf-opp">Jake LaMotta</div><div class="kf-res">Win <span>TKO, round 13 of 15</span></div>
-    <div class="kf-stake">Won NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Chicago Stadium, Chicago, U.S.</div><div class="kf-why">Sixth meeting with LaMotta: stopped him in round 13 and won the middleweight titles (the "St. Valentine's Day Massacre")</div></div></div>
+    <div class="kf-stake">Won NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Chicago Stadium, Chicago, U.S.</div><div class="kf-why">Sixth meeting with LaMotta: stopped him in round 13 and won the middleweight titles (the "St. Valentine's Day Massacre")</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=9eqz2pqI0g8" target="_blank" rel="noopener" data-vid="9eqz2pqI0g8" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#888"><div class="kf-date"><div class="kf-year">1951</div><div class="kf-day">Jun 24</div></div>
     <div><div class="kf-opp">Gerhard Hecht</div><div class="kf-res">No contest, <span>round 2 of 10</span></div>
     <div class="kf-stake">Non-title</div><div class="kf-venue">Waldbühne, Berlin, Germany</div><div class="kf-why">The fight in Berlin was declared a no contest</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1951</div><div class="kf-day">Jul 10</div></div>
     <div><div class="kf-opp">Randolph Turpin</div><div class="kf-res">Loss <span>PTS, 15 rounds</span></div>
-    <div class="kf-stake">Lost NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Earls Court Arena, London, England</div><div class="kf-why">Lost the middleweight title away in London</div></div></div>
+    <div class="kf-stake">Lost NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Earls Court Arena, London, England</div><div class="kf-why">Lost the middleweight title away in London</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=f-NqlMgaMus" target="_blank" rel="noopener" data-vid="f-NqlMgaMus" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1951</div><div class="kf-day">Sep 12</div></div>
     <div><div class="kf-opp">Randolph Turpin</div><div class="kf-res">Win <span>TKO, round 10 of 15</span></div>
     <div class="kf-stake">Won NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Polo Grounds, New York City, U.S.</div><div class="kf-why">Rematch in New York: won the titles back</div></div></div>
@@ -270,7 +279,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Retained NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Chicago Stadium, Chicago, U.S.</div><div class="kf-why">Title defence by knockout against Rocky Graziano</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1952</div><div class="kf-day">Jun 25</div></div>
     <div><div class="kf-opp">Joey Maxim</div><div class="kf-res">Loss <span>RTD, round 13 of 15</span></div>
-    <div class="kf-stake">For NYSAC, NBA, and The Ring light heavyweight titles</div><div class="kf-venue">Yankee Stadium, Bronx, U.S.</div><div class="kf-why">An unsuccessful attempt at the light heavyweight title: Robinson did not come out for round 14</div></div></div>
+    <div class="kf-stake">For NYSAC, NBA, and The Ring light heavyweight titles</div><div class="kf-venue">Yankee Stadium, Bronx, U.S.</div><div class="kf-why">An unsuccessful attempt at the light heavyweight title: Robinson did not come out for round 14</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=z6I9m3UW7vw" target="_blank" rel="noopener" data-vid="z6I9m3UW7vw" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1955</div><div class="kf-day">Dec 9</div></div>
     <div><div class="kf-opp">Bobo Olson</div><div class="kf-res">Win <span>KO, round 2 of 15</span></div>
     <div class="kf-stake">Won NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Chicago Stadium, Chicago, U.S.</div><div class="kf-why">Back after a break and a third reign as middleweight champion</div></div></div>
@@ -285,7 +294,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Lost NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Yankee Stadium, Bronx, U.S.</div><div class="kf-why">Lost the titles to Carmen Basilio: a split decision</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1958</div><div class="kf-day">Mar 25</div></div>
     <div><div class="kf-opp">Carmen Basilio</div><div class="kf-res">Win <span>SD, 15 rounds</span></div>
-    <div class="kf-stake">Won NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Chicago Stadium, Chicago, U.S.</div><div class="kf-why">Rematch: a fifth reign as middleweight champion</div></div></div>
+    <div class="kf-stake">Won NYSAC, NBA, and The Ring middleweight titles</div><div class="kf-venue">Chicago Stadium, Chicago, U.S.</div><div class="kf-why">Rematch: a fifth reign as middleweight champion</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=QvDCTmK0Naw" target="_blank" rel="noopener" data-vid="QvDCTmK0Naw" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1960</div><div class="kf-day">Jan 22</div></div>
     <div><div class="kf-opp">Paul Pender</div><div class="kf-res">Loss <span>SD, 15 rounds</span></div>
     <div class="kf-stake">Lost NYSAC and The Ring middleweight titles</div><div class="kf-venue">Boston Garden, Boston, U.S.</div><div class="kf-why">Lost the titles to Paul Pender</div></div></div>
@@ -328,5 +337,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

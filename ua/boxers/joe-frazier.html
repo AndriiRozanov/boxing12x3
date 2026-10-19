@@ -137,6 +137,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -230,7 +239,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   <div class="section-lbl">Важливі бої</div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1968</div><div class="kf-day">04.03</div></div>
     <div><div class="kf-opp">Бастер Метіс</div><div class="kf-res">Перемога <span>TKO, раунд 11 з 15</span></div>
-    <div class="kf-stake">Здобув вакантний титул NYSAC у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Перший титул, перемога над непереможеним Метісом</div></div></div>
+    <div class="kf-stake">Здобув вакантний титул NYSAC у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Перший титул, перемога над непереможеним Метісом</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=6zr13SgifZg" target="_blank" rel="noopener" data-vid="6zr13SgifZg" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1968</div><div class="kf-day">10.12</div></div>
     <div><div class="kf-opp">Оскар Бонавена</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
     <div class="kf-stake">Захистив титул NYSAC у надважкій вазі</div><div class="kf-venue">Spectrum, Філадельфія, США</div><div class="kf-why">Складний захист проти Бонавени</div></div></div>
@@ -239,16 +248,16 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титул NYSAC у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Захист проти Куаррі</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1970</div><div class="kf-day">16.02</div></div>
     <div><div class="kf-opp">Джиммі Елліс</div><div class="kf-res">Перемога <span>RTD, раунд 4 з 15</span></div>
-    <div class="kf-stake">Захистив титул NYSAC; здобув титули WBA і вакантний титул WBC у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Об'єднання титулів у надважкій вазі</div></div></div>
+    <div class="kf-stake">Захистив титул NYSAC; здобув титули WBA і вакантний титул WBC у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Об'єднання титулів у надважкій вазі</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=V2dL5gOg3xg" target="_blank" rel="noopener" data-vid="V2dL5gOg3xg" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1970</div><div class="kf-day">18.11</div></div>
     <div><div class="kf-opp">Боб Фостер</div><div class="kf-res">Перемога <span>KO, раунд 2 з 15</span></div>
     <div class="kf-stake">Захистив титули WBA, WBC і The Ring у надважкій вазі</div><div class="kf-venue">Cobo Arena, Детройт, США</div><div class="kf-why">Нокаут чемпіона напівважкої ваги Боба Фостера</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1971</div><div class="kf-day">08.03</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/muhammad-ali">Мухаммед Алі</a></div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
-    <div class="kf-stake">Захистив титули WBA, WBC і The Ring у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">«Бій століття»: перша частина трилогії, перша поразка Алі</div></div></div>
+    <div class="kf-stake">Захистив титули WBA, WBC і The Ring у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">«Бій століття»: перша частина трилогії, перша поразка Алі</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=Ifs2UWxJb9o" target="_blank" rel="noopener" data-vid="Ifs2UWxJb9o" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1973</div><div class="kf-day">22.01</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/george-foreman">Джордж Форман</a></div><div class="kf-res">Поразка <span>TKO, раунд 2 з 15</span></div>
-    <div class="kf-stake">Втратив титули WBA, WBC і The Ring у надважкій вазі</div><div class="kf-venue">National Stadium, Кінгстон, Ямайка</div><div class="kf-why">Втрата титулів, шість нокдаунів за два раунди</div></div></div>
+    <div class="kf-stake">Втратив титули WBA, WBC і The Ring у надважкій вазі</div><div class="kf-venue">National Stadium, Кінгстон, Ямайка</div><div class="kf-why">Втрата титулів, шість нокдаунів за два раунди</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=XCBE5tmnRb0" target="_blank" rel="noopener" data-vid="XCBE5tmnRb0" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1973</div><div class="kf-day">02.07</div></div>
     <div><div class="kf-opp">Джо Бугнер</div><div class="kf-res">Перемога <span>PTS, 12 раундів</span></div>
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Earls Court Exhibition Centre, Лондон, Англія</div><div class="kf-why">Перемога над британцем Бугнером після втрати титулів</div></div></div>
@@ -263,7 +272,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Junction Oval, Мельбурн, Австралія</div><div class="kf-why">Бій в Австралії перед третім боєм з Алі</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1975</div><div class="kf-day">01.10</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/muhammad-ali">Мухаммед Алі</a></div><div class="kf-res">Поразка <span>RTD, раунд 14 з 15</span></div>
-    <div class="kf-stake">Бій за титули WBA, WBC і The Ring у надважкій вазі</div><div class="kf-venue">Philippine Coliseum, Кесон-Сіті, Філіппіни</div><div class="kf-why">«Трилер у Манілі»: один з найвідоміших боїв в історії, Фрейзер не вийшов на 15-й раунд</div></div></div>
+    <div class="kf-stake">Бій за титули WBA, WBC і The Ring у надважкій вазі</div><div class="kf-venue">Philippine Coliseum, Кесон-Сіті, Філіппіни</div><div class="kf-why">«Трилер у Манілі»: один з найвідоміших боїв в історії, Фрейзер не вийшов на 15-й раунд</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=oNEfN2R4oRc" target="_blank" rel="noopener" data-vid="oNEfN2R4oRc" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1976</div><div class="kf-day">15.06</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/george-foreman">Джордж Форман</a></div><div class="kf-res">Поразка <span>TKO, раунд 5 з 12</span></div>
     <div class="kf-stake">Бій за титул NABF у надважкій вазі</div><div class="kf-venue">Nassau Veterans Memorial Coliseum, Гемпстед, США</div><div class="kf-why">Реванш з Форманом, поразка технічним нокаутом</div></div></div>
@@ -295,5 +304,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

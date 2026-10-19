@@ -134,6 +134,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -217,25 +226,25 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   <div class="section-lbl">Важливі бої</div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2017</div><div class="kf-day">27.05</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/kell-brook">Келл Брук</a></div><div class="kf-res">Перемога <span>KO, раунд 11 з 12</span></div>
-    <div class="kf-stake">Здобув титул IBF у напівсередній вазі</div><div class="kf-venue">Bramall Lane, Шеффілд, Англія</div><div class="kf-why">Перший світовий титул, перемога в Англії</div></div></div>
+    <div class="kf-stake">Здобув титул IBF у напівсередній вазі</div><div class="kf-venue">Bramall Lane, Шеффілд, Англія</div><div class="kf-why">Перший світовий титул, перемога в Англії</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=qyHnCwJuutM" target="_blank" rel="noopener" data-vid="qyHnCwJuutM" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2019</div><div class="kf-day">16.03</div></div>
     <div><div class="kf-opp">Мікі Гарсія</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Захистив титул IBF у напівсередній вазі</div><div class="kf-venue">AT&amp;T Stadium, Арлінгтон, США</div><div class="kf-why">Захист титулу на домашньому стадіоні проти Мікі Гарсії</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2019</div><div class="kf-day">28.09</div></div>
     <div><div class="kf-opp">Шон Портер</div><div class="kf-res">Перемога <span>SD, 12 раундів</span></div>
-    <div class="kf-stake">Захистив титул IBF; здобув титул WBC у напівсередній вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Об'єднання титулів IBF та WBC</div></div></div>
+    <div class="kf-stake">Захистив титул IBF; здобув титул WBC у напівсередній вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Об'єднання титулів IBF та WBC</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=nG--vXJd0S4" target="_blank" rel="noopener" data-vid="nG--vXJd0S4" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2020</div><div class="kf-day">05.12</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/danny-garcia">Денні Гарсія</a></div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Захистив титули WBC та IBF у напівсередній вазі</div><div class="kf-venue">AT&amp;T Stadium, Арлінгтон, США</div><div class="kf-why">Захист титулів проти Гарсії</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2022</div><div class="kf-day">16.04</div></div>
     <div><div class="kf-opp">Йорденіс Угас</div><div class="kf-res">Перемога <span>TKO, раунд 10 з 12</span></div>
-    <div class="kf-stake">Захистив титули WBC та IBF; здобув титул WBA (Super) у напівсередній вазі</div><div class="kf-venue">AT&amp;T Stadium, Арлінгтон, США</div><div class="kf-why">Об'єднання трьох титулів</div></div></div>
+    <div class="kf-stake">Захистив титули WBC та IBF; здобув титул WBA (Super) у напівсередній вазі</div><div class="kf-venue">AT&amp;T Stadium, Арлінгтон, США</div><div class="kf-why">Об'єднання трьох титулів</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=Uq0D54AptIk" target="_blank" rel="noopener" data-vid="Uq0D54AptIk" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2023</div><div class="kf-day">29.07</div></div>
     <div><div class="kf-opp">Теренс Кроуфорд</div><div class="kf-res">Поразка <span>TKO, раунд 9 з 12</span></div>
-    <div class="kf-stake">Втратив титули WBA (Super), WBC та IBF; бій за титул WBO і вакантний титул The Ring у напівсередній вазі</div><div class="kf-venue">T-Mobile Arena, Парадайз, США</div><div class="kf-why">Бій за абсолютне чемпіонство, перша поразка в кар'єрі</div></div></div>
+    <div class="kf-stake">Втратив титули WBA (Super), WBC та IBF; бій за титул WBO і вакантний титул The Ring у напівсередній вазі</div><div class="kf-venue">T-Mobile Arena, Парадайз, США</div><div class="kf-why">Бій за абсолютне чемпіонство, перша поразка в кар'єрі</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=MVxYTFkXa6A" target="_blank" rel="noopener" data-vid="MVxYTFkXa6A" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2026</div><div class="kf-day">26.07</div></div>
     <div><div class="kf-opp">Тім Цзю</div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Afterpay Arena, Сідней, Австралія</div><div class="kf-why">Поразка Цзю</div></div></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Afterpay Arena, Сідней, Австралія</div><div class="kf-why">Поразка Цзю</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=Ol7lXEdc2Rg" target="_blank" rel="noopener" data-vid="Ol7lXEdc2Rg" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Показати всі 7 боїв ▾</span><span class="kf-h">Сховати ▴</span></button>
 </div>
 
@@ -263,5 +272,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

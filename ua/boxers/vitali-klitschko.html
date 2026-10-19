@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -219,10 +228,10 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   <div class="section-lbl">Важливі бої</div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1999</div><div class="kf-day">26.06</div></div>
     <div><div class="kf-opp">Хербі Хайд</div><div class="kf-res">Перемога <span>KO, раунд 2 з 12</span></div>
-    <div class="kf-stake">Здобув титул WBO у надважкій вазі</div><div class="kf-venue">London Arena, Лондон, Англія</div><div class="kf-why">Став чемпіоном світу WBO, нокаутувавши Хербі Хайда у 2-му раунді</div></div></div>
+    <div class="kf-stake">Здобув титул WBO у надважкій вазі</div><div class="kf-venue">London Arena, Лондон, Англія</div><div class="kf-why">Став чемпіоном світу WBO, нокаутувавши Хербі Хайда у 2-му раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=bwSNqxJ87z0" target="_blank" rel="noopener" data-vid="bwSNqxJ87z0" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2000</div><div class="kf-day">01.04</div></div>
     <div><div class="kf-opp">Кріс Берд</div><div class="kf-res">Поразка <span>RTD, раунд 9 з 12</span></div>
-    <div class="kf-stake">Втратив титул WBO у надважкій вазі</div><div class="kf-venue">Estrel Hotel, Берлін, Німеччина</div><div class="kf-why">Перша поразка в кар'єрі: Віталій не вийшов на 10-й раунд через травму плеча</div></div></div>
+    <div class="kf-stake">Втратив титул WBO у надважкій вазі</div><div class="kf-venue">Estrel Hotel, Берлін, Німеччина</div><div class="kf-why">Перша поразка в кар'єрі: Віталій не вийшов на 10-й раунд через травму плеча</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=knoCJMgL3KU" target="_blank" rel="noopener" data-vid="knoCJMgL3KU" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2000</div><div class="kf-day">25.11</div></div>
     <div><div class="kf-opp">Тімо Гоффман</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Здобув вакантний титул чемпіона Європи у надважкій вазі</div><div class="kf-venue">Preussag Arena, Ганновер, Німеччина</div><div class="kf-why">Перший титул після втрати WBO</div></div></div>
@@ -231,16 +240,16 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Здобув вакантний титул WBA Inter-Continental у надважкій вазі</div><div class="kf-venue">Rudi-Sedlmayer-Halle, Мюнхен, Німеччина</div><div class="kf-why">Нокаут у 1-му раунді</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2003</div><div class="kf-day">21.06</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/lennox-lewis">Леннокс Льюїс</a></div><div class="kf-res">Поразка <span>RTD, раунд 6 з 12</span></div>
-    <div class="kf-stake">Бій за титули WBC, IBO і The Ring у надважкій вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Бій із Ленноксом Льюїсом за три титули: Віталій не вийшов на 7-й раунд через розсічення</div></div></div>
+    <div class="kf-stake">Бій за титули WBC, IBO і The Ring у надважкій вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Бій із Ленноксом Льюїсом за три титули: Віталій не вийшов на 7-й раунд через розсічення</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=Nb3j7oSJttI" target="_blank" rel="noopener" data-vid="Nb3j7oSJttI" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2004</div><div class="kf-day">24.04</div></div>
     <div><div class="kf-opp">Коррі Сандерс</div><div class="kf-res">Перемога <span>TKO, раунд 8 з 12</span></div>
-    <div class="kf-stake">Здобув вакантні титули WBC і The Ring у надважкій вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Чемпіонські пояси WBC і The Ring</div></div></div>
+    <div class="kf-stake">Здобув вакантні титули WBC і The Ring у надважкій вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Чемпіонські пояси WBC і The Ring</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=3D3OLLWLzT8" target="_blank" rel="noopener" data-vid="3D3OLLWLzT8" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2004</div><div class="kf-day">11.12</div></div>
     <div><div class="kf-opp">Денні Вільямс</div><div class="kf-res">Перемога <span>TKO, раунд 8 з 12</span></div>
     <div class="kf-stake">Захистив титули WBC і The Ring у надважкій вазі</div><div class="kf-venue">Mandalay Bay Events Center, Парадайз, США</div><div class="kf-why">Останній бій перед довгою перервою</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">11.10</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/samuel-peter">Семюел Пітер</a></div><div class="kf-res">Перемога <span>RTD, раунд 8 з 12</span></div>
-    <div class="kf-stake">Здобув титул WBC у надважкій вазі</div><div class="kf-venue">O2 World, Берлін, Німеччина</div><div class="kf-why">Повернення на ринг після чотирьох років і новий титул WBC</div></div></div>
+    <div class="kf-stake">Здобув титул WBC у надважкій вазі</div><div class="kf-venue">O2 World, Берлін, Німеччина</div><div class="kf-why">Повернення на ринг після чотирьох років і новий титул WBC</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=F_1dEg64Pjo" target="_blank" rel="noopener" data-vid="F_1dEg64Pjo" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2009</div><div class="kf-day">21.03</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/juan-carlos-gomez">Хуан Карлос Гомес</a></div><div class="kf-res">Перемога <span>TKO, раунд 9 з 12</span></div>
     <div class="kf-stake">Захистив титул WBC у надважкій вазі</div><div class="kf-venue">Hanns-Martin-Schleyer-Halle, Штутгарт, Німеччина</div><div class="kf-why">Захист титулу WBC</div></div></div>
@@ -284,5 +293,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

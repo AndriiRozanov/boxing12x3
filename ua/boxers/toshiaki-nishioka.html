@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -223,7 +232,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Korakuen Hall, Токіо, Японія</div><div class="kf-why">Перша поразка в кар'єрі, у другому бою</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2000</div><div class="kf-day">25.06</div></div>
     <div><div class="kf-opp">Вірапол Сахапром</div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Бій за титул WBC у легшій вазі</div><div class="kf-venue">City gymnasium, Такасаго, Японія</div><div class="kf-why">Перша титульна спроба у серії з чотирьох боїв проти Віраполя Сахапрома</div></div></div>
+    <div class="kf-stake">Бій за титул WBC у легшій вазі</div><div class="kf-venue">City gymnasium, Такасаго, Японія</div><div class="kf-why">Перша титульна спроба у серії з чотирьох боїв проти Віраполя Сахапрома</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=HzzzVcZdTf0" target="_blank" rel="noopener" data-vid="HzzzVcZdTf0" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#5c6bc0"><div class="kf-date"><div class="kf-year">2001</div><div class="kf-day">01.09</div></div>
     <div><div class="kf-opp">Вірапол Сахапром</div><div class="kf-res">Нічия <span>SD, 12 раундів</span></div>
     <div class="kf-stake">Бій за титул WBC у легшій вазі</div><div class="kf-venue">Yokohama Arena, Йокогама, Японія</div><div class="kf-why">Нічия в другому титульному бою з Сахапромом</div></div></div>
@@ -232,7 +241,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Бій за титул WBC у легшій вазі</div><div class="kf-venue">Ryōgoku Kokugikan, Токіо, Японія</div><div class="kf-why">Друга нічия поспіль із Сахапромом</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2004</div><div class="kf-day">06.03</div></div>
     <div><div class="kf-opp">Вірапол Сахапром</div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Бій за титул WBC у легшій вазі</div><div class="kf-venue">Super Arena, Сайтама, Японія</div><div class="kf-why">Четвертий і останній бій із Сахапромом: поразка одностайним рішенням</div></div></div>
+    <div class="kf-stake">Бій за титул WBC у легшій вазі</div><div class="kf-venue">Super Arena, Сайтама, Японія</div><div class="kf-why">Четвертий і останній бій із Сахапромом: поразка одностайним рішенням</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=fnpjgFXbMKY" target="_blank" rel="noopener" data-vid="fnpjgFXbMKY" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">15.09</div></div>
     <div><div class="kf-opp">Напапол Кіатісакчокчай</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Здобув титул WBC Interim у другій легшій вазі</div><div class="kf-venue">Pacifico, Йокогама, Японія</div><div class="kf-why">Новий старт у другій ваговій категорії та перший титул</div></div></div>
@@ -247,10 +256,10 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титул WBC у другій легшій вазі</div><div class="kf-venue">World Memorial Hall, Кобе, Японія</div><div class="kf-why">Захист титулу нокаутом</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">01.10</div></div>
     <div><div class="kf-opp">Рафаель Маркес</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Захистив титул WBC у другій легшій вазі</div><div class="kf-venue">MGM Grand Marquee Ballroom, Парадайз, США</div><div class="kf-why">Перемога в Лас-Вегасі над легендарним мексиканцем Рафаелем Маркесом</div></div></div>
+    <div class="kf-stake">Захистив титул WBC у другій легшій вазі</div><div class="kf-venue">MGM Grand Marquee Ballroom, Парадайз, США</div><div class="kf-why">Перемога в Лас-Вегасі над легендарним мексиканцем Рафаелем Маркесом</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=A2Mee5s__kE" target="_blank" rel="noopener" data-vid="A2Mee5s__kE" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">13.10</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/nonito-donaire">Ноніто Донейр</a></div><div class="kf-res">Поразка <span>TKO, раунд 9 з 12</span></div>
-    <div class="kf-stake">Бій за титул WBO і вакантний титул The Ring у другій легшій вазі</div><div class="kf-venue">Home Depot Center, Карсон, США</div><div class="kf-why">Останній бій у кар'єрі: об'єднавчий бій із Донейром, зупинка в 9-му раунді</div></div></div>
+    <div class="kf-stake">Бій за титул WBO і вакантний титул The Ring у другій легшій вазі</div><div class="kf-venue">Home Depot Center, Карсон, США</div><div class="kf-why">Останній бій у кар'єрі: об'єднавчий бій із Донейром, зупинка в 9-му раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=QEPhJ88k1LY" target="_blank" rel="noopener" data-vid="QEPhJ88k1LY" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Показати всі 12 боїв ▾</span><span class="kf-h">Сховати ▴</span></button>
 </div>
 
@@ -276,5 +285,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

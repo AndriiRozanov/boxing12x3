@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -254,7 +263,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Arena, Мілуокі, США</div><div class="kf-why">Поразка Джонсону, одному з головних суперників</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1952</div><div class="kf-day">17.12</div></div>
     <div><div class="kf-opp">Джої Максім</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
-    <div class="kf-stake">Здобув титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Arena, Сент-Луїс, США</div><div class="kf-why">Світовий титул у 36 років після 15 років чекання</div></div></div>
+    <div class="kf-stake">Здобув титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Arena, Сент-Луїс, США</div><div class="kf-why">Світовий титул у 36 років після 15 років чекання</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=H6UKqBn1ysU" target="_blank" rel="noopener" data-vid="H6UKqBn1ysU" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1953</div><div class="kf-day">24.06</div></div>
     <div><div class="kf-opp">Джої Максім</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
     <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Огден, США</div><div class="kf-why">Реванш з Максімом</div></div></div>
@@ -272,13 +281,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Polo Grounds, Нью-Йорк, США</div><div class="kf-why">Захист проти колишнього чемпіона Олсона</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1955</div><div class="kf-day">21.09</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/rocky-marciano">Роккі Марчіано</a></div><div class="kf-res">Поразка <span>KO, раунд 9 з 15</span></div>
-    <div class="kf-stake">Бій за титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Yankee Stadium, Бронкс, США</div><div class="kf-why">Титульна спроба проти чемпіона Марчіано</div></div></div>
+    <div class="kf-stake">Бій за титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Yankee Stadium, Бронкс, США</div><div class="kf-why">Титульна спроба проти чемпіона Марчіано</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=k1xaQI6njJ0" target="_blank" rel="noopener" data-vid="k1xaQI6njJ0" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1956</div><div class="kf-day">30.11</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/floyd-patterson">Флойд Паттерсон</a></div><div class="kf-res">Поразка <span>KO, раунд 5 з 15</span></div>
-    <div class="kf-stake">Бій за вакантні титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Chicago Stadium, Чикаго, США</div><div class="kf-why">Бій за вакантний титул у надважкій вазі з Паттерсоном</div></div></div>
+    <div class="kf-stake">Бій за вакантні титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Chicago Stadium, Чикаго, США</div><div class="kf-why">Бій за вакантний титул у надважкій вазі з Паттерсоном</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=tiuEEfuAMao" target="_blank" rel="noopener" data-vid="tiuEEfuAMao" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1958</div><div class="kf-day">10.12</div></div>
     <div><div class="kf-opp">Івон Дюрель</div><div class="kf-res">Перемога <span>KO, раунд 11 з 15</span></div>
-    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Forum, Монреаль, Канада</div><div class="kf-why">Один з найвідоміших боїв Мура: у 1-му раунді тричі падав, але виграв нокаутом</div></div></div>
+    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Forum, Монреаль, Канада</div><div class="kf-why">Один з найвідоміших боїв Мура: у 1-му раунді тричі падав, але виграв нокаутом</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=RhQ-ZJ2Q1JU" target="_blank" rel="noopener" data-vid="RhQ-ZJ2Q1JU" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1959</div><div class="kf-day">12.08</div></div>
     <div><div class="kf-opp">Івон Дюрель</div><div class="kf-res">Перемога <span>KO, раунд 3 з 15</span></div>
     <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у напівважкій вазі</div><div class="kf-venue">Forum, Монреаль, Канада</div><div class="kf-why">Реванш з Дюреллем</div></div></div>
@@ -290,7 +299,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титули NYSAC і The Ring у напівважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Реванш і титульний захист</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1962</div><div class="kf-day">15.11</div></div>
     <div><div class="kf-opp">Кассіус Клей</div><div class="kf-res">Поразка <span>TKO, раунд 4 з 12</span></div>
-    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Sports Arena, Лос-Анджелес, США</div><div class="kf-why">Бій з молодим Кассіусом Клеєм (Мухаммедом Алі), який перед боєм пророкував нокаут у 4-му раунді</div></div></div>
+    <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Sports Arena, Лос-Анджелес, США</div><div class="kf-why">Бій з молодим Кассіусом Клеєм (Мухаммедом Алі), який перед боєм пророкував нокаут у 4-му раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=n2FCUm9K0yI" target="_blank" rel="noopener" data-vid="n2FCUm9K0yI" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1963</div><div class="kf-day">15.03</div></div>
     <div><div class="kf-opp">Майк Дібіас</div><div class="kf-res">Перемога <span>TKO, раунд 3 з 10</span></div>
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Madison Square Garden, Фінікс, США</div><div class="kf-why">Останній бій у кар'єрі</div></div></div>
@@ -319,5 +328,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

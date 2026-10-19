@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -220,10 +229,10 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Baluan Sholak Sports Palace, Алмати, Казахстан</div><div class="kf-why">Професійний дебют</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2005</div><div class="kf-day">24.09</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/wladimir-klitschko">Володимир Кличко</a></div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Втратив титул WBC-NABF; бій за вакантний титул WBO-NABO у надважкій вазі</div><div class="kf-venue">Boardwalk Hall, Атлантік-Сіті, США</div><div class="kf-why">Перша поразка в кар'єрі: Пітер двічі відправив Володимира Кличка в нокдаун, але програв за очками</div></div></div>
+    <div class="kf-stake">Втратив титул WBC-NABF; бій за вакантний титул WBO-NABO у надважкій вазі</div><div class="kf-venue">Boardwalk Hall, Атлантік-Сіті, США</div><div class="kf-why">Перша поразка в кар'єрі: Пітер двічі відправив Володимира Кличка в нокдаун, але програв за очками</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=2RYZ6fFgXos" target="_blank" rel="noopener" data-vid="2RYZ6fFgXos" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2006</div><div class="kf-day">02.09</div></div>
     <div><div class="kf-opp">Джеймс Тоні</div><div class="kf-res">Перемога <span>SD, 12 раундів</span></div>
-    <div class="kf-stake">Захистив титул NABF; здобув титул IBA у надважкій вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Перемога над Джеймсом Тоні розділеним рішенням</div></div></div>
+    <div class="kf-stake">Захистив титул NABF; здобув титул IBA у надважкій вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Перемога над Джеймсом Тоні розділеним рішенням</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=AOLPzqUX1xM" target="_blank" rel="noopener" data-vid="AOLPzqUX1xM" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2007</div><div class="kf-day">06.01</div></div>
     <div><div class="kf-opp">Джеймс Тоні</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Захистив титул WBC-NABF у надважкій вазі</div><div class="kf-venue">Hard Rock Live, Голлівуд, США</div><div class="kf-why">Реванш з Тоні, одностайна перемога</div></div></div>
@@ -232,16 +241,16 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Здобув вакантний титул WBC Interim у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Тимчасовий титул WBC</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">08.03</div></div>
     <div><div class="kf-opp">Олег Маскаєв</div><div class="kf-res">Перемога <span>TKO, раунд 6 з 12</span></div>
-    <div class="kf-stake">Здобув титул WBC у надважкій вазі</div><div class="kf-venue">Plaza de Toros, Канкун, Мексика</div><div class="kf-why">Став чемпіоном світу WBC, зупинивши Олега Маскаєва</div></div></div>
+    <div class="kf-stake">Здобув титул WBC у надважкій вазі</div><div class="kf-venue">Plaza de Toros, Канкун, Мексика</div><div class="kf-why">Став чемпіоном світу WBC, зупинивши Олега Маскаєва</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=QybMkprUv1Q" target="_blank" rel="noopener" data-vid="QybMkprUv1Q" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2008</div><div class="kf-day">11.10</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/vitali-klitschko">Віталій Кличко</a></div><div class="kf-res">Поразка <span>RTD, раунд 8 з 12</span></div>
-    <div class="kf-stake">Втратив титул WBC у надважкій вазі</div><div class="kf-venue">O2 World Arena, Берлін, Німеччина</div><div class="kf-why">Втрата титулу: Пітер відмовився продовжувати бій після 8-го раунду</div></div></div>
+    <div class="kf-stake">Втратив титул WBC у надважкій вазі</div><div class="kf-venue">O2 World Arena, Берлін, Німеччина</div><div class="kf-why">Втрата титулу: Пітер відмовився продовжувати бій після 8-го раунду</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=F_1dEg64Pjo" target="_blank" rel="noopener" data-vid="F_1dEg64Pjo" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2009</div><div class="kf-day">27.03</div></div>
     <div><div class="kf-opp">Едді Чемберс</div><div class="kf-res">Поразка <span>MD, 10 раундів</span></div>
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Nokia Theatre L.A. Live, Лос-Анджелес, США</div><div class="kf-why">Поразка більшістю голосів від Едді Чемберса</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2010</div><div class="kf-day">11.09</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/wladimir-klitschko">Володимир Кличко</a></div><div class="kf-res">Поразка <span>KO, раунд 10 з 12</span></div>
-    <div class="kf-stake">Бій за титули IBF, WBO, IBO і The Ring у надважкій вазі</div><div class="kf-venue">Commerzbank-Arena, Франкфурт, Німеччина</div><div class="kf-why">Нокаутна поразка в бою за пояси IBF, WBO, IBO та The Ring</div></div></div>
+    <div class="kf-stake">Бій за титули IBF, WBO, IBO і The Ring у надважкій вазі</div><div class="kf-venue">Commerzbank-Arena, Франкфурт, Німеччина</div><div class="kf-why">Нокаутна поразка в бою за пояси IBF, WBO, IBO та The Ring</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=rXhFHBK6SZM" target="_blank" rel="noopener" data-vid="rXhFHBK6SZM" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2011</div><div class="kf-day">02.04</div></div>
     <div><div class="kf-opp">Роберт Хеленіус</div><div class="kf-res">Поразка <span>KO, раунд 9 з 12</span></div>
     <div class="kf-stake">Бій за титул WBO Inter-Continental і вакантний титул WBA Inter-Continental у надважкій вазі</div><div class="kf-venue">Gerry Weber Stadium, Галле, Німеччина</div><div class="kf-why">Нокаутна поразка від Роберта Хеленіуса</div></div></div>
@@ -276,5 +285,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

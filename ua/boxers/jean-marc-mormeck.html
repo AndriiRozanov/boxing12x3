@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -227,22 +236,22 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титул WBA у важкій вазі</div><div class="kf-venue">Carnival City, Бракпан, Південно-Африканська Республіка</div><div class="kf-why">Реванш з Гіллом у Південній Африці</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2005</div><div class="kf-day">02.04</div></div>
     <div><div class="kf-opp">Вейн Брейтвейт</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Захистив титул WBA (Unified); здобув титул WBC і вакантний титул The Ring у важкій вазі</div><div class="kf-venue">DCU Center, Вустер, США</div><div class="kf-why">Об'єднання титулів WBA, WBC і The Ring</div></div></div>
+    <div class="kf-stake">Захистив титул WBA (Unified); здобув титул WBC і вакантний титул The Ring у важкій вазі</div><div class="kf-venue">DCU Center, Вустер, США</div><div class="kf-why">Об'єднання титулів WBA, WBC і The Ring</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=6p-J_KyFrEU" target="_blank" rel="noopener" data-vid="6p-J_KyFrEU" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2006</div><div class="kf-day">07.01</div></div>
     <div><div class="kf-opp">О'Ніл Белл</div><div class="kf-res">Поразка <span>KO, раунд 10 з 12</span></div>
-    <div class="kf-stake">Втратив титули WBA (Unified), WBC і The Ring; бій за титул IBF у важкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Об'єднавчий бій, втрата титулів нокаутом</div></div></div>
+    <div class="kf-stake">Втратив титули WBA (Unified), WBC і The Ring; бій за титул IBF у важкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Об'єднавчий бій, втрата титулів нокаутом</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=7eWc0hhmwaU" target="_blank" rel="noopener" data-vid="7eWc0hhmwaU" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2007</div><div class="kf-day">17.03</div></div>
     <div><div class="kf-opp">О'Ніл Белл</div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Здобув титули WBA (Unified), WBC і The Ring у важкій вазі</div><div class="kf-venue">Palais des sports Marcel-Cerdan, Левалуа-Перре, Франція</div><div class="kf-why">Реванш і повернення трьох титулів</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2007</div><div class="kf-day">10.11</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/david-haye">Девід Хей</a></div><div class="kf-res">Поразка <span>TKO, раунд 7 з 12</span></div>
-    <div class="kf-stake">Втратив титули WBA (Unified), WBC і The Ring у важкій вазі</div><div class="kf-venue">Palais des sports Marcel-Cerdan, Левалуа-Перре, Франція</div><div class="kf-why">Втрата титулів, зупинка в 7-му раунді</div></div></div>
+    <div class="kf-stake">Втратив титули WBA (Unified), WBC і The Ring у важкій вазі</div><div class="kf-venue">Palais des sports Marcel-Cerdan, Левалуа-Перре, Франція</div><div class="kf-why">Втрата титулів, зупинка в 7-му раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=wJ1hICzGR4o" target="_blank" rel="noopener" data-vid="wJ1hICzGR4o" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2010</div><div class="kf-day">02.12</div></div>
     <div><div class="kf-opp">Тимур Ібрагімов</div><div class="kf-res">Перемога <span>SD, 12 раундів</span></div>
     <div class="kf-stake">Здобув вакантний титул WBA International у надважкій вазі</div><div class="kf-venue">Halle Georges Carpentier, Париж, Франція</div><div class="kf-why">Перехід у надважку вагу</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">03.03</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/wladimir-klitschko">Володимир Кличко</a></div><div class="kf-res">Поразка <span>KO, раунд 4 з 12</span></div>
-    <div class="kf-stake">Бій за титули WBA (Super), IBF, WBO, IBO і The Ring у надважкій вазі</div><div class="kf-venue">Esprit Arena, Дюссельдорф, Німеччина</div><div class="kf-why">Титульна спроба проти Володимира Кличка</div></div></div>
+    <div class="kf-stake">Бій за титули WBA (Super), IBF, WBO, IBO і The Ring у надважкій вазі</div><div class="kf-venue">Esprit Arena, Дюссельдорф, Німеччина</div><div class="kf-why">Титульна спроба проти Володимира Кличка</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=N0jI_zUlZME" target="_blank" rel="noopener" data-vid="N0jI_zUlZME" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2014</div><div class="kf-day">05.12</div></div>
     <div><div class="kf-opp">Матеуш Мастернак</div><div class="kf-res">Поразка <span>MD, 10 раундів</span></div>
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Palais des sports Robert Charpentier, Ісі-ле-Муліно, Франція</div><div class="kf-why">Останній бій у кар'єрі</div></div></div>
@@ -273,5 +282,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

@@ -138,6 +138,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -235,19 +244,19 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Здобув вакантний титул WBA у першій середній вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Перший світовий титул</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1986</div><div class="kf-day">23.08</div></div>
     <div><div class="kf-opp">Джуліан Джексон</div><div class="kf-res">Перемога <span>TKO, раунд 2 з 15</span></div>
-    <div class="kf-stake">Захистив титул WBA у першій середній вазі</div><div class="kf-venue">Convention Center, Маямі-Біч, США</div><div class="kf-why">Захист титулу проти Джуліана Джексона, одного з найсильніших панчерів епохи</div></div></div>
+    <div class="kf-stake">Захистив титул WBA у першій середній вазі</div><div class="kf-venue">Convention Center, Маямі-Біч, США</div><div class="kf-why">Захист титулу проти Джуліана Джексона, одного з найсильніших панчерів епохи</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=GHz6XcWE4-E" target="_blank" rel="noopener" data-vid="GHz6XcWE4-E" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1987</div><div class="kf-day">19.04</div></div>
     <div><div class="kf-opp">Мілтон Маккрорі</div><div class="kf-res">Перемога <span>TKO, раунд 10 з 15</span></div>
     <div class="kf-stake">Захистив титул WBA у першій середній вазі</div><div class="kf-venue">Pointe Resort, Фінікс, США</div><div class="kf-why">Зупинка колишнього чемпіона WBC в 10-му раунді</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1987</div><div class="kf-day">18.07</div></div>
     <div><div class="kf-opp">Дональд Каррі</div><div class="kf-res">Перемога <span>KO, раунд 5 з 15</span></div>
-    <div class="kf-stake">Захистив титул WBA у першій середній вазі</div><div class="kf-venue">Caesars Palace, Парадайз, США</div><div class="kf-why">Нокаут Дональда Каррі, колишнього абсолютного чемпіона напівсередньої ваги</div></div></div>
+    <div class="kf-stake">Захистив титул WBA у першій середній вазі</div><div class="kf-venue">Caesars Palace, Парадайз, США</div><div class="kf-why">Нокаут Дональда Каррі, колишнього абсолютного чемпіона напівсередньої ваги</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=SxAP5J1D8pE" target="_blank" rel="noopener" data-vid="SxAP5J1D8pE" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1988</div><div class="kf-day">05.03</div></div>
     <div><div class="kf-opp">Самбу Каламбай</div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Бій за титул WBA у середній вазі</div><div class="kf-venue">Palazzo dello Sport, Пезаро, Італія</div><div class="kf-why">Перша поразка в кар'єрі: невдала спроба стати чемпіоном у середній вазі</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1989</div><div class="kf-day">10.05</div></div>
     <div><div class="kf-opp">Херол Грем</div><div class="kf-res">Перемога <span>SD, 12 раундів</span></div>
-    <div class="kf-stake">Здобув вакантний титул WBA у середній вазі</div><div class="kf-venue">Royal Albert Hall, Лондон, Англія</div><div class="kf-why">Титул у середній вазі, виграний розділеним рішенням на території британця</div></div></div>
+    <div class="kf-stake">Здобув вакантний титул WBA у середній вазі</div><div class="kf-venue">Royal Albert Hall, Лондон, Англія</div><div class="kf-why">Титул у середній вазі, виграний розділеним рішенням на території британця</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=v2t6rYySKR4" target="_blank" rel="noopener" data-vid="v2t6rYySKR4" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1990</div><div class="kf-day">14.04</div></div>
     <div><div class="kf-opp">Майкл Вотсон</div><div class="kf-res">Перемога <span>KO, раунд 11 з 12</span></div>
     <div class="kf-stake">Захистив титул WBA у середній вазі</div><div class="kf-venue">Royal Albert Hall, Лондон, Англія</div><div class="kf-why">Нокаут у 11-му раунді в Лондоні</div></div></div>
@@ -256,7 +265,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титул WBA у середній вазі</div><div class="kf-venue">Stade Louis II, Фонтвієй, Монако</div><div class="kf-why">Реванш за першу поразку</div></div></div>
   <div class="kf-item" style="--c:#5c6bc0"><div class="kf-date"><div class="kf-year">1991</div><div class="kf-day">13.12</div></div>
     <div><div class="kf-opp">Джеймс Тоні</div><div class="kf-res">Нічия <span>SD, 12 раундів</span></div>
-    <div class="kf-stake">Бій за титул IBF у середній вазі</div><div class="kf-venue">Convention Hall, Атлантік-Сіті, США</div><div class="kf-why">Нічия розділеним рішенням у бою з Джеймсом Тоні</div></div></div>
+    <div class="kf-stake">Бій за титул IBF у середній вазі</div><div class="kf-venue">Convention Hall, Атлантік-Сіті, США</div><div class="kf-why">Нічия розділеним рішенням у бою з Джеймсом Тоні</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=yVo4qoTPIJE" target="_blank" rel="noopener" data-vid="yVo4qoTPIJE" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1992</div><div class="kf-day">29.08</div></div>
     <div><div class="kf-opp">Джеймс Тоні</div><div class="kf-res">Поразка <span>MD, 12 раундів</span></div>
     <div class="kf-stake">Бій за титул IBF у середній вазі</div><div class="kf-venue">Convention Center, Рено, США</div><div class="kf-why">Реванш: поразка більшістю суддів</div></div></div>
@@ -268,7 +277,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Втратив титул WBC у напівважкій вазі</div><div class="kf-venue">Palais des Sports de Gerland, Ліон, Франція</div><div class="kf-why">Втрата титулу у Франції</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1996</div><div class="kf-day">22.11</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/roy-jones-jr">Рой Джонс-молодший</a></div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Бій за вакантний титул WBC Interim у напівважкій вазі</div><div class="kf-venue">Ice Palace, Тампа, США</div><div class="kf-why">Бій проти Роя Джонса-молодшого, на той момент найкращого боксера світу</div></div></div>
+    <div class="kf-stake">Бій за вакантний титул WBC Interim у напівважкій вазі</div><div class="kf-venue">Ice Palace, Тампа, США</div><div class="kf-why">Бій проти Роя Джонса-молодшого, на той момент найкращого боксера світу</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=qMGU8GE4AWk" target="_blank" rel="noopener" data-vid="qMGU8GE4AWk" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1997</div><div class="kf-day">22.02</div></div>
     <div><div class="kf-opp">Джеймс Тоні</div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Бій за вакантний титул WBU у важкій вазі</div><div class="kf-venue">Mohegan Sun Arena, Монтвілл, США</div><div class="kf-why">Останній бій у кар'єрі: третя зустріч із Тоні</div></div></div>
@@ -299,5 +308,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

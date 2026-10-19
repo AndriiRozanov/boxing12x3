@@ -131,6 +131,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -222,13 +231,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Won Mexican featherweight title</div><div class="kf-venue">Arena México, Mexico City, Mexico</div><div class="kf-why">National title</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1964</div><div class="kf-day">Sep 26</div></div>
     <div><div class="kf-opp">Sugar Ramos</div><div class="kf-res">Win <span>RTD, round 12 of 15</span></div>
-    <div class="kf-stake">Won WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Toreo de Cuatro Caminos, Mexico City, Mexico</div><div class="kf-why">Championship belts at featherweight: Ramos did not come out for round 13</div></div></div>
+    <div class="kf-stake">Won WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Toreo de Cuatro Caminos, Mexico City, Mexico</div><div class="kf-why">Championship belts at featherweight: Ramos did not come out for round 13</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=L5zC74ip7kI" target="_blank" rel="noopener" data-vid="L5zC74ip7kI" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1965</div><div class="kf-day">May 7</div></div>
     <div><div class="kf-opp">Raul Rojas</div><div class="kf-res">Win <span>TKO, round 15 of 15</span></div>
     <div class="kf-stake">Retained WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Memorial Coliseum, Los Angeles, U.S.</div><div class="kf-why">Stopped Raul Rojas in the last round</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1965</div><div class="kf-day">Sep 7</div></div>
     <div><div class="kf-opp">Howard Winstone</div><div class="kf-res">Win <span>PTS, 15 rounds</span></div>
-    <div class="kf-stake">Retained WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Earls Court Arena, London, England</div><div class="kf-why">First fight with Howard Winstone away in London</div></div></div>
+    <div class="kf-stake">Retained WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Earls Court Arena, London, England</div><div class="kf-why">First fight with Howard Winstone away in London</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=yXFp-0pfz9c" target="_blank" rel="noopener" data-vid="yXFp-0pfz9c" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1966</div><div class="kf-day">Aug 7</div></div>
     <div><div class="kf-opp">Mitsunori Seki</div><div class="kf-res">Win <span>UD, 15 rounds</span></div>
     <div class="kf-stake">Retained WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Toreo de Cuatro Caminos, Mexico City, Mexico</div><div class="kf-why">Title defence against the Japanese Mitsunori Seki</div></div></div>
@@ -237,13 +246,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Retained WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Ninian Park, Cardiff, Wales</div><div class="kf-why">Second fight with Winstone in his home city of Cardiff</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1967</div><div class="kf-day">Oct 14</div></div>
     <div><div class="kf-opp">Howard Winstone</div><div class="kf-res">Win <span>TKO, round 12 of 15</span></div>
-    <div class="kf-stake">Retained WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Estadio Azteca, Mexico City, Mexico</div><div class="kf-why">Third fight with Winstone: a stoppage in front of a home crowd</div></div></div>
+    <div class="kf-stake">Retained WBA, WBC, and The Ring featherweight titles</div><div class="kf-venue">Estadio Azteca, Mexico City, Mexico</div><div class="kf-why">Third fight with Winstone: a stoppage in front of a home crowd</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=7SiMtRBWtqo" target="_blank" rel="noopener" data-vid="7SiMtRBWtqo" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1969</div><div class="kf-day">Jul 18</div></div>
     <div><div class="kf-opp">José Legrá</div><div class="kf-res">Win <span>UD, 10 rounds</span></div>
     <div class="kf-stake">Non-title</div><div class="kf-venue">The Forum, Inglewood, U.S.</div><div class="kf-why">Win over José Legrá in his return to the ring</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1970</div><div class="kf-day">May 9</div></div>
     <div><div class="kf-opp">Johnny Famechon</div><div class="kf-res">Win <span>UD, 15 rounds</span></div>
-    <div class="kf-stake">Won WBC and The Ring featherweight titles</div><div class="kf-venue">PalaEur, Rome, Italy</div><div class="kf-why">Won the titles back away in Rome</div></div></div>
+    <div class="kf-stake">Won WBC and The Ring featherweight titles</div><div class="kf-venue">PalaEur, Rome, Italy</div><div class="kf-why">Won the titles back away in Rome</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=ZgEdpl3_vbw" target="_blank" rel="noopener" data-vid="ZgEdpl3_vbw" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1970</div><div class="kf-day">Dec 11</div></div>
     <div><div class="kf-opp">Kuniaki Shibata</div><div class="kf-res">Loss <span>RTD, round 12 of 15</span></div>
     <div class="kf-stake">Lost WBC and The Ring featherweight titles</div><div class="kf-venue">Auditorio Municipal, Tijuana, Mexico</div><div class="kf-why">Lost the WBC and The Ring titles: Saldívar did not come out for round 13</div></div></div>
@@ -277,5 +286,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

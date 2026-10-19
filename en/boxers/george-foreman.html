@@ -130,6 +130,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -229,13 +238,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Won vacant NABF heavyweight title</div><div class="kf-venue">County Coliseum Arena, Oakland, U.S.</div><div class="kf-why">First significant title</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1973</div><div class="kf-day">Jan 22</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/joe-frazier">Joe Frazier</a></div><div class="kf-res">Win <span>TKO, round 2 of 15</span></div>
-    <div class="kf-stake">Won WBA, WBC, Lineal and The Ring heavyweight titles</div><div class="kf-venue">National Stadium, Kingston, Jamaica</div><div class="kf-why">"Down goes Frazier!": world title, knockout in round 2</div></div></div>
+    <div class="kf-stake">Won WBA, WBC, Lineal and The Ring heavyweight titles</div><div class="kf-venue">National Stadium, Kingston, Jamaica</div><div class="kf-why">"Down goes Frazier!": world title, knockout in round 2</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=XCBE5tmnRb0" target="_blank" rel="noopener" data-vid="XCBE5tmnRb0" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1974</div><div class="kf-day">Mar 26</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/ken-norton">Ken Norton</a></div><div class="kf-res">Win <span>TKO, round 2 of 15</span></div>
     <div class="kf-stake">Retained WBA, WBC, Lineal and The Ring heavyweight titles</div><div class="kf-venue">Poliedro, Caracas, Venezuela</div><div class="kf-why">Stopped Norton, who had earlier beaten Ali</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1974</div><div class="kf-day">Oct 30</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/muhammad-ali">Muhammad Ali</a></div><div class="kf-res">Loss <span>KO, round 8 of 15</span></div>
-    <div class="kf-stake">Lost WBA, WBC, Lineal and The Ring heavyweight titles</div><div class="kf-venue">Stade du 20 Mai, Kinshasa, Zaire</div><div class="kf-why">"Rumble in the Jungle": one of the most famous fights in boxing history</div></div></div>
+    <div class="kf-stake">Lost WBA, WBC, Lineal and The Ring heavyweight titles</div><div class="kf-venue">Stade du 20 Mai, Kinshasa, Zaire</div><div class="kf-why">"Rumble in the Jungle": one of the most famous fights in boxing history</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=55AasOJZzDE" target="_blank" rel="noopener" data-vid="55AasOJZzDE" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1976</div><div class="kf-day">Jan 24</div></div>
     <div><div class="kf-opp">Ron Lyle</div><div class="kf-res">Win <span>KO, round 5 of 12</span></div>
     <div class="kf-stake">Won vacant NABF heavyweight title</div><div class="kf-venue">Caesars Palace, Paradise, U.S.</div><div class="kf-why">Fierce shootout with Lyle, both went down</div></div></div>
@@ -256,19 +265,19 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Non-title</div><div class="kf-venue">Convention Hall, Atlantic City, U.S.</div><div class="kf-why">Knocked out the popular Cooney</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1991</div><div class="kf-day">Apr 19</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/evander-holyfield">Evander Holyfield</a></div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
-    <div class="kf-stake">For WBA, WBC, Lineal and IBF heavyweight titles</div><div class="kf-venue">Convention Hall, Atlantic City, U.S.</div><div class="kf-why">Title attempt at 42 against Holyfield</div></div></div>
+    <div class="kf-stake">For WBA, WBC, Lineal and IBF heavyweight titles</div><div class="kf-venue">Convention Hall, Atlantic City, U.S.</div><div class="kf-why">Title attempt at 42 against Holyfield</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=rI1wNpPX09o" target="_blank" rel="noopener" data-vid="rI1wNpPX09o" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1993</div><div class="kf-day">Jun 7</div></div>
     <div><div class="kf-opp">Tommy Morrison</div><div class="kf-res">Loss <span>UD, 12 rounds</span></div>
     <div class="kf-stake">For vacant WBO heavyweight title</div><div class="kf-venue">Thomas &amp; Mack Center, Paradise, U.S.</div><div class="kf-why">Another title attempt</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1994</div><div class="kf-day">Nov 5</div></div>
     <div><div class="kf-opp">Michael Moorer</div><div class="kf-res">Win <span>KO, round 10 of 12</span></div>
-    <div class="kf-stake">Won WBA, IBF and Lineal heavyweight titles</div><div class="kf-venue">MGM Grand Garden Arena, Paradise, U.S.</div><div class="kf-why">World champion at 45, the oldest heavyweight champion in history</div></div></div>
+    <div class="kf-stake">Won WBA, IBF and Lineal heavyweight titles</div><div class="kf-venue">MGM Grand Garden Arena, Paradise, U.S.</div><div class="kf-why">World champion at 45, the oldest heavyweight champion in history</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=H6dZea1JeVw" target="_blank" rel="noopener" data-vid="H6dZea1JeVw" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1995</div><div class="kf-day">Apr 22</div></div>
     <div><div class="kf-opp">Axel Schulz</div><div class="kf-res">Win <span>MD, 12 rounds</span></div>
     <div class="kf-stake">Retained IBF and Lineal heavyweight titles; won vacant WBU heavyweight title</div><div class="kf-venue">MGM Grand Garden Arena, Paradise, U.S.</div><div class="kf-why">Controversial majority-decision win over Schulz</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1997</div><div class="kf-day">Nov 22</div></div>
     <div><div class="kf-opp">Shannon Briggs</div><div class="kf-res">Loss <span>MD, 12 rounds</span></div>
-    <div class="kf-stake">Lost Lineal heavyweight title</div><div class="kf-venue">Etess Arena, Atlantic City, U.S.</div><div class="kf-why">Last fight of his career, a controversial defeat</div></div></div>
+    <div class="kf-stake">Lost Lineal heavyweight title</div><div class="kf-venue">Etess Arena, Atlantic City, U.S.</div><div class="kf-why">Last fight of his career, a controversial defeat</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=lH2SCSgexto" target="_blank" rel="noopener" data-vid="lH2SCSgexto" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Show all 15 fights ▾</span><span class="kf-h">Hide ▴</span></button>
 </div>
 
@@ -294,5 +303,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

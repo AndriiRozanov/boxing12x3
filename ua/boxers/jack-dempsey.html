@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -224,7 +233,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Harrison Park, Гаррісон, США</div><div class="kf-why">Нокаут за 23 секунди суперника, на якому Демпсі зробив собі ім'я</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1919</div><div class="kf-day">04.07</div></div>
     <div><div class="kf-opp">Джесс Віллард</div><div class="kf-res">Перемога <span>RTD, раунд 3 з 12</span></div>
-    <div class="kf-stake">Здобув титул чемпіона світу в надважкій вазі</div><div class="kf-venue">Bay View Park Arena, Толідо, США</div><div class="kf-why">Титул чемпіона світу над велетнем Віллардом</div></div></div>
+    <div class="kf-stake">Здобув титул чемпіона світу в надважкій вазі</div><div class="kf-venue">Bay View Park Arena, Толідо, США</div><div class="kf-why">Титул чемпіона світу над велетнем Віллардом</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=87vj_ltRA8M" target="_blank" rel="noopener" data-vid="87vj_ltRA8M" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1920</div><div class="kf-day">06.09</div></div>
     <div><div class="kf-opp">Біллі Міске</div><div class="kf-res">Перемога <span>KO, раунд 3 з 10</span></div>
     <div class="kf-stake">Захистив титул NYSAC у надважкій вазі</div><div class="kf-venue">Floyd Fitzsimmons Arena, Бентон-Гарбор, США</div><div class="kf-why">Перший захист титулу</div></div></div>
@@ -233,22 +242,22 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титул NYSAC у надважкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Захист у важкому бою з Бреннаном</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1921</div><div class="kf-day">02.07</div></div>
     <div><div class="kf-opp">Жорж Карп'є</div><div class="kf-res">Перемога <span>KO, раунд 4 з 12</span></div>
-    <div class="kf-stake">Захистив титули NYSAC і NBA у надважкій вазі</div><div class="kf-venue">Boyle's Thirty Acres, Джерсі-Сіті, США</div><div class="kf-why">«Бій століття»: перший бій в історії з касовими зборами понад мільйон доларів</div></div></div>
+    <div class="kf-stake">Захистив титули NYSAC і NBA у надважкій вазі</div><div class="kf-venue">Boyle's Thirty Acres, Джерсі-Сіті, США</div><div class="kf-why">«Бій століття»: перший бій в історії з касовими зборами понад мільйон доларів</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=2LREnjBGkMw" target="_blank" rel="noopener" data-vid="2LREnjBGkMw" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1923</div><div class="kf-day">04.07</div></div>
     <div><div class="kf-opp">Томмі Гіббонс</div><div class="kf-res">Перемога <span>PTS, 15 раундів</span></div>
     <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Шелбі, США</div><div class="kf-why">Бій у Шелбі, що ледь не розорив місто; Демпсі переміг за очками</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1923</div><div class="kf-day">14.09</div></div>
     <div><div class="kf-opp">Луїс Анхель Фірпо</div><div class="kf-res">Перемога <span>TKO, раунд 2 з 15</span></div>
-    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Polo Grounds, Нью-Йорк, США</div><div class="kf-why">Один із найкращих боїв епохи: Демпсі вилетів з рингу в 1-му раунді, але повернувся й виграв</div></div></div>
+    <div class="kf-stake">Захистив титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Polo Grounds, Нью-Йорк, США</div><div class="kf-why">Один із найкращих боїв епохи: Демпсі вилетів з рингу в 1-му раунді, але повернувся й виграв</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=BlwWvpxRIj0" target="_blank" rel="noopener" data-vid="BlwWvpxRIj0" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1926</div><div class="kf-day">23.09</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/gene-tunney">Джин Тані</a></div><div class="kf-res">Поразка <span>UD, 10 раундів</span></div>
-    <div class="kf-stake">Втратив титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Sesquicentennial Stadium, Філадельфія, США</div><div class="kf-why">Втрата титулу після шести років панування</div></div></div>
+    <div class="kf-stake">Втратив титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Sesquicentennial Stadium, Філадельфія, США</div><div class="kf-why">Втрата титулу після шести років панування</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=_rkwNb4IQXY" target="_blank" rel="noopener" data-vid="_rkwNb4IQXY" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1927</div><div class="kf-day">21.07</div></div>
     <div><div class="kf-opp">Джек Шаркі</div><div class="kf-res">Перемога <span>KO, раунд 7 з 15</span></div>
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Yankee Stadium, Нью-Йорк, США</div><div class="kf-why">Нокаут Шаркі в бою-елімінаторі</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1927</div><div class="kf-day">22.09</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/gene-tunney">Джин Тані</a></div><div class="kf-res">Поразка <span>UD, 10 раундів</span></div>
-    <div class="kf-stake">Бій за титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Soldier Field, Чикаго, США</div><div class="kf-why">«Бій довгого відліку», останній бій у кар'єрі</div></div></div>
+    <div class="kf-stake">Бій за титули NYSAC, NBA і The Ring у надважкій вазі</div><div class="kf-venue">Soldier Field, Чикаго, США</div><div class="kf-why">«Бій довгого відліку», останній бій у кар'єрі</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=4AM9PUS1JMI" target="_blank" rel="noopener" data-vid="4AM9PUS1JMI" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <button class="kf-more" type="button" aria-expanded="false" onclick="var c=this.closest('.card');c.classList.toggle('kf-open');this.setAttribute('aria-expanded',c.classList.contains('kf-open'))"><span class="kf-s">Показати всі 11 боїв ▾</span><span class="kf-h">Сховати ▴</span></button>
 </div>
 
@@ -274,5 +283,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

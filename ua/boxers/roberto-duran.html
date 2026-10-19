@@ -136,6 +136,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -236,7 +245,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   <div class="section-lbl">Важливі бої</div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1972</div><div class="kf-day">26.06</div></div>
     <div><div class="kf-opp">Кен Б'юкенен</div><div class="kf-res">Перемога <span>TKO, раунд 13 з 15</span></div>
-    <div class="kf-stake">Здобув титули WBA і The Ring у легкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Перша перемога в бою за світовий титул</div></div></div>
+    <div class="kf-stake">Здобув титули WBA і The Ring у легкій вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Перша перемога в бою за світовий титул</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=juNFqG78EzY" target="_blank" rel="noopener" data-vid="juNFqG78EzY" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1972</div><div class="kf-day">17.11</div></div>
     <div><div class="kf-opp">Естебан Де Хесус</div><div class="kf-res">Поразка <span>UD, 10 раундів</span></div>
     <div class="kf-stake">Бій без титулу</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Перша поразка в кар'єрі</div></div></div>
@@ -248,10 +257,10 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титули WBA і The Ring; здобув титул WBC у легкій вазі</div><div class="kf-venue">Caesars Palace, Парадайз, США</div><div class="kf-why">Третій бій серії; об'єднання титулів у легкій вазі</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1980</div><div class="kf-day">20.06</div></div>
     <div><div class="kf-opp">Шугар Рей Леонард</div><div class="kf-res">Перемога <span>UD, 15 раундів</span></div>
-    <div class="kf-stake">Здобув титули WBC і The Ring у напівсередній вазі</div><div class="kf-venue">Olympic Stadium, Монреаль, Канада</div><div class="kf-why">Перемога над Леонардом у напівсередній вазі</div></div></div>
+    <div class="kf-stake">Здобув титули WBC і The Ring у напівсередній вазі</div><div class="kf-venue">Olympic Stadium, Монреаль, Канада</div><div class="kf-why">Перемога над Леонардом у напівсередній вазі</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=-r8Ko6FpfkU" target="_blank" rel="noopener" data-vid="-r8Ko6FpfkU" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1980</div><div class="kf-day">25.11</div></div>
     <div><div class="kf-opp">Шугар Рей Леонард</div><div class="kf-res">Поразка <span>TKO, раунд 8 з 15</span></div>
-    <div class="kf-stake">Втратив титули WBC і The Ring у напівсередній вазі</div><div class="kf-venue">Superdome, Новий Орлеан, США</div><div class="kf-why">Реванш; бій «No Más»: Дюран відмовився продовжувати в 8-му раунді</div></div></div>
+    <div class="kf-stake">Втратив титули WBC і The Ring у напівсередній вазі</div><div class="kf-venue">Superdome, Новий Орлеан, США</div><div class="kf-why">Реванш; бій «No Más»: Дюран відмовився продовжувати в 8-му раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=7OHxp3gQW0s" target="_blank" rel="noopener" data-vid="7OHxp3gQW0s" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1982</div><div class="kf-day">30.01</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/wilfred-benitez">Вілфред Бенітес</a></div><div class="kf-res">Поразка <span>UD, 15 раундів</span></div>
     <div class="kf-stake">Бій за титул WBC у першій середній вазі</div><div class="kf-venue">Caesars Palace, Парадайз, США</div><div class="kf-why">Бій за титул у новій ваговій категорії, поразка</div></div></div>
@@ -260,13 +269,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Здобув титул WBA у першій середній вазі</div><div class="kf-venue">Madison Square Garden, Нью-Йорк, США</div><div class="kf-why">Титул у третій ваговій категорії</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1983</div><div class="kf-day">10.11</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/marvin-hagler">Марвін Хаглер</a></div><div class="kf-res">Поразка <span>UD, 15 раундів</span></div>
-    <div class="kf-stake">Бій за титули WBA, WBC, IBF і The Ring у середній вазі</div><div class="kf-venue">Caesars Palace, Парадайз, США</div><div class="kf-why">Бій за абсолютне чемпіонство в середній вазі</div></div></div>
+    <div class="kf-stake">Бій за титули WBA, WBC, IBF і The Ring у середній вазі</div><div class="kf-venue">Caesars Palace, Парадайз, США</div><div class="kf-why">Бій за абсолютне чемпіонство в середній вазі</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=NaMVD6KYhd4" target="_blank" rel="noopener" data-vid="NaMVD6KYhd4" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1984</div><div class="kf-day">15.06</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/thomas-hearns">Томас Хернс</a></div><div class="kf-res">Поразка <span>KO, раунд 2 з 12</span></div>
     <div class="kf-stake">Бій за титул WBC у першій середній вазі</div><div class="kf-venue">Caesars Palace, Парадайз, США</div><div class="kf-why">Нокаут у 2-му раунді</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1989</div><div class="kf-day">24.02</div></div>
     <div><div class="kf-opp">Айрен Баркли</div><div class="kf-res">Перемога <span>SD, 12 раундів</span></div>
-    <div class="kf-stake">Здобув титул WBC у середній вазі</div><div class="kf-venue">Convention Hall, Атлантік-Сіті, США</div><div class="kf-why">Титул у четвертій ваговій категорії; Бій року за версією The Ring 1989</div></div></div>
+    <div class="kf-stake">Здобув титул WBC у середній вазі</div><div class="kf-venue">Convention Hall, Атлантік-Сіті, США</div><div class="kf-why">Титул у четвертій ваговій категорії; Бій року за версією The Ring 1989</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=eF7Moisxusw" target="_blank" rel="noopener" data-vid="eF7Moisxusw" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1989</div><div class="kf-day">07.12</div></div>
     <div><div class="kf-opp">Шугар Рей Леонард</div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Бій за титул WBC у другій середній вазі</div><div class="kf-venue">The Mirage, Парадайз, США</div><div class="kf-why">Третій і останній бій із Леонардом</div></div></div>
@@ -303,5 +312,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

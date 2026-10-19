@@ -138,6 +138,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -232,28 +241,28 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Втратив титул Співдружності у середній вазі</div><div class="kf-venue">Majestic Ballroom, Лондон, Англія</div><div class="kf-why">Перша поразка: зупинка в 6-му раунді й втрата титулу Співдружності</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1990</div><div class="kf-day">29.04</div></div>
     <div><div class="kf-opp">Даг Девітт</div><div class="kf-res">Перемога <span>TKO, раунд 8 з 12</span></div>
-    <div class="kf-stake">Здобув титул WBO у середній вазі</div><div class="kf-venue">Caesar's, Атлантік-Сіті, США</div><div class="kf-why">Перший світовий титул</div></div></div>
+    <div class="kf-stake">Здобув титул WBO у середній вазі</div><div class="kf-venue">Caesar's, Атлантік-Сіті, США</div><div class="kf-why">Перший світовий титул</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=xV34-K16Fzg" target="_blank" rel="noopener" data-vid="xV34-K16Fzg" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1990</div><div class="kf-day">18.08</div></div>
     <div><div class="kf-opp">Айрен Баркли</div><div class="kf-res">Перемога <span>TKO, раунд 1 з 12</span></div>
     <div class="kf-stake">Захистив титул WBO у середній вазі</div><div class="kf-venue">Bally's Las Vegas, Парадайз, США</div><div class="kf-why">Захист титулу нокаутом у 1-му раунді проти Айрена Баркли</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1990</div><div class="kf-day">18.11</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/chris-eubank-sr">Кріс Юбенк-старший</a></div><div class="kf-res">Поразка <span>TKO, раунд 9 з 12</span></div>
-    <div class="kf-stake">Втратив титул WBO у середній вазі</div><div class="kf-venue">National Exhibition Centre, Бірмінгем, Англія</div><div class="kf-why">Перша зустріч із Юбенком: втрата титулу WBO в одному з найвідоміших британських суперництв</div></div></div>
+    <div class="kf-stake">Втратив титул WBO у середній вазі</div><div class="kf-venue">National Exhibition Centre, Бірмінгем, Англія</div><div class="kf-why">Перша зустріч із Юбенком: втрата титулу WBO в одному з найвідоміших британських суперництв</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=FXuztz5U-tg" target="_blank" rel="noopener" data-vid="FXuztz5U-tg" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1992</div><div class="kf-day">03.10</div></div>
     <div><div class="kf-opp">Мауро Гальвано</div><div class="kf-res">Перемога <span>TKO, раунд 4 з 12</span></div>
     <div class="kf-stake">Здобув титул WBC у другій середній вазі</div><div class="kf-venue">Palaghiaccio, Марино, Італія</div><div class="kf-why">Титул WBC у другій ваговій категорії</div></div></div>
   <div class="kf-item" style="--c:#5c6bc0"><div class="kf-date"><div class="kf-year">1993</div><div class="kf-day">09.10</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/chris-eubank-sr">Кріс Юбенк-старший</a></div><div class="kf-res">Нічия <span>SD, 12 раундів</span></div>
-    <div class="kf-stake">Захистив титул WBC; бій за титул WBO у другій середній вазі</div><div class="kf-venue">Old Trafford, Манчестер, Англія</div><div class="kf-why">Реванш на стадіоні «Олд Траффорд»: нічия розділеним рішенням у вирішальному суперництві</div></div></div>
+    <div class="kf-stake">Захистив титул WBC; бій за титул WBO у другій середній вазі</div><div class="kf-venue">Old Trafford, Манчестер, Англія</div><div class="kf-why">Реванш на стадіоні «Олд Траффорд»: нічия розділеним рішенням у вирішальному суперництві</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=7BTiJyFQh90" target="_blank" rel="noopener" data-vid="7BTiJyFQh90" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1995</div><div class="kf-day">25.02</div></div>
     <div><div class="kf-opp">Джеральд Макклеллан</div><div class="kf-res">Перемога <span>KO, раунд 10 з 12</span></div>
-    <div class="kf-stake">Захистив титул WBC у другій середній вазі</div><div class="kf-venue">London Arena, Лондон, Англія</div><div class="kf-why">Найвідоміший бій кар'єри: нокаут у 10-му раунді; Макклеллан отримав важку травму мозку</div></div></div>
+    <div class="kf-stake">Захистив титул WBC у другій середній вазі</div><div class="kf-venue">London Arena, Лондон, Англія</div><div class="kf-why">Найвідоміший бій кар'єри: нокаут у 10-му раунді; Макклеллан отримав важку травму мозку</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=IgB72UhydZo" target="_blank" rel="noopener" data-vid="IgB72UhydZo" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1996</div><div class="kf-day">02.03</div></div>
     <div><div class="kf-opp">Тулані Малінга</div><div class="kf-res">Поразка <span>SD, 12 раундів</span></div>
     <div class="kf-stake">Втратив титул WBC у другій середній вазі</div><div class="kf-venue">Telewest Arena, Ньюкасл, Англія</div><div class="kf-why">Втрата титулу розділеним рішенням</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1996</div><div class="kf-day">06.07</div></div>
     <div><div class="kf-opp">Стів Коллінз</div><div class="kf-res">Поразка <span>TKO, раунд 4 з 12</span></div>
-    <div class="kf-stake">Бій за титул WBO у другій середній вазі</div><div class="kf-venue">NYNEX Arena, Манчестер, Англія</div><div class="kf-why">Поразка в бою за титул WBO проти Стіва Коллінза</div></div></div>
+    <div class="kf-stake">Бій за титул WBO у другій середній вазі</div><div class="kf-venue">NYNEX Arena, Манчестер, Англія</div><div class="kf-why">Поразка в бою за титул WBO проти Стіва Коллінза</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=C5besO0BmF4" target="_blank" rel="noopener" data-vid="C5besO0BmF4" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1996</div><div class="kf-day">09.11</div></div>
     <div><div class="kf-opp">Стів Коллінз</div><div class="kf-res">Поразка <span>RTD, раунд 6 з 12</span></div>
     <div class="kf-stake">Бій за титул WBO у другій середній вазі</div><div class="kf-venue">NYNEX Arena, Манчестер, Англія</div><div class="kf-why">Останній бій: реванш із Коллінзом, відмова продовжувати перед 7-м раундом</div></div></div>
@@ -284,5 +293,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>

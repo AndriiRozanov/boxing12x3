@@ -133,6 +133,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -222,10 +231,10 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   <div class="section-lbl">Важливі бої</div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">24.03</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/erik-morales">Ерік Моралес</a></div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Здобув вакантний титул WBC у першій напівсередній вазі (Моралес не вклався в ліміт ваги, тому титул міг здобути лише Гарсія)</div><div class="kf-venue">Reliant Arena, Г'юстон, США</div><div class="kf-why">Перший світовий титул, перемога над легендою Моралесом</div></div></div>
+    <div class="kf-stake">Здобув вакантний титул WBC у першій напівсередній вазі (Моралес не вклався в ліміт ваги, тому титул міг здобути лише Гарсія)</div><div class="kf-venue">Reliant Arena, Г'юстон, США</div><div class="kf-why">Перший світовий титул, перемога над легендою Моралесом</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=CJ0k0g2utSY" target="_blank" rel="noopener" data-vid="CJ0k0g2utSY" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">14.07</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/amir-khan">Амір Хан</a></div><div class="kf-res">Перемога <span>TKO, раунд 4 з 12</span></div>
-    <div class="kf-stake">Захистив титул WBC; здобув титул WBA (Super) і вакантний титул The Ring у першій напівсередній вазі</div><div class="kf-venue">Mandalay Bay Events Center, Парадайз, США</div><div class="kf-why">Об'єднання титулів, зупинив Хана лівим хуком у 4-му раунді</div></div></div>
+    <div class="kf-stake">Захистив титул WBC; здобув титул WBA (Super) і вакантний титул The Ring у першій напівсередній вазі</div><div class="kf-venue">Mandalay Bay Events Center, Парадайз, США</div><div class="kf-why">Об'єднання титулів, зупинив Хана лівим хуком у 4-му раунді</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=JBZfvVZOYms" target="_blank" rel="noopener" data-vid="JBZfvVZOYms" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2012</div><div class="kf-day">20.10</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/erik-morales">Ерік Моралес</a></div><div class="kf-res">Перемога <span>KO, раунд 4 з 12</span></div>
     <div class="kf-stake">Захистив титули WBA (Super), WBC і The Ring у першій напівсередній вазі</div><div class="kf-venue">Barclays Center, Нью-Йорк, США</div><div class="kf-why">Реванш з Моралесом, нокаут у 4-му раунді</div></div></div>
@@ -234,7 +243,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Захистив титули WBA (Super), WBC і The Ring у першій напівсередній вазі</div><div class="kf-venue">Barclays Center, Нью-Йорк, США</div><div class="kf-why">Захист проти Джуди</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2013</div><div class="kf-day">14.09</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/lucas-matthysse">Лукас Маттіссе</a></div><div class="kf-res">Перемога <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Захистив титули WBA (Super), WBC і The Ring у першій напівсередній вазі</div><div class="kf-venue">MGM Grand Garden Arena, Парадайз, США</div><div class="kf-why">Перемога над небезпечним нокаутером Маттіссе</div></div></div>
+    <div class="kf-stake">Захистив титули WBA (Super), WBC і The Ring у першій напівсередній вазі</div><div class="kf-venue">MGM Grand Garden Arena, Парадайз, США</div><div class="kf-why">Перемога над небезпечним нокаутером Маттіссе</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=bYyaOSTL_mU" target="_blank" rel="noopener" data-vid="bYyaOSTL_mU" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2014</div><div class="kf-day">15.03</div></div>
     <div><div class="kf-opp">Маурісіо Еррера</div><div class="kf-res">Перемога <span>MD, 12 раундів</span></div>
     <div class="kf-stake">Захистив титули WBA (Super), WBC і The Ring у першій напівсередній вазі</div><div class="kf-venue">Coliseo Rubén Rodríguez, Баямон, Пуерто-Рико</div><div class="kf-why">Дискусійна перемога рішенням більшості</div></div></div>
@@ -246,13 +255,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Здобув вакантний титул WBC у напівсередній вазі</div><div class="kf-venue">Staples Center, Лос-Анджелес, США</div><div class="kf-why">Титул у другій ваговій категорії</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2017</div><div class="kf-day">04.03</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/keith-thurman">Кіт Турман</a></div><div class="kf-res">Поразка <span>SD, 12 раундів</span></div>
-    <div class="kf-stake">Втратив титул WBC; бій за титул WBA (Super) у напівсередній вазі</div><div class="kf-venue">Barclays Center, Нью-Йорк, США</div><div class="kf-why">Об'єднавчий бій, перша поразка в кар'єрі</div></div></div>
+    <div class="kf-stake">Втратив титул WBC; бій за титул WBA (Super) у напівсередній вазі</div><div class="kf-venue">Barclays Center, Нью-Йорк, США</div><div class="kf-why">Об'єднавчий бій, перша поразка в кар'єрі</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=kEz3VVGsjhU" target="_blank" rel="noopener" data-vid="kEz3VVGsjhU" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2018</div><div class="kf-day">08.09</div></div>
     <div><div class="kf-opp">Шон Портер</div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
     <div class="kf-stake">Бій за вакантний титул WBC у напівсередній вазі</div><div class="kf-venue">Barclays Center, Нью-Йорк, США</div><div class="kf-why">Поразка Портеру у бою за вакантний титул</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2020</div><div class="kf-day">05.12</div></div>
     <div><div class="kf-opp"><a href="/ua/boxers/errol-spence-jr">Еррол Спенс</a></div><div class="kf-res">Поразка <span>UD, 12 раундів</span></div>
-    <div class="kf-stake">Бій за титули WBC та IBF у напівсередній вазі</div><div class="kf-venue">AT&amp;T Stadium, Арлінгтон, США</div><div class="kf-why">Титульна спроба проти Спенса</div></div></div>
+    <div class="kf-stake">Бій за титули WBC та IBF у напівсередній вазі</div><div class="kf-venue">AT&amp;T Stadium, Арлінгтон, США</div><div class="kf-why">Титульна спроба проти Спенса</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=KkEEmwgdFsY" target="_blank" rel="noopener" data-vid="KkEEmwgdFsY" data-w="Дивитись бій" data-h="Сховати відео" data-y="Відкрити на YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Дивитись бій</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2024</div><div class="kf-day">14.09</div></div>
     <div><div class="kf-opp">Еріслан Лара</div><div class="kf-res">Поразка <span>RTD, раунд 9 з 12</span></div>
     <div class="kf-stake">Бій за титул WBA у середній вазі</div><div class="kf-venue">T-Mobile Arena, Парадайз, США</div><div class="kf-why">Спроба взяти титул у середній вазі проти Лари</div></div></div>
@@ -283,5 +292,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>
