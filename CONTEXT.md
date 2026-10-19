@@ -1,4 +1,4 @@
-# CONTEXT.md — boxing12x3.com
+# CONTEXT.md – boxing12x3.com
 
 Shared domain language and project decisions for AI agents working on this codebase.
 Read this file before making any changes to the project.
@@ -8,7 +8,7 @@ Last updated: October 8 2026 (rewritten after the September–October rebuild; b
 
 ## What This Project Is
 
-**boxing12x3.com** — interactive boxing scorecard tool with bilingual SEO pages.
+**boxing12x3.com** – interactive boxing scorecard tool with bilingual SEO pages.
 - Owner: Андрій Розанов, author of the boxing and combat sports section at Ua.Tribuna.com
 - Stack: static HTML + CSS + JS on Vercel; GitHub repo `AndriiRozanov/boxing12x3` is public (live files can be read from `raw.githubusercontent.com/AndriiRozanov/boxing12x3/main/<path>`); DNS on Cloudflare
 - Languages: Ukrainian (primary, served at `/`) and English (served at `/en`)
@@ -83,14 +83,14 @@ Only fights with a page (`hasPage: true`) appear in the archive.
 |---|---|
 | `.rrow` | Round row container (grid: 1fr 40px 1fr) |
 | `.rside` | Clickable half of a round row (left = red, right = blue) |
-| `.rside-fill` | Animated fill div inside rside — DO NOT set background on .rside directly |
+| `.rside-fill` | Animated fill div inside rside – DO NOT set background on .rside directly |
 | `.rpts` | Score number inside rside (Bebas Neue, z-index:1 above fill) |
 | `.rn` | Round number center column (also triggers 10:10 on click) |
 | `.won-strip` | "Виграних раундів" counter above scorecard rows |
 | `.analytics-block` | Fight stats links block below scorecard |
 | `.hint-toggle` | "Як судити?" collapsible button – in-context help for taps; ends with a link to the 10-point guide |
 | `.how-block` | "Як працює суддівська картка" text block above the footer (SEO text + internal links) |
-| `.main-btn` | Share/CTA button — red when active, gray when disabled |
+| `.main-btn` | Share/CTA button – red when active, gray when disabled |
 
 ### JS Functions
 
@@ -98,21 +98,21 @@ Only fights with a page (`hasPage: true`) appear in the archive.
 |---|---|
 | `tapSide(i, 'red'/'blue')` | Handles round scoring tap + closes hint on first use |
 | `tapCenter(i)` | Sets/resets 10:10 draw round |
-| `renderRound(i)` | Renders a single round — updates fill-div and score colors |
+| `renderRound(i)` | Renders a single round – updates fill-div and score colors |
 | `getIntensity(diff)` | Returns opacity 0.12–0.80 based on score difference |
 | `buildAnalyticsBlock()` | Builds fight links block + guide block, language-aware |
 | `updateUI()` | Updates totals, won-strip, leader bar, share button state |
-| `buildRounds()` | Generates all round rows — called on fight change |
-| `renderAll()` | Full re-render: labels, fights, rounds — called on language change |
+| `buildRounds()` | Generates all round rows – called on fight change |
+| `renderAll()` | Full re-render: labels, fights, rounds – called on language change |
 | `getDefaultFight()` | Returns nearest upcoming fight (sorted by date) |
-| `loadState()` | Loads saved state from localStorage — only restores scores if saved fight still exists in FIGHTS |
+| `loadState()` | Loads saved state from localStorage – only restores scores if saved fight still exists in FIGHTS |
 
 ### Pour Animation (color fill on scoring)
 
 Each `.rside` contains a `.rside-fill` div (position: absolute, z-index: 0).
 When a round is scored, JS sets `background` on the fill div and triggers
 `pourFromLeft` or `pourFromRight` CSS animation via clip-path.
-**Never set `style.background` directly on `.rside`** — it overrides the fill div.
+**Never set `style.background` directly on `.rside`** – it overrides the fill div.
 
 ### localStorage Keys
 
@@ -240,21 +240,21 @@ SPF: `v=spf1 include:_spf.mx.cloudflare.net ~all`
 
 ## Design & Typography Rules
 
-From design skill audit — mandatory:
+From design skill audit – mandatory:
 
-- **Em-dash ban** — never use `—` (U+2014). Use en-dash `–` (U+2013) everywhere
-- **Blockquote** — gray background `#f0ede8`, border-radius: 6px. NO `border-left` colored accent
-- **Hover** — always inside `@media (hover: hover) and (pointer: fine)`
-- **prefers-reduced-motion** — all pages must include:
+- **Em-dash ban** – never use `–` (U+2014). Use en-dash `–` (U+2013) everywhere
+- **Blockquote** – gray background `#f0ede8`, border-radius: 6px. NO `border-left` colored accent
+- **Hover** – always inside `@media (hover: hover) and (pointer: fine)`
+- **prefers-reduced-motion** – all pages must include:
   ```css
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   }
   ```
-- **Article line width** — `article p { max-width: 65ch; }`
-- **Focus rings** — `button:focus-visible, a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }`
-- **DM Sans** — keep (identity preservation, do not replace despite being on reflex-reject list)
-- **Background #f7f6f3** — keep (identity preservation)
+- **Article line width** – `article p { max-width: 65ch; }`
+- **Focus rings** – `button:focus-visible, a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }`
+- **DM Sans** – keep (identity preservation, do not replace despite being on reflex-reject list)
+- **Background #f7f6f3** – keep (identity preservation)
 
 ---
 
@@ -267,14 +267,14 @@ Shows: `#poweredBy` ("Powered by Boxing 12×3 →")
 
 ## Known Bugs Fixed (do not reintroduce)
 
-- **Favicon** — href must use `%3C` and `%3E` for `<` and `>` inside SVG data URI
-- **Template literals** — no backtick strings in JS; use string concatenation
-- **Fill div** — pour animation uses `.rside-fill` child div; never set `style.background` on `.rside` parent
-- **GUIDE_ARTICLES** — must be declared before any function that references it
-- **loadState** — scores only restored if saved fight id still exists in FIGHTS array; otherwise fresh state. Prevents old month's scores appearing on new month's fights
-- **Dropdown placeholder** — `ph.disabled = true; ph.hidden = true;` — cannot be selected
-- **Default fight** — `getDefaultFight()` returns nearest upcoming by date, not FIGHTS[0]
-- **Date sorting** — uses `new Date(f.date + ', 2026')` — works for "Aug 22" format
+- **Favicon** – href must use `%3C` and `%3E` for `<` and `>` inside SVG data URI
+- **Template literals** – no backtick strings in JS; use string concatenation
+- **Fill div** – pour animation uses `.rside-fill` child div; never set `style.background` on `.rside` parent
+- **GUIDE_ARTICLES** – must be declared before any function that references it
+- **loadState** – scores only restored if saved fight id still exists in FIGHTS array; otherwise fresh state. Prevents old month's scores appearing on new month's fights
+- **Dropdown placeholder** – `ph.disabled = true; ph.hidden = true;` – cannot be selected
+- **Default fight** – `getDefaultFight()` returns nearest upcoming by date, not FIGHTS[0]
+- **Date sorting** – uses `new Date(f.date + ', 2026')` – works for "Aug 22" format
 - **Saved language overriding the URL (fixed Oct 2026)** – `/en` rendered Ukrainian for anyone who had used the Ukrainian version; incognito hid it. Test homepage changes with a pre-set opposite language in localStorage
 - **Footer labels** – set in `renderAll()` (load AND toggle); "Вбудувати картку" used to stay Ukrainian after the toggle
 - **Language buttons copied from a template** – once pointed to another fight's slug; every page must link to its own
@@ -287,13 +287,13 @@ Shows: `#poweredBy` ("Powered by Boxing 12×3 →")
 
 ## Working Conventions
 
-1. **Discuss before coding** — always agree on the plan before writing a line
-2. **Surgical changes** — `str_replace` on specific lines, not full file rewrites
-3. **Validate JS** — always run `node -e "new Function(s)"` before presenting files
-4. **Upload files, not copy-paste** — for GitHub; Cyrillic encoding breaks on copy-paste
-5. **Em-dash check** — run `python3 -c "c=open('f.html').read(); print(c.count('\u2014'))"` before delivering files
-6. **Result CSS check** — `grep -c "\.result{" filename.html` before adding result block
-7. **Karpathy principles** — Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven
+1. **Discuss before coding** – always agree on the plan before writing a line
+2. **Surgical changes** – `str_replace` on specific lines, not full file rewrites
+3. **Validate JS** – always run `node -e "new Function(s)"` before presenting files
+4. **Upload files, not copy-paste** – for GitHub; Cyrillic encoding breaks on copy-paste
+5. **Em-dash check** – run `python3 -c "c=open('f.html').read(); print(c.count('\u2014'))"` before delivering files
+6. **Result CSS check** – `grep -c "\.result{" filename.html` before adding result block
+7. **Karpathy principles** – Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven
 8. **Code only on an explicit "кодимо"** – questions get answers and proposals first
 9. **Confirm time-zone conversions with the owner before building a fight page**
 10. **Verify every delivery in the live repo** (`raw.githubusercontent.com/AndriiRozanov/boxing12x3/main/<path>?n=<random>`): file names, content markers, 404s
