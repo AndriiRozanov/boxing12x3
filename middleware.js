@@ -9,6 +9,10 @@ export default function middleware(request) {
     return Response.redirect(new URL('/en/height-compare', url.origin), 308);
   }
 
+  if ((url.pathname === '/about' || url.pathname === '/contact') && url.searchParams.get('lang') === 'en') {
+    return Response.redirect(new URL('/en' + url.pathname, url.origin), 308);
+  }
+
   if (url.pathname === '/ua/charlo-mazoudier' || url.pathname === '/en/charlo-mazoudier') {
     return Response.redirect(new URL(url.pathname.replace('charlo-mazoudier', 'resendiz-mazoudier'), url.origin), 308);
   }
@@ -17,5 +21,5 @@ export default function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/', '/height-compare', '/ua/charlo-mazoudier', '/en/charlo-mazoudier'],
+  matcher: ['/', '/height-compare', '/about', '/contact', '/ua/charlo-mazoudier', '/en/charlo-mazoudier'],
 };
