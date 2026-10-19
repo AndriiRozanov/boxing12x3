@@ -129,6 +129,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+.vbtn:hover{background:#fbe5e3;}
+.vbtn.on{background:#fff;border-color:#ddd;color:#555;}
+.vwrap{margin-top:10px;}
+.vplayer{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vcap{display:flex;justify-content:flex-end;font-size:11px;margin-top:6px;}
+.vcap a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid #bbb;}
+/*/kfv*/
 </style>
 </head>
 <body>
@@ -221,7 +230,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Non-title</div><div class="kf-venue">Troy, U.S.</div><div class="kf-why">First win on national TV: first recorded as a disqualification, later changed to a technical knockout</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1986</div><div class="kf-day">Nov 22</div></div>
     <div><div class="kf-opp">Trevor Berbick</div><div class="kf-res">Win <span>TKO, round 2 of 12</span></div>
-    <div class="kf-stake">Won WBC heavyweight title</div><div class="kf-venue">Las Vegas, U.S.</div><div class="kf-why">The youngest heavyweight world champion in history (aged 20)</div></div></div>
+    <div class="kf-stake">Won WBC heavyweight title</div><div class="kf-venue">Las Vegas, U.S.</div><div class="kf-why">The youngest heavyweight world champion in history (aged 20)</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=-088T-3GLUk" target="_blank" rel="noopener" data-vid="-088T-3GLUk" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1987</div><div class="kf-day">Mar 7</div></div>
     <div><div class="kf-opp">James Smith</div><div class="kf-res">Win <span>UD, 12 rounds</span></div>
     <div class="kf-stake">Retained WBC heavyweight title; Won WBA heavyweight title</div><div class="kf-venue">Las Vegas, U.S.</div><div class="kf-why">Unified the WBC and WBA titles</div></div></div>
@@ -233,13 +242,13 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Retained WBA, WBC, and IBF heavyweight titles</div><div class="kf-venue">Convention Hall, Atlantic City, U.S.</div><div class="kf-why">Stopped Larry Holmes, who came out of retirement for the fight</div></div></div>
   <div class="kf-item" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1988</div><div class="kf-day">Jun 27</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/michael-spinks">Michael Spinks</a></div><div class="kf-res">Win <span>KO, round 1 of 12</span></div>
-    <div class="kf-stake">Retained WBA, WBC, and IBF heavyweight titles; Won lineal heavyweight title</div><div class="kf-venue">Convention Hall, Atlantic City, U.S.</div><div class="kf-why">Knockout in 1:31 of the unbeaten Spinks: the best-known fight of his peak</div></div></div>
+    <div class="kf-stake">Retained WBA, WBC, and IBF heavyweight titles; Won lineal heavyweight title</div><div class="kf-venue">Convention Hall, Atlantic City, U.S.</div><div class="kf-why">Knockout in 1:31 of the unbeaten Spinks: the best-known fight of his peak</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=qKNGyEjxFTY" target="_blank" rel="noopener" data-vid="qKNGyEjxFTY" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1989</div><div class="kf-day">Feb 25</div></div>
     <div><div class="kf-opp">Frank Bruno</div><div class="kf-res">Win <span>KO, round 5 of 12</span></div>
     <div class="kf-stake">Retained WBA, WBC, and IBF heavyweight titles</div><div class="kf-venue">Las Vegas, U.S.</div><div class="kf-why">Title defence against the Briton Frank Bruno</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1990</div><div class="kf-day">Feb 11</div></div>
     <div><div class="kf-opp">Buster Douglas</div><div class="kf-res">Loss <span>KO, round 10 of 12</span></div>
-    <div class="kf-stake">Lost undisputed heavyweight title</div><div class="kf-venue">Tokyo, Japan</div><div class="kf-why">First defeat of his career, one of the biggest upsets in boxing history</div></div></div>
+    <div class="kf-stake">Lost undisputed heavyweight title</div><div class="kf-venue">Tokyo, Japan</div><div class="kf-why">First defeat of his career, one of the biggest upsets in boxing history</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=PzIC4UdZDXM" target="_blank" rel="noopener" data-vid="PzIC4UdZDXM" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">1991</div><div class="kf-day">Mar 18</div></div>
     <div><div class="kf-opp">Donovan Ruddock</div><div class="kf-res">Win <span>TKO, round 7 of 12</span></div>
     <div class="kf-stake">Non-title</div><div class="kf-venue">Las Vegas, U.S.</div><div class="kf-why">A disputed stoppage in round 7 that led to a rematch</div></div></div>
@@ -257,7 +266,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Lost WBA heavyweight title</div><div class="kf-venue">Las Vegas, U.S.</div><div class="kf-why">Lost to Evander Holyfield, who was considered the underdog</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">1997</div><div class="kf-day">Jun 28</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/evander-holyfield">Evander Holyfield</a></div><div class="kf-res">Loss <span>DQ, round 3 of 12</span></div>
-    <div class="kf-stake">For WBA heavyweight title</div><div class="kf-venue">Las Vegas, U.S.</div><div class="kf-why">Disqualified for biting Holyfield's ear; his licence was temporarily revoked</div></div></div>
+    <div class="kf-stake">For WBA heavyweight title</div><div class="kf-venue">Las Vegas, U.S.</div><div class="kf-why">Disqualified for biting Holyfield's ear; his licence was temporarily revoked</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=qRYmy8skd7M" target="_blank" rel="noopener" data-vid="qRYmy8skd7M" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#888"><div class="kf-date"><div class="kf-year">1999</div><div class="kf-day">Oct 23</div></div>
     <div><div class="kf-opp">Orlin Norris</div><div class="kf-res">No contest, <span>round 1 of 12</span></div>
     <div class="kf-stake">Non-title</div><div class="kf-venue">The Palace of Auburn Hills, Auburn Hills, U.S.</div><div class="kf-why">Declared a no contest: Norris hurt his knee after a knockdown that came after the bell</div></div></div>
@@ -266,7 +275,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
     <div class="kf-stake">Non-title</div><div class="kf-venue">The Palace of Auburn Hills, Auburn Hills, U.S.</div><div class="kf-why">First recorded as a technical knockout; changed to a no contest after Tyson tested positive for marijuana</div></div></div>
   <div class="kf-item" style="--c:#c62828"><div class="kf-date"><div class="kf-year">2002</div><div class="kf-day">Jun 8</div></div>
     <div><div class="kf-opp"><a href="/en/boxers/lennox-lewis">Lennox Lewis</a></div><div class="kf-res">Loss <span>KO, round 8 of 12</span></div>
-    <div class="kf-stake">For WBC, IBF, IBO, and The Ring heavyweight titles</div><div class="kf-venue">The Pyramid, Memphis, U.S.</div><div class="kf-why">Fight for the undisputed title against Lennox Lewis: the biggest earner after his return</div></div></div>
+    <div class="kf-stake">For WBC, IBF, IBO, and The Ring heavyweight titles</div><div class="kf-venue">The Pyramid, Memphis, U.S.</div><div class="kf-why">Fight for the undisputed title against Lennox Lewis: the biggest earner after his return</div><!--kfv--><a class="vbtn" href="https://www.youtube.com/watch?v=3EqfkZ0eC2g" target="_blank" rel="noopener" data-vid="3EqfkZ0eC2g" data-w="Watch the fight" data-h="Hide video" data-y="Open on YouTube ↗"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z" fill="currentColor"/></svg><span class="vt">Watch the fight</span></a><!--/kfv--></div></div>
   <div class="kf-item kf-extra" style="--c:#2e7d32"><div class="kf-date"><div class="kf-year">2003</div><div class="kf-day">Feb 22</div></div>
     <div><div class="kf-opp">Clifford Etienne</div><div class="kf-res">Win <span>KO, round 1 of 10</span></div>
     <div class="kf-stake">Non-title</div><div class="kf-venue">Memphis, U.S.</div><div class="kf-why">Last win of his career: a knockout in 49 seconds</div></div></div>
@@ -306,5 +315,15 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
   el.innerHTML=h;
 })();
 </script>
+<script>/*kfv*/
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.vbtn');if(!b)return;e.preventDefault();
+var card=b.closest('.card'),was=b.classList.contains('on');
+card.querySelectorAll('.vbtn.on').forEach(function(x){x.classList.remove('on');x.querySelector('.vt').textContent=x.dataset.w;var w=x.parentNode.querySelector('.vwrap');if(w)w.remove();});
+if(was)return;
+var id=b.dataset.vid,w=document.createElement('div');w.className='vwrap';
+w.innerHTML='<div class="vplayer"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="vcap"><a href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">'+b.dataset.y+'</a></div>';
+b.after(w);b.classList.add('on');b.querySelector('.vt').textContent=b.dataset.h;
+if(typeof gtag!=='undefined')gtag('event','video_play',{video_id:id,page:location.pathname});
+});/*/kfv*/</script>
 </body>
 </html>
