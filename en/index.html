@@ -600,6 +600,7 @@ const FIGHTS = [
   {id:'inoue-nasukawa',    date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', monthIdx:8, red:'Takuma Inoue',  redUk:'Такума Іноуе',  redEn:'Takuma Inoue',     blue:'Tenshin Nasukawa', blueUk:'Теншін Насукава',  blueEn:'Tenshin Nasukawa', divUk:'Легша вага',         divEn:'Bantamweight',       rounds:12, belts:['WBC'], completed:true, hasPage:true,  featured:false},
   {id:'usyk-joshua-2',     date:'Sep 25', dateUk:'25 вересня 2021', dateEn:'Sep 25, 2021', dateNum:25, monthUk:'вер', monthIdx:8, red:'Oleksandr Usyk', redUk:'Олександр Усик', redEn:'Oleksandr Usyk', blue:'Anthony Joshua', blueUk:'Ентоні Джошуа',    blueEn:'Anthony Joshua',   divUk:'Надважка вага',         divEn:'Heavyweight',        rounds:12, belts:['WBO','IBF','WBA'], completed:true,  hasPage:false, featured:false, unlisted:true},
   {id:'lopez-lomachenko',  date:'Oct 17', dateUk:'17 жовтня 2020', dateEn:'Oct 17, 2020', dateNum:17, monthUk:'жов', monthIdx:9, red:'Vasiliy Lomachenko', redUk:'Василь Ломаченко', redEn:'Vasiliy Lomachenko', blue:'Teofimo Lopez', blueUk:'Теофімо Лопес', blueEn:'Teofimo Lopez', divUk:'Легка вага', divEn:'Lightweight', rounds:12, belts:['WBA','WBC','WBO','IBF'], completed:true, hasPage:false, featured:false, unlisted:true},
+  {id:'fury-klitschko',   date:'Nov 28', dateUk:'28 листопада 2015', dateEn:'Nov 28, 2015', dateNum:28, monthUk:'лис', monthIdx:10, red:'Wladimir Klitschko', redUk:'Володимир Кличко', redEn:'Wladimir Klitschko', blue:'Tyson Fury', blueUk:"Тайсон Ф'юрі", blueEn:'Tyson Fury', divUk:'Надважка вага', divEn:'Heavyweight', rounds:12, belts:['WBA','IBF','WBO'], completed:true, hasPage:false, featured:false, unlisted:true},
   // ЖОВТЕНЬ - МАЙБУТНІ
   {id:'tsiupka-beyda',     date:'Oct 3',  dateUk:'3 жовтня',  dateEn:'Oct 3',  dateNum:3,  monthUk:'жов', monthIdx:9, red:'Dmytro Tsiupka', redUk:'Дмитро Цюпка',   redEn:'Dmytro Tsiupka',   blue:'Bogdan Beyda', blueUk:'Богдан Бейда',     blueEn:'Bogdan Beyda',     divUk:'Легка вага',              divEn:'Lightweight',        rounds:10, belts:[{uk:'Україна',en:'Ukraine'}], completed:true, hasPage:true, featured:false},
   {id:'whittaker-wallace', date:'Oct 3',  dateUk:'3 жовтня',  dateEn:'Oct 3',  dateNum:3,  monthUk:'жов', monthIdx:9, red:'Ben Whittaker',  redUk:'Бен Віттакер',   redEn:'Ben Whittaker',    blue:'Conor Wallace', blueUk:'Конор Воллес',    blueEn:'Conor Wallace',    divUk:'Напівважка вага',         divEn:'Light Heavyweight',  rounds:12, belts:[],               completed:true, hasPage:true, featured:false},
@@ -679,11 +680,35 @@ const HISTORY_OCT = {
   31:{gp:{y:2020,tUk:"Олександр Усик UD 12 Дерек Чісора",tEn:"Oleksandr Usyk UD 12 Derek Chisora"}}
 };
 
+const HISTORY_NOV = {
+  1:{gp:{y:2008,tUk:"Вік Дарчинян KO 9 Крістіан Міхарес",tEn:"Vic Darchinyan KO 9 Cristian Mijares"},sg:{y:2003,tUk:"Флойд Мейвезер TKO 7 Філіп Н'Доу",tEn:"Floyd Mayweather TKO 7 Phillip N'Dou"}},
+  3:{gp:{y:1984,tUk:"Хосе Луїс Рамірес TKO 4 Едвін Росаріо",tEn:"Jose Luis Ramirez TKO 4 Edwin Rosario"}},
+  4:{gp:{y:1995,tUk:"Ріддік Боу TKO 8 Евандер Холіфілд",tEn:"Riddick Bowe TKO 8 Evander Holyfield"},sg:{y:2006,tUk:"Флойд Мейвезер UD 12 Карлос Балдомір",tEn:"Floyd Mayweather UD 12 Carlos Baldomir"}},
+  5:{gp:{y:1994,tUk:"Джордж Форман KO 10 Майкл Мурер",tEn:"George Foreman KO 10 Michael Moorer"}},
+  6:{gp:{y:1993,tUk:"Евандер Холіфілд MD 12 Ріддік Боу",tEn:"Evander Holyfield MD 12 Riddick Bowe"},sg:{y:1981,tUk:"Ларрі Холмс TKO 11 Реналдо Снайпс",tEn:"Larry Holmes TKO 11 Renaldo Snipes"}},
+  7:{gp:{y:1970,tUk:"Карлос Монсон TKO 12 Ніно Бенвенуті",tEn:"Carlos Monzon TKO 12 Nino Benvenuti"}},
+  8:{gp:{y:1997,tUk:"Евандер Холіфілд RTD 8 Майкл Мурер",tEn:"Evander Holyfield RTD 8 Michael Moorer"}},
+  9:{gp:{y:1996,tUk:"Евандер Холіфілд TKO 11 Майк Тайсон",tEn:"Evander Holyfield TKO 11 Mike Tyson"}},
+  10:{gp:{y:1983,tUk:"Марвін Хаглер UD 15 Роберто Дюран",tEn:"Marvin Hagler UD 15 Roberto Duran"},sg:{y:2012,tUk:"Володимир Кличко UD 12 Маріуш Вах",tEn:"Wladimir Klitschko UD 12 Mariusz Wach"}},
+  11:{gp:{y:2000,tUk:"Леннокс Льюїс UD 12 Девід Туа",tEn:"Lennox Lewis UD 12 David Tua"}},
+  13:{gp:{y:1982,tUk:"Рей Манчіні KO 14 Кім Дук-Ку",tEn:"Ray Mancini KO 14 Duk Koo Kim"},sg:{y:1999,tUk:"Леннокс Льюїс UD 12 Евандер Холіфілд",tEn:"Lennox Lewis UD 12 Evander Holyfield"}},
+  15:{gp:{y:2014,tUk:"Володимир Кличко KO 5 Кубрат Пулєв",tEn:"Wladimir Klitschko KO 5 Kubrat Pulev"},sg:{y:2024,tUk:"Джейк Пол UD 8 Майк Тайсон",tEn:"Jake Paul UD 8 Mike Tyson"}},
+  16:{gp:{y:1996,tUk:"Дебют братів Кличків у професійному боксі",tEn:"Klitschko brothers' professional debuts"}},
+  17:{gp:{y:2001,tUk:"Леннокс Льюїс KO 4 Хасім Рахман",tEn:"Lennox Lewis KO 4 Hasim Rahman"}},
+  19:{gp:{y:2005,tUk:"Флойд Мейвезер TKO 6 Шармба Мітчелл",tEn:"Floyd Mayweather TKO 6 Sharmba Mitchell"}},
+  22:{gp:{y:1986,tUk:"Майк Тайсон TKO 2 Тревор Бербік",tEn:"Mike Tyson TKO 2 Trevor Berbick"}},
+  23:{gp:{y:2002,tUk:"Віталій Кличко TKO 10 Ларрі Дональд",tEn:"Vitali Klitschko TKO 10 Larry Donald"}},
+  25:{gp:{y:1980,tUk:"Рей Леонард TKO 8 Роберто Дюран",tEn:"Sugar Ray Leonard TKO 8 Roberto Duran"},sg:{y:1977,tUk:"Томас Хернс KO 2 Джером Гілл",tEn:"Thomas Hearns KO 2 Jerome Hill"}},
+  28:{gp:{y:2015,tUk:"Тайсон Ф'юрі UD 12 Володимир Кличко",tEn:"Tyson Fury UD 12 Wladimir Klitschko"}},
+  30:{gp:{y:1979,tUk:"Рей Леонард TKO 15 Вілфред Бенітес",tEn:"Sugar Ray Leonard TKO 15 Wilfred Benitez"}}
+};
+
 // Місяці, покриті "Цей день в історії" на головній. Останній запис у
 // списку - запасний варіант, коли поточний місяць ще не охоплений.
 const HISTORY_MONTHS = [
   {idx:8, slug:'september', data:HISTORY_SEPT, days:30, lblUk:'Вер', lblEn:'Sep', nameUk:'вересня', nameEn:'Sep'},
-  {idx:9, slug:'october',   data:HISTORY_OCT,  days:31, lblUk:'Жов', lblEn:'Oct', nameUk:'жовтня',  nameEn:'Oct'}
+  {idx:9, slug:'october',   data:HISTORY_OCT,  days:31, lblUk:'Жов', lblEn:'Oct', nameUk:'жовтня',  nameEn:'Oct'},
+  {idx:10, slug:'november',  data:HISTORY_NOV,  days:30, lblUk:'Лис', lblEn:'Nov', nameUk:'листопада', nameEn:'Nov'}
 ];
 
 // Guide articles – add entry when article is ready: {id, titleUk, titleEn}
