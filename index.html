@@ -282,7 +282,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .site-footer a:hover{color:var(--red);}
 
 /* ── Sections below scorecard ── */
-.sections-wrap{max-width:640px;margin:0 auto;padding:2rem 1rem 2rem;}
+.sections-wrap{max-width:520px;margin:0 auto;padding:2rem 0 2rem;}
+#toursBlock,#analyticsBlock,#guideBlock,#howBlock{max-width:520px;margin-left:auto;margin-right:auto;}
 .sec{margin-bottom:28px;}
 .sec-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
 .sec-lbl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
@@ -368,6 +369,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .fight-tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap;}
 .fight-tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 6px;border-radius:3px;}
 .fight-tag.belt{background:#f0ede8;color:#555;}
+.fight-tag.tour{background:#fdf2f2;color:var(--red);}
 .fight-tag.statistics{background:#eaf3de;color:#3b6d11;}
 .fight-arr-col{flex-shrink:0;padding:0 13px;display:flex;align-items:center;font-size:14px;color:var(--muted);}
 </style>
@@ -609,7 +611,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <script>
 // ── Data ──────────────────────────────────────────────────────────────────────
 var TOURNAMENTS = {
-  'mexico-vs-the-world': {nameUk:'Мексика vs Світ', nameEn:'Mexico vs The World', ts:20261031, dateNum:31, monthUk:'жов', monthEn:'oct',
+  'mexico-vs-the-world': {nameUk:'Мексика vs Світ', nameEn:'Mexico vs The World', ts:20261031, date:'2026-10-31', dateNum:31, monthUk:'жов', monthEn:'oct',
     kickUk:'31 жовтня · Ер-Ріяд', kickEn:'Oct 31 · Riyadh', subUk:'Альварес – Мбіллі · 9 боїв', subEn:'Alvarez vs Mbilli · 9 fights',
     img:'/images/cards/mexico-vs-the-world.jpg'}
 };
@@ -1059,9 +1061,9 @@ function buildAnalyticsBlock() {
   // ── Tournaments block ──
   var tb = document.getElementById('toursBlock'), tl = document.getElementById('toursList');
   if (tb && tl) {
-    var tk = Object.keys(TOURNAMENTS).filter(function(k){
-      return FIGHTS.some(function(f){ return f.tournament === k && !f.completed; });
-    }).sort(function(a, b){ return TOURNAMENTS[a].ts - TOURNAMENTS[b].ts; }).slice(0, 3);
+    var nowT = new Date();
+    function tDay(k, plus){ var p = TOURNAMENTS[k].date.split('-'); return new Date(+p[0], +p[1] - 1, +p[2] + plus, 0, 0, 0); }
+    var tk = Object.keys(TOURNAMENTS).filter(function(k){ return nowT < tDay(k, 3); }).sort(function(a, b){ return TOURNAMENTS[a].ts - TOURNAMENTS[b].ts; }).slice(0, 3);
     if (tk.length) {
       document.getElementById('lbl-tours').textContent = isUk ? 'Турніри' : 'Events';
       var tmore = document.getElementById('toursMore');
@@ -1074,7 +1076,7 @@ function buildAnalyticsBlock() {
         if (i === 0) {
           th += '<a class="tt" href="' + href + '" onclick="trackFightOpen(\'' + k + '\')"><img src="' + T0.img + '" alt="' + (isUk ? T0.nameUk : T0.nameEn) + '">';
           th += '<div class="tt-b"><div class="tt-k">' + (isUk ? T0.kickUk : T0.kickEn) + '</div><div class="tt-t">' + (isUk ? T0.nameUk : T0.nameEn) + '</div>';
-          th += '<div class="tt-s">' + (isUk ? T0.subUk : T0.subEn) + '</div><span class="tt-tag">' + (isUk ? 'Повний кард' : 'Full card') + '</span><span class="tt-arr">›</span></div></a>';
+          th += '<div class="tt-s">' + (isUk ? T0.subUk : T0.subEn) + '</div><span class="tt-tag">' + (nowT >= tDay(k, 1) ? (isUk ? 'Результати' : 'Results') : (isUk ? 'Повний кард' : 'Full card')) + '</span><span class="tt-arr">›</span></div></a>';
         } else {
           if (i === 1) th += '<div class="tt-list">';
           th += '<a class="fight-row clickable" href="' + href + '" onclick="trackFightOpen(\'' + k + '\')"><div class="fight-dc"><div class="fight-dn">' + T0.dateNum + '</div><div class="fight-dm">' + (isUk ? T0.monthUk : T0.monthEn) + '</div></div><div class="fight-div"></div><div class="fight-info"><div class="fight-pair">' + (isUk ? T0.nameUk : T0.nameEn) + '</div><div class="fight-meta">' + (isUk ? T0.subUk : T0.subEn) + '</div></div><div class="fight-arr-col">›</div></a>';
@@ -1090,7 +1092,7 @@ function buildAnalyticsBlock() {
 
   // ── Fight block ──
   if (block && list) {
-    var upcoming = FIGHTS.filter(function(f){ return !f.completed && !f.tournament; });
+    var upcoming = FIGHTS.filter(function(f){ return !f.completed; });
     var recentMode = false;
     if (!upcoming.length) { recentMode = true; upcoming = recentFights(5); }
 
@@ -1130,11 +1132,12 @@ function buildAnalyticsBlock() {
       fHtml += '<div class="fight-pair">' + pair + '</div>';
       fHtml += '<div class="fight-meta">' + div + ' · ' + rds + '</div>';
 
-      if ((f.belts && f.belts.length) || hasP) {
+      if ((f.belts && f.belts.length) || hasP || f.tournament) {
         fHtml += '<div class="fight-tags">';
         if (f.belts && f.belts.length) {
           f.belts.forEach(function(b){ var bt = (typeof b === 'object') ? (isUk ? b.uk : b.en) : b; fHtml += '<span class="fight-tag belt">' + bt + '</span>'; });
         }
+        if (f.tournament && TOURNAMENTS[f.tournament]) fHtml += '<span class="fight-tag tour">' + (isUk ? TOURNAMENTS[f.tournament].nameUk : TOURNAMENTS[f.tournament].nameEn) + '</span>';
         if (hasP) fHtml += '<span class="fight-tag statistics">' + (isUk ? 'Статистика' : 'Statistics') + '</span>';
         fHtml += '</div>';
       }
