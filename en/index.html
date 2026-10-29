@@ -1005,23 +1005,6 @@ function renderSections() {
 
   html += '</div></div>'; // tools-list, sec
 
-  // ── GUIDE ──
-  html += '<div class="sec">';
-  html += '<div class="sec-header">';
-  html += '<span class="sec-lbl">' + t('secGuide') + '</span>';
-  html += '<a class="sec-all" href="/' + langPath + '/guide">' + t('secAllArticles') + '</a>';
-  html += '</div>';
-  html += '<div class="guide-list">';
-  guideItems.forEach(function(g) {
-    var title = isUk ? g.titleUk : g.titleEn;
-    var sub   = isUk ? g.subUk   : g.subEn;
-    html += '<a class="guide-row" href="/' + langPath + '/' + g.id + '">';
-    html += '<div><div class="guide-title">' + title + '</div>';
-    html += '<div class="guide-sub">' + sub + '</div></div>';
-    html += '<span class="tool-arr">›</span></a>';
-  });
-  html += '</div></div>';
-
   wrap.innerHTML = html;
 }
 
