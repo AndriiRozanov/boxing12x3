@@ -588,6 +588,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 
 <script>
 // ── Data ──────────────────────────────────────────────────────────────────────
+var TOURNAMENTS = {
+  'mexico-vs-the-world': {nameUk:'Мексика vs Світ', nameEn:'Mexico vs The World', metaUk:'Ер-Ріяд · Альварес – Мбіллі · 9 боїв', metaEn:'Riyadh · Alvarez vs Mbilli · 9 fights'}
+};
 const FIGHTS = [
   // ЗАВЕРШЕНІ
   {id:'garcia-benn',       date:'Sep 12', dateUk:'12 вересня', dateEn:'Sep 12', dateNum:12, monthUk:'вер', monthIdx:8, red:'Ryan Garcia',    redUk:'Раян Гарсія',    redEn:'Ryan Garcia',      blue:'Conor Benn', blueUk:'Конор Бенн',       blueEn:'Conor Benn',       divUk:'Напівсередня вага',       divEn:'Welterweight',       rounds:12, belts:['WBC','Zuffa'], completed:true,  hasPage:true,  featured:false},
@@ -612,7 +615,12 @@ const FIGHTS = [
   {id:'resendiz-mazoudier',  date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Armando Resendiz', redUk:'Армандо Ресендіс', redEn:'Armando Resendiz',   blue:'Koen Mazoudier', blueUk:'Коен Мазудьє',    blueEn:'Koen Mazoudier',   divUk:'Друга середня вага',      divEn:'Super Middleweight', rounds:10, belts:[],               completed:true, hasPage:true, featured:false},
   {id:'smith-puello',      date:'Oct 24', dateUk:'24 жовтня', dateEn:'Oct 24', dateNum:24, monthUk:'жов', monthIdx:9, red:'Dalton Smith',   redUk:'Далтон Сміт',    redEn:'Dalton Smith',     blue:'Alberto Puello', blueUk:'Альберто Пуельйо', blueEn:'Alberto Puello',  divUk:'Перша напівсередня вага', divEn:'Super Lightweight',  rounds:12, belts:['WBC'],          completed:true, hasPage:true, featured:false},
   {id:'navarrete-foster',  date:'Oct 24', dateUk:'24 жовтня', dateEn:'Oct 24', dateNum:24, monthUk:'жов', monthIdx:9, red:'Emanuel Navarrete',redUk:'Емануель Наваррете',redEn:'Emanuel Navarrete', blue:"O'Shaquie Foster", blueUk:'О\'Шакі Фостер', blueEn:"O'Shaquie Foster", divUk:'Друга напівлегка вага',   divEn:'Super Featherweight',rounds:12, belts:['WBO','IBF','WBC'], completed:true, hasPage:true, featured:false},
-  {id:'alvarez-mbilli',    date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Saul Alvarez',   redUk:'Сауль Альварес', redEn:'Saul Alvarez',     blue:'Christian Mbilli', blueUk:'Крістіан Мбіллі', blueEn:'Christian Mbilli', divUk:'Друга середня вага',      divEn:'Super Middleweight', rounds:12, belts:['WBC'],          completed:false, hasPage:true, featured:true},
+  {id:'alvarez-mbilli',    date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Saul Alvarez',   redUk:'Сауль Альварес', redEn:'Saul Alvarez',     blue:'Christian Mbilli', blueUk:'Крістіан Мбіллі', blueEn:'Christian Mbilli', divUk:'Друга середня вага',      divEn:'Super Middleweight', rounds:12, belts:['WBC'],          completed:false, hasPage:true, featured:true, tournament:'mexico-vs-the-world'},
+  {id:'munguia-zon', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Jaime Munguia', redUk:'Хайме Мунгія', redEn:'Jaime Munguia', blue:'Nikita Zon', blueUk:'Нікіта Зон', blueEn:'Nikita Zon', divUk:'Друга середня вага', divEn:'Super Middleweight', rounds:12, belts:[], completed:false, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'espinosa-blandon', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Rafael Espinoza', redUk:'Рафаель Еспіноса', redEn:'Rafael Espinoza', blue:'Ricardo Blandon', blueUk:'Рікардо Бландон', blueEn:'Ricardo Blandon', divUk:'Напівлегка вага', divEn:'Featherweight', rounds:12, belts:['WBO'], completed:false, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'picasso-martin', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'David Picasso', redUk:'Давід Пікассо', redEn:'David Picasso', blue:'Carl Jammes Martin', blueUk:'Карл Джеммс Мартін', blueEn:'Carl Jammes Martin', divUk:'Напівлегка вага', divEn:'Featherweight', rounds:10, belts:['WBC Silver'], completed:false, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'tsutsumi-rojas-garcia', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Reito Tsutsumi', redUk:'Рейто Цуцумі', redEn:'Reito Tsutsumi', blue:'Raimundo Rojas Garcia', blueUk:'Раймундо Рохас Гарсія', blueEn:'Raimundo Rojas Garcia', divUk:'Друга напівлегка вага', divEn:'Super Featherweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'rojo-biea', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Emiliano Rojo', redUk:'Еміліано Рохо', redEn:'Emiliano Rojo', blue:'Flavius Biea', blueUk:'Флавіус Біея', blueEn:'Flavius Biea', divUk:'Середня вага', divEn:'Middleweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
 ];
 
 // Lightweight "This Day in Boxing" data - titles + years only (ГП/СГ), no
@@ -1047,7 +1055,23 @@ function buildAnalyticsBlock() {
     fHtml += (recentMode ? (isUk ? 'Останні бої' : 'Latest fights') : (curMonthName + ' ' + curYear));
     fHtml += '</div>';
 
+    var seenT = {};
     upcoming.forEach(function(f) {
+      if (f.tournament) {
+        if (seenT[f.tournament]) return;
+        seenT[f.tournament] = 1;
+        var TT = TOURNAMENTS[f.tournament];
+        if (TT) {
+          fHtml += '<a class="fight-row clickable" href="' + (isUk ? '/ua/cards/' : '/en/cards/') + f.tournament + '" onclick="trackFightOpen(\'' + f.tournament + '\')">';
+          fHtml += '<div class="fight-dc"><div class="fight-dn">' + f.dateNum + '</div><div class="fight-dm">' + (isUk ? f.monthUk : f.dateEn.split(' ')[0].toLowerCase()) + '</div></div>';
+          fHtml += '<div class="fight-div"></div><div class="fight-info">';
+          fHtml += '<div class="fight-pair">' + (isUk ? TT.nameUk : TT.nameEn) + '</div>';
+          fHtml += '<div class="fight-meta">' + (isUk ? TT.metaUk : TT.metaEn) + '</div>';
+          fHtml += '<div class="fight-tags"><span class="fight-tag statistics">' + (isUk ? 'Повний кард' : 'Full card') + '</span></div>';
+          fHtml += '</div><div class="fight-arr-col">›</div></a>';
+          return;
+        }
+      }
       var hasP = f.hasPage;
       var rowClass = 'fight-row' + (hasP ? ' clickable' : ' muted');
       var pair = (isUk ? f.redUk : f.red) + ' <span class="fight-vs">vs</span> ' + (isUk ? f.blueUk : f.blue);
