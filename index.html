@@ -337,6 +337,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 .hist-btn.primary{border:1px solid var(--red);color:var(--red);}
 .hist-btn.secondary{background:#f0ede8;color:#555;}
 
+/* Tournaments */
+.tt{display:block;background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--text);margin-bottom:8px;}
+.tt img{width:100%;height:auto;display:block;}
+.tt-b{padding:12px 36px 13px 14px;position:relative;}
+.tt-k{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:3px;}
+.tt-t{font-size:16px;font-weight:700;line-height:1.25;}
+.tt-s{font-size:12px;color:var(--muted);margin-top:2px;}
+.tt-tag{display:inline-block;margin-top:8px;font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 6px;border-radius:3px;background:#eaf3de;color:#3b6d11;}
+.tt-arr{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:18px;}
+.tt-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+
 /* Fights list */
 .fights-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
 .fights-month{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:9px 14px 7px;border-bottom:0.5px solid var(--border);}
@@ -500,6 +511,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
   </a>
 </div>
 
+<!-- Tournaments – both languages -->
+<div class="sec" id="toursBlock" style="margin-top:16px;display:none;">
+  <div class="sec-header">
+    <span class="sec-lbl" id="lbl-tours">Турніри</span>
+    <a class="sec-all" id="toursMore" href="/ua/cards">Всі турніри →</a>
+  </div>
+  <div id="toursList"></div>
+</div>
+
 <!-- Fight archive – both languages -->
 <div class="sec" id="analyticsBlock" style="margin-top:16px;">
   <div class="sec-header">
@@ -589,7 +609,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 <script>
 // ── Data ──────────────────────────────────────────────────────────────────────
 var TOURNAMENTS = {
-  'mexico-vs-the-world': {nameUk:'Мексика vs Світ', nameEn:'Mexico vs The World', metaUk:'Ер-Ріяд · Альварес – Мбіллі · 9 боїв', metaEn:'Riyadh · Alvarez vs Mbilli · 9 fights'}
+  'mexico-vs-the-world': {nameUk:'Мексика vs Світ', nameEn:'Mexico vs The World', ts:20261031, dateNum:31, monthUk:'жов', monthEn:'oct',
+    kickUk:'31 жовтня · Ер-Ріяд', kickEn:'Oct 31 · Riyadh', subUk:'Альварес – Мбіллі · 9 боїв', subEn:'Alvarez vs Mbilli · 9 fights',
+    img:'/images/cards/mexico-vs-the-world.jpg'}
 };
 const FIGHTS = [
   // ЗАВЕРШЕНІ
@@ -827,7 +849,7 @@ const isWidget = new URLSearchParams(window.location.search).has('widget');
 // Прибираємо ?lang= з адреси, коли сторінку відкрито за посиланням /?lang=uk (мова вже застосована).
 if (new URLSearchParams(window.location.search).has('lang')) syncUrlToLang(lang);
 if (isWidget) {
-  ['uaLinks','analyticsBlock','guideBlock','sectionsWrap','howBlock'].forEach(function(id) {
+  ['uaLinks','toursBlock','analyticsBlock','guideBlock','sectionsWrap','howBlock'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.classList.add('widget-hidden');
   });
@@ -1034,9 +1056,41 @@ function buildAnalyticsBlock() {
   const more = document.getElementById('analyticsMore');
   const isUk = lang === 'uk';
 
+  // ── Tournaments block ──
+  var tb = document.getElementById('toursBlock'), tl = document.getElementById('toursList');
+  if (tb && tl) {
+    var tk = Object.keys(TOURNAMENTS).filter(function(k){
+      return FIGHTS.some(function(f){ return f.tournament === k && !f.completed; });
+    }).sort(function(a, b){ return TOURNAMENTS[a].ts - TOURNAMENTS[b].ts; }).slice(0, 3);
+    if (tk.length) {
+      document.getElementById('lbl-tours').textContent = isUk ? 'Турніри' : 'Events';
+      var tmore = document.getElementById('toursMore');
+      tmore.textContent = isUk ? 'Всі турніри →' : 'All events →';
+      tmore.href = isUk ? '/ua/cards' : '/en/cards';
+      var th = '';
+      tk.forEach(function(k, i){
+        var T0 = TOURNAMENTS[k];
+        var href = (isUk ? '/ua/cards/' : '/en/cards/') + k;
+        if (i === 0) {
+          th += '<a class="tt" href="' + href + '" onclick="trackFightOpen(\'' + k + '\')"><img src="' + T0.img + '" alt="' + (isUk ? T0.nameUk : T0.nameEn) + '">';
+          th += '<div class="tt-b"><div class="tt-k">' + (isUk ? T0.kickUk : T0.kickEn) + '</div><div class="tt-t">' + (isUk ? T0.nameUk : T0.nameEn) + '</div>';
+          th += '<div class="tt-s">' + (isUk ? T0.subUk : T0.subEn) + '</div><span class="tt-tag">' + (isUk ? 'Повний кард' : 'Full card') + '</span><span class="tt-arr">›</span></div></a>';
+        } else {
+          if (i === 1) th += '<div class="tt-list">';
+          th += '<a class="fight-row clickable" href="' + href + '" onclick="trackFightOpen(\'' + k + '\')"><div class="fight-dc"><div class="fight-dn">' + T0.dateNum + '</div><div class="fight-dm">' + (isUk ? T0.monthUk : T0.monthEn) + '</div></div><div class="fight-div"></div><div class="fight-info"><div class="fight-pair">' + (isUk ? T0.nameUk : T0.nameEn) + '</div><div class="fight-meta">' + (isUk ? T0.subUk : T0.subEn) + '</div></div><div class="fight-arr-col">›</div></a>';
+        }
+      });
+      if (tk.length > 1) th += '</div>';
+      tl.innerHTML = th;
+      tb.style.display = 'block';
+    } else {
+      tb.style.display = 'none';
+    }
+  }
+
   // ── Fight block ──
   if (block && list) {
-    var upcoming = FIGHTS.filter(function(f){ return !f.completed; });
+    var upcoming = FIGHTS.filter(function(f){ return !f.completed && !f.tournament; });
     var recentMode = false;
     if (!upcoming.length) { recentMode = true; upcoming = recentFights(5); }
 
@@ -1055,23 +1109,7 @@ function buildAnalyticsBlock() {
     fHtml += (recentMode ? (isUk ? 'Останні бої' : 'Latest fights') : (curMonthName + ' ' + curYear));
     fHtml += '</div>';
 
-    var seenT = {};
     upcoming.forEach(function(f) {
-      if (f.tournament) {
-        if (seenT[f.tournament]) return;
-        seenT[f.tournament] = 1;
-        var TT = TOURNAMENTS[f.tournament];
-        if (TT) {
-          fHtml += '<a class="fight-row clickable" href="' + (isUk ? '/ua/cards/' : '/en/cards/') + f.tournament + '" onclick="trackFightOpen(\'' + f.tournament + '\')">';
-          fHtml += '<div class="fight-dc"><div class="fight-dn">' + f.dateNum + '</div><div class="fight-dm">' + (isUk ? f.monthUk : f.dateEn.split(' ')[0].toLowerCase()) + '</div></div>';
-          fHtml += '<div class="fight-div"></div><div class="fight-info">';
-          fHtml += '<div class="fight-pair">' + (isUk ? TT.nameUk : TT.nameEn) + '</div>';
-          fHtml += '<div class="fight-meta">' + (isUk ? TT.metaUk : TT.metaEn) + '</div>';
-          fHtml += '<div class="fight-tags"><span class="fight-tag statistics">' + (isUk ? 'Повний кард' : 'Full card') + '</span></div>';
-          fHtml += '</div><div class="fight-arr-col">›</div></a>';
-          return;
-        }
-      }
       var hasP = f.hasPage;
       var rowClass = 'fight-row' + (hasP ? ' clickable' : ' muted');
       var pair = (isUk ? f.redUk : f.red) + ' <span class="fight-vs">vs</span> ' + (isUk ? f.blueUk : f.blue);
