@@ -86,6 +86,7 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
 :root{--red-l:#fdf2f2;--blue-l:#eaf4fb;}
+#cdv{font-variant-numeric:tabular-nums;}
 .kick{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:6px;}
 
 .pr.main{padding-top:14px;padding-bottom:14px;}
@@ -194,7 +195,7 @@ h2.sec{font-size:15px;font-weight:700;margin:26px 0 10px;}
     <span class="broadcast-platform">DAZN<span class="broadcast-label"> · main card</span></span>
     <span class="broadcast-time">Oct 31 · 12:00 PM ET / 9:00 AM PT / 4:00 PM GMT / 1:00 AM JST (Nov 1)</span>
   </div>
-  <div class="broadcast-row" id="cd" data-live="The event has started" data-d="d" data-h="h" data-m="m">
+  <div class="broadcast-row" id="cd" data-live="The event has started" data-d="d" data-h="h" data-m="m" data-s="s">
     <span class="broadcast-platform">Broadcast starts in</span>
     <span class="broadcast-time" id="cdv">–</span>
   </div>
@@ -274,14 +275,16 @@ function vote(row,side){
 }
 function tick(){
   var el=document.getElementById('cd'); if(!el) return;
-  var ms=Date.UTC(2026,9,31,14,0,0)-Date.now();
   var v=document.getElementById('cdv');
+  var ms=Date.UTC(2026,9,31,14,0,0)-Date.now();
   if(ms<=0){ v.textContent=el.getAttribute('data-live'); return; }
-  var m=Math.floor(ms/60000), d=Math.floor(m/1440), h=Math.floor((m%1440)/60), mm=m%60;
-  v.textContent=d+el.getAttribute('data-d')+' '+h+el.getAttribute('data-h')+' '+mm+el.getAttribute('data-m');
+  var t=Math.floor(ms/1000), d=Math.floor(t/86400), h=Math.floor((t%86400)/3600), m=Math.floor((t%3600)/60), sec=t%60;
+  var u={d:el.getAttribute('data-d'),h:el.getAttribute('data-h'),m:el.getAttribute('data-m'),s:el.getAttribute('data-s')};
+  var out=(d>0?d+u.d+' ':'')+((d>0||h>0)?h+u.h+' ':'')+m+u.m+' '+sec+u.s;
+  v.textContent=out;
 }
 document.addEventListener('DOMContentLoaded',function(){
-  tick(); setInterval(tick,30000);
+  tick(); setInterval(tick,1000);
   document.querySelectorAll('.vt-row').forEach(function(row){
     row.querySelectorAll('.vt-btn').forEach(function(b){ b.addEventListener('click',function(){ vote(row,b.getAttribute('data-side')); }); });
     loadRow(row);
