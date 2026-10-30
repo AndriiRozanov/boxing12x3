@@ -84,7 +84,7 @@ Only fights with a page (`hasPage: true`) appear in the archive.
 | `.rrow` | Round row container (grid: 1fr 40px 1fr) |
 | `.rside` | Clickable half of a round row (left = red, right = blue) |
 | `.rside-fill` | Animated fill div inside rside – DO NOT set background on .rside directly |
-| `.rpts` | Score number inside rside (Bebas Neue, z-index:1 above fill) |
+| `.rpts` | Score number inside rside (Oswald display, z-index:1 above fill) |
 | `.rn` | Round number center column (also triggers 10:10 on click) |
 | `.won-strip` | "Виграних раундів" counter above scorecard rows |
 | `.analytics-block` | Fight stats links block below scorecard |
@@ -253,7 +253,7 @@ From design skill audit – mandatory:
   ```
 - **Article line width** – `article p { max-width: 65ch; }`
 - **Focus rings** – `button:focus-visible, a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }`
-- **DM Sans** – keep (identity preservation, do not replace despite being on reflex-reject list)
+- **Fonts (changed 30 Oct 2026)** – Manrope (variable, body) + Oswald 600 (display, always uppercase), both self-hosted in `/fonts/` with `fonts/fonts.css`; same fonts in UA and EN. Replaced DM Sans and Bebas Neue because neither has Cyrillic (UA text fell back to the device system font). Never reintroduce Google Fonts links. Oswald is declared for weights 100-900 so every weight maps to the 600 file
 - **Background #f7f6f3** – keep (identity preservation)
 
 ---

@@ -8,7 +8,7 @@ import csv, re, sys, pathlib
 R = pathlib.Path(__file__).resolve().parent.parent
 T = {'ua': dict(w='Дивитись бій', h='Сховати відео', y='Відкрити на YouTube ↗'),
      'en': dict(w='Watch the fight', h='Hide video', y='Open on YouTube ↗')}
-CSS = '''/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+CSS = '''/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'Manrope',sans-serif;text-decoration:none;cursor:pointer;}
 .vbtn:hover{background:#fbe5e3;}
 .vbtn.on{background:#fff;border-color:#ddd;color:#555;}
 .vwrap{margin-top:10px;}

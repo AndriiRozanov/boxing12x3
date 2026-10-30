@@ -27,26 +27,27 @@
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Vassiliy Jirov","alternateName":["The Tiger","Василь Жиров"],"description":"Kazakh professional boxer, IBF world cruiserweight champion.","birthPlace":{"@type":"Place","name":"Balkhash, Kazakh SSR, Soviet Union (now Kazakhstan)"},"nationality":{"@type":"Country","name":"Kazakhstan"},"height":{"@type":"QuantitativeValue","value":188,"unitCode":"CMT"},"url":"https://boxing12x3.com/en/boxers/vassiliy-jirov"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://boxing12x3.com/en"},{"@type":"ListItem","position":2,"name":"Boxers","item":"https://boxing12x3.com/en/boxers"},{"@type":"ListItem","position":3,"name":"Vassiliy Jirov","item":"https://boxing12x3.com/en/boxers/vassiliy-jirov"}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--red:#c0392b;--blue:#1a5276;--green:#2e7d32;--burgundy:#7d2942;--purple:#6a3d9a;--gold:#a9791f;--bg:#f7f6f3;--card:#fff;--text:#1a1a1a;--muted:#888;--border:#e5e3de;--r:10px;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.6;}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.6;}
 .wrap{max-width:640px;margin:0 auto;}
 .lang-row{display:flex;justify-content:flex-end;gap:4px;margin-bottom:1rem;}
 .lang-btn{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;}
 .lang-btn.on{background:var(--text);color:#fff;border-color:var(--text);}
 .brand{text-align:center;margin-bottom:1.5rem;}
 .brand a{text-decoration:none;}
-.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);font-weight:700;}
+.brand-name{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:28px;letter-spacing:.12em;color:var(--text);font-weight:700;}
 .brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;font-weight:400;}
 .breadcrumb{font-size:12px;color:var(--muted);margin-bottom:18px;}
 .breadcrumb a{color:var(--muted);text-decoration:none;}
 .card{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:14px;}
 .name-block{padding:18px 20px 16px;}
 .name-sub{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
-h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.01em;color:var(--text);line-height:1.1;}
+h1{font-family:'Manrope',sans-serif;font-weight:700;font-size:26px;letter-spacing:-.01em;color:var(--text);line-height:1.1;}
 .name-status{font-size:13px;color:#555;margin-top:5px;}
 .rec{padding:0 20px 16px;}
 .rec-cells{display:flex;gap:8px;margin-bottom:12px;}
@@ -54,7 +55,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .rec-cell.dark{background:#111;border-color:#111;}
 .rec-lbl{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
 .rec-cell.dark .rec-lbl{color:#9a9a9a;}
-.rec-num{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1.1;margin-top:2px;}
+.rec-num{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:32px;line-height:1.1;margin-top:2px;}
 .rec-sub{font-size:10.5px;color:var(--muted);margin-top:3px;}
 .rec-cell.dark .rec-sub{color:#999;}
 .rec-bar{display:flex;height:9px;border-radius:5px;overflow:hidden;}
@@ -109,7 +110,7 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:12px 20px;border-top:0.5px solid #f0ede8;position:relative;}
 .kf-item::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:3px;border-radius:0 2px 2px 0;background:var(--c);}
 .kf-date{text-align:center;padding-top:1px;}
-.kf-year{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--text);}
+.kf-year{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:26px;line-height:1;color:var(--text);}
 .kf-day{font-size:10px;color:var(--muted);margin-top:3px;}
 .kf-opp{font-size:13.5px;font-weight:700;color:var(--text);}
 .kf-opp a{color:var(--text);text-decoration:none;}
@@ -127,11 +128,11 @@ h1{font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacin
 .kf-video.on::before,.kf-video.on::after{display:none;}
 .kf-extra{display:none;}
 .kf-open .kf-extra{display:grid;}
-.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'DM Sans',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
+.kf-more{display:block;width:100%;border:none;border-top:0.5px solid #f0ede8;background:none;font:600 12.5px 'Manrope',sans-serif;color:var(--red);padding:13px 20px;cursor:pointer;text-align:center;}
 .kf-h{display:none;}
 .kf-open .kf-s{display:none;}
 .kf-open .kf-h{display:inline;}
-/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;}
+/*kfv*/.vbtn{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:7px 12px;border:1px solid #e6a49c;background:#fdf2f2;color:#c0392b;border-radius:20px;font:600 12px 'Manrope',sans-serif;text-decoration:none;cursor:pointer;}
 .vbtn:hover{background:#fbe5e3;}
 .vbtn.on{background:#fff;border-color:#ddd;color:#555;}
 .vwrap{margin-top:10px;}

@@ -18,8 +18,9 @@
 <link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxing-organizations">
 <link rel="alternate" hreflang="x-default" href="https://boxing12x3.com/en/boxing-organizations">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23111'/%3E%3Ctext x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3E12%3C/text%3E%3Cline x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'%3E%C3%973%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,14 +60,14 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--red:#c0392b;--bg:#f7f6f3;--card:#fff;--text:#1a1a1a;--muted:#888;--border:#e5e3de;--r:10px;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.7;}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.7;}
 .wrap{max-width:640px;margin:0 auto;}
 .lang-row{display:flex;justify-content:flex-end;gap:4px;margin-bottom:1rem;}
 .lang-btn{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;}
 .lang-btn.on{background:var(--text);color:#fff;border-color:var(--text);}
 .brand{text-align:center;margin-bottom:1.5rem;}
 .brand a{text-decoration:none;}
-.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);font-weight:700;}
+.brand-name{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:28px;letter-spacing:.12em;color:var(--text);font-weight:700;}
 .brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
 .breadcrumb{font-size:12px;color:var(--muted);margin-bottom:20px;}
 .breadcrumb a{color:var(--muted);text-decoration:none;}
@@ -85,7 +86,7 @@ article li::before{content:'·';position:absolute;left:0;color:var(--red);}
 .read-next-sub{font-size:12px;color:var(--muted);margin-top:3px;}
 .read-next-arr{font-size:18px;color:var(--muted);}
 .cta{background:#111;border-radius:var(--r);padding:24px 20px;text-align:center;margin:32px 0;}
-.cta-t{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
+.cta-t{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
 .cta-s{font-size:13px;color:#aaa;margin-bottom:16px;}
 .cta-btn{display:inline-block;background:var(--red);color:#fff;font-weight:500;font-size:14px;padding:11px 28px;border-radius:6px;text-decoration:none;}
 .sources{font-size:11px;color:var(--muted);border-top:0.5px solid var(--border);padding-top:16px;margin-top:32px;line-height:1.8;}

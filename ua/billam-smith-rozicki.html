@@ -25,8 +25,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://boxing12x3.com/og-default.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%23111'/%3E%3Ctext x='50' y='38' font-family='Georgia,serif' font-size='36' font-weight='700' fill='white' text-anchor='middle'%3E12%3C/text%3E%3Cline x1='18' y1='52' x2='82' y2='52' stroke='%23c0392b' stroke-width='3'/%3E%3Ctext x='50' y='72' font-family='Georgia,serif' font-size='30' font-weight='700' fill='white' text-anchor='middle' letter-spacing='3'%3E%C3%973%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -36,11 +38,11 @@
   --border:#e5e3de;--r:10px;
   --win:#2e7d32;--loss:#c62828;--draw:#999;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.6;}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);padding:1.5rem 1rem 4rem;line-height:1.6;}
 .wrap{max-width:620px;margin:0 auto;}
 .brand{text-align:center;margin-bottom:1.5rem;}
 .brand a{text-decoration:none;}
-.brand-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);font-weight:700;}
+.brand-name{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:28px;letter-spacing:.12em;color:var(--text);font-weight:700;}
 .brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;}
 h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spacing:-.01em;}
 .meta{font-size:13px;color:var(--muted);margin-bottom:24px;padding-bottom:20px;border-bottom:0.5px solid var(--border);}
@@ -88,7 +90,7 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;}
 .form-legend{display:flex;gap:14px;justify-content:center;margin-top:14px;font-size:10px;color:var(--muted);}
 .form-legend span span{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:middle;}
 .cta{background:#111;border-radius:var(--r);padding:24px 20px;text-align:center;margin:28px 0;}
-.cta-t{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
+.cta-t{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
 .cta-s{font-size:13px;color:#aaa;margin-bottom:16px;}
 .cta-btn{display:inline-block;background:var(--red);color:#fff;font-weight:500;font-size:14px;padding:11px 28px;border-radius:6px;text-decoration:none;}
 .sources{font-size:11px;color:var(--muted);border-top:0.5px solid var(--border);padding-top:16px;margin-top:28px;}
@@ -147,8 +149,8 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;}
 <div class="wrap">
 
   <div style="display:flex;justify-content:flex-end;gap:4px;margin-bottom:1rem;">
-    <a href="/en/billam-smith-rozicki" style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;">EN</a>
-    <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--text);background:var(--text);color:#fff;">UA</span>
+    <a href="/en/billam-smith-rozicki" style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);text-decoration:none;">EN</a>
+    <span style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--text);background:var(--text);color:#fff;">UA</span>
   </div>
 
   <div class="brand">
