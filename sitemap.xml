@@ -580,6 +580,22 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://boxing12x3.com/ua/fury-joshua</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/fury-joshua"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/fury-joshua"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/fury-joshua</loc>
+    <lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/fury-joshua"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/fury-joshua"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://boxing12x3.com/ua/fisher-protton</loc>
     <lastmod>2026-09-28</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/fisher-protton"/>
