@@ -551,6 +551,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
 <p id="how-p3">Also on the site: <a href="/en/height-compare">height comparison</a> of 370+ boxers, <a href="/en/boxers">legend profiles</a> and <a href="/en/boxing-history">what happened on each day in boxing history</a>.</p>
 </div>
 
+<a href="/" aria-label="Boxing 12×3" style="display:block;margin:28px 0 0"><img src="/icon-192.png" width="36" height="36" alt="" loading="lazy" style="display:block;margin:0 auto;border-radius:8px"></a>
 <div class="site-footer">
   <a href="/en/about" id="footer-about">About</a>
   <a href="/en/contact" style="margin-left:12px;" id="footer-contact">Contact</a>
@@ -1660,14 +1661,19 @@ function buildPreview() {
     : '<div class="pfoot"><div class="ptr">'+(tr||'–')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'–')+'</div></div>';
   document.getElementById('pcard').innerHTML =
     '<div class="ph"><div class="pf r"><div class="pc">'+t('redCorner')+'</div><div class="pn">'+rn()+'</div></div>' +
-    '<div class="pm"><div class="pmb">12×3</div></div>' +
+    '<div class="pm"><img src="/icon-192.png" width="40" height="40" alt="12×3" style="display:block;border-radius:8px"></div>' +
     '<div class="pf b"><div class="pc">'+t('blueCorner')+'</div><div class="pn">'+bn()+'</div></div></div>' +
     '<div class="prounds">'+rows+'</div>' +
     foot +
     '<div class="pbrand">BOXING12X3.COM</div>';
 }
 
+function loadLogo() {
+  return new Promise(function(res){ var i = new Image(); i.onload = function(){ res(i); }; i.onerror = function(){ res(null); }; i.src = '/icon-192.png'; });
+}
+
 async function genImg() {
+  const logo = await loadLogo();
   const n = fight.rounds;
   const sc = scores.slice(0,n).filter(s => s.red!==null && s.blue!==null);
   const tr = sc.reduce((a,s) => a+s.red, 0);
@@ -1726,10 +1732,19 @@ async function genImg() {
   ctx.font = 'bold 22px Manrope, sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText('12×3', W/2, MY+HDR_H/2-8);
-  ctx.fillStyle = '#555555';
-  ctx.font = '13px Manrope, sans-serif';
-  ctx.fillText('SCORE', W/2, MY+HDR_H/2+14);
+  if (logo) {
+    const LS = 88, LX = W/2 - LS/2, LY = MY + HDR_H/2 - LS/2;
+    ctx.save();
+    roundRect(ctx, LX, LY, LS, LS, 16, false, false);
+    ctx.clip();
+    ctx.drawImage(logo, LX, LY, LS, LS);
+    ctx.restore();
+  } else {
+    ctx.fillText('12×3', W/2, MY+HDR_H/2-8);
+    ctx.fillStyle = '#555555';
+    ctx.font = '13px Manrope, sans-serif';
+    ctx.fillText('SCORE', W/2, MY+HDR_H/2+14);
+  }
 
   // Column headers
   const COL_Y = MY + HDR_H + 2;

@@ -372,3 +372,6 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - WBO 10-point system: `wboboxing.com`
 - WBC Championship Rules: `wbcboxing.com`
 - WBA Rules: `wbaboxing.com`
+
+## Brand mark (30 Oct 2026)
+- The simplified 12x3 logo (same as Telegram/blog) is used in: favicon/apple-touch-icon (`/icon-192.png`, `/apple-touch-icon.png`, `/favicon-32.png`, `/favicon.ico`), og-default images (dark, logo centred), the share-card header (canvas + preview, replaces the text 12×3/SCORE), a small mark above the footer on every page, and the 72px mark in the About page. The site header stays text-only (Oswald wordmark) by decision.
