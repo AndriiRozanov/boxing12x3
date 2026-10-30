@@ -25,7 +25,7 @@ Last updated: October 8 2026 (rewritten after the September–October rebuild; b
 | Flat URLs: /ua/boxing-scoring | Simpler to maintain than /ua/guide/scoring |
 | cleanUrls: true in vercel.json | Removes .html from URLs |
 | No template literals (backticks) in JS | Caused SyntaxError in browser preview |
-| Homepage icon = real files (`/favicon.ico`, `/favicon.svg`, `/apple-touch-icon.png`); other pages keep an inline data-URI icon (with `%3C` `%3E`) | Google reads the favicon from the homepage and cannot use a data-URI; raw angle brackets in an href break the HTML parser |
+| Icons = real files on every page (`/favicon.ico` 16/32/48, `/favicon-32.png`, `/icon-192.png`, `/apple-touch-icon.png`), the same four `<link>` tags everywhere; logo = the simplified 12x3 brand mark used across Telegram/blog. Small sizes use a 75% centre crop for legibility | One brand mark everywhere; real files (not data-URI) so Google can read them; since 30 Oct 2026 |
 | Widget via ?widget=1 on index.html | No duplicate file; all updates apply to widget automatically |
 | No copy-paste for GitHub uploads | Cyrillic encoding breaks; always use Upload files |
 | The apex `boxing12x3.com` is the primary host; `www` redirects to it | Vercel → project → Settings → Domains: `boxing12x3.com` has NO redirect, `www.boxing12x3.com` redirects to `boxing12x3.com` (308). Set on Oct 5 2026; before that it was the opposite (apex → www), which contradicted every canonical, hreflang and sitemap URL. The Cloudflare Page Rule described in older versions was not what served the redirect |
@@ -143,7 +143,7 @@ boxing12x3.com/   (GitHub: AndriiRozanov/boxing12x3)
 ├── index.html                 <- main tool, Ukrainian, served at /
 ├── about.html  contact.html  privacy.html  widget.html  height-compare.html
 │                              <- single pages with a UA/EN toggle (about supports ?lang=en)
-├── favicon.ico  favicon.svg  apple-touch-icon.png   <- real icon files (linked only from the two homepages)
+├── favicon.ico  favicon-32.png  icon-192.png  apple-touch-icon.png   <- real icon files (linked from every page)
 ├── og-default.png  og-default-en.png
 ├── sitemap.xml                <- every URL has lastmod = date of the last substantive change
 ├── robots.txt  vercel.json (cleanUrls)  middleware.js (/?lang=en -> /en, /height-compare?lang=en -> /en/height-compare)
