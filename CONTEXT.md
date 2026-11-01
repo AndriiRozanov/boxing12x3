@@ -375,3 +375,7 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 
 ## Brand mark (30 Oct 2026)
 - The simplified 12x3 logo (same as Telegram/blog) is used in: favicon/apple-touch-icon (`/icon-192.png`, `/apple-touch-icon.png`, `/favicon-32.png`, `/favicon.ico`), og-default images (dark, logo centred), the share-card header (canvas + preview, replaces the text 12×3/SCORE), a small mark above the footer on every page, and the 72px mark in the About page. The site header stays text-only (Oswald wordmark) by decision.
+
+## OG image cache busting (1 Nov 2026)
+- Telegram, Facebook and Threads cache link-preview images by URL, so a changed `og-default.png` / `og-default-en.png` kept showing the old picture. All `og:image`, `twitter:image` and JSON-LD `image` references now use `https://boxing12x3.com/og-default.png?v=2` and `og-default-en.png?v=2` (102 pages, UA and EN).
+- Rule: new pages must use the `?v=2` URLs. If the images are changed again, bump the number (`?v=3`) on all pages, then refresh previews via @WebpageBot (Telegram) and the Facebook Sharing Debugger.
