@@ -132,6 +132,17 @@ h2.sec{font-size:15px;font-weight:700;margin:26px 0 10px;}
 .vt-note{font-size:11px;color:var(--muted);padding:10px 0 4px;}
 .vt-fp{font-size:11px;color:var(--muted);margin-top:6px;}
 .vt-fp a{color:var(--muted);}
+.tsec{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px;}
+.tsec:first-of-type{margin-top:6px;}
+.trow{display:flex;align-items:center;gap:12px;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:8px 14px 8px 8px;margin-bottom:8px;text-decoration:none;color:var(--text);}
+.trow img{width:96px;height:54px;object-fit:cover;border-radius:6px;display:block;flex-shrink:0;}
+.trow .tr-t{font-size:14px;font-weight:700;line-height:1.3;}
+.trow .tr-s{font-size:12px;color:var(--muted);line-height:1.35;}
+.trow .tr-tag{display:inline-block;margin-top:4px;font-size:10px;font-weight:600;background:#e8f3e8;color:#2e7d32;padding:2px 6px;border-radius:4px;}
+.trow.past{opacity:.8;}
+.trow+.read-next{margin-top:24px;}
+.trow.past .tr-tag{background:#eee;color:#666;}
+.trow .tr-a{margin-left:auto;color:var(--muted);font-size:18px;}
 </style>
 </head>
 <body>
@@ -155,13 +166,7 @@ h2.sec{font-size:15px;font-weight:700;margin:26px 0 10px;}
   Повні карди боксерських вечорів
 </div>
 
-<div class="tbanner">
-  <a href="/ua/cards/zuffa-boxing-13" style="text-decoration:none;color:inherit;display:block">
-    <img class="ban" src="/images/cards/zuffa-boxing-13.jpg" width="739" height="415" alt="Zuffa Boxing 13, 14 листопада, Ер-Ріяд">
-    <div class="tpart"><span>Zuffa Boxing 13 · 14 листопада 2026 · Ер-Ріяд · 3 бої</span><span>›</span></div>
-  </a>
-</div>
-
+<h2 class="tsec">Найближчий</h2>
 <div class="tbanner">
   <a href="/ua/cards/zuffa-boxing-12" style="text-decoration:none;color:inherit;display:block">
     <img class="ban" src="/images/cards/zuffa-boxing-12.jpg" width="739" height="415" alt="Zuffa Boxing 12, 7 листопада, Лондон">
@@ -169,12 +174,19 @@ h2.sec{font-size:15px;font-weight:700;margin:26px 0 10px;}
   </a>
 </div>
 
-<div class="tbanner">
-  <a href="/ua/cards/mexico-vs-the-world" style="text-decoration:none;color:inherit;display:block">
-    <img class="ban" src="/images/cards/mexico-vs-the-world.jpg" width="739" height="415" alt="Мексика vs Світ">
-    <div class="tpart"><span>Мексика vs Світ · 31 жовтня 2026 · Ер-Ріяд · 9 боїв</span><span>›</span></div>
-  </a>
-</div>
+<h2 class="tsec">Листопад 2026</h2>
+<a class="trow" href="/ua/cards/zuffa-boxing-13">
+  <img src="/images/cards/zuffa-boxing-13.jpg" width="96" height="54" alt="Zuffa Boxing 13, 14 листопада, Ер-Ріяд" loading="lazy">
+  <div><div class="tr-t">Zuffa Boxing 13</div><div class="tr-s">14 листопада · Ер-Ріяд · 3 бої</div><span class="tr-tag">Повний кард</span></div>
+  <span class="tr-a">›</span>
+</a>
+
+<h2 class="tsec">Жовтень 2026</h2>
+<a class="trow past" href="/ua/cards/mexico-vs-the-world">
+  <img src="/images/cards/mexico-vs-the-world.jpg" width="96" height="54" alt="Мексика vs Світ" loading="lazy">
+  <div><div class="tr-t">Мексика vs Світ</div><div class="tr-s">31 жовтня · Ер-Ріяд · 9 боїв</div><span class="tr-tag">Результати</span></div>
+  <span class="tr-a">›</span>
+</a>
 
 <div class="read-next">
   <div class="rn-lbl">Читай також</div>

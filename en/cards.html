@@ -131,6 +131,17 @@ h2.sec{font-size:15px;font-weight:700;margin:26px 0 10px;}
 .vt-note{font-size:11px;color:var(--muted);padding:10px 0 4px;}
 .vt-fp{font-size:11px;color:var(--muted);margin-top:6px;}
 .vt-fp a{color:var(--muted);}
+.tsec{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px;}
+.tsec:first-of-type{margin-top:6px;}
+.trow{display:flex;align-items:center;gap:12px;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:8px 14px 8px 8px;margin-bottom:8px;text-decoration:none;color:var(--text);}
+.trow img{width:96px;height:54px;object-fit:cover;border-radius:6px;display:block;flex-shrink:0;}
+.trow .tr-t{font-size:14px;font-weight:700;line-height:1.3;}
+.trow .tr-s{font-size:12px;color:var(--muted);line-height:1.35;}
+.trow .tr-tag{display:inline-block;margin-top:4px;font-size:10px;font-weight:600;background:#e8f3e8;color:#2e7d32;padding:2px 6px;border-radius:4px;}
+.trow.past{opacity:.8;}
+.trow+.read-next{margin-top:24px;}
+.trow.past .tr-tag{background:#eee;color:#666;}
+.trow .tr-a{margin-left:auto;color:var(--muted);font-size:18px;}
 </style>
 </head>
 <body>
@@ -154,13 +165,7 @@ h2.sec{font-size:15px;font-weight:700;margin:26px 0 10px;}
   Full cards of boxing events
 </div>
 
-<div class="tbanner">
-  <a href="/en/cards/zuffa-boxing-13" style="text-decoration:none;color:inherit;display:block">
-    <img class="ban" src="/images/cards/zuffa-boxing-13.jpg" width="739" height="415" alt="Zuffa Boxing 13, Nov 14, Riyadh">
-    <div class="tpart"><span>Zuffa Boxing 13 · Nov 14, 2026 · Riyadh · 3 fights</span><span>›</span></div>
-  </a>
-</div>
-
+<h2 class="tsec">Next up</h2>
 <div class="tbanner">
   <a href="/en/cards/zuffa-boxing-12" style="text-decoration:none;color:inherit;display:block">
     <img class="ban" src="/images/cards/zuffa-boxing-12.jpg" width="739" height="415" alt="Zuffa Boxing 12, Nov 7, London">
@@ -168,12 +173,19 @@ h2.sec{font-size:15px;font-weight:700;margin:26px 0 10px;}
   </a>
 </div>
 
-<div class="tbanner">
-  <a href="/en/cards/mexico-vs-the-world" style="text-decoration:none;color:inherit;display:block">
-    <img class="ban" src="/images/cards/mexico-vs-the-world.jpg" width="739" height="415" alt="Mexico vs The World">
-    <div class="tpart"><span>Mexico vs The World · October 31, 2026 · Riyadh · 9 fights</span><span>›</span></div>
-  </a>
-</div>
+<h2 class="tsec">November 2026</h2>
+<a class="trow" href="/en/cards/zuffa-boxing-13">
+  <img src="/images/cards/zuffa-boxing-13.jpg" width="96" height="54" alt="Zuffa Boxing 13, Nov 14, Riyadh" loading="lazy">
+  <div><div class="tr-t">Zuffa Boxing 13</div><div class="tr-s">Nov 14 · Riyadh · 3 fights</div><span class="tr-tag">Full card</span></div>
+  <span class="tr-a">›</span>
+</a>
+
+<h2 class="tsec">October 2026</h2>
+<a class="trow past" href="/en/cards/mexico-vs-the-world">
+  <img src="/images/cards/mexico-vs-the-world.jpg" width="96" height="54" alt="Mexico vs The World" loading="lazy">
+  <div><div class="tr-t">Mexico vs The World</div><div class="tr-s">Oct 31 · Riyadh · 9 fights</div><span class="tr-tag">Results</span></div>
+  <span class="tr-a">›</span>
+</a>
 
 <div class="read-next">
   <div class="rn-lbl">Read also</div>
