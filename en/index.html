@@ -619,7 +619,10 @@ var TOURNAMENTS = {
     img:'/images/cards/mexico-vs-the-world.jpg'},
   'zuffa-boxing-12': {nameUk:'Zuffa Boxing 12', nameEn:'Zuffa Boxing 12', ts:20261107, date:'2026-11-07', dateNum:7, monthUk:'лис', monthEn:'nov',
     kickUk:'7 листопада · Лондон', kickEn:'Nov 7 · London', subUk:'Біллем-Сміт – Кларк · 9 боїв', subEn:'Billam-Smith vs Clarke · 9 fights',
-    img:'/images/cards/zuffa-boxing-12.jpg'}
+    img:'/images/cards/zuffa-boxing-12.jpg'},
+  'zuffa-boxing-13': {nameUk:'Zuffa Boxing 13', nameEn:'Zuffa Boxing 13', ts:20261114, date:'2026-11-14', dateNum:14, monthUk:'лис', monthEn:'nov',
+    kickUk:'14 листопада · Ер-Ріяд', kickEn:'Nov 14 · Riyadh', subUk:'Адамес – Ворбертон · 3 бої', subEn:'Adames vs Warburton · 3 fights',
+    img:'/images/cards/zuffa-boxing-13.jpg'}
 };
 const FIGHTS = [
   // ЗАВЕРШЕНІ
@@ -657,6 +660,12 @@ const FIGHTS = [
   {id:'billam-smith-clarke', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Chris Billam-Smith', redUk:'Кріс Біллем-Сміт', redEn:'Chris Billam-Smith', blue:'Cheavon Clarke', blueUk:'Чівон Кларк', blueEn:'Cheavon Clarke', divUk:'Важка вага', divEn:'Cruiserweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
   {id:'bentley-mosley', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Denzel Bentley', redUk:'Дензел Бентлі', redEn:'Denzel Bentley', blue:'Shane Mosley Jr.', blueUk:'Шейн Мозлі мол.', blueEn:'Shane Mosley Jr.', divUk:'Середня вага', divEn:'Middleweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
   {id:'parker-dzambekov', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Zach Parker', redUk:'Зак Паркер', redEn:'Zach Parker', blue:'Umar Dzambekov', blueUk:'Умар Дзамбеков', blueEn:'Umar Dzambekov', divUk:'Напівважка вага', divEn:'Light Heavyweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
+  {id:'adames-warburton', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Carlos Adames', redUk:'Карлос Адамес', redEn:'Carlos Adames', blue:'Jerome Warburton', blueUk:'Джером Ворбертон', blueEn:'Jerome Warburton', divUk:'Договірна вага', divEn:'Catchweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-13'},
+  {id:'moloney-teran', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Jason Moloney', redUk:'Джейсон Молоні', redEn:'Jason Moloney', blue:'Andres Teran', blueUk:'Андрес Теран', blueEn:'Andres Teran', divUk:'Легша вага', divEn:'Bantamweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-13'},
+  {id:'surace-bednarek', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Bruno Surace', redUk:'Бруно Сюрас', redEn:'Bruno Surace', blue:'Kamil Bednarek', blueUk:'Каміл Беднарек', blueEn:'Kamil Bednarek', divUk:'Друга середня вага', divEn:'Super Middleweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-13'},
+  {id:'riley-coupe', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Viddal Riley', redUk:'Віддал Райлі', redEn:'Viddal Riley', blue:'Seydi Coupe', blueUk:'Сейді Купе', blueEn:'Seydi Coupe', divUk:'Важка вага', divEn:'Cruiserweight', rounds:12, belts:['EBU'], completed:false, hasPage:true, featured:false},
+  {id:'pacheco-fulghum', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Diego Pacheco', redUk:'Дієго Пачеко', redEn:'Diego Pacheco', blue:'Darius Fulghum', blueUk:'Даріус Фулгем', blueEn:'Darius Fulghum', divUk:'Друга середня вага', divEn:'Super Middleweight', rounds:12, belts:['WBC Silver','WBO International'], completed:false, hasPage:true, featured:false},
+  {id:'olascuaga-martinez', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Anthony Olascuaga', redUk:'Ентоні Оласкуага', redEn:'Anthony Olascuaga', blue:'Yuberjen Martinez', blueUk:'Юберхен Мартінес', blueEn:'Yuberjen Martinez', divUk:'Найлегша вага', divEn:'Flyweight', rounds:12, belts:['WBO'], completed:false, hasPage:true, featured:false},
   {id:'fury-joshua',      date:'Dec 11', dateUk:'11 грудня', dateEn:'Dec 11', dateNum:11, monthUk:'гру', monthIdx:11, red:'Tyson Fury',     redUk:"Тайсон Ф\'юрі", redEn:'Tyson Fury',     blue:'Anthony Joshua', blueUk:'Ентоні Джошуа', blueEn:'Anthony Joshua', divUk:'Надважка вага',           divEn:'Heavyweight', rounds:12, belts:['WBA (Super)'], completed:false, hasPage:true, featured:false},
 ];
 
