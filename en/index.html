@@ -616,7 +616,9 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
 var TOURNAMENTS = {
   'mexico-vs-the-world': {nameUk:'Мексика vs Світ', nameEn:'Mexico vs The World', ts:20261031, date:'2026-10-31', dateNum:31, monthUk:'жов', monthEn:'oct',
     kickUk:'31 жовтня · Ер-Ріяд', kickEn:'Oct 31 · Riyadh', subUk:'Альварес – Мбіллі · 9 боїв', subEn:'Alvarez vs Mbilli · 9 fights',
-    img:'/images/cards/mexico-vs-the-world.jpg'}
+    img:'/images/cards/mexico-vs-the-world.jpg'},
+  'zuffa-boxing-12': {nameUk:'Zuffa Boxing 12', nameEn:'Zuffa Boxing 12', ts:20261107, date:'2026-11-07', dateNum:7, monthUk:'лис', monthEn:'nov',
+    kickUk:'7 листопада · Лондон', kickEn:'Nov 7 · London', subUk:'Біллем-Сміт – Кларк · 9 боїв', subEn:'Billam-Smith vs Clarke · 9 fights'}
 };
 const FIGHTS = [
   // ЗАВЕРШЕНІ
@@ -648,7 +650,13 @@ const FIGHTS = [
   {id:'picasso-martin', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'David Picasso', redUk:'Давід Пікассо', redEn:'David Picasso', blue:'Carl Jammes Martin', blueUk:'Карл Джеммс Мартін', blueEn:'Carl Jammes Martin', divUk:'Напівлегка вага', divEn:'Featherweight', rounds:10, belts:['WBC Silver'], completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
   {id:'tsutsumi-rojas-garcia', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Reito Tsutsumi', redUk:'Рейто Цуцумі', redEn:'Reito Tsutsumi', blue:'Raimundo Rojas Garcia', blueUk:'Раймундо Рохас Гарсія', blueEn:'Raimundo Rojas Garcia', divUk:'Друга напівлегка вага', divEn:'Super Featherweight', rounds:10, belts:[], completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
   {id:'rojo-biea', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Emiliano Rojo', redUk:'Еміліано Рохо', redEn:'Emiliano Rojo', blue:'Flavius Biea', blueUk:'Флавіус Біея', blueEn:'Flavius Biea', divUk:'Середня вага', divEn:'Middleweight', rounds:10, belts:[], completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
-  {id:'fury-joshua',      date:'Dec 11', dateUk:'11 грудня', dateEn:'Dec 11', dateNum:11, monthUk:'гру', monthIdx:11, red:'Tyson Fury',     redUk:"Тайсон Ф\'юрі", redEn:'Tyson Fury',     blue:'Anthony Joshua', blueUk:'Ентоні Джошуа', blueEn:'Anthony Joshua', divUk:'Надважка вага',           divEn:'Heavyweight', rounds:12, belts:['WBA (Super)'], completed:false, hasPage:true, featured:true},
+  // ЛИСТОПАД - МАЙБУТНІ
+  {id:'lerena-forrest', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Kevin Lerena', redUk:'Кевін Лерена', redEn:'Kevin Lerena', blue:'Scott Forrest', blueUk:'Скотт Форрест', blueEn:'Scott Forrest', divUk:'Важка вага', divEn:'Cruiserweight', rounds:10, belts:['WBC International'], completed:false, hasPage:true, featured:false},
+  {id:'buatsi-hutchinson-2', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Joshua Buatsi', redUk:'Джошуа Буатсі', redEn:'Joshua Buatsi', blue:'Willy Hutchinson', blueUk:'Віллі Гатчінсон', blueEn:'Willy Hutchinson', divUk:'Напівважка вага', divEn:'Light Heavyweight', rounds:12, belts:['WBC'], completed:false, hasPage:true, featured:true},
+  {id:'billam-smith-clarke', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Chris Billam-Smith', redUk:'Кріс Біллем-Сміт', redEn:'Chris Billam-Smith', blue:'Cheavon Clarke', blueUk:'Чівон Кларк', blueEn:'Cheavon Clarke', divUk:'Важка вага', divEn:'Cruiserweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
+  {id:'bentley-mosley', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Denzel Bentley', redUk:'Дензел Бентлі', redEn:'Denzel Bentley', blue:'Shane Mosley Jr.', blueUk:'Шейн Мозлі мол.', blueEn:'Shane Mosley Jr.', divUk:'Середня вага', divEn:'Middleweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
+  {id:'parker-dzambekov', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Zach Parker', redUk:'Зак Паркер', redEn:'Zach Parker', blue:'Umar Dzambekov', blueUk:'Умар Дзамбеков', blueEn:'Umar Dzambekov', divUk:'Напівважка вага', divEn:'Light Heavyweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
+  {id:'fury-joshua',      date:'Dec 11', dateUk:'11 грудня', dateEn:'Dec 11', dateNum:11, monthUk:'гру', monthIdx:11, red:'Tyson Fury',     redUk:"Тайсон Ф\'юрі", redEn:'Tyson Fury',     blue:'Anthony Joshua', blueUk:'Ентоні Джошуа', blueEn:'Anthony Joshua', divUk:'Надважка вага',           divEn:'Heavyweight', rounds:12, belts:['WBA (Super)'], completed:false, hasPage:true, featured:false},
 ];
 
 // Lightweight "This Day in Boxing" data - titles + years only (ГП/СГ), no
@@ -1063,7 +1071,7 @@ function buildAnalyticsBlock() {
         var T0 = TOURNAMENTS[k];
         var href = (isUk ? '/ua/cards/' : '/en/cards/') + k;
         if (i === 0) {
-          th += '<a class="tt" href="' + href + '" onclick="trackFightOpen(\'' + k + '\')"><img src="' + T0.img + '" alt="' + (isUk ? T0.nameUk : T0.nameEn) + '">';
+          th += '<a class="tt" href="' + href + '" onclick="trackFightOpen(\'' + k + '\')">' + (T0.img ? '<img src="' + T0.img + '" alt="' + (isUk ? T0.nameUk : T0.nameEn) + '">' : '');
           th += '<div class="tt-b"><div class="tt-k">' + (isUk ? T0.kickUk : T0.kickEn) + '</div><div class="tt-t">' + (isUk ? T0.nameUk : T0.nameEn) + '</div>';
           th += '<div class="tt-s">' + (isUk ? T0.subUk : T0.subEn) + '</div><span class="tt-tag">' + (nowT >= tDay(k, 1) ? (isUk ? 'Результати' : 'Results') : (isUk ? 'Повний кард' : 'Full card')) + '</span><span class="tt-arr">›</span></div></a>';
         } else {
