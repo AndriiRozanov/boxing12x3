@@ -56,10 +56,12 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .fighter.b{text-align:right;}
 .f-flag{font-size:18px;display:block;margin-bottom:4px;}
 .f-name{font-size:17px;font-weight:700;line-height:1.2;}
+.f-name.long{font-size:15px;}
+.f-name .nw{white-space:nowrap;}
 .fighter:not(.b) .f-name{color:var(--red);}
 .fighter.b .f-name{color:var(--blue);}
 .f-info{font-size:11px;color:var(--muted);margin-top:3px;}
-.vs-col{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;}
+.vs-col{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 6px;}
 .vs-line{width:0.5px;height:26px;background:var(--border);}
 .vs-badge{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.1em;color:var(--muted);background:#f0ede8;border:0.5px solid var(--border);border-radius:4px;padding:2px 7px;line-height:1.4;}
 .fcard-rows{border-top:0.5px solid var(--border);}
@@ -230,7 +232,7 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
     </div>
     <div class="fighter b">
       <span class="f-flag">🇬🇧</span>
-      <div class="f-name">Willy Hutchinson</div>
+      <div class="f-name long">Willy Hutchinson</div>
       <div class="f-info">28 · Scotland</div>
     </div>
   </div>
