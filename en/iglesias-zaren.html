@@ -507,7 +507,14 @@ function vote(side){
   if(typeof gtag!=='undefined')gtag('event','pick_voted',{fight:FIGHT_ID,side:side});
   document.getElementById('votedMsg').classList.add('show');
   fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:FIGHT_ID,side:side})})
-  .then(function(r){return r.json();}).then(function(d){if(d.data)showResults(d.data);}).catch(function(){loadResults();});
+  .then(function(r){return r.json();}).then(function(d){if(d.closed)closeVoting();if(d.data)showResults(d.data);}).catch(function(){loadResults();});
+}
+
+function closeVoting(){
+  var b1=document.getElementById('btnRed'),b2=document.getElementById('btnBlue');
+  if(b1)b1.disabled=true;if(b2)b2.disabled=true;
+  var m=document.getElementById('votedMsg');
+  if(m){m.textContent=(document.documentElement.lang==='en')?'Voting is closed':'Голосування закрито';m.classList.add('show');}
 }
 
 function loadResults(){
@@ -518,13 +525,12 @@ function loadResults(){
     document.getElementById('btn'+(voted==='red'?'Red':'Blue')).classList.add('voted');
     document.getElementById('votedMsg').classList.add('show');
   }
-  // Only show results to someone who has already voted - so the numbers
-  // don't influence anyone's choice before they vote.
-  if(!voted) return;
+  // Результат показуємо тому, хто вже проголосував, або коли голосування закрито.
   fetch(WORKER+'/picks?fightId='+FIGHT_ID)
   .then(function(r){return r.json();})
   .then(function(d){
-    if(d.total>0) showResults(d);
+    if(d.closed&&!voted)closeVoting();
+    if((voted||d.closed)&&d.total>0) showResults(d);
   }).catch(function(){});
 }
 </script>
