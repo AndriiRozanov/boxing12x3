@@ -2025,9 +2025,15 @@ function loadState() {
     if (sf) {
       const f = FIGHTS.find(x => x.id===sf);
       if (f && !f.completed) {
-        fight = f;
-        if (ss) scores = JSON.parse(ss);
-        if (st) stoppage = JSON.parse(st);
+        // Збережений бій відновлюємо лише якщо в ньому вже є оцінені раунди.
+        // Інакше показуємо найближчий за датою бій (getDefaultFight).
+        var savedScores = ss ? JSON.parse(ss) : null;
+        var hasScored = savedScores && savedScores.some(function(r){ return r && (r.red !== null || r.blue !== null); });
+        if (hasScored) {
+          fight = f;
+          scores = savedScores;
+          if (st) stoppage = JSON.parse(st);
+        }
       }
       // if saved fight is completed or not found - keep default upcoming fight
     } else {
