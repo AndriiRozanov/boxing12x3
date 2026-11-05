@@ -112,8 +112,8 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;}
 .info-fill-r{background:var(--red);}
 .info-fill-b{background:var(--blue);}
 .form-row{display:flex;justify-content:space-between;align-items:center;}
-.form-cells{display:flex;gap:5px;}
-.fc{width:26px;height:26px;border-radius:5px;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+.form-cells{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;flex:1;min-width:0;}
+.fc{width:100%;max-width:30px;aspect-ratio:1;border-radius:5px;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
 .fc.w{background:var(--win);}
 .cta{background:#111;border-radius:var(--r);padding:24px 20px;text-align:center;margin:28px 0;}
 .cta-t{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:22px;color:#fff;letter-spacing:.06em;margin-bottom:6px;}
@@ -230,9 +230,9 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;}
     <div class="info-block">
       <div class="info-head"><span style="color:var(--red)">Мейсон</span><span class="c">Останні 5 боїв</span><span style="color:var(--blue)">Белл</span></div>
       <div class="form-row">
-        <div class="form-cells"><div class="fc w">П</div><div class="fc w">П</div><div class="fc w">П</div><div class="fc w">П</div><div class="fc w">П</div></div>
+        <div class="form-cells"><div class="fc w">W</div><div class="fc w">W</div><div class="fc w">W</div><div class="fc w">W</div><div class="fc w">W</div></div>
         <div style="font-size:11px;color:var(--muted);">форма</div>
-        <div class="form-cells"><div class="fc w">П</div><div class="fc w">П</div><div class="fc w">П</div><div class="fc w">П</div><div class="fc w">П</div></div>
+        <div class="form-cells"><div class="fc w">W</div><div class="fc w">W</div><div class="fc w">W</div><div class="fc w">W</div><div class="fc w">W</div></div>
       </div>
     </div>
   </div>

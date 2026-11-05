@@ -194,7 +194,7 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .rn-title{font-size:13px;font-weight:600;line-height:1.3;}
 .rn-sub{font-size:11px;color:var(--muted);margin-top:2px;}
 .rn-arr{color:var(--muted);font-size:18px;flex-shrink:0;}
-.site-footer{display:flex;justify-content:center;gap:20px;margin-top:40px;padding-top:20px;border-top:0.5px solid var(--border);font-size:12px;}
+.site-footer{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin-top:40px;padding-top:20px;border-top:0.5px solid var(--border);font-size:12px;}
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
 </style>
@@ -498,26 +498,31 @@ function vote(side){
   setCookie(COOKIE,side);
   if(typeof gtag!=='undefined')gtag('event','pick_voted',{fight:FIGHT_ID,side:side});
   document.getElementById('votedMsg').classList.add('show');
-  // Optimistic UI: show result immediately
-  var opt={red:side==='red'?1:0,blue:side==='blue'?1:0,total:1,redPct:side==='red'?100:0,bluePct:side==='blue'?100:0};
-  showResults(opt);
-  // Then update with real server data
   fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:FIGHT_ID,side:side})})
-  .then(function(r){return r.json();}).then(function(d){showResults(d.data);}).catch(function(){});
+  .then(function(r){return r.json();}).then(function(d){if(d.closed)closeVoting();if(d.data)showResults(d.data);}).catch(function(){loadResults();});
+}
+
+function closeVoting(){
+  var b1=document.getElementById('btnRed'),b2=document.getElementById('btnBlue');
+  if(b1)b1.disabled=true;if(b2)b2.disabled=true;
+  var m=document.getElementById('votedMsg');
+  if(m){m.textContent=(document.documentElement.lang==='en')?'Voting is closed':'Голосування закрито';m.classList.add('show');}
 }
 
 function loadResults(){
+  var voted = getCookie(COOKIE);
+  if(voted){
+    document.getElementById('btnRed').disabled=true;
+    document.getElementById('btnBlue').disabled=true;
+    document.getElementById('btn'+(voted==='red'?'Red':'Blue')).classList.add('voted');
+    document.getElementById('votedMsg').classList.add('show');
+  }
+  // Результат показуємо тому, хто вже проголосував, або коли голосування закрито.
   fetch(WORKER+'/picks?fightId='+FIGHT_ID)
   .then(function(r){return r.json();})
   .then(function(d){
-    if(d.total>0) showResults(d);
-    if(getCookie(COOKIE)){
-      document.getElementById('btnRed').disabled=true;
-      document.getElementById('btnBlue').disabled=true;
-      var voted=getCookie(COOKIE);
-      document.getElementById('btn'+(voted==='red'?'Red':'Blue')).classList.add('voted');
-      document.getElementById('votedMsg').classList.add('show');
-    }
+    if(d.closed&&!voted)closeVoting();
+    if((voted||d.closed)&&d.total>0) showResults(d);
   }).catch(function(){});
 }
 </script>
