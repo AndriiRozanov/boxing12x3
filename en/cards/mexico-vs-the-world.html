@@ -150,6 +150,7 @@ h2.sec{font-size:15px;font-weight:700;margin:26px 0 10px;}
 .vt-track{display:flex;height:5px;border-radius:3px;overflow:hidden;background:#f0ede8;}
 .vt-fr{background:var(--red);width:0;transition:width .6s ease;}
 .vt-fb{background:var(--blue);width:0;transition:width .6s ease;}
+.vt-closed{font-size:11px;color:var(--muted);margin-top:6px;}
 .vt-note{font-size:11px;color:var(--muted);margin:-12px 0 20px;}
 .vt-fp{font-size:11px;color:var(--muted);margin-top:6px;}
 .vt-fp a{color:var(--muted);}
@@ -268,21 +269,38 @@ function showRow(row,data){
 function lock(row,side){
   row.querySelectorAll('.vt-btn').forEach(function(b){ b.disabled=true; if(b.getAttribute('data-side')===side) b.classList.add('voted'); });
 }
+function closeRow(row){
+  row.querySelectorAll('.vt-btn').forEach(function(b){ b.disabled=true; });
+  if(row.querySelector('.vt-closed')) return;
+  var n=document.createElement('div'); n.className='vt-closed';
+  n.textContent=(document.documentElement.lang==='en')?'Voting is closed':'Голосування закрито';
+  row.appendChild(n);
+}
 function loadRow(row){
   var fid=row.getAttribute('data-fid');
   var voted=getCookie('pick_v2_'+fid);
-  if(!voted) return;
-  lock(row,voted);
-  fetch(WORKER+'/picks?fightId='+fid).then(function(r){return r.json();}).then(function(d){ if(d.total>0) showRow(row,d); }).catch(function(){});
+  if(voted) lock(row,voted);
+  fetch(WORKER+'/picks?fightId='+fid).then(function(r){return r.json();}).then(function(d){
+    if(d.closed) closeRow(row);
+    if((voted||d.closed)&&d.total>0) showRow(row,d);
+  }).catch(function(){});
 }
 function vote(row,side){
   var fid=row.getAttribute('data-fid');
-  if(getCookie('pick_v2_'+fid)) return;
+  if(getCookie('pick_v2_'+fid)||row.querySelector('.vt-closed')) return;
   lock(row,side);
-  setCookie('pick_v2_'+fid,side);
-  if(typeof gtag!=='undefined') gtag('event','pick_voted',{fight:fid,side:side,source:'card'});
   fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:fid,side:side})})
-  .then(function(r){return r.json();}).then(function(d){ if(d.data) showRow(row,d.data); }).catch(function(){ loadRow(row); });
+  .then(function(r){return r.json();}).then(function(d){
+    if(d.closed){
+      row.querySelectorAll('.vt-btn').forEach(function(b){ b.classList.remove('voted'); });
+      closeRow(row);
+      if(d.data&&d.data.total>0) showRow(row,d.data);
+      return;
+    }
+    setCookie('pick_v2_'+fid,side);
+    if(typeof gtag!=='undefined') gtag('event','pick_voted',{fight:fid,side:side,source:'card'});
+    if(d.data) showRow(row,d.data);
+  }).catch(function(){ loadRow(row); });
 }
 function tick(){
   var el=document.getElementById('cd'); if(!el) return;
