@@ -408,3 +408,8 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - Form tooltips: `.fc-tip{width:max-content;max-width:150px;white-space:normal}` with left/right alignment by cell position so they never leave the viewport (360-390 px checked); strip tooltips `.stip{width:max-content;max-width:220px;white-space:normal}`.
 - Old pages with the pre-grid form: `.form-cells` grid with `.fc{width:100%;max-width:30px;aspect-ratio:1}`; the "✕" cell on Tsiupka–Beyda stays "✕", not "NC".
 - Overflow check at 360/390 px was run on all 399 pages; repeat it after layout changes.
+
+## Editorial pre-fight text (`.pretext`, Nov 2026)
+- Optional block with the owner's own text, placed right after the "До бою" divider and BEFORE the venue block. Markup: `<div class="pretext"><h2>…</h2><p>…</p></div>`; CSS `.pretext{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:18px 18px 6px;margin-bottom:20px}` plus h2 15px/700, p 14px/1.7 #333, links underlined with a muted line. In the generator: fight dict keys `pre_h2_uk/en`, `pre_html_uk/en`.
+- The text is written by the owner (UA first, then EN); Claude only fits and links it (e.g. links to the page of a related fight). It stays after the fight next to the result. First used on Billam-Smith–Clarke.
+- Card pages (`cards/<slug>`) take optional `name_uk`, organizer name/logo and a banner; blocks that have no data are not rendered.
