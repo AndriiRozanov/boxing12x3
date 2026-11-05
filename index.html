@@ -623,7 +623,10 @@ var TOURNAMENTS = {
     img:'/images/cards/zuffa-boxing-12.jpg'},
   'zuffa-boxing-13': {nameUk:'Zuffa Boxing 13', nameEn:'Zuffa Boxing 13', ts:20261114, date:'2026-11-14', dateNum:14, monthUk:'лис', monthEn:'nov',
     kickUk:'14 листопада · Ер-Ріяд', kickEn:'Nov 14 · Riyadh', subUk:'Адамес – Ворбертон · 3 бої', subEn:'Adames vs Warburton · 3 fights',
-    img:'/images/cards/zuffa-boxing-13.jpg'}
+    img:'/images/cards/zuffa-boxing-13.jpg'},
+  'fury-joshua': {nameUk:"Ф'юрі – Джошуа", nameEn:'Fury vs Joshua', ts:20261211, date:'2026-12-11', dateNum:11, monthUk:'гру', monthEn:'dec',
+    kickUk:'11 грудня · Кардіфф', kickEn:'Dec 11 · Cardiff', subUk:'Ф\'юрі – Джошуа · 2 бої', subEn:'Fury vs Joshua · 2 fights',
+    img:'/images/cards/fury-joshua.jpg'}
 };
 const FIGHTS = [
   // ЗАВЕРШЕНІ
@@ -672,7 +675,8 @@ const FIGHTS = [
   {id:'chukhadzhian-arganaras', date:'Nov 27', dateUk:'27 листопада', dateEn:'Nov 27', dateNum:27, monthUk:'лис', monthIdx:10, red:'Karen Chukhadzhian', redUk:'Карен Чухаджян', redEn:'Karen Chukhadzhian', blue:'Lucas Arganaras', blueUk:'Лукас Арганарас', blueEn:'Lucas Arganaras', divUk:'Перша напівсередня вага', divEn:'Super Lightweight', rounds:12, belts:[], completed:false, hasPage:true, featured:false},
   {id:'kabayel-hysa', date:'Nov 28', dateUk:'28 листопада', dateEn:'Nov 28', dateNum:28, monthUk:'лис', monthIdx:10, red:'Agit Kabayel', redUk:'Агіт Кабаєл', redEn:'Agit Kabayel', blue:'Nelson Hysa', blueUk:'Нельсон Хіса', blueEn:'Nelson Hysa', divUk:'Надважка вага', divEn:'Heavyweight', rounds:12, belts:['WBC'], completed:false, hasPage:true, featured:false},
   {id:'kraus-deines', date:'Nov 28', dateUk:'28 листопада', dateEn:'Nov 28', dateNum:28, monthUk:'лис', monthIdx:10, red:'Gradus Kraus', redUk:'Градус Краус', redEn:'Gradus Kraus', blue:'Adam Deines', blueUk:'Адам Дейнес', blueEn:'Adam Deines', divUk:'Напівважка вага', divEn:'Light Heavyweight', rounds:10, belts:['IBF European'], completed:false, hasPage:true, featured:false},
-  {id:'fury-joshua',      date:'Dec 11', dateUk:'11 грудня', dateEn:'Dec 11', dateNum:11, monthUk:'гру', monthIdx:11, red:'Tyson Fury',     redUk:"Тайсон Ф\'юрі", redEn:'Tyson Fury',     blue:'Anthony Joshua', blueUk:'Ентоні Джошуа', blueEn:'Anthony Joshua', divUk:'Надважка вага',           divEn:'Heavyweight', rounds:12, belts:['WBA (Super)'], completed:false, hasPage:true, featured:false},
+  {id:'fury-joshua',      date:'Dec 11', dateUk:'11 грудня', dateEn:'Dec 11', dateNum:11, monthUk:'гру', monthIdx:11, red:'Tyson Fury',     redUk:"Тайсон Ф\'юрі", redEn:'Tyson Fury',     blue:'Anthony Joshua', blueUk:'Ентоні Джошуа', blueEn:'Anthony Joshua', divUk:'Надважка вага',           divEn:'Heavyweight', rounds:12, belts:['WBA (Super)'], completed:false, hasPage:true, featured:false, tournament:'fury-joshua'},
+  {id:'opetaia-wilder', date:'Dec 11', dateUk:'11 грудня', dateEn:'Dec 11', dateNum:11, monthUk:'гру', monthIdx:11, red:'Jai Opetaia', redUk:'Джей Опетая', redEn:'Jai Opetaia', blue:'Deontay Wilder', blueUk:'Деонтей Вайлдер', blueEn:'Deontay Wilder', divUk:'Надважка вага', divEn:'Heavyweight', rounds:12, belts:[], completed:false, hasPage:true, featured:false, tournament:'fury-joshua'},
 ];
 
 // Lightweight "This Day in Boxing" data - titles + years only (ГП/СГ), no
