@@ -147,6 +147,8 @@ boxing12x3.com/   (GitHub: AndriiRozanov/boxing12x3)
 ├── og-default.png  og-default-en.png
 ├── sitemap.xml                <- every URL has lastmod = date of the last substantive change
 ├── robots.txt  vercel.json (cleanUrls)  middleware.js (/?lang=en -> /en, /height-compare?lang=en -> /en/height-compare)
+├── votes-close.json           <- fight id -> UTC close time of voting (read by the Worker)
+├── scripts/                   <- bake_catalog.py, check_votes_close.py, ...
 ├── CONTEXT.md  README.md
 ├── ua/
 │   ├── guide.html  fights.html  boxers.html  boxing-history.html      <- hubs
@@ -154,8 +156,10 @@ boxing12x3.com/   (GitHub: AndriiRozanov/boxing12x3)
 │   │                          <- 5 evergreen guides
 │   ├── boxers/{slug}.html                   <- 70 boxer profiles (catalog: boxers.html)
 │   ├── boxing-history/september.html  october.html   <- "This day in boxing" months
+│   ├── cards.html  cards/{slug}.html       <- tournament (event) hub: list page + one page per event
 │   └── {fight-id}.html        <- one page per fight (e.g. tsiupka-beyda, whittaker-wallace, iglesias-zaren, dubois-wardley-2)
 ├── en/                        <- mirrors ua/ and adds index.html (English homepage, GENERATED) and height-compare.html
+├── images/cards/              <- tournament banners and organizer logos
 └── images/history/            <- photos and comparison images for the history pages
 ```
 
@@ -169,7 +173,11 @@ boxing12x3.com/   (GitHub: AndriiRozanov/boxing12x3)
 3. Add the fight to the current month block of `ARCHIVE` in `ua/fights.html` and `en/fights.html` (only fights with a page).
 4. Add two `<url>` blocks (ua and en, mutual hreflang) to `sitemap.xml` with `lastmod` = today.
 5. If it is the next fight, move `featured: true` to it.
-6. Request indexing in Search Console as soon as the page is live: search demand peaks in the ~24 hours around the event.
+6. Add the fight to `votes-close.json` (UTC start of the broadcast evening) as soon as the start time is known.
+7. If the fight belongs to a tournament: `tournament:'<slug>'` in `FIGHTS`, the tournament in `TOURNAMENTS`, the tournament strip on the fight page and a row on the card page (see "Tournament cards").
+8. Run `python3 scripts/bake_catalog.py` after changes to `ARCHIVE`/`BOXER_PROFILES`, then `git checkout ua/boxing-history.html en/boxing-history.html`.
+9. Run `python3 scripts/check_votes_close.py` before every merge: it fails if a fight with a past date has no entry in `votes-close.json`.
+10. Request indexing in Search Console as soon as the page is live: search demand peaks in the ~24 hours around the event.
 
 ### After a fight
 1. Append the result sections to both pages (see template). Set `completed: true` and move `featured` to the next fight.
@@ -379,3 +387,24 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 ## OG image cache busting (1 Nov 2026)
 - Telegram, Facebook and Threads cache link-preview images by URL, so a changed `og-default.png` / `og-default-en.png` kept showing the old picture. All `og:image`, `twitter:image` and JSON-LD `image` references now use `https://boxing12x3.com/og-default.png?v=2` and `og-default-en.png?v=2` (102 pages, UA and EN).
 - Rule: new pages must use the `?v=2` URLs. If the images are changed again, bump the number (`?v=3`) on all pages, then refresh previews via @WebpageBot (Telegram) and the Facebook Sharing Debugger.
+
+## Voting close (5 Nov 2026)
+- Voting (Cloudflare Worker, KV `PICKS`) closes per fight. `votes-close.json` at the site root maps a fight id to a UTC ISO time; the Worker's `isClosed(fightId)` fetches it (`CLOSE_URL`, cache 300 s). When closed, `POST /vote` returns `{ok:false, closed:true, data}` and `GET /picks` returns `closed:true`. The Worker fails OPEN: no entry (or unreachable file) means voting stays open. The Worker source is not in the repo (pasted into Cloudflare by the owner).
+- Close time = start of the broadcast evening in UTC. Finished fights without an entry stay votable forever, so every fight needs an entry; `scripts/check_votes_close.py` enforces it for past dates. 14 fights from Sep 19 to Oct 24 were added on 5 Nov 2026 (close time = the event date at 00:00Z).
+- Front end: fight pages use `closeVoting()` + `loadResults()` ("Голосування закрито" / "Voting is closed", results visible). Tournament card pages use `closeRow()` in `loadRow()`/`vote()`; the cookie `pick_v2_<id>` is NOT set when the Worker answers `closed`. Any new voting UI must react to `closed`, not only the Worker.
+- Bug found 5 Nov: card pages had their own vote script that ignored `closed`, so finished fights stayed votable from the card even with a `votes-close.json` entry.
+
+## Tournament cards (Oct-Nov 2026)
+- A tournament (event) has a page `ua|en/cards/<slug>.html`, an entry in `TOURNAMENTS` in `index.html`/`en/index.html`, a banner in `images/cards/` and optionally an organizer logo. Generated pages: do not edit by hand in bulk; the generator lives outside the repo, so patch all 8+ files with a script and check each.
+- List page `ua|en/cards.html`: nearest event as a large banner, the rest as compact rows grouped by month, `ItemList` JSON-LD. Add every new card to it and to `sitemap.xml` (priority 0.9, weekly).
+- Card page: main event is the first, highlighted row of the programme; fights WITHOUT their own page are plain rows (no link, no vote); fights with a page have the full row with Judge/Page buttons and a vote under the pair. Optional blocks only when data exists. Voting in the row also counts on the fight page.
+- Every fight page of a card carries the tournament strip (`.tstrip`: previous/next fight of the card, link to the card page, breadcrumb to the card). Card page and fight pages are always cross-linked.
+- Build a card page as soon as the main event is announced and add fights as rows when announced (first used for Fury vs Joshua, Dec 11, Cardiff; Opetaia–Wilder is the first announced fight).
+- Planned: "Після бою" block on card pages (results + pre-fight vote vs outcome), starting with Zuffa Boxing 12 (Nov 7).
+
+## CSS fixes of Nov 2026 (apply to every new page)
+- Footer: `.site-footer{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px}`.
+- FAQ: `.faq details[open] summary::after{content:"\2013"}` (the open-state icon was a corrupted byte sequence on 62 pages).
+- Form tooltips: `.fc-tip{width:max-content;max-width:150px;white-space:normal}` with left/right alignment by cell position so they never leave the viewport (360-390 px checked); strip tooltips `.stip{width:max-content;max-width:220px;white-space:normal}`.
+- Old pages with the pre-grid form: `.form-cells` grid with `.fc{width:100%;max-width:30px;aspect-ratio:1}`; the "✕" cell on Tsiupka–Beyda stays "✕", not "NC".
+- Overflow check at 360/390 px was run on all 399 pages; repeat it after layout changes.
