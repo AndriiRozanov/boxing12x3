@@ -413,3 +413,13 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - Optional block with the owner's own text, placed right after the "До бою" divider and BEFORE the venue block. Markup: `<div class="pretext"><h2>…</h2><p>…</p></div>`; CSS `.pretext{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:18px 18px 6px;margin-bottom:20px}` plus h2 15px/700, p 14px/1.7 #333, links underlined with a muted line. In the generator: fight dict keys `pre_h2_uk/en`, `pre_html_uk/en`.
 - The text is written by the owner (UA first, then EN); Claude only fits and links it (e.g. links to the page of a related fight). It stays after the fight next to the result. First used on Billam-Smith–Clarke.
 - Card pages (`cards/<slug>`) take optional `name_uk`, organizer name/logo and a banner; blocks that have no data are not rendered.
+
+## Promoters and past events (Nov 2026)
+- Promoter hub `ua|en/promoters.html` and promoter pages `ua|en/promoters/<slug>.html` (first: `zuffa-boxing`). Homepage section "Промоутери" / "Promoters" (`#promoBlock`, between Tournaments and Fight archive): label, "All promoters" link, one-sentence description (for Google), one row per promoter (logo, name, "11 events · 88 fights"; no KO percentage). Add a row per new promoter.
+- Past Zuffa events: 11 card pages `cards/zuffa-boxing-01..11` + 23 fight pages (UA+EN, copied from `fisher-protton`, data from the Zuffa PDF; user-supplied reach/rounds in `OVR`). Past-fight pages get ARCHIVE entries in `ua|en/fights.html` (then `python3 scripts/bake_catalog.py`; `git checkout ua/boxing-history.html en/boxing-history.html`) and sitemap URLs, but NOT `FIGHTS` or `votes-close.json` entries.
+- Promoter page lists past events with links to the card and to every fight page that exists. Never create a page again for a fight that already has one: link to it (check sitemap/slug list and H1 before generating; checked Nov 7, no duplicates).
+- Tstrip label: "Головний бій турніру" / "Співголовний бій турніру" / "Бій турніру".
+
+## Video blocks (Nov 2026)
+- 16 past-fight pages carry a YouTube block placed after the result (editorial pages: before the CTA): SEO `<h2 class="res-h2">Відео бою X – Y</h2>` (EN "X vs Y fight video"), lite embed (`.vid` with `data-id`, thumbnail button, iframe `youtube-nocookie` created on click), fallback link "Дивитись на YouTube ›", `VideoObject` JSON-LD with `uploadDate` = fight date. Names in the heading follow the page H1 order. Script: scratchpad `vid/addvid.py` (idempotent per page).
+- Sandbox cannot reach YouTube: embed playback must be checked live by the owner.
