@@ -142,7 +142,16 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;max-width:65ch;}
 .rj-score.l{color:var(--red);}
 .rj-dash{color:#ccc;font-size:11px;}
 .tstrip{display:flex;align-items:center;gap:12px;background:var(--card);border:0.5px solid var(--border);border-left:3px solid var(--red);border-radius:var(--r);padding:8px 14px 8px 8px;text-decoration:none;color:var(--text);margin:14px 0 4px;}.tstrip img{width:72px;height:40px;object-fit:cover;border-radius:6px;display:block;flex-shrink:0;}.ts-b{min-width:0;}.ts-k{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);}.ts-t{font-size:14px;font-weight:700;line-height:1.3;}.ts-s{font-size:12px;color:var(--muted);line-height:1.35;}.ts-a{margin-left:auto;color:var(--muted);font-size:18px;padding-left:4px;}
+.vid{position:relative;aspect-ratio:16/9;background:#111;border-radius:var(--r);overflow:hidden;margin:0 0 6px;}
+.vid-btn{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:#111;cursor:pointer;}
+.vid-btn img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9;}
+.vid-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--red);}
+.vid-play::after{content:"";position:absolute;left:22px;top:17px;border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vid-yt{display:inline-block;font-size:12px;color:var(--red);text-decoration:none;margin-bottom:12px;}
+.res-h2{font-size:15px;font-weight:700;margin:20px 0 8px;}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Відео бою Дерев'янченко – Хекетт", "description": "Відео бою Дерев'янченко – Хекетт, 2026-07-26.", "thumbnailUrl": "https://i.ytimg.com/vi/QRMNEfh5Cr0/hqdefault.jpg", "uploadDate": "2026-07-26", "embedUrl": "https://www.youtube-nocookie.com/embed/QRMNEfh5Cr0", "contentUrl": "https://www.youtube.com/watch?v=QRMNEfh5Cr0"}</script>
 </head>
 <body>
 <div class="wrap">
@@ -249,6 +258,10 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;max-width:65ch;}
     </div>
   </div>
 
+<h2 class="res-h2">Відео бою Дерев'янченко – Хекетт</h2>
+<div class="vid" data-id="QRMNEfh5Cr0" data-t="Відео бою Дерев'янченко – Хекетт"><button class="vid-btn" type="button" aria-label="Відео бою Дерев'янченко – Хекетт"><img src="https://i.ytimg.com/vi/QRMNEfh5Cr0/hqdefault.jpg" alt="Відео бою Дерев'янченко – Хекетт" loading="lazy"><span class="vid-play"></span></button></div>
+<a class="vid-yt" href="https://www.youtube.com/watch?v=QRMNEfh5Cr0" target="_blank" rel="noopener">Дивитись на YouTube ›</a>
+
   <div class="cta">
     <div class="cta-t">Відсудіть бій самі</div>
     <div class="cta-s">Відкрийте картку і виставляйте бали по раундах у реальному часі</div>
@@ -260,5 +273,6 @@ article p{font-size:15px;margin-bottom:14px;color:#2a2a2a;max-width:65ch;}
   <div class="site-footer"><a href="/privacy">Privacy Policy</a></div>
 
 </div>
+<script>document.querySelectorAll('.vid-btn').forEach(function(b){b.addEventListener('click',function(){var w=b.parentNode,i=document.createElement('iframe');i.src='https://www.youtube-nocookie.com/embed/'+w.getAttribute('data-id')+'?autoplay=1';i.allow='autoplay; encrypted-media; picture-in-picture';i.allowFullscreen=true;i.title=w.getAttribute('data-t');w.innerHTML='';w.appendChild(i);});});</script>
 </body>
 </html>

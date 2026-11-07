@@ -192,6 +192,13 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .result-winner{font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);line-height:1.15;}
 .result-method{font-size:16px;font-weight:700;color:#fff;margin-top:6px;}
 .result-sub{font-size:12px;color:#aaa;margin-top:3px;}
+.vid{position:relative;aspect-ratio:16/9;background:#111;border-radius:var(--r);overflow:hidden;margin:0 0 6px;}
+.vid-btn{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:#111;cursor:pointer;}
+.vid-btn img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9;}
+.vid-play{position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:var(--red);}
+.vid-play::after{content:"";position:absolute;left:22px;top:17px;border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vid-yt{display:inline-block;font-size:12px;color:var(--red);text-decoration:none;margin-bottom:12px;}
 .res-h2{font-size:15px;font-weight:700;margin:20px 0 8px;}
 .res-text{font-size:13.5px;color:#444;line-height:1.7;margin-bottom:12px;}
 .result-details{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:8px 18px;margin-bottom:20px;}
@@ -202,6 +209,7 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .result-details-sub{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 2px;padding-top:10px;border-top:0.5px solid var(--border);}
 .tstrip{display:flex;align-items:center;gap:12px;background:var(--card);border:0.5px solid var(--border);border-left:3px solid var(--red);border-radius:var(--r);padding:8px 14px 8px 8px;text-decoration:none;color:var(--text);margin:14px 0 4px;}.tstrip img{width:72px;height:40px;object-fit:cover;border-radius:6px;display:block;flex-shrink:0;}.ts-b{min-width:0;}.ts-k{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);}.ts-t{font-size:14px;font-weight:700;line-height:1.3;}.ts-s{font-size:12px;color:var(--muted);line-height:1.35;}.ts-a{margin-left:auto;color:var(--muted);font-size:18px;padding-left:4px;}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Відео бою Мозлі – Богачук", "description": "Відео бою Мозлі – Богачук, 2026-05-10.", "thumbnailUrl": "https://i.ytimg.com/vi/hhyTPuWIj2A/hqdefault.jpg", "uploadDate": "2026-05-10", "embedUrl": "https://www.youtube-nocookie.com/embed/hhyTPuWIj2A", "contentUrl": "https://www.youtube.com/watch?v=hhyTPuWIj2A"}</script>
 </head>
 <body>
 <div class="wrap">
@@ -386,6 +394,10 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 </div>
 
 
+<h2 class="res-h2">Відео бою Мозлі – Богачук</h2>
+<div class="vid" data-id="hhyTPuWIj2A" data-t="Відео бою Мозлі – Богачук"><button class="vid-btn" type="button" aria-label="Відео бою Мозлі – Богачук"><img src="https://i.ytimg.com/vi/hhyTPuWIj2A/hqdefault.jpg" alt="Відео бою Мозлі – Богачук" loading="lazy"><span class="vid-play"></span></button></div>
+<a class="vid-yt" href="https://www.youtube.com/watch?v=hhyTPuWIj2A" target="_blank" rel="noopener">Дивитись на YouTube ›</a>
+
 <!-- Read next -->
 <div class="read-next">
   <div class="rn-lbl">Читай також</div>
@@ -432,5 +444,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 </script>
+<script>document.querySelectorAll('.vid-btn').forEach(function(b){b.addEventListener('click',function(){var w=b.parentNode,i=document.createElement('iframe');i.src='https://www.youtube-nocookie.com/embed/'+w.getAttribute('data-id')+'?autoplay=1';i.allow='autoplay; encrypted-media; picture-in-picture';i.allowFullscreen=true;i.title=w.getAttribute('data-t');w.innerHTML='';w.appendChild(i);});});</script>
 </body>
 </html>
