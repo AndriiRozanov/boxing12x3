@@ -293,6 +293,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
 .sec-lbl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
 .sec-all{font-size:11px;color:var(--red);text-decoration:none;cursor:pointer;}
 .sec-all:hover{opacity:.8;}
+.promo-d{font-size:12.5px;line-height:1.5;color:var(--muted);margin:0 0 8px;}
 .promo-row{display:flex;align-items:center;gap:12px;padding:10px 0;text-decoration:none;color:var(--text);position:relative;border-bottom:0.5px solid var(--border);}
 .promo-row:last-child{border-bottom:none;}
 .promo-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red);}
@@ -540,6 +541,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
     <span class="sec-lbl" id="lbl-promo">Промоутери</span>
     <a class="sec-all" id="promoMore" href="/ua/promoters">Всі промоутери →</a>
   </div>
+  <p class="promo-d" id="promoDesc">Результати, кард і статистика боїв промоутерських компаній: усі турніри, переможці та методи перемог в одному місці.</p>
   <a class="promo-row" id="promoZuffa" href="/ua/promoters/zuffa-boxing">
     <img class="promo-logo" src="/images/cards/zuffa-boxing.png" alt="Zuffa Boxing">
     <div class="promo-b"><div class="promo-n">Zuffa Boxing</div><div class="promo-s" id="promoZuffaS">11 турнірів · 88 боїв</div></div>
@@ -1135,6 +1137,7 @@ function buildAnalyticsBlock() {
     var base = isUk ? '/ua/promoters' : '/en/promoters';
     pl.textContent = isUk ? 'Промоутери' : 'Promoters';
     var pm = document.getElementById('promoMore'); pm.textContent = isUk ? 'Всі промоутери →' : 'All promoters →'; pm.href = base;
+    document.getElementById('promoDesc').textContent = isUk ? 'Результати, кард і статистика боїв промоутерських компаній: усі турніри, переможці та методи перемог в одному місці.' : 'Results, cards and fight stats from boxing promotions: every event, winner and method of victory in one place.';
     document.getElementById('promoZuffa').href = base + '/zuffa-boxing';
     document.getElementById('promoZuffaS').textContent = isUk ? '11 турнірів · 88 боїв' : '11 events · 88 fights';
   })();
