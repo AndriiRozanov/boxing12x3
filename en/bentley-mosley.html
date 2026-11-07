@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/bentley-mosley">
 <link rel="alternate" hreflang="x-default" href="https://boxing12x3.com/en/bentley-mosley">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsEvent","name":"Denzel Bentley vs Shane Mosley Jr.","description":"Denzel Bentley beat Shane Mosley Jr. by unanimous decision (96-93, 95-94, 96-94). Copper Box Arena, London.","startDate":"2026-11-07","endDate":"2026-11-07","eventStatus":"https://schema.org/EventCompleted","image":"https://boxing12x3.com/og-default-en.png?v=2","location":{"@type":"Place","name":"Copper Box Arena","address":"London, United Kingdom"},"performer":[{"@type":"Person","name":"Denzel Bentley"},{"@type":"Person","name":"Shane Mosley Jr."}],"sport":"Boxing","superEvent":{"@type":"SportsEvent","name":"Zuffa Boxing 12","url":"https://boxing12x3.com/en/cards/zuffa-boxing-12","startDate":"2026-11-07","endDate":"2026-11-07","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Copper Box Arena","address":"London, United Kingdom"}}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who won Bentley vs Mosley Jr.?","acceptedAnswer":{"@type":"Answer","text":"Denzel Bentley beat Shane Mosley Jr. by unanimous decision (UD 10)."}},{"@type":"Question","name":"How did Bentley vs Mosley Jr. end?","acceptedAnswer":{"@type":"Answer","text":"The fight went to the scorecards (96-93, 95-94, 96-94)."}},{"@type":"Question","name":"Where and when did Bentley vs Mosley Jr. take place?","acceptedAnswer":{"@type":"Answer","text":"The fight took place on November 7, 2026 at Copper Box Arena, London, United Kingdom, on the Zuffa Boxing 12 card."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who won Bentley vs Mosley Jr.?","acceptedAnswer":{"@type":"Answer","text":"Denzel Bentley beat Shane Mosley Jr. by unanimous decision (UD 10). The referee was Bob Williams."}},{"@type":"Question","name":"How did Bentley vs Mosley Jr. end?","acceptedAnswer":{"@type":"Answer","text":"The fight went to the scorecards (96-93, 95-94, 96-94)."}},{"@type":"Question","name":"What were the scorecards for Bentley vs Mosley Jr.?","acceptedAnswer":{"@type":"Answer","text":"Mark Bates scored it 96-93, Lee Every 95-94 and Marcus McDonnell 96-94, all for Bentley. The referee was Bob Williams."}},{"@type":"Question","name":"Where and when did Bentley vs Mosley Jr. take place?","acceptedAnswer":{"@type":"Answer","text":"The fight took place on November 7, 2026 at Copper Box Arena, London, United Kingdom, on the Zuffa Boxing 12 card."}},{"@type":"Question","name":"Is a title on the line at Bentley vs Mosley Jr.?","acceptedAnswer":{"@type":"Answer","text":"No, it is a non-title 10-round fight and the co-main event of Zuffa Boxing 12."}},{"@type":"Question","name":"How much did Bentley and Mosley Jr. weigh for the fight?","acceptedAnswer":{"@type":"Answer","text":"At the official weigh-in on November 6, 2026, Denzel Bentley and Shane Mosley Jr. both weighed 72.6 kg. Both came in at the middleweight limit (160 lbs)."}},{"@type":"Question","name":"Which fights are on Zuffa Boxing 12?","acceptedAnswer":{"@type":"Answer","text":"The main event is Billam-Smith vs Clarke. The card also includes: Parker vs Dzambekov and more. See the full card on Zuffa Boxing 12."}}]}</script>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://boxing12x3.com/en/bentley-mosley">
 <meta property="og:title" content="Bentley vs Mosley Jr.: Result, UD 10 | Boxing 12×3">
@@ -420,28 +420,66 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
   </div>
 </div>
 
+<!-- Picks -->
+<div class="picks-block" id="picksBlock">
+  <h2 class="picks-title">Bentley vs Mosley Jr. Prediction: Who Wins?</h2>
+  <div class="picks-sub">Anonymous voting - no registration</div>
+  <div class="picks-btns">
+    <button class="picks-btn red" id="btnRed" onclick="vote('red')">Denzel Bentley</button>
+    <button class="picks-btn blue" id="btnBlue" onclick="vote('blue')">Shane Mosley Jr.</button>
+  </div>
+  <div class="picks-voted-msg" id="votedMsg">Your vote has been counted 👊</div>
+  <div class="picks-results" id="picksResults">
+    <div class="picks-bar-row">
+      <div class="picks-bar-label">
+        <span class="picks-bar-name" style="color:var(--red)">Denzel Bentley</span>
+        <span class="picks-bar-pct" style="color:var(--red)" id="redPct">0%</span>
+      </div>
+      <div class="picks-bar-track"><div class="picks-bar-fill red" id="redBar"></div></div>
+    </div>
+    <div class="picks-bar-row">
+      <div class="picks-bar-label">
+        <span class="picks-bar-name" style="color:var(--blue)">Shane Mosley Jr.</span>
+        <span class="picks-bar-pct" style="color:var(--blue)" id="bluePct">0%</span>
+      </div>
+      <div class="picks-bar-track"><div class="picks-bar-fill blue" id="blueBar"></div></div>
+    </div>
+    <div class="picks-total" id="picksTotal"></div>
+  </div>
+</div>
+
 <div class="sec-divider"><span>Result</span></div>
 
 <h2 class="res-h2">Bentley vs Mosley Jr. result</h2>
 <div class="result-block">
   <div class="result-winner">Denzel Bentley</div>
   <div class="result-method">UD 10</div>
-  <div class="result-sub">Unanimous decision</div>
+  <div class="result-sub">Unanimous decision · 10 rounds</div>
 </div>
 <p class="res-text">Denzel Bentley beat Shane Mosley Jr. by unanimous decision in their 10-round fight on November 7, 2026 at Copper Box Arena, London. The referee was Bob Williams.</p>
+<div class="result-details" style="margin-bottom:12px;">
+  <div class="result-details-sub" style="margin-top:0;padding-top:0;border-top:none;">Judges' scorecards</div>
+  <div class="result-details-row"><span class="result-details-lbl">Mark Bates</span><span class="result-details-val">96-93 Bentley</span></div>
+  <div class="result-details-row"><span class="result-details-lbl">Lee Every</span><span class="result-details-val">95-94 Bentley</span></div>
+  <div class="result-details-row"><span class="result-details-lbl">Marcus McDonnell</span><span class="result-details-val">96-94 Bentley</span></div>
+</div>
 <div class="result-details" style="margin-bottom:12px;">
   <div class="result-details-sub" style="margin-top:0;padding-top:0;border-top:none;">Record after the fight</div>
   <div class="result-details-row"><span class="result-details-lbl">Bentley</span><span class="result-details-val">23-3-1 · 18 KO</span></div>
   <div class="result-details-row"><span class="result-details-lbl">Mosley Jr.</span><span class="result-details-val">23-6 · 13 KO</span></div>
 </div>
-<h2 class="res-h2">Bentley vs Mosley Jr. scorecards</h2>
-<p class="res-text">All three judges scored the fight for Bentley (96-93, 95-94, 96-94).</p>
-<div class="result-details">
-  <div class="result-details-row"><span class="result-details-lbl">Mark Bates</span><span class="result-details-val">96-93</span></div>
-  <div class="result-details-row"><span class="result-details-lbl">Lee Every</span><span class="result-details-val">95-94</span></div>
-  <div class="result-details-row"><span class="result-details-lbl">Marcus McDonnell</span><span class="result-details-val">96-94</span></div>
-</div>
 
+<!-- FAQ -->
+<div class="faq">
+  <h2>Bentley vs Mosley Jr.: frequently asked questions</h2>
+  <details><summary>Who won Bentley vs Mosley Jr.?</summary><p>Denzel Bentley beat Shane Mosley Jr. by unanimous decision (UD 10). The referee was Bob Williams.</p></details>
+  <details><summary>How did Bentley vs Mosley Jr. end?</summary><p>The fight went to the scorecards (96-93, 95-94, 96-94).</p></details>
+  <details><summary>What were the scorecards for Bentley vs Mosley Jr.?</summary><p>Mark Bates scored it 96-93, Lee Every 95-94 and Marcus McDonnell 96-94, all for Bentley. The referee was Bob Williams.</p></details>
+  <details><summary>Where and when did Bentley vs Mosley Jr. take place?</summary><p>The fight took place on November 7, 2026 at Copper Box Arena, London, United Kingdom, on the Zuffa Boxing 12 card.</p></details>
+  <details><summary>Is a title on the line at Bentley vs Mosley Jr.?</summary><p>No, it is a non-title 10-round fight and the co-main event of Zuffa Boxing 12.</p></details>
+  <details><summary>How much did Bentley and Mosley Jr. weigh for the fight?</summary><p>At the official weigh-in on November 6, 2026, Denzel Bentley and Shane Mosley Jr. both weighed 72.6 kg. Both came in at the middleweight limit (160 lbs).</p></details>
+  <details><summary>Which fights are on Zuffa Boxing 12?</summary><p>The main event is <a href="/en/billam-smith-clarke">Billam-Smith vs Clarke</a>. The card also includes: <a href="/en/parker-dzambekov">Parker vs Dzambekov</a> and more. See the full card on <a href="/en/cards/zuffa-boxing-12">Zuffa Boxing 12</a>.</p></details>
+</div>
 
 <!-- Read next -->
 <div class="read-next">
@@ -485,7 +523,65 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.sfill').forEach(function(el){ el.style.width=el.getAttribute('data-w'); });
   }, 150);
 
+  loadResults();
 });
+
+var WORKER = 'https://boxing12x3-picks.rozanovandriy88.workers.dev';
+var FIGHT_ID = 'bentley-mosley';
+var COOKIE = 'pick_v2_' + FIGHT_ID;
+
+function getCookie(name){ var m=document.cookie.match('(^|;)\\s*'+name+'\\s*=\\s*([^;]+)'); return m?m.pop():''; }
+function setCookie(name,val){ document.cookie=name+'='+val+';path=/;max-age='+(60*60*24*365); }
+
+function showResults(data){
+  var total=data.total!==undefined?data.total:(data.red+data.blue);
+  var redPct=data.redPct!==undefined?data.redPct:(total?Math.round(data.red/total*100):0);
+  var bluePct=data.bluePct!==undefined?data.bluePct:(total?Math.round(data.blue/total*100):0);
+  document.getElementById('picksResults').classList.add('show');
+  document.getElementById('redPct').textContent=redPct+'%';
+  document.getElementById('bluePct').textContent=bluePct+'%';
+  setTimeout(function(){
+    document.getElementById('redBar').style.width=redPct+'%';
+    document.getElementById('blueBar').style.width=bluePct+'%';
+  },60);
+  document.getElementById('picksTotal').textContent='';
+}
+
+function vote(side){
+  if(getCookie(COOKIE)) return;
+  document.getElementById('btnRed').disabled=true;
+  document.getElementById('btnBlue').disabled=true;
+  document.getElementById('btn'+(side==='red'?'Red':'Blue')).classList.add('voted');
+  setCookie(COOKIE,side);
+  if(typeof gtag!=='undefined')gtag('event','pick_voted',{fight:FIGHT_ID,side:side});
+  document.getElementById('votedMsg').classList.add('show');
+  fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:FIGHT_ID,side:side})})
+  .then(function(r){return r.json();}).then(function(d){if(d.closed)closeVoting();if(d.data)showResults(d.data);}).catch(function(){loadResults();});
+}
+
+function closeVoting(){
+  var b1=document.getElementById('btnRed'),b2=document.getElementById('btnBlue');
+  if(b1)b1.disabled=true;if(b2)b2.disabled=true;
+  var m=document.getElementById('votedMsg');
+  if(m){m.textContent=(document.documentElement.lang==='en')?'Voting is closed':'Голосування закрито';m.classList.add('show');}
+}
+
+function loadResults(){
+  var voted = getCookie(COOKIE);
+  if(voted){
+    document.getElementById('btnRed').disabled=true;
+    document.getElementById('btnBlue').disabled=true;
+    document.getElementById('btn'+(voted==='red'?'Red':'Blue')).classList.add('voted');
+    document.getElementById('votedMsg').classList.add('show');
+  }
+  // Результат показуємо тому, хто вже проголосував, або коли голосування закрито.
+  fetch(WORKER+'/picks?fightId='+FIGHT_ID)
+  .then(function(r){return r.json();})
+  .then(function(d){
+    if(d.closed&&!voted)closeVoting();
+    if((voted||d.closed)&&d.total>0) showResults(d);
+  }).catch(function(){});
+}
 </script>
 </body>
 </html>

@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/parker-dzambekov">
 <link rel="alternate" hreflang="x-default" href="https://boxing12x3.com/en/parker-dzambekov">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsEvent","name":"Зак Паркер vs Умар Дзамбеков","description":"Умар Дзамбеков нокаутував Зака Паркера в 4-му раунді (1:47). Copper Box Arena, Лондон.","startDate":"2026-11-07","endDate":"2026-11-07","eventStatus":"https://schema.org/EventCompleted","image":"https://boxing12x3.com/og-default.png?v=2","location":{"@type":"Place","name":"Copper Box Arena","address":"Лондон, Велика Британія"},"performer":[{"@type":"Person","name":"Zach Parker"},{"@type":"Person","name":"Umar Dzambekov"}],"sport":"Boxing","superEvent":{"@type":"SportsEvent","name":"Zuffa Boxing 12","url":"https://boxing12x3.com/ua/cards/zuffa-boxing-12","startDate":"2026-11-07","endDate":"2026-11-07","eventStatus":"https://schema.org/EventScheduled","location":{"@type":"Place","name":"Copper Box Arena","address":"Лондон, Велика Британія"}}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Хто переміг у бою Паркер – Дзамбеков?","acceptedAnswer":{"@type":"Answer","text":"Умар Дзамбеков нокаутував Зака Паркера в 4-му раунді (KO 4)."}},{"@type":"Question","name":"Як закінчився бій Паркер – Дзамбеков?","acceptedAnswer":{"@type":"Answer","text":"Бій завершився нокаутом у 4-му раунді, на 1:47."}},{"@type":"Question","name":"Де і коли відбувся бій Паркер – Дзамбеков?","acceptedAnswer":{"@type":"Answer","text":"Бій відбувся 7 листопада 2026 на Copper Box Arena, Лондоні, у рамках турніру Zuffa Boxing 12."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Хто переміг у бою Паркер – Дзамбеков?","acceptedAnswer":{"@type":"Answer","text":"Умар Дзамбеков нокаутував Зака Паркера в 4-му раунді (KO 4)."}},{"@type":"Question","name":"Як закінчився бій Паркер – Дзамбеков?","acceptedAnswer":{"@type":"Answer","text":"Бій завершився нокаутом у 4-му раунді, на 1:47."}},{"@type":"Question","name":"Де і коли відбувся бій Паркер – Дзамбеков?","acceptedAnswer":{"@type":"Answer","text":"Бій відбувся 7 листопада 2026 на Copper Box Arena, Лондоні, у рамках турніру Zuffa Boxing 12."}},{"@type":"Question","name":"Чи є на кону пояс у бою Паркер – Дзамбеков?","acceptedAnswer":{"@type":"Answer","text":"Ні, це бій без пояса на 10 раундів."}},{"@type":"Question","name":"Скільки важили Паркер і Дзамбеков перед боєм?","acceptedAnswer":{"@type":"Answer","text":"На офіційному зважуванні 6 листопада 2026 Зак Паркер і Умар Дзамбеков показали по 79,3 кг. Обидва вийшли на межу напівважкої ваги (175 фунтів)."}},{"@type":"Question","name":"Які ще бої на турнірі Zuffa Boxing 12?","acceptedAnswer":{"@type":"Answer","text":"Головний бій турніру – Біллем-Сміт – Кларк. У програмі також: Бентлі – Мозлі мол. та інші бої. Повний кард – на сторінці Zuffa Boxing 12."}}]}</script>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://boxing12x3.com/ua/parker-dzambekov">
 <meta property="og:title" content="Паркер – Дзамбеков: результат, KO 4 | Boxing 12×3">
@@ -420,6 +420,34 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
   </div>
 </div>
 
+<!-- Picks -->
+<div class="picks-block" id="picksBlock">
+  <h2 class="picks-title">Прогноз на Паркер – Дзамбеков: хто переможе?</h2>
+  <div class="picks-sub">Анонімне голосування – без реєстрації</div>
+  <div class="picks-btns">
+    <button class="picks-btn red" id="btnRed" onclick="vote('red')">Зак Паркер</button>
+    <button class="picks-btn blue" id="btnBlue" onclick="vote('blue')">Умар Дзамбеков</button>
+  </div>
+  <div class="picks-voted-msg" id="votedMsg">Твій голос враховано 👊</div>
+  <div class="picks-results" id="picksResults">
+    <div class="picks-bar-row">
+      <div class="picks-bar-label">
+        <span class="picks-bar-name" style="color:var(--red)">Зак Паркер</span>
+        <span class="picks-bar-pct" style="color:var(--red)" id="redPct">0%</span>
+      </div>
+      <div class="picks-bar-track"><div class="picks-bar-fill red" id="redBar"></div></div>
+    </div>
+    <div class="picks-bar-row">
+      <div class="picks-bar-label">
+        <span class="picks-bar-name" style="color:var(--blue)">Умар Дзамбеков</span>
+        <span class="picks-bar-pct" style="color:var(--blue)" id="bluePct">0%</span>
+      </div>
+      <div class="picks-bar-track"><div class="picks-bar-fill blue" id="blueBar"></div></div>
+    </div>
+    <div class="picks-total" id="picksTotal"></div>
+  </div>
+</div>
+
 <div class="sec-divider"><span>Результат</span></div>
 
 <h2 class="res-h2">Результат бою Паркер – Дзамбеков</h2>
@@ -435,6 +463,16 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
   <div class="result-details-row"><span class="result-details-lbl">Паркер</span><span class="result-details-val">26-3 · 18 KO</span></div>
 </div>
 
+<!-- FAQ -->
+<div class="faq">
+  <h2>Часті питання про Паркер – Дзамбеков</h2>
+  <details><summary>Хто переміг у бою Паркер – Дзамбеков?</summary><p>Умар Дзамбеков нокаутував Зака Паркера в 4-му раунді (KO 4).</p></details>
+  <details><summary>Як закінчився бій Паркер – Дзамбеков?</summary><p>Бій завершився нокаутом у 4-му раунді, на 1:47.</p></details>
+  <details><summary>Де і коли відбувся бій Паркер – Дзамбеков?</summary><p>Бій відбувся 7 листопада 2026 на Copper Box Arena, Лондоні, у рамках турніру Zuffa Boxing 12.</p></details>
+  <details><summary>Чи є на кону пояс у бою Паркер – Дзамбеков?</summary><p>Ні, це бій без пояса на 10 раундів.</p></details>
+  <details><summary>Скільки важили Паркер і Дзамбеков перед боєм?</summary><p>На офіційному зважуванні 6 листопада 2026 Зак Паркер і Умар Дзамбеков показали по 79,3 кг. Обидва вийшли на межу напівважкої ваги (175 фунтів).</p></details>
+  <details><summary>Які ще бої на турнірі Zuffa Boxing 12?</summary><p>Головний бій турніру – <a href="/ua/billam-smith-clarke">Біллем-Сміт – Кларк</a>. У програмі також: <a href="/ua/bentley-mosley">Бентлі – Мозлі мол.</a> та інші бої. Повний кард – на сторінці <a href="/ua/cards/zuffa-boxing-12">Zuffa Boxing 12</a>.</p></details>
+</div>
 
 <!-- Read next -->
 <div class="read-next">
@@ -478,7 +516,65 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.sfill').forEach(function(el){ el.style.width=el.getAttribute('data-w'); });
   }, 150);
 
+  loadResults();
 });
+
+var WORKER = 'https://boxing12x3-picks.rozanovandriy88.workers.dev';
+var FIGHT_ID = 'parker-dzambekov';
+var COOKIE = 'pick_v2_' + FIGHT_ID;
+
+function getCookie(name){ var m=document.cookie.match('(^|;)\\s*'+name+'\\s*=\\s*([^;]+)'); return m?m.pop():''; }
+function setCookie(name,val){ document.cookie=name+'='+val+';path=/;max-age='+(60*60*24*365); }
+
+function showResults(data){
+  var total=data.total!==undefined?data.total:(data.red+data.blue);
+  var redPct=data.redPct!==undefined?data.redPct:(total?Math.round(data.red/total*100):0);
+  var bluePct=data.bluePct!==undefined?data.bluePct:(total?Math.round(data.blue/total*100):0);
+  document.getElementById('picksResults').classList.add('show');
+  document.getElementById('redPct').textContent=redPct+'%';
+  document.getElementById('bluePct').textContent=bluePct+'%';
+  setTimeout(function(){
+    document.getElementById('redBar').style.width=redPct+'%';
+    document.getElementById('blueBar').style.width=bluePct+'%';
+  },60);
+  document.getElementById('picksTotal').textContent='';
+}
+
+function vote(side){
+  if(getCookie(COOKIE)) return;
+  document.getElementById('btnRed').disabled=true;
+  document.getElementById('btnBlue').disabled=true;
+  document.getElementById('btn'+(side==='red'?'Red':'Blue')).classList.add('voted');
+  setCookie(COOKIE,side);
+  if(typeof gtag!=='undefined')gtag('event','pick_voted',{fight:FIGHT_ID,side:side});
+  document.getElementById('votedMsg').classList.add('show');
+  fetch(WORKER+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fightId:FIGHT_ID,side:side})})
+  .then(function(r){return r.json();}).then(function(d){if(d.closed)closeVoting();if(d.data)showResults(d.data);}).catch(function(){loadResults();});
+}
+
+function closeVoting(){
+  var b1=document.getElementById('btnRed'),b2=document.getElementById('btnBlue');
+  if(b1)b1.disabled=true;if(b2)b2.disabled=true;
+  var m=document.getElementById('votedMsg');
+  if(m){m.textContent=(document.documentElement.lang==='en')?'Voting is closed':'Голосування закрито';m.classList.add('show');}
+}
+
+function loadResults(){
+  var voted = getCookie(COOKIE);
+  if(voted){
+    document.getElementById('btnRed').disabled=true;
+    document.getElementById('btnBlue').disabled=true;
+    document.getElementById('btn'+(voted==='red'?'Red':'Blue')).classList.add('voted');
+    document.getElementById('votedMsg').classList.add('show');
+  }
+  // Результат показуємо тому, хто вже проголосував, або коли голосування закрито.
+  fetch(WORKER+'/picks?fightId='+FIGHT_ID)
+  .then(function(r){return r.json();})
+  .then(function(d){
+    if(d.closed&&!voted)closeVoting();
+    if((voted||d.closed)&&d.total>0) showResults(d);
+  }).catch(function(){});
+}
 </script>
 </body>
 </html>
