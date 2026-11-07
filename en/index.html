@@ -364,6 +364,10 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
 
 /* Fights list */
 .fights-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+.fights-more>summary{list-style:none;cursor:pointer;text-align:center;font-size:12.5px;font-weight:600;color:var(--red);padding:12px;border-bottom:0.5px solid var(--border);background:var(--card);}
+.fights-more>summary::-webkit-details-marker{display:none;}
+.fights-more .m-less{display:none;}.fights-more[open] .m-more{display:none;}.fights-more[open] .m-less{display:inline;}
+.fights-more[open]>summary{border-bottom:0.5px solid var(--border);}
 .fights-month{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:9px 14px 7px;border-bottom:0.5px solid var(--border);}
 .fight-row{display:flex;align-items:stretch;border-bottom:0.5px solid var(--border);position:relative;text-decoration:none;color:var(--text);}
 .fight-row:last-child{border-bottom:none;}
@@ -1162,7 +1166,10 @@ function buildAnalyticsBlock() {
     fHtml += (recentMode ? (isUk ? 'Останні бої' : 'Latest fights') : (curMonthName + ' ' + curYear));
     fHtml += '</div>';
 
-    upcoming.forEach(function(f) {
+    var FMAX = 5, fHidden = upcoming.length - FMAX;
+    function fPlural(n){ if(!isUk) return n === 1 ? 'fight' : 'fights'; var m10 = n % 10, m100 = n % 100; if (m10 === 1 && m100 !== 11) return 'бій'; if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'бої'; return 'боїв'; }
+    upcoming.forEach(function(f, fi) {
+      if (fHidden > 1 && fi === FMAX) fHtml += '<details class="fights-more"><summary><span class="m-more">' + (isUk ? 'Показати ще ' + fHidden + ' ' + fPlural(fHidden) : 'Show ' + fHidden + ' more ' + fPlural(fHidden)) + '</span><span class="m-less">' + (isUk ? 'Згорнути' : 'Show fewer') + '</span></summary>';
       var hasP = f.hasPage;
       var rowClass = 'fight-row' + (hasP ? ' clickable' : ' muted');
       var pair = (isUk ? f.redUk : f.red) + ' <span class="fight-vs">vs</span> ' + (isUk ? f.blueUk : f.blue);
@@ -1198,6 +1205,7 @@ function buildAnalyticsBlock() {
       fHtml += hasP ? '</a>' : '</div>';
     });
 
+    if (fHidden > 1) fHtml += '</details>';
     list.innerHTML = fHtml;
     block.style.display = upcoming.length ? 'block' : 'none';
   }
