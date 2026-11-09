@@ -246,8 +246,22 @@ details.rk-dv[open]>summary::after{content:"\2013"}
 .rk-note{font-size:12px;color:var(--muted);line-height:1.6;margin:18px 0}
 .rk-note a{color:var(--muted);text-decoration:underline}
 .rk-orgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
-.rk-org{display:block;text-decoration:none;color:#fff;background:var(--oc);border-radius:10px;padding:14px;font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:.1em}
-.rk-org small{display:block;font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:0;opacity:.85;margin-top:4px}
+.rk-org{position:relative;display:flex;flex-direction:column;gap:3px;overflow:hidden;text-decoration:none;color:var(--text);background:#fff;border:.5px solid var(--border);border-radius:12px;padding:14px;box-shadow:0 0 22px -6px var(--oc)}
+.rk-org::after{content:'';position:absolute;right:-18px;bottom:-18px;width:70px;height:70px;border-radius:50%;background:var(--oc);opacity:.12}
+.rk-org b{font-family:'Oswald',sans-serif;font-weight:500;font-size:30px;letter-spacing:.06em;line-height:1;color:var(--oc)}
+.rk-org i{font-style:normal;font-size:10.5px;color:var(--muted)}
+.rk-org em{font-style:normal;font-size:12px;font-weight:700;margin-top:4px}
+.rk-org small{font-size:10.5px;color:var(--muted)}
+.rk-org .ar{position:absolute;right:12px;top:10px;font-size:20px;color:var(--muted)}
+.rk-dt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rk-dtl{display:block;text-decoration:none;color:var(--text);background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:12px 12px 8px}
+.rk-dtl b{display:block;font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.rk-dr{display:flex;align-items:center;gap:6px;font-size:12px;padding:5px 0 5px 8px;border-left:3px solid var(--oc);margin-bottom:5px;background:color-mix(in srgb,var(--oc) 7%,#fff);border-radius:0 6px 6px 0}
+.rk-dr i{font-style:normal;font-size:9px;font-weight:700;color:var(--oc);width:26px;letter-spacing:.03em}
+.rk-dr span{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rk-dr .fl{margin-right:6px}.rk-dr.vc span{color:var(--muted);font-weight:500;font-style:italic}
+@keyframes rkf{from{opacity:0}to{opacity:1}}
+.rk-pane:not([hidden]){animation:rkf .18s ease}
 .rk-drow{display:block;text-decoration:none;color:var(--text);background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px}
 .rk-drow b{font-size:14px}
 .rk-drow div{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
@@ -340,7 +354,7 @@ h2.rk-h{font-size:16px;font-weight:700;margin:26px 0 12px}
 <ol class="rk-list"><li class="rk-r vp"><span class="n">1</span><span class="p">Вакантна позиція</span></li><li class="rk-r g"><span class="n">2</span><span class="p">Вік Салудар</span><img class="fl" src="/images/flags/ph.png" alt="Філіппіни" title="Філіппіни" width="20" height="15" loading="lazy"></li><li class="rk-r g"><span class="n">3</span><span class="p">Дяньсін Чжу</span><img class="fl" src="/images/flags/cn.png" alt="Китай" title="Китай" width="20" height="15" loading="lazy"></li><li class="rk-r"><span class="n">4</span><span class="p">Кацукі Морі</span><img class="fl" src="/images/flags/jp.png" alt="Японія" title="Японія" width="20" height="15" loading="lazy"></li><li class="rk-r"><span class="n">5</span><span class="p">Джозеф Сумабонг</span><img class="fl" src="/images/flags/ph.png" alt="Філіппіни" title="Філіппіни" width="20" height="15" loading="lazy"></li><li class="rk-r"><span class="n">6</span><span class="p">Джої Каної</span><img class="fl" src="/images/flags/ph.png" alt="Філіппіни" title="Філіппіни" width="20" height="15" loading="lazy"></li><li class="rk-r"><span class="n">7</span><span class="p">Джейсон Вайсон</span><img class="fl" src="/images/flags/ph.png" alt="Філіппіни" title="Філіппіни" width="20" height="15" loading="lazy"></li><li class="rk-r"><span class="n">8</span><span class="p">Вілфредо Мендес</span><img class="fl" src="/images/flags/pr.png" alt="Пуерто-Рико" title="Пуерто-Рико" width="20" height="15" loading="lazy"></li><li class="rk-r"><span class="n">9</span><span class="p">Ісса Саката</span><img class="fl" src="/images/flags/jp.png" alt="Японія" title="Японія" width="20" height="15" loading="lazy"></li><li class="rk-r"><span class="n">10</span><span class="p">Йоші Сугіура</span><img class="fl" src="/images/flags/jp.png" alt="Японія" title="Японія" width="20" height="15" loading="lazy"></li></ol><a class="rk-more" href="/ua/rankings/minimumweight">Усі організації в цій вазі ›</a>
 </details>
 <p class="rk-note">Джерело: <a href="https://www.wbaboxing.com/wba-ranking" target="_blank" rel="noopener nofollow">WBA</a> (станом на жовтень 2026). Рейтинги оновлюються щомісяця за офіційними списками організацій.</p>
-<div class="read-next">
+<script>(function(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;document.querySelectorAll("details.rk-dv>summary").forEach(function(s){s.addEventListener("click",function(ev){var d=s.parentNode;if(d._a){return ev.preventDefault()}ev.preventDefault();var h0=d.offsetHeight,op=d.open;d.style.overflow="hidden";if(!op){d.open=true}var h1=op?s.offsetHeight+10:d.scrollHeight;d._a=d.animate([{height:h0+"px"},{height:h1+"px"}],{duration:240,easing:"ease"});d._a.onfinish=function(){d._a=null;d.style.overflow="";d.style.height="";if(op)d.open=false}})})})()</script><div class="read-next">
   <div class="rn-lbl">Читай також</div>
   <a class="rn-link" href="/ua/boxing-organizations"><div><div class="rn-title">WBC, WBA, IBF і WBO</div><div class="rn-sub">Великі боксерські організації</div></div><span class="rn-arr">›</span></a>
   <a class="rn-link" href="/ua/boxers"><div><div class="rn-title">Профілі боксерів</div><div class="rn-sub">Рекорди, титули, зріст і розмах</div></div><span class="rn-arr">›</span></a>

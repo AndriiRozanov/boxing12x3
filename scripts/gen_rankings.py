@@ -74,8 +74,8 @@ def flag(c,l):
     if not k: return ''
     alt=CUA.get(c,c) if l=='ua' else c.replace('N. Ireland','Northern Ireland')
     return f'<img class="fl" src="/images/flags/{k}.png" alt="{e(alt)}" title="{e(alt)}" width="20" height="15" loading="lazy">'
-T={'ua':dict(home='Головна',rk='Рейтинги',tag_s='Super',tag_i='Тимчасовий',tag_r='Regular',champ='Чемпіон',vac='Вакантний пояс',vpos='Вакантна позиція',all_orgs='Усі організації в цій вазі',src='Джерело',src_t='офіційний рейтинг',asof='станом на',monthly='Рейтинги оновлюються щомісяця за офіційними списками організацій.',only_wbc='Дивізіон є лише в рейтингу WBC.',read='Читай також',p4p='Найкращі боксери незалежно від ваги (P4P) за версією The Ring',ko='КО',top10='Топ-10',more='Показати всі дивізіони',champs_h='Чемпіони за дивізіонами',orgs_h='Рейтинги за організаціями',divs_h='Рейтинги за дивізіонами',list_h='Топ-10 рейтингу'),
-'en':dict(home='Home',rk='Rankings',tag_s='Super',tag_i='Interim',tag_r='Regular',champ='Champion',vac='Vacant title',vpos='Vacant position',all_orgs='All organizations in this division',src='Source',src_t='official ranking',asof='as of',monthly='Rankings are updated monthly from the organizations\' official lists.',only_wbc='This division is only rated by the WBC.',read='Read next',p4p='Best fighters regardless of weight (P4P) according to The Ring',ko='KO',top10='Top 10',more='Show all divisions',champs_h='Champions by division',orgs_h='Rankings by organization',divs_h='Rankings by division',list_h='Top 10 ranking')}
+T={'ua':dict(home='Головна',rk='Рейтинги',tag_s='Super',tag_i='Тимчасовий',tag_r='Regular',champ='Чемпіон',vac='Вакантний пояс',vpos='Вакантна позиція',all_orgs='Усі організації в цій вазі',src='Джерело',src_t='офіційний рейтинг',asof='станом на',monthly='Рейтинги оновлюються щомісяця за офіційними списками організацій.',only_wbc='Дивізіон є лише в рейтингу WBC.',read='Читай також',p4p='Найкращі боксери незалежно від ваги (P4P) за версією The Ring',ko='КО',top10='Топ-10',more='Показати всі дивізіони',champs_h='Чемпіони за дивізіонами',orgs_h='Рейтинги за організаціями',divs_h='Рейтинги за дивізіонами',list_h='Топ-10 рейтингу',ndiv='дивізіонів',vk='вакантний'),
+'en':dict(home='Home',rk='Rankings',tag_s='Super',tag_i='Interim',tag_r='Regular',champ='Champion',vac='Vacant title',vpos='Vacant position',all_orgs='All organizations in this division',src='Source',src_t='official ranking',asof='as of',monthly='Rankings are updated monthly from the organizations\' official lists.',only_wbc='This division is only rated by the WBC.',read='Read next',p4p='Best fighters regardless of weight (P4P) according to The Ring',ko='KO',top10='Top 10',more='Show all divisions',champs_h='Champions by division',orgs_h='Rankings by organization',divs_h='Rankings by division',list_h='Top 10 ranking',ndiv='divisions',vk='vacant')}
 BASE=re.search(r'<style>(.*?)</style>',open('ua/promoters.html',encoding='utf-8').read(),re.S).group(1)
 CSS='''
 .rk-tabs{display:flex;gap:6px;overflow-x:auto;margin:0 0 12px;padding-bottom:2px}
@@ -118,8 +118,22 @@ details.rk-dv[open]>summary::after{content:"\\2013"}
 .rk-note{font-size:12px;color:var(--muted);line-height:1.6;margin:18px 0}
 .rk-note a{color:var(--muted);text-decoration:underline}
 .rk-orgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 22px}
-.rk-org{display:block;text-decoration:none;color:#fff;background:var(--oc);border-radius:10px;padding:14px;font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:.1em}
-.rk-org small{display:block;font-family:'Manrope',sans-serif;font-size:11px;letter-spacing:0;opacity:.85;margin-top:4px}
+.rk-org{position:relative;display:flex;flex-direction:column;gap:3px;overflow:hidden;text-decoration:none;color:var(--text);background:#fff;border:.5px solid var(--border);border-radius:12px;padding:14px;box-shadow:0 0 22px -6px var(--oc)}
+.rk-org::after{content:'';position:absolute;right:-18px;bottom:-18px;width:70px;height:70px;border-radius:50%;background:var(--oc);opacity:.12}
+.rk-org b{font-family:'Oswald',sans-serif;font-weight:500;font-size:30px;letter-spacing:.06em;line-height:1;color:var(--oc)}
+.rk-org i{font-style:normal;font-size:10.5px;color:var(--muted)}
+.rk-org em{font-style:normal;font-size:12px;font-weight:700;margin-top:4px}
+.rk-org small{font-size:10.5px;color:var(--muted)}
+.rk-org .ar{position:absolute;right:12px;top:10px;font-size:20px;color:var(--muted)}
+.rk-dt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rk-dtl{display:block;text-decoration:none;color:var(--text);background:var(--card);border:.5px solid var(--border);border-radius:12px;padding:12px 12px 8px}
+.rk-dtl b{display:block;font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.rk-dr{display:flex;align-items:center;gap:6px;font-size:12px;padding:5px 0 5px 8px;border-left:3px solid var(--oc);margin-bottom:5px;background:color-mix(in srgb,var(--oc) 7%,#fff);border-radius:0 6px 6px 0}
+.rk-dr i{font-style:normal;font-size:9px;font-weight:700;color:var(--oc);width:26px;letter-spacing:.03em}
+.rk-dr span{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rk-dr .fl{margin-right:6px}.rk-dr.vc span{color:var(--muted);font-weight:500;font-style:italic}
+@keyframes rkf{from{opacity:0}to{opacity:1}}
+.rk-pane:not([hidden]){animation:rkf .18s ease}
 .rk-drow{display:block;text-decoration:none;color:var(--text);background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px}
 .rk-drow b{font-size:14px}
 .rk-drow div{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
@@ -237,6 +251,7 @@ URLS=[]
 def src_links(l,orgs):
     t=T[l]; parts=[f'<a href="{SRC[o]}" target="_blank" rel="noopener nofollow">{o}</a> ({t["asof"]} {fdate(ODATE[o],l)})' for o in orgs]
     return f'{t["src"]}: '+', '.join(parts)+'. '+t['monthly']
+ANIM='<script>(function(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;document.querySelectorAll("details.rk-dv>summary").forEach(function(s){s.addEventListener("click",function(ev){var d=s.parentNode;if(d._a){return ev.preventDefault()}ev.preventDefault();var h0=d.offsetHeight,op=d.open;d.style.overflow="hidden";if(!op){d.open=true}var h1=op?s.offsetHeight+10:d.scrollHeight;d._a=d.animate([{height:h0+"px"},{height:h1+"px"}],{duration:240,easing:"ease"});d._a.onfinish=function(){d._a=null;d.style.overflow="";d.style.height="";if(op)d.open=false}})})})()</script>'
 # ---------- ORG pages
 OPEN_N=4
 for l in('ua','en'):
@@ -268,7 +283,7 @@ for l in('ua','en'):
             b+=rlist(l,d,i)
             if d['name']!='BRIDGERWEIGHT': b+=f'<a class="rk-more" href="/{l}/rankings/{sl_}">{t["all_orgs"]} ›</a>\n'
             b+='</details>\n'
-        b+=f'<p class="rk-note">{src_links(l,[o])}</p>\n'+FOOT[l]
+        b+=f'<p class="rk-note">{src_links(l,[o])}</p>\n'+ANIM+FOOT[l]
         write(f'{l}/rankings/{o.lower()}.html',b); URLS.append(f'/{l}/rankings/{o.lower()}')
 # ---------- DIVISION pages
 for l in('ua','en'):
@@ -326,7 +341,8 @@ for l in('ua','en'):
     if P4P: ld.append({"@context":"https://schema.org","@type":"ItemList","name":t['p4p'],"numberOfItems":len(P4P),"itemListElement":[{"@type":"ListItem","position":int(p[0]),"item":{"@type":"Person","name":p[1]}} for p in P4P]})
     b=head(l,title,desc,'/rankings',ld,t['rk'] if l=='ua' else 'Boxing rankings',f'<a href="/">{t["home"]}</a> / {t["rk"]}')
     b+=f'<h1>{e(h1)}</h1>\n<div class="meta">{t["asof"].capitalize()} {fdate(ODATE["WBC"],l)}</div>\n<p class="rk-intro">{e(intro)}</p>\n'
-    b+=f'<h2 class="rk-h">{t["orgs_h"]}</h2><div class="rk-orgs">'+''.join(f'<a class="rk-org" style="--oc:{ORGC[o]}" href="/{l}/rankings/{o.lower()}">{o}<small>{t["asof"]} {fdate(ODATE[o],l)}</small></a>' for o in ['WBA','WBC','IBF','WBO'])+'</div>\n'
+    FULL={'WBA':'World Boxing Association','WBC':'World Boxing Council','IBF':'International Boxing Federation','WBO':'World Boxing Organization'}
+    b+=f'<h2 class="rk-h">{t["orgs_h"]}</h2><div class="rk-orgs">'+''.join(f'<a class="rk-org" style="--oc:{ORGC[o]}" href="/{l}/rankings/{o.lower()}"><b>{o}</b><i>{FULL[o]}</i><em>{len([d for d in divs if has_org(d,ORGS.index(o))])} {t["ndiv"]}</em><small>{t["asof"]} {fdate(ODATE[o],l)}</small><span class="ar">›</span></a>' for o in ['WBA','WBC','IBF','WBO'])+'</div>\n'
     if P4P:
         b+=f'<h2 class="rk-h">P4P The Ring</h2><p class="rk-wide-note">{t["p4p"]}.</p><ol class="rk-list">'
         for p in P4P:
@@ -334,16 +350,16 @@ for l in('ua','en'):
             b+=f'<li class="rk-r{" g" if k<=3 else ""}"><span class="n">{k}</span><span class="p">{nm(n,l)} <span class="rec">{e(rec(r,l))}</span></span>{flag(c,l)}</li>'
         b+='</ol>\n'
         b+=f'<p class="rk-note">{t["src"]}: <a href="{RING_P4P}" target="_blank" rel="noopener nofollow">The Ring</a> ({t["asof"]} {fdate(P4P_DATE,l)}).</p>\n'
-    b+=f'<h2 class="rk-h">{t["champs_h"]}</h2>\n'
+    b+=f'<h2 class="rk-h">{t["champs_h"]}</h2>\n<div class="rk-dt">'
     for d in divs:
-        sl_=DIVMETA[d['name']][0]; parts=[]
-        for oi,o in enumerate(ORGS):
-            if o!='The Ring' and not has_org(d,oi): continue
-            if not d['champ'][oi]: continue
-            cl=champ_list(d,oi)
-            names=' / '.join((t['vac'] if n.startswith('VACANT') else disp(n,l)) for n,c,s in cl)
-            parts.append(f'{o}: {e(names)}')
-        b+=f'<a class="rk-drow" href="/{l}/rankings/{sl_}"><b>{e(dname(d,l))}</b><div>{" · ".join(parts)}</div></a>\n'
+        sl_=DIVMETA[d['name']][0]; rows=''
+        for oi,o in enumerate(ORGS[:4]):
+            if not has_org(d,oi) or not d['champ'][oi]: continue
+            n,cc,st=champ_list(d,oi)[0]
+            if n.startswith('VACANT'): rows+=f'<div class="rk-dr vc" style="--oc:{ORGC[o]}"><i>{o}</i><span>{t["vk"]}</span></div>'; continue
+            full=disp(n,l); rows+=f'<div class="rk-dr" style="--oc:{ORGC[o]}"><i>{o}</i><span title="{e(full)}">{e(full.split(" ")[-1])}</span>{flag(cc,l)}</div>'
+        b+=f'<a class="rk-dtl" href="/{l}/rankings/{sl_}"><b>{e(dname(d,l))}</b>{rows}</a>\n'
+    b+='</div>\n'
     b+=f'<p class="rk-note">{src_links(l,["WBA","WBC","IBF","WBO"])}</p>\n'+FOOT[l]
     write(f'{l}/rankings.html',b); URLS.append(f'/{l}/rankings')
 # ---------- sitemap
