@@ -3748,4 +3748,372 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/wba</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/wba"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/wba"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/wbc</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/wbc"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/wbc"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/ibf</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/ibf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/ibf"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/wbo</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/wbo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/wbo"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/wba</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/wba"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/wba"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/wbc</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/wbc"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/wbc"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/ibf</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/ibf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/ibf"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/wbo</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/wbo"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/wbo"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/heavyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/heavyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/heavyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/bridgerweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/bridgerweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/bridgerweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/cruiserweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/cruiserweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/cruiserweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/light-heavyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/light-heavyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/light-heavyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/super-middleweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-middleweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-middleweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/middleweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/middleweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/middleweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/super-welterweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-welterweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-welterweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/welterweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/welterweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/welterweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/super-lightweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-lightweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-lightweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/lightweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/lightweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/lightweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/super-featherweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-featherweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-featherweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/featherweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/featherweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/featherweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/super-bantamweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-bantamweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-bantamweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/bantamweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/bantamweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/bantamweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/super-flyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-flyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-flyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/flyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/flyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/flyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/light-flyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/light-flyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/light-flyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings/minimumweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/minimumweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/minimumweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/heavyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/heavyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/heavyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/bridgerweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/bridgerweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/bridgerweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/cruiserweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/cruiserweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/cruiserweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/light-heavyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/light-heavyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/light-heavyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/super-middleweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-middleweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-middleweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/middleweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/middleweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/middleweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/super-welterweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-welterweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-welterweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/welterweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/welterweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/welterweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/super-lightweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-lightweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-lightweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/lightweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/lightweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/lightweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/super-featherweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-featherweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-featherweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/featherweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/featherweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/featherweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/super-bantamweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-bantamweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-bantamweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/bantamweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/bantamweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/bantamweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/super-flyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/super-flyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/super-flyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/flyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/flyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/flyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/light-flyweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/light-flyweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/light-flyweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings/minimumweight</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/minimumweight"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings/minimumweight"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/rankings</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/rankings</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
