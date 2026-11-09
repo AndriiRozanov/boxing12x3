@@ -9,6 +9,8 @@ wb=openpyxl.load_workbook('data/rankings.xlsx'); ws=wb['All divisions'] if 'All 
 rows=list(ws.iter_rows(values_only=True))
 ORGS=['WBA','WBC','IBF','WBO','The Ring']
 ORGC={'WBA':'#1a5276','WBC':'#2e7d32','IBF':'#7d2942','WBO':'#8a8a8a','The Ring':'#b8860b'}
+RING_P4P='https://www.ringmagazine.com/fighters/rankings?org=p4p'
+P4P_DATE='Oct 2026'
 SRC={'WBA':'https://www.wbaboxing.com/wba-ranking','WBC':'https://wbcboxing.com/en/ratings-en/','IBF':'https://www.ibf-usba-boxing.com/ratings/','WBO':'https://wboboxing.com/rankings'}
 DIVMETA={ # file name: (slug, UA, EN)
 'HEAVYWEIGHT':('heavyweight','Надважка вага','Heavyweight'),'BRIDGERWEIGHT':('bridgerweight','Бріджервейт','Bridgerweight'),
@@ -49,15 +51,24 @@ P4P=[];
 if 'P4P Ring' in wb.sheetnames:
     for r in list(wb['P4P Ring'].iter_rows(values_only=True))[1:]:
         if r[0]: P4P.append(r)
-NAMEFIX={'Dmitrii Bivol':'Dmitry Bivol'}
+import csv
+NAMEFIX={}; UA_NAME={}
+for _r in csv.DictReader(open('data/names_ua.csv',encoding='utf-8')):
+    NAMEFIX[_r['en_raw']]=_r['en_canonical']; UA_NAME[_r['en_canonical']]=_r['ua']
 def parse(s):
     m=re.match(r'(.*?)\s*\((.*?)\)\s*$',s.strip()); n,c=(m.group(1).strip(),m.group(2)) if m else (s.strip(),'')
     return NAMEFIX.get(n,n),c
 def slug(n): return '-'.join(re.sub(r"[.'’]",'',n).lower().split())
 CARDS={l:{f[:-5] for f in os.listdir(f'{l}/boxers')} for l in('ua','en')}
 def e(s): return html.escape(str(s))
+def disp(n,l):
+    n=NAMEFIX.get(n,n)
+    if l=='ua':
+        if n not in UA_NAME: print('NO UA NAME',n,file=sys.stderr)
+        return UA_NAME.get(n,n)
+    return n
 def nm(n,l): 
-    s=slug(n); return f'<a href="/{l}/boxers/{s}">{e(n)}</a>' if s in CARDS[l] else e(n)
+    n=NAMEFIX.get(n,n); s=slug(n); t=disp(n,l); return f'<a href="/{l}/boxers/{s}">{e(t)}</a>' if s in CARDS[l] else e(t)
 def flag(c,l):
     k=ISO.get(c)
     if not k: return ''
@@ -322,6 +333,7 @@ for l in('ua','en'):
             n=p[1]; c=p[2]; r=p[3]; k=int(p[0])
             b+=f'<li class="rk-r{" g" if k<=3 else ""}"><span class="n">{k}</span><span class="p">{nm(n,l)} <span class="rec">{e(rec(r,l))}</span></span>{flag(c,l)}</li>'
         b+='</ol>\n'
+        b+=f'<p class="rk-note">{t["src"]}: <a href="{RING_P4P}" target="_blank" rel="noopener nofollow">The Ring</a> ({t["asof"]} {fdate(P4P_DATE,l)}).</p>\n'
     b+=f'<h2 class="rk-h">{t["champs_h"]}</h2>\n'
     for d in divs:
         sl_=DIVMETA[d['name']][0]; parts=[]
@@ -329,7 +341,7 @@ for l in('ua','en'):
             if o!='The Ring' and not has_org(d,oi): continue
             if not d['champ'][oi]: continue
             cl=champ_list(d,oi)
-            names=' / '.join((t['vac'] if n.startswith('VACANT') else n) for n,c,s in cl)
+            names=' / '.join((t['vac'] if n.startswith('VACANT') else disp(n,l)) for n,c,s in cl)
             parts.append(f'{o}: {e(names)}')
         b+=f'<a class="rk-drow" href="/{l}/rankings/{sl_}"><b>{e(dname(d,l))}</b><div>{" · ".join(parts)}</div></a>\n'
     b+=f'<p class="rk-note">{src_links(l,["WBA","WBC","IBF","WBO"])}</p>\n'+FOOT[l]
