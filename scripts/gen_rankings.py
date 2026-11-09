@@ -132,6 +132,10 @@ details.rk-dv[open]>summary::after{content:"\\2013"}
 .rk-dr i{font-style:normal;font-size:9px;font-weight:700;color:var(--oc);width:26px;letter-spacing:.03em}
 .rk-dr span{flex:1;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rk-dr .fl{margin-right:6px}.rk-dr.vc span{color:var(--muted);font-weight:500;font-style:italic}
+.rk-dvs{display:flex;gap:6px;overflow-x:auto;margin:0 -16px 14px;padding:2px 16px 6px;scrollbar-width:none}
+.rk-dvs::-webkit-scrollbar{display:none}
+.rk-dvs a{flex:none;text-decoration:none;font-size:12px;font-weight:600;color:var(--text);background:#fff;border:.5px solid var(--border);border-radius:999px;padding:6px 12px;white-space:nowrap}
+.rk-dvs a.on{background:#111;color:#fff;border-color:#111}
 @keyframes rkf{from{opacity:0}to{opacity:1}}
 .rk-pane:not([hidden]){animation:rkf .18s ease}
 .rk-drow{display:block;text-decoration:none;color:var(--text);background:var(--card);border:.5px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px}
@@ -285,6 +289,10 @@ for l in('ua','en'):
             b+='</details>\n'
         b+=f'<p class="rk-note">{src_links(l,[o])}</p>\n'+ANIM+FOOT[l]
         write(f'{l}/rankings/{o.lower()}.html',b); URLS.append(f'/{l}/rankings/{o.lower()}')
+def STRIP(l,cur):
+    lab={'ua':'Дивізіони','en':'Divisions'}[l]
+    a=''.join(f'<a href="/{l}/rankings/{DIVMETA[d["name"]][0]}"'+(' class="on" aria-current="page"' if DIVMETA[d["name"]][0]==cur else '')+f'>{e(dname(d,l))}</a>' for d in divs)
+    return f'<nav class="rk-dvs" aria-label="{lab}">{a}</nav><script>(function(){{var s=document.querySelector(".rk-dvs"),a=s&&s.querySelector(".on");if(a)s.scrollLeft=a.offsetLeft-s.clientWidth/2+a.clientWidth/2}})()</script>\n'
 # ---------- DIVISION pages
 for l in('ua','en'):
     t=T[l]
@@ -304,7 +312,7 @@ for l in('ua','en'):
             desc=desc.replace('WBA, WBC, IBF, WBO і The Ring','WBC').replace('WBA, WBC, IBF, WBO and The Ring','WBC')
         ld=[bcld(l,[(name,f'https://boxing12x3.com/{l}/rankings/{sl_}')])]
         b=head(l,title,desc,f'/rankings/{sl_}',ld,t['rk'] if l=='ua' else 'Boxing rankings',bc(l,e(name)))
-        b+=f'<h1>{e(h1)}</h1>\n<div class="meta">{e(enn) if l=="ua" else ""}{" · " if l=="ua" else ""}{t["src"]}: {t["src_t"]} {orgl}</div>\n<p class="rk-intro">{e(intro)}</p>\n'
+        b+=f'<h1>{e(h1)}</h1>\n<div class="meta">{e(enn) if l=="ua" else ""}{" · " if l=="ua" else ""}{t["src"]}: {t["src_t"]} {orgl}</div>\n'+STRIP(l,sl_)+f'<p class="rk-intro">{e(intro)}</p>\n'
         cards=[]
         for oi,o in enumerate(ORGS):
             if o=='The Ring':
