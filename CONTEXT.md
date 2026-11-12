@@ -177,7 +177,8 @@ boxing12x3.com/   (GitHub: AndriiRozanov/boxing12x3)
 7. If the fight belongs to a tournament: `tournament:'<slug>'` in `FIGHTS`, the tournament in `TOURNAMENTS`, the tournament strip on the fight page and a row on the card page (see "Tournament cards").
 8. Run `python3 scripts/bake_catalog.py` after changes to `ARCHIVE`/`BOXER_PROFILES`, then `git checkout ua/boxing-history.html en/boxing-history.html`.
 9. Run `python3 scripts/check_votes_close.py` before every merge: it fails if a fight with a past date has no entry in `votes-close.json`.
-10. Request indexing in Search Console as soon as the page is live: search demand peaks in the ~24 hours around the event.
+10. Run `python3 scripts/gen_index.py` to add/refresh the "12×3 Index" block (ring + 5 rows, after the Stats block) on every upcoming fight page (UA+EN). Data comes from the page itself plus `data/rankings.xlsx`; re-run after every monthly rankings update. Weights (form 30, ranking position 25, knockouts 15, wins 15, experience 15) are not shown to users. Crossover fights go into `EXCLUDE` in the script (no index). Under 15 fights or 50 pro rounds: shrink to average and the label "Not enough data". Completed fights keep their pre-fight index (the script only touches `completed:false`). Names that differ from rankings.xlsx go into `ALIAS`.
+11. Request indexing in Search Console as soon as the page is live: search demand peaks in the ~24 hours around the event.
 
 ### After a fight
 1. Append the result sections to both pages (see template). Set `completed: true` and move `featured` to the next fight.

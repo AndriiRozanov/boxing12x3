@@ -199,6 +199,19 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 .ff-main{font-size:13.5px;font-weight:700;}
 .ff-sub{font-size:12px;color:var(--muted);margin-top:2px;}
 .fc.rematch{outline:2px solid var(--text);outline-offset:1px;}
+.ix{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:20px 18px;margin-bottom:10px;}
+.ix-t{text-align:center;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.ix-note{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:14px;text-align:center;}
+.ee-top{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;text-align:center;}
+.ee-nm{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:4px;}
+.ee-sub{font-size:10px;color:var(--muted);margin-top:2px;min-height:14px;}
+.ee-t{width:100%;border-collapse:collapse;}
+.ee-t td{padding:8px 0;border-top:0.5px solid var(--border);font-size:13px;}
+.ee-t td:nth-child(1){text-align:left;width:20%;font-weight:600;color:#bbb;}
+.ee-t td:nth-child(2){text-align:center;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+.ee-t td:nth-child(3){text-align:right;width:20%;font-weight:600;color:#bbb;}
+.ee-t td.w.r{color:var(--red);font-weight:700;}
+.ee-t td.w.b{color:var(--blue);font-weight:700;}
 </style>
 </head>
 <body>
@@ -360,6 +373,18 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
     </div>
   </div>
 </div>
+
+<!-- Index -->
+<div class="ix">
+  <div class="ix-t">Індекс 12×3</div>
+  <div class="ee-top">
+    <div><svg width="112" height="112" viewBox="0 0 112 112" role="img" aria-label="Кабаєл: 89"><circle cx="56" cy="56" r="44" fill="none" stroke="#e8e6e0" stroke-width="9"/><circle cx="56" cy="56" r="44" fill="none" stroke="#c0392b" stroke-width="9" stroke-linecap="round" stroke-dasharray="246.0 276.5" transform="rotate(-90 56 56)"/><text x="56" y="68" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="38" fill="#c0392b">89</text></svg><div class="ee-nm" style="color:var(--red)">Кабаєл</div><div class="ee-sub">&nbsp;</div></div>
+    <div><svg width="112" height="112" viewBox="0 0 112 112" role="img" aria-label="Хіса: 73"><circle cx="56" cy="56" r="44" fill="none" stroke="#e8e6e0" stroke-width="9"/><circle cx="56" cy="56" r="44" fill="none" stroke="#1a5276" stroke-width="9" stroke-linecap="round" stroke-dasharray="201.8 276.5" transform="rotate(-90 56 56)"/><text x="56" y="68" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="38" fill="#1a5276">73</text></svg><div class="ee-nm" style="color:var(--blue)">Хіса</div><div class="ee-sub">&nbsp;</div></div>
+  </div>
+  <table class="ee-t"><tr><td class="w r">100</td><td>Форма</td><td class="w b">100</td></tr><tr><td class="w r">100</td><td>Місце в рейтингах</td><td class="">40</td></tr><tr><td class="">70</td><td>Нокаути</td><td class="w b">92</td></tr><tr><td class="w r">100</td><td>Перемоги</td><td class="w b">100</td></tr><tr><td class="w r">54</td><td>Досвід</td><td class="">27</td></tr></table>
+  <div class="ix-note">Рахується за фактичними даними. Не є прогнозом.</div>
+</div>
+<!-- /Index -->
 
 <!-- Belts -->
 <div class="belts">
