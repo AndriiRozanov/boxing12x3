@@ -551,6 +551,11 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
     <div class="promo-b"><div class="promo-n">Zuffa Boxing</div><div class="promo-s" id="promoZuffaS">12 турнірів · 97 боїв</div></div>
     <span class="promo-arr">›</span>
   </a>
+  <a class="promo-row" id="promoUsyk" href="/ua/promoters/usyk-17-promotions">
+    <img class="promo-logo" src="/images/cards/usyk-17-promotions.png" alt="Usyk 17 Promotions">
+    <div class="promo-b"><div class="promo-n">Usyk 17 Promotions</div><div class="promo-s" id="promoUsykS">4 турніри · 42 бої</div></div>
+    <span class="promo-arr">›</span>
+  </a>
 </div>
 
 <!-- Fight archive – both languages -->
@@ -1159,6 +1164,8 @@ function buildAnalyticsBlock() {
     document.getElementById('promoDesc').textContent = isUk ? 'Результати, кард і статистика боїв промоутерських компаній: усі турніри, переможці та методи перемог в одному місці.' : 'Results, cards and fight stats from boxing promotions: every event, winner and method of victory in one place.';
     document.getElementById('promoZuffa').href = base + '/zuffa-boxing';
     document.getElementById('promoZuffaS').textContent = isUk ? '12 турнірів · 97 боїв' : '12 events · 97 fights';
+    document.getElementById('promoUsyk').href = base + '/usyk-17-promotions';
+    document.getElementById('promoUsykS').textContent = isUk ? '4 турніри · 42 бої' : '4 events · 42 fights';
   })();
 
   // ── Fight block ──
