@@ -124,14 +124,39 @@ if(shown>=0){
   var sh=document.getElementById('evlabel');
   if(sh){sh.textContent=(dd===localDate(new Date())?T.today:T.soon)+' · '+dayFull(dd);}
 }
-// upcoming list: drop what is shown above or already over, keep the first 6
-var up=document.querySelectorAll('#next .fr'),n=0;
-for(i=0;i<up.length;i++){
-  var r2=up[i],id=r2.getAttribute('data-id'),e2=Date.parse(r2.getAttribute('data-end'));
-  var over=e2<=now;
-  if(skip[id]||over||n>=6){r2.hidden=true;}else{r2.hidden=false;n++;}
+// upcoming list: drop what is shown above or already over; chips filter it in place, keep the first 6
+var up=document.querySelectorAll('#next .fr'),sel=null,pos=null,nearOn=false,RADIUS=1000;
+function dist(a,b,c,d){var R=6371,q=Math.PI/180,x=(c-a)*q,y=(d-b)*q;var h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*q)*Math.cos(c*q)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
+function renderNext(){
+  var n=0,total=0,nt=document.getElementById('hnote');
+  for(i=0;i<up.length;i++){
+    var r2=up[i],id=r2.getAttribute('data-id'),e2=Date.parse(r2.getAttribute('data-end'));
+    var ok=!(skip[id]||e2<=now);
+    if(ok&&sel&&r2.getAttribute('data-cont')!==sel)ok=false;
+    if(ok&&nearOn&&pos){var la=parseFloat(r2.getAttribute('data-lat')),lo=parseFloat(r2.getAttribute('data-lon'));ok=!isNaN(la)&&dist(pos.lat,pos.lon,la,lo)<=RADIUS;}
+    if(ok)total++;
+    if(ok&&n<6){r2.hidden=false;n++;}else{r2.hidden=true;}
+  }
+  var nx=document.getElementById('nextsec');
+  var filtered=!!sel||nearOn;
+  if(nx&&n===0&&!filtered)nx.hidden=true;
+  if(nt){nt.className='note'+((n===0&&filtered)?' show':'');if(n===0&&filtered&&nearOn&&!nt.getAttribute('data-err'))nt.textContent=T.near_none;}
+  var cl=document.getElementById('callink');
+  if(cl)cl.href=T.cal+(nearOn?'?near=1':(sel?'?c='+encodeURIComponent(sel):''));
+  var chips=document.querySelectorAll('#nextsec .chip');
+  for(i=0;i<chips.length;i++){var c=chips[i],on=c.id==='hnear'?nearOn:(c.getAttribute('data-c')===sel);c.className='chip'+(on?' on':'');c.setAttribute('aria-pressed',on?'true':'false');}
 }
-var nx=document.getElementById('nextsec');if(nx&&n===0)nx.hidden=true;
+var chipEls=document.querySelectorAll('#nextsec .chip[data-c]');
+for(i=0;i<chipEls.length;i++){chipEls[i].addEventListener('click',function(){var c=this.getAttribute('data-c');sel=(sel===c)?null:c;nearOn=false;var nt=document.getElementById('hnote');if(nt)nt.removeAttribute('data-err');renderNext();});}
+var nb=document.getElementById('hnear');
+if(nb){nb.addEventListener('click',function(){
+  var nt=document.getElementById('hnote');
+  if(nearOn){nearOn=false;if(nt)nt.removeAttribute('data-err');renderNext();return;}
+  if(!navigator.geolocation){if(nt){nt.textContent=T.near_unsup;nt.setAttribute('data-err','1');nt.className='note show';}return;}
+  navigator.geolocation.getCurrentPosition(function(p){pos={lat:p.coords.latitude,lon:p.coords.longitude};nearOn=true;sel=null;if(nt)nt.removeAttribute('data-err');renderNext();},
+    function(){if(nt){nt.textContent=T.near_denied;nt.setAttribute('data-err','1');nt.className='note show';}},{timeout:8000,maximumAge:600000});
+});}
+renderNext();
 })();
 """
 
@@ -206,7 +231,7 @@ def row(f, lk, kind='up'):
     else:
         left = f'<b class="tba">{h["tba"]}</b><small>{short_date(lk, f["date"])}</small>'
         start = ''
-    return (f'<a class="fr" href="{href}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-end="{fend(f).strftime("%Y-%m-%dT%H:%MZ")}">'
+    return (f'<a class="fr" href="{href}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-end="{fend(f).strftime("%Y-%m-%dT%H:%MZ")}" data-cont="{esc(v.get("continent"))}" data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}">'
             f'<div class="ft">{left}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
             f'<div class="fm">{meta}</div><div class="tags">{tags}</div></div><div class="fa">›</div></a>')
 
@@ -281,14 +306,14 @@ def build(lk):
     boxes = ''.join(hero(lk, key, fl, up)[0] for key, fl in evs)
     # unhide the first candidate so no-JS readers see an event
     boxes = boxes.replace('<div class="evbox" hidden', '<div class="evbox"', 1)
-    nxt = ''.join(row(f, lk) for f in up[:16]).replace('<a class="fr"', '<a class="fr" hidden')
+    nxt = ''.join(row(f, lk) for f in up[:40]).replace('<a class="fr"', '<a class="fr" hidden')
     cont = {}
     for f in up:
         c = f['venue'].get('continent')
         if c: cont[c] = cont.get(c, 0) + 1
-    chips = (''.join(f'<a class="chip" href="/{h["path"]}/calendar?c={esc(c)}">{h["conts"].get(c, c)}<small>{n}</small></a>'
+    chips = (''.join(f'<button type="button" class="chip" data-c="{esc(c)}">{h["conts"].get(c, c)}<small>{n}</small></button>'
                      for c, n in sorted(cont.items(), key=lambda kv: -kv[1]))
-             + f'<a class="chip near" href="/{h["path"]}/calendar?near=1">{h["chips_near"]}</a>')
+             + f'<button type="button" class="chip" id="hnear">{h["chips_near"]}</button>')
     done = [f for f in D['fights'] if f['status'] == 'completed' and f['red']['ua'] and f['blue']['ua'] and (f.get('result') or {}).get('winner')]
     done.sort(key=lambda f: f['date'], reverse=True)
     res = ''.join(row(f, lk, 'done') for f in done[:4])
@@ -315,7 +340,8 @@ def build(lk):
         {'@type': 'ItemList', 'name': h['sec_next'], 'itemListElement': [
             {'@type': 'ListItem', 'position': i + 1, 'url': BASE + f['urls'][k], 'name': ' – '.join(names(f, lk))} for i, f in enumerate(up[:10])]}]}
     tdata = {x: C.S[lk][x] for x in ('tz_names',)}
-    tdata.update({'months': h['months'], 'mfull': h['mfull'], 'lang': h['loc_js'], 'yourtime': h['yourtime'], 'tz_auto': h['tz_auto'], 'tz_chosen': h['tz_chosen'], 'today_eve': h['today_eve'], 'today': h['today'], 'soon': h['soon']})
+    tdata.update({'months': h['months'], 'mfull': h['mfull'], 'lang': h['loc_js'], 'yourtime': h['yourtime'], 'tz_auto': h['tz_auto'], 'tz_chosen': h['tz_chosen'], 'today_eve': h['today_eve'], 'today': h['today'], 'soon': h['soon'], 'near_denied': C.S[lk]['near_denied'], 'near_unsup': C.S[lk]['near_unsup'], 'near_none': C.S[lk]['empty_near'], 'cal': '/' + h['path'] + '/calendar'})
+    hist_js = open(f'{R}/data/history-home.js', encoding='utf-8').read()
     js = JS.replace('__T__', json.dumps(tdata, ensure_ascii=False))
     ua_url, en_url = f'{BASE}/', f'{BASE}/en'
     page = f"""<!DOCTYPE html>
@@ -364,11 +390,13 @@ def build(lk):
 <div class="sec" id="events"><div class="sh"><span class="sl" id="evlabel">{h['sec_events']}</span><div class="tzl"><i></i><span id="tznote">{h['tz_fixed']}</span></div></div>
 {boxes}
 </div>
-<div class="sec" id="nextsec"><div class="sh"><span class="sl">{h['sec_next']}</span><a class="sa" href="/{h['path']}/calendar">{h['all_cal']}</a></div>
+<div class="sec" id="nextsec"><div class="sh"><span class="sl">{h['sec_next']}</span><a class="sa" id="callink" href="/{h['path']}/calendar">{h['all_cal']}</a></div>
 <div class="chips" style="margin-bottom:10px">{chips}</div>
+<div class="note" id="hnote"></div>
 <div class="list" id="next">{nxt}</div></div>
 <div class="sec" id="results"><div class="sh"><span class="sl">{h['sec_results']}</span><a class="sa" href="/{h['path']}/results">{h['all_res']}</a></div>
 <div class="list">{res}</div></div>
+<div class="sec" id="history" style="display:none"></div>
 </div><div class="side">
 <div class="sec" id="promoters"><div class="sh"><span class="sl">{h['sec_promo']}</span><a class="sa" href="/{h['path']}/promoters">{h['all_promo']}</a></div>
 <div class="list">{prom}</div>
@@ -380,6 +408,7 @@ def build(lk):
 <div class="foot">{foot}</div>
 </div>
 <script>{js}</script>
+<script>{hist_js}</script>
 </body>
 </html>
 """

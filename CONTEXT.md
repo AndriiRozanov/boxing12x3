@@ -482,3 +482,10 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - Each fight card is saved separately in localStorage key `b12x3_cards` ({fightId:{scores,stop,t}}, max 60); old single slot is migrated. Never sent anywhere.
 - `#myCardsBlock` on /ua|en/scorecard lists saved cards (hidden in widget mode). Rows link to `?fight=ID`.
 - Official results come from `const RESULTS` baked by `python3 scripts/bake_scorecard_data.py` (run after build_events.py). Neutral styling, no right/wrong colours.
+
+## Nov 14 fixes (branch fixes-nov14)
+- Pages: `/ua|en/results` (scripts/bake_results.py), `/ua|en/tools` (scripts/bake_tools.py); both in sitemap. Run after build_events.py with bake_calendar/bake_home.
+- Mobile header variant A (brand left, language switch right) = `<style id="hdr-mobile">` in every page; generators (bake_calendar, gen_rankings) carry the same rule. New pages copied from existing ones inherit it.
+- Scorecard: top nav replaced by "back to home" link; logo links to home.
+- Home: chips filter "Найближчі" in place (continent / near me, 1000 km); "This day" widget after results, data in `data/history-home.js` (add a month there and to HISTORY_MONTHS); live dot pulses (respects reduced motion).
+- Search normalises apostrophes.
