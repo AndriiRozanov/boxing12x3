@@ -1,0 +1,305 @@
+{
+ "note": "Completed fights on old-template pages (no fcard), which the builder cannot read. Hand-maintained; new fights use the new template.",
+ "fights": [
+  {
+   "id": "berinchyk-noakes",
+   "date": "2026-08-29",
+   "red": {
+    "ua": "Денис Берінчик",
+    "en": "Denys Berinchyk"
+   },
+   "blue": {
+    "ua": "Сем Ноукс",
+    "en": "Sam Noakes"
+   },
+   "venue": {
+    "name": "O2 Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe"
+   },
+   "result": {
+    "winner": "Сем Ноукс",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "billam-smith-rozicki",
+   "date": "2026-06-06",
+   "red": {
+    "ua": "Кріс Біллем-Сміт",
+    "en": "Chris Billam-Smith"
+   },
+   "blue": {
+    "ua": "Раян Розицький",
+    "en": "Ryan Rozicki"
+   },
+   "venue": {
+    "name": "Bournemouth International Centre",
+    "cityUa": "Борнмут",
+    "cityEn": "Bournemouth",
+    "countryIso": "GB",
+    "continent": "Europe"
+   },
+   "result": {
+    "winner": "Кріс Біллем-Сміт",
+    "method": "RTD 7"
+   }
+  },
+  {
+   "id": "crocker-paro",
+   "date": "2026-06-24",
+   "red": {
+    "ua": "Льюїс Крокер",
+    "en": "Lewis Crocker"
+   },
+   "blue": {
+    "ua": "Ліам Паро",
+    "en": "Liam Paro"
+   },
+   "venue": {
+    "name": "Pat Rafter Arena",
+    "cityUa": "Брісбен",
+    "cityEn": "Brisbane",
+    "countryIso": "AU",
+    "continent": "Oceania"
+   },
+   "result": {
+    "winner": "Ліам Паро",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "derevyanchenko-hackett",
+   "date": "2026-07-26",
+   "red": {
+    "ua": "Сергій Дерев'янченко",
+    "en": "Sergiy Derevyanchenko"
+   },
+   "blue": {
+    "ua": "Джаліл Хекетт",
+    "en": "Jalil Hackett"
+   },
+   "venue": {
+    "name": "Infosys Theater at Madison Square Garden",
+    "cityUa": "Нью-Йорк",
+    "cityEn": "New York",
+    "countryIso": "US",
+    "continent": "North America"
+   },
+   "result": {
+    "winner": "Джаліл Хекетт",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "garcia-moloney",
+   "date": "2026-06-06",
+   "red": {
+    "ua": "Віллібальдо Гарсія",
+    "en": "Willibaldo Garcia"
+   },
+   "blue": {
+    "ua": "Ендрю Молоні",
+    "en": "Andrew Moloney"
+   },
+   "venue": {
+    "name": "Aichi Sky Expo",
+    "cityUa": "Токонаме",
+    "cityEn": "Tokoname",
+    "countryIso": "JP",
+    "continent": "Asia"
+   },
+   "result": {
+    "winner": "Ендрю Молоні",
+    "method": "MD 12"
+   }
+  },
+  {
+   "id": "itauma-hrgovic",
+   "date": "2026-08-29",
+   "red": {
+    "ua": "Мозес Ітаума",
+    "en": "Moses Itauma"
+   },
+   "blue": {
+    "ua": "Філіп Хргович",
+    "en": "Filip Hrgovic"
+   },
+   "venue": {
+    "name": "O2 Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe"
+   },
+   "result": {
+    "winner": "Філіп Хргович",
+    "method": "TKO 9"
+   }
+  },
+  {
+   "id": "joshua-prenga",
+   "date": "2026-07-25",
+   "red": {
+    "ua": "Ентоні Джошуа",
+    "en": "Anthony Joshua"
+   },
+   "blue": {
+    "ua": "Крістіан Пренга",
+    "en": "Kristian Prenga"
+   },
+   "venue": {
+    "name": "Jeddah Superdome",
+    "cityUa": "Джедда",
+    "cityEn": "Jeddah",
+    "countryIso": "SA",
+    "continent": "Asia"
+   },
+   "result": {
+    "winner": "Ентоні Джошуа",
+    "method": "KO 2"
+   }
+  },
+  {
+   "id": "mason-bell",
+   "date": "2026-07-05",
+   "red": {
+    "ua": "Абдулла Мейсон",
+    "en": "Abdullah Mason"
+   },
+   "blue": {
+    "ua": "Альберт Белл",
+    "en": "Albert Bell"
+   },
+   "venue": {
+    "name": "Wolstein Center",
+    "cityUa": "Клівленд",
+    "cityEn": "Cleveland",
+    "countryIso": "US",
+    "continent": "North America"
+   },
+   "result": {
+    "winner": "Абдулла Мейсон",
+    "method": "TKO 12"
+   },
+   "noEnPage": true
+  },
+  {
+   "id": "nery-casimero",
+   "date": "2026-06-06",
+   "red": {
+    "ua": "Луїс Нері",
+    "en": "Luis Nery"
+   },
+   "blue": {
+    "ua": "Джон Касімеро",
+    "en": "John Riel Casimero"
+   },
+   "venue": {
+    "name": "Aichi Sky Expo",
+    "cityUa": "Токонаме",
+    "cityEn": "Tokoname",
+    "countryIso": "JP",
+    "continent": "Asia"
+   },
+   "result": {
+    "winner": "Джон Касімеро",
+    "method": "TKO 4"
+   }
+  },
+  {
+   "id": "rodriguez-vargas",
+   "date": "2026-06-13",
+   "red": {
+    "ua": "Джессі Родрігес",
+    "en": "Jesse Rodriguez"
+   },
+   "blue": {
+    "ua": "Антоніо Варгас",
+    "en": "Antonio Vargas"
+   },
+   "venue": {
+    "name": "Desert Diamond Arena",
+    "cityUa": "Глендейл",
+    "cityEn": "Glendale",
+    "countryIso": "US",
+    "continent": "North America"
+   },
+   "result": {
+    "winner": "Джессі Родрігес",
+    "method": "KO 6"
+   }
+  },
+  {
+   "id": "romero-lopez",
+   "date": "2026-08-22",
+   "red": {
+    "ua": "Роландо Ромеро",
+    "en": "Rolando Romero"
+   },
+   "blue": {
+    "ua": "Теофімо Лопес",
+    "en": "Teofimo Lopez"
+   },
+   "venue": {
+    "name": "T-Mobile Arena",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America"
+   },
+   "result": {
+    "winner": "Теофімо Лопес",
+    "method": "MD 12"
+   }
+  },
+  {
+   "id": "spence-tszyu",
+   "date": "2026-07-25",
+   "red": {
+    "ua": "Еррол Спенс",
+    "en": "Errol Spence Jr"
+   },
+   "blue": {
+    "ua": "Тім Цзю",
+    "en": "Tim Tszyu"
+   },
+   "venue": {
+    "name": "Afterpay Arena",
+    "cityUa": "Сідней",
+    "cityEn": "Sydney",
+    "countryIso": "AU",
+    "continent": "Oceania"
+   },
+   "result": {
+    "winner": "Тім Цзю",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "zayas-ennis",
+   "date": "2026-06-27",
+   "red": {
+    "ua": "Ксандер Заяс",
+    "en": "Xander Zayas"
+   },
+   "blue": {
+    "ua": "Джарон Енніс",
+    "en": "Jaron Ennis"
+   },
+   "venue": {
+    "name": "Barclays Center",
+    "cityUa": "Бруклін",
+    "cityEn": "Brooklyn",
+    "countryIso": "US",
+    "continent": "North America"
+   },
+   "result": {
+    "winner": "Джарон Енніс",
+    "method": "TKO 7"
+   }
+  }
+ ]
+}

@@ -14,12 +14,12 @@ T = {
    desc='Результати боксерських боїв: переможці, методи перемоги, дати й місця проведення. Пошук за боксером, турніром чи містом.',
    lead='Завершені бої з переможцями й методами. Натисніть на бій, щоб побачити карту вечора, рахунки та суддівську картку.',
    crumb='Результати', search='Боксер, турнір, місто…', empty='За цим запитом результатів не знайдено.', won='переміг', draw='нічия', count='результатів',
-   cal='Календар майбутніх боїв →'),
+   cal='Календар майбутніх боїв →', more='Показати ще', all='Усі', mon=['Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень']),
  'en': dict(title='Boxing Results: Winners and Methods | Boxing 12×3', h1='Boxing results', sub='Fight results',
    desc='Boxing results: winners, methods of victory, dates and venues. Search by boxer, event or city.',
    lead='Finished fights with winners and methods. Open a fight for the card, the scores and the scorecard.',
    crumb='Results', search='Boxer, event, city…', empty='No results match this search.', won='won', draw='draw', count='results',
-   cal='Upcoming fights calendar →'),
+   cal='Upcoming fights calendar →', more='Show more', all='All', mon=['January','February','March','April','May','June','July','August','September','October','November','December']),
 }
 
 def method(m):
@@ -45,37 +45,51 @@ def row(f, lk):
     tour = C.TOUR.get(f.get('tournamentId'))
     q = ' '.join([f['red']['ua'], f['red']['en'], f['blue']['ua'], f['blue']['en'], (tour['name']['ua'] or '') if tour else '', (tour['name']['en'] or '') if tour else '',
                   v['cityUa'] or '', v['cityEn'] or '', v.get('name') or '']).lower()
-    return (f'<a class="fr" href="{f["urls"][k]}" data-q="{esc(q)}"><div class="ft">{dc}</div><div class="fd"></div><div class="fi">'
+    return (f'<a class="fr" data-y="{f["date"][:4]}" href="{f["urls"][k]}" data-q="{esc(q)}"><div class="ft">{dc}</div><div class="fd"></div><div class="fi">'
             f'<div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div><div class="rs">{esc(res)}</div><div class="fm">{meta}</div></div><div class="fa">›</div></a>')
 
 JS = r"""
 (function(){
-var rows=[].slice.call(document.querySelectorAll('#list .fr')),heads=[].slice.call(document.querySelectorAll('#list .dayh,#list .list'));
-function norm(s){return String(s).toLowerCase().replace(/[’ʼ‘`´]/g,"'");}
-document.getElementById('q').addEventListener('input',function(e){
- var q=norm(e.target.value.trim()),n=0;
- rows.forEach(function(r){var ok=!q||norm(r.getAttribute('data-q')).indexOf(q)>=0;r.style.display=ok?'':'none';if(ok)n++;});
- [].slice.call(document.querySelectorAll('#list .grp')).forEach(function(g){g.style.display=g.querySelector('.fr:not([style*="none"])')?'':'none';});
- document.getElementById('empty').className='empty'+(n?'':' show');
-});
+var PAGE=30,rows=[].slice.call(document.querySelectorAll('#list .fr')),shown=PAGE,yr='',q='';
+function norm(s){return String(s).toLowerCase().replace(/[\u2019\u02bc\u2018\u0060\u00b4]/g,"'");}
+function render(){
+ var n=0,total=0;
+ rows.forEach(function(r){
+  var ok=(!yr||r.getAttribute('data-y')===yr)&&(!q||norm(r.getAttribute('data-q')).indexOf(q)>=0);
+  if(ok){total++;if(n<shown){r.style.display='';n++;}else{r.style.display='none';}}else{r.style.display='none';}
+ });
+ [].slice.call(document.querySelectorAll('#list .grp')).forEach(function(g){var any=false;[].slice.call(g.querySelectorAll('.fr')).forEach(function(r){if(r.style.display!=='none')any=true;});g.style.display=any?'':'none';});
+ document.getElementById('more').className='more'+(total>n?' show':'');
+ document.getElementById('empty').className='empty'+(total?'':' show');
+}
+document.getElementById('q').addEventListener('input',function(e){q=norm(e.target.value.trim());shown=PAGE;render();});
+document.getElementById('more').addEventListener('click',function(){shown+=PAGE;render();});
+[].slice.call(document.querySelectorAll('#years .chip')).forEach(function(c){c.addEventListener('click',function(){
+ yr=this.getAttribute('data-yr');shown=PAGE;
+ [].slice.call(document.querySelectorAll('#years .chip')).forEach(function(x){x.className='chip'+(x===c?' on':'');});render();});});
+render();
 })();
 """
 
 def build(lk):
     s, t = S[lk], T[lk]; u = lk == 'uk'
-    fl = [f for f in D['fights'] if f['status'] == 'completed' and f['red']['ua'] and (f.get('result') or {}).get('winner')]
+    fl = [f for f in D['fights'] if f['status'] == 'completed' and f['red']['ua'] and (f.get('result') or {}).get('winner') and f['urls'].get(k := ('ua' if u else 'en'))]
     fl.sort(key=lambda f: (f['date'], f['startUtc'] or ''), reverse=True)
     groups = {}
-    for f in fl: groups.setdefault(f['date'], []).append(f)
-    body = ''.join(f'<div class="grp"><div class="dayh"><b>{C.day_label(lk, datetime.date.fromisoformat(d))}</b><span>{C.plural(lk, len(g))}</span></div><div class="list">{"".join(row(f, lk) for f in g)}</div></div>'
-                   for d, g in sorted(groups.items(), reverse=True))
+    for f in fl: groups.setdefault(f['date'][:7], []).append(f)
+    body = ''
+    for ym, g in sorted(groups.items(), reverse=True):
+        y, m = int(ym[:4]), int(ym[5:])
+        body += f'<div class="grp" data-y="{y}"><div class="dayh"><b>{t["mon"][m-1]} {y}</b><span>{C.plural(lk, len(g))}</span></div><div class="list">{"".join(row(f, lk) for f in g)}</div></div>'
+    years = sorted({f['date'][:4] for f in fl}, reverse=True)
+    ychips = f'<button type="button" class="chip on" data-yr="">{t["all"]}</button>' + ''.join(f'<button type="button" class="chip" data-yr="{y}">{y}</button>' for y in years)
     k = s['path']; url = f'{BASE}/{k}/results'
     items = [{'@type': 'ListItem', 'position': i + 1, 'url': BASE + f['urls'][('ua' if u else 'en')], 'name': f"{f['red']['ua' if u else 'en']} – {f['blue']['ua' if u else 'en']}"} for i, f in enumerate(fl[:50])]
     ld = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'CollectionPage', 'name': t['h1'], 'description': t['desc'], 'url': url, 'inLanguage': s['lang'], 'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(items), 'itemListElement': items}},
         {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': s['crumb'][0], 'item': BASE + ('/' if u else '/en')}, {'@type': 'ListItem', 'position': 2, 'name': t['crumb'], 'item': url}]}]}
     footer = ''.join(f'<a href="{h}">{x}</a>' for h, x in s['footer'])
-    css = C.CSS + '.rs{font-size:12.5px;font-weight:600;color:#333;margin-top:3px}.grp{margin-bottom:6px}.grp .dayh:first-child{margin-top:18px}'
+    css = C.CSS + '.more{display:none;width:100%;margin:14px 0 4px;font:inherit;font-size:13px;font-weight:700;padding:11px;border:0.5px solid var(--border);border-radius:10px;background:#fff;color:#333;cursor:pointer}.more.show{display:block}#years::-webkit-scrollbar{display:none}#years .chip{flex:0 0 auto}.rs{font-size:12.5px;font-weight:600;color:#333;margin-top:3px}.grp{margin-bottom:6px}.grp .dayh:first-child{margin-top:18px}'
     page = f"""<!DOCTYPE html>
 <html lang="{s['lang']}">
 <head>
@@ -124,7 +138,9 @@ def build(lk):
 <h1>{t['h1']}</h1>
 <p class="lead">{t['lead']}</p>
 <div class="filters"><div class="ftop" style="margin-bottom:0"><div class="search">🔎 <input id="q" type="search" placeholder="{esc(t['search'])}" aria-label="{esc(t['search'])}" autocomplete="off"></div></div></div>
+<div class="chips" id="years" style="margin:12px 0 4px;flex-wrap:nowrap;overflow-x:auto">{ychips}</div>
 <div id="list">{body}</div>
+<button type="button" class="more" id="more">{t['more']}</button>
 <div class="empty" id="empty"><div>{t['empty']}</div></div>
 <p class="lead" style="margin-top:18px"><a href="/{k}/calendar" style="color:var(--red);font-weight:600">{t['cal']}</a></p>
 <div class="site-footer">{footer}</div>

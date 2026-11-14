@@ -13,8 +13,8 @@ OUT=tempfile.mkdtemp()
 TODAY=datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d')
 
 issues=[]
-# ---------- 1. index.html arrays via node ----------
-src=open(f'{R}/index.html',encoding='utf-8').read()
+# ---------- 1. scorecard page arrays via node ----------
+src=open(f'{R}/ua/scorecard.html',encoding='utf-8').read()  # FIGHTS/TOURNAMENTS live in the scorecard page since the events-first home
 a=src.index('var TOURNAMENTS'); b=src.index('const FIGHTS = [')
 e=src.index('\n];',b)+3
 js=src[a:e]+"\nconsole.log(JSON.stringify({TOURNAMENTS:TOURNAMENTS,FIGHTS:FIGHTS}));"
@@ -245,6 +245,7 @@ def first_platforms(arr):
         if not p or p.startswith('До початку') or p.startswith('Broadcast starts') or p in ('Трансляція','Broadcast'): continue
         if p not in out: out.append(p)
     return out
+def _nm(x): return x.get('name') if isinstance(x,dict) else x
 lean={'generated':TODAY,'fights':[],'tournaments':[],'promoters':[]}
 for r in DB['fights']:
     if not r.get('hasPage') or not r.get('date'): continue
@@ -254,7 +255,8 @@ for r in DB['fights']:
     res=r.get('result') or {}
     lean['fights'].append({'id':r['id'],'urls':r['urls'],'date':r['date'][:10],'startUtc':r['startUtc'] if prec=='time' else None,'startPrecision':prec,
       'startSource':r['startUtcSource'],'status':r['status'],'tournamentId':r['tournamentId'],
-      'red':{'ua':r['fighters']['red']['ua'],'en':r['fighters']['red']['en']},'blue':{'ua':r['fighters']['blue']['ua'],'en':r['fighters']['blue']['en']},
+      'red':{'ua':r['fighters']['red']['ua'] or _nm(r['fighters']['red']['page_ua']),'en':r['fighters']['red']['en'] or _nm(r['fighters']['red']['page_en'])},
+      'blue':{'ua':r['fighters']['blue']['ua'] or _nm(r['fighters']['blue']['page_ua']),'en':r['fighters']['blue']['en'] or _nm(r['fighters']['blue']['page_en'])},
       'division':r['division'],'rounds':r['rounds'],'belts':r['belts'] or [],
       'venue':{'name':v.get('name'),'cityUa':v.get('city_ua'),'cityEn':city,'countryIso':v.get('country_iso'),'continent':v.get('continent'),'tz':v.get('timezone'),
                'lat':co[0] if co else None,'lon':co[1] if co else None},
@@ -267,6 +269,20 @@ for t in DB['tournaments']:
       'venue':ua.get('venue'),'organizer':ua.get('organizer'),'fights':ua.get('fights') or [],'poster':t.get('posterImage')})
 for p in DB['promoters']: lean['promoters'].append({'id':p['id'],'urls':p['urls']})
 os.makedirs(f'{R}/data',exist_ok=True)
+# names the page itself does not carry
+for _f in lean['fights']:
+    if _f['id']=='corrales-freitas':
+        _f['red']={'ua':'Дієго Корралес','en':'Diego Corrales'}
+# completed fights on old-template pages: hand-maintained data/archive-extra.json
+_have={f['id'] for f in lean['fights']}
+for x in json.load(open(f'{R}/data/archive-extra.json',encoding='utf-8'))['fights']:
+    if x['id'] in _have: continue
+    v=x['venue']
+    lean['fights'].append({'id':x['id'],'urls':{'ua':f"/ua/{x['id']}",'en':None if x.get('noEnPage') else f"/en/{x['id']}"},'date':x['date'],'startUtc':None,'startPrecision':'date',
+      'startSource':'archive-extra','status':'completed','tournamentId':None,'red':x['red'],'blue':x['blue'],'division':{'ua':None,'en':None},'rounds':None,'belts':[],
+      'venue':{'name':v['name'],'cityUa':v['cityUa'],'cityEn':v['cityEn'],'countryIso':v['countryIso'],'continent':v['continent'],'tz':None,'lat':None,'lon':None},
+      'broadcast':{'ua':[],'en':[]},'result':x['result']})
+lean['fights'].sort(key=lambda f:(f['date'],f['id']))
 json.dump(lean,open(f'{R}/data/events.json','w',encoding='utf-8'),ensure_ascii=False,indent=1)
 print('data/events.json:',len(lean['fights']),'fights,',len(lean['tournaments']),'tournaments,',len(lean['promoters']),'promoters; issues:',len(issues))
 for i in issues: print(' ',i)

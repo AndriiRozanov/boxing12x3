@@ -489,3 +489,8 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - Scorecard: top nav replaced by "back to home" link; logo links to home.
 - Home: chips filter "Найближчі" in place (continent / near me, 1000 km); "This day" widget after results, data in `data/history-home.js` (add a month there and to HISTORY_MONTHS); live dot pulses (respects reduced motion).
 - Search normalises apostrophes.
+
+## Results archive (Nov 14)
+- `/ua|en/results`: all completed fights, grouped by month, year chips, search, "Show more" (30 per step). Built by `scripts/bake_results.py` from `data/events.json`.
+- `scripts/build_events.py` now reads FIGHTS/TOURNAMENTS from `ua/scorecard.html` (index.html no longer has them) and falls back to names on the fight page. Completed fights on old-template pages (no `fcard`) are listed by hand in `data/archive-extra.json` (13 fights; `noEnPage` = no English page). New fights use the new template, so this file should not grow.
+- After new results: `python3 scripts/build_events.py && python3 scripts/bake_calendar.py && python3 scripts/bake_results.py && python3 scripts/bake_home.py && python3 scripts/bake_scorecard_data.py`.
