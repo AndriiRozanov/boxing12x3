@@ -320,7 +320,7 @@ def build(lk):
     # promoters
     prom = ''
     # fights per promoter come from the promoter pages (undercards included); update when those pages change
-    PROMO_FIGHTS = {'zuffa-boxing': 97, 'usyk-17-promotions': 42}
+    PROMO_FIGHTS = {'zuffa-boxing': 106, 'usyk-17-promotions': 42}
     for p in sorted(D['promoters'], key=lambda p: -PROMO_FIGHTS.get(p['id'], 0)):
         orgname = {'zuffa-boxing': 'Zuffa Boxing', 'usyk-17-promotions': 'Usyk 17 Promotions'}.get(p['id'], p['id'])
         tl = [t for t in D['tournaments'] if t.get('organizer') == orgname]

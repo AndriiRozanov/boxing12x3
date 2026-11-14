@@ -3527,7 +3527,7 @@
    "startUtc": "2026-11-14T17:00Z",
    "startPrecision": "time",
    "startSource": "votes-close.json",
-   "status": "scheduled",
+   "status": "completed",
    "tournamentId": "zuffa-boxing-13",
    "red": {
     "ua": "Карлос Адамес",
@@ -3561,7 +3561,10 @@
      "Sky Sports · Paramount+ · Setanta Sports"
     ]
    },
-   "result": null
+   "result": {
+    "winner": "Карлос Адамес",
+    "method": "UD 10"
+   }
   },
   {
    "id": "moloney-teran",
@@ -3573,7 +3576,7 @@
    "startUtc": "2026-11-14T17:00Z",
    "startPrecision": "time",
    "startSource": "votes-close.json",
-   "status": "scheduled",
+   "status": "completed",
    "tournamentId": "zuffa-boxing-13",
    "red": {
     "ua": "Джейсон Молоні",
@@ -3607,7 +3610,10 @@
      "Sky Sports · Paramount+ · Setanta Sports"
     ]
    },
-   "result": null
+   "result": {
+    "winner": "Джейсон Молоні",
+    "method": "UD 10"
+   }
   },
   {
    "id": "olascuaga-martinez",
@@ -3764,7 +3770,7 @@
    "startUtc": "2026-11-14T17:00Z",
    "startPrecision": "time",
    "startSource": "votes-close.json",
-   "status": "scheduled",
+   "status": "completed",
    "tournamentId": "zuffa-boxing-13",
    "red": {
     "ua": "Бруно Сюрас",
@@ -3798,7 +3804,10 @@
      "Sky Sports · Paramount+ · Setanta Sports"
     ]
    },
-   "result": null
+   "result": {
+    "winner": "Бруно Сюрас",
+    "method": "UD 10"
+   }
   },
   {
    "id": "teremoana-aiho",

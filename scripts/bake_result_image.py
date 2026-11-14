@@ -51,6 +51,8 @@ def seg(lk, tid):
             win, lose = names[w]; rows.append({'w': win, 's': f'{s["beat"]} {lose}', 'm': r.get('method') or ''})
         else:
             rows.append({'w': f'{a} – {b}', 's': w if w else s['draw'], 'm': r.get('method') or ''})
+    for x in json.load(open(f'{R}/data/result-extra.json', encoding='utf-8')).get(tid, []):
+        rows.append({'w': x['w'][k], 's': f'{s["beat"]} {x["l"][k]}', 'm': x['m']})
     y, m, d = t['startDate'].split('-')
     v = fl[0]['venue']; city = v['cityUa'] if lk == 'uk' else v['cityEn']
     when = s['date'].format(d=int(d), m=MONTH[lk][int(m) - 1], y=y)
