@@ -418,7 +418,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
   <div class="brand-name">Boxing 12×3</div>
   <h1 class="brand-sub" id="lbl-sub">Боксерська суддівська картка</h1>
 </div>
-<nav class="site-nav" id="siteNav" aria-label="Site"><a id="nv-events" href="/">Події</a><a id="nv-cal" href="/ua/calendar">Календар</a><a id="nv-res" href="/ua/cards">Результати</a><a id="nv-promo" href="/ua/promoters">Промоутери</a><a id="nv-tools" href="/#tools">Інструменти</a><a class="on" id="nv-card" href="/ua/scorecard">Суддівська картка</a></nav>
+<nav class="site-nav" id="siteNav" aria-label="Site"><a id="nv-events" href="/">Події</a><a id="nv-cal" href="/ua/calendar">Календар</a><a id="nv-res" href="/ua/results">Результати</a><a id="nv-promo" href="/ua/promoters">Промоутери</a><a id="nv-tools" href="/#tools">Інструменти</a><a class="on" id="nv-card" href="/ua/scorecard">Суддівська картка</a></nav>
 
 <div class="fw">
   <select class="fs" id="fightSel" onchange="onFightChange()"></select>
@@ -1275,7 +1275,7 @@ function renderAll() {
   var p = isUk ? 'ua' : 'en', h = isUk ? '/' : '/en';
   var L = isUk ? ['Події','Календар','Результати','Промоутери','Інструменти','Суддівська картка','Усі події та календар →']
                : ['Events','Calendar','Results','Promoters','Tools','Scorecard','All events and calendar →'];
-  var M = {'nv-events':[L[0],h],'nv-cal':[L[1],'/'+p+'/calendar'],'nv-res':[L[2],'/'+p+'/cards'],'nv-promo':[L[3],'/'+p+'/promoters'],'nv-tools':[L[4],h+'#tools'],'nv-card':[L[5],'/'+p+'/scorecard'],'homeLink':[L[6],h]};
+  var M = {'nv-events':[L[0],h],'nv-cal':[L[1],'/'+p+'/calendar'],'nv-res':[L[2],'/'+p+'/results'],'nv-promo':[L[3],'/'+p+'/promoters'],'nv-tools':[L[4],h+'#tools'],'nv-card':[L[5],'/'+p+'/scorecard'],'homeLink':[L[6],h]};
   Object.keys(M).forEach(function(id){ var e = document.getElementById(id); if (e) { e.textContent = M[id][0]; e.href = M[id][1]; } });
 })();
 

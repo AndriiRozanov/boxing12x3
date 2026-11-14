@@ -102,7 +102,6 @@ h1{font-size:26px;font-weight:800;line-height:1.15;margin-bottom:6px;letter-spac
 .chip{font:inherit;font-size:12px;font-weight:600;padding:6px 11px;border-radius:20px;border:0.5px solid var(--border);background:#fff;color:#555;cursor:pointer;line-height:1.3}
 .chip.on{background:#111;border-color:#111;color:#fff}
 .chip small{opacity:.6;margin-left:4px;font-weight:600}
-.chip.near{border-color:var(--red-b);color:var(--red);background:var(--red-l)}
 .chip.near.on{background:var(--red);border-color:var(--red);color:#fff}
 .flag{width:16px;height:12px;object-fit:cover;border-radius:2px;border:0.5px solid var(--border);vertical-align:-1px;margin-right:2px}
 .sel{width:100%;font:inherit;font-size:13px;border:0.5px solid var(--border);border-radius:8px;padding:9px 10px;background:#fff;color:#555}
@@ -172,7 +171,7 @@ function addDays(s,n){var p=s.split('-');var d=new Date(Date.UTC(+p[0],+p[1]-1,+
 function dayLabel(s){var p=s.split('-'),d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));var w=T.wd[d.getUTCDay()],m=T.months[+p[1]-1],n=+p[2];return LANG==='uk'?(n+' '+m+', '+w):(w+', '+m+' '+n);}
 function plural(n){if(LANG!=='uk')return n+' '+(n===1?T.ph[0]:T.ph[1]);var a=n%10,b=n%100;return n+' '+(a===1&&b!==11?T.ph[0]:(a>=2&&a<=4&&(b<12||b>14)?T.ph[1]:T.ph[2]));}
 function dist(a,b,c,d){var R=6371,r=Math.PI/180,x=(c-a)*r,y=(d-b)*r;var h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
-function norm(s){return String(s).toLowerCase();}
+function norm(s){return String(s).toLowerCase().replace(/[\u2019\u02bc\u2018\u0060\u00b4]/g,"'");}
 function anyOn(o){for(var k in o){if(o[k])return true;}return false;}
 function render(){
  var tz=zone(),today=ymd(new Date(),tz),weekEnd=addDays(today,6),monthEnd=addDays(today,29);
@@ -182,7 +181,7 @@ function render(){
  rows.forEach(function(r){
   r.day=rowDay(r,tz);
   if(r.day<today){return;}
-  if(st.q&&r.q.indexOf(norm(st.q))<0)return;
+  if(st.q&&norm(r.q).indexOf(norm(st.q))<0)return;
   if(from&&r.day<from)return; if(to&&r.day>to)return;
   if(anyOn(st.conts)&&!st.conts[r.cont])return;
   if(anyOn(st.ctrs)&&!st.ctrs[r.iso])return;

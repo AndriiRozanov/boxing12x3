@@ -30,7 +30,7 @@ H = {
    title='Boxing 12×3: календар боксу, час початку й результати',
    desc='Календар боксерських боїв і турнірів: дата, час початку у вашому часовому поясі, де дивитись і результати. Кард кожного вечора й суддівська картка.',
    h1='Карди, час і результати боксерських турнірів',
-   nav=[('Події', '#events'), ('Календар', '/ua/calendar'), ('Результати', '/ua/cards'), ('Промоутери', '/ua/promoters'), ('Інструменти', '#tools')],
+   nav=[('Події', '#events'), ('Календар', '/ua/calendar'), ('Результати', '/ua/results'), ('Промоутери', '/ua/promoters'), ('Інструменти', '#tools')],
    sec_events='Найближча подія', sec_next='Найближчі', sec_results='Нещодавні результати', sec_promo='Промоутери', sec_tools='Інструменти',
    all_cal='Увесь календар →', all_res='Усі результати →', all_promo='Всі промоутери →',
    tz_auto='визначено автоматично', tz_chosen='обрано вами', yourtime='Ваш час', tz_default='Київ', tz_fixed='Час показано за Києвом',
@@ -52,7 +52,7 @@ H = {
    title='Boxing 12×3: boxing calendar, start times and results',
    desc='Boxing fight and event calendar: date, start time in your own time zone, where to watch and results. The card for every night, plus a round-by-round scorecard.',
    h1='Fight cards, times and results of boxing events',
-   nav=[('Events', '#events'), ('Calendar', '/en/calendar'), ('Results', '/en/cards'), ('Promoters', '/en/promoters'), ('Tools', '#tools')],
+   nav=[('Events', '#events'), ('Calendar', '/en/calendar'), ('Results', '/en/results'), ('Promoters', '/en/promoters'), ('Tools', '#tools')],
    sec_events='Next event', sec_next='Coming up', sec_results='Recent results', sec_promo='Promoters', sec_tools='Tools',
    all_cal='Full calendar →', all_res='All results →', all_promo='All promoters →',
    tz_auto='detected automatically', tz_chosen='chosen by you', yourtime='Your local time', tz_default='Kyiv', tz_fixed='Times shown in UTC',
@@ -367,7 +367,7 @@ def build(lk):
 <div class="sec" id="nextsec"><div class="sh"><span class="sl">{h['sec_next']}</span><a class="sa" href="/{h['path']}/calendar">{h['all_cal']}</a></div>
 <div class="chips" style="margin-bottom:10px">{chips}</div>
 <div class="list" id="next">{nxt}</div></div>
-<div class="sec" id="results"><div class="sh"><span class="sl">{h['sec_results']}</span><a class="sa" href="/{h['path']}/cards">{h['all_res']}</a></div>
+<div class="sec" id="results"><div class="sh"><span class="sl">{h['sec_results']}</span><a class="sa" href="/{h['path']}/results">{h['all_res']}</a></div>
 <div class="list">{res}</div></div>
 </div><div class="side">
 <div class="sec" id="promoters"><div class="sh"><span class="sl">{h['sec_promo']}</span><a class="sa" href="/{h['path']}/promoters">{h['all_promo']}</a></div>

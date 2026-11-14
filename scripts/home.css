@@ -85,7 +85,6 @@ a.lb{display:inline-block;background:transparent;cursor:pointer}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
 .chip{font-size:12px;font-weight:600;padding:6px 11px;border-radius:20px;border:0.5px solid var(--border);background:#fff;color:#555;display:inline-block}
 .chip small{opacity:.6;margin-left:4px;font-weight:600}
-.chip.near{border-color:var(--red-b);color:var(--red);background:var(--red-l)}
 .fr.nolink::before{background:#d8d5cd}
 .fa{flex-shrink:0;padding:0 14px;display:flex;align-items:center;color:var(--muted);font-size:15px}
 .seo{font-size:12px;line-height:1.6;color:#777;margin-top:6px}
