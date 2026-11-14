@@ -285,6 +285,14 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
 
+/* ── Site navigation (same pills as the home page) ── */
+.site-nav{display:flex;gap:6px;overflow-x:auto;max-width:520px;margin:0 auto 14px;padding:2px 0 4px;scrollbar-width:none}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{white-space:nowrap;font-size:12.5px;font-weight:600;padding:8px 14px;border-radius:20px;border:0.5px solid var(--border);background:var(--card);color:#555;text-decoration:none}
+.site-nav a.on{background:#111;color:#fff;border-color:#111}
+.home-link{max-width:520px;margin:0 auto 28px;text-align:right}
+.home-link a{font-size:11px;font-weight:600;color:var(--red);text-decoration:none}
+
 /* ── Sections below scorecard ── */
 .sections-wrap{max-width:520px;margin:0 auto;padding:2rem 0 2rem;}
 #toursBlock,#promoBlock,#analyticsBlock,#guideBlock,#howBlock{max-width:520px;margin-left:auto;margin-right:auto;}
@@ -404,6 +412,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
   <div class="brand-name">Boxing 12×3</div>
   <h1 class="brand-sub" id="lbl-sub">Боксерська суддівська картка</h1>
 </div>
+<nav class="site-nav" id="siteNav" aria-label="Site"><a id="nv-events" href="/">Події</a><a id="nv-cal" href="/ua/calendar">Календар</a><a id="nv-res" href="/ua/cards">Результати</a><a id="nv-promo" href="/ua/promoters">Промоутери</a><a id="nv-tools" href="/#tools">Інструменти</a><a class="on" id="nv-card" href="/ua/scorecard">Суддівська картка</a></nav>
 
 <div class="fw">
   <select class="fs" id="fightSel" onchange="onFightChange()"></select>
@@ -490,74 +499,6 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
   </div>
 </div>
 
-<!-- UA links section (shown only in Ukrainian) -->
-<div class="ua-links" id="uaLinks" style="display:none;">
-  <div class="ua-links-title" id="lbl-more">Більше боксу від 12×3</div>
-  <a href="https://t.me/boxing12x3" class="ua-link" target="_blank" onclick="trackOut('telegram')">
-    <div class="ua-link-ico" style="background:#229ED9;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-    </div>
-    <div class="ua-link-txt">
-      <div class="ua-link-name" id="lbl-tg-t">Telegram-канал автора</div>
-      <div class="ua-link-sub" id="lbl-tg-s">Спілкуємось про бокс серйозно та не дуже</div>
-    </div>
-    <span class="ua-link-arr">›</span>
-  </a>
-  <div class="ua-link" onclick="togglePodcast()" style="cursor:pointer;">
-    <div class="ua-link-ico" style="background:#111;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm5 9a1 1 0 0 0-2 0 3 3 0 0 1-6 0 1 1 0 0 0-2 0 5 5 0 0 0 4 4.9V19H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2h-3v-3.1a5 5 0 0 0 4-4.9z"/></svg>
-    </div>
-    <div class="ua-link-txt">
-      <div class="ua-link-name" id="lbl-pod-t">Подкаст «12×3»</div>
-      <div class="ua-link-sub" id="lbl-pod-s">Apple · Spotify · YouTube</div>
-    </div>
-    <span class="ua-link-arr" id="podArrow">›</span>
-  </div>
-  <div class="podcast-sub" id="podcastSub" style="display:none;">
-    <a href="https://podcasts.apple.com/ua/podcast/12%D1%853/id1828939896" target="_blank" class="pod-platform" onclick="trackOut('podcast_apple')">Apple Podcasts</a>
-    <a href="https://open.spotify.com/show/0v4PfK4rGs82cvaL2rJ6ID" target="_blank" class="pod-platform" onclick="trackOut('podcast_spotify')">Spotify</a>
-    <a href="https://www.youtube.com/playlist?list=PLjq-Sbkf-rUKAFluWXsE-We35N-rjdQ4w" target="_blank" class="pod-platform" onclick="trackOut('podcast_youtube')">YouTube</a>
-  </div>
-  <a href="https://ua.tribuna.com/uk/blogs/brave_hearts/" class="ua-link" target="_blank" onclick="trackOut('blog')">
-    <div class="ua-link-ico" style="background:#c0392b;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-2 6H7V7h10v2zm0 4H7v-2h10v2zm-3 4H7v-2h7v2z"/></svg>
-    </div>
-    <div class="ua-link-txt">
-      <div class="ua-link-name" id="lbl-blog-t">Матеріали про бокс</div>
-      <div class="ua-link-sub" id="lbl-blog-s">Блог 12×3: від боксерських історій до детального аналізу</div>
-    </div>
-    <span class="ua-link-arr">›</span>
-  </a>
-</div>
-
-<!-- Tournaments – both languages -->
-<div class="sec" id="toursBlock" style="margin-top:16px;display:none;">
-  <div class="sec-header">
-    <span class="sec-lbl" id="lbl-tours">Турніри</span>
-    <a class="sec-all" id="toursMore" href="/ua/cards">Всі турніри →</a>
-  </div>
-  <div id="toursList"></div>
-</div>
-
-<!-- Promoters -->
-<div class="sec" id="promoBlock" style="margin-top:16px;">
-  <div class="sec-header">
-    <span class="sec-lbl" id="lbl-promo">Промоутери</span>
-    <a class="sec-all" id="promoMore" href="/ua/promoters">Всі промоутери →</a>
-  </div>
-  <p class="promo-d" id="promoDesc">Результати, кард і статистика боїв промоутерських компаній: усі турніри, переможці та методи перемог в одному місці.</p>
-  <a class="promo-row" id="promoZuffa" href="/ua/promoters/zuffa-boxing">
-    <img class="promo-logo" src="/images/cards/zuffa-boxing.png" alt="Zuffa Boxing">
-    <div class="promo-b"><div class="promo-n">Zuffa Boxing</div><div class="promo-s" id="promoZuffaS">12 турнірів · 97 боїв</div></div>
-    <span class="promo-arr">›</span>
-  </a>
-  <a class="promo-row" id="promoUsyk" href="/ua/promoters/usyk-17-promotions">
-    <img class="promo-logo" src="/images/cards/usyk-17-promotions.png" alt="Usyk 17 Promotions">
-    <div class="promo-b"><div class="promo-n">Usyk 17 Promotions</div><div class="promo-s" id="promoUsykS">4 турніри · 42 бої</div></div>
-    <span class="promo-arr">›</span>
-  </a>
-</div>
-
 <!-- Fight archive – both languages -->
 <div class="sec" id="analyticsBlock" style="margin-top:16px;">
   <div class="sec-header">
@@ -567,16 +508,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
   <div class="fights-list" id="analyticsList"></div>
 </div>
 
-<!-- Guide block – shown only when articles exist -->
-<div class="analytics-block" id="guideBlock" style="display:none;">
-  <div class="analytics-title" id="lbl-guide">Довідник боксу</div>
-  <div id="guideList"></div>
-  <a class="analytics-more" id="guideMore" href="/ua/guide">Весь довідник →</a>
-</div>
-
-
-<!-- ── Sections below scorecard ── -->
-<div class="sections-wrap" id="sectionsWrap"></div>
+<div class="home-link" id="homeLinkWrap"><a id="homeLink" href="/">Усі події та календар →</a></div>
 
 <div class="how-block" id="howBlock">
 <h2 id="how-title">Як працює суддівська картка Boxing 12×3</h2>
@@ -925,7 +857,7 @@ const isWidget = new URLSearchParams(window.location.search).has('widget');
 // Прибираємо ?lang= з адреси, коли сторінку відкрито за посиланням /?lang=uk (мова вже застосована).
 if (new URLSearchParams(window.location.search).has('lang')) syncUrlToLang(lang);
 if (isWidget) {
-  ['uaLinks','toursBlock','promoBlock','analyticsBlock','guideBlock','sectionsWrap','howBlock'].forEach(function(id) {
+  ['siteNav','homeLinkWrap','analyticsBlock','howBlock'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.classList.add('widget-hidden');
   });
@@ -1319,6 +1251,15 @@ function renderAll() {
   document.getElementById('lbl-h3').textContent = isUk ? 'Нічия в раунді (10:10)' : 'Draw round (10:10)';
   document.getElementById('lbl-h4k').textContent = isUk ? 'Інша сторона' : 'Other side';
   document.getElementById('lbl-h4').textContent = isUk ? 'Змінює переможця раунду' : 'Switch round winner';
+
+// Навігація сайту та посилання на головну
+(function(){
+  var p = isUk ? 'ua' : 'en', h = isUk ? '/' : '/en';
+  var L = isUk ? ['Події','Календар','Результати','Промоутери','Інструменти','Суддівська картка','Усі події та календар →']
+               : ['Events','Calendar','Results','Promoters','Tools','Scorecard','All events and calendar →'];
+  var M = {'nv-events':[L[0],h],'nv-cal':[L[1],'/'+p+'/calendar'],'nv-res':[L[2],'/'+p+'/cards'],'nv-promo':[L[3],'/'+p+'/promoters'],'nv-tools':[L[4],h+'#tools'],'nv-card':[L[5],'/'+p+'/scorecard'],'homeLink':[L[6],h]};
+  Object.keys(M).forEach(function(id){ var e = document.getElementById(id); if (e) { e.textContent = M[id][0]; e.href = M[id][1]; } });
+})();
 
 // Блок "Як працює", посилання підказки та підвал
 document.getElementById('how-title').textContent = t('howTitle');

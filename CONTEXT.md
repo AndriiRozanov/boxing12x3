@@ -467,3 +467,7 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - The scorecard moved to `/ua/scorecard` and `/en/scorecard` (copies of the old index files, only canonical/hreflang/og:url and the language-switch path changed). Old links keep working through `middleware.js`: `/?fight=ID`, `/en?fight=ID`, `/?widget=1&lang=..` redirect 308 to the scorecard with the query. Internal links and `widget.html` already use the new addresses.
 - Calendar accepts `?c=Europe` (continent chip) and `?near=1` (starts "near me") so the home chips can deep-link.
 - Not built yet: ICS feed (the banner from the mockup is left out), comparison with judges (scorecard text on the home does not promise it).
+
+## Scorecard page layout (Nov 14 2026, step 3, branch scorecard-step3)
+
+- `/ua/scorecard` and `/en/scorecard` keep only: the card, "How to score?", the fight archive block, the "How the card works" SEO text and the footer. The Telegram/podcast/blog block, tournaments, promoters, guide and tools sections were removed (owner decision: the author's links do not go under the scorecard; if placed at all, only as minimal buttons on the home page and on the contact page). Added: site navigation pills (same as the home page, hidden in widget mode) and an "All events and calendar" link to the home page.
