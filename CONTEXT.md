@@ -451,3 +451,11 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - Capacity row (Місткість/Capacity) shown on fight and card venue blocks for these events (500, 200, 500, 2000).
 - Promoters hub rule: whenever a promoter or its events change, refresh every row of `ua|en/promoters.html` (next event name/date, poster, "N upcoming events" tag); Zuffa's row now shows Zuffa Boxing 13.
 - Known leftover: older EN pages (about 24) still show Cyrillic "КО"/"см" in stats; not fixed yet.
+
+## Calendar and events data (Nov 14 2026, step 1 of the events-first redesign)
+- `scripts/build_events.py` builds `data/events.json` (lean database: fights with UTC start, venue city/country/continent/timezone/coordinates, broadcasters, results; tournaments; promoters) by parsing `index.html` (FIGHTS, TOURNAMENTS), `votes-close.json` and the ua|en fight and card pages. Never edit `events.json` by hand. Start time priority: page JSON-LD datetime > `votes-close.json` with a time > date only. Broadcast-block-only times are NOT treated as a start time (fight shows "Час уточнюється" / "Time TBA").
+- `scripts/bake_calendar.py` writes `ua/calendar.html` and `en/calendar.html` from that file. Upcoming fights are baked into the HTML (Google, no-JS); the page script only filters, groups by day and converts times to the reader's time zone (Intl, label "Ваш час" / "Your local time", selectable zone saved in localStorage `b12x3_cal_tz`). No-JS fallback: UA Kyiv time, EN UTC.
+- After adding or changing any fight page: `python3 scripts/build_events.py && python3 scripts/bake_calendar.py`, then commit `data/events.json` and both calendar pages. A new venue needs its city in `VM`, `TZ` and `COORDS` in `build_events.py` (the script prints issues).
+- Filters: search (names in both languages, tournament, city, country), date chips + range, day strip, continent and country chips (only values that exist), "Near me" (browser geolocation only after the click, radius 500 to 5000 km), time zone select. GA4 event `calendar_filter`.
+- Flags `images/flags/sa.png` and `ae.png` added (flag-icons, MIT). Russia is white-blue-white, Belarus white-red-white (existing files).
+- Sitemap: `/ua/calendar` and `/en/calendar`, daily, 0.9. Not yet linked from the homepage (step 2).

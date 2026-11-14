@@ -1,0 +1,4021 @@
+{
+ "generated": "2026-11-14",
+ "fights": [
+  {
+   "id": "corrales-freitas",
+   "urls": {
+    "ua": "/ua/corrales-freitas",
+    "en": "/en/corrales-freitas"
+   },
+   "date": "2004-08-07",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [
+    "Титул WBO у легкій вазі"
+   ],
+   "venue": {
+    "name": "Foxwoods Resort",
+    "cityUa": "Машантакет, Коннектикут",
+    "cityEn": "Mashantucket",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/New_York",
+    "lat": 41.47,
+    "lon": -71.96
+   },
+   "broadcast": {
+    "ua": [],
+    "en": []
+   },
+   "result": {
+    "winner": "Дієго Корралес",
+    "method": "TKO 10"
+   }
+  },
+  {
+   "id": "lapin-krapshyla",
+   "urls": {
+    "ua": "/ua/lapin-krapshyla",
+    "en": "/en/lapin-krapshyla"
+   },
+   "date": "2020-08-01",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Equides Club",
+    "cityUa": "Лісники",
+    "cityEn": "Lisnyky",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.2,
+    "lon": 30.4
+   },
+   "broadcast": {
+    "ua": [
+     "XSport"
+    ],
+    "en": [
+     "XSport"
+    ]
+   },
+   "result": {
+    "winner": "Даніель Лапін",
+    "method": "UD 4"
+   }
+  },
+  {
+   "id": "sirenko-krolenko",
+   "urls": {
+    "ua": "/ua/sirenko-krolenko",
+    "en": "/en/sirenko-krolenko"
+   },
+   "date": "2020-08-01",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Equides Club",
+    "cityUa": "Лісники",
+    "cityEn": "Lisnyky",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.2,
+    "lon": 30.4
+   },
+   "broadcast": {
+    "ua": [
+     "XSport"
+    ],
+    "en": [
+     "XSport"
+    ]
+   },
+   "result": {
+    "winner": "Владислав Сіренко",
+    "method": "RTD 4"
+   }
+  },
+  {
+   "id": "gadzhyiev-murashkin",
+   "urls": {
+    "ua": "/ua/gadzhyiev-murashkin",
+    "en": "/en/gadzhyiev-murashkin"
+   },
+   "date": "2021-04-10",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "WePlay Esports Arena",
+    "cityUa": "Київ",
+    "cityEn": "Kyiv",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.45,
+    "lon": 30.52
+   },
+   "broadcast": {
+    "ua": [
+     "XSport"
+    ],
+    "en": [
+     "XSport"
+    ]
+   },
+   "result": {
+    "winner": "Раміль Гаджиєв",
+    "method": "UD 8"
+   }
+  },
+  {
+   "id": "lapin-koros",
+   "urls": {
+    "ua": "/ua/lapin-koros",
+    "en": "/en/lapin-koros"
+   },
+   "date": "2021-04-10",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "WePlay Esports Arena",
+    "cityUa": "Київ",
+    "cityEn": "Kyiv",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.45,
+    "lon": 30.52
+   },
+   "broadcast": {
+    "ua": [
+     "XSport"
+    ],
+    "en": [
+     "XSport"
+    ]
+   },
+   "result": {
+    "winner": "Даніель Лапін",
+    "method": "UD 6"
+   }
+  },
+  {
+   "id": "walsh-ocampo",
+   "urls": {
+    "ua": "/ua/walsh-ocampo",
+    "en": "/en/walsh-ocampo"
+   },
+   "date": "2026-01-23",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Калум Волш",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "bohachuk-butaev",
+   "urls": {
+    "ua": "/ua/bohachuk-butaev",
+    "en": "/en/bohachuk-butaev"
+   },
+   "date": "2026-02-01",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Сергій Богачук",
+    "method": "SD 10"
+   }
+  },
+  {
+   "id": "kalajdzic-gvozdyk",
+   "urls": {
+    "ua": "/ua/kalajdzic-gvozdyk",
+    "en": "/en/kalajdzic-gvozdyk"
+   },
+   "date": "2026-02-01",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Радівоє Калайджич",
+    "method": "KO 7"
+   }
+  },
+  {
+   "id": "valenzuela-torres",
+   "urls": {
+    "ua": "/ua/valenzuela-torres",
+    "en": "/en/valenzuela-torres"
+   },
+   "date": "2026-02-01",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Хосе Валенсуела",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "ajagba-martin",
+   "urls": {
+    "ua": "/ua/ajagba-martin",
+    "en": "/en/ajagba-martin"
+   },
+   "date": "2026-02-15",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Ефе Аджагба",
+    "method": "TKO 4"
+   }
+  },
+  {
+   "id": "dzambekov-elbiali",
+   "urls": {
+    "ua": "/ua/dzambekov-elbiali",
+    "en": "/en/dzambekov-elbiali"
+   },
+   "date": "2026-02-15",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Умар Дзамбеков",
+    "method": "KO 2"
+   }
+  },
+  {
+   "id": "opetaia-glanton",
+   "urls": {
+    "ua": "/ua/opetaia-glanton",
+    "en": "/en/opetaia-glanton"
+   },
+   "date": "2026-03-08",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [
+    "Титул The Ring",
+    "Титул Zuffa Boxing"
+   ],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Джай Опетая",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "khyzhnyak-baron",
+   "urls": {
+    "ua": "/ua/khyzhnyak-baron",
+    "en": "/en/khyzhnyak-baron"
+   },
+   "date": "2026-03-21",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Equides Club",
+    "cityUa": "Лісники",
+    "cityEn": "Lisnyky",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.2,
+    "lon": 30.4
+   },
+   "broadcast": {
+    "ua": [
+     "Київстар ТБ"
+    ],
+    "en": [
+     "DAZN",
+     "Kyivstar TV"
+    ]
+   },
+   "result": {
+    "winner": "Олександр Хижняк",
+    "method": "KO 1"
+   }
+  },
+  {
+   "id": "lapin-bulmeistars",
+   "urls": {
+    "ua": "/ua/lapin-bulmeistars",
+    "en": "/en/lapin-bulmeistars"
+   },
+   "date": "2026-03-21",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [
+    "WBA Continental",
+    "IBF Intercontinental",
+    "WBO International"
+   ],
+   "venue": {
+    "name": "Equides Club",
+    "cityUa": "Лісники",
+    "cityEn": "Lisnyky",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.2,
+    "lon": 30.4
+   },
+   "broadcast": {
+    "ua": [
+     "Київстар ТБ"
+    ],
+    "en": [
+     "DAZN",
+     "Kyivstar TV"
+    ]
+   },
+   "result": {
+    "winner": "Даніель Лапін",
+    "method": "KO 1"
+   }
+  },
+  {
+   "id": "cortes-garcia",
+   "urls": {
+    "ua": "/ua/cortes-garcia",
+    "en": "/en/cortes-garcia"
+   },
+   "date": "2026-04-05",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Андрес Кортес",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "katzourakis-rodriguez",
+   "urls": {
+    "ua": "/ua/katzourakis-rodriguez",
+    "en": "/en/katzourakis-rodriguez"
+   },
+   "date": "2026-05-10",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Андреас Кацуракіс",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "mosley-jr-bohachuk",
+   "urls": {
+    "ua": "/ua/mosley-jr-bohachuk",
+    "en": "/en/mosley-jr-bohachuk"
+   },
+   "date": "2026-05-10",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Meta Apex",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Шейн Мозлі мол.",
+    "method": "TKO 6"
+   }
+  },
+  {
+   "id": "clarke-massey",
+   "urls": {
+    "ua": "/ua/clarke-massey",
+    "en": "/en/clarke-massey"
+   },
+   "date": "2026-06-06",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Bournemouth International Centre",
+    "cityUa": "Борнмут",
+    "cityEn": "Bournemouth",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 50.72,
+    "lon": -1.88
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Sky Sports",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Чівон Кларк",
+    "method": "TKO 7"
+   }
+  },
+  {
+   "id": "de-los-santos-valenzuela",
+   "urls": {
+    "ua": "/ua/de-los-santos-valenzuela",
+    "en": "/en/de-los-santos-valenzuela"
+   },
+   "date": "2026-06-28",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "The Chelsea at The Cosmopolitan",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Хосе Валенсуела",
+    "method": "KO 2"
+   }
+  },
+  {
+   "id": "sandoval-lee",
+   "urls": {
+    "ua": "/ua/sandoval-lee",
+    "en": "/en/sandoval-lee"
+   },
+   "date": "2026-06-28",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "The Chelsea at The Cosmopolitan",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Кейн Сандовал",
+    "method": "MD 10"
+   }
+  },
+  {
+   "id": "trinidad-ancajas",
+   "urls": {
+    "ua": "/ua/trinidad-ancajas",
+    "en": "/en/trinidad-ancajas"
+   },
+   "date": "2026-06-28",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "The Chelsea at The Cosmopolitan",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Омар Трінідад",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "berlanga-butler",
+   "urls": {
+    "ua": "/ua/berlanga-butler",
+    "en": "/en/berlanga-butler"
+   },
+   "date": "2026-07-26",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Infosys Theater at Madison Square Garden",
+    "cityUa": "Нью-Йорк",
+    "cityEn": "New York",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/New_York",
+    "lat": 40.71,
+    "lon": -74.01
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Едгар Берланга",
+    "method": "TKO 7"
+   }
+  },
+  {
+   "id": "hitchins-salas",
+   "urls": {
+    "ua": "/ua/hitchins-salas",
+    "en": "/en/hitchins-salas"
+   },
+   "date": "2026-07-26",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Infosys Theater at Madison Square Garden",
+    "cityUa": "Нью-Йорк",
+    "cityEn": "New York",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/New_York",
+    "lat": 40.71,
+    "lon": -74.01
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Річардсон Хітчінс",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "sirenko-wallin",
+   "urls": {
+    "ua": "/ua/sirenko-wallin",
+    "en": "/en/sirenko-wallin"
+   },
+   "date": "2026-07-26",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Infosys Theater at Madison Square Garden",
+    "cityUa": "Нью-Йорк",
+    "cityEn": "New York",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/New_York",
+    "lat": 40.71,
+    "lon": -74.01
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Владислав Сіренко",
+    "method": "KO 10"
+   }
+  },
+  {
+   "id": "mckenna-oliha",
+   "urls": {
+    "ua": "/ua/mckenna-oliha",
+    "en": "/en/mckenna-oliha"
+   },
+   "date": "2026-08-08",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [
+    "Вакантний титул IBF"
+   ],
+   "venue": {
+    "name": "3Arena",
+    "cityUa": "Дублін",
+    "cityEn": "Dublin",
+    "countryIso": "IE",
+    "continent": "Europe",
+    "tz": "Europe/Dublin",
+    "lat": 53.35,
+    "lon": -6.26
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Sky Sports",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Аарон Маккенна",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "walsh-denny",
+   "urls": {
+    "ua": "/ua/walsh-denny",
+    "en": "/en/walsh-denny"
+   },
+   "date": "2026-08-08",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "3Arena",
+    "cityUa": "Дублін",
+    "cityEn": "Dublin",
+    "countryIso": "IE",
+    "continent": "Europe",
+    "tz": "Europe/Dublin",
+    "lat": 53.35,
+    "lon": -6.26
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Sky Sports",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Калум Волш",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "illiusha-jordelli",
+   "urls": {
+    "ua": "/ua/illiusha-jordelli",
+    "en": "/en/illiusha-jordelli"
+   },
+   "date": "2026-08-22",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "!FESTrepublic",
+    "cityUa": "Львів",
+    "cityEn": "Lviv",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 49.84,
+    "lon": 24.03
+   },
+   "broadcast": {
+    "ua": [
+     "Київстар ТБ"
+    ],
+    "en": [
+     "DAZN",
+     "Kyivstar TV"
+    ]
+   },
+   "result": {
+    "winner": "Павло Іллюша",
+    "method": "KO 3"
+   }
+  },
+  {
+   "id": "khyzhnyak-palacio",
+   "urls": {
+    "ua": "/ua/khyzhnyak-palacio",
+    "en": "/en/khyzhnyak-palacio"
+   },
+   "date": "2026-08-22",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [
+    "Вакантний титул WBA Gold International"
+   ],
+   "venue": {
+    "name": "!FESTrepublic",
+    "cityUa": "Львів",
+    "cityEn": "Lviv",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 49.84,
+    "lon": 24.03
+   },
+   "broadcast": {
+    "ua": [
+     "Київстар ТБ"
+    ],
+    "en": [
+     "DAZN",
+     "Kyivstar TV"
+    ]
+   },
+   "result": {
+    "winner": "Олександр Хижняк",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "garcia-benn",
+   "urls": {
+    "ua": "/ua/garcia-benn",
+    "en": "/en/garcia-benn"
+   },
+   "date": "2026-09-12",
+   "startUtc": "2026-09-12T00:00Z",
+   "startPrecision": "time",
+   "startSource": "page JSON-LD",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Раян Гарсія",
+    "en": "Ryan Garcia"
+   },
+   "blue": {
+    "ua": "Конор Бенн",
+    "en": "Conor Benn"
+   },
+   "division": {
+    "ua": "Напівсередня вага",
+    "en": "Welterweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "WBC",
+    "Zuffa Boxing"
+   ],
+   "venue": {
+    "name": "T-Mobile Arena",
+    "cityUa": null,
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [],
+    "en": []
+   },
+   "result": {
+    "winner": "Раян Гарсія",
+    "method": "ТКО · Раунд 2"
+   }
+  },
+  {
+   "id": "cruz-bravo",
+   "urls": {
+    "ua": "/ua/cruz-bravo",
+    "en": "/en/cruz-bravo"
+   },
+   "date": "2026-09-19",
+   "startUtc": "2026-09-20T01:00Z",
+   "startPrecision": "time",
+   "startSource": "page JSON-LD",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Ісаак Крус",
+    "en": "Isaac Cruz"
+   },
+   "blue": {
+    "ua": "Нестор Браво",
+    "en": "Nestor Bravo"
+   },
+   "division": {
+    "ua": "Перша напівсередня вага",
+    "en": "Super Lightweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс тимчасового чемпіона WBC"
+   ],
+   "venue": {
+    "name": "Pechanga Arena",
+    "cityUa": "Сан-Дієго, Каліфорнія",
+    "cityEn": "San Diego",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 32.72,
+    "lon": -117.16
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Ісаак Крус",
+    "method": "КО · Раунд 6"
+   }
+  },
+  {
+   "id": "de-la-cerda-lewis",
+   "urls": {
+    "ua": "/ua/de-la-cerda-lewis",
+    "en": "/en/de-la-cerda-lewis"
+   },
+   "date": "2026-09-26",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Copper Box Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Алексіс де ла Серда",
+    "method": "UD 8"
+   }
+  },
+  {
+   "id": "kalajdzic-richards",
+   "urls": {
+    "ua": "/ua/kalajdzic-richards",
+    "en": "/en/kalajdzic-richards"
+   },
+   "date": "2026-09-26",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Copper Box Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Радівоє Калайджич",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "romero-ignat",
+   "urls": {
+    "ua": "/ua/romero-ignat",
+    "en": "/en/romero-ignat"
+   },
+   "date": "2026-09-26",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Copper Box Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Рохеліо Ромеро",
+    "method": "TKO 3"
+   }
+  },
+  {
+   "id": "ruiz-tapia",
+   "urls": {
+    "ua": "/ua/ruiz-tapia",
+    "en": "/en/ruiz-tapia"
+   },
+   "date": "2026-09-26",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": null,
+    "en": null
+   },
+   "blue": {
+    "ua": null,
+    "en": null
+   },
+   "division": {
+    "ua": null,
+    "en": null
+   },
+   "rounds": null,
+   "belts": [],
+   "venue": {
+    "name": "Copper Box Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Paramount+",
+     "Setanta Sports"
+    ]
+   },
+   "result": {
+    "winner": "Лео Руїс",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "fisher-protton",
+   "urls": {
+    "ua": "/ua/fisher-protton",
+    "en": "/en/fisher-protton"
+   },
+   "date": "2026-09-26",
+   "startUtc": "2026-09-26T18:00Z",
+   "startPrecision": "time",
+   "startSource": "page JSON-LD",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Джонні Фішер",
+    "en": "Johnny Fisher"
+   },
+   "blue": {
+    "ua": "Майкл Піроттон",
+    "en": "Michael Pirotton"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Copper Box Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta"
+    ],
+    "en": [
+     "Paramount+"
+    ]
+   },
+   "result": {
+    "winner": "Джонні Фішер",
+    "method": "MD 10"
+   }
+  },
+  {
+   "id": "inoue-nasukawa",
+   "urls": {
+    "ua": "/ua/inoue-nasukawa",
+    "en": "/en/inoue-nasukawa"
+   },
+   "date": "2026-09-27",
+   "startUtc": "2026-09-27T08:00Z",
+   "startPrecision": "time",
+   "startSource": "page JSON-LD",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Такума Іноуе",
+    "en": "Takuma Inoue"
+   },
+   "blue": {
+    "ua": "Теншін Насукава",
+    "en": "Tenshin Nasukawa"
+   },
+   "division": {
+    "ua": "Легша вага",
+    "en": "Bantamweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс чемпіона світу WBC"
+   ],
+   "venue": {
+    "name": "Toyota Arena Tokyo",
+    "cityUa": "Токіо",
+    "cityEn": "Tokyo",
+    "countryIso": "JP",
+    "continent": "Asia",
+    "tz": "Asia/Tokyo",
+    "lat": 35.68,
+    "lon": 139.69
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Такума Іноуе",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "nishida-goodman",
+   "urls": {
+    "ua": "/ua/nishida-goodman",
+    "en": "/en/nishida-goodman"
+   },
+   "date": "2026-09-27",
+   "startUtc": "2026-09-27T08:00Z",
+   "startPrecision": "time",
+   "startSource": "page JSON-LD",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Рьосуке Нішіда",
+    "en": "Ryosuke Nishida"
+   },
+   "blue": {
+    "ua": "Сем Гудман",
+    "en": "Sam Goodman"
+   },
+   "division": {
+    "ua": "Друга легша вага",
+    "en": "Super Bantamweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс тимчасового чемпіона світу IBF"
+   ],
+   "venue": {
+    "name": "Toyota Arena Tokyo",
+    "cityUa": "Токіо",
+    "cityEn": "Tokyo",
+    "countryIso": "JP",
+    "continent": "Asia",
+    "tz": "Asia/Tokyo",
+    "lat": 35.68,
+    "lon": 139.69
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Сем Гудман",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "tsiupka-beyda",
+   "urls": {
+    "ua": "/ua/tsiupka-beyda",
+    "en": "/en/tsiupka-beyda"
+   },
+   "date": "2026-10-03",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Дмитро Цюпка",
+    "en": "Dmytro Tsiupka"
+   },
+   "blue": {
+    "ua": "Богдан Бейда",
+    "en": "Bogdan Beyda"
+   },
+   "division": {
+    "ua": "Легка вага",
+    "en": "Lightweight"
+   },
+   "rounds": 10,
+   "belts": [
+    "Чемпіон України"
+   ],
+   "venue": {
+    "name": "Вінниця",
+    "cityUa": "Вінниця",
+    "cityEn": "Vinnytsia",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 49.23,
+    "lon": 28.47
+   },
+   "broadcast": {
+    "ua": [],
+    "en": []
+   },
+   "result": {
+    "winner": "Богдан Бейда",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "whittaker-wallace",
+   "urls": {
+    "ua": "/ua/whittaker-wallace",
+    "en": "/en/whittaker-wallace"
+   },
+   "date": "2026-10-03",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Бен Віттакер",
+    "en": "Ben Whittaker"
+   },
+   "blue": {
+    "ua": "Конор Воллес",
+    "en": "Conor Wallace"
+   },
+   "division": {
+    "ua": "Напівважка вага",
+    "en": "Light Heavyweight"
+   },
+   "rounds": 12,
+   "belts": [],
+   "venue": {
+    "name": "Utilita Arena",
+    "cityUa": "Бірмінгем",
+    "cityEn": "Birmingham",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 52.48,
+    "lon": -1.9
+   },
+   "broadcast": {
+    "ua": [],
+    "en": []
+   },
+   "result": {
+    "winner": "Бен Віттакер",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "iglesias-zaren",
+   "urls": {
+    "ua": "/ua/iglesias-zaren",
+    "en": "/en/iglesias-zaren"
+   },
+   "date": "2026-10-08",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Ослейс Іглесіас",
+    "en": "Osleys Iglesias"
+   },
+   "blue": {
+    "ua": "Олівер Зарен",
+    "en": "Oliver Zaren"
+   },
+   "division": {
+    "ua": "Друга середня вага",
+    "en": "Super Middleweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "IBF",
+    "IBO"
+   ],
+   "venue": {
+    "name": "Capitole de Quebec",
+    "cityUa": "Квебек",
+    "cityEn": "Quebec City",
+    "countryIso": "CA",
+    "continent": "North America",
+    "tz": "America/Toronto",
+    "lat": 46.81,
+    "lon": -71.21
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Ослейс Іглесіас",
+    "method": "TKO 7"
+   }
+  },
+  {
+   "id": "dubois-wardley-2",
+   "urls": {
+    "ua": "/ua/dubois-wardley-2",
+    "en": "/en/dubois-wardley-2"
+   },
+   "date": "2026-10-17",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Даніель Дюбуа",
+    "en": "Daniel Dubois"
+   },
+   "blue": {
+    "ua": "Фабіо Вордлі",
+    "en": "Fabio Wardley"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Чемпіон WBO",
+    "Реванш"
+   ],
+   "venue": {
+    "name": "O2 Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN",
+     "Даніель Дюбуа",
+     "Фабіо Вордлі"
+    ],
+    "en": [
+     "DAZN",
+     "Daniel Dubois",
+     "Fabio Wardley"
+    ]
+   },
+   "result": {
+    "winner": "Даніель Дюбуа",
+    "method": "TKO 2"
+   }
+  },
+  {
+   "id": "figueroa-kameda",
+   "urls": {
+    "ua": "/ua/figueroa-kameda",
+    "en": "/en/figueroa-kameda"
+   },
+   "date": "2026-10-17",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "cancelled",
+   "tournamentId": "fundora-hadribeaj",
+   "red": {
+    "ua": "Брендон Фігероа",
+    "en": "Brandon Figueroa"
+   },
+   "blue": {
+    "ua": "Томокі Камеда",
+    "en": "Tomoki Kameda"
+   },
+   "division": {
+    "ua": "Напівлегка вага",
+    "en": "Featherweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс чемпіона WBA"
+   ],
+   "venue": {
+    "name": "The Cosmopolitan of Las Vegas",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Бій скасовано",
+    "method": null
+   }
+  },
+  {
+   "id": "fundora-hadribeaj",
+   "urls": {
+    "ua": "/ua/fundora-hadribeaj",
+    "en": "/en/fundora-hadribeaj"
+   },
+   "date": "2026-10-17",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Себастьян Фундора",
+    "en": "Sebastian Fundora"
+   },
+   "blue": {
+    "ua": "Ермал Хадрібеадж",
+    "en": "Ermal Hadribeaj"
+   },
+   "division": {
+    "ua": "Перша середня вага",
+    "en": "Super Welterweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Чемпіон WBC"
+   ],
+   "venue": {
+    "name": "The Cosmopolitan of Las Vegas",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Себастьян Фундора",
+    "method": "TKO 12"
+   }
+  },
+  {
+   "id": "jalolov-dacres",
+   "urls": {
+    "ua": "/ua/jalolov-dacres",
+    "en": "/en/jalolov-dacres"
+   },
+   "date": "2026-10-17",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "completed",
+   "tournamentId": "dubois-wardley-2",
+   "red": {
+    "ua": "Баходір Жалолов",
+    "en": "Bakhodir Jalolov"
+   },
+   "blue": {
+    "ua": "Соломон Дакрес",
+    "en": "Solomon Dacres"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "O2 Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Баходір Жалолов",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "resendiz-mazoudier",
+   "urls": {
+    "ua": "/ua/resendiz-mazoudier",
+    "en": "/en/resendiz-mazoudier"
+   },
+   "date": "2026-10-17",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "completed",
+   "tournamentId": "fundora-hadribeaj",
+   "red": {
+    "ua": "Армандо Ресендіс",
+    "en": "Armando Resendiz"
+   },
+   "blue": {
+    "ua": "Коен Мазудьє",
+    "en": "Koen Mazoudier"
+   },
+   "division": {
+    "ua": "Друга середня вага",
+    "en": "Super Middleweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "The Cosmopolitan of Las Vegas",
+    "cityUa": "Лас-Вегас",
+    "cityEn": "Las Vegas",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 36.17,
+    "lon": -115.14
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Армандо Ресендіс",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "navarrete-foster",
+   "urls": {
+    "ua": "/ua/navarrete-foster",
+    "en": "/en/navarrete-foster"
+   },
+   "date": "2026-10-24",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Емануель Наваррете",
+    "en": "Emanuel Navarrete"
+   },
+   "blue": {
+    "ua": "О'Шакі Фостер",
+    "en": "O'Shaquie Foster"
+   },
+   "division": {
+    "ua": "Друга напівлегка вага",
+    "en": "Super Featherweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Чемпіон WBC",
+    "Чемпіон WBO",
+    "Чемпіон IBF"
+   ],
+   "venue": {
+    "name": "Frost Bank Center",
+    "cityUa": "Сан-Антоніо",
+    "cityEn": "San Antonio",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Chicago",
+    "lat": 29.42,
+    "lon": -98.49
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "О'Шакі Фостер",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "smith-puello",
+   "urls": {
+    "ua": "/ua/smith-puello",
+    "en": "/en/smith-puello"
+   },
+   "date": "2026-10-24",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Далтон Сміт",
+    "en": "Dalton Smith"
+   },
+   "blue": {
+    "ua": "Альберто Пуельйо",
+    "en": "Alberto Puello"
+   },
+   "division": {
+    "ua": "Перша напівсередня вага",
+    "en": "Super Lightweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Чемпіон WBC"
+   ],
+   "venue": {
+    "name": "Utilita Arena Sheffield",
+    "cityUa": "Шеффілд",
+    "cityEn": "Sheffield",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 53.38,
+    "lon": -1.47
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Далтон Сміт",
+    "method": "SD 12"
+   }
+  },
+  {
+   "id": "alvarez-mbilli",
+   "urls": {
+    "ua": "/ua/alvarez-mbilli",
+    "en": "/en/alvarez-mbilli"
+   },
+   "date": "2026-10-31",
+   "startUtc": "2026-10-31T14:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "mexico-vs-the-world",
+   "red": {
+    "ua": "Сауль Альварес",
+    "en": "Saul Alvarez"
+   },
+   "blue": {
+    "ua": "Крістіан Мбіллі",
+    "en": "Christian Mbilli"
+   },
+   "division": {
+    "ua": "Друга середня вага",
+    "en": "Super Middleweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Чемпіон WBC"
+   ],
+   "venue": {
+    "name": "Kingdom Arena",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN",
+     "Сауль Альварес",
+     "Крістіан Мбіллі"
+    ],
+    "en": [
+     "DAZN",
+     "Saul Alvarez",
+     "Christian Mbilli"
+    ]
+   },
+   "result": {
+    "winner": "Сауль Альварес",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "espinosa-blandon",
+   "urls": {
+    "ua": "/ua/espinosa-blandon",
+    "en": "/en/espinosa-blandon"
+   },
+   "date": "2026-10-31",
+   "startUtc": "2026-10-31T14:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "mexico-vs-the-world",
+   "red": {
+    "ua": "Рафаель Еспіноса",
+    "en": "Rafael Espinoza"
+   },
+   "blue": {
+    "ua": "Рікардо Бландон",
+    "en": "Ricardo Blandon"
+   },
+   "division": {
+    "ua": "Напівлегка вага",
+    "en": "Featherweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Чемпіон WBO"
+   ],
+   "venue": {
+    "name": "Kingdom Arena",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Рафаель Еспіноса",
+    "method": "TKO 3"
+   }
+  },
+  {
+   "id": "munguia-zon",
+   "urls": {
+    "ua": "/ua/munguia-zon",
+    "en": "/en/munguia-zon"
+   },
+   "date": "2026-10-31",
+   "startUtc": "2026-10-31T14:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "mexico-vs-the-world",
+   "red": {
+    "ua": "Хайме Мунгія",
+    "en": "Jaime Munguia"
+   },
+   "blue": {
+    "ua": "Нікіта Зонь",
+    "en": "Nikita Zon"
+   },
+   "division": {
+    "ua": "Друга середня вага",
+    "en": "Super Middleweight"
+   },
+   "rounds": 12,
+   "belts": [],
+   "venue": {
+    "name": "Kingdom Arena",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Хайме Мунгія",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "picasso-martin",
+   "urls": {
+    "ua": "/ua/picasso-martin",
+    "en": "/en/picasso-martin"
+   },
+   "date": "2026-10-31",
+   "startUtc": "2026-10-31T14:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "mexico-vs-the-world",
+   "red": {
+    "ua": "Давід Пікассо",
+    "en": "David Picasso"
+   },
+   "blue": {
+    "ua": "Карл Джеммс Мартін",
+    "en": "Carl Jammes Martin"
+   },
+   "division": {
+    "ua": "Напівлегка вага",
+    "en": "Featherweight"
+   },
+   "rounds": 10,
+   "belts": [
+    "Срібний пояс WBC"
+   ],
+   "venue": {
+    "name": "Kingdom Arena",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Карл Джеммс Мартін",
+    "method": "SD 10"
+   }
+  },
+  {
+   "id": "rojo-biea",
+   "urls": {
+    "ua": "/ua/rojo-biea",
+    "en": "/en/rojo-biea"
+   },
+   "date": "2026-10-31",
+   "startUtc": "2026-10-31T14:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "mexico-vs-the-world",
+   "red": {
+    "ua": "Еміліано Рохо",
+    "en": "Emiliano Rojo"
+   },
+   "blue": {
+    "ua": "Флавіус Біея",
+    "en": "Flavius Biea"
+   },
+   "division": {
+    "ua": "Середня вага",
+    "en": "Middleweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Kingdom Arena",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Еміліано Рохо",
+    "method": "TKO 4"
+   }
+  },
+  {
+   "id": "tsutsumi-rojas-garcia",
+   "urls": {
+    "ua": "/ua/tsutsumi-rojas-garcia",
+    "en": "/en/tsutsumi-rojas-garcia"
+   },
+   "date": "2026-10-31",
+   "startUtc": "2026-10-31T14:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "mexico-vs-the-world",
+   "red": {
+    "ua": "Рейто Цуцумі",
+    "en": "Reito Tsutsumi"
+   },
+   "blue": {
+    "ua": "Раймундо Рохас Гарсія",
+    "en": "Raimundo Rojas Garcia"
+   },
+   "division": {
+    "ua": "Друга напівлегка вага",
+    "en": "Super Featherweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Kingdom Arena",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": {
+    "winner": "Рейто Цуцумі",
+    "method": "TKO 2"
+   }
+  },
+  {
+   "id": "lerena-forrest",
+   "urls": {
+    "ua": "/ua/lerena-forrest",
+    "en": "/en/lerena-forrest"
+   },
+   "date": "2026-11-07",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Кевін Лерена",
+    "en": "Kevin Lerena"
+   },
+   "blue": {
+    "ua": "Скотт Форрест",
+    "en": "Scott Forrest"
+   },
+   "division": {
+    "ua": "Важка вага",
+    "en": "Cruiserweight"
+   },
+   "rounds": 10,
+   "belts": [
+    "Вакантний пояс WBC International"
+   ],
+   "venue": {
+    "name": "Sandton Convention Centre",
+    "cityUa": "Йоганнесбург",
+    "cityEn": "Johannesburg",
+    "countryIso": "ZA",
+    "continent": "Africa",
+    "tz": "Africa/Johannesburg",
+    "lat": -26.2,
+    "lon": 28.04
+   },
+   "broadcast": {
+    "ua": [
+     "SuperSport"
+    ],
+    "en": [
+     "SuperSport"
+    ]
+   },
+   "result": {
+    "winner": "Кевін Лерена",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "bentley-mosley",
+   "urls": {
+    "ua": "/ua/bentley-mosley",
+    "en": "/en/bentley-mosley"
+   },
+   "date": "2026-11-07",
+   "startUtc": "2026-11-07T17:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "zuffa-boxing-12",
+   "red": {
+    "ua": "Дензел Бентлі",
+    "en": "Denzel Bentley"
+   },
+   "blue": {
+    "ua": "Шейн Мозлі мол.",
+    "en": "Shane Mosley Jr."
+   },
+   "division": {
+    "ua": "Середня вага",
+    "en": "Middleweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Copper Box Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports",
+     "Дензел Бентлі",
+     "Шейн Мозлі мол."
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports",
+     "Denzel Bentley",
+     "Shane Mosley Jr."
+    ]
+   },
+   "result": {
+    "winner": "Дензел Бентлі",
+    "method": "UD 10"
+   }
+  },
+  {
+   "id": "billam-smith-clarke",
+   "urls": {
+    "ua": "/ua/billam-smith-clarke",
+    "en": "/en/billam-smith-clarke"
+   },
+   "date": "2026-11-07",
+   "startUtc": "2026-11-07T17:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "zuffa-boxing-12",
+   "red": {
+    "ua": "Кріс Біллем-Сміт",
+    "en": "Chris Billam-Smith"
+   },
+   "blue": {
+    "ua": "Чівон Кларк",
+    "en": "Cheavon Clarke"
+   },
+   "division": {
+    "ua": "Важка вага",
+    "en": "Cruiserweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Copper Box Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports",
+     "Кріс Біллем-Сміт",
+     "Чівон Кларк"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports",
+     "Chris Billam-Smith",
+     "Cheavon Clarke"
+    ]
+   },
+   "result": {
+    "winner": "Чівон Кларк",
+    "method": "TKO 7"
+   }
+  },
+  {
+   "id": "parker-dzambekov",
+   "urls": {
+    "ua": "/ua/parker-dzambekov",
+    "en": "/en/parker-dzambekov"
+   },
+   "date": "2026-11-07",
+   "startUtc": "2026-11-07T17:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": "zuffa-boxing-12",
+   "red": {
+    "ua": "Зак Паркер",
+    "en": "Zach Parker"
+   },
+   "blue": {
+    "ua": "Умар Дзамбеков",
+    "en": "Umar Dzambekov"
+   },
+   "division": {
+    "ua": "Напівважка вага",
+    "en": "Light Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Copper Box Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports",
+     "Зак Паркер",
+     "Умар Дзамбеков"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports",
+     "Zach Parker",
+     "Umar Dzambekov"
+    ]
+   },
+   "result": {
+    "winner": "Умар Дзамбеков",
+    "method": "KO 4"
+   }
+  },
+  {
+   "id": "buatsi-hutchinson-2",
+   "urls": {
+    "ua": "/ua/buatsi-hutchinson-2",
+    "en": "/en/buatsi-hutchinson-2"
+   },
+   "date": "2026-11-07",
+   "startUtc": "2026-11-07T19:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "completed",
+   "tournamentId": null,
+   "red": {
+    "ua": "Джошуа Буатсі",
+    "en": "Joshua Buatsi"
+   },
+   "blue": {
+    "ua": "Віллі Гатчінсон",
+    "en": "Willy Hutchinson"
+   },
+   "division": {
+    "ua": "Напівважка вага",
+    "en": "Light Heavyweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Вакантний пояс WBC",
+    "Реванш"
+   ],
+   "venue": {
+    "name": "Manchester Arena",
+    "cityUa": "Манчестер",
+    "cityEn": "Manchester",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 53.48,
+    "lon": -2.24
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN",
+     "Джошуа Буатсі",
+     "Віллі Гатчінсон"
+    ],
+    "en": [
+     "DAZN",
+     "Joshua Buatsi",
+     "Willy Hutchinson"
+    ]
+   },
+   "result": {
+    "winner": "Віллі Гатчінсон",
+    "method": "UD 12"
+   }
+  },
+  {
+   "id": "adames-warburton",
+   "urls": {
+    "ua": "/ua/adames-warburton",
+    "en": "/en/adames-warburton"
+   },
+   "date": "2026-11-14",
+   "startUtc": "2026-11-14T17:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-13",
+   "red": {
+    "ua": "Карлос Адамес",
+    "en": "Carlos Adames"
+   },
+   "blue": {
+    "ua": "Джером Ворбертон",
+    "en": "Jerome Warburton"
+   },
+   "division": {
+    "ua": "Договірна вага",
+    "en": "Catchweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "moloney-teran",
+   "urls": {
+    "ua": "/ua/moloney-teran",
+    "en": "/en/moloney-teran"
+   },
+   "date": "2026-11-14",
+   "startUtc": "2026-11-14T17:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-13",
+   "red": {
+    "ua": "Джейсон Молоні",
+    "en": "Jason Moloney"
+   },
+   "blue": {
+    "ua": "Андрес Теран",
+    "en": "Andres Teran"
+   },
+   "division": {
+    "ua": "Легша вага",
+    "en": "Bantamweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "surace-bednarek",
+   "urls": {
+    "ua": "/ua/surace-bednarek",
+    "en": "/en/surace-bednarek"
+   },
+   "date": "2026-11-14",
+   "startUtc": "2026-11-14T17:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-13",
+   "red": {
+    "ua": "Бруно Сюрас",
+    "en": "Bruno Surace"
+   },
+   "blue": {
+    "ua": "Каміл Беднарек",
+    "en": "Kamil Bednarek"
+   },
+   "division": {
+    "ua": "Друга середня вага",
+    "en": "Super Middleweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "riley-coupe",
+   "urls": {
+    "ua": "/ua/riley-coupe",
+    "en": "/en/riley-coupe"
+   },
+   "date": "2026-11-14",
+   "startUtc": "2026-11-14T19:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Віддал Райлі",
+    "en": "Viddal Riley"
+   },
+   "blue": {
+    "ua": "Сейді Купе",
+    "en": "Seydi Coupe"
+   },
+   "division": {
+    "ua": "Важка вага",
+    "en": "Cruiserweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс чемпіона Європи EBU"
+   ],
+   "venue": {
+    "name": "Wembley Arena",
+    "cityUa": "Лондон",
+    "cityEn": "London",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.51,
+    "lon": -0.13
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "olascuaga-martinez",
+   "urls": {
+    "ua": "/ua/olascuaga-martinez",
+    "en": "/en/olascuaga-martinez"
+   },
+   "date": "2026-11-14",
+   "startUtc": "2026-11-15T00:30Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Ентоні Оласкуага",
+    "en": "Anthony Olascuaga"
+   },
+   "blue": {
+    "ua": "Юберхен Мартінес",
+    "en": "Yuberjen Martinez"
+   },
+   "division": {
+    "ua": "Найлегша вага",
+    "en": "Flyweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс WBO"
+   ],
+   "venue": {
+    "name": "Dignity Health Sports Park",
+    "cityUa": "Карсон, Каліфорнія",
+    "cityEn": "Carson",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 33.83,
+    "lon": -118.28
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "pacheco-fulghum",
+   "urls": {
+    "ua": "/ua/pacheco-fulghum",
+    "en": "/en/pacheco-fulghum"
+   },
+   "date": "2026-11-14",
+   "startUtc": "2026-11-15T00:30Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Дієго Пачеко",
+    "en": "Diego Pacheco"
+   },
+   "blue": {
+    "ua": "Даріус Фулгем",
+    "en": "Darius Fulghum"
+   },
+   "division": {
+    "ua": "Друга середня вага",
+    "en": "Super Middleweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс WBC Silver",
+    "Пояс WBO International"
+   ],
+   "venue": {
+    "name": "Dignity Health Sports Park",
+    "cityUa": "Карсон, Каліфорнія",
+    "cityEn": "Carson",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 33.83,
+    "lon": -118.28
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "teremoana-aiho",
+   "urls": {
+    "ua": "/ua/teremoana-aiho",
+    "en": "/en/teremoana-aiho"
+   },
+   "date": "2026-11-18",
+   "startUtc": "2026-11-18T09:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Теремоана мол.",
+    "en": "Teremoana Teremoana"
+   },
+   "blue": {
+    "ua": "Хемі Агіо",
+    "en": "Hemi Ahio"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Pullman Melbourne Albert Park",
+    "cityUa": "Мельбурн",
+    "cityEn": "Melbourne",
+    "countryIso": "AU",
+    "continent": "Oceania",
+    "tz": "Australia/Melbourne",
+    "lat": -37.81,
+    "lon": 144.96
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "Kayo Sports · DAZN"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "yabuki-fajardo",
+   "urls": {
+    "ua": "/ua/yabuki-fajardo",
+    "en": "/en/yabuki-fajardo"
+   },
+   "date": "2026-11-26",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Масаміці Ябукі",
+    "en": "Masamichi Yabuki"
+   },
+   "blue": {
+    "ua": "Міель Фахардо",
+    "en": "Miel Fajardo"
+   },
+   "division": {
+    "ua": "Найлегша вага",
+    "en": "Flyweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс IBF"
+   ],
+   "venue": {
+    "name": "Ebara Wave Arena Ota",
+    "cityUa": "Токіо",
+    "cityEn": "Tokyo",
+    "countryIso": "JP",
+    "continent": "Asia",
+    "tz": "Asia/Tokyo",
+    "lat": 35.68,
+    "lon": 139.69
+   },
+   "broadcast": {
+    "ua": [],
+    "en": []
+   },
+   "result": null
+  },
+  {
+   "id": "chukhadzhian-arganaras",
+   "urls": {
+    "ua": "/ua/chukhadzhian-arganaras",
+    "en": "/en/chukhadzhian-arganaras"
+   },
+   "date": "2026-11-27",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Карен Чухаджян",
+    "en": "Karen Chukhadzhian"
+   },
+   "blue": {
+    "ua": "Лукас Арганарас",
+    "en": "Lucas Arganaras"
+   },
+   "division": {
+    "ua": "Перша напівсередня вага",
+    "en": "Super Lightweight"
+   },
+   "rounds": 12,
+   "belts": [],
+   "venue": {
+    "name": "EuropaPark Rust",
+    "cityUa": "Руст, Баден-Вюртемберг",
+    "cityEn": "Rust",
+    "countryIso": "DE",
+    "continent": "Europe",
+    "tz": "Europe/Berlin",
+    "lat": 48.27,
+    "lon": 7.73
+   },
+   "broadcast": {
+    "ua": [],
+    "en": []
+   },
+   "result": null
+  },
+  {
+   "id": "kraus-deines",
+   "urls": {
+    "ua": "/ua/kraus-deines",
+    "en": "/en/kraus-deines"
+   },
+   "date": "2026-11-28",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Градус Краус",
+    "en": "Gradus Kraus"
+   },
+   "blue": {
+    "ua": "Адам Дейнес",
+    "en": "Adam Deines"
+   },
+   "division": {
+    "ua": "Напівважка вага",
+    "en": "Light Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [
+    "Пояс IBF European"
+   ],
+   "venue": {
+    "name": "Passenger Terminal Amsterdam",
+    "cityUa": "Амстердам",
+    "cityEn": "Amsterdam",
+    "countryIso": "NL",
+    "continent": "Europe",
+    "tz": "Europe/Amsterdam",
+    "lat": 52.37,
+    "lon": 4.9
+   },
+   "broadcast": {
+    "ua": [],
+    "en": []
+   },
+   "result": null
+  },
+  {
+   "id": "kabayel-hysa",
+   "urls": {
+    "ua": "/ua/kabayel-hysa",
+    "en": "/en/kabayel-hysa"
+   },
+   "date": "2026-11-28",
+   "startUtc": "2026-11-28T18:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Агіт Кабаєл",
+    "en": "Agit Kabayel"
+   },
+   "blue": {
+    "ua": "Нельсон Хіса",
+    "en": "Nelson Hysa"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс WBC"
+   ],
+   "venue": {
+    "name": "ESPRIT arena",
+    "cityUa": "Дюссельдорф",
+    "cityEn": "Düsseldorf",
+    "countryIso": "DE",
+    "continent": "Europe",
+    "tz": "Europe/Berlin",
+    "lat": 51.23,
+    "lon": 6.78
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "fury-joshua",
+   "urls": {
+    "ua": "/ua/fury-joshua",
+    "en": "/en/fury-joshua"
+   },
+   "date": "2026-12-11",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "broadcast block (Kyiv time)",
+   "status": "scheduled",
+   "tournamentId": "fury-joshua",
+   "red": {
+    "ua": "Тайсон Ф'юрі",
+    "en": "Tyson Fury"
+   },
+   "blue": {
+    "ua": "Ентоні Джошуа",
+    "en": "Anthony Joshua"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Вакантний пояс WBA (Super)"
+   ],
+   "venue": {
+    "name": "Principality Stadium",
+    "cityUa": "Кардіфф, Вельс",
+    "cityEn": "Cardiff",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.48,
+    "lon": -3.18
+   },
+   "broadcast": {
+    "ua": [
+     "Netflix"
+    ],
+    "en": [
+     "Netflix"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "opetaia-wilder",
+   "urls": {
+    "ua": "/ua/opetaia-wilder",
+    "en": "/en/opetaia-wilder"
+   },
+   "date": "2026-12-11",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": "fury-joshua",
+   "red": {
+    "ua": "Джей Опетая",
+    "en": "Jai Opetaia"
+   },
+   "blue": {
+    "ua": "Деонтей Вайлдер",
+    "en": "Deontay Wilder"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 12,
+   "belts": [],
+   "venue": {
+    "name": "Principality Stadium",
+    "cityUa": "Кардіфф, Вельс",
+    "cityEn": "Cardiff",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.48,
+    "lon": -3.18
+   },
+   "broadcast": {
+    "ua": [
+     "Netflix"
+    ],
+    "en": [
+     "Netflix"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "haney-paro",
+   "urls": {
+    "ua": "/ua/haney-paro",
+    "en": "/en/haney-paro"
+   },
+   "date": "2026-12-19",
+   "startUtc": "2026-12-20T01:00Z",
+   "startPrecision": "time",
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Девін Хейні",
+    "en": "Devin Haney"
+   },
+   "blue": {
+    "ua": "Ліам Паро",
+    "en": "Liam Paro"
+   },
+   "division": {
+    "ua": "Напівсередня вага",
+    "en": "Welterweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс WBO",
+    "Пояс IBF"
+   ],
+   "venue": {
+    "name": "Chase Center",
+    "cityUa": "Сан-Франциско",
+    "cityEn": "San Francisco",
+    "countryIso": "US",
+    "continent": "North America",
+    "tz": "America/Los_Angeles",
+    "lat": 37.77,
+    "lon": -122.42
+   },
+   "broadcast": {
+    "ua": [
+     "DAZN"
+    ],
+    "en": [
+     "DAZN"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "paul-doumbe",
+   "urls": {
+    "ua": "/ua/paul-doumbe",
+    "en": "/en/paul-doumbe"
+   },
+   "date": "2026-12-24",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": null,
+   "red": {
+    "ua": "Джейк Пол",
+    "en": "Jake Paul"
+   },
+   "blue": {
+    "ua": "Седрік Думбе",
+    "en": "Cédric Doumbé"
+   },
+   "division": {
+    "ua": "Важка вага",
+    "en": "Cruiserweight"
+   },
+   "rounds": 8,
+   "belts": [],
+   "venue": {
+    "name": "Coca-Cola Arena",
+    "cityUa": "Дубай, ОАЕ",
+    "cityEn": "Dubai",
+    "countryIso": "AE",
+    "continent": "Asia",
+    "tz": "Asia/Dubai",
+    "lat": 25.2,
+    "lon": 55.27
+   },
+   "broadcast": {
+    "ua": [
+     "Netflix"
+    ],
+    "en": [
+     "Netflix"
+    ]
+   },
+   "result": null
+  }
+ ],
+ "tournaments": [
+  {
+   "id": "big-boxing-night-2020",
+   "urls": {
+    "ua": "/ua/cards/big-boxing-night-2020",
+    "en": "/en/cards/big-boxing-night-2020"
+   },
+   "name": {
+    "ua": "Big Boxing Night",
+    "en": "Big Boxing Night"
+   },
+   "startDate": "2020-08-01",
+   "venue": "Equides Club",
+   "organizer": "Usyk 17 Promotions",
+   "fights": [
+    "lapin-krapshyla",
+    "sirenko-krolenko"
+   ],
+   "poster": "/images/cards/big-boxing-night-2020.jpg"
+  },
+  {
+   "id": "fury-joshua",
+   "urls": {
+    "ua": "/ua/cards/fury-joshua",
+    "en": "/en/cards/fury-joshua"
+   },
+   "name": {
+    "ua": "Ф'юрі – Джошуа",
+    "en": "Fury vs Joshua"
+   },
+   "startDate": "2026-12-11",
+   "venue": "Principality Stadium",
+   "organizer": null,
+   "fights": [
+    "fury-joshua",
+    "opetaia-wilder"
+   ],
+   "poster": "/images/cards/fury-joshua.jpg"
+  },
+  {
+   "id": "mexico-vs-the-world",
+   "urls": {
+    "ua": "/ua/cards/mexico-vs-the-world",
+    "en": "/en/cards/mexico-vs-the-world"
+   },
+   "name": {
+    "ua": "Mexico vs The World",
+    "en": "Mexico vs The World"
+   },
+   "startDate": "2026-10-31",
+   "venue": "Kingdom Arena",
+   "organizer": "Riyadh Season",
+   "fights": [
+    "alvarez-mbilli",
+    "munguia-zon",
+    "espinosa-blandon",
+    "picasso-martin",
+    "tsutsumi-rojas-garcia",
+    "rojo-biea"
+   ],
+   "poster": "/images/cards/mexico-vs-the-world.jpg"
+  },
+  {
+   "id": "rising-stars-ii",
+   "urls": {
+    "ua": "/ua/cards/rising-stars-ii",
+    "en": "/en/cards/rising-stars-ii"
+   },
+   "name": {
+    "ua": "Rising Stars II",
+    "en": "Rising Stars II"
+   },
+   "startDate": "2026-08-22",
+   "venue": "!FESTrepublic",
+   "organizer": "Usyk 17 Promotions",
+   "fights": [
+    "khyzhnyak-palacio",
+    "illiusha-jordelli"
+   ],
+   "poster": "/images/cards/rising-stars-ii.jpg"
+  },
+  {
+   "id": "rising-stars",
+   "urls": {
+    "ua": "/ua/cards/rising-stars",
+    "en": "/en/cards/rising-stars"
+   },
+   "name": {
+    "ua": "Rising Stars",
+    "en": "Rising Stars"
+   },
+   "startDate": "2026-03-21",
+   "venue": "Equides Club",
+   "organizer": "Usyk 17 Promotions",
+   "fights": [
+    "lapin-bulmeistars",
+    "khyzhnyak-baron"
+   ],
+   "poster": "/images/cards/rising-stars.jpg"
+  },
+  {
+   "id": "ultimate-boxing-night",
+   "urls": {
+    "ua": "/ua/cards/ultimate-boxing-night",
+    "en": "/en/cards/ultimate-boxing-night"
+   },
+   "name": {
+    "ua": "Ultimate Boxing Night",
+    "en": "Ultimate Boxing Night"
+   },
+   "startDate": "2021-04-10",
+   "venue": "WePlay Esports Arena",
+   "organizer": "Usyk 17 Promotions",
+   "fights": [
+    "gadzhyiev-murashkin",
+    "lapin-koros"
+   ],
+   "poster": "/images/cards/ultimate-boxing-night.jpg"
+  },
+  {
+   "id": "zuffa-boxing-01",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-01",
+    "en": "/en/cards/zuffa-boxing-01"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 01",
+    "en": "Zuffa Boxing 01"
+   },
+   "startDate": "2026-01-23",
+   "venue": "Meta Apex",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "walsh-ocampo"
+   ],
+   "poster": "/images/cards/zuffa-boxing-01.jpg"
+  },
+  {
+   "id": "zuffa-boxing-02",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-02",
+    "en": "/en/cards/zuffa-boxing-02"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 02",
+    "en": "Zuffa Boxing 02"
+   },
+   "startDate": "2026-02-01",
+   "venue": "Meta Apex",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "valenzuela-torres",
+    "bohachuk-butaev",
+    "kalajdzic-gvozdyk"
+   ],
+   "poster": "/images/cards/zuffa-boxing-02.jpg"
+  },
+  {
+   "id": "zuffa-boxing-03",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-03",
+    "en": "/en/cards/zuffa-boxing-03"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 03",
+    "en": "Zuffa Boxing 03"
+   },
+   "startDate": "2026-02-15",
+   "venue": "Meta Apex",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "ajagba-martin",
+    "dzambekov-elbiali"
+   ],
+   "poster": "/images/cards/zuffa-boxing-03.jpg"
+  },
+  {
+   "id": "zuffa-boxing-04",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-04",
+    "en": "/en/cards/zuffa-boxing-04"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 04",
+    "en": "Zuffa Boxing 04"
+   },
+   "startDate": "2026-03-08",
+   "venue": "Meta Apex",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "opetaia-glanton"
+   ],
+   "poster": "/images/cards/zuffa-boxing-04.jpg"
+  },
+  {
+   "id": "zuffa-boxing-05",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-05",
+    "en": "/en/cards/zuffa-boxing-05"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 05",
+    "en": "Zuffa Boxing 05"
+   },
+   "startDate": "2026-04-05",
+   "venue": "Meta Apex",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "cortes-garcia"
+   ],
+   "poster": "/images/cards/zuffa-boxing-05.jpg"
+  },
+  {
+   "id": "zuffa-boxing-06",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-06",
+    "en": "/en/cards/zuffa-boxing-06"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 06",
+    "en": "Zuffa Boxing 06"
+   },
+   "startDate": "2026-05-10",
+   "venue": "Meta Apex",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "mosley-jr-bohachuk",
+    "katzourakis-rodriguez"
+   ],
+   "poster": "/images/cards/zuffa-boxing-06.jpg"
+  },
+  {
+   "id": "zuffa-boxing-07",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-07",
+    "en": "/en/cards/zuffa-boxing-07"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 07",
+    "en": "Zuffa Boxing 07"
+   },
+   "startDate": "2026-06-06",
+   "venue": "Bournemouth International Centre",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "billam-smith-rozicki",
+    "clarke-massey"
+   ],
+   "poster": "/images/cards/zuffa-boxing-07.jpg"
+  },
+  {
+   "id": "zuffa-boxing-08",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-08",
+    "en": "/en/cards/zuffa-boxing-08"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 08",
+    "en": "Zuffa Boxing 08"
+   },
+   "startDate": "2026-06-28",
+   "venue": "The Chelsea at The Cosmopolitan",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "de-los-santos-valenzuela",
+    "trinidad-ancajas",
+    "sandoval-lee"
+   ],
+   "poster": "/images/cards/zuffa-boxing-08.jpg"
+  },
+  {
+   "id": "zuffa-boxing-09",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-09",
+    "en": "/en/cards/zuffa-boxing-09"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 09",
+    "en": "Zuffa Boxing 09"
+   },
+   "startDate": "2026-07-26",
+   "venue": "Infosys Theater, Madison Square Garden",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "berlanga-butler",
+    "hitchins-salas",
+    "derevyanchenko-hackett",
+    "sirenko-wallin"
+   ],
+   "poster": "/images/cards/zuffa-boxing-09.jpg"
+  },
+  {
+   "id": "zuffa-boxing-10",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-10",
+    "en": "/en/cards/zuffa-boxing-10"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 10",
+    "en": "Zuffa Boxing 10"
+   },
+   "startDate": "2026-08-08",
+   "venue": "3Arena",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "mckenna-oliha",
+    "walsh-denny"
+   ],
+   "poster": "/images/cards/zuffa-boxing-10.jpg"
+  },
+  {
+   "id": "zuffa-boxing-11",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-11",
+    "en": "/en/cards/zuffa-boxing-11"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 11",
+    "en": "Zuffa Boxing 11"
+   },
+   "startDate": "2026-09-26",
+   "venue": "Copper Box Arena",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "fisher-protton",
+    "kalajdzic-richards",
+    "ruiz-tapia",
+    "romero-ignat",
+    "de-la-cerda-lewis"
+   ],
+   "poster": "/images/cards/zuffa-boxing-11.jpg"
+  },
+  {
+   "id": "zuffa-boxing-12",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-12",
+    "en": "/en/cards/zuffa-boxing-12"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 12",
+    "en": "Zuffa Boxing 12"
+   },
+   "startDate": "2026-11-07",
+   "venue": "Copper Box Arena",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "billam-smith-clarke",
+    "bentley-mosley",
+    "parker-dzambekov"
+   ],
+   "poster": "/images/cards/zuffa-boxing-12.jpg"
+  },
+  {
+   "id": "zuffa-boxing-13",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-13",
+    "en": "/en/cards/zuffa-boxing-13"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 13",
+    "en": "Zuffa Boxing 13"
+   },
+   "startDate": "2026-11-14",
+   "venue": "The Venue (Riyadh Season)",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "adames-warburton",
+    "moloney-teran",
+    "surace-bednarek"
+   ],
+   "poster": "/images/cards/zuffa-boxing-13.jpg"
+  }
+ ],
+ "promoters": [
+  {
+   "id": "usyk-17-promotions",
+   "urls": {
+    "ua": "/ua/promoters/usyk-17-promotions",
+    "en": "/en/promoters/usyk-17-promotions"
+   }
+  },
+  {
+   "id": "zuffa-boxing",
+   "urls": {
+    "ua": "/ua/promoters/zuffa-boxing",
+    "en": "/en/promoters/zuffa-boxing"
+   }
+  }
+ ]
+}
