@@ -459,3 +459,11 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - Filters: search (names in both languages, tournament, city, country), date chips + range, day strip, continent and country chips (only values that exist), "Near me" (browser geolocation only after the click, default radius 500 km, up to 5000 km). Mobile: filters collapse behind a "Фільтри"/"Filters" button. The time zone select is NOT in the filters: it opens from a small "Змінити"/"Change" link next to the "Ваш час" line. GA4 event `calendar_filter`.
 - Flags `images/flags/sa.png` and `ae.png` added (flag-icons, MIT). Russia is white-blue-white, Belarus white-red-white (existing files).
 - Sitemap: `/ua/calendar` and `/en/calendar`, daily, 0.9. Not yet linked from the homepage (step 2).
+
+
+## Home page and scorecard move (Nov 14 2026, step 2, branch home-step2)
+
+- Home pages `/` (index.html) and `/en` (en/index.html) are now events-first and are generated, do not edit by hand: `python3 scripts/build_events.py && python3 scripts/bake_calendar.py && python3 scripts/bake_home.py`. CSS lives in `scripts/home.css`. Up to 4 event blocks are baked; the page script shows the first that has not ended, hides past rows and converts times to the reader's zone. Results block = last 4 completed fights with names and a winner. Promoter fight totals are the `PROMO_FIGHTS` dict in `bake_home.py` (taken from the promoter pages, update by hand).
+- The scorecard moved to `/ua/scorecard` and `/en/scorecard` (copies of the old index files, only canonical/hreflang/og:url and the language-switch path changed). Old links keep working through `middleware.js`: `/?fight=ID`, `/en?fight=ID`, `/?widget=1&lang=..` redirect 308 to the scorecard with the query. Internal links and `widget.html` already use the new addresses.
+- Calendar accepts `?c=Europe` (continent chip) and `?near=1` (starts "near me") so the home chips can deep-link.
+- Not built yet: ICS feed (the banner from the mockup is left out), comparison with judges (scorecard text on the home does not promise it).

@@ -31,7 +31,7 @@ S = {
    tz_names={'Europe/Kyiv':'Київ','Europe/London':'Лондон','Europe/Berlin':'Берлін','Europe/Madrid':'Мадрид','America/New_York':'Нью-Йорк','America/Chicago':'Чикаго','America/Los_Angeles':'Лос-Анджелес','Asia/Dubai':'Дубай','Asia/Riyadh':'Ер-Ріяд','Asia/Tokyo':'Токіо','Australia/Sydney':'Сідней','Africa/Johannesburg':'Йоганнесбург','America/Mexico_City':'Мехіко','Asia/Manila':'Маніла','UTC':'UTC'},
    countries={'SA':'Саудівська Аравія','US':'США','GB':'Британія','AU':'Австралія','JP':'Японія','DE':'Німеччина','NL':'Нідерланди','AE':'ОАЕ','UA':'Україна','IE':'Ірландія','CA':'Канада','ZA':'ПАР','MX':'Мексика'},
    conts={'Europe':'Європа','Asia':'Азія','North America':'Пн. Америка','South America':'Пд. Америка','Oceania':'Океанія','Africa':'Африка'},
-   footer=[('/', 'Картка'), ('/ua/guide', 'Довідник'), ('/height-compare', 'Порівняй зріст'), ('/about', 'Про нас'), ('/privacy', 'Конфіденційність')],
+   footer=[('/', 'Головна'), ('/ua/scorecard', 'Картка'), ('/ua/guide', 'Довідник'), ('/height-compare', 'Порівняй зріст'), ('/about', 'Про нас'), ('/privacy', 'Конфіденційність')],
    home='/', ph_fights=('бій', 'бої', 'боїв')),
  'en': dict(lang='en', path='en', other='ua', loc='en_US', og='og-default-en.png',
    title='Boxing Schedule: Fight Dates and Times | Boxing 12×3',
@@ -50,7 +50,7 @@ S = {
    tz_names={'Europe/Kyiv':'Kyiv','Europe/London':'London','Europe/Berlin':'Berlin','Europe/Madrid':'Madrid','America/New_York':'New York','America/Chicago':'Chicago','America/Los_Angeles':'Los Angeles','Asia/Dubai':'Dubai','Asia/Riyadh':'Riyadh','Asia/Tokyo':'Tokyo','Australia/Sydney':'Sydney','Africa/Johannesburg':'Johannesburg','America/Mexico_City':'Mexico City','Asia/Manila':'Manila','UTC':'UTC'},
    countries={'SA':'Saudi Arabia','US':'USA','GB':'UK','AU':'Australia','JP':'Japan','DE':'Germany','NL':'Netherlands','AE':'UAE','UA':'Ukraine','IE':'Ireland','CA':'Canada','ZA':'South Africa','MX':'Mexico'},
    conts={'Europe':'Europe','Asia':'Asia','North America':'N. America','South America':'S. America','Oceania':'Oceania','Africa':'Africa'},
-   footer=[('/en', 'Scorecard'), ('/en/guide', 'Guide'), ('/en/height-compare', 'Height Compare'), ('/en/about', 'About'), ('/privacy', 'Privacy')],
+   footer=[('/en', 'Home'), ('/en/scorecard', 'Scorecard'), ('/en/guide', 'Guide'), ('/en/height-compare', 'Height Compare'), ('/en/about', 'About'), ('/privacy', 'Privacy')],
    home='/en', ph_fights=('fight', 'fights', 'fights')),
 }
 
@@ -250,7 +250,12 @@ function bind(){
 var te=document.getElementById('tzedit'),tr=document.getElementById('tzrow');te.className='tzedit show';
 te.addEventListener('click',function(){var o=!tr.classList.contains('show');tr.classList.toggle('show',o);te.setAttribute('aria-expanded',o?'true':'false');});
 var sel=document.getElementById('tz');if(st.tz!=='auto'){var ok=[].some.call(sel.options,function(o){return o.value===st.tz;});if(ok)sel.value=st.tz;else st.tz='auto';}
-bind();render();
+bind();
+try{var qp=new URLSearchParams(location.search),qc=qp.get('c');
+ if(qc){var cb=document.querySelector('#f-cont [data-c="'+qc.replace(/"/g,'')+'"]');if(cb){st.conts[qc]=true;cb.classList.add('on');}}
+ if(qp.get('near')==='1'){var nb2=document.getElementById('near');if(nb2)nb2.click();}
+}catch(e){}
+render();
 })();
 """
 
@@ -422,5 +427,6 @@ def build(lk):
     open(f'{R}/{s["path"]}/calendar.html', 'w', encoding='utf-8').write(page)
     print(f'{s["path"]}/calendar.html: {len(fl)} fights, {len(page)//1024} KB')
 
-for lk in ('uk', 'en'):
-    build(lk)
+if __name__ == '__main__':
+    for lk in ('uk', 'en'):
+        build(lk)

@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYWWVSZKGY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GYWWVSZKGY');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boxing 12×3 – Інтерактивна суддівська картка боксерського бою</title>
+<link rel="canonical" href="https://boxing12x3.com/ua/scorecard">
+<link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/scorecard">
+<link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/scorecard">
+<link rel="alternate" hreflang="x-default" href="https://boxing12x3.com/en/scorecard">
+<meta name="description" content="Суди боксерські бої сам – раунд за раундом. Інтерактивна суддівська картка: виставляй бали, створи картинку і поділись. Score boxing fights round by round.">
+<meta property="og:title" content="Boxing 12×3 – Суддівська картка">
+<meta property="og:description" content="Суди боксерські бої сам – раунд за раундом. Створи свою картку і поділись нею.">
+<meta property="og:image" content="https://boxing12x3.com/og-default.png?v=2">
+<meta property="og:url" content="https://boxing12x3.com/ua/scorecard">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boxing 12×3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Boxing 12×3 – Суддівська картка боксерського бою">
+<meta name="twitter:description" content="Суди бокс сам – раунд за раундом. Виставляй бали, створи картку і поділись.">
+<meta name="twitter:image" content="https://boxing12x3.com/og-default.png?v=2">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Boxing 12×3 – Суддівська картка",
+  "url": "https://boxing12x3.com/ua/scorecard",
+  "description": "Інтерактивна суддівська картка для оцінювання боксерських боїв раунд за раундом",
+  "applicationCategory": "SportsApplication",
+  "operatingSystem": "Any",
+  "inLanguage": ["uk", "en"],
+  "publisher": {"@type": "Organization", "name": "Boxing 12×3", "url": "https://boxing12x3.com"}
+}
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+button{outline:none;}
+button:focus-visible, a:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:4px;}
+:root{
+  --red:#c0392b;--red-l:#fdf2f2;--red-b:#f5b7b1;
+  --blue:#1a5276;--blue-l:#eaf4fb;--blue-b:#a9cce3;
+  --bg:#f7f6f3;--card:#fff;--text:#1a1a1a;--muted:#888;
+  --border:#e5e3de;--r:10px;
+}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:1.5rem 1rem 4rem;}
+
+/* Lang */
+.lang-bar{display:flex;justify-content:flex-end;gap:4px;max-width:520px;margin:0 auto 1rem;}
+.lb{font-family:'Manrope',sans-serif;font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
+.lb.on{background:var(--text);color:#fff;border-color:var(--text);}
+
+/* Brand */
+.brand{text-align:center;margin-bottom:1.2rem;}
+.brand-name{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:28px;letter-spacing:.12em;margin:0;font-weight:700;}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-top:1px;font-weight:400;}
+
+/* Fight selector */
+.fw{max-width:520px;margin:0 auto 1.2rem;position:relative;}
+.fs{width:100%;font-family:'Manrope',sans-serif;font-size:13px;font-weight:500;color:var(--text);background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:10px 36px 10px 12px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;}
+.fa{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;}
+
+/* Scorecard */
+.sc{max-width:520px;margin:0 auto;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:visible;box-shadow:0 16px 48px rgba(0,0,0,.11),0 4px 14px rgba(0,0,0,.06);}
+.sc-hdr{display:grid;grid-template-columns:1fr 60px 1fr;background:#111;border-radius:var(--r) var(--r) 0 0;overflow:hidden;}
+.sc-f{padding:12px 14px;}
+.sc-f.red{border-right:3px solid var(--red);}
+.sc-f.blue{border-left:3px solid var(--blue);text-align:right;}
+.sc-corner{font-size:9px;color:#666;text-transform:uppercase;letter-spacing:.1em;}
+/* Fighter name – Manrope Bold for universal cyrillic/latin support */
+.sc-name{font-size:13px;font-weight:700;color:#fff;margin-top:3px;letter-spacing:.02em;line-height:1.2;}
+.sc-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;border-left:0.5px solid #1a1a1a;border-right:0.5px solid #1a1a1a;padding:6px 4px;}
+.sc-mid-brand{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;color:#fff;letter-spacing:.08em;}
+.sc-mid-logo{display:block;width:44px;height:44px;border-radius:9px;}
+.sc-mid-sub{font-size:8px;color:#444;letter-spacing:.12em;margin-top:1px;}
+.sc-statlink{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:var(--card);border-bottom:0.5px solid var(--border);text-decoration:none;color:var(--red);font-size:13px;font-weight:500;transition:background .15s;}
+.sc-statlink-arr{font-size:14px;}
+/* Scoring hint */
+.hint-toggle{display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-family:'Manrope',sans-serif;font-size:12px;color:var(--muted);padding:8px 0 2px;margin:0 auto;}
+.hint-toggle:hover{color:var(--text);}
+.hint-body{display:none;background:var(--card);border:0.5px solid var(--border);border-radius:8px;padding:12px 14px;margin-top:8px;}
+.hint-body.open{display:block;}
+.hint-more{display:block;margin-top:8px;font-size:12px;font-weight:500;color:var(--red);text-decoration:none;}
+.hint-more:hover{text-decoration:underline;}
+.how-block{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-top:18px;}
+.how-block h2{font-size:14px;font-weight:700;margin-bottom:8px;}
+.how-block p{font-size:12.5px;color:#555;line-height:1.7;margin-bottom:8px;}
+.how-block p:last-child{margin-bottom:0;}
+.how-block a{color:var(--red);text-decoration:none;font-weight:500;}
+.how-block a:hover{text-decoration:underline;}
+.hint-row{display:flex;gap:8px;align-items:baseline;font-size:12px;color:#666;margin-bottom:6px;}
+.hint-row:last-child{margin-bottom:0;}
+.hint-key{background:#111;color:#fff;font-size:10px;font-weight:600;border-radius:4px;padding:2px 7px;white-space:nowrap;flex-shrink:0;}
+/* Analytics block */
+.analytics-block{margin-top:16px;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.analytics-title{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 16px 8px;}
+.analytics-link{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-top:0.5px solid var(--border);text-decoration:none;color:var(--text);font-size:13px;font-weight:500;transition:background .15s;}
+.analytics-link:hover{background:var(--bg);}
+.analytics-link-right{display:flex;align-items:center;gap:8px;}
+.analytics-link-date{font-size:11px;color:var(--muted);}
+.analytics-link-arr{font-size:14px;color:var(--muted);}
+.analytics-more{display:block;text-align:center;padding:10px;font-size:12px;font-weight:600;color:var(--red);text-decoration:none;border-top:0.5px solid var(--border);}
+.analytics-more:hover{background:var(--bg);}
+/* Widget mode */
+.widget-hidden{display:none !important;}
+.powered-by{display:none;text-align:center;padding:14px;font-size:12px;color:var(--muted);}
+.powered-by a{color:var(--red);font-weight:600;text-decoration:none;}
+.powered-by a:hover{text-decoration:underline;}
+
+/* Col heads */
+.sc-heads{display:grid;grid-template-columns:1fr 40px 1fr;padding:5px 10px;background:var(--bg);border-bottom:0.5px solid var(--border);}.sh{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;text-align:center;}
+.sh.r{color:var(--red);text-align:left;}
+.sh.b{color:var(--blue);text-align:right;}
+
+/* Round rows – v2 tap model */
+.rrow{
+  display:grid;grid-template-columns:1fr 40px 1fr;
+  align-items:stretch;min-height:54px;
+  border-bottom:0.5px solid var(--border);
+  transition:background .2s;
+}
+.rrow:last-child{border-bottom:none;}
+.rside{
+  display:flex;align-items:center;
+  cursor:pointer;
+  user-select:none;-webkit-tap-highlight-color:transparent;
+  padding:0 14px;
+  position:relative;overflow:hidden;
+  transition:background .04s;
+}
+.rside.lft{justify-content:flex-start;}
+.rside.rgt{justify-content:flex-end;}
+.rside:active{opacity:.8;}
+.rside-fill{position:absolute;inset:0;pointer-events:none;opacity:0;}
+@keyframes pourFromLeft{from{clip-path:inset(0 100% 0 0);}to{clip-path:inset(0 0 0 0);}}
+@keyframes pourFromRight{from{clip-path:inset(0 0 0 100%);}to{clip-path:inset(0 0 0 0);}}
+.rpts{
+  font-family:'Oswald',sans-serif;text-transform:uppercase;
+  font-size:28px;letter-spacing:.04em;
+  color:#d0cdc8;line-height:1;
+  position:relative;z-index:1;
+  transition:color .22s ease;
+}
+.rn{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);
+  font-size:11px;font-weight:600;color:#bbb;letter-spacing:.04em;
+  border-left:0.5px solid var(--border);border-right:0.5px solid var(--border);
+}
+/* won-rounds strip */
+.won-strip{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  background:#0f0f0f;padding:7px 14px;
+}
+.won-val{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:24px;letter-spacing:.04em;}
+.won-val.r{color:var(--red);text-align:left;}
+.won-val.b{color:var(--blue);text-align:right;}
+.won-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;}
+.won-lbl{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:.1em;text-align:center;line-height:1.3;}
+.won-bar{width:72px;height:3px;background:#222;border-radius:2px;overflow:hidden;}
+.won-fill{height:100%;background:var(--red);border-radius:2px;width:50%;transition:width .4s ease, background .3s ease;}
+/* bump animation */
+.bump{animation:v2bump .25s ease;}
+@keyframes v2bump{0%{transform:scale(1)}40%{transform:scale(1.06)}100%{transform:scale(1)}}
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Hover only on devices that support it */
+@media (hover: hover) and (pointer: fine) {
+  .rside:hover{opacity:.92;}
+  .rn:hover{background:#e5e3de;}
+  .analytics-link:hover{background:var(--bg);}
+  .analytics-more:hover{background:var(--bg);}
+  .hint-toggle:hover{color:var(--text);}
+  .sc-statlink:hover{background:var(--red-l);}
+}
+
+/* Footer */
+.sc-foot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:12px 14px;align-items:center;border-radius:0 0 var(--r) var(--r);}
+.ft-r{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:32px;color:var(--red);letter-spacing:.04em;}
+.ft-b{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:32px;color:#2e86c1;text-align:right;letter-spacing:.04em;}
+.ft-m{font-size:8px;color:#444;text-align:center;letter-spacing:.1em;line-height:1.6;padding:0 8px;}
+
+/* Leader bar */
+.leader{max-width:520px;margin:.8rem auto 0;font-size:12px;text-align:center;min-height:18px;font-weight:500;}
+.leader .r{color:var(--red);}
+.leader .b{color:var(--blue);}
+
+/* Buttons */
+.btns{max-width:520px;margin:1.2rem auto 0;}
+.main-btn{width:100%;font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:18px;letter-spacing:.12em;padding:14px;background:var(--red);color:#fff;border:none;border-radius:var(--r);cursor:pointer;transition:background .15s;}
+.main-btn:hover:not(:disabled){background:#a93226;}
+.main-btn:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
+.stop-btn{width:100%;font-family:'Manrope',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--red);border:0.5px solid var(--red-b);border-radius:var(--r);cursor:pointer;margin-top:8px;transition:all .15s;}
+.stop-btn:hover:not(:disabled){background:var(--red-l);}
+.stop-btn:disabled{opacity:.35;cursor:not-allowed;}
+.sec-btn{width:100%;font-family:'Manrope',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:var(--r);cursor:pointer;margin-top:8px;}
+
+/* Share modal */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center;padding:1rem;}
+.overlay.open{display:flex;}
+.modal{background:#fff;border-radius:var(--r);width:100%;max-width:400px;overflow:hidden;max-height:90vh;overflow-y:auto;}
+.mprev{padding:1.2rem;background:var(--bg);border-bottom:0.5px solid var(--border);}
+.pcard{background:#fff;border:0.5px solid var(--border);border-radius:8px;overflow:hidden;}
+.ph{display:grid;grid-template-columns:1fr 52px 1fr;background:#111;}
+.pf{padding:10px 12px;}
+.pf.r{border-right:2px solid var(--red);}
+.pf.b{border-left:2px solid var(--blue);text-align:right;}
+.pc{font-size:8px;color:#555;text-transform:uppercase;letter-spacing:.08em;}
+.pn{font-size:11px;font-weight:700;color:#fff;margin-top:2px;letter-spacing:.02em;line-height:1.2;}
+.pm{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0a0a0a;padding:4px;}
+.pmb{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:11px;color:#fff;letter-spacing:.06em;}
+.prounds{padding:4px 8px;}
+.pr{display:grid;grid-template-columns:24px 1fr 6px 1fr;gap:3px;align-items:center;margin-bottom:2px;}
+.prn{font-size:9px;color:var(--muted);text-align:center;}
+.prr{height:16px;background:var(--red-l);border:0.5px solid var(--red-b);border-radius:3px;display:flex;align-items:center;padding:0 5px;}
+.prb{height:16px;background:var(--blue-l);border:0.5px solid var(--blue-b);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding:0 5px;}
+.prr span{font-size:9px;font-weight:500;color:var(--red);}
+.prb span{font-size:9px;font-weight:500;color:var(--blue);}
+.prs{width:4px;height:4px;border-radius:50%;background:var(--border);margin:0 auto;}
+.pfoot{display:grid;grid-template-columns:1fr auto 1fr;background:#111;padding:8px 10px;align-items:center;}
+.ptr{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:22px;color:var(--red);}
+.ptb{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:22px;color:#2e86c1;text-align:right;}
+.ptm{font-size:7px;color:#444;text-align:center;letter-spacing:.1em;line-height:1.6;}
+.pstop{background:#111;padding:8px 10px;text-align:center;}
+.pstop-t{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:14px;color:#fff;letter-spacing:.08em;}
+.pstop-s{font-size:8px;color:#555;letter-spacing:.1em;margin-top:2px;}
+.pbrand{background:#0a0a0a;padding:5px;text-align:center;font-size:8px;color:#333;letter-spacing:.15em;}
+.mact{padding:1rem;}
+.mtitle{font-size:13px;font-weight:500;margin-bottom:.8rem;}
+.abtn{width:100%;font-family:'Manrope',sans-serif;font-size:13px;font-weight:500;padding:11px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-bottom:6px;}
+.abtn.sec{background:#444;}
+.cbtn{width:100%;font-family:'Manrope',sans-serif;font-size:12px;font-weight:500;padding:10px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:2px;}
+
+/* Stoppage modal */
+.stop-modal{background:#fff;border-radius:var(--r);width:100%;max-width:360px;padding:1.2rem;}
+.stop-title{font-size:15px;font-weight:500;margin-bottom:1rem;}
+.stop-sec{margin-bottom:1rem;}
+.stop-lbl{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+.stop-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.sopt{font-family:'Manrope',sans-serif;font-size:13px;font-weight:500;padding:9px;border:0.5px solid var(--border);border-radius:6px;background:transparent;cursor:pointer;text-align:center;transition:all .15s;}
+.sopt.sel-r{background:var(--red-l);border-color:var(--red-b);color:var(--red);}
+.sopt.sel-b{background:var(--blue-l);border-color:var(--blue-b);color:var(--blue);}
+.sopt.sel-t{background:#111;border-color:#111;color:#fff;}
+.stop-ok{width:100%;font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:16px;letter-spacing:.1em;padding:12px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:4px;}
+.stop-ok:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;}
+.stop-cancel{width:100%;font-family:'Manrope',sans-serif;font-size:12px;padding:9px;background:transparent;color:var(--muted);border:0.5px solid var(--border);border-radius:6px;cursor:pointer;margin-top:6px;}
+.custom-input{width:100%;font-family:'Manrope',sans-serif;font-size:14px;font-weight:500;color:var(--text);background:var(--bg);border:0.5px solid var(--border);border-radius:6px;padding:10px 12px;outline:none;}
+.custom-input:focus{border-color:var(--text);}
+.ua-links{max-width:520px;margin:1.5rem auto 0;}
+.ua-links-title{text-align:center;font-size:11px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;}
+.ua-link{display:flex;align-items:center;gap:12px;background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;text-decoration:none;}
+.ua-link-ico{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ua-link-txt{flex:1;}
+.ua-link-name{font-size:14px;font-weight:500;color:var(--text);}
+.ua-link-sub{font-size:12px;color:var(--muted);margin-top:1px;}
+.ua-link-arr{color:#ccc;font-size:20px;}
+.podcast-sub{display:flex;flex-direction:column;gap:0;margin:-4px 0 8px;padding-left:48px;}
+.pod-platform{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;padding:8px 0;border-bottom:0.5px solid var(--border);}
+.pod-platform:last-child{border-bottom:none;}
+
+/* Site footer */
+.site-footer{text-align:center;padding:24px 0 8px;font-size:12px;color:var(--muted);}
+.site-footer a{color:var(--muted);text-decoration:none;}
+.site-footer a:hover{color:var(--red);}
+
+/* ── Sections below scorecard ── */
+.sections-wrap{max-width:520px;margin:0 auto;padding:2rem 0 2rem;}
+#toursBlock,#promoBlock,#analyticsBlock,#guideBlock,#howBlock{max-width:520px;margin-left:auto;margin-right:auto;}
+.sec{margin-bottom:28px;}
+.sec-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:0.5px solid var(--border);}
+.sec-lbl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.sec-all{font-size:11px;color:var(--red);text-decoration:none;cursor:pointer;}
+.sec-all:hover{opacity:.8;}
+.promo-d{font-size:12.5px;line-height:1.5;color:var(--muted);margin:0 0 8px;}
+.promo-row{display:flex;align-items:center;gap:12px;padding:10px 0;text-decoration:none;color:var(--text);position:relative;border-bottom:0.5px solid var(--border);}
+.promo-row:last-child{border-bottom:none;}
+.promo-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red);}
+.promo-row:hover{background:#faf9f7;}
+.promo-logo{width:92px;height:44px;border-radius:8px;background:#fff;border:0.5px solid var(--border);padding:6px 8px;box-sizing:border-box;object-fit:contain;flex-shrink:0;margin-left:12px;}
+.promo-b{flex:1;min-width:0;}
+.promo-n{font-size:14px;font-weight:700;}
+.promo-s{font-size:12px;color:var(--muted);margin-top:2px;}
+.promo-arr{color:var(--muted);font-size:16px;padding-right:4px;}
+
+/* Tools list */
+.tools-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+.tool-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:0.5px solid var(--border);cursor:pointer;text-decoration:none;color:var(--text);}
+.tool-row:last-child{border-bottom:none;}
+.tool-row.dim{opacity:.55;cursor:default;pointer-events:none;}
+.tool-row:not(.dim):hover{background:#faf9f7;}
+.tool-icon{width:36px;height:36px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#111;font-size:18px;}
+.tool-icon.dim-icon{background:var(--bg);border:0.5px solid var(--border);}
+.tool-body{flex:1;min-width:0;}
+.tool-name{font-size:13px;font-weight:600;line-height:1.3;}
+.tool-desc{font-size:11px;color:var(--muted);margin-top:2px;}
+.tool-badge{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;flex-shrink:0;white-space:nowrap;}
+.tool-badge.cta{background:var(--red);color:#fff;}
+.tool-badge.soon{background:var(--bg);border:0.5px solid var(--border);color:var(--muted);}
+.tool-arr{font-size:14px;color:var(--muted);flex-shrink:0;}
+
+/* Guide list */
+.guide-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+.guide-row{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-bottom:0.5px solid var(--border);text-decoration:none;color:var(--text);}
+.guide-row:last-child{border-bottom:none;}
+.guide-row:hover{background:#faf9f7;}
+.guide-title{font-size:13px;font-weight:500;}
+.guide-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+.hist-top-link{display:block;text-align:right;font-size:11px;font-weight:600;color:var(--red);text-decoration:none;margin-bottom:6px;}
+.hist-top-link:hover{text-decoration:underline;}
+.hist-widget{display:flex;background:#fff;border:0.5px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:24px;}
+.hist-badge{background:var(--red);color:#fff;padding:18px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:84px;position:relative;flex-shrink:0;}
+.hist-badge-month{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:11px;letter-spacing:.08em;opacity:.9;}
+.hist-badge-day{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:42px;line-height:1;}
+.hist-badge-year{font-family:'Oswald',sans-serif;text-transform:uppercase;font-size:13px;opacity:.9;letter-spacing:.04em;}
+.hist-perf{position:relative;width:0;flex-shrink:0;}
+.hist-perf::before{content:'';position:absolute;top:-1px;bottom:-1px;left:-1px;border-left:2px dashed var(--border);}
+.hist-perf::after{content:'';position:absolute;top:-7px;left:-7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:0.5px solid var(--border);}
+.hist-content{padding:16px 18px;flex:1;min-width:0;}
+.hist-eyebrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.hist-eyebrow span{font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#aaa;}
+.hist-clock{flex-shrink:0;}
+.hist-clock .hist-hand{transform-origin:9px 9px;animation:hist-tick 6s linear infinite;}
+@keyframes hist-tick{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.hist-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.3;}
+.hist-sg{padding-top:10px;border-top:0.5px solid #f0ede8;margin-bottom:14px;}
+.hist-sg-year{font-size:11px;color:#999;margin-bottom:2px;}
+.hist-sg-title{font-size:12.5px;font-weight:600;color:#555;line-height:1.4;}
+.hist-btns{display:flex;gap:8px;}
+.hist-btn{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px 4px;border-radius:6px;font-size:10.5px;font-weight:600;line-height:1.3;text-decoration:none;}
+.hist-btn.primary{border:1px solid var(--red);color:var(--red);}
+.hist-btn.secondary{background:#f0ede8;color:#555;}
+
+/* Tournaments */
+.tt{display:block;background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--text);margin-bottom:8px;}
+.tt img{width:100%;height:auto;display:block;}
+.tt-b{padding:12px 36px 13px 14px;position:relative;}
+.tt-k{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:3px;}
+.tt-t{font-size:16px;font-weight:700;line-height:1.25;}
+.tt-s{font-size:12px;color:var(--muted);margin-top:2px;}
+.tt-tag{display:inline-block;margin-top:8px;font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 6px;border-radius:3px;background:#eaf3de;color:#3b6d11;}
+.tt-arr{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:18px;}
+.tt-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+
+/* Fights list */
+.fights-list{background:var(--card);border:0.5px solid var(--border);border-radius:10px;overflow:hidden;}
+.fights-more>summary{list-style:none;cursor:pointer;text-align:center;font-size:12.5px;font-weight:600;color:var(--red);padding:12px;border-bottom:0.5px solid var(--border);background:var(--card);}
+.fights-more>summary::-webkit-details-marker{display:none;}
+.fights-more .m-less{display:none;}.fights-more[open] .m-more{display:none;}.fights-more[open] .m-less{display:inline;}
+.fights-more[open]>summary{border-bottom:0.5px solid var(--border);}
+.fights-month{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:9px 14px 7px;border-bottom:0.5px solid var(--border);}
+.fight-row{display:flex;align-items:stretch;border-bottom:0.5px solid var(--border);position:relative;text-decoration:none;color:var(--text);}
+.fight-row:last-child{border-bottom:none;}
+.fight-row.clickable::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red);}
+.fight-row.clickable{cursor:pointer;}
+.fight-row.clickable:hover{background:#faf9f7;}
+.fight-row.muted{opacity:.6;}
+.fight-dc{flex-shrink:0;width:40px;padding:11px 0 11px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.fight-dn{font-size:15px;font-weight:500;line-height:1;}
+.fight-dm{font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+.fight-div{width:0.5px;background:var(--border);margin:9px 11px;flex-shrink:0;}
+.fight-info{flex:1;min-width:0;padding:11px 0;}
+.fight-pair{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.fight-vs{font-size:10px;color:var(--muted);margin:0 3px;}
+.fight-meta{font-size:11px;color:var(--muted);margin-top:3px;}
+.fight-tags{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap;}
+.fight-tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 6px;border-radius:3px;}
+.fight-tag.belt{background:#f0ede8;color:#555;}
+.fight-tag.tour{background:#fdf2f2;color:var(--red);}
+.fight-tag.statistics{background:#eaf3de;color:#3b6d11;}
+.fight-arr-col{flex-shrink:0;padding:0 13px;display:flex;align-items:center;font-size:14px;color:var(--muted);}
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lb" data-lang="en" onclick="setLang('en')">EN</button>
+  <button class="lb on" data-lang="uk" onclick="setLang('uk')">UA</button>
+</div>
+
+<div class="brand">
+  <div class="brand-name">Boxing 12×3</div>
+  <h1 class="brand-sub" id="lbl-sub">Боксерська суддівська картка</h1>
+</div>
+
+<div class="fw">
+  <select class="fs" id="fightSel" onchange="onFightChange()"></select>
+  <svg class="fa" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="#888" stroke-width="1.5" stroke-linecap="round"/></svg>
+</div>
+
+<div class="sc">
+  <div class="sc-hdr">
+    <div class="sc-f red">
+      <div class="sc-corner" id="hdr-red">Red corner</div>
+      <div class="sc-name" id="hdr-rn">–</div>
+    </div>
+    <div class="sc-mid">
+      <img class="sc-mid-logo" src="/icon-192.png" width="44" height="44" alt="12×3">
+    </div>
+    <div class="sc-f blue">
+      <div class="sc-corner" id="hdr-blue">Blue corner</div>
+      <div class="sc-name" id="hdr-bn">–</div>
+    </div>
+  </div>
+  <a class="sc-statlink" id="statBanner" href="#" style="display:none;">
+    <span id="statBannerText">Статистика та аналіз бою</span>
+    <span class="sc-statlink-arr">→</span>
+  </a>
+  <div class="won-strip" id="wonStrip" style="display:none;">
+    <div class="won-val r" id="wonR">0</div>
+    <div class="won-mid">
+      <div class="won-lbl" id="wonLbl">Виграних раундів</div>
+      <div class="won-bar"><div class="won-fill" id="wonFill"></div></div>
+    </div>
+    <div class="won-val b" id="wonB">0</div>
+  </div>
+  <div class="sc-heads">
+    <div class="sh r" id="lbl-pts">PTS</div>
+    <div class="sh">RD</div>
+    <div class="sh b" id="lbl-pts2">PTS</div>
+  </div>
+  <div id="rounds"></div>
+  <div class="sc-foot">
+    <div class="ft-r" id="totR">–</div>
+    <div class="ft-m" id="lbl-total">TOTAL<br>SCORE</div>
+    <div class="ft-b" id="totB">–</div>
+  </div>
+</div>
+
+<div class="leader" id="leaderBar"></div>
+
+<div class="btns">
+  <button class="main-btn" id="shareBtn" onclick="openShare()" disabled>SHARE SCORECARD</button>
+  <button class="stop-btn" id="stopBtn" onclick="openStop()" disabled>⏹ Early finish</button>
+  <button class="sec-btn" id="resetBtn" onclick="doReset()">Reset</button>
+</div>
+
+<!-- Scoring hint -->
+<div style="text-align:center;">
+  <button class="hint-toggle" onclick="document.getElementById('hintBody').classList.toggle('open');this.querySelector('.hint-arr').textContent=document.getElementById('hintBody').classList.contains('open')?'▲':'▼'">
+    <span id="lbl-hint-toggle">Як судити?</span> <span class="hint-arr">▼</span>
+  </button>
+  <div class="hint-body" id="hintBody">
+    <div class="hint-row"><span class="hint-key" id="lbl-h1k">1 тап</span><span id="lbl-h1">Переможець раунду (10:9)</span></div>
+    <div class="hint-row"><span class="hint-key" id="lbl-h2k">Ще тап</span><span id="lbl-h2">Знижує рахунок (10:8, 10:7, 10:6)</span></div>
+    <div class="hint-row"><span class="hint-key">RD</span><span id="lbl-h3">Нічия в раунді (10:10)</span></div>
+    <div class="hint-row"><span class="hint-key" id="lbl-h4k">Інша сторона</span><span id="lbl-h4">Змінює переможця раунду</span></div>
+    <a class="hint-more" id="hint-more" href="/ua/boxing-scoring">Докладніше про систему 10 балів →</a>
+  </div>
+</div>
+
+<!-- Powered by – widget mode only -->
+<div class="powered-by" id="poweredBy">
+  <a href="https://boxing12x3.com" target="_blank">Powered by Boxing 12×3 →</a>
+</div>
+
+<!-- Share overlay -->
+<div class="overlay" id="shareOverlay" onclick="closeShareOut(event)">
+  <div class="modal">
+    <div class="mprev"><div class="pcard" id="pcard"></div></div>
+    <div class="mact">
+      <div class="mtitle" id="lbl-modal">Share your scorecard</div>
+      <button class="abtn" id="btnDl" onclick="dlImg()">⬇ Download image</button>
+      <button class="abtn sec" id="btnSh" onclick="shNative()" style="display:none">↑ Share</button>
+      <button class="abtn sec" id="btnCp" onclick="cpText()">📋 Copy text</button>
+      <button class="cbtn" id="btnCl" onclick="closeShare()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- UA links section (shown only in Ukrainian) -->
+<div class="ua-links" id="uaLinks" style="display:none;">
+  <div class="ua-links-title" id="lbl-more">Більше боксу від 12×3</div>
+  <a href="https://t.me/boxing12x3" class="ua-link" target="_blank" onclick="trackOut('telegram')">
+    <div class="ua-link-ico" style="background:#229ED9;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-tg-t">Telegram-канал автора</div>
+      <div class="ua-link-sub" id="lbl-tg-s">Спілкуємось про бокс серйозно та не дуже</div>
+    </div>
+    <span class="ua-link-arr">›</span>
+  </a>
+  <div class="ua-link" onclick="togglePodcast()" style="cursor:pointer;">
+    <div class="ua-link-ico" style="background:#111;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zm5 9a1 1 0 0 0-2 0 3 3 0 0 1-6 0 1 1 0 0 0-2 0 5 5 0 0 0 4 4.9V19H8a1 1 0 0 0 0 2h8a1 1 0 0 0 0-2h-3v-3.1a5 5 0 0 0 4-4.9z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-pod-t">Подкаст «12×3»</div>
+      <div class="ua-link-sub" id="lbl-pod-s">Apple · Spotify · YouTube</div>
+    </div>
+    <span class="ua-link-arr" id="podArrow">›</span>
+  </div>
+  <div class="podcast-sub" id="podcastSub" style="display:none;">
+    <a href="https://podcasts.apple.com/ua/podcast/12%D1%853/id1828939896" target="_blank" class="pod-platform" onclick="trackOut('podcast_apple')">Apple Podcasts</a>
+    <a href="https://open.spotify.com/show/0v4PfK4rGs82cvaL2rJ6ID" target="_blank" class="pod-platform" onclick="trackOut('podcast_spotify')">Spotify</a>
+    <a href="https://www.youtube.com/playlist?list=PLjq-Sbkf-rUKAFluWXsE-We35N-rjdQ4w" target="_blank" class="pod-platform" onclick="trackOut('podcast_youtube')">YouTube</a>
+  </div>
+  <a href="https://ua.tribuna.com/uk/blogs/brave_hearts/" class="ua-link" target="_blank" onclick="trackOut('blog')">
+    <div class="ua-link-ico" style="background:#c0392b;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-2 6H7V7h10v2zm0 4H7v-2h10v2zm-3 4H7v-2h7v2z"/></svg>
+    </div>
+    <div class="ua-link-txt">
+      <div class="ua-link-name" id="lbl-blog-t">Матеріали про бокс</div>
+      <div class="ua-link-sub" id="lbl-blog-s">Блог 12×3: від боксерських історій до детального аналізу</div>
+    </div>
+    <span class="ua-link-arr">›</span>
+  </a>
+</div>
+
+<!-- Tournaments – both languages -->
+<div class="sec" id="toursBlock" style="margin-top:16px;display:none;">
+  <div class="sec-header">
+    <span class="sec-lbl" id="lbl-tours">Турніри</span>
+    <a class="sec-all" id="toursMore" href="/ua/cards">Всі турніри →</a>
+  </div>
+  <div id="toursList"></div>
+</div>
+
+<!-- Promoters -->
+<div class="sec" id="promoBlock" style="margin-top:16px;">
+  <div class="sec-header">
+    <span class="sec-lbl" id="lbl-promo">Промоутери</span>
+    <a class="sec-all" id="promoMore" href="/ua/promoters">Всі промоутери →</a>
+  </div>
+  <p class="promo-d" id="promoDesc">Результати, кард і статистика боїв промоутерських компаній: усі турніри, переможці та методи перемог в одному місці.</p>
+  <a class="promo-row" id="promoZuffa" href="/ua/promoters/zuffa-boxing">
+    <img class="promo-logo" src="/images/cards/zuffa-boxing.png" alt="Zuffa Boxing">
+    <div class="promo-b"><div class="promo-n">Zuffa Boxing</div><div class="promo-s" id="promoZuffaS">12 турнірів · 97 боїв</div></div>
+    <span class="promo-arr">›</span>
+  </a>
+  <a class="promo-row" id="promoUsyk" href="/ua/promoters/usyk-17-promotions">
+    <img class="promo-logo" src="/images/cards/usyk-17-promotions.png" alt="Usyk 17 Promotions">
+    <div class="promo-b"><div class="promo-n">Usyk 17 Promotions</div><div class="promo-s" id="promoUsykS">4 турніри · 42 бої</div></div>
+    <span class="promo-arr">›</span>
+  </a>
+</div>
+
+<!-- Fight archive – both languages -->
+<div class="sec" id="analyticsBlock" style="margin-top:16px;">
+  <div class="sec-header">
+    <span class="sec-lbl" id="lbl-analytics">Архів боїв</span>
+    <a class="sec-all" id="analyticsMore" href="/ua/fights">Всі бої →</a>
+  </div>
+  <div class="fights-list" id="analyticsList"></div>
+</div>
+
+<!-- Guide block – shown only when articles exist -->
+<div class="analytics-block" id="guideBlock" style="display:none;">
+  <div class="analytics-title" id="lbl-guide">Довідник боксу</div>
+  <div id="guideList"></div>
+  <a class="analytics-more" id="guideMore" href="/ua/guide">Весь довідник →</a>
+</div>
+
+
+<!-- ── Sections below scorecard ── -->
+<div class="sections-wrap" id="sectionsWrap"></div>
+
+<div class="how-block" id="howBlock">
+<h2 id="how-title">Як працює суддівська картка Boxing 12×3</h2>
+<p id="how-p1">Обери поєдинок зі списку або додай власний бій. Після кожного раунду постав бали за системою 10 балів: 10-9, 10-8 або 10-10. Картка сама рахує підсумок, а результат можна зберегти картинкою й поділитися нею.</p>
+<p id="how-p2">Є сумніви щодо правил? Прочитай, <a href="/ua/boxing-scoring">як судять бокс</a> і <a href="/ua/boxing-scorecards">як читати суддівські картки</a>. Після бою порівняй свій рахунок із рішенням суддів на сторінці поєдинку в <a href="/ua/fights">архіві боїв</a>.</p>
+<p id="how-p3">Ще на сайті: <a href="/height-compare">порівняння зросту</a> 370+ боксерів, <a href="/ua/boxers">профілі легенд</a> і <a href="/ua/boxing-history">події кожного дня в історії боксу</a>.</p>
+</div>
+
+<a href="/" aria-label="Boxing 12×3" style="display:block;margin:28px 0 0"><img src="/icon-192.png" width="36" height="36" alt="" loading="lazy" style="display:block;margin:0 auto;border-radius:8px"></a>
+<div class="site-footer">
+  <a href="/about" id="footer-about">Про проєкт</a>
+  <a href="/ua/rankings" style="margin-left:12px;" id="footer-rankings">Рейтинги</a>
+  <a href="/contact" style="margin-left:12px;" id="footer-contact">Контакти</a>
+  <a href="/widget" style="margin-left:12px;" id="footer-embed">Вбудувати картку</a>
+  <a href="/privacy" style="margin-left:12px;">Privacy Policy</a>
+</div>
+
+<!-- Custom fight overlay -->
+<div class="overlay" id="customOverlay" onclick="closeCustomOut(event)">
+  <div class="stop-modal">
+    <div class="stop-title" id="lbl-custom-title">Додати свій бій</div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-red">Ім'я червоного кута</div>
+      <input type="text" id="customRed" class="custom-input" placeholder="">
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-blue">Ім'я синього кута</div>
+      <input type="text" id="customBlue" class="custom-input" placeholder="">
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-custom-rounds">Раундів</div>
+      <select id="customRoundsSel" class="custom-input">
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12" selected>12</option>
+      </select>
+    </div>
+    <button class="stop-ok" id="lbl-custom-start" onclick="startCustom()">ПОЧАТИ</button>
+    <button class="stop-cancel" onclick="closeCustom()" id="lbl-custom-cancel">Cancel</button>
+  </div>
+</div>
+
+<!-- Stoppage overlay -->
+<div class="overlay" id="stopOverlay" onclick="closeStopOut(event)">
+  <div class="stop-modal">
+    <div class="stop-title" id="lbl-stop-title">Early finish</div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-stop-winner">Winner</div>
+      <div class="stop-opts">
+        <button class="sopt" id="sopt-red" onclick="selW('red')">–</button>
+        <button class="sopt" id="sopt-blue" onclick="selW('blue')">–</button>
+      </div>
+    </div>
+    <div class="stop-sec">
+      <div class="stop-lbl" id="lbl-stop-type">Stoppage type</div>
+      <div class="stop-opts">
+        <button class="sopt" id="sopt-KO" onclick="selT('KO')">KO</button>
+        <button class="sopt" id="sopt-TKO" onclick="selT('TKO')">TKO</button>
+        <button class="sopt" id="sopt-RTD" onclick="selT('RTD')">RTD</button>
+        <button class="sopt" id="sopt-DQ" onclick="selT('DQ')">DQ</button>
+      </div>
+    </div>
+    <button class="stop-ok" id="stopOkBtn" onclick="confirmStop()" disabled id="lbl-stop-ok">CONFIRM</button>
+    <button class="stop-cancel" onclick="closeStop()" id="lbl-stop-cancel">Cancel</button>
+  </div>
+</div>
+
+<script>
+// ── Data ──────────────────────────────────────────────────────────────────────
+var TOURNAMENTS = {
+  'mexico-vs-the-world': {nameUk:'Мексика vs Світ', nameEn:'Mexico vs The World', ts:20261031, date:'2026-10-31', dateNum:31, monthUk:'жов', monthEn:'oct',
+    kickUk:'31 жовтня · Ер-Ріяд', kickEn:'Oct 31 · Riyadh', subUk:'Альварес – Мбіллі · 9 боїв', subEn:'Alvarez vs Mbilli · 9 fights',
+    img:'/images/cards/mexico-vs-the-world.jpg'},
+  'zuffa-boxing-12': {nameUk:'Zuffa Boxing 12', nameEn:'Zuffa Boxing 12', ts:20261107, date:'2026-11-07', dateNum:7, monthUk:'лис', monthEn:'nov',
+    kickUk:'7 листопада · Лондон', kickEn:'Nov 7 · London', subUk:'Біллем-Сміт – Кларк · 9 боїв', subEn:'Billam-Smith vs Clarke · 9 fights',
+    img:'/images/cards/zuffa-boxing-12.jpg'},
+  'zuffa-boxing-13': {nameUk:'Zuffa Boxing 13', nameEn:'Zuffa Boxing 13', ts:20261114, date:'2026-11-14', dateNum:14, monthUk:'лис', monthEn:'nov',
+    kickUk:'14 листопада · Ер-Ріяд', kickEn:'Nov 14 · Riyadh', subUk:'Адамес – Ворбертон · 3 бої', subEn:'Adames vs Warburton · 3 fights',
+    img:'/images/cards/zuffa-boxing-13.jpg'},
+  'fury-joshua': {nameUk:"Ф'юрі – Джошуа", nameEn:'Fury vs Joshua', ts:20261211, date:'2026-12-11', dateNum:11, monthUk:'гру', monthEn:'dec',
+    kickUk:'11 грудня · Кардіфф', kickEn:'Dec 11 · Cardiff', subUk:'Ф\'юрі – Джошуа · 2 бої', subEn:'Fury vs Joshua · 2 fights',
+    img:'/images/cards/fury-joshua.jpg'}
+};
+const FIGHTS = [
+  // ЗАВЕРШЕНІ
+  {id:'garcia-benn',       date:'Sep 12', dateUk:'12 вересня', dateEn:'Sep 12', dateNum:12, monthUk:'вер', monthIdx:8, red:'Ryan Garcia',    redUk:'Раян Гарсія',    redEn:'Ryan Garcia',      blue:'Conor Benn', blueUk:'Конор Бенн',       blueEn:'Conor Benn',       divUk:'Напівсередня вага',       divEn:'Welterweight',       rounds:12, belts:['WBC','Zuffa'], completed:true,  hasPage:true,  featured:false},
+  {id:'opetaia-mikaelyan', dateUk:'12 вересня', dateEn:'Sep 12', dateNum:12, monthUk:'вер', monthIdx:8, red:'Jai Opetaia',   redUk:'Джей Опетая',   redEn:'Jai Opetaia',      blue:'Noel Mikaelyan', blueUk:'Ноель Мікаелян',   blueEn:'Noel Mikaelyan',   divUk:'Важка вага',         divEn:'Cruiserweight',      rounds:12, belts:['WBC'],         completed:true,  hasPage:false, featured:false},
+  {id:'ruiz-knyba',        date:'Sep 4',  dateUk:'4 вересня',  dateEn:'Sep 4',  dateNum:4,  monthUk:'вер', monthIdx:8, red:'Andy Ruiz Jr.',     redUk:'Енді Руїс',     redEn:'Andy Ruiz Jr.',    blue:'Damian Knyba', blueUk:'Дам\'ян Книба',    blueEn:'Damian Knyba',     divUk:'Надважка вага',           divEn:'Heavyweight',        rounds:12, belts:[],              completed:true,  hasPage:false, featured:false},
+  // МАЙБУТНІ
+  {id:'cruz-bravo',        date:'Sep 19', dateUk:'19 вересня', dateEn:'Sep 19', dateNum:19, monthUk:'вер', monthIdx:8, red:'Isaac Cruz',    redUk:'Ісаак Крус',    redEn:'Isaac Cruz',       blue:'Nestor Bravo', blueUk:'Нестор Браво',     blueEn:'Nestor Bravo',     divUk:'Перша напівсередня вага', divEn:'Super Lightweight',  rounds:12, belts:['WBC Interim'], completed:true,  hasPage:true,  featured:false},
+  {id:'fisher-protton',    date:'Sep 26', dateUk:'26 вересня', dateEn:'Sep 26', dateNum:26, monthUk:'вер', monthIdx:8, red:'Johnny Fisher',  redUk:'Джонні Фішер',  redEn:'Johnny Fisher',    blue:'Michael Pirotton', blueUk:'Майкл Піроттон',    blueEn:'Michael Pirotton',  divUk:'Надважка вага',         divEn:'Heavyweight',        rounds:10, belts:[],              completed:true, hasPage:true,  featured:false},
+  {id:'nishida-goodman',   date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', monthIdx:8, red:'Ryosuke Nishida',redUk:'Рьосуке Нішіда',redEn:'Ryosuke Nishida',  blue:'Sam Goodman', blueUk:'Сем Гудман',       blueEn:'Sam Goodman',      divUk:'Друга легша вага',        divEn:'Super Bantamweight', rounds:12, belts:['IBF Interim'], completed:true, hasPage:true,  featured:false},
+  {id:'inoue-nasukawa',    date:'Sep 27', dateUk:'27 вересня', dateEn:'Sep 27', dateNum:27, monthUk:'вер', monthIdx:8, red:'Takuma Inoue',  redUk:'Такума Іноуе',  redEn:'Takuma Inoue',     blue:'Tenshin Nasukawa', blueUk:'Теншін Насукава',  blueEn:'Tenshin Nasukawa', divUk:'Легша вага',         divEn:'Bantamweight',       rounds:12, belts:['WBC'], completed:true, hasPage:true,  featured:false},
+  {id:'usyk-joshua-2',     date:'Sep 25', dateUk:'25 вересня 2021', dateEn:'Sep 25, 2021', dateNum:25, monthUk:'вер', monthIdx:8, red:'Oleksandr Usyk', redUk:'Олександр Усик', redEn:'Oleksandr Usyk', blue:'Anthony Joshua', blueUk:'Ентоні Джошуа',    blueEn:'Anthony Joshua',   divUk:'Надважка вага',         divEn:'Heavyweight',        rounds:12, belts:['WBO','IBF','WBA'], completed:true,  hasPage:false, featured:false, unlisted:true},
+  {id:'lopez-lomachenko',  date:'Oct 17', dateUk:'17 жовтня 2020', dateEn:'Oct 17, 2020', dateNum:17, monthUk:'жов', monthIdx:9, red:'Vasiliy Lomachenko', redUk:'Василь Ломаченко', redEn:'Vasiliy Lomachenko', blue:'Teofimo Lopez', blueUk:'Теофімо Лопес', blueEn:'Teofimo Lopez', divUk:'Легка вага', divEn:'Lightweight', rounds:12, belts:['WBA','WBC','WBO','IBF'], completed:true, hasPage:false, featured:false, unlisted:true},
+  {id:'fury-klitschko',   date:'Nov 28', dateUk:'28 листопада 2015', dateEn:'Nov 28, 2015', dateNum:28, monthUk:'лис', monthIdx:10, red:'Wladimir Klitschko', redUk:'Володимир Кличко', redEn:'Wladimir Klitschko', blue:'Tyson Fury', blueUk:"Тайсон Ф'юрі", blueEn:'Tyson Fury', divUk:'Надважка вага', divEn:'Heavyweight', rounds:12, belts:['WBA','IBF','WBO'], completed:true, hasPage:false, featured:false, unlisted:true},
+  // ЖОВТЕНЬ - МАЙБУТНІ
+  {id:'tsiupka-beyda',     date:'Oct 3',  dateUk:'3 жовтня',  dateEn:'Oct 3',  dateNum:3,  monthUk:'жов', monthIdx:9, red:'Dmytro Tsiupka', redUk:'Дмитро Цюпка',   redEn:'Dmytro Tsiupka',   blue:'Bogdan Beyda', blueUk:'Богдан Бейда',     blueEn:'Bogdan Beyda',     divUk:'Легка вага',              divEn:'Lightweight',        rounds:10, belts:[{uk:'Україна',en:'Ukraine'}], completed:true, hasPage:true, featured:false},
+  {id:'whittaker-wallace', date:'Oct 3',  dateUk:'3 жовтня',  dateEn:'Oct 3',  dateNum:3,  monthUk:'жов', monthIdx:9, red:'Ben Whittaker',  redUk:'Бен Віттакер',   redEn:'Ben Whittaker',    blue:'Conor Wallace', blueUk:'Конор Воллес',    blueEn:'Conor Wallace',    divUk:'Напівважка вага',         divEn:'Light Heavyweight',  rounds:12, belts:[],               completed:true, hasPage:true, featured:false},
+  {id:'iglesias-zaren',    date:'Oct 8',  dateUk:'8 жовтня',  dateEn:'Oct 8',  dateNum:8,  monthUk:'жов', monthIdx:9, red:'Osleys Iglesias',redUk:'Ослейс Іглесіас',redEn:'Osleys Iglesias', blue:'Oliver Zaren', blueUk:'Олівер Зарен',     blueEn:'Oliver Zaren',     divUk:'Друга середня вага',      divEn:'Super Middleweight', rounds:12, belts:['IBF','IBO'],    completed:true, hasPage:true, featured:false},
+  {id:'dubois-wardley-2',    date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Daniel Dubois',  redUk:'Даніель Дюбуа',  redEn:'Daniel Dubois',    blue:'Fabio Wardley', blueUk:'Фабіо Вордлі',    blueEn:'Fabio Wardley',    divUk:'Надважка вага',           divEn:'Heavyweight',        rounds:12, belts:['WBO'],          completed:true, hasPage:true, featured:false},
+  {id:'jalolov-dacres',    date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Bakhodir Jalolov',redUk:'Баходір Жалолов',redEn:'Bakhodir Jalolov', blue:'Solomon Dacres', blueUk:'Соломон Дакрес',  blueEn:'Solomon Dacres',   divUk:'Надважка вага',           divEn:'Heavyweight',        rounds:10, belts:[],               completed:true, hasPage:true, featured:false},
+  {id:'fundora-hadribeaj', date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Sebastian Fundora',redUk:'Себастьян Фундора',redEn:'Sebastian Fundora', blue:'Ermal Hadribeaj', blueUk:'Ермал Хадрібеадж', blueEn:'Ermal Hadribeaj', divUk:'Перша середня вага',      divEn:'Super Welterweight', rounds:12, belts:['WBC'],          completed:true, hasPage:true, featured:false},
+  {id:'figueroa-kameda',   date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Brandon Figueroa',redUk:'Брендон Фігероа',redEn:'Brandon Figueroa', blue:'Tomoki Kameda', blueUk:'Томокі Камеда',   blueEn:'Tomoki Kameda',   divUk:'Напівлегка вага',         divEn:'Featherweight',      rounds:12, belts:['WBA'],          completed:true, cancelled:true, hasPage:true, featured:false},
+  {id:'resendiz-mazoudier',  date:'Oct 17', dateUk:'17 жовтня', dateEn:'Oct 17', dateNum:17, monthUk:'жов', monthIdx:9, red:'Armando Resendiz', redUk:'Армандо Ресендіс', redEn:'Armando Resendiz',   blue:'Koen Mazoudier', blueUk:'Коен Мазудьє',    blueEn:'Koen Mazoudier',   divUk:'Друга середня вага',      divEn:'Super Middleweight', rounds:10, belts:[],               completed:true, hasPage:true, featured:false},
+  {id:'smith-puello',      date:'Oct 24', dateUk:'24 жовтня', dateEn:'Oct 24', dateNum:24, monthUk:'жов', monthIdx:9, red:'Dalton Smith',   redUk:'Далтон Сміт',    redEn:'Dalton Smith',     blue:'Alberto Puello', blueUk:'Альберто Пуельйо', blueEn:'Alberto Puello',  divUk:'Перша напівсередня вага', divEn:'Super Lightweight',  rounds:12, belts:['WBC'],          completed:true, hasPage:true, featured:false},
+  {id:'navarrete-foster',  date:'Oct 24', dateUk:'24 жовтня', dateEn:'Oct 24', dateNum:24, monthUk:'жов', monthIdx:9, red:'Emanuel Navarrete',redUk:'Емануель Наваррете',redEn:'Emanuel Navarrete', blue:"O'Shaquie Foster", blueUk:'О\'Шакі Фостер', blueEn:"O'Shaquie Foster", divUk:'Друга напівлегка вага',   divEn:'Super Featherweight',rounds:12, belts:['WBO','IBF','WBC'], completed:true, hasPage:true, featured:false},
+  {id:'alvarez-mbilli',    date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Saul Alvarez',   redUk:'Сауль Альварес', redEn:'Saul Alvarez',     blue:'Christian Mbilli', blueUk:'Крістіан Мбіллі', blueEn:'Christian Mbilli', divUk:'Друга середня вага',      divEn:'Super Middleweight', rounds:12, belts:['WBC'],          completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'munguia-zon', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Jaime Munguia', redUk:'Хайме Мунгія', redEn:'Jaime Munguia', blue:'Nikita Zon', blueUk:'Нікіта Зонь', blueEn:'Nikita Zon', divUk:'Друга середня вага', divEn:'Super Middleweight', rounds:12, belts:[], completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'espinosa-blandon', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Rafael Espinoza', redUk:'Рафаель Еспіноса', redEn:'Rafael Espinoza', blue:'Ricardo Blandon', blueUk:'Рікардо Бландон', blueEn:'Ricardo Blandon', divUk:'Напівлегка вага', divEn:'Featherweight', rounds:12, belts:['WBO'], completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'picasso-martin', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'David Picasso', redUk:'Давід Пікассо', redEn:'David Picasso', blue:'Carl Jammes Martin', blueUk:'Карл Джеммс Мартін', blueEn:'Carl Jammes Martin', divUk:'Напівлегка вага', divEn:'Featherweight', rounds:10, belts:['WBC Silver'], completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'tsutsumi-rojas-garcia', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Reito Tsutsumi', redUk:'Рейто Цуцумі', redEn:'Reito Tsutsumi', blue:'Raimundo Rojas Garcia', blueUk:'Раймундо Рохас Гарсія', blueEn:'Raimundo Rojas Garcia', divUk:'Друга напівлегка вага', divEn:'Super Featherweight', rounds:10, belts:[], completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  {id:'rojo-biea', date:'Oct 31', dateUk:'31 жовтня', dateEn:'Oct 31', dateNum:31, monthUk:'жов', monthIdx:9, red:'Emiliano Rojo', redUk:'Еміліано Рохо', redEn:'Emiliano Rojo', blue:'Flavius Biea', blueUk:'Флавіус Біея', blueEn:'Flavius Biea', divUk:'Середня вага', divEn:'Middleweight', rounds:10, belts:[], completed:true, hasPage:true, featured:false, tournament:'mexico-vs-the-world'},
+  // ЛИСТОПАД - МАЙБУТНІ
+  {id:'lerena-forrest', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Kevin Lerena', redUk:'Кевін Лерена', redEn:'Kevin Lerena', blue:'Scott Forrest', blueUk:'Скотт Форрест', blueEn:'Scott Forrest', divUk:'Важка вага', divEn:'Cruiserweight', rounds:10, belts:['WBC International'], completed:true, hasPage:true, featured:false},
+  {id:'buatsi-hutchinson-2', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Joshua Buatsi', redUk:'Джошуа Буатсі', redEn:'Joshua Buatsi', blue:'Willy Hutchinson', blueUk:'Віллі Гатчінсон', blueEn:'Willy Hutchinson', divUk:'Напівважка вага', divEn:'Light Heavyweight', rounds:12, belts:['WBC'], completed:true, hasPage:true, featured:false},
+  {id:'billam-smith-clarke', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Chris Billam-Smith', redUk:'Кріс Біллем-Сміт', redEn:'Chris Billam-Smith', blue:'Cheavon Clarke', blueUk:'Чівон Кларк', blueEn:'Cheavon Clarke', divUk:'Важка вага', divEn:'Cruiserweight', rounds:10, belts:[], completed:true, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
+  {id:'bentley-mosley', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Denzel Bentley', redUk:'Дензел Бентлі', redEn:'Denzel Bentley', blue:'Shane Mosley Jr.', blueUk:'Шейн Мозлі мол.', blueEn:'Shane Mosley Jr.', divUk:'Середня вага', divEn:'Middleweight', rounds:10, belts:[], completed:true, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
+  {id:'parker-dzambekov', date:'Nov 7', dateUk:'7 листопада', dateEn:'Nov 7', dateNum:7, monthUk:'лис', monthIdx:10, red:'Zach Parker', redUk:'Зак Паркер', redEn:'Zach Parker', blue:'Umar Dzambekov', blueUk:'Умар Дзамбеков', blueEn:'Umar Dzambekov', divUk:'Напівважка вага', divEn:'Light Heavyweight', rounds:10, belts:[], completed:true, hasPage:true, featured:false, tournament:'zuffa-boxing-12'},
+  {id:'adames-warburton', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Carlos Adames', redUk:'Карлос Адамес', redEn:'Carlos Adames', blue:'Jerome Warburton', blueUk:'Джером Ворбертон', blueEn:'Jerome Warburton', divUk:'Договірна вага', divEn:'Catchweight', rounds:10, belts:[], completed:false, hasPage:true, featured:true, tournament:'zuffa-boxing-13'},
+  {id:'moloney-teran', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Jason Moloney', redUk:'Джейсон Молоні', redEn:'Jason Moloney', blue:'Andres Teran', blueUk:'Андрес Теран', blueEn:'Andres Teran', divUk:'Легша вага', divEn:'Bantamweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-13'},
+  {id:'surace-bednarek', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Bruno Surace', redUk:'Бруно Сюрас', redEn:'Bruno Surace', blue:'Kamil Bednarek', blueUk:'Каміл Беднарек', blueEn:'Kamil Bednarek', divUk:'Друга середня вага', divEn:'Super Middleweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false, tournament:'zuffa-boxing-13'},
+  {id:'riley-coupe', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Viddal Riley', redUk:'Віддал Райлі', redEn:'Viddal Riley', blue:'Seydi Coupe', blueUk:'Сейді Купе', blueEn:'Seydi Coupe', divUk:'Важка вага', divEn:'Cruiserweight', rounds:12, belts:['EBU'], completed:false, hasPage:true, featured:false},
+  {id:'pacheco-fulghum', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Diego Pacheco', redUk:'Дієго Пачеко', redEn:'Diego Pacheco', blue:'Darius Fulghum', blueUk:'Даріус Фулгем', blueEn:'Darius Fulghum', divUk:'Друга середня вага', divEn:'Super Middleweight', rounds:12, belts:['WBC Silver','WBO International'], completed:false, hasPage:true, featured:false},
+  {id:'olascuaga-martinez', date:'Nov 14', dateUk:'14 листопада', dateEn:'Nov 14', dateNum:14, monthUk:'лис', monthIdx:10, red:'Anthony Olascuaga', redUk:'Ентоні Оласкуага', redEn:'Anthony Olascuaga', blue:'Yuberjen Martinez', blueUk:'Юберхен Мартінес', blueEn:'Yuberjen Martinez', divUk:'Найлегша вага', divEn:'Flyweight', rounds:12, belts:['WBO'], completed:false, hasPage:true, featured:false},
+  {id:'teremoana-aiho', date:'Nov 18', dateUk:'18 листопада', dateEn:'Nov 18', dateNum:18, monthUk:'лис', monthIdx:10, red:'Teremoana Teremoana', redUk:'Теремоана мол.', redEn:'Teremoana Teremoana', blue:'Hemi Ahio', blueUk:'Хемі Агіо', blueEn:'Hemi Ahio', divUk:'Надважка вага', divEn:'Heavyweight', rounds:10, belts:[], completed:false, hasPage:true, featured:false},
+  {id:'yabuki-fajardo', date:'Nov 26', dateUk:'26 листопада', dateEn:'Nov 26', dateNum:26, monthUk:'лис', monthIdx:10, red:'Masamichi Yabuki', redUk:'Масаміці Ябукі', redEn:'Masamichi Yabuki', blue:'Miel Fajardo', blueUk:'Міель Фахардо', blueEn:'Miel Fajardo', divUk:'Найлегша вага', divEn:'Flyweight', rounds:12, belts:['IBF'], completed:false, hasPage:true, featured:false},
+  {id:'chukhadzhian-arganaras', date:'Nov 27', dateUk:'27 листопада', dateEn:'Nov 27', dateNum:27, monthUk:'лис', monthIdx:10, red:'Karen Chukhadzhian', redUk:'Карен Чухаджян', redEn:'Karen Chukhadzhian', blue:'Lucas Arganaras', blueUk:'Лукас Арганарас', blueEn:'Lucas Arganaras', divUk:'Перша напівсередня вага', divEn:'Super Lightweight', rounds:12, belts:[], completed:false, hasPage:true, featured:false},
+  {id:'kabayel-hysa', date:'Nov 28', dateUk:'28 листопада', dateEn:'Nov 28', dateNum:28, monthUk:'лис', monthIdx:10, red:'Agit Kabayel', redUk:'Агіт Кабаєл', redEn:'Agit Kabayel', blue:'Nelson Hysa', blueUk:'Нельсон Хіса', blueEn:'Nelson Hysa', divUk:'Надважка вага', divEn:'Heavyweight', rounds:12, belts:['WBC'], completed:false, hasPage:true, featured:false},
+  {id:'kraus-deines', date:'Nov 28', dateUk:'28 листопада', dateEn:'Nov 28', dateNum:28, monthUk:'лис', monthIdx:10, red:'Gradus Kraus', redUk:'Градус Краус', redEn:'Gradus Kraus', blue:'Adam Deines', blueUk:'Адам Дейнес', blueEn:'Adam Deines', divUk:'Напівважка вага', divEn:'Light Heavyweight', rounds:10, belts:['IBF European'], completed:false, hasPage:true, featured:false},
+  {id:'fury-joshua',      date:'Dec 11', dateUk:'11 грудня', dateEn:'Dec 11', dateNum:11, monthUk:'гру', monthIdx:11, red:'Tyson Fury',     redUk:"Тайсон Ф\'юрі", redEn:'Tyson Fury',     blue:'Anthony Joshua', blueUk:'Ентоні Джошуа', blueEn:'Anthony Joshua', divUk:'Надважка вага',           divEn:'Heavyweight', rounds:12, belts:['WBA (Super)'], completed:false, hasPage:true, featured:false, tournament:'fury-joshua'},
+  {id:'opetaia-wilder', date:'Dec 11', dateUk:'11 грудня', dateEn:'Dec 11', dateNum:11, monthUk:'гру', monthIdx:11, red:'Jai Opetaia', redUk:'Джей Опетая', redEn:'Jai Opetaia', blue:'Deontay Wilder', blueUk:'Деонтей Вайлдер', blueEn:'Deontay Wilder', divUk:'Надважка вага', divEn:'Heavyweight', rounds:12, belts:[], completed:false, hasPage:true, featured:false, tournament:'fury-joshua'},
+  {id:'haney-paro', date:'Dec 19', dateUk:'19 грудня', dateEn:'Dec 19', dateNum:19, monthUk:'гру', monthIdx:11, red:'Devin Haney', redUk:'Девін Хейні', redEn:'Devin Haney', blue:'Liam Paro', blueUk:'Ліам Паро', blueEn:'Liam Paro', divUk:'Напівсередня вага', divEn:'Welterweight', rounds:12, belts:['WBO','IBF'], completed:false, hasPage:true, featured:false},
+  {id:'paul-doumbe', date:'Dec 24', dateUk:'24 грудня', dateEn:'Dec 24', dateNum:24, monthUk:'гру', monthIdx:11, red:'Jake Paul', redUk:'Джейк Пол', redEn:'Jake Paul', blue:'Cedric Doumbe', blueUk:'Седрік Думбе', blueEn:'Cédric Doumbé', divUk:'Важка вага', divEn:'Cruiserweight', rounds:8, belts:[], completed:false, hasPage:true, featured:false},
+];
+
+// Lightweight "This Day in Boxing" data - titles + years only (ГП/СГ), no
+// full narrative. Full text lives on /boxing-history/september itself.
+// day -> {gp:{y,tUk,tEn}, sg:{y,tUk,tEn}?}
+const HISTORY_SEPT = {
+  1:{gp:{y:1923,tUk:"Народився Роккі Марчіано",tEn:"Rocky Marciano was born"}},
+  2:{gp:{y:1965,tUk:"Народився Леннокс Льюїс",tEn:"Lennox Lewis was born"},sg:{y:1953,tUk:"Сонні Лістон КО 1 Дон Сміт",tEn:"Sonny Liston KO 1 Don Smith"}},
+  3:{gp:{y:1908,tUk:"Томі Бернс КО 6 Біллі Ленг",tEn:"Tommy Burns KO 6 Bill Lang"}},
+  4:{gp:{y:1983,tUk:"Франциско «Кіко» Бехінес помер днів після титульного поєдинку",tEn:"Francisco \u201cKiko\u201d Bejines died days after a title bout"}},
+  5:{gp:{y:1960,tUk:"Кассіус Клей здобув золото Олімпіади",tEn:"Cassius Clay wins Olympic gold"}},
+  7:{gp:{y:1894,tUk:"Едісон зняв на плівку демонстраційний поєдинок Корбетта й Кортні",tEn:"Edison films demonstration bout between Corbett and Courtney"}},
+  8:{gp:{y:2012,tUk:"Віталій Кличко ТКО 4 Махмуд Чарр",tEn:"Vitali Klitschko TKO 4 Mahmoud Charr"},sg:{y:2017,tUk:"Давід Бенавідес SD 12 Рональд Гаврил",tEn:"David Benavidez SD 12 Ronald Gavril"}},
+  9:{gp:{y:2017,tUk:"Олександр Усик ТКО 10 Марко Хук",tEn:"Oleksandr Usyk TKO 10 Marco Huck"},sg:{y:1978,tUk:"Шугар Рей Леонард ТКО 10 Флойд Мейвезер-старший",tEn:"Sugar Ray Leonard TKO 10 Floyd Mayweather Sr."}},
+  10:{gp:{y:1993,tUk:"Хуліо Сезар Чавес D-SD 12 Пернелл Уітакер",tEn:"Julio Cesar Chavez D-SD 12 Pernell Whitaker"},sg:{y:1973,tUk:"Мухаммед Алі SD 12 Кен Нортон ІІ",tEn:"Muhammad Ali SD 12 Ken Norton II"}},
+  11:{gp:{y:2010,tUk:"Володимир Кличко КО 10 Сем Пітер ІІ",tEn:"Wladimir Klitschko KO 10 Samuel Peter II"}},
+  12:{gp:{y:1992,tUk:"Хуліо Сезар Чавес UD 12 Гектор «Мачо» Камачо",tEn:"Julio Cesar Chavez UD 12 Hector \u201cMacho\u201d Camacho"}},
+  14:{gp:{y:2013,tUk:"Флойд Мейвезер MD 12 Сауль Альварес",tEn:"Floyd Mayweather MD 12 Saul Alvarez"},sg:{y:2002,tUk:"Оскар Де Ла Хойя ТКО 11 Фернандо Варгас",tEn:"Oscar De La Hoya TKO 11 Fernando Vargas"}},
+  15:{gp:{y:1978,tUk:"Мухаммед Алі UD 12 Леон Спінкс",tEn:"Muhammad Ali UD 12 Leon Spinks"},sg:{y:2018,tUk:"Сауль Альварес MD 12 Геннадій Головкін II",tEn:"Saul Alvarez MD 12 Gennadiy Golovkin II"}},
+  16:{gp:{y:1981,tUk:"Шугар Рей Леонард ТКО 14 Томас Гернс",tEn:"Sugar Ray Leonard TKO 14 Thomas Hearns"},sg:{y:2017,tUk:"Сауль Альварес D-SD 12 Геннадій Головкін",tEn:"Saul Alvarez D-SD 12 Gennadiy Golovkin"}},
+  17:{gp:{y:2016,tUk:"Олександр Усик UD 12 Кшиштоф Гловацький",tEn:"Oleksandr Usyk UD 12 Krzysztof Glowacki"},sg:{y:2022,tUk:"Сауль Альварес UD 12 Геннадій Головкін III",tEn:"Saul Alvarez UD 12 Gennadiy Golovkin III"}},
+  18:{gp:{y:2004,tUk:"Бернард Хопкінс КО 9 Оскар Де Ла Хойя",tEn:"Bernard Hopkins KO 9 Oscar De La Hoya"},sg:{y:1999,tUk:"Фелікс Трінідад MD 12 Оскар Де Ла Хойя",tEn:"Felix Trinidad MD 12 Oscar De La Hoya"}},
+  19:{gp:{y:2017,tUk:"Помер Джейк ЛаМотта у віці 95 років",tEn:"Jake LaMotta died at the age of 95"}},
+  20:{gp:{y:1972,tUk:"Мухаммед Алі RTD 7 Флойд Паттерсон",tEn:"Muhammad Ali RTD 7 Floyd Patterson"}},
+  21:{gp:{y:2024,tUk:"Даніель Дюбуа КО 5 Ентоні Джошуа",tEn:"Daniel Dubois KO 5 Anthony Joshua"}},
+  22:{gp:{y:2025,tUk:"Теренс Кроуфорд UD 12 Сауль Альварес",tEn:"Terence Crawford UD 12 Saul Alvarez"},sg:{y:1927,tUk:"Джин Танні UD 10 Джек Демпсі ІІ",tEn:"Gene Tunney UD 10 Jack Dempsey II"}},
+  23:{gp:{y:1957,tUk:"Кармен Базіліо SD 15 Шугар Рей Робінсон",tEn:"Carmen Basilio SD 15 Sugar Ray Robinson"}},
+  24:{gp:{y:1994,tUk:"Олівер Маккол ТКО 2 Леннокс Льюїс",tEn:"Oliver McCall TKO 2 Lennox Lewis"},sg:{y:2005,tUk:"Володимир Кличко UD 12 Сем Пітер",tEn:"Wladimir Klitschko UD 12 Samuel Peter"}},
+  25:{gp:{y:2021,tUk:"Олександр Усик UD 12 Ентоні Джошуа",tEn:"Oleksandr Usyk UD 12 Anthony Joshua"},sg:{y:1999,tUk:"Володимир Кличко ТКО 8 Алекс Шульц",tEn:"Wladimir Klitschko TKO 8 Alex Schulz"}},
+  26:{gp:{y:1945,tUk:"Шугар Рей Робінсон SD 12 Джейк ЛаМотта",tEn:"Sugar Ray Robinson SD 12 Jake LaMotta"},sg:{y:2009,tUk:"Віталій Кличко RTD 10 Кріс Арреола",tEn:"Vitali Klitschko RTD 10 Chris Arreola"}},
+  27:{gp:{y:2019,tUk:"Даніель Дюбуа ТКО 1 Ебенезер Теттех",tEn:"Daniel Dubois TKO 1 Ebenezer Tetteh"}},
+  28:{gp:{y:1976,tUk:"Мухаммед Алі UD 15 Кен Нортон ІІІ",tEn:"Muhammad Ali UD 15 Ken Norton III"}},
+  29:{gp:{y:2000,tUk:"Бернард Хопкінс ТКО 12 Фелікс Трінідад",tEn:"Bernard Hopkins TKO 12 Felix Trinidad"},sg:{y:1977,tUk:"Мухаммед Алі UD 15 Ерні Шаверс",tEn:"Muhammad Ali UD 15 Ernie Shavers"}},
+  30:{gp:{y:2023,tUk:"Сауль Альварес UD 12 Джермелл Чарло",tEn:"Saul Alvarez UD 12 Jermell Charlo"}}
+};
+
+const HISTORY_OCT = {
+  1:{gp:{y:1975,tUk:"Мухаммед Алі RTD 14 Джо Фрейзер",tEn:"Muhammad Ali RTD 14 Joe Frazier"}},
+  2:{gp:{y:1980,tUk:"Ларрі Холмс TKO 11 Мухаммед Алі",tEn:"Larry Holmes TKO 11 Muhammad Ali"}},
+  3:{gp:{y:1981,tUk:"Алексис Аргуельо ТКО 14 Рей Манчині",tEn:"Alexis Arguello TKO 14 Ray Mancini"},sg:{y:1981,tUk:"Марвін Хаглер ТКО 11 Мустафа Хамшо",tEn:"Marvin Hagler TKO 11 Mustafa Hamsho"}},
+  4:{gp:{y:2003,tUk:"Евандер Холіфілд ТКО 9 Джеймс Тоні",tEn:"Evander Holyfield TKO 9 James Toney"}},
+  5:{gp:{y:2013,tUk:"Володимир Кличко UD 12 Олександр Повєткін",tEn:"Wladimir Klitschko UD 12 Alexander Povetkin"},sg:{y:2019,tUk:"Геннадій Головкін UD 12 Сергій Дерев'янченко",tEn:"Gennadiy Golovkin UD 12 Sergiy Derevyanchenko"}},
+  6:{gp:{y:1978,tUk:"Народився Ріккі Хаттон",tEn:"Ricky Hatton was born"}},
+  7:{gp:{y:2000,tUk:"Полі Айяла UD 12 Джонні Тапія",tEn:"Paulie Ayala UD 12 Johnny Tapia"}},
+  9:{gp:{y:2021,tUk:"Тайсон Ф'юрі КО 11 Деонтей Вайлдер",tEn:"Tyson Fury KO 11 Deontay Wilder"}},
+  10:{gp:{y:2001,tUk:"Помер Едді Фатч",tEn:"Eddie Futch died"}},
+  11:{gp:{y:2008,tUk:"Віталій Кличко RTD 8 Сем Пітер",tEn:"Vitali Klitschko RTD 8 Samuel Peter"}},
+  12:{gp:{y:2013,tUk:"Василь Ломаченко КО 4 Хосе Луїс Рамірес",tEn:"Vasiliy Lomachenko KO 4 Jose Luis Ramirez"}},
+  13:{gp:{y:1939,tUk:"Генрі Армстронг КО 2 Говард Скотт",tEn:"Henry Armstrong KO 2 Howard Scott"},sg:{y:1945,tUk:"Народився Джо Кортес",tEn:"Joe Cortez was born"}},
+  14:{gp:{y:1949,tUk:"Еззард Чарльз КО 8 Пет Валентино",tEn:"Ezzard Charles KO 8 Pat Valentino"}},
+  15:{gp:{y:1858,tUk:"Народився Джон Лоуренс Салліван",tEn:"John Lawrence Sullivan was born"}},
+  16:{gp:{y:2010,tUk:"Віталій Кличко UD 12 Шеннон Бріггс",tEn:"Vitali Klitschko UD 12 Shannon Briggs"},sg:{y:1987,tUk:"Майк Тайсон КО 7 Тайрелл Біггз",tEn:"Mike Tyson KO 7 Tyrell Biggs"}},
+  17:{gp:{y:2020,tUk:"Теофімо Лопес UD 12 Василь Ломаченко",tEn:"Teofimo Lopez UD 12 Vasiliy Lomachenko"}},
+  18:{gp:{y:1991,tUk:"Рей Мерсер КО 5 Томмі Моррісон",tEn:"Ray Mercer KO 5 Tommy Morrison"}},
+  19:{gp:{y:1985,tUk:"Лі Рой Мерфі КО 12 Чісанда Мутті",tEn:"Lee Roy Murphy KO 12 Chisanda Mutti"},sg:{y:1987,tUk:"Марвін Хаглер ТКО 3 Мустафа Хамшо",tEn:"Marvin Hagler TKO 3 Mustafa Hamsho"}},
+  20:{gp:{y:1979,tUk:"Джон Тейт UD 15 Геррі Кутзее",tEn:"John Tate UD 15 Gerrie Coetzee"}},
+  21:{gp:{y:2000,tUk:"Флойд Мейвезер ТКО 9 Емануель Огастес",tEn:"Floyd Mayweather TKO 9 Emanuel Augustus"}},
+  22:{gp:{y:1966,tUk:"Карлос Ортіс ТКО 5 Шугар Рамос",tEn:"Carlos Ortiz TKO 5 Sugar Ramos"}},
+  23:{gp:{y:1962,tUk:"Дік Тайгер UD 15 Джин Фулмер",tEn:"Dick Tiger UD 15 Gene Fullmer"},sg:{y:1998,tUk:"Віталій Кличко ТКО 2 Маріо Шіссер",tEn:"Vitali Klitschko TKO 2 Mario Schisser"}},
+  25:{gp:{y:1990,tUk:"Евандер Холіфілд КО 3 Джеймс «Бастер» Дуглас",tEn:"Evander Holyfield KO 3 James \u201cBuster\u201d Douglas"}},
+  26:{gp:{y:2013,tUk:"Бернард Хопкінс UD 12 Каро Мурат",tEn:"Bernard Hopkins UD 12 Karo Murat"}},
+  28:{gp:{y:2023,tUk:"Тайсон Ф'юрі SD 10 Френсіс Нганну",tEn:"Tyson Fury SD 10 Francis Ngannou"}},
+  29:{gp:{y:1960,tUk:"Кассіус Клей UD 6 Танні Хансейкер",tEn:"Cassius Clay UD 6 Tunney Hunsaker"},sg:{y:2005,tUk:"Сауль Альварес ТКО 4 Абрахам Гонсалес",tEn:"Saul Alvarez TKO 4 Abraham Gonzalez"}},
+  30:{gp:{y:1974,tUk:"Мухаммед Алі КО 8 Джордж Форман",tEn:"Muhammad Ali KO 8 George Foreman"}},
+  31:{gp:{y:2020,tUk:"Олександр Усик UD 12 Дерек Чісора",tEn:"Oleksandr Usyk UD 12 Derek Chisora"}}
+};
+
+const HISTORY_NOV = {
+  1:{gp:{y:2008,tUk:"Вік Дарчинян KO 9 Крістіан Міхарес",tEn:"Vic Darchinyan KO 9 Cristian Mijares"},sg:{y:2003,tUk:"Флойд Мейвезер TKO 7 Філіп Н'Доу",tEn:"Floyd Mayweather TKO 7 Phillip N'Dou"}},
+  2:{gp:{y:1944,tUk:"Народився Майкл Баффер",tEn:"Michael Buffer was born"},sg:{y:2019,tUk:"Сауль Альварес KO 11 Сергій Ковальов",tEn:"Saul Alvarez KO 11 Sergey Kovalev"}},
+  3:{gp:{y:1984,tUk:"Хосе Луїс Рамірес TKO 4 Едвін Росаріо",tEn:"Jose Luis Ramirez TKO 4 Edwin Rosario"}},
+  4:{gp:{y:1995,tUk:"Ріддік Боу TKO 8 Евандер Холіфілд",tEn:"Riddick Bowe TKO 8 Evander Holyfield"},sg:{y:2006,tUk:"Флойд Мейвезер UD 12 Карлос Балдомір",tEn:"Floyd Mayweather UD 12 Carlos Baldomir"}},
+  5:{gp:{y:1994,tUk:"Джордж Форман KO 10 Майкл Мурер",tEn:"George Foreman KO 10 Michael Moorer"}},
+  6:{gp:{y:1993,tUk:"Евандер Холіфілд MD 12 Ріддік Боу",tEn:"Evander Holyfield MD 12 Riddick Bowe"},sg:{y:1981,tUk:"Ларрі Холмс TKO 11 Реналдо Снайпс",tEn:"Larry Holmes TKO 11 Renaldo Snipes"}},
+  7:{gp:{y:1994,tUk:"Народився Джервонта Девіс",tEn:"Gervonta Davis was born"},sg:{y:1972,tUk:"Народився Хасім Рахман",tEn:"Hasim Rahman was born"}},
+  8:{gp:{y:1997,tUk:"Евандер Холіфілд RTD 8 Майкл Мурер",tEn:"Evander Holyfield RTD 8 Michael Moorer"}},
+  9:{gp:{y:1996,tUk:"Евандер Холіфілд TKO 11 Майк Тайсон",tEn:"Evander Holyfield TKO 11 Mike Tyson"},sg:{y:2013,tUk:"Олександр Усик TKO 5 Феліпе Ромеро",tEn:"Oleksandr Usyk TKO 5 Felipe Romero"}},
+  10:{gp:{y:1983,tUk:"Марвін Хаглер UD 15 Роберто Дюран",tEn:"Marvin Hagler UD 15 Roberto Duran"},sg:{y:2018,tUk:"Олександр Усик TKO 8 Тоні Белью",tEn:"Oleksandr Usyk TKO 8 Tony Bellew"}},
+  11:{gp:{y:2000,tUk:"Леннокс Льюїс UD 12 Девід Туа",tEn:"Lennox Lewis UD 12 David Tua"}},
+  13:{gp:{y:1982,tUk:"Рей Манчіні KO 14 Кім Дук-Ку",tEn:"Ray Mancini KO 14 Duk Koo Kim"},sg:{y:1999,tUk:"Леннокс Льюїс UD 12 Евандер Холіфілд",tEn:"Lennox Lewis UD 12 Evander Holyfield"}},
+  15:{gp:{y:2014,tUk:"Володимир Кличко KO 5 Кубрат Пулєв",tEn:"Wladimir Klitschko KO 5 Kubrat Pulev"},sg:{y:2024,tUk:"Джейк Пол UD 8 Майк Тайсон",tEn:"Jake Paul UD 8 Mike Tyson"}},
+  16:{gp:{y:1996,tUk:"Дебют братів Кличків у професійному боксі",tEn:"Klitschko brothers' professional debuts"}},
+  17:{gp:{y:2001,tUk:"Леннокс Льюїс KO 4 Хасім Рахман",tEn:"Lennox Lewis KO 4 Hasim Rahman"}},
+  19:{gp:{y:2005,tUk:"Флойд Мейвезер TKO 6 Шармба Мітчелл",tEn:"Floyd Mayweather TKO 6 Sharmba Mitchell"}},
+  22:{gp:{y:1986,tUk:"Майк Тайсон TKO 2 Тревор Бербік",tEn:"Mike Tyson TKO 2 Trevor Berbick"}},
+  23:{gp:{y:2002,tUk:"Віталій Кличко TKO 10 Ларрі Дональд",tEn:"Vitali Klitschko TKO 10 Larry Donald"}},
+  25:{gp:{y:1980,tUk:"Рей Леонард TKO 8 Роберто Дюран",tEn:"Sugar Ray Leonard TKO 8 Roberto Duran"},sg:{y:1977,tUk:"Томас Хернс KO 2 Джером Гілл",tEn:"Thomas Hearns KO 2 Jerome Hill"}},
+  26:{gp:{y:2011,tUk:"Сауль Альварес TKO 5 Керміт Цинтрон",tEn:"Saul Alvarez TKO 5 Kermit Cintron"}},
+  28:{gp:{y:2015,tUk:"Тайсон Ф'юрі UD 12 Володимир Кличко",tEn:"Tyson Fury UD 12 Wladimir Klitschko"}},
+  30:{gp:{y:1979,tUk:"Рей Леонард TKO 15 Вілфред Бенітес",tEn:"Sugar Ray Leonard TKO 15 Wilfred Benitez"}}
+};
+
+// Місяці, покриті "Цей день в історії" на головній. Останній запис у
+// списку - запасний варіант, коли поточний місяць ще не охоплений.
+const HISTORY_MONTHS = [
+  {idx:8, slug:'september', data:HISTORY_SEPT, days:30, lblUk:'Вер', lblEn:'Sep', nameUk:'вересня', nameEn:'Sep'},
+  {idx:9, slug:'october',   data:HISTORY_OCT,  days:31, lblUk:'Жов', lblEn:'Oct', nameUk:'жовтня',  nameEn:'Oct'},
+  {idx:10, slug:'november',  data:HISTORY_NOV,  days:30, lblUk:'Лис', lblEn:'Nov', nameUk:'листопада', nameEn:'Nov'}
+];
+
+// Guide articles – add entry when article is ready: {id, titleUk, titleEn}
+const GUIDE_ARTICLES = [
+  {id:'boxing-scoring', titleUk:'Як судять бокс: система 10 балів', titleEn:'How Boxing Scoring Works: The 10-Point Must System'},
+  {id:'boxing-scorecards', titleUk:'Як читати суддівські картки в боксі', titleEn:'How to Read Boxing Scorecards'},
+  {id:'boxing-organizations', titleUk:'WBC, WBA, IBF та WBO: що це за організації і як влаштовані пояси', titleEn:'WBC, WBA, IBF and WBO Explained: Boxing Organizations'},
+  {id:'boxing-knockouts', titleUk:'Нокаут і нокдаун у боксі: що це таке і як влаштований відлік рефері', titleEn:'Knockout and knockdown in boxing: what they are and how the referee\'s count works'},
+  {id:'boxing-weight-classes', titleUk:'Вагові категорії в боксі: скільки їх і чим відрізняються', titleEn:'Boxing weight classes: how many there are and how they differ'},
+];
+
+const I18N = {
+  en: {
+    sub:'Boxing scorecard',
+howTitle:'How the Boxing 12×3 scorecard works',
+howP1:'Pick a fight from the list or add your own. After each round, score it with the 10-point must system: 10-9, 10-8 or 10-10. The scorecard totals the result for you, and you can save it as an image and share it.',
+howP2:'Not sure about the rules? Read <a href="/en/boxing-scoring">how boxing scoring works</a> and <a href="/en/boxing-scorecards">how to read boxing scorecards</a>. After the fight, compare your score with the judges\' decision on the fight page in the <a href="/en/fights">fight archive</a>.',
+howP3:'Also on the site: <a href="/en/height-compare">height comparison</a> of 370+ boxers, <a href="/en/boxers">legend profiles</a> and <a href="/en/boxing-history">what happened on each day in boxing history</a>.',
+hintMore:'More about the 10-point system →',
+footAbout:'About', footContact:'Contact', footEmbed:'Embed the scorecard',
+    secTools:'Tools', secGuide:'Boxing Guide', secFights:'Fight Stats',
+    secAllArticles:'All articles →', secAllFights:'All fights →',
+    toolTry:'Try it', toolSoon:'Soon',
+    toolHeightName:'Height Comparison', toolHeightDesc:'370+ boxers, 17 divisions',
+    toolBoxersName:'Boxers', toolBoxersDesc:'Champion profiles by division',
+    toolPicksDesc:'Who will win?', toolPicksNoFight:'Predict the next fight',
+    footRank:'Rankings',
+    toolRankName:'Boxing Rankings', toolRankDesc:'WBA, WBC, IBF, WBO and champions', toolView:'View',
+    toolFansName:'Fan Verdict', toolFansDesc:'Scorecard aggregate and picks',
+    vsWord:'vs', monthSep:'Sep', statistics:'Statistics', redCorner:'Red corner', blueCorner:'Blue corner',
+    win:'WIN', pts:'PTS', total:'TOTAL\nSCORE',
+    share:'SHARE SCORECARD', stopBtn:'⏹ Early finish', reset:'Reset',
+    modal:'Share your scorecard', dl:'⬇ Download image', sh:'↑ Share',
+    cp:'📋 Copy text', cl:'Close', sel:'– Select a fight –', customFight:'+ Add your own fight',
+    stopTitle:'Early finish', stopWinner:'Winner', stopType:'Stoppage type',
+    stopOk:'CONFIRM', stopCancel:'Cancel',
+    winner: n => n + ' wins', draw:'Draw', copied:'✓ Copied!', dled:'✓ Downloaded!', customTitle:'Add your own fight', customRedName:'Red corner name', customBlueName:'Blue corner name', customRounds:'Rounds', customStart:'START SCORING', moreBoxing:'More boxing from 12×3', tgTitle:"Author's Telegram", tgSub:'Boxing talk – serious and not so much', podTitle:'Podcast «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Boxing articles', blogSub:'12×3 blog: from boxing stories to deep analysis',
+    earlyStop:'EARLY STOPPAGE'
+  },
+  uk: {
+    sub:'Боксерська суддівська картка',
+howTitle:'Як працює суддівська картка Boxing 12×3',
+howP1:'Обери поєдинок зі списку або додай власний бій. Після кожного раунду постав бали за системою 10 балів: 10-9, 10-8 або 10-10. Картка сама рахує підсумок, а результат можна зберегти картинкою й поділитися нею.',
+howP2:'Є сумніви щодо правил? Прочитай, <a href="/ua/boxing-scoring">як судять бокс</a> і <a href="/ua/boxing-scorecards">як читати суддівські картки</a>. Після бою порівняй свій рахунок із рішенням суддів на сторінці поєдинку в <a href="/ua/fights">архіві боїв</a>.',
+howP3:'Ще на сайті: <a href="/height-compare">порівняння зросту</a> 370+ боксерів, <a href="/ua/boxers">профілі легенд</a> і <a href="/ua/boxing-history">події кожного дня в історії боксу</a>.',
+hintMore:'Докладніше про систему 10 балів →',
+footAbout:'Про проєкт', footContact:'Контакти', footEmbed:'Вбудувати картку',
+    secTools:'Інструменти', secGuide:'Довідник боксу', secFights:'Статистика боїв',
+    secAllArticles:'Всі статті →', secAllFights:'Всі бої →',
+    toolTry:'Спробувати', toolSoon:'Скоро',
+    toolHeightName:'Порівняння габаритів', toolHeightDesc:'370+ боксерів, 17 дивізіонів',
+    toolBoxersName:'Боксери', toolBoxersDesc:'Профілі чемпіонів за дивізіонами',
+    toolPicksDesc:'Хто переможе?', toolPicksNoFight:'Прогноз на наступний бій',
+    footRank:'Рейтинги',
+    toolRankName:'Рейтинги боксу', toolRankDesc:'WBA, WBC, IBF, WBO і чемпіони', toolView:'Дивитись',
+    toolFansName:'Думка фанатів', toolFansDesc:'Агрегат карток і прогнозів',
+    vsWord:'vs', monthSep:'Вер', statistics:'Статистика', redCorner:'Червоний кут', blueCorner:'Синій кут',
+    win:'РАУНД', pts:'БАЛИ', total:'РАХУНОК',
+    share:'ПОДІЛИТИСЬ КАРТКОЮ', stopBtn:'⏹ Достроковий фінал', reset:'Скинути',
+    modal:'Поділитись карткою', dl:'⬇ Завантажити картку', sh:'↑ Поділитись',
+    cp:'📋 Скопіювати текст', cl:'Закрити', sel:'– Оберіть бій –', customFight:'+ Додати свій бій',
+    stopTitle:'Достроковий фінал', stopWinner:'Переможець', stopType:'Тип зупинки',
+    stopOk:'ПІДТВЕРДИТИ', stopCancel:'Скасувати',
+    winner: n => n + ' виграє', draw:'Нічия', copied:'✓ Скопійовано!', dled:'✓ Завантажено!', customTitle:'Додати свій бій', customRedName:"Ім'я червоного кута", customBlueName:"Ім'я синього кута", customRounds:'Раундів', customStart:'ПОЧАТИ', moreBoxing:'Більше боксу від 12×3', tgTitle:'Telegram-канал автора', tgSub:'Спілкуємось про бокс серйозно та не дуже', podTitle:'Подкаст «12×3»', podSub:'Apple · Spotify · YouTube', blogTitle:'Матеріали про бокс', blogSub:'Блог 12×3: від боксерських історій до детального аналізу',
+    earlyStop:'ДОСТРОКОВИЙ ФІНАЛ'
+  }
+};
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let lang = 'uk';
+function fightTime(f) {
+  var s = f.date || f.dateEn || '';
+  if (!/\d{4}/.test(s)) s += ', 2026';
+  var t = new Date(s).getTime();
+  return isNaN(t) ? 0 : t;
+}
+// Latest completed fights that have their own page (newest first; on the same date the later entry wins)
+function recentFights(n) {
+  return FIGHTS.map(function(f, i){ return {f: f, i: i}; })
+    .filter(function(o){ return o.f.completed && !o.f.cancelled && o.f.hasPage && !o.f.unlisted; })
+    .sort(function(a, b){ return (fightTime(b.f) - fightTime(a.f)) || (b.i - a.i); })
+    .slice(0, n).map(function(o){ return o.f; });
+}
+function getDefaultFight() {
+  const upcoming = FIGHTS.filter(f => !f.completed).sort((a, b) => new Date(a.date + ', 2026') - new Date(b.date + ', 2026'));
+  if (upcoming.length) return upcoming[0];
+  const recent = recentFights(1);
+  return recent.length ? recent[0] : FIGHTS[0];
+}
+let fight = getDefaultFight();
+let scores = mkScores();
+let stoppage = null;  // {winner:'red'|'blue', type, round}
+let selWinner = null;
+let selType = null;
+let openPk = null;
+
+function mkScores() { return Array.from({length:12}, () => ({red:null, blue:null})); }
+function rn() { return lang==='uk' ? fight.redUk : fight.red; }
+function bn() { return lang==='uk' ? fight.blueUk : fight.blue; }
+function t(k, ...a) { const v=I18N[lang][k]; return typeof v==='function' ? v(...a) : v; }
+function scoredCount() {
+  return scores.slice(0, fight.rounds).filter(s => s.red!==null && s.blue!==null).length;
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+loadState();
+renderAll();
+renderSections();
+
+// Widget mode – hide non-essential elements
+const isWidget = new URLSearchParams(window.location.search).has('widget');
+// Прибираємо ?lang= з адреси, коли сторінку відкрито за посиланням /?lang=uk (мова вже застосована).
+if (new URLSearchParams(window.location.search).has('lang')) syncUrlToLang(lang);
+if (isWidget) {
+  ['uaLinks','toursBlock','promoBlock','analyticsBlock','guideBlock','sectionsWrap','howBlock'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.classList.add('widget-hidden');
+  });
+  var brandEl = document.querySelector('.brand');
+  if (brandEl) brandEl.classList.add('widget-hidden');
+  var langBarEl = document.querySelector('.lang-bar');
+  if (langBarEl) langBarEl.classList.add('widget-hidden');
+  // Вбудовування конкретного бою (?widget=1&fight=ID) - ховаємо ще й
+  // дропдаун вибору іншої пари та підвал сайту, які тут не мають сенсу.
+  var hasSpecificFight = new URLSearchParams(window.location.search).has('fight');
+  if (hasSpecificFight) {
+    var fightSelWrap = document.querySelector('.fw');
+    if (fightSelWrap) fightSelWrap.classList.add('widget-hidden');
+    var siteFooterEl = document.querySelector('.site-footer');
+    if (siteFooterEl) siteFooterEl.classList.add('widget-hidden');
+  }
+  var hintWrap = document.querySelector('.hint-toggle');
+  // Show hint open on first visit
+  if (!localStorage.getItem('b12x3_hint_seen')) {
+    var hintBody = document.getElementById('hintBody');
+    if (hintBody) {
+      hintBody.classList.add('open');
+      var arr = document.querySelector('.hint-arr');
+      if (arr) arr.textContent = '▲';
+    }
+  }
+  if (hintWrap) hintWrap.classList.add('widget-hidden');
+  var pb = document.getElementById('poweredBy');
+  if (pb) pb.style.display = 'block';
+}
+
+// ── Language ──────────────────────────────────────────────────────────────────
+
+// ── Sections below scorecard ─────────────────────────────────────────────────
+function renderSections() {
+  var wrap = document.getElementById('sectionsWrap');
+  if (!wrap) return;
+  var isUk = lang === 'uk';
+  var T = t;
+
+  // Guide articles
+  var guideItems = [
+    {id:'boxing-scoring',       titleUk:'Як судять бокс',              subUk:'Система 10 балів',
+                                titleEn:'How Boxing Scoring Works',     subEn:'The 10-Point Must System'},
+    {id:'boxing-scorecards',    titleUk:'Як читати суддівські записки', subUk:'Особливості підрахунку',
+                                titleEn:'How to Read a Scorecard',      subEn:'Judging criteria explained'},
+    {id:'boxing-organizations', titleUk:'Що таке WBA, WBC, WBO та IBF',subUk:'Розповідаємо про головні організації',
+                                titleEn:'WBC, WBA, IBF and WBO Explained', subEn:'Major boxing organizations'},
+  ];
+
+  // Upcoming fights (not completed)
+  var upcoming = FIGHTS.filter(function(f){ return !f.completed; });
+
+  // Picks tile - link to featured fight page when available
+  var featuredFight = FIGHTS.find(function(f){ return f.featured && !f.completed && f.hasPage; });
+  var langPath = isUk ? 'ua' : 'en';
+  var picksName = isUk ? 'Ваш прогноз на наступний бій' : 'Your pick for the next fight';
+  var picksActive = !!featuredFight;
+  var picksHref = featuredFight ? '/' + langPath + '/' + featuredFight.id : '#';
+
+  var html = '';
+
+  // ── THIS DAY IN BOXING WIDGET ──
+  (function(){
+    var now = new Date();
+    var curIdx = now.getMonth();
+    // Шукаємо поточний місяць серед покритих; якщо поточний місяць ще не
+    // зроблено - беремо останній (найновіший) покритий місяць, день 1,
+    // а не мовчки показуємо застарілий перший місяць зі списку.
+    var month = null;
+    for(var i=0;i<HISTORY_MONTHS.length;i++){ if(HISTORY_MONTHS[i].idx === curIdx){ month = HISTORY_MONTHS[i]; break; } }
+    var isCovered = !!month;
+    if(!month) month = HISTORY_MONTHS[HISTORY_MONTHS.length-1];
+    var todayDay = isCovered ? now.getDate() : 1;
+    var entryDay = todayDay;
+    // fall back forward to the nearest day within the month that has data
+    var guard = 0;
+    while(!month.data[entryDay] && guard < month.days){ entryDay = entryDay >= month.days ? 1 : entryDay + 1; guard++; }
+    var entry = month.data[entryDay];
+    if(entry){
+      var gpTitle = isUk ? entry.gp.tUk : entry.gp.tEn;
+      var eyebrow = isUk ? 'Цей день в історії боксу' : 'This Day in Boxing';
+      var monthLbl = isUk ? month.lblUk : month.lblEn;
+      var btn1 = (isUk ? 'Події ' + entryDay + ' ' + month.nameUk : 'Events on ' + month.nameEn + ' ' + entryDay);
+      var btn2 = isUk ? 'Визначні боксерські дні' : 'This Day in Boxing';
+      var topLink = isUk ? 'Усі події місяця' : 'All events of the month';
+      var hrefBase = '/' + langPath + '/boxing-history/' + month.slug;
+      var hrefHub = '/' + langPath + '/boxing-history';
+      html += '<a class="hist-top-link" href="' + hrefBase + '">' + topLink + ' →</a>';
+      html += '<div class="hist-widget">';
+      html += '<div class="hist-badge"><div class="hist-badge-month">' + monthLbl + '</div><div class="hist-badge-day">' + entryDay + '</div><div class="hist-badge-year">' + entry.gp.y + '</div></div>';
+      html += '<div class="hist-perf"></div>';
+      html += '<div class="hist-content">';
+      html += '<div class="hist-eyebrow"><span>' + eyebrow + '</span>';
+      html += '<svg class="hist-clock" width="20" height="20" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="none" stroke="#ccc" stroke-width="1.2"/><line x1="9" y1="9" x2="9" y2="4.5" stroke="#888" stroke-width="1.2" stroke-linecap="round"/><line class="hist-hand" x1="9" y1="9" x2="12.2" y2="9" stroke="#c0392b" stroke-width="1.2" stroke-linecap="round"/></svg>';
+      html += '</div>';
+      html += '<div class="hist-title">' + gpTitle + '</div>';
+      if(entry.sg){
+        var sgTitle = isUk ? entry.sg.tUk : entry.sg.tEn;
+        var alsoLbl = isUk ? 'Також ' + entry.sg.y : 'Also ' + entry.sg.y;
+        html += '<div class="hist-sg"><div class="hist-sg-year">' + alsoLbl + '</div><div class="hist-sg-title">' + sgTitle + '</div></div>';
+      }
+      html += '<div class="hist-btns">';
+      html += '<a class="hist-btn primary" href="' + hrefBase + '#d' + entryDay + '">' + btn1 + '</a>';
+      html += '<a class="hist-btn secondary" href="' + hrefHub + '">' + btn2 + '</a>';
+      html += '</div></div></div>';
+    }
+  })();
+
+  // ── TOOLS ──
+  html += '<div class="sec">';
+  html += '<div class="sec-header"><span class="sec-lbl">' + t('secTools') + '</span></div>';
+  html += '<div class="tools-list">';
+
+  // Height compare
+  html += '<a class="tool-row" href="/height-compare">';
+  html += '<div class="tool-icon">📏</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + t('toolHeightName') + '</div>';
+  html += '<div class="tool-desc">' + t('toolHeightDesc') + '</div></div>';
+  html += '<span class="tool-badge cta">' + t('toolTry') + '</span>';
+  html += '<span class="tool-arr">›</span></a>';
+
+  // Boxers catalog
+  html += '<a class="tool-row" href="/' + langPath + '/boxers">';
+  html += '<div class="tool-icon">🥊</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + t('toolBoxersName') + '</div>';
+  html += '<div class="tool-desc">' + t('toolBoxersDesc') + '</div></div>';
+  html += '<span class="tool-badge cta">' + t('toolTry') + '</span>';
+  html += '<span class="tool-arr">›</span></a>';
+
+  // Rankings
+  html += '<a class="tool-row" href="/' + langPath + '/rankings">';
+  html += '<div class="tool-icon">🏆</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + t('toolRankName') + '</div>';
+  html += '<div class="tool-desc">' + t('toolRankDesc') + '</div></div>';
+  html += '<span class="tool-badge cta">' + t('toolView') + '</span>';
+  html += '<span class="tool-arr">›</span></a>';
+
+  // Picks
+  if (picksActive) {
+    html += '<a class="tool-row" href="' + picksHref + '">';
+  } else {
+    html += '<div class="tool-row">';
+  }
+  html += '<div class="tool-icon">🎯</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + picksName + '</div>';
+  html += '<div class="tool-desc">' + t('toolPicksDesc') + '</div></div>';
+  html += '<span class="tool-badge ' + (picksActive ? 'cta' : 'soon') + '">' + (picksActive ? t('toolTry') : t('toolSoon')) + '</span>';
+  if (picksActive) html += '<span class="tool-arr">›</span>';
+  html += picksActive ? '</a>' : '</div>';
+
+  // Fan verdict
+  html += '<div class="tool-row dim">';
+  html += '<div class="tool-icon dim-icon">👥</div>';
+  html += '<div class="tool-body"><div class="tool-name">' + t('toolFansName') + '</div>';
+  html += '<div class="tool-desc">' + t('toolFansDesc') + '</div></div>';
+  html += '<span class="tool-badge soon">' + t('toolSoon') + '</span>';
+  html += '</div>';
+
+  html += '</div></div>'; // tools-list, sec
+
+  wrap.innerHTML = html;
+}
+
+function setLang(l) {
+  lang = l;
+  // Update html lang attribute
+  document.documentElement.lang = l;
+  // Update page title
+  document.title = l === 'en'
+    ? 'Boxing 12×3 – Interactive Boxing Scorecard'
+    : 'Boxing 12×3 – Інтерактивна суддівська картка боксерського бою';
+  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
+  syncUrlToLang(l);
+  renderAll();
+  renderSections();
+}
+
+// Адреса завжди відповідає мові: / - українська, /en - англійська (без перезавантаження).
+function syncUrlToLang(l) {
+  try {
+    if (isWidget) return;
+    var u = new URL(window.location.href);
+    u.searchParams.delete('lang');
+    u.pathname = (l === 'en') ? '/en/scorecard' : '/ua/scorecard';
+    history.replaceState(null, '', u.pathname + u.search + u.hash);
+  } catch (e) {}
+}
+
+// ── Full render ───────────────────────────────────────────────────────────────
+function buildAnalyticsBlock() {
+  const block = document.getElementById('analyticsBlock');
+  const list = document.getElementById('analyticsList');
+  const title = document.getElementById('lbl-analytics');
+  const more = document.getElementById('analyticsMore');
+  const isUk = lang === 'uk';
+
+  // ── Tournaments block ──
+  var tb = document.getElementById('toursBlock'), tl = document.getElementById('toursList');
+  if (tb && tl) {
+    var nowT = new Date();
+    function tDay(k, plus){ var p = TOURNAMENTS[k].date.split('-'); return new Date(+p[0], +p[1] - 1, +p[2] + plus, 0, 0, 0); }
+    var tk = Object.keys(TOURNAMENTS).filter(function(k){ return nowT < tDay(k, 3); }).sort(function(a, b){ return TOURNAMENTS[a].ts - TOURNAMENTS[b].ts; }).slice(0, 3);
+    if (tk.length) {
+      document.getElementById('lbl-tours').textContent = isUk ? 'Турніри' : 'Events';
+      var tmore = document.getElementById('toursMore');
+      tmore.textContent = isUk ? 'Всі турніри →' : 'All events →';
+      tmore.href = isUk ? '/ua/cards' : '/en/cards';
+      var th = '';
+      tk.forEach(function(k, i){
+        var T0 = TOURNAMENTS[k];
+        var href = (isUk ? '/ua/cards/' : '/en/cards/') + k;
+        if (i === 0) {
+          th += '<a class="tt" href="' + href + '" onclick="trackFightOpen(\'' + k + '\')">' + (T0.img ? '<img src="' + T0.img + '" alt="' + (isUk ? T0.nameUk : T0.nameEn) + '">' : '');
+          th += '<div class="tt-b"><div class="tt-k">' + (isUk ? T0.kickUk : T0.kickEn) + '</div><div class="tt-t">' + (isUk ? T0.nameUk : T0.nameEn) + '</div>';
+          th += '<div class="tt-s">' + (isUk ? T0.subUk : T0.subEn) + '</div><span class="tt-tag">' + (nowT >= tDay(k, 1) ? (isUk ? 'Результати' : 'Results') : (isUk ? 'Повний кард' : 'Full card')) + '</span><span class="tt-arr">›</span></div></a>';
+        } else {
+          if (i === 1) th += '<div class="tt-list">';
+          th += '<a class="fight-row clickable" href="' + href + '" onclick="trackFightOpen(\'' + k + '\')"><div class="fight-dc"><div class="fight-dn">' + T0.dateNum + '</div><div class="fight-dm">' + (isUk ? T0.monthUk : T0.monthEn) + '</div></div><div class="fight-div"></div><div class="fight-info"><div class="fight-pair">' + (isUk ? T0.nameUk : T0.nameEn) + '</div><div class="fight-meta">' + (isUk ? T0.subUk : T0.subEn) + '</div></div><div class="fight-arr-col">›</div></a>';
+        }
+      });
+      if (tk.length > 1) th += '</div>';
+      tl.innerHTML = th;
+      tb.style.display = 'block';
+    } else {
+      tb.style.display = 'none';
+    }
+  }
+
+  // ── Promoters block ──
+  (function(){
+    var pl = document.getElementById('lbl-promo'); if (!pl) return;
+    var base = isUk ? '/ua/promoters' : '/en/promoters';
+    pl.textContent = isUk ? 'Промоутери' : 'Promoters';
+    var pm = document.getElementById('promoMore'); pm.textContent = isUk ? 'Всі промоутери →' : 'All promoters →'; pm.href = base;
+    document.getElementById('promoDesc').textContent = isUk ? 'Результати, кард і статистика боїв промоутерських компаній: усі турніри, переможці та методи перемог в одному місці.' : 'Results, cards and fight stats from boxing promotions: every event, winner and method of victory in one place.';
+    document.getElementById('promoZuffa').href = base + '/zuffa-boxing';
+    document.getElementById('promoZuffaS').textContent = isUk ? '12 турнірів · 97 боїв' : '12 events · 97 fights';
+    document.getElementById('promoUsyk').href = base + '/usyk-17-promotions';
+    document.getElementById('promoUsykS').textContent = isUk ? '4 турніри · 42 бої' : '4 events · 42 fights';
+  })();
+
+  // ── Fight block ──
+  if (block && list) {
+    var upcoming = FIGHTS.filter(function(f){ return !f.completed; });
+    var recentMode = false;
+    if (!upcoming.length) { recentMode = true; upcoming = recentFights(5); }
+
+    title.textContent = isUk ? 'Архів боїв' : 'Fight Archive';
+    if (more) {
+      more.textContent = isUk ? 'Всі бої →' : 'All fights →';
+      more.href = isUk ? '/ua/fights' : '/en/fights';
+      more.style.display = upcoming.length ? 'block' : 'none';
+    }
+
+    var fHtml = '<div class="fights-month">';
+    var monthNamesUk = ['Січень','Лютий','Березень','Квітень','Травень','Червень','Липень','Серпень','Вересень','Жовтень','Листопад','Грудень'];
+    var monthNamesEn = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var curYear = new Date().getFullYear();
+    var curMonthName = isUk ? monthNamesUk[new Date().getMonth()] : monthNamesEn[new Date().getMonth()];
+    fHtml += (recentMode ? (isUk ? 'Останні бої' : 'Latest fights') : (curMonthName + ' ' + curYear));
+    fHtml += '</div>';
+
+    var FMAX = 5, fHidden = upcoming.length - FMAX;
+    function fPlural(n){ if(!isUk) return n === 1 ? 'fight' : 'fights'; var m10 = n % 10, m100 = n % 100; if (m10 === 1 && m100 !== 11) return 'бій'; if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'бої'; return 'боїв'; }
+    upcoming.forEach(function(f, fi) {
+      if (fHidden > 1 && fi === FMAX) fHtml += '<details class="fights-more"><summary><span class="m-more">' + (isUk ? 'Показати ще ' + fHidden + ' ' + fPlural(fHidden) : 'Show ' + fHidden + ' more ' + fPlural(fHidden)) + '</span><span class="m-less">' + (isUk ? 'Згорнути' : 'Show fewer') + '</span></summary>';
+      var hasP = f.hasPage;
+      var rowClass = 'fight-row' + (hasP ? ' clickable' : ' muted');
+      var pair = (isUk ? f.redUk : f.red) + ' <span class="fight-vs">vs</span> ' + (isUk ? f.blueUk : f.blue);
+      var div  = isUk ? f.divUk : f.divEn;
+      var rds  = isUk ? f.rounds + ' раундів' : f.rounds + ' rounds';
+      var base = isUk ? '/ua/' + f.id : '/en/' + f.id;
+
+      if (hasP) {
+        fHtml += '<a class="' + rowClass + '" href="' + base + '" onclick="trackFightOpen(\'' + f.id + '\')">';
+      } else {
+        fHtml += '<div class="' + rowClass + '">';
+      }
+
+      var monthStr = isUk ? f.monthUk : (f.dateEn ? f.dateEn.split(' ')[0].toLowerCase() : '');
+      fHtml += '<div class="fight-dc"><div class="fight-dn">' + f.dateNum + '</div><div class="fight-dm">' + monthStr + '</div></div>';
+      fHtml += '<div class="fight-div"></div>';
+      fHtml += '<div class="fight-info">';
+      fHtml += '<div class="fight-pair">' + pair + '</div>';
+      fHtml += '<div class="fight-meta">' + div + ' · ' + rds + '</div>';
+
+      if ((f.belts && f.belts.length) || hasP || f.tournament) {
+        fHtml += '<div class="fight-tags">';
+        if (f.belts && f.belts.length) {
+          f.belts.forEach(function(b){ var bt = (typeof b === 'object') ? (isUk ? b.uk : b.en) : b; fHtml += '<span class="fight-tag belt">' + bt + '</span>'; });
+        }
+        if (f.tournament && TOURNAMENTS[f.tournament]) fHtml += '<span class="fight-tag tour">' + (isUk ? TOURNAMENTS[f.tournament].nameUk : TOURNAMENTS[f.tournament].nameEn) + '</span>';
+        if (hasP) fHtml += '<span class="fight-tag statistics">' + (isUk ? 'Статистика' : 'Statistics') + '</span>';
+        fHtml += '</div>';
+      }
+
+      fHtml += '</div>';
+      if (hasP) fHtml += '<div class="fight-arr-col">›</div>';
+      fHtml += hasP ? '</a>' : '</div>';
+    });
+
+    if (fHidden > 1) fHtml += '</details>';
+    list.innerHTML = fHtml;
+    block.style.display = upcoming.length ? 'block' : 'none';
+  }
+
+  // ── Guide block ──
+  const guideBlock = document.getElementById('guideBlock');
+  const guideList = document.getElementById('guideList');
+  const guideTitle = document.getElementById('lbl-guide');
+  const guideMore = document.getElementById('guideMore');
+
+  if (guideBlock && guideList) {
+    if (!GUIDE_ARTICLES.length) {
+      guideBlock.style.display = 'none';
+      return;
+    }
+    guideTitle.textContent = isUk ? 'Довідник боксу' : 'Boxing guide';
+    if (guideMore) {
+      guideMore.textContent = isUk ? 'Весь довідник →' : 'Full guide →';
+      guideMore.href = isUk ? '/ua/guide' : '/en/guide';
+    }
+    guideList.innerHTML = '';
+    GUIDE_ARTICLES.slice(0, 3).forEach(art => {
+      const base = isUk ? '/ua/' + art.id : '/en/' + art.id;
+      const title_txt = isUk ? art.titleUk : art.titleEn;
+      const a = document.createElement('a');
+      a.className = 'analytics-link';
+      a.href = base;
+      a.innerHTML =
+        '<span>' + title_txt + '</span>' +
+        '<span class="analytics-link-arr">›</span>';
+      guideList.appendChild(a);
+    });
+    guideBlock.style.display = 'block';
+  }
+}
+
+function updateStatBanner() {
+  const banner = document.getElementById('statBanner');
+  const txt = document.getElementById('statBannerText');
+  if (!banner) return;
+  if (fight && fight.hasPage && fight.id !== 'custom') {
+    const base = lang === 'uk' ? '/ua/' + fight.id : '/en/' + fight.id;
+    banner.href = base;
+    txt.textContent = lang === 'uk' ? 'Статистика та аналіз бою' : 'Fight stats & analysis';
+    banner.style.display = 'flex';
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+function renderAll() {
+  // Sync lang buttons
+  document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+  // Labels
+  document.getElementById('lbl-sub').textContent = t('sub');
+  document.getElementById('hdr-red').textContent = t('redCorner');
+  document.getElementById('hdr-blue').textContent = t('blueCorner');
+  document.getElementById('lbl-pts').textContent = t('pts');
+  document.getElementById('lbl-pts2').textContent = t('pts');
+  const wonLbl = document.getElementById('wonLbl');
+  if (wonLbl) wonLbl.textContent = lang === 'uk' ? 'Виграних раундів' : 'Rounds won';
+  document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
+  document.getElementById('shareBtn').textContent = t('share');
+  document.getElementById('stopBtn').textContent = t('stopBtn');
+  document.getElementById('resetBtn').textContent = t('reset');
+  document.getElementById('lbl-modal').textContent = t('modal');
+  document.getElementById('btnDl').textContent = t('dl');
+  document.getElementById('btnSh').textContent = t('sh');
+  document.getElementById('btnCp').textContent = t('cp');
+  document.getElementById('btnCl').textContent = t('cl');
+  document.getElementById('lbl-stop-title').textContent = t('stopTitle');
+  document.getElementById('lbl-stop-winner').textContent = t('stopWinner');
+  document.getElementById('lbl-stop-type').textContent = t('stopType');
+  document.getElementById('stopOkBtn').textContent = t('stopOk');
+  document.getElementById('lbl-stop-cancel').textContent = t('stopCancel');
+
+  // Header names
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
+
+  // Scoring hint translations
+  const isUk = lang === 'uk';
+  document.getElementById('lbl-hint-toggle').textContent = isUk ? 'Як судити?' : 'How to score?';
+  document.getElementById('lbl-h1k').textContent = isUk ? '1 тап' : '1 tap';
+  document.getElementById('lbl-h1').textContent = isUk ? 'Переможець раунду (10:9)' : 'Round winner (10:9)';
+  document.getElementById('lbl-h2k').textContent = isUk ? 'Ще тап' : 'Tap again';
+  document.getElementById('lbl-h2').textContent = isUk ? 'Знижує рахунок (10:8, 10:7, 10:6)' : 'Lower the score (10:8, 10:7, 10:6)';
+  document.getElementById('lbl-h3').textContent = isUk ? 'Нічия в раунді (10:10)' : 'Draw round (10:10)';
+  document.getElementById('lbl-h4k').textContent = isUk ? 'Інша сторона' : 'Other side';
+  document.getElementById('lbl-h4').textContent = isUk ? 'Змінює переможця раунду' : 'Switch round winner';
+
+// Блок "Як працює", посилання підказки та підвал
+document.getElementById('how-title').textContent = t('howTitle');
+document.getElementById('how-p1').innerHTML = t('howP1');
+document.getElementById('how-p2').innerHTML = t('howP2');
+document.getElementById('how-p3').innerHTML = t('howP3');
+const hintMore = document.getElementById('hint-more');
+if (hintMore) { hintMore.textContent = t('hintMore'); hintMore.href = isUk ? '/ua/boxing-scoring' : '/en/boxing-scoring'; }
+const fAbout = document.getElementById('footer-about'); if (fAbout) fAbout.textContent = t('footAbout');
+const fContact = document.getElementById('footer-contact'); if (fContact) fContact.textContent = t('footContact');
+const fRank = document.getElementById('footer-rankings'); if (fRank) { fRank.textContent = t('footRank'); fRank.href = '/' + (lang === 'uk' ? 'ua' : 'en') + '/rankings'; }
+const fEmbed = document.getElementById('footer-embed'); if (fEmbed) fEmbed.textContent = t('footEmbed');
+
+  // Stats banner – show only if fight has a stats page
+  updateStatBanner();
+
+  // UA links section – show only in Ukrainian
+  const uaLinks = document.getElementById('uaLinks');
+  if (uaLinks) {
+    uaLinks.style.display = lang === 'uk' ? 'block' : 'none';
+    document.getElementById('lbl-more').textContent = t('moreBoxing');
+    document.getElementById('lbl-tg-t').textContent = t('tgTitle');
+    document.getElementById('lbl-tg-s').textContent = t('tgSub');
+    document.getElementById('lbl-pod-t').textContent = t('podTitle');
+    document.getElementById('lbl-pod-s').textContent = t('podSub');
+    document.getElementById('lbl-blog-t').textContent = t('blogTitle');
+    document.getElementById('lbl-blog-s').textContent = t('blogSub');
+  }
+
+  buildAnalyticsBlock();
+
+  // Custom modal labels
+  document.getElementById('lbl-custom-title').textContent = t('customTitle');
+  document.getElementById('lbl-custom-red').textContent = t('customRedName');
+  document.getElementById('lbl-custom-blue').textContent = t('customBlueName');
+  document.getElementById('lbl-custom-rounds').textContent = t('customRounds');
+  document.getElementById('lbl-custom-start').textContent = t('customStart');
+  document.getElementById('lbl-custom-cancel').textContent = t('stopCancel');
+
+  // Fight selector
+  buildSelector();
+
+  // Rounds
+  buildRounds();
+
+  // Totals + button states
+  updateUI();
+}
+
+// ── Fight selector ────────────────────────────────────────────────────────────
+function buildSelector() {
+  const sel = document.getElementById('fightSel');
+  sel.innerHTML = '';
+  const ph = document.createElement('option');
+  ph.value = ''; ph.textContent = t('sel');
+  ph.disabled = true;
+  ph.hidden = true;
+  sel.appendChild(ph);
+
+  const upcoming = FIGHTS.filter(f => !f.completed).sort((a, b) => new Date(a.date + ', 2026') - new Date(b.date + ', 2026'));
+  // Завершені бої лишаються в дропдауні тільки поки триває їхній місяць.
+  // Коли місяць минув, їх і далі можна знайти на власній сторінці бою
+  // та в /fights - просто більше не через цей список на головній.
+  const curMonthIdx = new Date().getMonth();
+  const completed = FIGHTS.filter(f => f.completed && !f.cancelled && !f.unlisted && f.monthIdx === curMonthIdx);
+
+  if (upcoming.length) {
+    const grp1 = document.createElement('optgroup');
+    grp1.label = lang==='uk' ? 'Майбутні' : 'Upcoming';
+    upcoming.forEach(f => {
+      const o = document.createElement('option');
+      o.value = f.id;
+      const d = lang==='uk' ? f.dateUk : f.dateEn;
+      const r = lang==='uk' ? f.redUk : f.red;
+      const b = lang==='uk' ? f.blueUk : f.blue;
+      o.textContent = d + ' · ' + r + ' vs ' + b;
+      grp1.appendChild(o);
+    });
+    sel.appendChild(grp1);
+  }
+
+  if (completed.length) {
+    const grp2 = document.createElement('optgroup');
+    grp2.label = lang==='uk' ? 'Завершені' : 'Completed';
+    completed.forEach(f => {
+      const o = document.createElement('option');
+      o.value = f.id;
+      const d = lang==='uk' ? f.dateUk : f.dateEn;
+      const r = lang==='uk' ? f.redUk : f.red;
+      const b = lang==='uk' ? f.blueUk : f.blue;
+      o.textContent = d + ' · ' + r + ' vs ' + b;
+      grp2.appendChild(o);
+    });
+    sel.appendChild(grp2);
+  }
+
+  // Custom fight option
+  const customOpt = document.createElement('option');
+  customOpt.value = '__custom__';
+  customOpt.textContent = t('customFight');
+  sel.appendChild(customOpt);
+
+  sel.value = fight.id;
+}
+
+function onFightChange() {
+  const id = document.getElementById('fightSel').value;
+  if (!id) return;
+  if (typeof gtag !== 'undefined' && id !== '__custom__') {
+    gtag('event', 'fight_selected', {fight_id: id});
+  }
+  if (id === '__custom__') {
+    openCustom();
+    document.getElementById('fightSel').value = fight.id;
+    return;
+  }
+  fight = FIGHTS.find(f => f.id === id);
+  scores = mkScores();
+  stoppage = null;
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
+  updateStatBanner();
+  buildRounds();
+  updateUI();
+  saveState();
+}
+
+function togglePodcast() {
+  const sub = document.getElementById('podcastSub');
+  const arrow = document.getElementById('podArrow');
+  const isOpen = sub.style.display === 'flex';
+  sub.style.display = isOpen ? 'none' : 'flex';
+  arrow.textContent = isOpen ? '›' : '⌄';
+}
+
+function openCustom() {
+  document.getElementById('customRed').value = '';
+  document.getElementById('customBlue').value = '';
+  document.getElementById('customRoundsSel').value = '12';
+  document.getElementById('customOverlay').classList.add('open');
+}
+function closeCustom() { document.getElementById('customOverlay').classList.remove('open'); }
+function closeCustomOut(e) { if (e.target===document.getElementById('customOverlay')) closeCustom(); }
+function startCustom() {
+  const r = document.getElementById('customRed').value.trim() || (lang==='uk'?'Червоний кут':'Red corner');
+  const b = document.getElementById('customBlue').value.trim() || (lang==='uk'?'Синій кут':'Blue corner');
+  const rounds = parseInt(document.getElementById('customRoundsSel').value);
+  fight = {id:'custom', date:'', dateUk:'', red:r, redUk:r, blue:b, blueUk:b, rounds:rounds, completed:false};
+  scores = mkScores();
+  stoppage = null;
+  closeCustom();
+  document.getElementById('hdr-rn').textContent = rn();
+  document.getElementById('hdr-bn').textContent = bn();
+  updateStatBanner();
+  buildRounds();
+  updateUI();
+}
+
+// ── Rounds – v2 tap model ────────────────────────────────────────────────────
+const SCORE_CYCLE = [10, 9, 8, 7, 6];
+
+function nextScore(current) {
+  if (current === null) return 10;
+  const idx = SCORE_CYCLE.indexOf(current);
+  if (idx === -1 || idx === SCORE_CYCLE.length - 1) return null;
+  return SCORE_CYCLE[idx + 1];
+}
+
+function tapSide(i, side) {
+  // side: 'red' | 'blue'
+  // Close hint on first interaction
+  if (!localStorage.getItem('b12x3_hint_seen')) {
+    localStorage.setItem('b12x3_hint_seen', '1');
+    var hb = document.getElementById('hintBody');
+    if (hb) { hb.classList.remove('open'); var arr = document.querySelector('.hint-arr'); if (arr) arr.textContent = '▼'; }
+  }
+  const sc = scores[i];
+  const other = side === 'red' ? 'blue' : 'red';
+
+  if (sc.red === null && sc.blue === null) {
+    // Smart default: first tap → 10:9
+    sc[side] = 10;
+    sc[other] = 9;
+  } else {
+    const next = nextScore(sc[side]);
+    if (next === null) {
+      // Reset round
+      sc.red = null; sc.blue = null;
+    } else {
+      sc[side] = next;
+    }
+  }
+  renderRound(i);
+  updateUI();
+  saveState();
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'round_scored', {round: i + 1, fight: fight ? fight.id : ''});
+  }
+  trackCompletion();
+}
+
+// ── GA4: card completed (full decision or stoppage) ──────────────────────────
+var cardSent = {};
+function trackCompletion() {
+  if (typeof gtag === 'undefined' || !fight) return;
+  var sc = scores.slice(0, fight.rounds).filter(function(x){ return x.red!==null && x.blue!==null; });
+  var tr = sc.reduce(function(a,x){ return a+x.red; }, 0);
+  var tb = sc.reduce(function(a,x){ return a+x.blue; }, 0);
+  var key, result, winner;
+  if (stoppage) {
+    key = fight.id + '|stop'; result = stoppage.type; winner = stoppage.winner;
+  } else if (sc.length === fight.rounds) {
+    key = fight.id + '|dec'; result = 'decision';
+    winner = tr === tb ? 'draw' : (tr > tb ? 'red' : 'blue');
+  } else { return; }
+  if (cardSent[key]) return;
+  cardSent[key] = true;
+  var p = {fight: fight.id, rounds: fight.rounds, result: result, winner: winner,
+           rounds_scored: sc.length, score_red: tr, score_blue: tb};
+  if (stoppage) p.stop_round = stoppage.round;
+  gtag('event', 'card_completed', p);
+}
+
+function trackFightOpen(id) {
+  if (typeof gtag !== 'undefined') gtag('event', 'fight_page_open', {fight: id});
+}
+
+function trackOut(target) {
+  if (typeof gtag === 'undefined') return;
+  gtag('event', 'outbound_click', {target: target, page: 'home', lang: (typeof lang !== 'undefined' ? lang : '')});
+}
+
+function tapCenter(i) {
+  const sc = scores[i];
+  if (sc.red === 10 && sc.blue === 10) {
+    sc.red = null; sc.blue = null; // reset
+  } else {
+    sc.red = 10; sc.blue = 10; // 10:10
+  }
+  renderRound(i);
+  updateUI();
+  saveState();
+  trackCompletion();
+}
+
+
+function getIntensity(diff) {
+  if (diff <= 0) return 0.12;
+  if (diff === 1) return 0.18;
+  if (diff === 2) return 0.38;
+  if (diff === 3) return 0.60;
+  return 0.80;
+}
+
+function renderRound(i) {
+  const sc = scores[i];
+  const sl = document.getElementById('rs-' + i + '-l');
+  const sr = document.getElementById('rs-' + i + '-r');
+  const fl = document.getElementById('rf-' + i + '-l');
+  const fr = document.getElementById('rf-' + i + '-r');
+  const pl = document.getElementById('rp-' + i + '-l');
+  const pr = document.getElementById('rp-' + i + '-r');
+  if (!sl) return;
+
+  // Clear fills
+  function clearFill(fill) {
+    fill.style.opacity = '0';
+    fill.style.animation = 'none';
+    fill.style.background = '';
+  }
+  if (fl) clearFill(fl);
+  if (fr) clearFill(fr);
+  pl.style.color = ''; pr.style.color = '';
+
+  // Pour animation helper
+  function pour(fill, bg, anim) {
+    fill.style.background = bg;
+    fill.style.opacity = '1';
+    fill.style.animation = 'none';
+    void fill.offsetWidth;
+    fill.style.animation = anim + ' .28s cubic-bezier(.4,0,.2,1) both';
+  }
+
+  if (sc.red === null && sc.blue === null) {
+    pl.textContent = '–'; pr.textContent = '–';
+  } else {
+    pl.textContent = sc.red !== null ? sc.red : '–';
+    pr.textContent = sc.blue !== null ? sc.blue : '–';
+    if (sc.red !== null && sc.blue !== null) {
+      const diff = Math.abs(sc.red - sc.blue);
+      const intensity = getIntensity(diff);
+      if (sc.red > sc.blue) {
+        if (fl) pour(fl, 'linear-gradient(90deg,rgba(192,57,43,' + intensity + ') 0%,transparent 85%)', 'pourFromLeft');
+        if (fr) clearFill(fr);
+        pl.style.color = 'var(--red)'; pr.style.color = '#bbb';
+      } else if (sc.blue > sc.red) {
+        if (fr) pour(fr, 'linear-gradient(270deg,rgba(26,82,118,' + intensity + ') 0%,transparent 85%)', 'pourFromRight');
+        if (fl) clearFill(fl);
+        pr.style.color = 'var(--blue)'; pl.style.color = '#bbb';
+      } else {
+        if (fl) { fl.style.background='rgba(200,197,191,0.10)'; fl.style.opacity='1'; }
+        if (fr) { fr.style.background='rgba(200,197,191,0.10)'; fr.style.opacity='1'; }
+        pl.style.color = '#999'; pr.style.color = '#999';
+      }
+    } else {
+      if (sc.red !== null) pl.style.color = 'var(--text)';
+      if (sc.blue !== null) pr.style.color = 'var(--text)';
+    }
+  }
+  [pl, pr].forEach(el => {
+    el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  });
+}
+
+function buildRounds() {
+  const list = document.getElementById('rounds');
+  list.innerHTML = '';
+  const n = fight.rounds;
+  for (let i = 0; i < n; i++) {
+    const row = document.createElement('div');
+    row.className = 'rrow';
+    row.innerHTML =
+      '<div class="rside lft" id="rs-' + i + '-l" onclick="tapSide(' + i + ',\'red\')">' +
+        '<div class="rside-fill" id="rf-' + i + '-l"></div>' +
+        '<span class="rpts" id="rp-' + i + '-l">–</span>' +
+      '</div>' +
+      '<div class="rn" onclick="tapCenter(' + i + ')" style="cursor:pointer;">R' + (i + 1) + '</div>' +
+      '<div class="rside rgt" id="rs-' + i + '-r" onclick="tapSide(' + i + ',\'blue\')">' +
+        '<div class="rside-fill" id="rf-' + i + '-r"></div>' +
+        '<span class="rpts" id="rp-' + i + '-r">–</span>' +
+      '</div>';
+    list.appendChild(row);
+    renderRound(i);
+  }
+}
+
+function winLbl(sc, isRed) {
+  if (sc.red === null || sc.blue === null) return '';
+  if (sc.red === sc.blue) return lang==='uk' ? 'НР' : 'D';
+  if (isRed) return sc.red > sc.blue ? 'W' : '';
+  return sc.blue > sc.red ? 'W' : '';
+}
+
+// ── UI state ──────────────────────────────────────────────────────────────────
+function updateUI() {
+  const n = fight.rounds;
+  const sc = scores.slice(0, n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+  const all = sc.length === n;
+  const any = sc.length > 0;
+
+  document.getElementById('totR').textContent = any ? tr : '–';
+  document.getElementById('totB').textContent = any ? tb : '–';
+
+  // Won rounds strip
+  const wonStrip = document.getElementById('wonStrip');
+  if (any) {
+    const wR = sc.filter(s => s.red > s.blue).length;
+    const wB = sc.filter(s => s.blue > s.red).length;
+    document.getElementById('wonR').textContent = wR;
+    document.getElementById('wonB').textContent = wB;
+    const total = wR + wB;
+    const pct = total === 0 ? 50 : Math.round((wR / total) * 100);
+    const fill = document.getElementById('wonFill');
+    fill.style.width = pct + '%';
+    fill.style.background = wR >= wB ? 'var(--red)' : 'var(--blue)';
+    wonStrip.style.display = 'grid';
+  } else {
+    wonStrip.style.display = 'none';
+  }
+
+  const lb = document.getElementById('leaderBar');
+  const shareBtn = document.getElementById('shareBtn');
+  const stopBtn = document.getElementById('stopBtn');
+
+  stopBtn.disabled = !any || stoppage !== null;
+
+  if (stoppage) {
+    const w = stoppage.winner === 'red' ? rn() : bn();
+    const cls = stoppage.winner === 'red' ? 'r' : 'b';
+    lb.innerHTML = '<span class="' + cls + '">' + w + ' – ' + stoppage.type + ' R' + stoppage.round + '</span>';
+    document.getElementById('lbl-total').innerHTML = stoppage.type + '<br>R' + stoppage.round;
+    shareBtn.disabled = false;
+    return;
+  }
+
+  document.getElementById('lbl-total').innerHTML = t('total').replace('\n','<br>');
+
+  if (!any) { lb.innerHTML = ''; shareBtn.disabled = true; return; }
+  if (all && tr === tb) lb.innerHTML = '<span>' + t('draw') + '</span>';
+  else if (all && tr > tb) lb.innerHTML = '<span class="r">' + t('winner', rn()) + '</span>';
+  else if (all && tb > tr) lb.innerHTML = '<span class="b">' + t('winner', bn()) + '</span>';
+  else lb.innerHTML = '';
+  shareBtn.disabled = false;
+}
+
+// ── Reset ─────────────────────────────────────────────────────────────────────
+function doReset() {
+  cardSent = {};
+  scores = mkScores();
+  stoppage = null;
+  buildRounds();
+  updateUI();
+  saveState();
+}
+
+// ── Stoppage modal ────────────────────────────────────────────────────────────
+function openStop() {
+  selWinner = null; selType = null;
+  document.getElementById('sopt-red').textContent = rn();
+  document.getElementById('sopt-blue').textContent = bn();
+  document.getElementById('sopt-red').className = 'sopt';
+  document.getElementById('sopt-blue').className = 'sopt';
+  ['KO','TKO','RTD','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt');
+  document.getElementById('stopOkBtn').disabled = true;
+  document.getElementById('stopOverlay').classList.add('open');
+}
+function closeStop() { document.getElementById('stopOverlay').classList.remove('open'); }
+function closeStopOut(e) { if (e.target===document.getElementById('stopOverlay')) closeStop(); }
+
+function selW(side) {
+  selWinner = side;
+  document.getElementById('sopt-red').className = 'sopt' + (side==='red' ? ' sel-r' : '');
+  document.getElementById('sopt-blue').className = 'sopt' + (side==='blue' ? ' sel-b' : '');
+  document.getElementById('stopOkBtn').disabled = !(selWinner && selType);
+}
+function selT(type) {
+  selType = type;
+  ['KO','TKO','RTD','DQ'].forEach(tp => document.getElementById('sopt-'+tp).className = 'sopt' + (tp===type ? ' sel-t' : ''));
+  document.getElementById('stopOkBtn').disabled = !(selWinner && selType);
+}
+function confirmStop() {
+  stoppage = {winner: selWinner, type: selType, round: scoredCount() + 1};
+  closeStop();
+  updateUI();
+  saveState();
+  trackCompletion();
+}
+
+// ── Share modal ───────────────────────────────────────────────────────────────
+function openShare() {
+  buildPreview();
+  document.getElementById('shareOverlay').classList.add('open');
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'scorecard_shared', {fight: fight ? fight.id : ''});
+  }
+  // Show native share only on mobile devices
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const testFile = new File([''], 'test.png', {type:'image/png'});
+  const supportsFileShare = isMobile && navigator.canShare && navigator.canShare({files:[testFile]});
+  document.getElementById('btnSh').style.display = supportsFileShare ? 'block' : 'none';
+}
+function closeShare() { document.getElementById('shareOverlay').classList.remove('open'); }
+function closeShareOut(e) { if (e.target===document.getElementById('shareOverlay')) closeShare(); }
+
+function buildPreview() {
+  const n = fight.rounds;
+  const sc = scores.slice(0,n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+  const rows = scores.slice(0,n).map((s,i) =>
+    '<div class="pr"><div class="prn">R'+(i+1)+'</div>' +
+    '<div class="prr"><span>'+(s.red!==null?s.red:'–')+'</span></div>' +
+    '<div class="prs"></div>' +
+    '<div class="prb"><span>'+(s.blue!==null?s.blue:'–')+'</span></div></div>'
+  ).join('');
+  const foot = stoppage
+    ? '<div class="pfoot"><div class="ptr">'+(tr||'–')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'–')+'</div></div>'+
+      '<div class="pstop"><div class="pstop-t">'+(stoppage.winner==='red'?rn():bn())+' – '+stoppage.type+' R'+stoppage.round+'</div><div class="pstop-s">'+t('earlyStop')+'</div></div>'
+    : '<div class="pfoot"><div class="ptr">'+(tr||'–')+'</div><div class="ptm">TOTAL<br>SCORE</div><div class="ptb">'+(tb||'–')+'</div></div>';
+  document.getElementById('pcard').innerHTML =
+    '<div class="ph"><div class="pf r"><div class="pc">'+t('redCorner')+'</div><div class="pn">'+rn()+'</div></div>' +
+    '<div class="pm"><img src="/icon-192.png" width="40" height="40" alt="12×3" style="display:block;border-radius:8px"></div>' +
+    '<div class="pf b"><div class="pc">'+t('blueCorner')+'</div><div class="pn">'+bn()+'</div></div></div>' +
+    '<div class="prounds">'+rows+'</div>' +
+    foot +
+    '<div class="pbrand">BOXING12X3.COM</div>';
+}
+
+function loadLogo() {
+  return new Promise(function(res){ var i = new Image(); i.onload = function(){ res(i); }; i.onerror = function(){ res(null); }; i.src = '/icon-192.png'; });
+}
+
+async function genImg() {
+  const logo = await loadLogo();
+  const n = fight.rounds;
+  const sc = scores.slice(0,n).filter(s => s.red!==null && s.blue!==null);
+  const tr = sc.reduce((a,s) => a+s.red, 0);
+  const tb = sc.reduce((a,s) => a+s.blue, 0);
+
+  // Instagram 4:5 format
+  const W = 1080, H = 1350;
+  const canvas = document.createElement('canvas');
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  const RED = '#c0392b', BLUE = '#1a5276';
+  const RED_L = '#fdf2f2', BLUE_L = '#eaf4fb';
+  const RED_B = '#f5b7b1', BLUE_B = '#a9cce3';
+  const DARK = '#111111', MUTED = '#888888', BORDER = '#e5e3de';
+
+  // Background
+  ctx.fillStyle = '#f7f6f3';
+  ctx.fillRect(0, 0, W, H);
+
+  // Card margins
+  const MX = 48, MY = 48;
+  const CW = W - MX*2;
+
+  // Header
+  const HDR_H = 120;
+  ctx.fillStyle = DARK;
+  roundRect(ctx, MX, MY, CW, HDR_H, 16, true, false);
+
+  // Red/blue stripes
+  ctx.fillStyle = RED;
+  ctx.fillRect(MX, MY, 4, HDR_H);
+  ctx.fillStyle = BLUE;
+  ctx.fillRect(MX+CW-4, MY, 4, HDR_H);
+
+  // Corner labels
+  ctx.fillStyle = '#666666';
+  ctx.font = '500 18px Manrope, sans-serif';
+  ctx.textBaseline = 'top';
+  ctx.textAlign = 'left';
+  ctx.fillText(lang==='uk'?'ЧЕРВОНИЙ КУТ':'RED CORNER', MX+24, MY+18);
+  ctx.textAlign = 'right';
+  ctx.fillText(lang==='uk'?'СИНІЙ КУТ':'BLUE CORNER', MX+CW-24, MY+18);
+
+  // Fighter names
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 34px Manrope, sans-serif';
+  ctx.textBaseline = 'top';
+  ctx.textAlign = 'left';
+  ctx.fillText(rn(), MX+24, MY+46);
+  ctx.textAlign = 'right';
+  ctx.fillText(bn(), MX+CW-24, MY+46);
+
+  // Brand center
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 22px Manrope, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  if (logo) {
+    const LS = 88, LX = W/2 - LS/2, LY = MY + HDR_H/2 - LS/2;
+    ctx.save();
+    roundRect(ctx, LX, LY, LS, LS, 16, false, false);
+    ctx.clip();
+    ctx.drawImage(logo, LX, LY, LS, LS);
+    ctx.restore();
+  } else {
+    ctx.fillText('12×3', W/2, MY+HDR_H/2-8);
+    ctx.fillStyle = '#555555';
+    ctx.font = '13px Manrope, sans-serif';
+    ctx.fillText('SCORE', W/2, MY+HDR_H/2+14);
+  }
+
+  // Column headers
+  const COL_Y = MY + HDR_H + 2;
+  const COL_H = 40;
+  ctx.fillStyle = '#f0ede8';
+  ctx.fillRect(MX, COL_Y, CW, COL_H);
+  ctx.fillStyle = RED;
+  ctx.font = '600 14px Manrope, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(lang==='uk'?'РАУНД':'WIN', MX+24, COL_Y+COL_H/2);
+  ctx.fillStyle = MUTED;
+  ctx.fillText(lang==='uk'?'БАЛИ':'PTS', MX+90, COL_Y+COL_H/2);
+  ctx.textAlign = 'center';
+  ctx.fillText('RD', W/2, COL_Y+COL_H/2);
+  ctx.fillStyle = BLUE;
+  ctx.textAlign = 'right';
+  ctx.fillText(lang==='uk'?'РАУНД':'WIN', MX+CW-24, COL_Y+COL_H/2);
+  ctx.fillStyle = MUTED;
+  ctx.fillText(lang==='uk'?'БАЛИ':'PTS', MX+CW-90, COL_Y+COL_H/2);
+
+  // Rounds
+  const ROW_H = Math.floor((H - MY*2 - HDR_H - 2 - COL_H - 110 - 40) / n);
+  let ry = COL_Y + COL_H;
+  const BAR_W = 340, BAR_H = Math.min(ROW_H-10, 36), BAR_R = 6;
+  const BAR_PAD = 70;
+
+  for (let i = 0; i < n; i++) {
+    const s = scores[i];
+    const done = s.red!==null && s.blue!==null;
+
+    // Row bg
+    ctx.fillStyle = done ? '#fafaf8' : '#ffffff';
+    ctx.fillRect(MX, ry, CW, ROW_H);
+
+    // Row border
+    ctx.strokeStyle = BORDER;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(MX, ry+ROW_H); ctx.lineTo(MX+CW, ry+ROW_H); ctx.stroke();
+
+    const cy = ry + ROW_H/2;
+
+    // Red bar
+    const rbx = MX + BAR_PAD;
+    ctx.fillStyle = s.red!==null ? RED_L : '#f0ede8';
+    roundRect(ctx, rbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, true, false);
+    if (s.red!==null) {
+      ctx.strokeStyle = RED_B; ctx.lineWidth = 1;
+      roundRect(ctx, rbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, false, true);
+    }
+    ctx.fillStyle = s.red!==null ? RED : MUTED;
+    ctx.font = 'bold 22px Manrope, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.red!==null ? s.red : '–', rbx+14, cy);
+
+    // Blue bar
+    const bbx = MX+CW - BAR_PAD - BAR_W;
+    ctx.fillStyle = s.blue!==null ? BLUE_L : '#f0ede8';
+    roundRect(ctx, bbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, true, false);
+    if (s.blue!==null) {
+      ctx.strokeStyle = BLUE_B; ctx.lineWidth = 1;
+      roundRect(ctx, bbx, cy-BAR_H/2, BAR_W, BAR_H, BAR_R, false, true);
+    }
+    ctx.fillStyle = s.blue!==null ? BLUE : MUTED;
+    ctx.font = 'bold 22px Manrope, sans-serif';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.fillText(s.blue!==null ? s.blue : '–', bbx+BAR_W-14, cy);
+
+    // Round number center
+    ctx.fillStyle = MUTED;
+    ctx.font = '500 16px Manrope, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('R'+(i+1), W/2, cy);
+
+    // Win indicators
+    if (done) {
+      ctx.font = '600 14px Manrope, sans-serif';
+      if (s.red > s.blue) {
+        ctx.fillStyle = RED; ctx.textAlign = 'left';
+        ctx.fillText('W', MX+8, cy);
+      } else if (s.blue > s.red) {
+        ctx.fillStyle = BLUE; ctx.textAlign = 'right';
+        ctx.fillText('W', MX+CW-8, cy);
+      }
+    }
+    ry += ROW_H;
+  }
+
+  // Footer
+  const FY = ry + 2;
+  const FH = stoppage ? 130 : 110;
+  ctx.fillStyle = DARK;
+  roundRect(ctx, MX, FY, CW, FH, [0,0,16,16], true, false);
+
+  if (stoppage) {
+    const w = stoppage.winner==='red' ? rn() : bn();
+    // Show score on top
+    ctx.fillStyle = RED;
+    ctx.font = 'bold 42px Manrope, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(sc.length ? tr : '–', MX+32, FY+30);
+    ctx.fillStyle = BLUE;
+    ctx.textAlign = 'right';
+    ctx.fillText(sc.length ? tb : '–', MX+CW-32, FY+30);
+    // Stoppage info below
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 22px Manrope, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(w + ' – ' + stoppage.type + ' R' + stoppage.round, W/2, FY+72);
+    ctx.fillStyle = '#555555';
+    ctx.font = '13px Manrope, sans-serif';
+    ctx.fillText(lang==='uk'?'ДОСТРОКОВИЙ ФІНАЛ':'EARLY STOPPAGE', W/2, FY+96);
+  } else {
+    ctx.fillStyle = RED;
+    ctx.font = 'bold 52px Manrope, sans-serif';
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(sc.length ? tr : '–', MX+32, FY+FH/2);
+    ctx.fillStyle = BLUE;
+    ctx.textAlign = 'right';
+    ctx.fillText(sc.length ? tb : '–', MX+CW-32, FY+FH/2);
+    ctx.fillStyle = '#444444';
+    ctx.font = '13px Manrope, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('TOTAL SCORE', W/2, FY+FH/2);
+  }
+
+  // Brand footer
+  const BY = FY + FH + 16;
+  ctx.fillStyle = MUTED;
+  ctx.font = '500 18px Manrope, sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('BOXING12X3.COM', W/2, BY+12);
+
+  return canvas;
+}
+
+function roundRect(ctx, x, y, w, h, r, fill, stroke) {
+  if (typeof r === 'number') r = [r,r,r,r];
+  ctx.beginPath();
+  ctx.moveTo(x+r[0], y);
+  ctx.lineTo(x+w-r[1], y); ctx.arcTo(x+w, y, x+w, y+r[1], r[1]);
+  ctx.lineTo(x+w, y+h-r[2]); ctx.arcTo(x+w, y+h, x+w-r[2], y+h, r[2]);
+  ctx.lineTo(x+r[3], y+h); ctx.arcTo(x, y+h, x, y+h-r[3], r[3]);
+  ctx.lineTo(x, y+r[0]); ctx.arcTo(x, y, x+r[0], y, r[0]);
+  ctx.closePath();
+  if (fill) ctx.fill();
+  if (stroke) ctx.stroke();
+}
+async function dlImg() {
+  const btn = document.getElementById('btnDl');
+  const orig = btn.textContent; btn.textContent = '...';
+  try {
+    const c = await genImg();
+    const a = document.createElement('a');
+    a.download = 'scorecard-' + fight.id + '.png';
+    a.href = c.toDataURL('image/png'); a.click();
+    btn.textContent = t('dled'); setTimeout(() => btn.textContent = orig, 2000);
+  } catch(e) { btn.textContent = orig; }
+}
+async function shNative() {
+  const btn = document.getElementById('btnSh');
+  const orig = btn.textContent; btn.textContent = '...';
+  try {
+    const c = await genImg();
+    const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+    const file = new File([blob], 'scorecard-'+fight.id+'.png', {type:'image/png'});
+    if (navigator.canShare && navigator.canShare({files:[file]})) {
+      await navigator.share({files:[file], title: rn()+' vs '+bn()+' – 12×3'});
+    } else {
+      // Fallback: download instead
+      const a = document.createElement('a');
+      a.download = 'scorecard-'+fight.id+'.png';
+      a.href = c.toDataURL('image/png'); a.click();
+    }
+  } catch(e) { console.log('Share error:', e); }
+  btn.textContent = orig;
+}
+function cpText() {
+  const n = fight.rounds;
+  const tr = scores.slice(0,n).reduce((a,s) => a+(s.red||0), 0);
+  const tb = scores.slice(0,n).reduce((a,s) => a+(s.blue||0), 0);
+  let txt = '🥊 '+rn()+' vs '+bn()+'\n'+(lang==='uk'?'Моя суддівська картка':'My scorecard')+' – boxing12x3.com\n\n';
+  scores.slice(0,n).forEach((s,i) => {
+    if (s.red!==null && s.blue!==null) {
+      const w = s.red>s.blue ? rn() : s.blue>s.red ? bn() : t('draw');
+      txt += 'R'+(i+1)+': '+s.red+'–'+s.blue+' ('+w+')\n';
+    }
+  });
+  if (stoppage) {
+    const w = stoppage.winner==='red' ? rn() : bn();
+    txt += '\n'+w+' – '+stoppage.type+' R'+stoppage.round;
+  } else {
+    txt += '\n'+(lang==='uk'?'Разом':'Total')+': '+tr+'–'+tb;
+    if (tr>tb) txt += ' → '+t('winner',rn());
+    else if (tb>tr) txt += ' → '+t('winner',bn());
+    else txt += ' → '+t('draw');
+  }
+  navigator.clipboard.writeText(txt).then(() => {
+    const btn = document.getElementById('btnCp');
+    const orig = btn.textContent;
+    btn.textContent = t('copied');
+    setTimeout(() => btn.textContent = orig, 2000);
+  });
+}
+
+// ── localStorage ──────────────────────────────────────────────────────────────
+function saveState() {
+  try {
+    localStorage.setItem('b12x3_fight', fight.id);
+    localStorage.setItem('b12x3_scores', JSON.stringify(scores));
+    if (stoppage) localStorage.setItem('b12x3_stop', JSON.stringify(stoppage));
+    else localStorage.removeItem('b12x3_stop');
+  } catch(e) {}
+}
+function loadState() {
+  try {
+    const sf = localStorage.getItem('b12x3_fight');
+    const ss = localStorage.getItem('b12x3_scores');
+    const st = localStorage.getItem('b12x3_stop');
+    // Мову визначає сама сторінка: / - українська, /en - англійська; параметр ?lang= головніший.
+    // Збережену в браузері мову більше не підставляємо - вона перебивала мову адреси.
+    if (sf) {
+      const f = FIGHTS.find(x => x.id===sf);
+      if (f && !f.completed) {
+        // Збережений бій відновлюємо лише якщо в ньому вже є оцінені раунди.
+        // Інакше показуємо найближчий за датою бій (getDefaultFight).
+        var savedScores = ss ? JSON.parse(ss) : null;
+        var hasScored = savedScores && savedScores.some(function(r){ return r && (r.red !== null || r.blue !== null); });
+        if (hasScored) {
+          fight = f;
+          scores = savedScores;
+          if (st) stoppage = JSON.parse(st);
+        }
+      }
+      // if saved fight is completed or not found - keep default upcoming fight
+    } else {
+      if (ss) scores = JSON.parse(ss);
+      if (st) stoppage = JSON.parse(st);
+    }
+
+    // URL param overrides saved fight (for links from stats pages)
+    const params = new URLSearchParams(location.search);
+    const urlLang = params.get('lang');
+    if (urlLang === 'uk' || urlLang === 'en') {
+      lang = urlLang;
+      document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+      document.documentElement.lang = lang;
+      if (lang === 'en') {
+        document.title = 'Boxing 12×3 – Interactive Boxing Scorecard';
+        var fa = document.getElementById('footer-about');
+        var fc = document.getElementById('footer-contact');
+        if (fa) fa.textContent = 'About';
+        if (fc) fc.textContent = 'Contact';
+      }
+    }
+    const urlFight = params.get('fight');
+    if (urlFight) {
+      const f = FIGHTS.find(x => x.id === urlFight);
+      if (f) { fight = f; scores = mkScores(); stoppage = null; }
+    }
+    renderSections();
+  } catch(e) {}
+}
+</script>
+</body>
+</html>

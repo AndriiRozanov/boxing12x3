@@ -1,6 +1,14 @@
 export default function middleware(request) {
   const url = new URL(request.url);
 
+  // The scorecard moved from the home page to /ua/scorecard and /en/scorecard (Nov 2026).
+  // Old links such as /?fight=ID, /en?fight=ID and /?widget=1&lang=en keep working.
+  if ((url.pathname === '/' || url.pathname === '/en') &&
+      (url.searchParams.has('fight') || url.searchParams.has('widget'))) {
+    const en = url.pathname === '/en' || url.searchParams.get('lang') === 'en';
+    return Response.redirect(new URL((en ? '/en/scorecard' : '/ua/scorecard') + url.search, url.origin), 308);
+  }
+
   if (url.pathname === '/' && url.searchParams.get('lang') === 'en' && !url.searchParams.has('widget')) {
     return Response.redirect(new URL('/en', url.origin), 308);
   }
@@ -21,5 +29,5 @@ export default function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/', '/height-compare', '/about', '/contact', '/ua/charlo-mazoudier', '/en/charlo-mazoudier'],
+  matcher: ['/', '/en', '/height-compare', '/about', '/contact', '/ua/charlo-mazoudier', '/en/charlo-mazoudier'],
 };

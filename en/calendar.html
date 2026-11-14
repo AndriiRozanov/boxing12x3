@@ -167,7 +167,7 @@ a.fr:hover{background:#fcfbf9}
 <div class="empty" id="empty"><div id="emptytxt">No fights match these filters.</div><button type="button" class="chip" id="reset">Reset filters</button></div>
 </div>
 </div>
-<div class="site-footer"><a href="/en">Scorecard</a><a href="/en/guide">Guide</a><a href="/en/height-compare">Height Compare</a><a href="/en/about">About</a><a href="/privacy">Privacy</a></div>
+<div class="site-footer"><a href="/en">Home</a><a href="/en/scorecard">Scorecard</a><a href="/en/guide">Guide</a><a href="/en/height-compare">Height Compare</a><a href="/en/about">About</a><a href="/privacy">Privacy</a></div>
 </div>
 <script>
 (function(){
@@ -266,7 +266,12 @@ function bind(){
 var te=document.getElementById('tzedit'),tr=document.getElementById('tzrow');te.className='tzedit show';
 te.addEventListener('click',function(){var o=!tr.classList.contains('show');tr.classList.toggle('show',o);te.setAttribute('aria-expanded',o?'true':'false');});
 var sel=document.getElementById('tz');if(st.tz!=='auto'){var ok=[].some.call(sel.options,function(o){return o.value===st.tz;});if(ok)sel.value=st.tz;else st.tz='auto';}
-bind();render();
+bind();
+try{var qp=new URLSearchParams(location.search),qc=qp.get('c');
+ if(qc){var cb=document.querySelector('#f-cont [data-c="'+qc.replace(/"/g,'')+'"]');if(cb){st.conts[qc]=true;cb.classList.add('on');}}
+ if(qp.get('near')==='1'){var nb2=document.getElementById('near');if(nb2)nb2.click();}
+}catch(e){}
+render();
 })();
 </script>
 </body>
