@@ -23,7 +23,7 @@ S = {
    wd=['неділя','понеділок','вівторок','середа','четвер','пʼятниця','субота'], wds=['Нд','Пн','Вт','Ср','Чт','Пт','Сб'],
    tba='Час уточнюється', fallback_label='за Києвом', fb_tz='Europe/Kyiv', tz_fixed='Час показано за Києвом (увімкніть JavaScript, щоб побачити свій час).',
    search='Боксер, турнір, місто…', f_date='Дата', f_near='Біля мене', f_cont='Континент', f_ctry='Країна', f_tz='Показувати час',
-   filters='Фільтри', d_all='Усі', d_today='Сьогодні', d_7='7 днів', d_month='Місяць', d_pick='Обрати дати…', from_='З', to_='До',
+   filters='Фільтри', tz_change='Змінити', d_all='Усі', d_today='Сьогодні', d_7='7 днів', d_month='Місяць', d_pick='Обрати дати…', from_='З', to_='До',
    near_btn='📍 Показати поруч', near_on='📍 Біля мене', near_denied='Дозвіл на місце не надано. Його можна увімкнути в налаштуваннях браузера.',
    near_unsup='Браузер не підтримує визначення місця.', radius='Радіус', radius_all='Весь світ', km='км',
    yourtime='Ваш час', yourtime_lbl='Ваш час', auto_note='визначено автоматично', chosen_note='обрано вами', tz_auto='Автоматично (ваш пояс)',
@@ -42,7 +42,7 @@ S = {
    wd=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], wds=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
    tba='Time TBA', fallback_label='UTC', fb_tz='UTC', tz_fixed='Times are shown in UTC (turn on JavaScript to see your local time).',
    search='Boxer, event, city…', f_date='Date', f_near='Near me', f_cont='Continent', f_ctry='Country', f_tz='Show times in',
-   filters='Filters', d_all='All', d_today='Today', d_7='7 days', d_month='Month', d_pick='Pick dates…', from_='From', to_='To',
+   filters='Filters', tz_change='Change', d_all='All', d_today='Today', d_7='7 days', d_month='Month', d_pick='Pick dates…', from_='From', to_='To',
    near_btn='📍 Show nearby', near_on='📍 Near me', near_denied='Location permission was not granted. You can allow it in your browser settings.',
    near_unsup='This browser cannot detect your location.', radius='Radius', radius_all='Worldwide', km='km',
    yourtime='Your local time', yourtime_lbl='Your local time', auto_note='detected automatically', chosen_note='chosen by you', tz_auto='Automatic (your zone)',
@@ -72,6 +72,9 @@ h1{font-size:26px;font-weight:800;line-height:1.15;margin-bottom:6px;letter-spac
 .lead{font-size:13.5px;color:#555;line-height:1.6;margin-bottom:12px;max-width:720px}
 .tzl{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;margin-bottom:12px}
 .tzl b{color:var(--text);font-weight:700}
+.tzedit{display:none;font:inherit;font-size:11px;font-weight:600;color:var(--red);background:none;border:0;cursor:pointer;padding:0 0 0 4px;text-decoration:underline;text-underline-offset:2px}
+.tzedit.show{display:inline}
+#tzrow{margin:-4px 0 12px}
 .tzl i{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;flex-shrink:0}
 .layout{display:grid;grid-template-columns:minmax(0,1fr);gap:0 28px}
 .layout>div{min-width:0}
@@ -214,7 +217,7 @@ function render(){
  var note=document.getElementById('tznote');
  note.innerHTML=T.yourtime+': <b>'+tzName(zone())+'</b> ('+(st.tz==='auto'?T.auto_note:T.chosen_note)+')';
 }
-function nActive(){var n=0;if(st.mode!=='all')n++;if(st.near)n++;if(anyOn(st.conts))n++;if(anyOn(st.ctrs))n++;if(st.tz!=='auto')n++;return n;}
+function nActive(){var n=0;if(st.mode!=='all')n++;if(st.near)n++;if(anyOn(st.conts))n++;if(anyOn(st.ctrs))n++;return n;}
 function track(a,b){try{if(window.gtag)gtag('event','calendar_filter',{filter:a,value:b});}catch(e){}}
 function bind(){
  var fb=document.getElementById('fbtn'),fw=document.getElementById('fwrap');
@@ -236,7 +239,7 @@ function bind(){
    function(){nn.textContent=T.near_denied;nn.className='note show';},{maximumAge:600000,timeout:10000});
  });
  document.getElementById('radius').addEventListener('change',function(e){st.radius=parseInt(e.target.value,10)||0;render();});
- document.getElementById('tz').addEventListener('change',function(e){st.tz=e.target.value;try{localStorage.setItem('b12x3_cal_tz',st.tz);}catch(x){}track('timezone',st.tz);render();});
+ document.getElementById('tz').addEventListener('change',function(e){st.tz=e.target.value;try{localStorage.setItem('b12x3_cal_tz',st.tz);}catch(x){}track('timezone',st.tz);render();document.getElementById('tzrow').classList.remove('show');document.getElementById('tzedit').setAttribute('aria-expanded','false');});
  document.getElementById('reset').addEventListener('click',function(){
   st.q='';st.mode='all';st.from=st.to=st.day='';st.conts={};st.ctrs={};st.near=false;
   document.getElementById('q').value='';document.getElementById('from').value='';document.getElementById('to').value='';
@@ -244,6 +247,8 @@ function bind(){
   [].forEach.call(document.querySelectorAll('#f-cont .chip,#f-ctry .chip'),function(c){c.classList.remove('on');});
   nb.classList.remove('on');nb.textContent=T.near_btn;nr.className='sub-row';document.getElementById('range').className='sub-row';render();});
 }
+var te=document.getElementById('tzedit'),tr=document.getElementById('tzrow');te.className='tzedit show';
+te.addEventListener('click',function(){var o=!tr.classList.contains('show');tr.classList.toggle('show',o);te.setAttribute('aria-expanded',o?'true':'false');});
 var sel=document.getElementById('tz');if(st.tz!=='auto'){var ok=[].some.call(sel.options,function(o){return o.value===st.tz;});if(ok)sel.value=st.tz;else st.tz='auto';}
 bind();render();
 })();
@@ -383,7 +388,8 @@ def build(lk):
 <div class="breadcrumb"><a href="{s['home']}">{s['crumb'][0]}</a> / {s['crumb'][1]}</div>
 <h1>{s['h1']}</h1>
 <p class="lead">{s['lead']}</p>
-<div class="tzl"><i></i><span id="tznote">{s['tz_fixed']}</span></div>
+<div class="tzl"><i></i><span id="tznote">{s['tz_fixed']}</span><button type="button" class="tzedit" id="tzedit" aria-expanded="false" aria-controls="tzrow">{s['tz_change']}</button></div>
+<div class="sub-row" id="tzrow"><label>{s['f_tz']} <select class="sel" id="tz" aria-label="{esc(s['f_tz'])}" style="width:auto">{zopts}</select></label></div>
 <div class="layout">
 <div>
 <div class="filters">
@@ -396,7 +402,6 @@ def build(lk):
     <div class="sub-row" id="nearrow"><label>{s['radius']} <select class="sel" id="radius" style="width:auto">{radius}</select></label></div><div class="note" id="nearnote"></div></div>
   <div class="fg"><div class="fgl">{s['f_cont']}</div><div class="chips" id="f-cont">{chip_c}</div></div>
   <div class="fg"><div class="fgl">{s['f_ctry']}</div><div class="chips" id="f-ctry">{chip_k}</div></div>
-  <div class="fg"><div class="fgl">{s['f_tz']}</div><select class="sel" id="tz" aria-label="{esc(s['f_tz'])}">{zopts}</select></div>
   </div></div>
 </div>
 </div>

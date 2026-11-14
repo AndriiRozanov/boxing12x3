@@ -49,6 +49,9 @@ h1{font-size:26px;font-weight:800;line-height:1.15;margin-bottom:6px;letter-spac
 .lead{font-size:13.5px;color:#555;line-height:1.6;margin-bottom:12px;max-width:720px}
 .tzl{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;margin-bottom:12px}
 .tzl b{color:var(--text);font-weight:700}
+.tzedit{display:none;font:inherit;font-size:11px;font-weight:600;color:var(--red);background:none;border:0;cursor:pointer;padding:0 0 0 4px;text-decoration:underline;text-underline-offset:2px}
+.tzedit.show{display:inline}
+#tzrow{margin:-4px 0 12px}
 .tzl i{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;flex-shrink:0}
 .layout{display:grid;grid-template-columns:minmax(0,1fr);gap:0 28px}
 .layout>div{min-width:0}
@@ -140,7 +143,8 @@ a.fr:hover{background:#fcfbf9}
 <div class="breadcrumb"><a href="/">Головна</a> / Календар</div>
 <h1>Календар боксерських боїв</h1>
 <p class="lead">Найближчі боксерські бої світу з часом у вашому часовому поясі. Обирайте країну, континент чи дату або знайдіть бій поруч із собою.</p>
-<div class="tzl"><i></i><span id="tznote">Час показано за Києвом (увімкніть JavaScript, щоб побачити свій час).</span></div>
+<div class="tzl"><i></i><span id="tznote">Час показано за Києвом (увімкніть JavaScript, щоб побачити свій час).</span><button type="button" class="tzedit" id="tzedit" aria-expanded="false" aria-controls="tzrow">Змінити</button></div>
+<div class="sub-row" id="tzrow"><label>Показувати час <select class="sel" id="tz" aria-label="Показувати час" style="width:auto"><option value="auto">Автоматично (ваш пояс)</option><option value="Europe/Kyiv">Київ</option><option value="Europe/London">Лондон</option><option value="Europe/Berlin">Берлін</option><option value="America/New_York">Нью-Йорк</option><option value="America/Chicago">Чикаго</option><option value="America/Los_Angeles">Лос-Анджелес</option><option value="Asia/Dubai">Дубай</option><option value="Asia/Riyadh">Ер-Ріяд</option><option value="Asia/Tokyo">Токіо</option><option value="Australia/Sydney">Сідней</option><option value="Africa/Johannesburg">Йоганнесбург</option><option value="Asia/Manila">Маніла</option><option value="UTC">UTC</option></select></label></div>
 <div class="layout">
 <div>
 <div class="filters">
@@ -153,7 +157,6 @@ a.fr:hover{background:#fcfbf9}
     <div class="sub-row" id="nearrow"><label>Радіус <select class="sel" id="radius" style="width:auto"><option value="500" selected>500 км</option><option value="1000">1000 км</option><option value="2500">2500 км</option><option value="5000">5000 км</option><option value="0">Весь світ</option></select></label></div><div class="note" id="nearnote"></div></div>
   <div class="fg"><div class="fgl">Континент</div><div class="chips" id="f-cont"><button type="button" class="chip" data-c="Europe">Європа<small>6</small></button><button type="button" class="chip" data-c="Asia">Азія<small>5</small></button><button type="button" class="chip" data-c="North America">Пн. Америка<small>3</small></button><button type="button" class="chip" data-c="Oceania">Океанія<small>1</small></button></div></div>
   <div class="fg"><div class="fgl">Країна</div><div class="chips" id="f-ctry"><button type="button" class="chip" data-i="SA"><img class="flag" src="/images/flags/sa.png" width="16" height="12" alt=""> Саудівська Аравія<small>3</small></button><button type="button" class="chip" data-i="GB"><img class="flag" src="/images/flags/gb.png" width="16" height="12" alt=""> Британія<small>3</small></button><button type="button" class="chip" data-i="US"><img class="flag" src="/images/flags/us.png" width="16" height="12" alt=""> США<small>3</small></button><button type="button" class="chip" data-i="DE"><img class="flag" src="/images/flags/de.png" width="16" height="12" alt=""> Німеччина<small>2</small></button><button type="button" class="chip" data-i="AU"><img class="flag" src="/images/flags/au.png" width="16" height="12" alt=""> Австралія<small>1</small></button><button type="button" class="chip" data-i="JP"><img class="flag" src="/images/flags/jp.png" width="16" height="12" alt=""> Японія<small>1</small></button><button type="button" class="chip" data-i="NL"><img class="flag" src="/images/flags/nl.png" width="16" height="12" alt=""> Нідерланди<small>1</small></button><button type="button" class="chip" data-i="AE"><img class="flag" src="/images/flags/ae.png" width="16" height="12" alt=""> ОАЕ<small>1</small></button></div></div>
-  <div class="fg"><div class="fgl">Показувати час</div><select class="sel" id="tz" aria-label="Показувати час"><option value="auto">Автоматично (ваш пояс)</option><option value="Europe/Kyiv">Київ</option><option value="Europe/London">Лондон</option><option value="Europe/Berlin">Берлін</option><option value="America/New_York">Нью-Йорк</option><option value="America/Chicago">Чикаго</option><option value="America/Los_Angeles">Лос-Анджелес</option><option value="Asia/Dubai">Дубай</option><option value="Asia/Riyadh">Ер-Ріяд</option><option value="Asia/Tokyo">Токіо</option><option value="Australia/Sydney">Сідней</option><option value="Africa/Johannesburg">Йоганнесбург</option><option value="Asia/Manila">Маніла</option><option value="UTC">UTC</option></select></div>
   </div></div>
 </div>
 </div>
@@ -230,7 +233,7 @@ function render(){
  var note=document.getElementById('tznote');
  note.innerHTML=T.yourtime+': <b>'+tzName(zone())+'</b> ('+(st.tz==='auto'?T.auto_note:T.chosen_note)+')';
 }
-function nActive(){var n=0;if(st.mode!=='all')n++;if(st.near)n++;if(anyOn(st.conts))n++;if(anyOn(st.ctrs))n++;if(st.tz!=='auto')n++;return n;}
+function nActive(){var n=0;if(st.mode!=='all')n++;if(st.near)n++;if(anyOn(st.conts))n++;if(anyOn(st.ctrs))n++;return n;}
 function track(a,b){try{if(window.gtag)gtag('event','calendar_filter',{filter:a,value:b});}catch(e){}}
 function bind(){
  var fb=document.getElementById('fbtn'),fw=document.getElementById('fwrap');
@@ -252,7 +255,7 @@ function bind(){
    function(){nn.textContent=T.near_denied;nn.className='note show';},{maximumAge:600000,timeout:10000});
  });
  document.getElementById('radius').addEventListener('change',function(e){st.radius=parseInt(e.target.value,10)||0;render();});
- document.getElementById('tz').addEventListener('change',function(e){st.tz=e.target.value;try{localStorage.setItem('b12x3_cal_tz',st.tz);}catch(x){}track('timezone',st.tz);render();});
+ document.getElementById('tz').addEventListener('change',function(e){st.tz=e.target.value;try{localStorage.setItem('b12x3_cal_tz',st.tz);}catch(x){}track('timezone',st.tz);render();document.getElementById('tzrow').classList.remove('show');document.getElementById('tzedit').setAttribute('aria-expanded','false');});
  document.getElementById('reset').addEventListener('click',function(){
   st.q='';st.mode='all';st.from=st.to=st.day='';st.conts={};st.ctrs={};st.near=false;
   document.getElementById('q').value='';document.getElementById('from').value='';document.getElementById('to').value='';
@@ -260,6 +263,8 @@ function bind(){
   [].forEach.call(document.querySelectorAll('#f-cont .chip,#f-ctry .chip'),function(c){c.classList.remove('on');});
   nb.classList.remove('on');nb.textContent=T.near_btn;nr.className='sub-row';document.getElementById('range').className='sub-row';render();});
 }
+var te=document.getElementById('tzedit'),tr=document.getElementById('tzrow');te.className='tzedit show';
+te.addEventListener('click',function(){var o=!tr.classList.contains('show');tr.classList.toggle('show',o);te.setAttribute('aria-expanded',o?'true':'false');});
 var sel=document.getElementById('tz');if(st.tz!=='auto'){var ok=[].some.call(sel.options,function(o){return o.value===st.tz;});if(ok)sel.value=st.tz;else st.tz='auto';}
 bind();render();
 })();
