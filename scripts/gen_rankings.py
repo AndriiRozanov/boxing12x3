@@ -183,6 +183,7 @@ def head(l,title,desc,path,ld,sub,bc):
 <link rel="preload" href="/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>{BASE}{CSS}</style>
+<style id="hdr-mobile">@media(max-width:640px){{.lang-row,.lang-bar{{float:right;margin:6px 0 0 8px!important;max-width:none!important}}.brand{{text-align:left!important}}}}</style>
 </head>
 <body>
 <div class="wrap">

@@ -61,6 +61,7 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);pad
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1120px;margin:0 auto}
 .lang-row{display:flex;justify-content:flex-end;gap:4px;margin-bottom:1rem}
+@media(max-width:640px){.lang-row,.lang-bar{float:right;margin:6px 0 0 8px!important;max-width:none!important}.brand{text-align:left!important}}
 .lang-btn{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;border:0.5px solid var(--border);background:transparent;color:var(--muted)}
 .lang-btn.on{background:var(--text);color:#fff;border-color:var(--text)}
 .brand{text-align:center;margin-bottom:1.25rem}
