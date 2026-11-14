@@ -31,7 +31,7 @@ H = {
    desc='Календар боксерських боїв і турнірів: дата, час початку у вашому часовому поясі, де дивитись і результати. Кард кожного вечора й суддівська картка.',
    h1='Карди, час і результати боксерських турнірів',
    nav=[('Події', '#events'), ('Календар', '/ua/calendar'), ('Результати', '/ua/results'), ('Промоутери', '/ua/promoters'), ('Інструменти', '/ua/tools')],
-   sec_events='Найближча подія', sec_next='Найближчі', sec_results='Нещодавні результати', sec_promo='Промоутери', sec_tools='Інструменти',
+   sec_events='Найближча подія', sec_next='Далі в календарі', sec_results='Нещодавні результати', sec_promo='Промоутери', sec_tools='Інструменти',
    all_cal='Увесь календар →', all_res='Усі результати →', all_promo='Всі промоутери →', all_tools='Усі інструменти →',
    tz_auto='визначено автоматично', tz_chosen='обрано вами', yourtime='Ваш час', tz_default='Київ', tz_fixed='Час показано за Києвом',
    today_eve='Сьогодні ввечері', today='Сьогодні', soon='Найближча подія',
@@ -53,7 +53,7 @@ H = {
    desc='Boxing fight and event calendar: date, start time in your own time zone, where to watch and results. The card for every night, plus a round-by-round scorecard.',
    h1='Fight cards, times and results of boxing events',
    nav=[('Events', '#events'), ('Calendar', '/en/calendar'), ('Results', '/en/results'), ('Promoters', '/en/promoters'), ('Tools', '/en/tools')],
-   sec_events='Next event', sec_next='Coming up', sec_results='Recent results', sec_promo='Promoters', sec_tools='Tools',
+   sec_events='Next event', sec_next='Coming up next', sec_results='Recent results', sec_promo='Promoters', sec_tools='Tools',
    all_cal='Full calendar →', all_res='All results →', all_promo='All promoters →', all_tools='All tools →',
    tz_auto='detected automatically', tz_chosen='chosen by you', yourtime='Your local time', tz_default='Kyiv', tz_fixed='Times shown in UTC',
    today_eve='Tonight', today='Today', soon='Next event',
@@ -121,8 +121,6 @@ if(shown>=0){
     var txt=dd===td?T.today_eve:T.soon+' · '+dayFull(dd);
     lab.querySelector('span').textContent=txt;
   }
-  var sh=document.getElementById('evlabel');
-  if(sh){sh.textContent=(dd===localDate(new Date())?T.today:T.soon)+' · '+dayFull(dd);}
 }
 // upcoming list: drop what is shown above or already over; chips filter it in place, keep the first 6
 var up=document.querySelectorAll('#next .fr'),sel=null,pos=null,nearOn=false,RADIUS=1000;
@@ -387,7 +385,7 @@ def build(lk):
 <div class="lang-bar"><a class="lb{' on' if not u else ''}" href="/en" hreflang="en">EN</a><a class="lb{' on' if u else ''}" href="/" hreflang="uk">UA</a></div></div>
 <nav class="nav">{nav}</nav>
 <div class="grid"><div>
-<div class="sec" id="events"><div class="sh"><span class="sl" id="evlabel">{h['sec_events']}</span><div class="tzl"><i></i><span id="tznote">{h['tz_fixed']}</span></div></div>
+<div class="sec" id="events"><div class="sh" style="justify-content:flex-end"><div class="tzl"><i></i><span id="tznote">{h['tz_fixed']}</span></div></div>
 {boxes}
 </div>
 <div class="sec" id="nextsec"><div class="sh"><span class="sl">{h['sec_next']}</span><a class="sa" id="callink" href="/{h['path']}/calendar">{h['all_cal']}</a></div>
