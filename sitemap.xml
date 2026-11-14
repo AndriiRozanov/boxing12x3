@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://boxing12x3.com/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en"/>
     <changefreq>weekly</changefreq>
@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/en</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en"/>
     <changefreq>weekly</changefreq>
@@ -142,13 +142,13 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/ua/fights</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://boxing12x3.com/en/fights</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2758,7 +2758,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/ua/cards</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/cards"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/cards"/>
     <changefreq>weekly</changefreq>
@@ -2766,7 +2766,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/en/cards</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/cards"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/cards"/>
     <changefreq>weekly</changefreq>
@@ -3206,7 +3206,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/ua/promoters</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/promoters"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/promoters"/>
     <changefreq>monthly</changefreq>
@@ -3214,7 +3214,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/en/promoters</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/promoters"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/promoters"/>
     <changefreq>monthly</changefreq>
