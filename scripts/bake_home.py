@@ -30,16 +30,16 @@ H = {
    title='Boxing 12×3: календар боксу, час початку й результати',
    desc='Календар боксерських боїв і турнірів: дата, час початку у вашому часовому поясі, де дивитись і результати. Кард кожного вечора й суддівська картка.',
    h1='Карди, час і результати боксерських турнірів',
-   nav=[('Події', '#events'), ('Календар', '/ua/calendar'), ('Результати', '/ua/results'), ('Промоутери', '/ua/promoters'), ('Інструменти', '#tools')],
+   nav=[('Події', '#events'), ('Календар', '/ua/calendar'), ('Результати', '/ua/results'), ('Промоутери', '/ua/promoters'), ('Інструменти', '/ua/tools')],
    sec_events='Найближча подія', sec_next='Найближчі', sec_results='Нещодавні результати', sec_promo='Промоутери', sec_tools='Інструменти',
-   all_cal='Увесь календар →', all_res='Усі результати →', all_promo='Всі промоутери →',
+   all_cal='Увесь календар →', all_res='Усі результати →', all_promo='Всі промоутери →', all_tools='Усі інструменти →',
    tz_auto='визначено автоматично', tz_chosen='обрано вами', yourtime='Ваш час', tz_default='Київ', tz_fixed='Час показано за Києвом',
    today_eve='Сьогодні ввечері', today='Сьогодні', soon='Найближча подія',
    btn_card='Кард і де дивитись', btn_score='Відсудити', won='Переміг', fights=('бій', 'бої', 'боїв'), tours=('турнір', 'турніри', 'турнірів'),
    cta_t='Ви організовуєте турніри?', cta_p='Безкоштовно зробимо сторінку вашого карду з усіма деталями перегляду. Вашу подію побачать вболівальники з усього світу.', cta_b='Написати нам', cta_href='/contact',
    sc_t='Відсуди бій сам', sc_p='Став бали раунд за раундом і ділися своєю карткою. Без реєстрації.', sc_b='Відкрити суддівську картку', sc_href='/ua/scorecard',
-   tools=[('📏', 'Порівняння габаритів', 'Зріст і розмах боксерів', '/height-compare'), ('🥊', 'Боксери', 'Профілі легенд', '/ua/boxers'),
-          ('🏆', 'Рейтинги боксу', 'WBC, WBA, IBF, WBO, Ring', '/ua/rankings'), ('📅', 'Цей день в боксі', 'Визначні дати', '/ua/boxing-history'),
+   tools=[('🏆', 'Рейтинги', 'WBC, WBA, IBF, WBO, Ring', '/ua/rankings'), ('📏', 'Порівняння габаритів', 'Зріст і розмах боксерів', '/height-compare'),
+          ('📅', 'Цей день в боксі', 'Визначні дати', '/ua/boxing-history'), ('🥊', 'Боксери', 'Профілі легенд', '/ua/boxers'),
           ('📖', 'Довідник боксу', 'Правила, пояси, терміни', '/ua/guide')],
    tba='Час уточнюється', months=['січ', 'лют', 'бер', 'кві', 'тра', 'чер', 'лип', 'сер', 'вер', 'жов', 'лис', 'гру'],
    mfull=['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'],
@@ -52,16 +52,16 @@ H = {
    title='Boxing 12×3: boxing calendar, start times and results',
    desc='Boxing fight and event calendar: date, start time in your own time zone, where to watch and results. The card for every night, plus a round-by-round scorecard.',
    h1='Fight cards, times and results of boxing events',
-   nav=[('Events', '#events'), ('Calendar', '/en/calendar'), ('Results', '/en/results'), ('Promoters', '/en/promoters'), ('Tools', '#tools')],
+   nav=[('Events', '#events'), ('Calendar', '/en/calendar'), ('Results', '/en/results'), ('Promoters', '/en/promoters'), ('Tools', '/en/tools')],
    sec_events='Next event', sec_next='Coming up', sec_results='Recent results', sec_promo='Promoters', sec_tools='Tools',
-   all_cal='Full calendar →', all_res='All results →', all_promo='All promoters →',
+   all_cal='Full calendar →', all_res='All results →', all_promo='All promoters →', all_tools='All tools →',
    tz_auto='detected automatically', tz_chosen='chosen by you', yourtime='Your local time', tz_default='Kyiv', tz_fixed='Times shown in UTC',
    today_eve='Tonight', today='Today', soon='Next event',
    btn_card='Card and where to watch', btn_score='Score it', won='Winner', fights=('fight', 'fights', 'fights'), tours=('event', 'events', 'events'),
    cta_t='Do you promote events?', cta_p='We will build your event page for free, with all the viewing details. Fans from all over the world will see your event.', cta_b='Write to us', cta_href='/en/contact',
    sc_t='Score the fight yourself', sc_p='Score round by round and share your card. No sign-up.', sc_b='Open the scorecard', sc_href='/en/scorecard',
-   tools=[('📏', 'Height compare', 'Height and reach of boxers', '/en/height-compare'), ('🥊', 'Boxers', 'Legend profiles', '/en/boxers'),
-          ('🏆', 'Boxing rankings', 'WBC, WBA, IBF, WBO, Ring', '/en/rankings'), ('📅', 'This day in boxing', 'Famous dates', '/en/boxing-history'),
+   tools=[('🏆', 'Rankings', 'WBC, WBA, IBF, WBO, Ring', '/en/rankings'), ('📏', 'Height compare', 'Height and reach of boxers', '/en/height-compare'),
+          ('📅', 'This day in boxing', 'Famous dates', '/en/boxing-history'), ('🥊', 'Boxers', 'Legend profiles', '/en/boxers'),
           ('📖', 'Boxing guide', 'Rules, belts, terms', '/en/guide')],
    tba='Time TBA', months=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
    mfull=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -374,7 +374,7 @@ def build(lk):
 <div class="list">{prom}</div>
 <div class="dark" style="margin-top:10px"><b>{h['cta_t']}</b><p>{h['cta_p']}</p><a class="btn" href="{h['cta_href']}">{h['cta_b']}</a></div></div>
 <div class="box"><b class="t">{h['sc_t']}</b><p>{h['sc_p']}</p><a class="btn red" style="margin-top:12px;display:block" href="{h['sc_href']}">{h['sc_b']}</a></div>
-<div class="sec" id="tools"><div class="sh"><span class="sl">{h['sec_tools']}</span></div><div class="list">{tools}</div></div>
+<div class="sec" id="tools"><div class="sh"><span class="sl">{h['sec_tools']}</span><a class="sa" href="/{h['path']}/tools">{h['all_tools']}</a></div><div class="list">{tools}</div></div>
 </div></div>
 <p class="seo">{h['seo']}</p>
 <div class="foot">{foot}</div>
