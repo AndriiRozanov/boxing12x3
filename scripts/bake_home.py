@@ -253,10 +253,21 @@ def hero(lk, key, fl, upcoming):
     ids += [f['id'] for f in same]
     end = max(fend(f) for f in fl + same).strftime('%Y-%m-%dT%H:%MZ')
     live = f'<div class="live"><i></i><span>{h["soon"]} · {long_date(lk, d0)}</span></div>'
-    box = (f'<div class="evbox" hidden data-end="{end}" data-date="{d0}" data-ids="{",".join(ids)}">'
-           f'<div class="hero">{img}<div class="hb">{live}<div class="hn">{esc(name)}</div>'
-           f'<div class="hs">{esc(line1)}<br>{line2}</div>'
-           f'<div class="acts"><a class="btn red" href="{href}">{h["btn_card"]}</a>{score}</div></div></div>')
+    acts = f'<div class="acts"><a class="btn red" href="{href}">{h["btn_card"]}</a>{score}</div>'
+    if img:
+        body = (f'<div class="hero">{img}<div class="hb">{live}<div class="hn">{esc(name)}</div>'
+                f'<div class="hs">{esc(line1)}<br>{line2}</div>{acts}</div></div>')
+    else:
+        # no poster: dark plate with the fighters' names (single fight) or the event name plus main fight (tournament)
+        div = (main.get('division') or {}).get(k) or ''
+        info = esc(city) + (f' · {esc(div)}' if div else '') + (f' · {main["rounds"]} {h["rounds"]}' if main.get('rounds') else '')
+        tags = ''.join(f'<span class="tag">{esc(x)}</span>' for x in (main['belts'] or [])[:2])
+        if bc: tags = f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>' + tags
+        extra = f'<div class="hs" style="margin-top:6px">{esc(name)} · {count(lk, h["fights"], len(fl))}</div>' if t else ''
+        body = (f'<div class="plate"><div class="hb">{live}'
+                f'<div class="pl-names"><div class="pl-n r">{esc(a)}</div><div class="pl-vs">VS</div><div class="pl-n b">{esc(b)}</div></div>'
+                f'{extra}<div class="hs">{info}</div><div class="tags">{tags}</div>{acts}</div></div>')
+    box = f'<div class="evbox" hidden data-end="{end}" data-date="{d0}" data-ids="{",".join(ids)}">{body}'
     if same:
         box += '<div class="list">' + ''.join(row(f, lk) for f in same) + '</div>'
     box += '</div>'
@@ -266,7 +277,7 @@ def build(lk):
     h = H[lk]; k = 'ua' if lk == 'uk' else 'en'; u = lk == 'uk'
     up = [f for f in D['fights'] if f['status'] == 'scheduled' and f['date'] >= (TODAY - datetime.timedelta(days=1)).isoformat()]
     up.sort(key=lambda f: (f['date'], f['startUtc'] or 'z'))
-    evs = events(up)[:4]
+    evs = events(up)[:12]
     boxes = ''.join(hero(lk, key, fl, up)[0] for key, fl in evs)
     # unhide the first candidate so no-JS readers see an event
     boxes = boxes.replace('<div class="evbox" hidden', '<div class="evbox"', 1)
