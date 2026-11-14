@@ -246,6 +246,23 @@ def events(upcoming):
     out.sort()
     return [(k, fl) for _, k, fl in out]
 
+def plsplit(n):
+    """first name (small) and surname (big); a generational suffix stays with the surname, or goes to the small line if there is no first name"""
+    w = n.split(' ')
+    suf = ''
+    if len(w) > 1 and w[-1].lower().strip('.') in ('мол', 'ст', 'jr', 'sr', 'ii', 'iii'):
+        suf = w.pop()
+    if len(w) > 1: return w[0], ' '.join(w[1:]) + (' ' + suf if suf else '')
+    return suf, w[0]
+
+def plnames(a, b):
+    """Dark plate: both fighters get a small first-name line and a big surname; one font size for the pair, set by the longer surname."""
+    (fa, la), (fb, lb) = plsplit(a), plsplit(b)
+    c = max(len(la), len(lb), 6)
+    def one(f, l, side):
+        return f'<div class="pl-n {side}"><small>{esc(f) or "&nbsp;"}</small><b>{esc(l)}</b></div>'
+    return f'<div class="pl-names" style="--c:{c}">{one(fa, la, "r")}<div class="pl-vs">VS</div>{one(fb, lb, "b")}</div>'
+
 def hero(lk, key, fl, upcoming):
     h = H[lk]; k = 'ua' if lk == 'uk' else 'en'
     t = TOUR.get(key)
@@ -288,7 +305,7 @@ def hero(lk, key, fl, upcoming):
         if bc: tags = f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>' + tags
         extra = f'<div class="hs" style="margin-top:6px">{esc(name)} · {count(lk, h["fights"], len(fl))}</div>' if t else ''
         body = (f'<div class="plate"><div class="hb">{live}'
-                f'<div class="pl-names"><div class="pl-n r">{esc(a)}</div><div class="pl-vs">VS</div><div class="pl-n b">{esc(b)}</div></div>'
+                f'{plnames(a, b)}'
                 f'{extra}<div class="hs">{info}</div><div class="tags">{tags}</div>{acts}</div></div>')
     box = f'<div class="evbox" hidden data-end="{end}" data-date="{d0}" data-ids="{",".join(ids)}">{body}'
     if same:
