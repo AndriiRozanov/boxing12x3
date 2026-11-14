@@ -285,6 +285,12 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
 .site-footer a{color:var(--muted);text-decoration:none;}
 .site-footer a:hover{color:var(--red);}
 
+/* ── My cards (saved in this browser) ── */
+#myCardsBlock{max-width:520px;margin-left:auto;margin-right:auto;}
+.mc-note{font-size:11.5px;color:var(--muted);line-height:1.5;margin:-2px 0 10px;}
+#myCardsList .fight-row::before{background:#d8d5cd;}
+#myCardsList .mc-line{font-size:11.5px;color:#666;margin-top:4px;line-height:1.45;}
+#myCardsList .mc-line b{color:var(--text);font-weight:700;}
 /* ── Site navigation (same pills as the home page) ── */
 .site-nav{display:flex;gap:6px;overflow-x:auto;max-width:520px;margin:0 auto 14px;padding:2px 0 4px;scrollbar-width:none}
 .site-nav::-webkit-scrollbar{display:none}
@@ -499,6 +505,15 @@ body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min
   </div>
 </div>
 
+<!-- My cards: saved in this browser, shown when there are any -->
+<div class="sec" id="myCardsBlock" style="margin-top:16px;display:none;">
+  <div class="sec-header">
+    <span class="sec-lbl" id="lbl-mycards">Мої картки</span>
+  </div>
+  <p class="mc-note" id="mcNote"></p>
+  <div class="fights-list" id="myCardsList"></div>
+</div>
+
 <!-- Fight archive – both languages -->
 <div class="sec" id="analyticsBlock" style="margin-top:16px;">
   <div class="sec-header">
@@ -594,6 +609,9 @@ var TOURNAMENTS = {
     kickUk:'11 грудня · Кардіфф', kickEn:'Dec 11 · Cardiff', subUk:'Ф\'юрі – Джошуа · 2 бої', subEn:'Fury vs Joshua · 2 fights',
     img:'/images/cards/fury-joshua.jpg'}
 };
+/* results:start */
+const RESULTS = {"garcia-benn":{"w":"red","m":"TKO 2"},"cruz-bravo":{"w":"red","m":"KO 6"},"fisher-protton":{"w":"red","m":"MD 10"},"inoue-nasukawa":{"w":"red","m":"UD 12"},"nishida-goodman":{"w":"blue","m":"UD 12"},"tsiupka-beyda":{"w":"blue","m":"UD 10"},"whittaker-wallace":{"w":"red","m":"UD 12"},"iglesias-zaren":{"w":"red","m":"TKO 7"},"dubois-wardley-2":{"w":"red","m":"TKO 2"},"fundora-hadribeaj":{"w":"red","m":"TKO 12"},"jalolov-dacres":{"w":"red","m":"UD 10"},"resendiz-mazoudier":{"w":"red","m":"UD 10"},"navarrete-foster":{"w":"blue","m":"UD 12"},"smith-puello":{"w":"red","m":"SD 12"},"alvarez-mbilli":{"w":"red","m":"UD 12"},"espinosa-blandon":{"w":"red","m":"TKO 3"},"munguia-zon":{"w":"red","m":"UD 12"},"picasso-martin":{"w":"blue","m":"SD 10"},"rojo-biea":{"w":"red","m":"TKO 4"},"tsutsumi-rojas-garcia":{"w":"red","m":"TKO 2"},"lerena-forrest":{"w":"red","m":"UD 10"},"bentley-mosley":{"w":"red","m":"UD 10"},"billam-smith-clarke":{"w":"blue","m":"TKO 7"},"parker-dzambekov":{"w":"blue","m":"KO 4"},"buatsi-hutchinson-2":{"w":"blue","m":"UD 12"}};
+/* results:end */
 const FIGHTS = [
   // ЗАВЕРШЕНІ
   {id:'garcia-benn',       date:'Sep 12', dateUk:'12 вересня', dateEn:'Sep 12', dateNum:12, monthUk:'вер', monthIdx:8, red:'Ryan Garcia',    redUk:'Раян Гарсія',    redEn:'Ryan Garcia',      blue:'Conor Benn', blueUk:'Конор Бенн',       blueEn:'Conor Benn',       divUk:'Напівсередня вага',       divEn:'Welterweight',       rounds:12, belts:['WBC','Zuffa'], completed:true,  hasPage:true,  featured:false},
@@ -857,7 +875,7 @@ const isWidget = new URLSearchParams(window.location.search).has('widget');
 // Прибираємо ?lang= з адреси, коли сторінку відкрито за посиланням /?lang=uk (мова вже застосована).
 if (new URLSearchParams(window.location.search).has('lang')) syncUrlToLang(lang);
 if (isWidget) {
-  ['siteNav','homeLinkWrap','analyticsBlock','howBlock'].forEach(function(id) {
+  ['siteNav','homeLinkWrap','myCardsBlock','analyticsBlock','howBlock'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.classList.add('widget-hidden');
   });
@@ -1290,6 +1308,7 @@ const fEmbed = document.getElementById('footer-embed'); if (fEmbed) fEmbed.textC
   }
 
   buildAnalyticsBlock();
+  renderMyCards();
 
   // Custom modal labels
   document.getElementById('lbl-custom-title').textContent = t('customTitle');
@@ -1362,6 +1381,13 @@ function buildSelector() {
   customOpt.textContent = t('customFight');
   sel.appendChild(customOpt);
 
+  if (fight.id !== 'custom' && !Array.prototype.some.call(sel.options, function(o){ return o.value === fight.id; })) {
+    const xo = document.createElement('option');
+    xo.value = fight.id;
+    xo.textContent = (lang==='uk' ? fight.dateUk : fight.dateEn) + ' · ' + (lang==='uk' ? fight.redUk : fight.red) + ' vs ' + (lang==='uk' ? fight.blueUk : fight.blue);
+    sel.insertBefore(xo, customOpt);
+  }
+
   sel.value = fight.id;
 }
 
@@ -1377,8 +1403,9 @@ function onFightChange() {
     return;
   }
   fight = FIGHTS.find(f => f.id === id);
-  scores = mkScores();
-  stoppage = null;
+  var saved = loadCard(id);
+  scores = saved ? saved.scores : mkScores();
+  stoppage = saved ? saved.stop : null;
   document.getElementById('hdr-rn').textContent = rn();
   document.getElementById('hdr-bn').textContent = bn();
   updateStatBanner();
@@ -2030,6 +2057,74 @@ function saveState() {
     if (stoppage) localStorage.setItem('b12x3_stop', JSON.stringify(stoppage));
     else localStorage.removeItem('b12x3_stop');
   } catch(e) {}
+  storeCard();
+  renderMyCards();
+}
+
+// ── Збережені картки: окрема картка на кожен бій, лише в цьому браузері ──
+function readCards() { try { return JSON.parse(localStorage.getItem('b12x3_cards')) || {}; } catch (e) { return {}; } }
+function cardHasScores(sc) { return !!sc && sc.some(function(r){ return r && (r.red !== null || r.blue !== null); }); }
+function storeCard() {
+  try {
+    if (!fight || fight.id === 'custom') return;
+    var m = readCards();
+    if (cardHasScores(scores) || stoppage) m[fight.id] = {scores: scores, stop: stoppage, t: Date.now()};
+    else delete m[fight.id];
+    Object.keys(m).sort(function(a, b){ return m[b].t - m[a].t; }).slice(60).forEach(function(k){ delete m[k]; });
+    localStorage.setItem('b12x3_cards', JSON.stringify(m));
+  } catch (e) {}
+}
+function loadCard(id) { var c = readCards()[id]; return (c && c.scores) ? c : null; }
+
+function cardSummary(c, f) {
+  var n = f.rounds;
+  if (c.stop) return {kind: 'stop', side: c.stop.winner, text: c.stop.type + ' ' + c.stop.round};
+  var sc = c.scores.slice(0, n).filter(function(r){ return r.red !== null && r.blue !== null; });
+  if (sc.length < n) return {kind: 'partial', done: sc.length, total: n};
+  var tr = sc.reduce(function(a, r){ return a + r.red; }, 0), tb = sc.reduce(function(a, r){ return a + r.blue; }, 0);
+  if (tr === tb) return {kind: 'draw', text: tr + '-' + tb};
+  return {kind: 'win', side: tr > tb ? 'red' : 'blue', text: Math.max(tr, tb) + '-' + Math.min(tr, tb)};
+}
+function renderMyCards() {
+  var blk = document.getElementById('myCardsBlock'); if (!blk) return;
+  var m = readCards(), isUk = lang === 'uk';
+  var ids = Object.keys(m).filter(function(id){ return FIGHTS.some(function(f){ return f.id === id; }); })
+    .sort(function(a, b){ return m[b].t - m[a].t; });
+  if (!ids.length) { blk.style.display = 'none'; return; }
+  document.getElementById('lbl-mycards').textContent = isUk ? 'Мої картки' : 'My scorecards';
+  document.getElementById('mcNote').textContent = isUk
+    ? 'Картки зберігаються лише в цьому браузері на цьому пристрої. Якщо очистити дані браузера, вони зникнуть.'
+    : 'Scorecards are saved only in this browser on this device. If you clear your browser data, they will be gone.';
+  var base = isUk ? '/ua/scorecard' : '/en/scorecard', h = '';
+  ids.forEach(function(id) {
+    var f = FIGHTS.find(function(x){ return x.id === id; });
+    var red = isUk ? f.redUk : f.red, blue = isUk ? f.blueUk : f.blue;
+    var mon = isUk ? f.monthUk : (f.dateEn ? f.dateEn.split(' ')[0] : '');
+    var s = cardSummary(m[id], f), line1, line2;
+    var who = function(side) { return side === 'red' ? red : blue; };
+    var mine = isUk ? 'Ваш результат: ' : 'Your result: ';
+    if (s.kind === 'partial') {
+      line1 = isUk ? 'Відсуджено ' + s.done + ' з ' + s.total + ' раундів' : 'Scored ' + s.done + ' of ' + s.total + ' rounds';
+    } else if (s.kind === 'draw') {
+      line1 = '<b>' + mine + '</b>' + (isUk ? 'нічия, ' : 'draw, ') + s.text;
+    } else {
+      line1 = '<b>' + mine + '</b>' + (isUk ? 'переміг ' : '') + who(s.side) + (isUk ? '' : ' won') + ', ' + s.text;
+    }
+    var r = (typeof RESULTS !== 'undefined') ? RESULTS[id] : null;
+    if (r) {
+      var dec = /^(UD|SD|MD|PTS|TD|DRAW)/i.test(r.m || '');
+      var lbl = isUk ? (dec ? 'Результат суддів: ' : 'Офіційний результат: ') : (dec ? 'Judges\' result: ' : 'Official result: ');
+      var txt = r.w === 'draw' ? (isUk ? 'нічия' : 'draw') : (isUk ? 'переміг ' + who(r.w) : who(r.w) + ' won');
+      line2 = '<b>' + lbl + '</b>' + txt + (r.m ? ', ' + r.m : '');
+    } else {
+      line2 = isUk ? 'Чекаємо результат' : 'Waiting for the result';
+    }
+    h += '<a class="fight-row clickable" href="' + base + '?fight=' + id + '"><div class="fight-dc"><div class="fight-dn">' + f.dateNum + '</div><div class="fight-dm">' + mon + '</div></div>' +
+      '<div class="fight-div"></div><div class="fight-info"><div class="fight-pair">' + red + ' <span class="fight-vs">–</span> ' + blue + '</div>' +
+      '<div class="mc-line">' + line1 + '<br>' + line2 + '</div></div><div class="fight-arr-col">›</div></a>';
+  });
+  document.getElementById('myCardsList').innerHTML = h;
+  blk.style.display = 'block';
 }
 function loadState() {
   try {
@@ -2077,6 +2172,9 @@ function loadState() {
       const f = FIGHTS.find(x => x.id === urlFight);
       if (f) { fight = f; scores = mkScores(); stoppage = null; }
     }
+    // Збережена картка цього бою; стару єдину картку переносимо в нове сховище
+    if (cardHasScores(scores) || stoppage) storeCard();
+    else { var c0 = loadCard(fight.id); if (c0) { scores = c0.scores; stoppage = c0.stop; } }
     renderSections();
   } catch(e) {}
 }
