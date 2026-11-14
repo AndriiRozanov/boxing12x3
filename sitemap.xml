@@ -4035,6 +4035,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://boxing12x3.com/ua/tools</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/tools"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/tools"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/tools</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/tools"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/tools"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://boxing12x3.com/ua/rankings/wba</loc>
     <lastmod>2026-11-14</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/rankings/wba"/>
@@ -4401,21 +4417,5 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/rankings"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://boxing12x3.com/ua/tools</loc>
-    <lastmod>2026-11-14</lastmod>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/tools"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/tools"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://boxing12x3.com/en/tools</loc>
-    <lastmod>2026-11-14</lastmod>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/tools"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/tools"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>
