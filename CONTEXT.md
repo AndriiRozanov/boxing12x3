@@ -505,3 +505,6 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 ## Results of Nov 14 2026 (standalone fights)
 - Riley d. Coupe UD 12 (116-112, 117-111, 119-109; ref Giuseppe Quartarone; EBU European title retained, first defence). Pacheco lost to Fulghum UD 12 (judges normalised Fulghum-first: 114-113, 115-112, 115-112; ref Ray Corona; WBC Silver and WBO International passed to Fulghum; Pacheco's first loss). Olascuaga d. Martinez UD 12 (115-112, 114-113, 115-112; ref Thomas Taylor; WBO flyweight, wording kept neutral: "winner of the fight for the WBO title").
 - Pages converted with the Lerena-Forrest finished pattern (Index block and its CSS removed, one broadcast row, Result section before the visible FAQ, FAQ rewritten, EventCompleted). FIGHTS: three set `completed:true`; `featured:true` moved to teremoana-aiho in ua/en scorecard.html. Sitemap lastmod 2026-11-15.
+
+## Back-to-top button on This Day in Boxing month pages
+- `ua|en/boxing-history/{september,october,november}.html`: fixed round button bottom right (`#toTop`, CSS `.totop`, inline JS before `</body>`). Appears after ~600px scroll; tap scrolls to the top and the button becomes "Назад"/"Back" with a down arrow; tap returns to the saved position. Manual scrolling down (>200px) after rising resets it to the normal up button. Only these 6 pages (owner decision).

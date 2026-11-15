@@ -93,6 +93,12 @@ h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 @media (max-width:760px){
   .content{padding:8px 16px 20px;}
 }
+.totop{position:fixed;right:14px;bottom:18px;z-index:50;display:flex;align-items:center;gap:6px;height:44px;min-width:44px;padding:0 13px;border:0;border-radius:22px;background:#111;color:#fff;font:600 12px 'DM Sans',sans-serif;box-shadow:0 2px 10px rgba(0,0,0,.25);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;-webkit-tap-highlight-color:transparent}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop svg{width:16px;height:16px;flex:none}
+.totop .tt-l{display:none}
+.totop.back .tt-l{display:inline}
+.totop.back svg{transform:rotate(180deg)}
 </style>
 <style id="hdr-mobile">@media(max-width:640px){.brand-sub{text-wrap:balance}.lang-row,.lang-bar{float:right;margin:6px 0 0 8px!important;max-width:none!important}.brand{text-align:left!important}}</style>
 </head>
@@ -409,6 +415,25 @@ var DAYS = [
     var vid = box.getAttribute('data-vid');
     box.innerHTML = '<iframe src="https://www.youtube.com/embed/' + vid + '?autoplay=1" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
   });
+})();
+</script>
+<button type="button" class="totop" id="toTop" aria-label="Нагору"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg><span class="tt-l">Назад</span></button>
+<script>
+(function(){
+  var b=document.getElementById('toTop');if(!b)return;
+  var L={up:'Нагору',back:'Назад'},saved=null,lock=0;
+  function upd(){
+    var y=window.scrollY||document.documentElement.scrollTop;
+    if(saved!==null&&!lock&&y>200){saved=null;b.classList.remove('back');b.setAttribute('aria-label',L.up);}
+    b.classList.toggle('show',y>600||saved!==null);
+  }
+  b.addEventListener('click',function(){
+    var y=window.scrollY||document.documentElement.scrollTop;
+    lock=1;setTimeout(function(){lock=0;upd();},1300);
+    if(saved===null){saved=y;b.classList.add('back');b.setAttribute('aria-label',L.back);window.scrollTo({top:0,behavior:'smooth'});}
+    else{var t=saved;saved=null;b.classList.remove('back');b.setAttribute('aria-label',L.up);window.scrollTo({top:t,behavior:'smooth'});}
+  });
+  window.addEventListener('scroll',upd,{passive:true});upd();
 })();
 </script>
 </body>
