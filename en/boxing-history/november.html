@@ -92,12 +92,23 @@ h1{font-size:26px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
 @media (max-width:760px){
   .content{padding:8px 16px 20px;}
 }
-.totop{position:fixed;right:14px;bottom:18px;z-index:50;display:flex;align-items:center;gap:6px;height:44px;min-width:44px;padding:0 13px;border:0;border-radius:22px;background:var(--red);color:#fff;font:600 12px 'DM Sans',sans-serif;box-shadow:0 2px 10px rgba(0,0,0,.25);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;-webkit-tap-highlight-color:transparent}
+.totop{position:fixed;right:14px;bottom:18px;z-index:50;width:48px;height:48px;padding:0;border:0;background:none;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;-webkit-tap-highlight-color:transparent}
 .totop.show{opacity:1;visibility:visible;transform:none}
-.totop svg{width:16px;height:16px;flex:none}
-.totop .tt-l{display:none}
-.totop.back .tt-l{display:inline}
-.totop.back svg{transform:rotate(180deg)}
+.tt-in{position:relative;display:block;width:100%;height:100%}
+.tt-f,.tt-b{position:absolute;inset:0;display:block}
+.tt-b{opacity:0}
+.totop.spin .tt-in{animation:ttflip .8s ease-in-out}
+.totop.spin .tt-f{animation:ttfront .8s steps(1,end)}
+.totop.spin .tt-b{animation:ttbackf .8s steps(1,end)}
+@keyframes ttflip{0%{transform:perspective(320px) rotateY(0)}22%{transform:perspective(320px) rotateY(90deg)}22.01%{transform:perspective(320px) rotateY(-90deg)}40%,62%{transform:perspective(320px) rotateY(0)}78%{transform:perspective(320px) rotateY(90deg)}78.01%{transform:perspective(320px) rotateY(-90deg)}100%{transform:perspective(320px) rotateY(0)}}
+@keyframes ttfront{0%{opacity:1}22.01%{opacity:0}78.01%{opacity:1}}
+@keyframes ttbackf{0%{opacity:0}22.01%{opacity:1}78.01%{opacity:0}}
+.tt-f svg.tt-r{position:absolute;inset:0;width:48px;height:48px;transform:rotate(-90deg)}
+.tt-core{position:absolute;inset:5px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.tt-b .tt-core{inset:2px;font:700 15px/1 'Oswald',sans-serif;letter-spacing:.04em}
+.tt-core svg{width:16px;height:16px;transition:transform .2s}
+.totop.back .tt-core svg{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.totop.spin .tt-in,.totop.spin .tt-f,.totop.spin .tt-b{animation:none}}
 </style>
 <style id="hdr-mobile">@media(max-width:640px){.brand-sub{text-wrap:balance}.lang-row,.lang-bar{float:right;margin:6px 0 0 8px!important;max-width:none!important}.brand{text-align:left!important}}</style>
 </head>
@@ -338,21 +349,29 @@ var DAYS = [
   });
 })();
 </script>
-<button type="button" class="totop" id="toTop" aria-label="Back to top"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg><span class="tt-l">Back</span></button>
+<button type="button" class="totop" id="toTop" aria-label="Back to top"><span class="tt-in"><span class="tt-f"><svg class="tt-r" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#e5e3de" stroke-width="3"/><circle id="ttRing" cx="24" cy="24" r="21" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-dasharray="131.95" stroke-dashoffset="131.95"/></svg><span class="tt-core"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5"/></svg></span></span><span class="tt-b"><span class="tt-core">12&times;3</span></span></span></button>
 <script>
 (function(){
-  var b=document.getElementById('toTop');if(!b)return;
-  var L={up:'Back to top',back:'Back'},saved=null,lock=0;
+  var b=document.getElementById('toTop'),ring=document.getElementById('ttRing');if(!b)return;
+  var L={up:'Back to top',back:'Back'},C=131.95,saved=null,savedP=0,lock=0,
+      rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function Y(){return window.scrollY||document.documentElement.scrollTop;}
+  function prog(){var h=document.documentElement.scrollHeight-window.innerHeight;return h>0?Math.min(1,Math.max(0,Y()/h)):0;}
+  function mode(back){b.classList.toggle('back',back);b.setAttribute('aria-label',back?L.back:L.up);}
   function upd(){
-    var y=window.scrollY||document.documentElement.scrollTop;
-    if(saved!==null&&!lock&&y>200){saved=null;b.classList.remove('back');b.setAttribute('aria-label',L.up);}
+    var y=Y();
+    if(saved!==null&&!lock&&y>200){saved=null;mode(false);}
     b.classList.toggle('show',y>600||saved!==null);
+    ring.style.strokeDashoffset=C*(1-(saved!==null?savedP:prog()));
   }
   b.addEventListener('click',function(){
-    var y=window.scrollY||document.documentElement.scrollTop;
+    var y=Y(),goUp=saved===null,target;
     lock=1;setTimeout(function(){lock=0;upd();},1300);
-    if(saved===null){saved=y;b.classList.add('back');b.setAttribute('aria-label',L.back);window.scrollTo({top:0,behavior:'smooth'});}
-    else{var t=saved;saved=null;b.classList.remove('back');b.setAttribute('aria-label',L.up);window.scrollTo({top:t,behavior:'smooth'});}
+    if(goUp){saved=y;savedP=prog();target=0;}else{target=saved;saved=null;}
+    if(!rm){b.classList.remove('spin');void b.offsetWidth;b.classList.add('spin');setTimeout(function(){mode(goUp);},420);setTimeout(function(){b.classList.remove('spin');},820);}
+    else mode(goUp);
+    window.scrollTo({top:target,behavior:'smooth'});
+    upd();
   });
   window.addEventListener('scroll',upd,{passive:true});upd();
 })();
