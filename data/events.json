@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14",
+ "generated": "2026-11-15",
  "fights": [
   {
    "id": "corrales-freitas",
@@ -3625,7 +3625,7 @@
    "startUtc": "2026-11-15T00:30Z",
    "startPrecision": "time",
    "startSource": "votes-close.json",
-   "status": "scheduled",
+   "status": "completed",
    "tournamentId": null,
    "red": {
     "ua": "Ентоні Оласкуага",
@@ -3661,7 +3661,10 @@
      "DAZN"
     ]
    },
-   "result": null
+   "result": {
+    "winner": "Ентоні Оласкуага",
+    "method": "UD 12"
+   }
   },
   {
    "id": "pacheco-fulghum",
@@ -3673,7 +3676,7 @@
    "startUtc": "2026-11-15T00:30Z",
    "startPrecision": "time",
    "startSource": "votes-close.json",
-   "status": "scheduled",
+   "status": "completed",
    "tournamentId": null,
    "red": {
     "ua": "Дієго Пачеко",
@@ -3710,7 +3713,10 @@
      "DAZN"
     ]
    },
-   "result": null
+   "result": {
+    "winner": "Даріус Фулгем",
+    "method": "UD 12"
+   }
   },
   {
    "id": "riley-coupe",
@@ -3722,7 +3728,7 @@
    "startUtc": "2026-11-14T19:00Z",
    "startPrecision": "time",
    "startSource": "votes-close.json",
-   "status": "scheduled",
+   "status": "completed",
    "tournamentId": null,
    "red": {
     "ua": "Віддал Райлі",
@@ -3758,7 +3764,10 @@
      "DAZN"
     ]
    },
-   "result": null
+   "result": {
+    "winner": "Віддал Райлі",
+    "method": "UD 12"
+   }
   },
   {
    "id": "surace-bednarek",
