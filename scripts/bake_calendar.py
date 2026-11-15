@@ -103,6 +103,12 @@ h1{font-size:26px;font-weight:800;line-height:1.15;margin-bottom:6px;letter-spac
 .chip{font:inherit;font-size:12px;font-weight:600;padding:6px 11px;border-radius:20px;border:0.5px solid var(--border);background:#fff;color:#555;cursor:pointer;line-height:1.3}
 .chip.on{background:#111;border-color:#111;color:#fff}
 .chip small{opacity:.6;margin-left:4px;font-weight:600}
+a.chip{text-decoration:none;display:inline-block}
+.seg{margin:0 0 14px}
+.pend{margin:0 0 18px;display:none}.pend.show{display:block}
+.pend .dayh b{color:var(--red)}
+.fr.wait .rs{color:#b26a00}
+.fr.wait::before{background:#d9a441}
 .chip.near.on{background:var(--red);border-color:var(--red);color:#fff}
 .flag{width:16px;height:12px;object-fit:cover;border-radius:2px;border:0.5px solid var(--border);vertical-align:-1px;margin-right:2px}
 .sel{width:100%;font:inherit;font-size:13px;border:0.5px solid var(--border);border-radius:8px;padding:9px 10px;background:#fff;color:#555}
@@ -182,6 +188,7 @@ function render(){
  rows.forEach(function(r){
   r.day=rowDay(r,tz);
   if(r.day<today){return;}
+  if(r.start&&Date.parse(r.start)+216e5<=Date.now()){return;}
   if(st.q&&norm(r.q).indexOf(norm(st.q))<0)return;
   if(from&&r.day<from)return; if(to&&r.day>to)return;
   if(anyOn(st.conts)&&!st.conts[r.cont])return;
@@ -392,6 +399,7 @@ def build(lk):
 </div>
 <div class="breadcrumb"><a href="{s['home']}">{s['crumb'][0]}</a> / {s['crumb'][1]}</div>
 <h1>{s['h1']}</h1>
+<div class="chips seg"><a class="chip on" href="/{s['path']}/calendar">{'Майбутні' if s['path']=='ua' else 'Upcoming'}</a><a class="chip" href="/{s['path']}/results">{'Минулі' if s['path']=='ua' else 'Past'}</a></div>
 <p class="lead">{s['lead']}</p>
 <div class="tzl"><i></i><span id="tznote">{s['tz_fixed']}</span><button type="button" class="tzedit" id="tzedit" aria-expanded="false" aria-controls="tzrow">{s['tz_change']}</button></div>
 <div class="sub-row" id="tzrow"><label>{s['f_tz']} <select class="sel" id="tz" aria-label="{esc(s['f_tz'])}" style="width:auto">{zopts}</select></label></div>

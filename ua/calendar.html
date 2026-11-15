@@ -80,6 +80,12 @@ h1{font-size:26px;font-weight:800;line-height:1.15;margin-bottom:6px;letter-spac
 .chip{font:inherit;font-size:12px;font-weight:600;padding:6px 11px;border-radius:20px;border:0.5px solid var(--border);background:#fff;color:#555;cursor:pointer;line-height:1.3}
 .chip.on{background:#111;border-color:#111;color:#fff}
 .chip small{opacity:.6;margin-left:4px;font-weight:600}
+a.chip{text-decoration:none;display:inline-block}
+.seg{margin:0 0 14px}
+.pend{margin:0 0 18px;display:none}.pend.show{display:block}
+.pend .dayh b{color:var(--red)}
+.fr.wait .rs{color:#b26a00}
+.fr.wait::before{background:#d9a441}
 .chip.near.on{background:var(--red);border-color:var(--red);color:#fff}
 .flag{width:16px;height:12px;object-fit:cover;border-radius:2px;border:0.5px solid var(--border);vertical-align:-1px;margin-right:2px}
 .sel{width:100%;font:inherit;font-size:13px;border:0.5px solid var(--border);border-radius:8px;padding:9px 10px;background:#fff;color:#555}
@@ -142,6 +148,7 @@ a.fr:hover{background:#fcfbf9}
 </div>
 <div class="breadcrumb"><a href="/">Головна</a> / Календар</div>
 <h1>Календар боксерських боїв</h1>
+<div class="chips seg"><a class="chip on" href="/ua/calendar">Майбутні</a><a class="chip" href="/ua/results">Минулі</a></div>
 <p class="lead">Найближчі боксерські бої світу з часом у вашому часовому поясі. Обирайте країну, континент чи дату або знайдіть бій поруч із собою.</p>
 <div class="tzl"><i></i><span id="tznote">Час показано за Києвом (увімкніть JavaScript, щоб побачити свій час).</span><button type="button" class="tzedit" id="tzedit" aria-expanded="false" aria-controls="tzrow">Змінити</button></div>
 <div class="sub-row" id="tzrow"><label>Показувати час <select class="sel" id="tz" aria-label="Показувати час" style="width:auto"><option value="auto">Автоматично (ваш пояс)</option><option value="Europe/Kyiv">Київ</option><option value="Europe/London">Лондон</option><option value="Europe/Berlin">Берлін</option><option value="America/New_York">Нью-Йорк</option><option value="America/Chicago">Чикаго</option><option value="America/Los_Angeles">Лос-Анджелес</option><option value="Asia/Dubai">Дубай</option><option value="Asia/Riyadh">Ер-Ріяд</option><option value="Asia/Tokyo">Токіо</option><option value="Australia/Sydney">Сідней</option><option value="Africa/Johannesburg">Йоганнесбург</option><option value="Asia/Manila">Маніла</option><option value="UTC">UTC</option></select></label></div>
@@ -198,6 +205,7 @@ function render(){
  rows.forEach(function(r){
   r.day=rowDay(r,tz);
   if(r.day<today){return;}
+  if(r.start&&Date.parse(r.start)+216e5<=Date.now()){return;}
   if(st.q&&norm(r.q).indexOf(norm(st.q))<0)return;
   if(from&&r.day<from)return; if(to&&r.day>to)return;
   if(anyOn(st.conts)&&!st.conts[r.cont])return;
