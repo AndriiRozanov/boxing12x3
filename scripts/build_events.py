@@ -53,7 +53,7 @@ VM={ '!FESTrepublic':('Lviv','Ukraine'),'3Arena':('Dublin','Ireland'),'Bournemou
  'T-Mobile Arena':('Las Vegas','USA'),'The Chelsea at The Cosmopolitan':('Las Vegas','USA'),'The Cosmopolitan of Las Vegas':('Las Vegas','USA'),
  'The Venue (Riyadh Season)':('Riyadh','Saudi Arabia'),'Toyota Arena Tokyo':('Tokyo','Japan'),'Utilita Arena Sheffield':('Sheffield','United Kingdom'),
  'Utilita Arena':('Birmingham','United Kingdom'),'Vinnytsia':('Vinnytsia','Ukraine'),'Вінниця':('Vinnytsia','Ukraine'),'WePlay Esports Arena':('Kyiv','Ukraine'),
- 'Wembley Arena':('London','United Kingdom')}
+ 'Wembley Arena':('London','United Kingdom'),'Stereo Plaza':('Kyiv','Ukraine')}
 
 def split_addr(addr):
     if not addr: return None,None

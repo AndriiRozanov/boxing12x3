@@ -508,3 +508,11 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 
 ## Back-to-top button on This Day in Boxing month pages
 - `ua|en/boxing-history/{september,october,november}.html`: fixed round red button (variant B: progress ring + arrow) bottom right (`#toTop`, CSS `.totop`/`.tt-*`, inline JS before `</body>`); on tap it flips to "12×3" (0.8s, `ttflip` keyframes, off for prefers-reduced-motion) and turns into a return arrow; ring is frozen at the saved position while in "back" mode. Appears after ~600px scroll; tap scrolls to the top and the button becomes "Назад"/"Back" with a down arrow; tap returns to the saved position. Manual scrolling down (>200px) after rising resets it to the normal up button. Only these 6 pages (owner decision).
+
+## Top Boxing Generation card, Dec 5 2026, Stereo Plaza, Kyiv (tournament `lozan-burgos`)
+- Tournament card `ua|en/cards/lozan-burgos` (no official name yet: named after the main pair; poster `images/cards/lozan-burgos.jpg`, organizer logo `images/cards/top-boxing-generation.png`, shown without a link: no promoter page yet, owner said "later"). Fights (pre-fight pages from the Opetaia-Wilder tournament template): `lozan-burgos` (WBC Youth World welterweight, main), `sorokin-serguta` (Ukrainian heavyweight title, co-main), `petrosyan-jara` (welterweight, no belt).
+- Unknown so far: start time and broadcaster ("уточнюється" rows, no votes-close entry yet: add to `votes-close.json` when the time is known), number of rounds (pages say "кількість раундів уточнюється"; `FIGHTS` has provisional rounds 12/10/10: replace with real numbers). Capacity "до 6 000" (owner).
+- Height/reach unknown for most fighters (dash, no advantage arrow); Petrosyan 177 cm, Jara 172 cm.
+- Last-5 lists were given newest first; pages show oldest to newest. TD counts as an early finish in "wins by stoppage" (same as gen_index).
+- Generators used (scratchpad, not in repo): tbg_data.py, tbg_gen.py, tbg_gen2.py, tbg_card.py. `scripts/gen_index.py` now reads FIGHTS from `ua/scorecard.html` (it used to read `index.html`, where FIGHTS no longer exists). `Stereo Plaza` added to VM in `scripts/build_events.py`.
+- Checklist done: scorecard.html FIGHTS+TOURNAMENTS (ua/en), fights.html ARCHIVE, cards.html rows + ItemList, sitemap (8 URLs), events pipeline, Index 12×3 blocks.

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15",
+ "generated": "2026-11-16",
  "fights": [
   {
    "id": "corrales-freitas",
@@ -4043,6 +4043,148 @@
    "result": null
   },
   {
+   "id": "lozan-burgos",
+   "urls": {
+    "ua": "/ua/lozan-burgos",
+    "en": "/en/lozan-burgos"
+   },
+   "date": "2026-12-05",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": "lozan-burgos",
+   "red": {
+    "ua": "Данило Лозан",
+    "en": "Danylo Lozan"
+   },
+   "blue": {
+    "ua": "Браян Бургос",
+    "en": "Bryan Burgos"
+   },
+   "division": {
+    "ua": "Напівсередня вага",
+    "en": "Welterweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс чемпіона світу WBC серед молоді"
+   ],
+   "venue": {
+    "name": "Stereo Plaza",
+    "cityUa": "Київ",
+    "cityEn": "Kyiv",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.45,
+    "lon": 30.52
+   },
+   "broadcast": {
+    "ua": [
+     "Трансляція уточнюється"
+    ],
+    "en": [
+     "Broadcast to be confirmed"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "petrosyan-jara",
+   "urls": {
+    "ua": "/ua/petrosyan-jara",
+    "en": "/en/petrosyan-jara"
+   },
+   "date": "2026-12-05",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": "lozan-burgos",
+   "red": {
+    "ua": "Зоравор Петросян",
+    "en": "Zoravor Petrosyan"
+   },
+   "blue": {
+    "ua": "Ніколас Езекієль Хара",
+    "en": "Nicolas Ezequiel Jara"
+   },
+   "division": {
+    "ua": "Напівсередня вага",
+    "en": "Welterweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Stereo Plaza",
+    "cityUa": "Київ",
+    "cityEn": "Kyiv",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.45,
+    "lon": 30.52
+   },
+   "broadcast": {
+    "ua": [
+     "Трансляція уточнюється"
+    ],
+    "en": [
+     "Broadcast to be confirmed"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "sorokin-serguta",
+   "urls": {
+    "ua": "/ua/sorokin-serguta",
+    "en": "/en/sorokin-serguta"
+   },
+   "date": "2026-12-05",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": "lozan-burgos",
+   "red": {
+    "ua": "Василь Сорокін",
+    "en": "Vasyl Sorokin"
+   },
+   "blue": {
+    "ua": "Дмитро Сергута",
+    "en": "Dmytro Serguta"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [
+    "Пояс чемпіона України"
+   ],
+   "venue": {
+    "name": "Stereo Plaza",
+    "cityUa": "Київ",
+    "cityEn": "Kyiv",
+    "countryIso": "UA",
+    "continent": "Europe",
+    "tz": "Europe/Kyiv",
+    "lat": 50.45,
+    "lon": 30.52
+   },
+   "broadcast": {
+    "ua": [
+     "Трансляція уточнюється"
+    ],
+    "en": [
+     "Broadcast to be confirmed"
+    ]
+   },
+   "result": null
+  },
+  {
    "id": "fury-joshua",
    "urls": {
     "ua": "/ua/fury-joshua",
@@ -4270,6 +4412,26 @@
     "opetaia-wilder"
    ],
    "poster": "/images/cards/fury-joshua.jpg"
+  },
+  {
+   "id": "lozan-burgos",
+   "urls": {
+    "ua": "/ua/cards/lozan-burgos",
+    "en": "/en/cards/lozan-burgos"
+   },
+   "name": {
+    "ua": "Лозан – Бургос",
+    "en": "Lozan vs Burgos"
+   },
+   "startDate": "2026-12-05",
+   "venue": "Stereo Plaza",
+   "organizer": "Top Boxing Generation",
+   "fights": [
+    "lozan-burgos",
+    "sorokin-serguta",
+    "petrosyan-jara"
+   ],
+   "poster": "/images/cards/lozan-burgos.jpg"
   },
   {
    "id": "mexico-vs-the-world",

@@ -129,7 +129,7 @@ def block(lg, names, a, b):
             f'  <div class="ix-note">{t["note"]}</div>\n</div>\n<!-- /Index -->\n')
 
 def upcoming_ids():
-    s = open(ROOT + 'index.html', encoding='utf-8').read()
+    s = open(ROOT + 'ua/scorecard.html', encoding='utf-8').read()   # FIGHTS lives in the scorecard page since the events-first redesign
     i = s.index('const FIGHTS'); j = s.index('\n];', i)
     out = []
     for m in re.finditer(r"\{id:'([^']+)'.*?completed:(\w+), hasPage:(\w+)", s[i:j]):
