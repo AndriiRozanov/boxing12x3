@@ -52,6 +52,13 @@ if 'P4P Ring' in wb.sheetnames:
     for r in list(wb['P4P Ring'].iter_rows(values_only=True))[1:]:
         if r[0]: P4P.append(r)
 import csv
+PREV={}; UPD={}
+if 'Prev' in wb.sheetnames:
+    for r in list(wb['Prev'].iter_rows(values_only=True))[1:]:
+        if r[0] and r[3]: PREV.setdefault(r[0],{}).setdefault(r[1],{})[int(r[2])]=r[3]
+if 'Meta' in wb.sheetnames:
+    for r in list(wb['Meta'].iter_rows(values_only=True))[1:]:
+        if r[0] and r[1]: UPD[r[0]]=(r[1],r[2])
 NAMEFIX={}; UA_NAME={}
 for _r in csv.DictReader(open('data/names_ua.csv',encoding='utf-8')):
     NAMEFIX[_r['en_raw']]=_r['en_canonical']; UA_NAME[_r['en_canonical']]=_r['ua']
@@ -102,6 +109,10 @@ ol.rk-list{list-style:none;border-radius:12px;overflow:hidden;border:.5px solid 
 .rk-r .n{width:24px;text-align:right;font-family:'Oswald',sans-serif;font-size:16px;color:var(--muted);flex:none}
 .rk-r .p{flex:1}
 .rk-r .p a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--red)}
+.rk-r .mv{font:700 12px/1 'Manrope',sans-serif;white-space:nowrap;flex:none}
+.mv.up{color:#2e7d32}.mv.dn{color:#c62828}.mv.eq{color:#aaa;font-weight:500}
+.mv.nw{color:#fff;background:#c0392b;padding:3px 6px;border-radius:4px;font-size:10px;letter-spacing:.05em}
+.rk-leg{font-size:12.5px;color:var(--muted);margin:-4px 0 14px;line-height:1.5}
 .rk-r .rec{font-size:11.5px;font-weight:500;color:var(--muted);white-space:nowrap}
 .rk-r.g{background:linear-gradient(90deg,#f6ecd2,#fffaf0 70%);border-left:4px solid #c9a54a;padding-left:10px}
 .rk-r.g .n{color:#a8821f;font-size:20px}
@@ -242,13 +253,24 @@ def card(l,org,n,c,st,wide=False):
     return f'<div class="rk-ch{" wide" if wide else ""}" style="--oc:{col}"><span class="rk-o">{org}</span><div class="rk-nm">{nm(n,l)}</div><div class="rk-ct">{flag(c,l)}<span>{e(CUA.get(c,c) if l=="ua" else c)}</span>'+(f'<em>{tag}</em>' if tag else '')+'</div></div>'
 def vac_parts(raw):
     pass
-def rlist(l,d,i):
+def mvmark(l,o,d,n,k):
+    pv=PREV.get(o,{}).get(d['name'])
+    if not pv: return ''
+    pos={}
+    for pk,pn in pv.items():
+        if pn and pn!='VACANT': pos[parse(pn)[0]]=pk
+    if n not in pos: return '<b class="mv nw" title="'+('Не було в попередньому топ-15' if l=='ua' else 'Not in the previous top 15')+'">NEW</b>'
+    dl=pos[n]-k
+    if dl>0: return f'<b class="mv up" title="{"Піднявся на" if l=="ua" else "Up"} {dl} {"поз." if l=="ua" else "places"}">▲{dl}</b>'
+    if dl<0: return f'<b class="mv dn" title="{"Опустився на" if l=="ua" else "Down"} {-dl} {"поз." if l=="ua" else "places"}">▼{-dl}</b>'
+    return '<b class="mv eq" title="'+('Без змін' if l=='ua' else 'No change')+'">=</b>'
+def rlist(l,d,i,o=None):
     out=['<ol class="rk-list">']
     for k,r in enumerate(d['top'][:10],1):
         v=r[i]
         if not v: continue
         if v=='VACANT': out.append(f'<li class="rk-r vp"><span class="n">{k}</span><span class="p">{T[l]["vpos"]}</span></li>'); continue
-        n,c=parse(v); out.append(f'<li class="rk-r{" g" if k<=3 else ""}"><span class="n">{k}</span><span class="p">{nm(n,l)}</span>{flag(c,l)}</li>')
+        n,c=parse(v); out.append(f'<li class="rk-r{" g" if k<=3 else ""}"><span class="n">{k}</span><span class="p">{nm(n,l)}</span>{mvmark(l,o,d,n,k) if o else ""}{flag(c,l)}</li>')
     out.append('</ol>'); return ''.join(out)
 def write(path,txt):
     os.makedirs(os.path.dirname(path),exist_ok=True); open(path,'w',encoding='utf-8').write(txt)
@@ -276,7 +298,13 @@ for l in('ua','en'):
             intro=f'Reigning {o} champions and the top 10 contenders in {len(ds)} weight classes. The list is official, as of {date}. Each division links to a side-by-side view of all organizations.'
         ld=[bcld(l,[(f'{o}',f'https://boxing12x3.com/{l}/rankings/{o.lower()}')])]
         b=head(l,title,desc,f'/rankings/{o.lower()}',ld,t['rk'] if l=='ua' else 'Boxing rankings',bc(l,o))
-        b+=f'<h1>{e(h1)}</h1>\n<div class="meta">{t["asof"].capitalize()} {date} · {t["src"]}: {t["src_t"]} {o}</div>\n<p class="rk-intro">{e(intro)}</p>\n'
+        upd=UPD.get(o); ud=''
+        if upd:
+            _y,_m,_d=map(int,upd[0].split('-')); ud=(f'Оновлено: {_d} {MON_UA[_m-1]} {_y}' if l=='ua' else f'Updated: {MON_EN[_m-1]} {_d}, {_y}')+' · '
+        b+=f'<h1>{e(h1)}</h1>\n<div class="meta">{ud}{t["asof"].capitalize() if not ud else t["asof"]} {date} · {t["src"]}: {t["src_t"]} {o}</div>\n<p class="rk-intro">{e(intro)}</p>\n'
+        if upd and PREV.get(o):
+            pd=fdate(upd[1],l) if upd[1] else ''
+            b+=('<p class="rk-leg">▲ ▼ – зміна місця порівняно зі списком ('+pd+'), = – без змін, <b class="mv nw">NEW</b> – не було в попередньому топ-15.</p>\n' if l=='ua' else '<p class="rk-leg">▲ ▼ – change in position vs the previous list ('+pd+'), = – no change, <b class="mv nw">NEW</b> – was not in the previous top 15.</p>\n')
         b+='<nav class="rk-tabs" aria-label="'+e(t['orgs_h'])+'">'+''.join(f'<a class="rk-tb{" on" if x==o else ""}" style="--oc:{ORGC[x]}" href="/{l}/rankings/{x.lower()}">{x}</a>' for x in ['WBA','WBC','IBF','WBO'])+'</nav>\n'
         b+='<nav class="rk-chips">'+''.join(f'<a class="rk-chip" href="#{DIVMETA[d["name"]][0]}">{e(dname(d,l)).replace(" вага","")}</a>' for d in ds)+'</nav>\n'
         for k,d in enumerate(ds):
@@ -285,7 +313,7 @@ for l in('ua','en'):
             cl=champ_list(d,i)
             if not cl: cl=[('VACANT','','')]
             b+='<div class="rk-heros one">'+''.join(card(l,o,n,c,st) for n,c,st in cl)+'</div>\n'
-            b+=rlist(l,d,i)
+            b+=rlist(l,d,i,o)
             if d['name']!='BRIDGERWEIGHT': b+=f'<a class="rk-more" href="/{l}/rankings/{sl_}">{t["all_orgs"]} ›</a>\n'
             b+='</details>\n'
         b+=f'<p class="rk-note">{src_links(l,[o])}</p>\n'+ANIM+FOOT[l]
