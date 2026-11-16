@@ -516,3 +516,9 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - Last-5 lists were given newest first; pages show oldest to newest. TD counts as an early finish in "wins by stoppage" (same as gen_index).
 - Generators used (scratchpad, not in repo): tbg_data.py, tbg_gen.py, tbg_gen2.py, tbg_card.py. `scripts/gen_index.py` now reads FIGHTS from `ua/scorecard.html` (it used to read `index.html`, where FIGHTS no longer exists). `Stereo Plaza` added to VM in `scripts/build_events.py`.
 - Checklist done: scorecard.html FIGHTS+TOURNAMENTS (ua/en), fights.html ARCHIVE, cards.html rows + ItemList, sitemap (8 URLs), events pipeline, Index 12×3 blocks.
+
+## Rankings: WBC November 2026 and movement markers (16 Nov 2026)
+- `data/rankings.xlsx`: WBC column replaced with the November 2026 official list (top 15); Super Welterweight interim vacated (logged in sheet "Changes (9 Nov)"). New sheets: `Prev` (previous list per org/division, used for movement) and `Meta` (org, update date ISO, previous list label).
+- `scripts/gen_rankings.py`: on organization pages only (`/rankings/<org>`) top-10 rows show ▲N / ▼N / = / NEW vs `Prev` (NEW = not in previous top 15); markers appear only for orgs that have rows in `Prev` (now WBC). Meta line shows "Оновлено: D month YYYY" / "Updated: Month D, YYYY" from `Meta`; legend under the intro.
+- Monthly update for an org: copy its current column into `Prev` (Org, Division, Rank, Name), write the new column, set `Meta` date, run `python3 scripts/gen_rankings.py`.
+- Names: `data/names_ua.csv` extended (Околі, Кларк, Бентлі); Ricardo Sandoval is Ricardo Rafael Sandoval.

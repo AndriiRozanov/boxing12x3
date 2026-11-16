@@ -304,7 +304,7 @@ for l in('ua','en'):
         b+=f'<h1>{e(h1)}</h1>\n<div class="meta">{ud}{t["asof"].capitalize() if not ud else t["asof"]} {date} · {t["src"]}: {t["src_t"]} {o}</div>\n<p class="rk-intro">{e(intro)}</p>\n'
         if upd and PREV.get(o):
             pd=fdate(upd[1],l) if upd[1] else ''
-            b+=('<p class="rk-leg">▲ ▼ – зміна місця порівняно зі списком ('+pd+'), = – без змін, <b class="mv nw">NEW</b> – не було в попередньому топ-15.</p>\n' if l=='ua' else '<p class="rk-leg">▲ ▼ – change in position vs the previous list ('+pd+'), = – no change, <b class="mv nw">NEW</b> – was not in the previous top 15.</p>\n')
+            b+=('<p class="rk-leg">▲ ▼ – зміна місця порівняно з попереднім оновленням рейтингу, = – без змін, <b class="mv nw">NEW</b> – не було в попередньому топ-15.</p>\n' if l=='ua' else '<p class="rk-leg">▲ ▼ – change in position compared with the previous ranking update, = – no change, <b class="mv nw">NEW</b> – was not in the previous top 15.</p>\n')
         b+='<nav class="rk-tabs" aria-label="'+e(t['orgs_h'])+'">'+''.join(f'<a class="rk-tb{" on" if x==o else ""}" style="--oc:{ORGC[x]}" href="/{l}/rankings/{x.lower()}">{x}</a>' for x in ['WBA','WBC','IBF','WBO'])+'</nav>\n'
         b+='<nav class="rk-chips">'+''.join(f'<a class="rk-chip" href="#{DIVMETA[d["name"]][0]}">{e(dname(d,l)).replace(" вага","")}</a>' for d in ds)+'</nav>\n'
         for k,d in enumerate(ds):
