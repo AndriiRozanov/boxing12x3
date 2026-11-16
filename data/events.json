@@ -3871,9 +3871,9 @@
     "en": "/en/yabuki-fajardo"
    },
    "date": "2026-11-26",
-   "startUtc": null,
-   "startPrecision": "date",
-   "startSource": "page date",
+   "startUtc": "2026-11-26T12:00Z",
+   "startPrecision": "time",
+   "startSource": "page JSON-LD",
    "status": "scheduled",
    "tournamentId": null,
    "red": {
