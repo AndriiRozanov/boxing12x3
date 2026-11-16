@@ -280,6 +280,9 @@ def hero(lk, key, fl, upcoming):
     img = ''
     if t and t.get('poster') and os.path.exists(f'{R}{t["poster"]}'):
         img = f'<img src="{t["poster"]}" alt="{esc(name)}" fetchpriority="high">'
+    elif not t and os.path.exists(f'{R}/images/fights/{main["id"]}.jpg'):
+        # single fight with its own image (images/fights/<id>.jpg)
+        img = f'<img src="/images/fights/{main["id"]}.jpg" alt="{esc(name)}" fetchpriority="high">'
     href = t['urls'][k] if t else main['urls'][k]
     sid = main['id'] if main['id'] in SC_IDS else next((x['id'] for x in fl if x['id'] in SC_IDS), None)
     score = f'<a class="btn" href="{h["sc_href"]}?fight={sid}">{h["btn_score"]}</a>' if sid else ''
@@ -294,6 +297,10 @@ def hero(lk, key, fl, upcoming):
     end = max(fend(f) for f in fl + same).strftime('%Y-%m-%dT%H:%MZ')
     live = f'<div class="live"><i></i><span>{h["soon"]} · {long_date(lk, d0)}</span></div>'
     acts = f'<div class="acts"><a class="btn red" href="{href}">{h["btn_card"]}</a>{score}</div>'
+    if img and not t:
+        # single fight: the title already is the pairing, so the subtitle shows division and rounds instead
+        _d = (main.get('division') or {}).get(k) or ''
+        line1 = _d + (f' · {main["rounds"]} {h["rounds"]}' if main.get('rounds') else '')
     if img:
         body = (f'<div class="hero">{img}<div class="hb">{live}<div class="hn">{esc(name)}</div>'
                 f'<div class="hs">{esc(line1)}<br>{line2}</div>{acts}</div></div>')
