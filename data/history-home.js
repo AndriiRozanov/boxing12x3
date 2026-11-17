@@ -105,8 +105,8 @@ const HISTORY_MONTHS = [
   var base = '/' + lp + '/boxing-history/' + month.slug, hub = '/' + lp + '/boxing-history';
   var h = '<div class="sh"><span class="sl">' + (isUk ? 'Цей день в історії боксу' : 'This day in boxing') + '</span><a class="sa" href="' + base + '">' + (isUk ? 'Усі події місяця' : 'All events of the month') + ' →</a></div>';
   h += '<div class="hist-widget"><div class="hist-badge"><div class="hist-badge-month">' + (isUk ? month.lblUk : month.lblEn) + '</div><div class="hist-badge-day">' + day + '</div><div class="hist-badge-year">' + e.gp.y + '</div></div><div class="hist-perf"></div><div class="hist-content">';
-  h += '<div class="hist-title">' + (isUk ? e.gp.tUk : e.gp.tEn) + '</div>';
+  h += '<div class="hist-main"><div class="hist-title">' + (isUk ? e.gp.tUk : e.gp.tEn) + '</div>';
   if (e.sg) h += '<div class="hist-sg"><div class="hist-sg-year">' + (isUk ? 'Також ' : 'Also ') + e.sg.y + '</div><div class="hist-sg-title">' + (isUk ? e.sg.tUk : e.sg.tEn) + '</div></div>';
-  h += '<div class="hist-btns"><a class="hist-btn primary" href="' + base + '#d' + day + '">' + (isUk ? 'Події ' + day + ' ' + month.nameUk : 'Events on ' + month.nameEn + ' ' + day) + '</a><a class="hist-btn secondary" href="' + hub + '">' + (isUk ? 'Визначні боксерські дні' : 'This Day in Boxing') + '</a></div></div></div>';
+  h += '</div><div class="hist-btns"><a class="hist-btn primary" href="' + base + '#d' + day + '">' + (isUk ? 'Події ' + day + ' ' + month.nameUk : 'Events on ' + month.nameEn + ' ' + day) + '</a><a class="hist-btn secondary" href="' + hub + '">' + (isUk ? 'Визначні боксерські дні' : 'This Day in Boxing') + '</a></div></div></div>';
   box.innerHTML = h; box.style.display = '';
 })();
