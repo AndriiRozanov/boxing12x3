@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16",
+ "generated": "2026-11-17",
  "fights": [
   {
    "id": "corrales-freitas",
@@ -3825,7 +3825,7 @@
     "en": "/en/teremoana-aiho"
    },
    "date": "2026-11-18",
-   "startUtc": "2026-11-18T09:00Z",
+   "startUtc": "2026-11-18T08:00Z",
    "startPrecision": "time",
    "startSource": "votes-close.json",
    "status": "scheduled",
