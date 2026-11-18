@@ -34,7 +34,7 @@ H = {
    sec_events='Найближча подія', sec_next='Далі в календарі', sec_results='Нещодавні результати', sec_promo='Промоутери', sec_tools='Інструменти',
    all_cal='Увесь календар →', all_res='Усі результати →', all_promo='Всі промоутери →', all_tools='Усі інструменти →',
    tz_auto='визначено автоматично', tz_chosen='обрано вами', yourtime='Ваш час', tz_default='Київ', tz_fixed='Час показано за Києвом',
-   today_eve='Сьогодні ввечері', today='Сьогодні', soon='Найближча подія',
+   today_eve='Сьогодні ввечері', now_='Зараз', today='Сьогодні', soon='Найближча подія',
    btn_card='Кард і трансляція', btn_score='Відсудити', won='Переміг', fights=('бій', 'бої', 'боїв'), tours=('турнір', 'турніри', 'турнірів'),
    cta_t='Ви організовуєте турніри?', cta_p='Безкоштовно зробимо сторінку вашого карду з усіма деталями перегляду. Вашу подію побачать вболівальники з усього світу.', cta_b='Написати нам', cta_href='/contact',
    sc_t='Відсуди бій сам', sc_p='Став бали раунд за раундом і ділися своєю карткою. Без реєстрації.', sc_b='Відкрити суддівську картку', sc_href='/ua/scorecard',
@@ -56,7 +56,7 @@ H = {
    sec_events='Next event', sec_next='Coming up next', sec_results='Recent results', sec_promo='Promoters', sec_tools='Tools',
    all_cal='Full calendar →', all_res='All results →', all_promo='All promoters →', all_tools='All tools →',
    tz_auto='detected automatically', tz_chosen='chosen by you', yourtime='Your local time', tz_default='Kyiv', tz_fixed='Times shown in UTC',
-   today_eve='Tonight', today='Today', soon='Next event',
+   today_eve='Tonight', now_='Live now', today='Today', soon='Next event',
    btn_card='Card and broadcast', btn_score='Score it', won='Winner', fights=('fight', 'fights', 'fights'), tours=('event', 'events', 'events'),
    cta_t='Do you promote events?', cta_p='We will build your event page for free, with all the viewing details. Fans from all over the world will see your event.', cta_b='Write to us', cta_href='/en/contact',
    sc_t='Score the fight yourself', sc_p='Score round by round and share your card. No sign-up.', sc_b='Open the scorecard', sc_href='/en/scorecard',
@@ -118,7 +118,9 @@ if(shown>=0){
   var dd=b.getAttribute('data-date'),lab=b.querySelector('.live');
   if(lab){
     var td=localDate(new Date());
-    var txt=dd===td?T.today_eve:T.soon+' · '+dayFull(dd);
+    var st=Date.parse(b.getAttribute('data-start')||'');
+    // started and not over yet: "now"; start day before the start: "today"; otherwise the date
+    var txt=(st&&now>=st)?T.now_:(dd===td?T.today:T.soon+' · '+dayFull(dd));
     lab.querySelector('span').textContent=txt;
   }
 }
@@ -314,7 +316,9 @@ def hero(lk, key, fl, upcoming):
         body = (f'<div class="plate"><div class="hb">{live}'
                 f'{plnames(a, b)}'
                 f'{extra}<div class="hs">{info}</div><div class="tags">{tags}</div>{acts}</div></div>')
-    box = f'<div class="evbox" hidden data-end="{end}" data-date="{d0}" data-ids="{",".join(ids)}">{body}'
+    _st = sorted(f['startUtc'] for f in fl + same if f.get('startUtc'))
+    bstart = f' data-start="{_st[0]}"' if _st else ''
+    box = f'<div class="evbox" hidden data-end="{end}"{bstart} data-date="{d0}" data-ids="{",".join(ids)}">{body}'
     if same:
         box += '<div class="list">' + ''.join(row(f, lk) for f in same) + '</div>'
     box += '</div>'
@@ -362,7 +366,7 @@ def build(lk):
         {'@type': 'ItemList', 'name': h['sec_next'], 'itemListElement': [
             {'@type': 'ListItem', 'position': i + 1, 'url': BASE + f['urls'][k], 'name': ' – '.join(names(f, lk))} for i, f in enumerate(up[:10])]}]}
     tdata = {x: C.S[lk][x] for x in ('tz_names',)}
-    tdata.update({'months': h['months'], 'mfull': h['mfull'], 'lang': h['loc_js'], 'yourtime': h['yourtime'], 'tz_auto': h['tz_auto'], 'tz_chosen': h['tz_chosen'], 'today_eve': h['today_eve'], 'today': h['today'], 'soon': h['soon'], 'near_denied': C.S[lk]['near_denied'], 'near_unsup': C.S[lk]['near_unsup'], 'near_none': C.S[lk]['empty_near'], 'cal': '/' + h['path'] + '/calendar'})
+    tdata.update({'months': h['months'], 'mfull': h['mfull'], 'lang': h['loc_js'], 'yourtime': h['yourtime'], 'tz_auto': h['tz_auto'], 'tz_chosen': h['tz_chosen'], 'now_': h['now_'], 'today': h['today'], 'soon': h['soon'], 'near_denied': C.S[lk]['near_denied'], 'near_unsup': C.S[lk]['near_unsup'], 'near_none': C.S[lk]['empty_near'], 'cal': '/' + h['path'] + '/calendar'})
     hist_js = open(f'{R}/data/history-home.js', encoding='utf-8').read()
     js = JS.replace('__T__', json.dumps(tdata, ensure_ascii=False))
     ua_url, en_url = f'{BASE}/', f'{BASE}/en'
