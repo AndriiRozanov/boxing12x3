@@ -522,3 +522,8 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - `scripts/gen_rankings.py`: on organization pages only (`/rankings/<org>`) top-10 rows show ▲N / ▼N / = / NEW vs `Prev` (NEW = not in previous top 15); markers appear only for orgs that have rows in `Prev` (now WBC). Meta line shows "Оновлено: D month YYYY" / "Updated: Month D, YYYY" from `Meta`; legend under the intro.
 - Monthly update for an org: copy its current column into `Prev` (Org, Division, Rank, Name), write the new column, set `Meta` date, run `python3 scripts/gen_rankings.py`.
 - Names: `data/names_ua.csv` extended (Околі, Кларк, Бентлі); Ricardo Sandoval is Ricardo Rafael Sandoval.
+
+## Result Nov 18 2026: Teremoana-Ahio (16-18 Nov)
+- Teremoana d. Ahio TKO 2 (1:36), Ahio knocked down in round 1; vacant IBF Inter-Continental heavyweight title won; records after: Teremoana 13-0 (13 KO), Ahio 25-2; referee Ignatius Missailidis, judges Scott Brouwer, Peter Hansen, Martin O'Malley (no scorecards, shown as referee and judges section). UA transliterations of referee/judges are ours.
+- Pages `ua|en/teremoana-aiho.html` converted to finished state (Lerena-Forrest pattern, plus a "What's on the Line" belt block). `ua|en/scorecard.html`: completed:true, belts ['IBF Inter-Continental'], featured moved to yabuki-fajardo. Pipeline rerun: build_events, bake_calendar, bake_results, bake_tools, bake_home, bake_scorecard_data, gen_index.
+- Home hero label: "Today" before card start, "Now" while on (data-start on `.evbox`); fight pictures `images/fights/<id>.jpg` used in the hero for single fights.

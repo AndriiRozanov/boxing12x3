@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17",
+ "generated": "2026-11-18",
  "fights": [
   {
    "id": "corrales-freitas",
@@ -3828,7 +3828,7 @@
    "startUtc": "2026-11-18T08:00Z",
    "startPrecision": "time",
    "startSource": "votes-close.json",
-   "status": "scheduled",
+   "status": "completed",
    "tournamentId": null,
    "red": {
     "ua": "Теремоана мол.",
@@ -3843,7 +3843,9 @@
     "en": "Heavyweight"
    },
    "rounds": 10,
-   "belts": [],
+   "belts": [
+    "Вакантний пояс IBF Inter-Continental"
+   ],
    "venue": {
     "name": "Pullman Melbourne Albert Park",
     "cityUa": "Мельбурн",
@@ -3859,10 +3861,13 @@
      "DAZN"
     ],
     "en": [
-     "Kayo Sports · DAZN"
+     "DAZN"
     ]
    },
-   "result": null
+   "result": {
+    "winner": "Теремоана мол.",
+    "method": "TKO 2 · 1:36"
+   }
   },
   {
    "id": "yabuki-fajardo",
