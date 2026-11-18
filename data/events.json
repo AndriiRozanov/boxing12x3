@@ -3876,7 +3876,7 @@
     "en": "/en/yabuki-fajardo"
    },
    "date": "2026-11-26",
-   "startUtc": "2026-11-26T12:00Z",
+   "startUtc": "2026-11-26T08:00Z",
    "startPrecision": "time",
    "startSource": "page JSON-LD",
    "status": "scheduled",
@@ -3908,8 +3908,12 @@
     "lon": 139.69
    },
    "broadcast": {
-    "ua": [],
-    "en": []
+    "ua": [
+     "Lemino"
+    ],
+    "en": [
+     "Lemino"
+    ]
    },
    "result": null
   },
