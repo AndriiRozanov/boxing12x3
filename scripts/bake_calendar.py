@@ -109,6 +109,10 @@ a.chip{text-decoration:none;display:inline-block}
 .pend .dayh b{color:var(--red)}
 .fr.wait .rs{color:#b26a00}
 .fr.wait::before{background:#d9a441}
+.fr.cx{opacity:.6}
+.fr.cx::before{background:#bbb}
+.fr.cx .fp{text-decoration:line-through}
+.tag.cx{background:#f5e1de;color:#c0392b;font-weight:600}
 .chip.near.on{background:var(--red);border-color:var(--red);color:#fff}
 .flag{width:16px;height:12px;object-fit:cover;border-radius:2px;border:0.5px solid var(--border);vertical-align:-1px;margin-right:2px}
 .sel{width:100%;font:inherit;font-size:13px;border:0.5px solid var(--border);border-radius:8px;padding:9px 10px;background:#fff;color:#555}
@@ -207,17 +211,17 @@ function render(){
  var list=document.getElementById('list');list.innerHTML='';
  var lastDay='',box=null;
  vis.forEach(function(r){
-  if(r.day!==lastDay){lastDay=r.day;var n=vis.filter(function(x){return x.day===r.day;}).length;
+  if(r.day!==lastDay){lastDay=r.day;var n=vis.filter(function(x){return x.day===r.day&&!x.el.classList.contains('cx');}).length;
    var hd=document.createElement('div');hd.className='dayh';hd.innerHTML='<b>'+dayLabel(r.day)+(r.day===today?' · '+T.today:'')+'</b><span>'+plural(n)+'</span>';
    list.appendChild(hd);box=document.createElement('div');box.className='list';list.appendChild(box);}
   var t=r.tm;
   if(r.start){var lbl=st.tz==='auto'?T.yourtime_lbl:tzName(zone());t.innerHTML='<b>'+hm(new Date(r.start),tz)+'</b><small>'+lbl+'</small>';}
-  else{t.innerHTML='<b class="tba">'+T.tba+'</b>';}
+  else{t.innerHTML='<b class="tba">'+(r.el.classList.contains('cx')?'–':T.tba)+'</b>';}
   r.meta.innerHTML=r.metaBase+(r.km!=null?' · '+Math.round(r.km/10)*10+' '+T.km:'');
   box.appendChild(r.el);
  });
  var cnt=document.getElementById('count');
- cnt.textContent=vis.length?plural(vis.length):'';
+ var nv=vis.filter(function(x){return !x.el.classList.contains('cx');}).length;cnt.textContent=nv?plural(nv):'';
  var fc=document.getElementById('fcount'),na=nActive();fc.textContent=na||'';fc.className='cnt'+(na?' show':'');
  document.getElementById('emptytxt').textContent=(st.near&&st.pos&&!vis.length&&!st.q&&!st.day&&st.mode==='all'&&!anyOn(st.conts)&&!anyOn(st.ctrs))?T.empty_near:T.empty_default;
  document.getElementById('empty').className='empty'+(vis.length?'':' show');
@@ -289,13 +293,17 @@ def row_html(f, lk):
     tname = (t['name']['ua' if u else 'en'] if t else None)
     href = f['urls']['ua' if u else 'en']
     bc = (f['broadcast']['ua' if u else 'en'] or [None])[0]
+    cx = f['status'] == 'cancelled'
     tags = ''
-    if bc: tags += f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>'
+    if cx: tags += f'<span class="tag cx">{"Скасовано" if u else "Cancelled"}</span>'
+    if bc and not cx: tags += f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>'
     for x in (f['belts'] or [])[:2]: tags += f'<span class="tag">{esc(x)}</span>'
     if tname: tags += f'<span class="tag tour">{esc(tname)}</span>'
     flag = f'<img class="flag" src="/images/flags/{iso.lower()}.png" width="16" height="12" alt="" loading="lazy"> ' if iso else ''
     meta = f'{flag}{esc(city)} · {esc(div)} · {f["rounds"]} {s["rounds"]}'
-    if f['startUtc']:
+    if cx:
+        tcell = '<b class="tba">–</b>'; start = ''
+    elif f['startUtc']:
         dt = datetime.datetime.strptime(f['startUtc'], '%Y-%m-%dT%H:%MZ').replace(tzinfo=datetime.timezone.utc)
         from zoneinfo import ZoneInfo
         loc = dt.astimezone(ZoneInfo(s['fb_tz']))
@@ -309,12 +317,13 @@ def row_html(f, lk):
              f'data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}" data-q="{esc(q)}"')
     inner = (f'<div class="ft">{tcell}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
              f'<div class="fm">{meta}</div><div class="tags">{tags}</div></div>')
-    return f'<a class="fr" href="{href}" {attrs}>{inner}<div class="fa">›</div></a>'
+    return f'<a class="fr{" cx" if cx else ""}" href="{href}" {attrs}>{inner}<div class="fa">›</div></a>'
 
 def build(lk):
     s = S[lk]; u = lk == 'uk'
-    fl = [f for f in D['fights'] if f['status'] == 'scheduled' and f['date'] >= (TODAY - datetime.timedelta(days=1)).isoformat()]
+    fl = [f for f in D['fights'] if f['status'] in ('scheduled', 'cancelled') and f['date'] >= (TODAY - datetime.timedelta(days=1)).isoformat()]
     fl.sort(key=lambda f: (f['date'], f['startUtc'] or 'z'))
+    fa = [f for f in fl if f['status'] == 'scheduled']  # cancelled fights stay in the list but are not counted
     # baked fallback grouping by fallback-tz day
     from zoneinfo import ZoneInfo
     groups = {}
@@ -327,9 +336,9 @@ def build(lk):
         groups.setdefault(d, []).append(f)
     body = ''
     for d in sorted(groups):
-        body += f'<div class="dayh"><b>{day_label(lk, d)}</b><span>{plural(lk, len(groups[d]))}</span></div><div class="list">{"".join(row_html(f, lk) for f in groups[d])}</div>'
+        body += f'<div class="dayh"><b>{day_label(lk, d)}</b><span>{plural(lk, len([x for x in groups[d] if x['status'] == 'scheduled']))}</span></div><div class="list">{"".join(row_html(f, lk) for f in groups[d])}</div>'
     cont = {}; ctr = {}
-    for f in fl:
+    for f in fa:
         c = f['venue'].get('continent'); i = f['venue'].get('countryIso')
         if c: cont[c] = cont.get(c, 0) + 1
         if i: ctr[i] = ctr.get(i, 0) + 1
@@ -340,7 +349,7 @@ def build(lk):
     radius = ''.join(f'<option value="{v}"{" selected" if v == 500 else ""}>{v} {s["km"]}</option>' for v in (500, 1000, 2500, 5000)) + f'<option value="0">{s["radius_all"]}</option>'
     url = f'{BASE}/{s["path"]}/calendar'
     ua_url, en_url = f'{BASE}/ua/calendar', f'{BASE}/en/calendar'
-    items = [{'@type': 'ListItem', 'position': i + 1, 'url': BASE + f['urls']['ua' if u else 'en'], 'name': f"{f['red']['ua' if u else 'en']} – {f['blue']['ua' if u else 'en']}"} for i, f in enumerate(fl[:50])]
+    items = [{'@type': 'ListItem', 'position': i + 1, 'url': BASE + f['urls']['ua' if u else 'en'], 'name': f"{f['red']['ua' if u else 'en']} – {f['blue']['ua' if u else 'en']}"} for i, f in enumerate(fa[:50])]
     ld = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'CollectionPage', 'name': s['h1'], 'description': s['desc'], 'url': url, 'inLanguage': s['lang'],
          'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(items), 'itemListElement': items}},

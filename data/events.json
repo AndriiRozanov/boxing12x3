@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18",
+ "generated": "2026-11-19",
  "fights": [
   {
    "id": "corrales-freitas",
@@ -4251,7 +4251,7 @@
    "startUtc": null,
    "startPrecision": "date",
    "startSource": "page date",
-   "status": "scheduled",
+   "status": "cancelled",
    "tournamentId": "fury-joshua",
    "red": {
     "ua": "Джей Опетая",
