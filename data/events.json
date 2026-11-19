@@ -4194,6 +4194,52 @@
    "result": null
   },
   {
+   "id": "bakole-adebayo",
+   "urls": {
+    "ua": "/ua/bakole-adebayo",
+    "en": "/en/bakole-adebayo"
+   },
+   "date": "2026-12-11",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": "fury-joshua",
+   "red": {
+    "ua": "Мартін Баколе",
+    "en": "Martin Bakole"
+   },
+   "blue": {
+    "ua": "Соломон Адебайо",
+    "en": "Solomon Adebayo"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Principality Stadium",
+    "cityUa": "Кардіфф, Вельс",
+    "cityEn": "Cardiff",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.48,
+    "lon": -3.18
+   },
+   "broadcast": {
+    "ua": [
+     "Netflix"
+    ],
+    "en": [
+     "Netflix"
+    ]
+   },
+   "result": null
+  },
+  {
    "id": "fury-joshua",
    "urls": {
     "ua": "/ua/fury-joshua",
@@ -4418,6 +4464,7 @@
    "organizer": null,
    "fights": [
     "fury-joshua",
+    "bakole-adebayo",
     "opetaia-wilder"
    ],
    "poster": "/images/cards/fury-joshua.jpg"
