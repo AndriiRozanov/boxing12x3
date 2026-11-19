@@ -151,7 +151,7 @@ def ring(v, color, label, suf=''):
             f'<circle cx="56" cy="56" r="{r}" fill="none" stroke="#e8e6e0" stroke-width="9"/>'
             f'<circle cx="56" cy="56" r="{r}" fill="none" stroke="{color}" stroke-width="9" stroke-linecap="round" '
             f'stroke-dasharray="{c * v / 100:.1f} {c:.1f}" transform="rotate(-90 56 56)"/>'
-            f'<text x="56" y="68" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="{34 if suf else 38}" fill="{color}">{v}{suf}</text></svg>')
+            f'<text x="56" y="68" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="38" fill="{color}">{v}{f'<tspan font-size="18" dx="1">{suf}</tspan>' if suf else ''}</text></svg>')
 
 def block(lg, names, a, b):
     t = L[lg]; keys = ['F', 'S', 'K', 'W', 'E', 'A']; pa, pb = probs(a, b)
