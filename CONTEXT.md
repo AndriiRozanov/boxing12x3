@@ -177,7 +177,7 @@ boxing12x3.com/   (GitHub: AndriiRozanov/boxing12x3)
 7. If the fight belongs to a tournament: `tournament:'<slug>'` in `FIGHTS`, the tournament in `TOURNAMENTS`, the tournament strip on the fight page and a row on the card page (see "Tournament cards").
 8. Run `python3 scripts/bake_catalog.py` after changes to `ARCHIVE`/`BOXER_PROFILES`, then `git checkout ua/boxing-history.html en/boxing-history.html`.
 9. Run `python3 scripts/check_votes_close.py` before every merge: it fails if a fight with a past date has no entry in `votes-close.json`.
-10. Run `python3 scripts/gen_index.py` to add/refresh the "12×3 Index" block (ring + 5 rows, after the Stats block) on every upcoming fight page (UA+EN). Data comes from the page itself plus `data/rankings.xlsx`; re-run after every monthly rankings update. Weights (form 30, ranking position 25, knockouts 15, wins 15, experience 15) are not shown to users. Crossover fights go into `EXCLUDE` in the script (no index). Under 15 fights or 50 pro rounds: shrink to average and the label "Not enough data". Completed fights keep their pre-fight index (the script only touches `completed:false`). Names that differ from rankings.xlsx go into `ALIAS`.
+10. Run `python3 scripts/gen_index.py` to add/refresh the "Win Probability · 12×3" block (two rings with percentages that sum to 100, 6 factor rows, after the Stats block) on every upcoming fight page (UA+EN). See "Win probability (12×3 Index)" at the end of this file for the formula, hiding and freezing rules.
 11. Request indexing in Search Console as soon as the page is live: search demand peaks in the ~24 hours around the event.
 
 ### After a fight
@@ -533,3 +533,11 @@ Personal OG images per boxer; "Важливі бої" block (clickable fight car
 - `bake_calendar.py` keeps cancelled fights in the calendar list as a muted, struck-through row with a "Скасовано" / "Cancelled" tag; they are not counted in day or total counters, chips or the ItemList.
 - Fight page: red `.cx-box` block under the meta line (reason, source, date), `eventStatus` EventCancelled, title/meta "бій скасовано", FAQ gets a "why cancelled" question, broadcast block says the broadcast is cancelled, the picks block and `loadResults()` call are removed. The tournament card (`cards/fury-joshua`) marks the row "Скасовано", drops Wilder from title/description and sets the subEvent to EventCancelled.
 - When a replacement opponent is announced: create the new fight page by copying a verified one, and add a line "Замість нього ..." with a link to the new page inside the `.cx-box`.
+
+
+## Win probability (12x3 Index), Nov 19 2026
+- Strength 0-100 per boxer = form 30%, ranking position 25%, knockouts 15%, wins 15%, experience 15%, plus adjustments: age (-1.5 pt per year over 33, max -15), layoff (over 365 days up to -8, under 45 days -3), reach (else height) advantage up to +2. Shown to the reader as a win probability: logistic(strength difference / 16), capped 35-65%, two numbers summing to 100. Weights are not shown. Backtest on 19 finished fights since Aug 2026: 11 hits, Brier 0.238 vs 0.25 for a coin flip, so the cap is deliberately narrow.
+- Hidden (block removed) when either boxer has under 15 fights or under 50 pro rounds, and on cancelled fights.
+- Finished fights keep the block as "pre-fight" ("до бою"): the finished-page conversion must NOT delete the Index block. Order on fight day: run `python3 scripts/gen_index.py`, then after converting the page run `python3 scripts/gen_index.py --freeze <fight-id>` (adds `data-frozen`, appends "· до бою" / "· pre-fight" to the title, updates the counter).
+- Hit counter: every run rewrites `data/index-record.json` from the frozen blocks plus results in `data/events.json`. It is NOT shown on the site until 30 counted fights (`show_from`). Equal percentages are not counted.
+- Not done yet (idea): opponent quality (needs a column "opponent record" next to each of the last 5 fights in the source PDF).

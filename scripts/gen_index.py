@@ -8,10 +8,17 @@ data/rankings.xlsx, computes the index and writes the block between
 Idempotent: re-run after every monthly rankings update.
 
 Formula (weights are NOT shown to users):
-  Form 30%, Ranking position 25%, Knockouts 15%, Wins 15%, Experience 15%.
+  Strength 0-100 = Form 30%, Ranking position 25%, Knockouts 15%, Wins 15%, Experience 15%
+  plus adjustments: age (-1.5 pt/yr over 33, max -15), layoff (over 365 days up to -8,
+  under 45 days -3), reach (else height) advantage up to +2.
+Shown to the reader: win probability = logistic(strength difference / 16), capped 35-65%.
+The block is hidden when either boxer has under 15 fights or under 50 pro rounds.
+When a fight is finished the block stays on the page as "pre-fight":
+  python3 scripts/gen_index.py --freeze <fight-id>     (run once on fight day, after a normal run)
+Every run also rewrites data/index-record.json (hit counter, NOT shown on the site).
 Run:  python3 scripts/gen_index.py [--dry]
 """
-import re, sys, math, unicodedata, openpyxl
+import re, sys, os, json, math, unicodedata, openpyxl
 ROOT = __file__.rsplit('/scripts/', 1)[0] + '/'
 EXCLUDE = {'paul-doumbe'}                 # crossover fights: no index
 ALIAS = {'Jerome Warburton': 'Gerome Warburton'}   # spelling differs in rankings.xlsx
@@ -20,11 +27,16 @@ W = dict(F=.30, S=.25, K=.15, W=.15, E=.15)
 PT_STOP = ('KO', 'TKO', 'RTD', 'TD')
 
 L = {
- 'ua': dict(title='Індекс 12×3', lab=['Форма', 'Місце в рейтингах', 'Нокаути', 'Перемоги', 'Досвід'],
-            note='Рахується за фактичними даними. Не є прогнозом.', low='Недостатньо даних'),
- 'en': dict(title='12×3 Index', lab=['Form', 'Ranking position', 'Knockouts', 'Wins', 'Experience'],
-            note='Calculated from factual data. Not a prediction.', low='Not enough data'),
+ 'ua': dict(title='Імовірність перемоги · 12×3', frozen=' · до бою', sub='Розрахунок за фактичними даними',
+            lab=['Форма', 'Місце в рейтингах', 'Нокаути', 'Перемоги', 'Досвід', 'Вік, простій, розмах'],
+            note='Враховано форму, рекорд, досвід, вік, простій і рейтинги. Не гарантія результату.'),
+ 'en': dict(title='Win Probability · 12×3', frozen=' · pre-fight', sub='Calculated from factual data',
+            lab=['Form', 'Ranking position', 'Knockouts', 'Wins', 'Experience', 'Age, layoff, reach'],
+            note='Takes into account form, record, experience, age, layoff and rankings. Not a guarantee of the result.'),
 }
+SCALE, PMIN, PMAX = 16, 0.35, 0.65
+MIN_FIGHTS, MIN_ROUNDS = 15, 50
+CSSX = ".ix-sub{text-align:center;font-size:12px;color:var(--muted);margin:-4px 0 12px;}\n"
 CSS = """.ix{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:20px 18px;margin-bottom:10px;}
 .ix-t{text-align:center;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
 .ix-note{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:14px;text-align:center;}
@@ -96,7 +108,26 @@ def parse_en(fid):
     form = [re.findall(r'<div class="fc (\w+)">[^<]*</div>(?:<div class="fc-tip">([^<]*)</div>)?', b) for b in blocks]
     return names, d, form
 
-def calc(ent, name, rec, ko, rounds, cells):
+def _n(t, pat):
+    m = re.search(pat, t or '')
+    return float(m.group(1).replace(',', '')) if m else None
+
+def parse_extras(fid, d):
+    s = open(ROOT + f'en/{fid}.html', encoding='utf-8').read()
+    ages = [_n(x, r'^(\d+)') for x in re.findall(r'<div class="f-info">(.*?)</div>', s)[:2]]
+    g = lambda k, pat: [_n(x, pat) for x in d.get(k, ('', ''))]
+    return [dict(age=ages[i], lay=g('Since last fight', r'([\d,]+) day')[i], h=g('Height', r'(\d+)')[i], r=g('Reach', r'(\d+)')[i]) for i in (0, 1)]
+
+def adjust(me, op):
+    age = -min(max(me['age'] - 33, 0) * 1.5, 15) if me['age'] else 0
+    l = me['lay']
+    lay = 0 if not l else (-min((l - 365) / 365 * 8, 8) if l > 365 else (-3 if l < 45 else 0))
+    if me['r'] and op['r']: body = min(max((me['r'] - op['r']) * .4, 0), 2)
+    elif me['h'] and op['h']: body = min(max((me['h'] - op['h']) * .3, 0), 2)
+    else: body = 0
+    return age + lay + body
+
+def calc(ent, name, rec, ko, rounds, cells, me=None, op=None):
     w, l, d = [int(x) for x in rec.split('-')]
     n = w + l + d; k = int(ko.split()[0]); r = int(rounds.replace(',', ''))
     low = n < 15 or r < 50
@@ -105,27 +136,35 @@ def calc(ent, name, rec, ko, rounds, cells):
     Wn = (w + (3.75 if low else 0)) / (n + (5 if low else 0)) * 100
     E = min(r / 250, 1) * 100
     idx = W['F'] * F + W['S'] * S + W['K'] * K + W['W'] * Wn + W['E'] * E
-    return dict(I=round(idx), F=round(F), S=round(S), K=round(K), W=round(Wn), E=round(E), low=low)
+    adj = adjust(me, op) if me and op else 0
+    return dict(I=min(max(round(idx + adj), 0), 100), F=round(F), S=round(S), K=round(K), W=round(Wn), E=round(E),
+                A=round(adj), low=n < MIN_FIGHTS or r < MIN_ROUNDS)
 
-def ring(v, color, label):
+def probs(a, b):
+    p = 1 / (1 + math.exp(-(a['I'] - b['I']) / SCALE))
+    p = min(max(p, PMIN), PMAX); pa = round(p * 100)
+    return pa, 100 - pa
+
+def ring(v, color, label, suf=''):
     r = 44; c = 2 * math.pi * r
     return (f'<svg width="112" height="112" viewBox="0 0 112 112" role="img" aria-label="{label}: {v}">'
             f'<circle cx="56" cy="56" r="{r}" fill="none" stroke="#e8e6e0" stroke-width="9"/>'
             f'<circle cx="56" cy="56" r="{r}" fill="none" stroke="{color}" stroke-width="9" stroke-linecap="round" '
             f'stroke-dasharray="{c * v / 100:.1f} {c:.1f}" transform="rotate(-90 56 56)"/>'
-            f'<text x="56" y="68" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="38" fill="{color}">{v}</text></svg>')
+            f'<text x="56" y="68" text-anchor="middle" font-family="Oswald,sans-serif" font-weight="700" font-size="{34 if suf else 38}" fill="{color}">{v}{suf}</text></svg>')
 
 def block(lg, names, a, b):
-    t = L[lg]; keys = ['F', 'S', 'K', 'W', 'E']
+    t = L[lg]; keys = ['F', 'S', 'K', 'W', 'E', 'A']; pa, pb = probs(a, b)
+    sg = lambda v: ('+' if v > 0 else '\u2212' if v < 0 else '') + str(abs(v))
+    show = lambda k, x: sg(x[k]) if k == 'A' else x[k]
     rows = ''.join(
-        f'<tr><td class="{"w r" if a[k] >= b[k] else ""}">{a[k]}</td><td>{t["lab"][i]}</td>'
-        f'<td class="{"w b" if b[k] >= a[k] else ""}">{b[k]}</td></tr>' for i, k in enumerate(keys))
-    sub = lambda x: t['low'] if x['low'] else '&nbsp;'
-    return ('<!-- Index -->\n<div class="ix">\n  <div class="ix-t">' + t['title'] + '</div>\n'
+        f'<tr><td class="{"w r" if a[k] >= b[k] else ""}">{show(k, a)}</td><td>{t["lab"][i]}</td>'
+        f'<td class="{"w b" if b[k] >= a[k] else ""}">{show(k, b)}</td></tr>' for i, k in enumerate(keys))
+    return (f'<!-- Index -->\n<div class="ix" data-pa="{pa}" data-pb="{pb}">\n  <div class="ix-t">' + t['title'] + '</div>\n'
             '  <div class="ee-top">\n'
-            f'    <div>{ring(a["I"], "#c0392b", names[0])}<div class="ee-nm" style="color:var(--red)">{names[0]}</div><div class="ee-sub">{sub(a)}</div></div>\n'
-            f'    <div>{ring(b["I"], "#1a5276", names[1])}<div class="ee-nm" style="color:var(--blue)">{names[1]}</div><div class="ee-sub">{sub(b)}</div></div>\n'
-            '  </div>\n  <table class="ee-t">' + rows + '</table>\n'
+            f'    <div>{ring(pa, "#c0392b", names[0], "%")}<div class="ee-nm" style="color:var(--red)">{names[0]}</div></div>\n'
+            f'    <div>{ring(pb, "#1a5276", names[1], "%")}<div class="ee-nm" style="color:var(--blue)">{names[1]}</div></div>\n'
+            f'  </div>\n  <div class="ix-sub">{t["sub"]}</div>\n  <table class="ee-t">' + rows + '</table>\n'
             f'  <div class="ix-note">{t["note"]}</div>\n</div>\n<!-- /Index -->\n')
 
 def upcoming_ids():
@@ -146,7 +185,53 @@ def inject(path, lg, names, a, b):
         s = s[:j + 1] + new + '\n' + s[j + 1:]
     if '.ix-t{' not in s:
         s = s.replace('</style>', CSS + '</style>', 1)
+    if '.ix-sub{' not in s:
+        s = s.replace('</style>', CSSX + '</style>', 1)
     open(path, 'w', encoding='utf-8').write(s)
+
+def strip(path):
+    s = open(path, encoding='utf-8').read()
+    if '<!-- Index -->' not in s: return False
+    s = re.sub(r'<!-- Index -->.*?<!-- /Index -->\n\n?', '', s, flags=re.S)
+    open(path, 'w', encoding='utf-8').write(s)
+    return True
+
+def freeze(fid):
+    for lg in ('ua', 'en'):
+        path = ROOT + f'{lg}/{fid}.html'
+        s = open(path, encoding='utf-8').read()
+        if '<!-- Index -->' not in s: print(f'{fid} {lg}: no Index block (hidden for low data?)'); continue
+        if 'data-frozen' in s: print(f'{fid} {lg}: already frozen'); continue
+        t = L[lg]
+        s = s.replace('<div class="ix" ', '<div class="ix" data-frozen="1" ', 1)
+        s = s.replace('<div class="ix-t">' + t['title'] + '</div>', '<div class="ix-t">' + t['title'] + t['frozen'] + '</div>', 1)
+        open(path, 'w', encoding='utf-8').write(s); print(f'{fid} {lg}: frozen')
+
+def cancelled_ids():
+    s = open(ROOT + 'ua/scorecard.html', encoding='utf-8').read()
+    i = s.index('const FIGHTS'); j = s.index('\n];', i)
+    return [m.group(1) for m in re.finditer(r"\{id:'([^']+)'[^\n]*?cancelled:true", s[i:j])]
+
+def record(dry=False):
+    ev = json.load(open(ROOT + 'data/events.json', encoding='utf-8'))
+    out = []; hit = tot = 0
+    for f in ev['fights']:
+        res = f.get('result')
+        if f['status'] != 'completed' or not res: continue
+        s = open(ROOT + f'en/{f["id"]}.html', encoding='utf-8').read() if os.path.exists(ROOT + f'en/{f["id"]}.html') else ''
+        m = re.search(r'<div class="ix" data-frozen="1" data-pa="(\d+)" data-pb="(\d+)"', s) or re.search(r'<div class="ix" data-pa="(\d+)" data-pb="(\d+)" data-frozen="1"', s)
+        if not m: continue
+        w = res['winner']; red, blue = f['red']['ua'], f['blue']['ua']
+        side = 'r' if w == red or red.split()[-1] in w else 'b' if w == blue or blue.split()[-1] in w else None
+        pa, pb = int(m.group(1)), int(m.group(2))
+        if side is None: continue
+        counted = pa != pb
+        ok = counted and ((pa > pb) == (side == 'r'))
+        out.append(dict(id=f['id'], pa=pa, pb=pb, winner=side, counted=counted, hit=ok))
+        tot += counted; hit += ok
+    data = dict(hits=hit, total=tot, show_from=30, fights=out)
+    if not dry: json.dump(data, open(ROOT + 'data/index-record.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    print(f'Index record: {hit} of {tot} (hidden until 30 fights)')
 
 def short_names(path):
     s = open(path, encoding='utf-8').read()
@@ -156,13 +241,23 @@ def short_names(path):
     return [r, b]
 
 if __name__ == '__main__':
+    if '--freeze' in sys.argv:
+        freeze(sys.argv[sys.argv.index('--freeze') + 1]); record(); sys.exit()
     dry = '--dry' in sys.argv
     ent = load_rankings()
+    for fid in cancelled_ids():
+        for lg in ('ua', 'en'):
+            if not dry and os.path.exists(ROOT + f'{lg}/{fid}.html') and strip(ROOT + f'{lg}/{fid}.html'): print(f'{fid} {lg}: cancelled, Index block removed')
     for fid in upcoming_ids():
         names, d, form = parse_en(fid)
-        res = [calc(ent, names[i], d['Record'][i], d['Stoppages'][i], d['Rounds'][i], form[i]) for i in (0, 1)]
-        print(f'{fid:26} {names[0]} {res[0]["I"]}{"*" if res[0]["low"] else ""} / {names[1]} {res[1]["I"]}{"*" if res[1]["low"] else ""}')
+        ex = parse_extras(fid, d)
+        res = [calc(ent, names[i], d['Record'][i], d['Stoppages'][i], d['Rounds'][i], form[i], ex[i], ex[1 - i]) for i in (0, 1)]
+        hide = res[0]['low'] or res[1]['low']
+        pa, pb = probs(*res)
+        print(f'{fid:26} {names[0]} {res[0]["I"]} ({res[0]["A"]:+d}) / {names[1]} {res[1]["I"]} ({res[1]["A"]:+d})  ->  {pa}% / {pb}%' + ('  HIDDEN: low data' if hide else ''))
         if not dry:
             for lg in ('ua', 'en'):
                 p = ROOT + f'{lg}/{fid}.html'
-                inject(p, lg, short_names(p), res[0], res[1])
+                if hide: strip(p)
+                else: inject(p, lg, short_names(p), res[0], res[1])
+    record(dry)
