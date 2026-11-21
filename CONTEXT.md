@@ -553,3 +553,4 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 
 - Nov 21 2026: added Usyk, Fury, Xhoxhaj (titles from owner's text, abs-tag on Usyk, Achievements card for Fury/Xhoxhaj). Jalolov card: Kudukhov row removed (Russian). Opponent spellings fixed (Hammer, Smokowski, Balogan, Welsh).
 - Nov 21 2026 (later): Suslenkov removed (Russian); Usyk Achievements: Olympic gold 2012; Frank Sanchez height 193 in height-compare. Active batch total: 15 cards.
+- Nov 21 2026 (batch 2): 13 more active heavyweights (Sanchez, Miller, Pero, Verhoeven, Hysa, Torrez, Novytskyi, Ibeh, Vykhryst, Moore, Barriere, Milas, Teremoana). New 'Next fight' card (only when a date is known). Verhoeven UA spelling is Верховен on all cards. Pending: Kabayel (WBC year, EBU achievements), Hovhannisyan.
