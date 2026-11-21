@@ -552,3 +552,4 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 - Planned: script that, after a fight in the calendar with a boxer from the list, prepares a row (boxer, opponent, date, result, method, round) for the owner to confirm before the record, form and Index are updated.
 
 - Nov 21 2026: added Usyk, Fury, Xhoxhaj (titles from owner's text, abs-tag on Usyk, Achievements card for Fury/Xhoxhaj). Jalolov card: Kudukhov row removed (Russian). Opponent spellings fixed (Hammer, Smokowski, Balogan, Welsh).
+- Nov 21 2026 (later): Suslenkov removed (Russian); Usyk Achievements: Olympic gold 2012; Frank Sanchez height 193 in height-compare. Active batch total: 15 cards.
