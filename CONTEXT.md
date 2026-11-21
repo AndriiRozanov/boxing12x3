@@ -550,3 +550,5 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 - Catalog filter on `/ua/boxers` and `/en/boxers`: chips "Усі / Активні / Завершили кар'єру" (EN All / Active / Retired); `BOXER_PROFILES` rows of active boxers carry `act:1`; links get `data-st="act|ret"`. `scripts/related_boxers.py` groups active and retired separately ("Інші активні боксери дивізіону").
 - Active names follow `data/names_ua.csv`; opponent names not in the csv were transliterated by Claude and confirmed by the owner.
 - Planned: script that, after a fight in the calendar with a boxer from the list, prepares a row (boxer, opponent, date, result, method, round) for the owner to confirm before the record, form and Index are updated.
+
+- Nov 21 2026: added Usyk, Fury, Xhoxhaj (titles from owner's text, abs-tag on Usyk, Achievements card for Fury/Xhoxhaj). Jalolov card: Kudukhov row removed (Russian). Opponent spellings fixed (Hammer, Smokowski, Balogan, Welsh).
