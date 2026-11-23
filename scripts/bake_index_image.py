@@ -3,7 +3,6 @@
 Usage (preview data): python3 scripts/bake_index_image.py haney-paro uk > data.json
 """
 import json, os, re, sys
-import segno
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = 'https://boxing12x3.com'
@@ -43,10 +42,9 @@ def data_for(fid, lk):
     sn = lambda n: n.split()[-1]
     a, b = f['red'][k], f['blue'][k]
     url = f'{BASE}/{s["path"]}/{fid}'
-    qr = segno.make(url + '?utm_source=index_image', error='m', boost_error=False)
     return {'lang': lk, 'slug': fid, 'title': f'{sn(a)} – {sn(b)}', 'names': [sn(a), sn(b)], 'pa': pa, 'pb': pb,
             'dateLine': f'{s["date"].format(d=int(d), m=MONTH[lk][int(mo)-1], y=y)} · {v.get("name") or ""}, {city}', 'rows': rows, 'url': url,
-            'qr': [''.join('1' if c else '0' for c in row) for row in qr.matrix], 't': {x: s[x] for x in ('kicker','foot','note','copied','f_post','f_square','f_story')}}
+            't': {x: s[x] for x in ('kicker','foot','note','copied','f_post','f_square','f_story')}}
 
 if __name__ == '__main__':
     print(json.dumps(data_for(sys.argv[1], sys.argv[2]), ensure_ascii=False))

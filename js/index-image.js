@@ -148,7 +148,9 @@
     // footer
     ctx.fillStyle = '#fff'; ctx.font = '700 40px ' + DISP; spaced(ctx, 'BOXING12X3.COM', P, footTop + 70, 4, 'left');
     ctx.fillStyle = '#aaa'; ctx.font = '500 26px ' + SANS; ctx.fillText(T.foot, P, footTop + 112);
-    drawQR(ctx, W - P - qr, footTop, qr);
+    // watermark where the QR used to be: big faint mark, hard to crop out
+    ctx.save(); ctx.globalAlpha = 0.14; ctx.fillStyle = '#fff'; ctx.textAlign = 'right';
+    ctx.font = '700 170px ' + DISP; ctx.fillText('12×3', W - P, footTop + qr - 8); ctx.restore();
   }
   function spacedC(ctx, text, cx, y, sp) {
     var w = 0, i; for (i = 0; i < text.length; i++) w += ctx.measureText(text[i]).width + sp; w -= sp;
