@@ -10,9 +10,9 @@
   try { D = JSON.parse(dataEl.textContent); } catch (e) { return; }
   var T = D.t;
   var FORMATS = {
-    post:   { w: 1080, h: 1350, scale: 2, label: T.f_post,   maxRow: 76, ring: 112, gap: 18 },
-    square: { w: 1080, h: 1080, scale: 2, label: T.f_square, maxRow: 76, ring: 115, gap: 26 },
-    story:  { w: 1080, h: 1920, scale: 1, label: T.f_story,  maxRow: 100, ring: 200, gap: 60 }
+    post:   { w: 1080, h: 1350, scale: 2, label: T.f_post,   rows: 4, rowH: 78, ring: 150 },
+    square: { w: 1080, h: 1080, scale: 2, label: T.f_square, rows: 3, rowH: 64, ring: 120 },
+    story:  { w: 1080, h: 1920, scale: 1, label: T.f_story,  rows: 4, rowH: 92, ring: 210 }
   };
   var fmt = 'post';
   var canvas = document.getElementById('ri-canvas');
@@ -115,38 +115,36 @@
     ctx.fillText(D.title, P, y);
     ctx.fillStyle = '#aaa'; fit(ctx, D.dateLine, W - P * 2, 28, 500, SANS, 18); y += 46;
     ctx.fillText(D.dateLine, P, y);
-    y += F.gap;
-    // rings
-    var rr0 = F.ring, lw = Math.round(rr0 * 0.16), cxs = [W * 0.27, W * 0.73], cy = y + rr0 + lw / 2;
-    ring(ctx, cxs[0], cy, rr0, lw, D.pa, RED, DISP, Math.round(rr0 * 0.8));
-    ring(ctx, cxs[1], cy, rr0, lw, D.pb, BLUE, DISP, Math.round(rr0 * 0.8));
-    ctx.textAlign = 'center'; ctx.font = '700 ' + Math.round(rr0 * 0.19) + 'px ' + SANS;
-    var ny = cy + rr0 + lw / 2 + Math.round(rr0 * 0.30);
+    // footer geometry
+    var qr = 150, footTop = H - P - qr;
+    var rows = D.rows.slice(0, F.rows), n = rows.length;
+    var top0 = y + 24, avail = footTop - top0 - 64;           // room for rings + table (note sits under the table)
+    var rowH = F.rowH;
+    var R = Math.min(F.ring, (avail - n * rowH - 40) / 2.5);
+    var lw = Math.round(R * 0.16);
+    var blockH = 2 * R + lw + R * 0.34 + 14 + 36 + n * rowH;
+    var yy = top0 + Math.max(0, (avail - blockH) / 2);
+    var cxs = [W * 0.27, W * 0.73], cy = yy + R + lw / 2;
+    ring(ctx, cxs[0], cy, R, lw, D.pa, RED, DISP, Math.round(R * 0.8));
+    ring(ctx, cxs[1], cy, R, lw, D.pb, BLUE, DISP, Math.round(R * 0.8));
+    ctx.textAlign = 'center'; ctx.font = '700 ' + Math.round(Math.max(R * 0.19, 22)) + 'px ' + SANS;
+    var ny = cy + R + lw / 2 + Math.round(R * 0.30) + 8;
     ctx.fillStyle = RED; spacedC(ctx, D.names[0].toUpperCase(), cxs[0], ny, 3);
     ctx.fillStyle = BLUE; spacedC(ctx, D.names[1].toUpperCase(), cxs[1], ny, 3);
     ctx.textAlign = 'left';
-    y = ny + 36;
-    // footer geometry
-    var qr = 150, footTop = H - P - qr;
-    // table
-    var rows = D.rows, n = rows.length, avail = footTop - y - 56, rowH = Math.min(F.maxRow, avail / Math.max(n, 1));
-    if (rowH >= 42) {
-      var k = Math.min(1, rowH / 76);
-      ctx.strokeStyle = '#2c2c2c'; ctx.lineWidth = 2;
-      for (var i = 0; i < n; i++) {
-        var ry = y + i * rowH, r = rows[i], mid = ry + rowH / 2 + 10 * k;
-        ctx.beginPath(); ctx.moveTo(P, ry); ctx.lineTo(W - P, ry); ctx.stroke();
-        ctx.font = '700 ' + Math.round(38 * k) + 'px ' + DISP;
-        ctx.textAlign = 'left'; ctx.fillStyle = r.w === 'r' ? RED : '#8a8a8a'; ctx.fillText(r.l, P, mid);
-        ctx.textAlign = 'right'; ctx.fillStyle = r.w === 'b' ? BLUE : '#8a8a8a'; ctx.fillText(r.r, W - P, mid);
-        ctx.textAlign = 'center'; ctx.fillStyle = '#bdbdbd'; ctx.font = '600 ' + Math.round(26 * k) + 'px ' + SANS;
-        ctx.fillText(r.label.toUpperCase(), W / 2, mid - 2);
-      }
-      ctx.textAlign = 'left';
-      ctx.fillStyle = '#777'; ctx.font = '500 22px ' + SANS; ctx.fillText(T.note, P, y + n * rowH + 36);
-    } else {
-      ctx.fillStyle = '#777'; ctx.font = '500 24px ' + SANS; ctx.textAlign = 'center'; ctx.fillText(T.note, W / 2, y + 8); ctx.textAlign = 'left';
+    var ty = ny + 36, k = Math.min(1, rowH / 76);
+    ctx.strokeStyle = '#2c2c2c'; ctx.lineWidth = 2;
+    for (var i = 0; i < n; i++) {
+      var ry = ty + i * rowH, r = rows[i], mid = ry + rowH / 2 + 10 * k;
+      ctx.beginPath(); ctx.moveTo(P, ry); ctx.lineTo(W - P, ry); ctx.stroke();
+      ctx.font = '700 ' + Math.round(38 * k) + 'px ' + DISP; ctx.fillStyle = '#fff';
+      ctx.textAlign = 'left'; ctx.fillText(r.l, P, mid);
+      ctx.textAlign = 'right'; ctx.fillText(r.r, W - P, mid);
+      ctx.textAlign = 'center'; ctx.fillStyle = '#9a9a9a'; ctx.font = '600 ' + Math.round(26 * k) + 'px ' + SANS;
+      ctx.fillText(r.label.toUpperCase(), W / 2, mid - 2);
     }
+    ctx.textAlign = 'center'; ctx.fillStyle = '#777'; ctx.font = '500 22px ' + SANS;
+    ctx.fillText(T.note, W / 2, ty + n * rowH + 40); ctx.textAlign = 'left';
     // footer
     ctx.fillStyle = '#fff'; ctx.font = '700 40px ' + DISP; spaced(ctx, 'BOXING12X3.COM', P, footTop + 70, 4, 'left');
     ctx.fillStyle = '#aaa'; ctx.font = '500 26px ' + SANS; ctx.fillText(T.foot, P, footTop + 112);

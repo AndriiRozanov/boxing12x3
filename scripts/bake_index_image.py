@@ -18,17 +18,26 @@ L = {
             f_post='Post 4:5 · Instagram', f_square='Square 1:1 · X, Telegram', f_story='Story 9:16', date='{m} {d}, {y}'),
 }
 
+FACTS = {'uk': [('Рекорд', 'Рекорд'), ('Дострокові', 'Нокаути'), ('_age', 'Вік'), ('Розмах', 'Розмах')],
+         'en': [('Record', 'Record'), ('Stoppages', 'Knockouts'), ('_age', 'Age'), ('Reach', 'Reach')]}
+
 def data_for(fid, lk):
     s = L[lk]; k = s['k']; f = FIGHT[fid]
     page = open(f'{R}/{s["path"]}/{fid}.html', encoding='utf-8').read()
     m = re.search(r'<div class="ix"[^>]*data-pa="(\d+)" data-pb="(\d+)"', page)
     pa, pb = int(m.group(1)), int(m.group(2))
-    blk = page[page.index('<div class="ix"'):page.index('<!-- /Index -->')]
+    fr = re.search(r'<div class="fcard-rows">(.*?)<!-- Stats -->', page, re.S).group(1)
+    facts = {}
+    for row in fr.split('<div class="frow">')[1:]:
+        mm = re.search(r'<span class="fv r">(.*?)</span>\s*(?:</span>)?\s*<div class="flbl[^"]*">\s*<span>([^<]*)</span>.*?<span class="fv b">(.*?)\n\s*</div>', row, re.S)
+        if mm: facts[mm.group(2)] = (re.split('<', mm.group(1))[0].strip(), re.split('<', mm.group(3))[0].strip())
+    ages = [re.match(r'(\d+)', x).group(1) if re.match(r'(\d+)', x) else None for x in re.findall(r'<div class="f-info">(.*?)</div>', page)[:2]]
+    fk = FACTS[lk]
     rows = []
-    for tr in re.findall(r'<tr>(.*?)</tr>', blk, flags=re.S):
-        td = re.findall(r'<td class="([^"]*)">([^<]*)</td>|<td>([^<]*)</td>', tr)
-        (c1, v1, _), (_, _, lab), (c3, v3, _) = td
-        rows.append({'l': v1, 'label': lab, 'r': v3, 'w': ('' if ('w' in c1.split()) == ('w' in c3.split()) else ('r' if 'w' in c1.split() else 'b'))})
+    for key, lab in fk:
+        v = ages if key == '_age' else facts.get(key)
+        if not v or not v[0] or not v[1] or '–' in (v[0], v[1]): continue
+        rows.append({'l': v[0], 'label': lab, 'r': v[1]})
     y, mo, d = f['date'].split('-'); v = f['venue']
     city = v['cityUa'] if lk == 'uk' else v['cityEn']
     sn = lambda n: n.split()[-1]
