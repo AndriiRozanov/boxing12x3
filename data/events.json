@@ -4203,7 +4203,7 @@
    "startUtc": null,
    "startPrecision": "date",
    "startSource": "page date",
-   "status": "scheduled",
+   "status": "cancelled",
    "tournamentId": "fury-joshua",
    "red": {
     "ua": "Мартін Баколе",
@@ -4212,6 +4212,52 @@
    "blue": {
     "ua": "Соломон Адебайо",
     "en": "Solomon Adebayo"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "venue": {
+    "name": "Principality Stadium",
+    "cityUa": "Кардіфф, Вельс",
+    "cityEn": "Cardiff",
+    "countryIso": "GB",
+    "continent": "Europe",
+    "tz": "Europe/London",
+    "lat": 51.48,
+    "lon": -3.18
+   },
+   "broadcast": {
+    "ua": [
+     "Netflix"
+    ],
+    "en": [
+     "Netflix"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "bakole-wilder",
+   "urls": {
+    "ua": "/ua/bakole-wilder",
+    "en": "/en/bakole-wilder"
+   },
+   "date": "2026-12-11",
+   "startUtc": null,
+   "startPrecision": "date",
+   "startSource": "page date",
+   "status": "scheduled",
+   "tournamentId": "fury-joshua",
+   "red": {
+    "ua": "Мартін Баколе",
+    "en": "Martin Bakole"
+   },
+   "blue": {
+    "ua": "Деонтей Вайлдер",
+    "en": "Deontay Wilder"
    },
    "division": {
     "ua": "Надважка вага",
@@ -4464,6 +4510,7 @@
    "organizer": null,
    "fights": [
     "fury-joshua",
+    "bakole-wilder",
     "bakole-adebayo",
     "opetaia-wilder"
    ],

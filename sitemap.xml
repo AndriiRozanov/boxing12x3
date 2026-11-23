@@ -3638,7 +3638,7 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/ua/bakole-adebayo</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/bakole-adebayo"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/bakole-adebayo"/>
     <changefreq>weekly</changefreq>
@@ -3646,9 +3646,25 @@
   </url>
   <url>
     <loc>https://boxing12x3.com/en/bakole-adebayo</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/bakole-adebayo"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/bakole-adebayo"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/bakole-wilder</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/bakole-wilder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/bakole-wilder"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/bakole-wilder</loc>
+    <lastmod>2026-11-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/bakole-wilder"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/bakole-wilder"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
