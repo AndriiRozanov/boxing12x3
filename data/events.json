@@ -4283,7 +4283,20 @@
      "Netflix"
     ]
    },
-   "result": null
+   "result": null,
+   "replaces": [
+    {
+     "id": "opetaia-wilder",
+     "red": {
+      "ua": "Джей Опетая",
+      "en": "Jai Opetaia"
+     },
+     "blue": {
+      "ua": "Деонтей Вайлдер",
+      "en": "Deontay Wilder"
+     }
+    }
+   ]
   },
   {
    "id": "fury-joshua",

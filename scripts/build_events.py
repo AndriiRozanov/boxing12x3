@@ -263,6 +263,12 @@ for r in DB['fights']:
       'broadcast':{'ua':first_platforms(r['broadcast']['ua']),'en':first_platforms(r['broadcast']['en'])},
       'result':({'winner':res.get('winner'),'method':res.get('method')} if res.get('winner') else None)})
 lean['fights'].sort(key=lambda x:(x['date'],x['startUtc'] or '',x['id']))
+# replacement links: FIGHTS[x].replacedBy = id of the fight that took its place (set by hand in the data)
+_ln={x['id']:x for x in lean['fights']}
+for fid,F in FIGHTS.items():
+    t=F.get('replacedBy')
+    if t and t in _ln and fid in _ln:
+        _ln[t].setdefault('replaces',[]).append({'id':fid,'red':_ln[fid]['red'],'blue':_ln[fid]['blue']})
 for t in DB['tournaments']:
     ua=t.get('ua') or {}; en=t.get('en') or {}
     lean['tournaments'].append({'id':t['id'],'urls':t['urls'],'name':{'ua':ua.get('name'),'en':en.get('name')},'startDate':(ua.get('startDate') or '')[:10],

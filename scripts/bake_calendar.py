@@ -32,7 +32,7 @@ S = {
    countries={'SA':'Саудівська Аравія','US':'США','GB':'Британія','AU':'Австралія','JP':'Японія','DE':'Німеччина','NL':'Нідерланди','AE':'ОАЕ','UA':'Україна','IE':'Ірландія','CA':'Канада','ZA':'ПАР','MX':'Мексика'},
    conts={'Europe':'Європа','Asia':'Азія','North America':'Пн. Америка','South America':'Пд. Америка','Oceania':'Океанія','Africa':'Африка'},
    footer=[('/', 'Головна'), ('/ua/scorecard', 'Картка'), ('/ua/guide', 'Довідник'), ('/height-compare', 'Порівняй зріст'), ('/about', 'Про нас'), ('/privacy', 'Конфіденційність')],
-   home='/', ph_fights=('бій', 'бої', 'боїв')),
+   home='/', ph_fights=('бій', 'бої', 'боїв'), cx_ph=('скасований', 'скасовані', 'скасованих'), cx_one='скасований', repl_tag='Заміна', instead='замість'),
  'en': dict(lang='en', path='en', other='ua', loc='en_US', og='og-default-en.png',
    title='Boxing Schedule: Fight Dates and Times | Boxing 12×3',
    desc='Boxing schedule with fight dates, times in your own time zone, countries and broadcasters. Filter by country, continent and date, search, or find fights near you.',
@@ -51,7 +51,7 @@ S = {
    countries={'SA':'Saudi Arabia','US':'USA','GB':'UK','AU':'Australia','JP':'Japan','DE':'Germany','NL':'Netherlands','AE':'UAE','UA':'Ukraine','IE':'Ireland','CA':'Canada','ZA':'South Africa','MX':'Mexico'},
    conts={'Europe':'Europe','Asia':'Asia','North America':'N. America','South America':'S. America','Oceania':'Oceania','Africa':'Africa'},
    footer=[('/en', 'Home'), ('/en/scorecard', 'Scorecard'), ('/en/guide', 'Guide'), ('/en/height-compare', 'Height Compare'), ('/en/about', 'About'), ('/privacy', 'Privacy')],
-   home='/en', ph_fights=('fight', 'fights', 'fights')),
+   home='/en', ph_fights=('fight', 'fights', 'fights'), cx_ph=('cancelled', 'cancelled', 'cancelled'), repl_tag='Replacement', instead='replaces'),
 }
 
 CSS = """
@@ -113,6 +113,15 @@ a.chip{text-decoration:none;display:inline-block}
 .fr.cx::before{background:#bbb}
 .fr.cx .fp{text-decoration:line-through}
 .tag.cx{background:#f5e1de;color:#c0392b;font-weight:600}
+.tag.repl{background:#111;color:#fff;font-weight:600}
+.cxg{border-top:0.5px solid var(--border)}
+.fr:last-of-type{border-bottom:none}
+.cxg summary{list-style:none;cursor:pointer;padding:11px 16px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.cxg summary::-webkit-details-marker{display:none}
+.cxg summary::after{content:' ›'}
+.cxg[open] summary::after{content:' ⌄'}
+.cxg summary:hover{color:var(--text)}
+.cxg .fr:first-of-type{border-top:0.5px solid var(--border)}
 .chip.near.on{background:var(--red);border-color:var(--red);color:#fff}
 .flag{width:16px;height:12px;object-fit:cover;border-radius:2px;border:0.5px solid var(--border);vertical-align:-1px;margin-right:2px}
 .sel{width:100%;font:inherit;font-size:13px;border:0.5px solid var(--border);border-radius:8px;padding:9px 10px;background:#fff;color:#555}
@@ -182,6 +191,7 @@ function addDays(s,n){var p=s.split('-');var d=new Date(Date.UTC(+p[0],+p[1]-1,+
 function dayLabel(s){var p=s.split('-'),d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));var w=T.wd[d.getUTCDay()],m=T.months[+p[1]-1],n=+p[2];return LANG==='uk'?(n+' '+m+', '+w):(w+', '+m+' '+n);}
 function plural(n){if(LANG!=='uk')return n+' '+(n===1?T.ph[0]:T.ph[1]);var a=n%10,b=n%100;return n+' '+(a===1&&b!==11?T.ph[0]:(a>=2&&a<=4&&(b<12||b>14)?T.ph[1]:T.ph[2]));}
 function dist(a,b,c,d){var R=6371,r=Math.PI/180,x=(c-a)*r,y=(d-b)*r;var h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
+function cxLabel(n){var p=T.cx_ph;if(LANG!=='uk')return '+ '+n+' '+p[0];var a=n%10,b=n%100;return '+ '+n+' '+(a===1&&b!==11?p[0]:(a>=2&&a<=4&&(b<12||b>14)?p[1]:p[2]));}
 function norm(s){return String(s).toLowerCase().replace(/[\u2019\u02bc\u2018\u0060\u00b4]/g,"'");}
 function anyOn(o){for(var k in o){if(o[k])return true;}return false;}
 function render(){
@@ -203,22 +213,27 @@ function render(){
  });
  // strip counts (ignore the single-day filter)
  var strip=document.getElementById('strip'),h='';
- for(var i=0;i<14;i++){var dd=addDays(today,i),has=base.some(function(r){return r.day===dd;});var p=dd.split('-'),dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));
+ for(var i=0;i<14;i++){var dd=addDays(today,i),has=base.some(function(r){return r.day===dd&&!r.el.classList.contains('cx');});var p=dd.split('-'),dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));
   h+='<button type="button" class="dc'+(has?'':' e')+(i===0?' tod':'')+(st.day===dd?' on':'')+'" data-d="'+dd+'"><small>'+T.wds[dt.getUTCDay()]+'</small><b>'+(+p[2])+'</b><i></i></button>';}
  strip.innerHTML=h;
  var vis=base.filter(function(r){return !st.day||r.day===st.day;});
  vis.sort(function(a,b){return a.day<b.day?-1:a.day>b.day?1:((a.start||'9')<(b.start||'9')?-1:(a.start||'9')>(b.start||'9')?1:0);});
  var list=document.getElementById('list');list.innerHTML='';
- var lastDay='',box=null;
+ var lastDay='',box=null,cxd=null;
  vis.forEach(function(r){
   if(r.day!==lastDay){lastDay=r.day;var n=vis.filter(function(x){return x.day===r.day&&!x.el.classList.contains('cx');}).length;
    var hd=document.createElement('div');hd.className='dayh';hd.innerHTML='<b>'+dayLabel(r.day)+(r.day===today?' · '+T.today:'')+'</b><span>'+plural(n)+'</span>';
-   list.appendChild(hd);box=document.createElement('div');box.className='list';list.appendChild(box);}
+   if(!n)hd.querySelector('span').textContent='';
+   list.appendChild(hd);box=document.createElement('div');box.className='list';list.appendChild(box);cxd=null;}
   var t=r.tm;
   if(r.start){var lbl=st.tz==='auto'?T.yourtime_lbl:tzName(zone());t.innerHTML='<b>'+hm(new Date(r.start),tz)+'</b><small>'+lbl+'</small>';}
   else{t.innerHTML='<b class="tba">'+(r.el.classList.contains('cx')?'–':T.tba)+'</b>';}
   r.meta.innerHTML=r.metaBase+(r.km!=null?' · '+Math.round(r.km/10)*10+' '+T.km:'');
-  box.appendChild(r.el);
+  if(r.el.classList.contains('cx')){
+   if(!cxd){cxd=document.createElement('details');cxd.className='cxg';cxd.innerHTML='<summary></summary>';box.appendChild(cxd);}
+   cxd.appendChild(r.el);
+   var k=cxd.querySelectorAll('.fr').length;cxd.querySelector('summary').textContent=cxLabel(k);
+  }else{(cxd?box.insertBefore(r.el,cxd):box.appendChild(r.el));}
  });
  var cnt=document.getElementById('count');
  var nv=vis.filter(function(x){return !x.el.classList.contains('cx');}).length;cnt.textContent=nv?plural(nv):'';
@@ -278,6 +293,14 @@ def plural(lk, n):
     a, b = n % 10, n % 100
     return f"{n} {p[0] if a == 1 and b != 11 else (p[1] if 2 <= a <= 4 and not 12 <= b <= 14 else p[2])}"
 
+def cx_label(lk, n):
+    p = S[lk]['cx_ph']
+    if lk == 'en': return f'+ {n} {p[0]}'
+    a, b = n % 10, n % 100
+    return f"+ {n} {p[0] if a == 1 and b != 11 else (p[1] if 2 <= a <= 4 and not 12 <= b <= 14 else p[2])}"
+
+def sname(x): return (x or '').split(' ')[-1]
+
 def day_label(lk, d):
     s = S[lk]
     wd = s['wd'][(d.weekday() + 1) % 7]
@@ -296,11 +319,16 @@ def row_html(f, lk):
     cx = f['status'] == 'cancelled'
     tags = ''
     if cx: tags += f'<span class="tag cx">{"Скасовано" if u else "Cancelled"}</span>'
+    rep_ = f.get('replaces') or []
+    if rep_ and not cx: tags += f'<span class="tag repl">{s["repl_tag"]}</span>'
     if bc and not cx: tags += f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>'
     for x in (f['belts'] or [])[:2]: tags += f'<span class="tag">{esc(x)}</span>'
     if tname: tags += f'<span class="tag tour">{esc(tname)}</span>'
     flag = f'<img class="flag" src="/images/flags/{iso.lower()}.png" width="16" height="12" alt="" loading="lazy"> ' if iso else ''
     meta = f'{flag}{esc(city)} · {esc(div)} · {f["rounds"]} {s["rounds"]}'
+    if rep_ and not cx:
+        k = 'ua' if u else 'en'
+        meta += ' · ' + ' · '.join(f'{s["instead"]} {esc(sname(x["red"][k]))} – {esc(sname(x["blue"][k]))}' for x in rep_)
     if cx:
         tcell = '<b class="tba">–</b>'; start = ''
     elif f['startUtc']:
@@ -336,7 +364,10 @@ def build(lk):
         groups.setdefault(d, []).append(f)
     body = ''
     for d in sorted(groups):
-        body += f'<div class="dayh"><b>{day_label(lk, d)}</b><span>{plural(lk, len([x for x in groups[d] if x['status'] == 'scheduled']))}</span></div><div class="list">{"".join(row_html(f, lk) for f in groups[d])}</div>'
+        act = [x for x in groups[d] if x['status'] == 'scheduled']; cxs = [x for x in groups[d] if x['status'] == 'cancelled']
+        inner = ''.join(row_html(f, lk) for f in act)
+        if cxs: inner += f'<details class="cxg"><summary>{cx_label(lk, len(cxs))}</summary>{"".join(row_html(f, lk) for f in cxs)}</details>'
+        body += f'<div class="dayh"><b>{day_label(lk, d)}</b><span>{plural(lk, len(act)) if act else ""}</span></div><div class="list">{inner}</div>'
     cont = {}; ctr = {}
     for f in fa:
         c = f['venue'].get('continent'); i = f['venue'].get('countryIso')
@@ -357,7 +388,7 @@ def build(lk):
             {'@type': 'ListItem', 'position': 1, 'name': s['crumb'][0], 'item': BASE + ('/' if u else '/en')},
             {'@type': 'ListItem', 'position': 2, 'name': s['crumb'][1], 'item': url}]}]}
     tdata = {k: s[k] for k in ('tba', 'yourtime', 'yourtime_lbl', 'auto_note', 'chosen_note', 'today', 'km', 'empty_near', 'near_btn', 'near_on', 'near_denied', 'near_unsup', 'tz_names', 'months', 'wd', 'wds')}
-    tdata['ph'] = list(s['ph_fights'])
+    tdata['ph'] = list(s['ph_fights']); tdata['cx_ph'] = list(s['cx_ph'])
     js = JS.replace('__T__', json.dumps(tdata, ensure_ascii=False)).replace('__LANG__', s['lang'])
     footer = ''.join(f'<a href="{h}">{t}</a>' for h, t in s['footer'])
     date_chips = ''.join(f'<button type="button" class="chip{" on" if m == "all" else ""}" data-m="{m}">{s[k]}</button>' for m, k in (('all', 'd_all'), ('today', 'd_today'), ('7', 'd_7'), ('month', 'd_month'), ('range', 'd_pick')))
