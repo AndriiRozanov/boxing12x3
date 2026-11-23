@@ -178,7 +178,7 @@ var T=__T__;T.empty_default=document.getElementById('emptytxt').textContent;
 var LANG='__LANG__';
 var els=[].slice.call(document.querySelectorAll('#list .fr'));
 var rows=els.map(function(e){return{el:e,id:e.dataset.id,start:e.dataset.start||'',date:e.dataset.date,iso:e.dataset.iso,cont:e.dataset.cont,
- lat:parseFloat(e.dataset.lat),lon:parseFloat(e.dataset.lon),q:e.dataset.q,tm:e.querySelector('.ft'),meta:e.querySelector('.fm'),metaBase:e.querySelector('.fm').innerHTML};});
+ tour:e.dataset.tour||'',main:e.dataset.main==='1',lat:parseFloat(e.dataset.lat),lon:parseFloat(e.dataset.lon),q:e.dataset.q,tm:e.querySelector('.ft'),meta:e.querySelector('.fm'),metaBase:e.querySelector('.fm').innerHTML};});
 var st={q:'',mode:'all',from:'',to:'',day:'',conts:{},ctrs:{},near:false,pos:null,radius:500,tz:'auto'};
 try{var saved=localStorage.getItem('b12x3_cal_tz');if(saved)st.tz=saved;}catch(e){}
 function zone(){if(st.tz!=='auto')return st.tz;try{return Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC';}catch(e){return 'UTC';}}
@@ -217,7 +217,8 @@ function render(){
   h+='<button type="button" class="dc'+(has?'':' e')+(i===0?' tod':'')+(st.day===dd?' on':'')+'" data-d="'+dd+'"><small>'+T.wds[dt.getUTCDay()]+'</small><b>'+(+p[2])+'</b><i></i></button>';}
  strip.innerHTML=h;
  var vis=base.filter(function(r){return !st.day||r.day===st.day;});
- vis.sort(function(a,b){return a.day<b.day?-1:a.day>b.day?1:((a.start||'9')<(b.start||'9')?-1:(a.start||'9')>(b.start||'9')?1:0);});
+ var gm={};vis.forEach(function(r){r.gk=r.day+'|'+(r.tour||r.id);var s=r.start||'9';if(!gm[r.gk]||s<gm[r.gk])gm[r.gk]=s;});
+ vis.sort(function(a,b){if(a.day!==b.day)return a.day<b.day?-1:1;var x=gm[a.gk],y=gm[b.gk];if(x!==y)return x<y?-1:1;if(a.gk!==b.gk)return a.gk<b.gk?-1:1;if(a.main!==b.main)return a.main?-1:1;var s1=a.start||'9',s2=b.start||'9';return s1<s2?-1:(s1>s2?1:0);});
  var list=document.getElementById('list');list.innerHTML='';
  var lastDay='',box=null,cxd=null;
  vis.forEach(function(r){
@@ -322,7 +323,7 @@ def row_html(f, lk):
     rep_ = f.get('replaces') or []
     if rep_ and not cx: tags += f'<span class="tag repl">{s["repl_tag"]}</span>'
     if bc and not cx: tags += f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>'
-    for x in (f['belts'] or [])[:2]: tags += f'<span class="tag">{esc(x)}</span>'
+    for x in ((f.get('beltsEn') if not u and f.get('beltsEn') else f['belts']) or [])[:2]: tags += f'<span class="tag">{esc(x)}</span>'
     if tname: tags += f'<span class="tag tour">{esc(tname)}</span>'
     flag = f'<img class="flag" src="/images/flags/{iso.lower()}.png" width="16" height="12" alt="" loading="lazy"> ' if iso else ''
     meta = f'{flag}{esc(city)} · {esc(div)} · {f["rounds"]} {s["rounds"]}'
@@ -341,7 +342,7 @@ def row_html(f, lk):
         tcell = f'<b class="tba">{s["tba"]}</b>'; start = ''
     q = ' '.join([f['red']['ua'], f['red']['en'], f['blue']['ua'], f['blue']['en'], (t['name']['ua'] or '') if t else '', (t['name']['en'] or '') if t else '', f['venue']['cityUa'] or '', f['venue']['cityEn'] or '',
                   s['countries'].get(iso, iso), S['uk']['countries'].get(iso, ''), S['en']['countries'].get(iso, ''), v.get('name') or '']).lower()
-    attrs = (f'data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-iso="{iso}" data-cont="{esc(v.get("continent"))}" '
+    attrs = (f'data-tour="{esc(f.get("tournamentId") or "")}" data-main="{1 if f.get("main") else 0}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-iso="{iso}" data-cont="{esc(v.get("continent"))}" '
              f'data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}" data-q="{esc(q)}"')
     inner = (f'<div class="ft">{tcell}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
              f'<div class="fm">{meta}</div><div class="tags">{tags}</div></div>')
@@ -350,7 +351,11 @@ def row_html(f, lk):
 def build(lk):
     s = S[lk]; u = lk == 'uk'
     fl = [f for f in D['fights'] if f['status'] in ('scheduled', 'cancelled') and f['date'] >= (TODAY - datetime.timedelta(days=1)).isoformat()]
-    fl.sort(key=lambda f: (f['date'], f['startUtc'] or 'z'))
+    gmin = {}
+    for f in fl:
+        k = (f['date'], f.get('tournamentId') or f['id'])
+        gmin[k] = min(gmin.get(k, 'z'), f['startUtc'] or 'z')
+    fl.sort(key=lambda f: (f['date'], gmin[(f['date'], f.get('tournamentId') or f['id'])], f.get('tournamentId') or f['id'], 0 if f.get('main') else 1, f['startUtc'] or 'z'))
     fa = [f for f in fl if f['status'] == 'scheduled']  # cancelled fights stay in the list but are not counted
     # baked fallback grouping by fallback-tz day
     from zoneinfo import ZoneInfo

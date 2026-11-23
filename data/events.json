@@ -29,6 +29,9 @@
    "belts": [
     "Титул WBO у легкій вазі"
    ],
+   "beltsEn": [
+    "WBO Lightweight Title"
+   ],
    "venue": {
     "name": "Foxwoods Resort",
     "cityUa": "Машантакет, Коннектикут",
@@ -74,6 +77,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Equides Club",
     "cityUa": "Лісники",
@@ -95,7 +99,8 @@
    "result": {
     "winner": "Даніель Лапін",
     "method": "UD 4"
-   }
+   },
+   "main": true
   },
   {
    "id": "sirenko-krolenko",
@@ -123,6 +128,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Equides Club",
     "cityUa": "Лісники",
@@ -172,6 +178,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "WePlay Esports Arena",
     "cityUa": "Київ",
@@ -193,7 +200,8 @@
    "result": {
     "winner": "Раміль Гаджиєв",
     "method": "UD 8"
-   }
+   },
+   "main": true
   },
   {
    "id": "lapin-koros",
@@ -221,6 +229,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "WePlay Esports Arena",
     "cityUa": "Київ",
@@ -270,6 +279,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -292,7 +302,8 @@
    "result": {
     "winner": "Калум Волш",
     "method": "UD 10"
-   }
+   },
+   "main": true
   },
   {
    "id": "bohachuk-butaev",
@@ -320,6 +331,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -370,6 +382,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -420,6 +433,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -442,7 +456,8 @@
    "result": {
     "winner": "Хосе Валенсуела",
     "method": "UD 10"
-   }
+   },
+   "main": true
   },
   {
    "id": "ajagba-martin",
@@ -470,6 +485,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -492,7 +508,8 @@
    "result": {
     "winner": "Ефе Аджагба",
     "method": "TKO 4"
-   }
+   },
+   "main": true
   },
   {
    "id": "dzambekov-elbiali",
@@ -520,6 +537,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -573,6 +591,10 @@
     "Титул The Ring",
     "Титул Zuffa Boxing"
    ],
+   "beltsEn": [
+    "The Ring title",
+    "Zuffa Boxing title"
+   ],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -595,7 +617,8 @@
    "result": {
     "winner": "Джай Опетая",
     "method": "UD 12"
-   }
+   },
+   "main": true
   },
   {
    "id": "khyzhnyak-baron",
@@ -623,6 +646,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Equides Club",
     "cityUa": "Лісники",
@@ -677,6 +701,11 @@
     "IBF Intercontinental",
     "WBO International"
    ],
+   "beltsEn": [
+    "WBA Continental",
+    "IBF Intercontinental",
+    "WBO International"
+   ],
    "venue": {
     "name": "Equides Club",
     "cityUa": "Лісники",
@@ -699,7 +728,8 @@
    "result": {
     "winner": "Даніель Лапін",
     "method": "KO 1"
-   }
+   },
+   "main": true
   },
   {
    "id": "cortes-garcia",
@@ -727,6 +757,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -749,7 +780,8 @@
    "result": {
     "winner": "Андрес Кортес",
     "method": "UD 10"
-   }
+   },
+   "main": true
   },
   {
    "id": "katzourakis-rodriguez",
@@ -777,6 +809,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -827,6 +860,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Meta Apex",
     "cityUa": "Лас-Вегас",
@@ -849,7 +883,8 @@
    "result": {
     "winner": "Шейн Мозлі мол.",
     "method": "TKO 6"
-   }
+   },
+   "main": true
   },
   {
    "id": "billam-smith-rozicki",
@@ -922,6 +957,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Bournemouth International Centre",
     "cityUa": "Борнмут",
@@ -1198,6 +1234,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "The Chelsea at The Cosmopolitan",
     "cityUa": "Лас-Вегас",
@@ -1220,7 +1257,8 @@
    "result": {
     "winner": "Хосе Валенсуела",
     "method": "KO 2"
-   }
+   },
+   "main": true
   },
   {
    "id": "sandoval-lee",
@@ -1248,6 +1286,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "The Chelsea at The Cosmopolitan",
     "cityUa": "Лас-Вегас",
@@ -1298,6 +1337,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "The Chelsea at The Cosmopolitan",
     "cityUa": "Лас-Вегас",
@@ -1483,6 +1523,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Infosys Theater at Madison Square Garden",
     "cityUa": "Нью-Йорк",
@@ -1505,7 +1546,8 @@
    "result": {
     "winner": "Едгар Берланга",
     "method": "TKO 7"
-   }
+   },
+   "main": true
   },
   {
    "id": "derevyanchenko-hackett",
@@ -1578,6 +1620,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Infosys Theater at Madison Square Garden",
     "cityUa": "Нью-Йорк",
@@ -1628,6 +1671,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Infosys Theater at Madison Square Garden",
     "cityUa": "Нью-Йорк",
@@ -1680,6 +1724,9 @@
    "belts": [
     "Вакантний титул IBF"
    ],
+   "beltsEn": [
+    "Vacant IBF title"
+   ],
    "venue": {
     "name": "3Arena",
     "cityUa": "Дублін",
@@ -1703,7 +1750,8 @@
    "result": {
     "winner": "Аарон Маккенна",
     "method": "UD 12"
-   }
+   },
+   "main": true
   },
   {
    "id": "walsh-denny",
@@ -1731,6 +1779,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "3Arena",
     "cityUa": "Дублін",
@@ -1782,6 +1831,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "!FESTrepublic",
     "cityUa": "Львів",
@@ -1834,6 +1884,9 @@
    "belts": [
     "Вакантний титул WBA Gold International"
    ],
+   "beltsEn": [
+    "Vacant WBA Gold International title"
+   ],
    "venue": {
     "name": "!FESTrepublic",
     "cityUa": "Львів",
@@ -1856,7 +1909,8 @@
    "result": {
     "winner": "Олександр Хижняк",
     "method": "UD 10"
-   }
+   },
+   "main": true
   },
   {
    "id": "romero-lopez",
@@ -2022,6 +2076,10 @@
     "WBC",
     "Zuffa Boxing"
    ],
+   "beltsEn": [
+    "WBC",
+    "Zuffa Boxing"
+   ],
    "venue": {
     "name": "T-Mobile Arena",
     "cityUa": null,
@@ -2068,6 +2126,9 @@
    "rounds": 12,
    "belts": [
     "Пояс тимчасового чемпіона WBC"
+   ],
+   "beltsEn": [
+    "WBC Interim"
    ],
    "venue": {
     "name": "Pechanga Arena",
@@ -2118,6 +2179,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Copper Box Arena",
     "cityUa": "Лондон",
@@ -2168,6 +2230,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Copper Box Arena",
     "cityUa": "Лондон",
@@ -2189,7 +2252,8 @@
    "result": {
     "winner": "Джонні Фішер",
     "method": "MD 10"
-   }
+   },
+   "main": true
   },
   {
    "id": "kalajdzic-richards",
@@ -2217,6 +2281,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Copper Box Arena",
     "cityUa": "Лондон",
@@ -2267,6 +2332,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Copper Box Arena",
     "cityUa": "Лондон",
@@ -2317,6 +2383,7 @@
    },
    "rounds": null,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Copper Box Arena",
     "cityUa": "Лондон",
@@ -2369,6 +2436,9 @@
    "belts": [
     "Пояс чемпіона світу WBC"
    ],
+   "beltsEn": [
+    "WBC"
+   ],
    "venue": {
     "name": "Toyota Arena Tokyo",
     "cityUa": "Токіо",
@@ -2419,6 +2489,9 @@
    "rounds": 12,
    "belts": [
     "Пояс тимчасового чемпіона світу IBF"
+   ],
+   "beltsEn": [
+    "IBF Interim"
    ],
    "venue": {
     "name": "Toyota Arena Tokyo",
@@ -2471,6 +2544,9 @@
    "belts": [
     "Чемпіон України"
    ],
+   "beltsEn": [
+    "Ukrainian Champion"
+   ],
    "venue": {
     "name": "Вінниця",
     "cityUa": "Вінниця",
@@ -2516,6 +2592,7 @@
    },
    "rounds": 12,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Utilita Arena",
     "cityUa": "Бірмінгем",
@@ -2561,6 +2638,10 @@
    },
    "rounds": 12,
    "belts": [
+    "IBF",
+    "IBO"
+   ],
+   "beltsEn": [
     "IBF",
     "IBO"
    ],
@@ -2615,6 +2696,10 @@
    "belts": [
     "Чемпіон WBO",
     "Реванш"
+   ],
+   "beltsEn": [
+    "WBO",
+    "Rematch"
    ],
    "venue": {
     "name": "O2 Arena",
@@ -2671,6 +2756,9 @@
    "belts": [
     "Пояс чемпіона WBA"
    ],
+   "beltsEn": [
+    "WBA World"
+   ],
    "venue": {
     "name": "The Cosmopolitan of Las Vegas",
     "cityUa": "Лас-Вегас",
@@ -2722,6 +2810,9 @@
    "belts": [
     "Чемпіон WBC"
    ],
+   "beltsEn": [
+    "WBC"
+   ],
    "venue": {
     "name": "The Cosmopolitan of Las Vegas",
     "cityUa": "Лас-Вегас",
@@ -2771,6 +2862,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "O2 Arena",
     "cityUa": "Лондон",
@@ -2820,6 +2912,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "The Cosmopolitan of Las Vegas",
     "cityUa": "Лас-Вегас",
@@ -2873,6 +2966,11 @@
     "Чемпіон WBO",
     "Чемпіон IBF"
    ],
+   "beltsEn": [
+    "WBC",
+    "WBO",
+    "IBF"
+   ],
    "venue": {
     "name": "Frost Bank Center",
     "cityUa": "Сан-Антоніо",
@@ -2923,6 +3021,9 @@
    "rounds": 12,
    "belts": [
     "Чемпіон WBC"
+   ],
+   "beltsEn": [
+    "WBC"
    ],
    "venue": {
     "name": "Utilita Arena Sheffield",
@@ -2975,6 +3076,9 @@
    "belts": [
     "Чемпіон WBC"
    ],
+   "beltsEn": [
+    "WBC"
+   ],
    "venue": {
     "name": "Kingdom Arena",
     "cityUa": "Ер-Ріяд",
@@ -3000,7 +3104,8 @@
    "result": {
     "winner": "Сауль Альварес",
     "method": "UD 12"
-   }
+   },
+   "main": true
   },
   {
    "id": "espinosa-blandon",
@@ -3029,6 +3134,9 @@
    "rounds": 12,
    "belts": [
     "Чемпіон WBO"
+   ],
+   "beltsEn": [
+    "WBO"
    ],
    "venue": {
     "name": "Kingdom Arena",
@@ -3079,6 +3187,7 @@
    },
    "rounds": 12,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Kingdom Arena",
     "cityUa": "Ер-Ріяд",
@@ -3130,6 +3239,9 @@
    "belts": [
     "Срібний пояс WBC"
    ],
+   "beltsEn": [
+    "WBC Silver"
+   ],
    "venue": {
     "name": "Kingdom Arena",
     "cityUa": "Ер-Ріяд",
@@ -3179,6 +3291,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Kingdom Arena",
     "cityUa": "Ер-Ріяд",
@@ -3228,6 +3341,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Kingdom Arena",
     "cityUa": "Ер-Ріяд",
@@ -3277,6 +3391,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Copper Box Arena",
     "cityUa": "Лондон",
@@ -3330,6 +3445,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Copper Box Arena",
     "cityUa": "Лондон",
@@ -3355,7 +3471,8 @@
    "result": {
     "winner": "Чівон Кларк",
     "method": "TKO 7"
-   }
+   },
+   "main": true
   },
   {
    "id": "buatsi-hutchinson-2",
@@ -3385,6 +3502,10 @@
    "belts": [
     "Вакантний пояс WBC",
     "Реванш"
+   ],
+   "beltsEn": [
+    "Vacant WBC",
+    "Rematch"
    ],
    "venue": {
     "name": "Manchester Arena",
@@ -3441,6 +3562,9 @@
    "belts": [
     "Вакантний пояс WBC International"
    ],
+   "beltsEn": [
+    "Vacant WBC International"
+   ],
    "venue": {
     "name": "Sandton Convention Centre",
     "cityUa": "Йоганнесбург",
@@ -3490,6 +3614,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Copper Box Arena",
     "cityUa": "Лондон",
@@ -3543,6 +3668,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "The Venue (Riyadh Season)",
     "cityUa": "Ер-Ріяд",
@@ -3564,7 +3690,8 @@
    "result": {
     "winner": "Карлос Адамес",
     "method": "UD 10"
-   }
+   },
+   "main": true
   },
   {
    "id": "moloney-teran",
@@ -3592,6 +3719,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "The Venue (Riyadh Season)",
     "cityUa": "Ер-Ріяд",
@@ -3642,6 +3770,9 @@
    "rounds": 12,
    "belts": [
     "Пояс WBO"
+   ],
+   "beltsEn": [
+    "WBO"
    ],
    "venue": {
     "name": "Dignity Health Sports Park",
@@ -3695,6 +3826,10 @@
     "Пояс WBC Silver",
     "Пояс WBO International"
    ],
+   "beltsEn": [
+    "WBC Silver",
+    "WBO International"
+   ],
    "venue": {
     "name": "Dignity Health Sports Park",
     "cityUa": "Карсон, Каліфорнія",
@@ -3746,6 +3881,9 @@
    "belts": [
     "Пояс чемпіона Європи EBU"
    ],
+   "beltsEn": [
+    "EBU (European)"
+   ],
    "venue": {
     "name": "Wembley Arena",
     "cityUa": "Лондон",
@@ -3795,6 +3933,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "The Venue (Riyadh Season)",
     "cityUa": "Ер-Ріяд",
@@ -3845,6 +3984,9 @@
    "rounds": 10,
    "belts": [
     "Вакантний пояс IBF Inter-Continental"
+   ],
+   "beltsEn": [
+    "Vacant IBF Inter-Continental title"
    ],
    "venue": {
     "name": "Pullman Melbourne Albert Park",
@@ -3897,6 +4039,9 @@
    "belts": [
     "Пояс IBF"
    ],
+   "beltsEn": [
+    "IBF"
+   ],
    "venue": {
     "name": "Ebara Wave Arena Ota",
     "cityUa": "Токіо",
@@ -3943,6 +4088,7 @@
    },
    "rounds": 12,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "EuropaPark Rust",
     "cityUa": "Руст, Баден-Вюртемберг",
@@ -3986,6 +4132,9 @@
    "rounds": 12,
    "belts": [
     "Пояс WBC"
+   ],
+   "beltsEn": [
+    "WBC"
    ],
    "venue": {
     "name": "ESPRIT arena",
@@ -4035,6 +4184,9 @@
    "belts": [
     "Пояс IBF European"
    ],
+   "beltsEn": [
+    "IBF European"
+   ],
    "venue": {
     "name": "Passenger Terminal Amsterdam",
     "cityUa": "Амстердам",
@@ -4079,6 +4231,9 @@
    "belts": [
     "Пояс чемпіона світу WBC серед молоді"
    ],
+   "beltsEn": [
+    "WBC Youth World title"
+   ],
    "venue": {
     "name": "Stereo Plaza",
     "cityUa": "Київ",
@@ -4097,7 +4252,8 @@
      "Kyivstar TV"
     ]
    },
-   "result": null
+   "result": null,
+   "main": true
   },
   {
    "id": "petrosyan-jara",
@@ -4125,6 +4281,7 @@
    },
    "rounds": 8,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Stereo Plaza",
     "cityUa": "Київ",
@@ -4173,6 +4330,9 @@
    "belts": [
     "Пояс чемпіона України"
    ],
+   "beltsEn": [
+    "Ukrainian title"
+   ],
    "venue": {
     "name": "Stereo Plaza",
     "cityUa": "Київ",
@@ -4219,6 +4379,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Principality Stadium",
     "cityUa": "Кардіфф, Вельс",
@@ -4265,6 +4426,7 @@
    },
    "rounds": 10,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Principality Stadium",
     "cityUa": "Кардіфф, Вельс",
@@ -4326,6 +4488,9 @@
    "belts": [
     "Вакантний пояс WBA (Super)"
    ],
+   "beltsEn": [
+    "Vacant WBA (Super)"
+   ],
    "venue": {
     "name": "Principality Stadium",
     "cityUa": "Кардіфф, Вельс",
@@ -4344,7 +4509,8 @@
      "Netflix"
     ]
    },
-   "result": null
+   "result": null,
+   "main": true
   },
   {
    "id": "opetaia-wilder",
@@ -4372,6 +4538,7 @@
    },
    "rounds": 12,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Principality Stadium",
     "cityUa": "Кардіфф, Вельс",
@@ -4421,6 +4588,10 @@
     "Пояс WBO",
     "Пояс IBF"
    ],
+   "beltsEn": [
+    "WBO",
+    "IBF"
+   ],
    "venue": {
     "name": "Chase Center",
     "cityUa": "Сан-Франциско",
@@ -4467,6 +4638,7 @@
    },
    "rounds": 8,
    "belts": [],
+   "beltsEn": [],
    "venue": {
     "name": "Coca-Cola Arena",
     "cityUa": "Дубай, ОАЕ",

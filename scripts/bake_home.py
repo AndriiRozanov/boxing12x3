@@ -209,7 +209,8 @@ def row(f, lk, kind='up'):
         wb = f'<span class="w">{esc(b)}</span>' if bw else esc(b)
         p = f['date'].split('-')
         left = f'<b>{int(p[2])}</b><small>{h["months"][int(p[1]) - 1]}</small>'
-        sub = f'{h["won"]}: {esc(w)}{" · " + esc(meth) if meth else ""}' if w else esc(meth)
+        wloc = f['red'][k] if rw else (f['blue'][k] if bw else w)
+        sub = f'{h["won"]}: {esc(wloc)}{" · " + esc(meth) if meth else ""}' if w else esc(meth)
         return (f'<a class="fr done" href="{href}"><div class="ft">{left}</div><div class="fd"></div><div class="fi">'
                 f'<div class="fp">{wa}<span class="vs">–</span>{wb}</div><div class="fm">{sub}</div></div><div class="fa">›</div></a>')
     city = v['cityUa'] if lk == 'uk' else v['cityEn']
@@ -220,7 +221,7 @@ def row(f, lk, kind='up'):
     tags = ''
     bc = (f['broadcast'][k] or [None])[0]
     if bc: tags += f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>'
-    for x in (f['belts'] or [])[:2]: tags += f'<span class="tag">{esc(x)}</span>'
+    for x in ((f.get('beltsEn') if lk != 'uk' and f.get('beltsEn') else f['belts']) or [])[:2]: tags += f'<span class="tag">{esc(x)}</span>'
     t = TOUR.get(f.get('tournamentId'))
     if t and not tags: tags += f'<span class="tag tour">{esc(t["name"][k])}</span>'
     d = fdt(f)
@@ -310,7 +311,7 @@ def hero(lk, key, fl, upcoming):
         # no poster: dark plate with the fighters' names (single fight) or the event name plus main fight (tournament)
         div = (main.get('division') or {}).get(k) or ''
         info = esc(city) + (f' · {esc(div)}' if div else '') + (f' · {main["rounds"]} {h["rounds"]}' if main.get('rounds') else '')
-        tags = ''.join(f'<span class="tag">{esc(x)}</span>' for x in (main['belts'] or [])[:2])
+        tags = ''.join(f'<span class="tag">{esc(x)}</span>' for x in ((main.get('beltsEn') if lk != 'uk' and main.get('beltsEn') else main['belts']) or [])[:2])
         if bc: tags = f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>' + tags
         extra = f'<div class="hs" style="margin-top:6px">{esc(name)} · {count(lk, h["fights"], len(fl))}</div>' if t else ''
         body = (f'<div class="plate"><div class="hb">{live}'
