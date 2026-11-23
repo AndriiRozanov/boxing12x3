@@ -381,6 +381,37 @@ h1{font-size:24px;font-weight:700;line-height:1.2;margin-bottom:8px;letter-spaci
   <div class="ix-note">Враховано форму, рекорд, досвід, вік, простій і рейтинги. Не гарантія результату.</div>
 </div>
 <!-- /Index -->
+<!-- index-image:start -->
+<style>
+.ri-strip{background:var(--card);border:0.5px solid var(--border);border-radius:var(--r);padding:14px 16px;margin:0 0 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ri-strip .ri-txt{flex:1;min-width:200px}.ri-strip b{display:block;font-size:14px;font-weight:700}.ri-strip span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.ri-btn{font:inherit;font-size:13px;font-weight:700;padding:10px 16px;border-radius:8px;border:0.5px solid var(--border);background:#fff;color:var(--text);cursor:pointer}
+.ri-btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.ri-modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:50;display:flex;align-items:center;justify-content:center;padding:16px}
+.ri-modal[hidden]{display:none}
+.ri-box{background:#fff;border-radius:16px;width:100%;max-width:440px;max-height:calc(100vh - 32px);overflow:auto;padding:18px;position:relative}
+.ri-box h3{font-size:16px;font-weight:800;margin:0 28px 12px 0}
+.ri-x{position:absolute;top:10px;right:12px;border:0;background:none;font-size:22px;line-height:1;color:#777;cursor:pointer;padding:6px}
+.ri-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.ri-tabs button{font:inherit;font-size:12px;font-weight:600;padding:6px 11px;border-radius:20px;border:0.5px solid var(--border);background:#fff;color:#555;cursor:pointer}
+.ri-tabs button.on{background:#111;border-color:#111;color:#fff}
+.ri-prev{background:#eee;border-radius:10px;padding:10px;display:flex;justify-content:center}
+.ri-prev canvas{display:block;max-width:100%;max-height:52vh;width:auto;height:auto;border-radius:6px}
+.ri-note{font-size:11.5px;color:#777;text-align:center;margin:10px 0 0}
+.ri-pill{display:inline-flex;align-items:center;gap:6px;background:#fbf1cf;color:#6b520a;font-size:11.5px;font-weight:700;border-radius:20px;padding:4px 10px;margin-top:6px}
+.ri-pill i{width:12px;height:12px;border-radius:50%;background:#c9a227;display:inline-block}
+.ri-acts{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.ri-acts .ri-btn{flex:1;min-width:130px;text-align:center}
+</style>
+<div class="ri-strip"><div class="ri-txt"><b>Картинка з індексом 12×3</b><span>Для сторіс, постів і Telegram</span></div><button type="button" class="ri-btn red" id="ri-open">Зберегти картинку</button></div>
+<div class="ri-modal" id="ri-modal" hidden role="dialog" aria-modal="true" aria-labelledby="ri-h"><div class="ri-box">
+<button type="button" class="ri-x" id="ri-close" aria-label="Закрити">×</button>
+<h3 id="ri-h">Індекс 12×3 · картинка</h3><div class="ri-tabs" id="ri-tabs"><button type="button" data-f="post">Пост 4:5 · Instagram</button><button type="button" data-f="square">Квадрат 1:1 · X, Telegram</button><button type="button" data-f="story">Сторіз 9:16</button></div>
+<div class="ri-prev"><canvas id="ri-canvas"></canvas></div>
+<div class="ri-acts"><button type="button" class="ri-btn red" id="ri-save">⬇ Зберегти</button><button type="button" class="ri-btn" id="ri-share" hidden>Поділитись</button><button type="button" class="ri-btn" id="ri-copy">Копіювати посилання</button></div>
+</div></div>
+<script type="application/json" id="index-image-data">{"lang":"uk","slug":"chukhadzhian-arganaras","title":"Чухаджян – Арганарас","names":["Чухаджян","Арганарас"],"pa":53,"pb":47,"dateLine":"27 листопада 2026 · EuropaPark Rust, Руст, Баден-Вюртемберг","rows":[{"l":"26-4-0","label":"Рекорд","r":"16-1-0"},{"l":"14 КО","label":"Нокаути","r":"11 КО"},{"l":"30","label":"Вік","r":"29"}],"url":"https://boxing12x3.com/ua/chukhadzhian-arganaras","t":{"kicker":"ІМОВІРНІСТЬ ПЕРЕМОГИ · 12×3","foot":"Кард, прогноз, відсудити","note":"Не гарантія результату","copied":"Скопійовано","f_post":"Пост 4:5 · Instagram","f_square":"Квадрат 1:1 · X, Telegram","f_story":"Сторіз 9:16"}}</script>
+<script src="/js/index-image.js" defer></script>
+<!-- index-image:end -->
 
 <!-- Venue -->
 <div class="venue">

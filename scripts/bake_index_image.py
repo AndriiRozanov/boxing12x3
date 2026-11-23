@@ -2,7 +2,7 @@
 """Data for the shareable Index 12x3 picture (js/index-image.js). Reads the finished index block of a fight page.
 Usage (preview data): python3 scripts/bake_index_image.py haney-paro uk > data.json
 """
-import json, os, re, sys
+import json, os, re, sys, html, glob
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = 'https://boxing12x3.com'
@@ -12,9 +12,13 @@ MONTH = {'uk': ['січня','лютого','березня','квітня','т�
          'en': ['January','February','March','April','May','June','July','August','September','October','November','December']}
 L = {
  'uk': dict(path='ua', k='ua', kicker='ІМОВІРНІСТЬ ПЕРЕМОГИ · 12×3', foot='Кард, прогноз, відсудити', note='Не гарантія результату', copied='Скопійовано',
-            f_post='Пост 4:5 · Instagram', f_square='Квадрат 1:1 · X, Telegram', f_story='Сторіз 9:16', date='{d} {m} {y}'),
+            f_post='Пост 4:5 · Instagram', f_square='Квадрат 1:1 · X, Telegram', f_story='Сторіз 9:16', date='{d} {m} {y}',
+            strip_t='Картинка з індексом 12×3', strip_p='Для сторіс, постів і Telegram', open='Зберегти картинку',
+            modal_t='Індекс 12×3 · картинка', save='⬇ Зберегти', copy='Копіювати посилання', share='Поділитись', close='Закрити'),
  'en': dict(path='en', k='en', kicker='WIN PROBABILITY · 12×3', foot='Card, pick, score it', note='Not a guarantee of the result', copied='Copied',
-            f_post='Post 4:5 · Instagram', f_square='Square 1:1 · X, Telegram', f_story='Story 9:16', date='{m} {d}, {y}'),
+            f_post='Post 4:5 · Instagram', f_square='Square 1:1 · X, Telegram', f_story='Story 9:16', date='{m} {d}, {y}',
+            strip_t='12×3 Index picture', strip_p='For stories, posts and Telegram', open='Save image',
+            modal_t='12×3 Index picture', save='⬇ Save', copy='Copy link', share='Share', close='Close'),
 }
 
 FACTS = {'uk': [('Рекорд', 'Рекорд'), ('Дострокові', 'Нокаути'), ('_age', 'Вік'), ('Розмах', 'Розмах')],
@@ -46,5 +50,41 @@ def data_for(fid, lk):
             'dateLine': f'{s["date"].format(d=int(d), m=MONTH[lk][int(mo)-1], y=y)} · {v.get("name") or ""}, {city}', 'rows': rows, 'url': url,
             't': {x: s[x] for x in ('kicker','foot','note','copied','f_post','f_square','f_story')}}
 
+CSS = open(f'{R}/scripts/bake_result_image.py', encoding='utf-8').read().split('CSS = """')[1].split('"""')[0]
+
+def block(lk, data):
+    s = L[lk]
+    tabs = ''.join(f'<button type="button" data-f="{k}">{html.escape(s[l])}</button>' for k, l in (('post', 'f_post'), ('square', 'f_square'), ('story', 'f_story')))
+    js = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+    return f"""<!-- index-image:start -->
+<style>{CSS}</style>
+<div class="ri-strip"><div class="ri-txt"><b>{html.escape(s['strip_t'])}</b><span>{html.escape(s['strip_p'])}</span></div><button type="button" class="ri-btn red" id="ri-open">{html.escape(s['open'])}</button></div>
+<div class="ri-modal" id="ri-modal" hidden role="dialog" aria-modal="true" aria-labelledby="ri-h"><div class="ri-box">
+<button type="button" class="ri-x" id="ri-close" aria-label="{html.escape(s['close'])}">×</button>
+<h3 id="ri-h">{html.escape(s['modal_t'])}</h3><div class="ri-tabs" id="ri-tabs">{tabs}</div>
+<div class="ri-prev"><canvas id="ri-canvas"></canvas></div>
+<div class="ri-acts"><button type="button" class="ri-btn red" id="ri-save">{html.escape(s['save'])}</button><button type="button" class="ri-btn" id="ri-share" hidden>{html.escape(s['share'])}</button><button type="button" class="ri-btn" id="ri-copy">{html.escape(s['copy'])}</button></div>
+</div></div>
+<script type="application/json" id="index-image-data">{js}</script>
+<script src="/js/index-image.js" defer></script>
+<!-- index-image:end -->
+"""
+
+def main():
+    n = 0
+    for fid in sorted(FIGHT):
+        for lk in ('uk', 'en'):
+            path = f'{R}/{L[lk]["path"]}/{fid}.html'
+            if not os.path.exists(path): continue
+            page = open(path, encoding='utf-8').read()
+            if 'data-pa="' not in page or '<!-- /Index -->' not in page: continue
+            page = re.sub(r'<!-- index-image:start -->.*?<!-- index-image:end -->\n?', '', page, flags=re.S)
+            blk = block(lk, data_for(fid, lk))
+            assert chr(8212) not in blk
+            page = page.replace('<!-- /Index -->', '<!-- /Index -->\n' + blk.rstrip('\n'), 1)
+            open(path, 'w', encoding='utf-8').write(page); n += 1; print(path)
+    print(n, 'pages')
+
 if __name__ == '__main__':
-    print(json.dumps(data_for(sys.argv[1], sys.argv[2]), ensure_ascii=False))
+    if len(sys.argv) > 2: print(json.dumps(data_for(sys.argv[1], sys.argv[2]), ensure_ascii=False))
+    else: main()
