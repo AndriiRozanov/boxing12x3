@@ -244,7 +244,7 @@ def row(f, lk, kind='up'):
         left = f'<b>{short_date(lk, f["date"])}</b><small>{h["tba"].lower()}</small>'
         start = ''
     return (f'<a class="fr" href="{href}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-end="{fend(f).strftime("%Y-%m-%dT%H:%MZ")}" data-cont="{esc(v.get("continent"))}" data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}">'
-            f'<div class="ft">{left}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
+            f'<div class="ft{" ap" if f.get("startApprox") and d else ""}">{left}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
             f'<div class="fm">{meta}</div><div class="tags">{tags}</div></div><div class="fa">›</div></a>')
 
 def events(upcoming):

@@ -162,6 +162,7 @@ a.fr:hover{background:#fcfbf9}
 .tags{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
 .tag{display:inline-flex;align-items:center;line-height:1;font-size:9px;font-weight:700;letter-spacing:.04em;padding:3px 7px 4px;border-radius:3px;background:#f0ede8;color:#555}
 .tag.why{background:#fff;border:0.5px solid #c9c6bf;color:#555;padding:2.5px 6.5px 3.5px}
+.ft.ap b::before{content:'\u2248'}
 .nt{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px;font-size:12px;color:#666}
 .nt[hidden]{display:none}
 .nt b{display:inline-flex;align-items:center;line-height:1;background:#111;color:#fff;font-size:11px;font-weight:700;padding:4px 9px 5px;border-radius:4px;letter-spacing:.02em}
@@ -362,7 +363,7 @@ def row_html(f, lk):
                   s['countries'].get(iso, iso), S['uk']['countries'].get(iso, ''), S['en']['countries'].get(iso, ''), v.get('name') or '']).lower()
     attrs = (f'data-tour="{esc(f.get("tournamentId") or "")}" data-main="{1 if f.get("main") else 0}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-iso="{iso}" data-cont="{esc(v.get("continent"))}" '
              f'data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}" data-q="{esc(q)}"')
-    inner = (f'<div class="ft">{tcell}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
+    inner = (f'<div class="ft{" ap" if f.get("startApprox") and f["startUtc"] else ""}">{tcell}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
              f'<div class="fm">{meta}</div><div class="tags">{tags}</div>{night}</div>')
     return f'<a class="fr{" cx" if cx else ""}" href="{href}" {attrs}>{inner}<div class="fa">›</div></a>'
 

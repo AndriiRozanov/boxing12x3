@@ -248,6 +248,7 @@ def first_platforms(arr):
         if p not in out: out.append(p)
     return out
 def _nm(x): return x.get('name') if isinstance(x,dict) else x
+APPROX=set(json.load(open('data/approx_start.json')))
 lean={'generated':TODAY,'fights':[],'tournaments':[],'promoters':[]}
 for r in DB['fights']:
     if not r.get('hasPage') or not r.get('date'): continue
@@ -255,7 +256,7 @@ for r in DB['fights']:
     if not co: issues.append((r['id'],'no coords for city',city))
     prec='time' if r['startUtcPrecision']=='time' else 'date'
     res=r.get('result') or {}
-    lean['fights'].append({'id':r['id'],'urls':r['urls'],'date':r['date'][:10],'startUtc':r['startUtc'] if prec=='time' else None,'startPrecision':prec,
+    lean['fights'].append({'id':r['id'],'urls':r['urls'],'date':r['date'][:10],'startUtc':r['startUtc'] if prec=='time' else None,'startPrecision':prec,'startApprox':r['id'] in APPROX,
       'startSource':r['startUtcSource'],'status':r['status'],'tournamentId':r['tournamentId'],
       'red':{'ua':r['fighters']['red']['ua'] or _nm(r['fighters']['red']['page_ua']),'en':r['fighters']['red']['en'] or _nm(r['fighters']['red']['page_en'])},
       'blue':{'ua':r['fighters']['blue']['ua'] or _nm(r['fighters']['blue']['page_ua']),'en':r['fighters']['blue']['en'] or _nm(r['fighters']['blue']['page_en'])},

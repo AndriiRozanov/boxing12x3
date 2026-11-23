@@ -158,3 +158,4 @@ a.lb{display:inline-block;background:transparent;cursor:pointer}
 .plate .live i{animation-name:livepulse2}
 @keyframes livepulse2{0%{box-shadow:0 0 0 0 rgba(255,138,122,.6);opacity:1}70%{box-shadow:0 0 0 7px rgba(255,138,122,0);opacity:.55}100%{box-shadow:0 0 0 0 rgba(255,138,122,0);opacity:1}}
 @media(prefers-reduced-motion:reduce){.live i,.plate .live i{animation:none}}
+.ft.ap small::before{content:'\2248'}
