@@ -102,8 +102,9 @@ for(var i=0;i<rows.length;i++){
   if(!st||!fmtT)continue;
   var d=new Date(st);if(isNaN(d))continue;
   var ft=r.querySelector('.ft');if(!ft)continue;
-  ft.innerHTML='<b>'+fmtT.format(d)+'</b><small></small>';
-  ft.querySelector('small').textContent=dayOf(localDate(d));
+  ft.innerHTML='<b></b><small></small>';
+  ft.querySelector('b').textContent=dayOf(localDate(d));
+  ft.querySelector('small').textContent=fmtT.format(d);
 }
 // event blocks: show the first one that has not ended
 var boxes=document.querySelectorAll('.evbox'),shown=-1;
@@ -182,6 +183,11 @@ def pl_en(forms, n):
 def count(lk, forms, n):
     return pl(forms, n) if lk == 'uk' else pl_en(forms, n)
 
+GEN = json.load(open(f'{R}/data/names_gen_ua.json', encoding='utf-8'))
+
+def fmt_method(m):
+    return (m or '').replace(' · Раунд', ', раунд').replace(' · ', ', ')
+
 def short_date(lk, iso):
     p = iso.split('-')
     return f'{int(p[2])} {H[lk]["months"][int(p[1]) - 1]}'
@@ -210,7 +216,12 @@ def row(f, lk, kind='up'):
         p = f['date'].split('-')
         left = f'<b>{int(p[2])}</b><small>{h["months"][int(p[1]) - 1]}</small>'
         wloc = f['red'][k] if rw else (f['blue'][k] if bw else w)
-        sub = f'{h["won"]}: {esc(wloc)}{" · " + esc(meth) if meth else ""}' if w else esc(meth)
+        mt = fmt_method(meth)
+        if w and lk == 'uk' and wloc in GEN: sub = f'Перемога {esc(GEN[wloc])}{" · " + esc(mt) if mt else ""}'
+        elif w:
+            if lk == 'uk': print('no genitive for', wloc)
+            sub = f'{h["won"]}: {esc(wloc)}{" · " + esc(mt) if mt else ""}'
+        else: sub = esc(mt)
         return (f'<a class="fr done" href="{href}"><div class="ft">{left}</div><div class="fd"></div><div class="fi">'
                 f'<div class="fp">{wa}<span class="vs">–</span>{wb}</div><div class="fm">{sub}</div></div><div class="fa">›</div></a>')
     city = v['cityUa'] if lk == 'uk' else v['cityEn']
@@ -227,10 +238,10 @@ def row(f, lk, kind='up'):
     d = fdt(f)
     if d:
         loc = d.astimezone(KYIV)
-        left = f'<b>{loc.strftime("%H:%M")}</b><small>{short_date(lk, loc.date().isoformat())}</small>'
+        left = f'<b>{short_date(lk, loc.date().isoformat())}</b><small>{loc.strftime("%H:%M")}</small>'
         start = f['startUtc']
     else:
-        left = f'<b class="tba">{h["tba"]}</b><small>{short_date(lk, f["date"])}</small>'
+        left = f'<b>{short_date(lk, f["date"])}</b><small>{h["tba"].lower()}</small>'
         start = ''
     return (f'<a class="fr" href="{href}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-end="{fend(f).strftime("%Y-%m-%dT%H:%MZ")}" data-cont="{esc(v.get("continent"))}" data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}">'
             f'<div class="ft">{left}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'

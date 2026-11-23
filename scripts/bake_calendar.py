@@ -32,7 +32,7 @@ S = {
    countries={'SA':'Саудівська Аравія','US':'США','GB':'Британія','AU':'Австралія','JP':'Японія','DE':'Німеччина','NL':'Нідерланди','AE':'ОАЕ','UA':'Україна','IE':'Ірландія','CA':'Канада','ZA':'ПАР','MX':'Мексика'},
    conts={'Europe':'Європа','Asia':'Азія','North America':'Пн. Америка','South America':'Пд. Америка','Oceania':'Океанія','Africa':'Африка'},
    footer=[('/', 'Головна'), ('/ua/scorecard', 'Картка'), ('/ua/guide', 'Довідник'), ('/height-compare', 'Порівняй зріст'), ('/about', 'Про нас'), ('/privacy', 'Конфіденційність')],
-   home='/', ph_fights=('бій', 'бої', 'боїв'), cx_ph=('скасований', 'скасовані', 'скасованих'), cx_one='скасований', repl_tag='Заміна', instead='замість'),
+   home='/', ph_fights=('бій', 'бої', 'боїв'), cx_ph=('скасований', 'скасовані', 'скасованих'), cx_one='скасований', repl_tag='Заміна', instead='замість', why_even='Рівні шанси', why_belts='Два пояси на кону', why_ko='Нокаутери', night_tag='Варто не спати', night_start='початок карду близько {t}'),
  'en': dict(lang='en', path='en', other='ua', loc='en_US', og='og-default-en.png',
    title='Boxing Schedule: Fight Dates and Times | Boxing 12×3',
    desc='Boxing schedule with fight dates, times in your own time zone, countries and broadcasters. Filter by country, continent and date, search, or find fights near you.',
@@ -51,7 +51,7 @@ S = {
    countries={'SA':'Saudi Arabia','US':'USA','GB':'UK','AU':'Australia','JP':'Japan','DE':'Germany','NL':'Netherlands','AE':'UAE','UA':'Ukraine','IE':'Ireland','CA':'Canada','ZA':'South Africa','MX':'Mexico'},
    conts={'Europe':'Europe','Asia':'Asia','North America':'N. America','South America':'S. America','Oceania':'Oceania','Africa':'Africa'},
    footer=[('/en', 'Home'), ('/en/scorecard', 'Scorecard'), ('/en/guide', 'Guide'), ('/en/height-compare', 'Height Compare'), ('/en/about', 'About'), ('/privacy', 'Privacy')],
-   home='/en', ph_fights=('fight', 'fights', 'fights'), cx_ph=('cancelled', 'cancelled', 'cancelled'), repl_tag='Replacement', instead='replaces'),
+   home='/en', ph_fights=('fight', 'fights', 'fights'), cx_ph=('cancelled', 'cancelled', 'cancelled'), repl_tag='Replacement', instead='replaces', why_even='Even odds', why_belts='Two belts at stake', why_ko='Heavy hitters', night_tag='Worth staying up', night_start='card starts around {t}'),
 }
 
 CSS = """
@@ -150,9 +150,9 @@ a.chip{text-decoration:none;display:inline-block}
 .fr::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red)}
 .fr.nolink::before{background:#d8d5cd}
 a.fr:hover{background:#fcfbf9}
-.ft{flex-shrink:0;width:84px;padding:12px 0 12px 14px;display:flex;flex-direction:column;justify-content:center}
+.ft{flex-shrink:0;width:84px;padding:12px 6px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .ft b{font-size:15px;font-weight:700;line-height:1}
-.ft b.tba{font-size:10.5px;font-weight:600;color:var(--muted);line-height:1.2;padding-right:6px}
+.ft b.tba{font-size:10.5px;font-weight:600;color:var(--muted);line-height:1.2}
 .ft small{font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:3px;letter-spacing:.04em}
 .fd{width:0.5px;background:var(--border);margin:10px 12px 10px 0;flex-shrink:0}
 .fi{flex:1;min-width:0;padding:11px 0}
@@ -160,7 +160,11 @@ a.fr:hover{background:#fcfbf9}
 .fp .vs{font-size:10px;color:var(--muted);margin:0 4px;font-weight:400}
 .fm{font-size:11.5px;color:var(--muted);margin-top:3px}
 .tags{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
-.tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:2px 6px;border-radius:3px;background:#f0ede8;color:#555}
+.tag{display:inline-flex;align-items:center;line-height:1;font-size:9px;font-weight:700;letter-spacing:.04em;padding:3px 7px 4px;border-radius:3px;background:#f0ede8;color:#555}
+.tag.why{background:#fff;border:0.5px solid #c9c6bf;color:#555;padding:2.5px 6.5px 3.5px}
+.nt{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px;font-size:12px;color:#666}
+.nt[hidden]{display:none}
+.nt b{display:inline-flex;align-items:center;line-height:1;background:#111;color:#fff;font-size:11px;font-weight:700;padding:4px 9px 5px;border-radius:4px;letter-spacing:.02em}
 .tag.tour{background:var(--red-l);color:var(--red)}
 .tag.watch{background:#111;color:#fff}
 .fa{flex-shrink:0;padding:0 14px;display:flex;align-items:center;color:var(--muted);font-size:15px}
@@ -178,7 +182,7 @@ var T=__T__;T.empty_default=document.getElementById('emptytxt').textContent;
 var LANG='__LANG__';
 var els=[].slice.call(document.querySelectorAll('#list .fr'));
 var rows=els.map(function(e){return{el:e,id:e.dataset.id,start:e.dataset.start||'',date:e.dataset.date,iso:e.dataset.iso,cont:e.dataset.cont,
- tour:e.dataset.tour||'',main:e.dataset.main==='1',lat:parseFloat(e.dataset.lat),lon:parseFloat(e.dataset.lon),q:e.dataset.q,tm:e.querySelector('.ft'),meta:e.querySelector('.fm'),metaBase:e.querySelector('.fm').innerHTML};});
+ tour:e.dataset.tour||'',main:e.dataset.main==='1',lat:parseFloat(e.dataset.lat),lon:parseFloat(e.dataset.lon),q:e.dataset.q,tm:e.querySelector('.ft'),nt:e.querySelector('.nt'),meta:e.querySelector('.fm'),metaBase:e.querySelector('.fm').innerHTML};});
 var st={q:'',mode:'all',from:'',to:'',day:'',conts:{},ctrs:{},near:false,pos:null,radius:500,tz:'auto'};
 try{var saved=localStorage.getItem('b12x3_cal_tz');if(saved)st.tz=saved;}catch(e){}
 function zone(){if(st.tz!=='auto')return st.tz;try{return Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC';}catch(e){return 'UTC';}}
@@ -227,8 +231,11 @@ function render(){
    if(!n)hd.querySelector('span').textContent='';
    list.appendChild(hd);box=document.createElement('div');box.className='list';list.appendChild(box);cxd=null;}
   var t=r.tm;
-  if(r.start){var lbl=st.tz==='auto'?T.yourtime_lbl:tzName(zone());t.innerHTML='<b>'+hm(new Date(r.start),tz)+'</b><small>'+lbl+'</small>';}
+  if(r.start){t.innerHTML='<b>'+hm(new Date(r.start),tz)+'</b>';}
   else{t.innerHTML='<b class="tba">'+(r.el.classList.contains('cx')?'–':T.tba)+'</b>';}
+  if(r.nt){var hh=r.start?hm(new Date(r.start),tz):'';var hr=hh?parseInt(hh.slice(0,2),10):-1;
+   if(hr>=0&&hr<8){var rm=Math.round((parseInt(hh.slice(0,2),10)*60+parseInt(hh.slice(3),10))/60)%24;var ts=(rm<10?'0':'')+rm+':00';
+    r.nt.querySelector('span').textContent=r.nt.getAttribute('data-r')+' · '+T.night_start.replace('{t}',ts);r.nt.hidden=false;}else{r.nt.hidden=true;}}
   r.meta.innerHTML=r.metaBase+(r.km!=null?' · '+Math.round(r.km/10)*10+' '+T.km:'');
   if(r.el.classList.contains('cx')){
    if(!cxd){cxd=document.createElement('details');cxd.className='cxg';cxd.innerHTML='<summary></summary>';box.appendChild(cxd);}
@@ -325,6 +332,17 @@ def row_html(f, lk):
     if bc and not cx: tags += f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>'
     for x in ((f.get('beltsEn') if not u and f.get('beltsEn') else f['belts']) or [])[:2]: tags += f'<span class="tag">{esc(x)}</span>'
     if tname: tags += f'<span class="tag tour">{esc(tname)}</span>'
+    why = []
+    if f['status'] == 'scheduled':
+        pa = f.get('pa')
+        if pa is not None and abs(pa - 50) <= 6: why.append((s['why_even'], f'{s["why_even"].lower()} {pa} / {100 - pa}'))
+        if len(f['belts'] or []) >= 2: why.append((s['why_belts'], s['why_belts'].lower()))
+        ko = f.get('ko')
+        if ko and len(ko) == 2 and min(ko) >= 80: why.append((s['why_ko'], s['why_ko'].lower()))
+    for w in why: tags += f'<span class="tag why">{w[0]}</span>'
+    night = ''
+    if len(why) >= 2 and f['startUtc']:
+        night = f'<div class="nt" hidden data-r="{esc(", ".join(w[1] for w in why))}"><b>{s["night_tag"]}</b><span></span></div>'
     flag = f'<img class="flag" src="/images/flags/{iso.lower()}.png" width="16" height="12" alt="" loading="lazy"> ' if iso else ''
     meta = f'{flag}{esc(city)} · {esc(div)} · {f["rounds"]} {s["rounds"]}'
     if rep_ and not cx:
@@ -336,7 +354,7 @@ def row_html(f, lk):
         dt = datetime.datetime.strptime(f['startUtc'], '%Y-%m-%dT%H:%MZ').replace(tzinfo=datetime.timezone.utc)
         from zoneinfo import ZoneInfo
         loc = dt.astimezone(ZoneInfo(s['fb_tz']))
-        tcell = f'<b>{loc.strftime("%H:%M")}</b><small>{s["fallback_label"]}</small>'
+        tcell = f'<b>{loc.strftime("%H:%M")}</b>'
         start = f['startUtc']
     else:
         tcell = f'<b class="tba">{s["tba"]}</b>'; start = ''
@@ -345,7 +363,7 @@ def row_html(f, lk):
     attrs = (f'data-tour="{esc(f.get("tournamentId") or "")}" data-main="{1 if f.get("main") else 0}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-iso="{iso}" data-cont="{esc(v.get("continent"))}" '
              f'data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}" data-q="{esc(q)}"')
     inner = (f'<div class="ft">{tcell}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
-             f'<div class="fm">{meta}</div><div class="tags">{tags}</div></div>')
+             f'<div class="fm">{meta}</div><div class="tags">{tags}</div>{night}</div>')
     return f'<a class="fr{" cx" if cx else ""}" href="{href}" {attrs}>{inner}<div class="fa">›</div></a>'
 
 def build(lk):
@@ -393,7 +411,7 @@ def build(lk):
             {'@type': 'ListItem', 'position': 1, 'name': s['crumb'][0], 'item': BASE + ('/' if u else '/en')},
             {'@type': 'ListItem', 'position': 2, 'name': s['crumb'][1], 'item': url}]}]}
     tdata = {k: s[k] for k in ('tba', 'yourtime', 'yourtime_lbl', 'auto_note', 'chosen_note', 'today', 'km', 'empty_near', 'near_btn', 'near_on', 'near_denied', 'near_unsup', 'tz_names', 'months', 'wd', 'wds')}
-    tdata['ph'] = list(s['ph_fights']); tdata['cx_ph'] = list(s['cx_ph'])
+    tdata['ph'] = list(s['ph_fights']); tdata['cx_ph'] = list(s['cx_ph']); tdata['night_start'] = s['night_start']
     js = JS.replace('__T__', json.dumps(tdata, ensure_ascii=False)).replace('__LANG__', s['lang'])
     footer = ''.join(f'<a href="{h}">{t}</a>' for h, t in s['footer'])
     date_chips = ''.join(f'<button type="button" class="chip{" on" if m == "all" else ""}" data-m="{m}">{s[k]}</button>' for m, k in (('all', 'd_all'), ('today', 'd_today'), ('7', 'd_7'), ('month', 'd_month'), ('range', 'd_pick')))

@@ -96,6 +96,8 @@ def parse_fight(p, lang):
         tds=[txt(td) for td in tr.find_all('td')]
         if len(tds)==3: ix[tds[1]]=(tds[0],tds[2])
     d['index12x3']=ix
+    ixd=s.select_one('.ix')
+    d['ix_pa']=int(ixd['data-pa']) if ixd and ixd.get('data-pa','').isdigit() else None
     ven={}
     for vr in s.select('.venue-row'): ven[txt(vr.select_one('.venue-lbl'))]=txt(vr.select_one('.venue-val'))
     d['venue_block']=ven
@@ -169,7 +171,7 @@ for r in fights:
      'stats_ua':ua.get('rows'),'form':ua.get('form'),'index12x3':ua.get('index12x3'),
      'division':{'ua':F.get('divUk'),'en':F.get('divEn')},'rounds':F.get('rounds'),
      'meta':{'ua':ua.get('meta'),'en':en.get('meta')},
-     'belts':ua.get('belts') or F.get('belts'),'belts_en':en.get('belts'),'belt_info':{'ua':ua.get('belt_info'),'en':en.get('belt_info')},
+     'belts':ua.get('belts') or F.get('belts'),'belts_en':en.get('belts'),'ix_pa':ua.get('ix_pa'),'ix_ko':(ua.get('index12x3') or {}).get('Нокаути'),'belt_info':{'ua':ua.get('belt_info'),'en':en.get('belt_info')},
      'venue':{'name':ua.get('venue_ld') or en.get('venue_ld'),'city_en':city,'country_en':country,'country_iso':iso,'continent':cont,'timezone':tzname,
               'address_ua':ua.get('address_ld'),'address_en':en.get('address_ld'),
               'capacity':ua.get('venue_block',{}).get('Місткість'),'city_ua':ua.get('venue_block',{}).get('Місто')},
@@ -257,7 +259,7 @@ for r in DB['fights']:
       'startSource':r['startUtcSource'],'status':r['status'],'tournamentId':r['tournamentId'],
       'red':{'ua':r['fighters']['red']['ua'] or _nm(r['fighters']['red']['page_ua']),'en':r['fighters']['red']['en'] or _nm(r['fighters']['red']['page_en'])},
       'blue':{'ua':r['fighters']['blue']['ua'] or _nm(r['fighters']['blue']['page_ua']),'en':r['fighters']['blue']['en'] or _nm(r['fighters']['blue']['page_en'])},
-      'division':r['division'],'rounds':r['rounds'],'belts':r['belts'] or [],'beltsEn':r.get('belts_en') or [],
+      'division':r['division'],'rounds':r['rounds'],'belts':r['belts'] or [],'beltsEn':r.get('belts_en') or [],'pa':r.get('ix_pa'),'ko':[int(x) for x in (r.get('ix_ko') or []) if str(x).lstrip('−-').isdigit()] or None,
       'venue':{'name':v.get('name'),'cityUa':v.get('city_ua'),'cityEn':city,'countryIso':v.get('country_iso'),'continent':v.get('continent'),'tz':v.get('timezone'),
                'lat':co[0] if co else None,'lon':co[1] if co else None},
       'broadcast':{'ua':first_platforms(r['broadcast']['ua']),'en':first_platforms(r['broadcast']['en'])},

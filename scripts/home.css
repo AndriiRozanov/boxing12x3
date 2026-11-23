@@ -36,10 +36,10 @@ a{color:inherit;text-decoration:none}
 .fr:last-child{border-bottom:none}
 .fr::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red)}
 .fr.done::before{background:var(--green)}
-.ft{flex-shrink:0;width:84px;padding:12px 0 12px 14px;display:flex;flex-direction:column;justify-content:center}
-.ft b{font-size:15px;font-weight:700;line-height:1}
-.ft b.tba{font-size:10.5px;padding-right:6px;font-weight:600;color:var(--muted);line-height:1.2}
-.ft small{font-size:9px;color:var(--muted);text-transform:uppercase;margin-top:3px;letter-spacing:.04em}
+.ft{flex-shrink:0;width:84px;padding:12px 6px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.ft b{font-size:15px;font-weight:700;line-height:1.15}
+.ft small{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.25}
+.fr.done .ft small{font-size:9px;text-transform:uppercase;margin-top:3px;letter-spacing:.04em}
 .fd{width:0.5px;background:var(--border);margin:10px 12px 10px 0;flex-shrink:0}
 .fi{flex:1;min-width:0;padding:11px 0}
 .fp{font-size:13.5px;font-weight:700;line-height:1.3}
