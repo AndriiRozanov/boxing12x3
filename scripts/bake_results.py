@@ -22,6 +22,8 @@ T = {
    cal='Upcoming fights calendar →', wait='Awaiting result', waitr='Awaiting result', up='Upcoming', past='Past', more='Show more', all='All', mon=['January','February','March','April','May','June','July','August','September','October','November','December']),
 }
 
+GEN = json.load(open(f'{R}/data/names_gen_ua.json', encoding='utf-8'))
+
 def method(m):
     return (m or '').replace('ТКО', 'TKO').replace('КО', 'KO').replace(' · Раунд ', ' ').replace(' · Round ', ' ').strip()
 
@@ -34,7 +36,13 @@ def row(f, lk, pending=False):
     elif w == f['blue']['ua'] or w == f['blue']['en']: wn = b
     else: wn = None
     m = method((f.get('result') or {}).get('method'))
-    res = t['waitr'] if pending else (f'{t["won"]} {wn}' if u and wn else (f'{wn} {t["won"]}' if wn else t['draw'])) + (f', {m}' if m else '')
+    mt = m.replace(' · ', ', ')
+    if pending: res = t['waitr']
+    elif wn and u and wn in GEN: res = f'Перемога {GEN[wn]}' + (f' · {mt}' if mt else '')
+    elif wn:
+        if u: print('no genitive for', wn)
+        res = (f'Перемога: {wn}' if u else f'Winner: {wn}') + (f' · {mt}' if mt else '')
+    else: res = t['draw'].capitalize() + (f' · {mt}' if mt else '')
     v = f['venue']; city = v['cityUa'] if u else v['cityEn']
     iso = v.get('countryIso') or ''
     flag = f'<img class="flag" src="/images/flags/{iso.lower()}.png" width="16" height="12" alt="" loading="lazy"> ' if iso else ''
