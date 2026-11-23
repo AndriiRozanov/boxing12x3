@@ -4382,7 +4382,7 @@
    "date": "2026-11-28",
    "startUtc": "2026-11-28T19:30Z",
    "startPrecision": "time",
-   "startApprox": true,
+   "startApprox": false,
    "startSource": "votes-close.json",
    "status": "scheduled",
    "tournamentId": null,
