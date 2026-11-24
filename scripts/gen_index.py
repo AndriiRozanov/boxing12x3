@@ -29,10 +29,10 @@ PT_STOP = ('KO', 'TKO', 'RTD', 'TD')
 L = {
  'ua': dict(title='Імовірність перемоги · 12×3', frozen=' · до бою', sub='Розрахунок за фактичними даними',
             lab=['Форма', 'Місце в рейтингах', 'Нокаути', 'Перемоги', 'Досвід', 'Вік, простій, розмах'],
-            note='Враховано форму, рекорд, досвід, вік, простій і рейтинги. Не гарантія результату.'),
+            note='Не гарантія результату.'),
  'en': dict(title='Win Probability · 12×3', frozen=' · pre-fight', sub='Calculated from factual data',
             lab=['Form', 'Ranking position', 'Knockouts', 'Wins', 'Experience', 'Age, layoff, reach'],
-            note='Takes into account form, record, experience, age, layoff and rankings. Not a guarantee of the result.'),
+            note='Not a guarantee of the result.'),
 }
 SCALE, PMIN, PMAX = 16, 0.35, 0.65
 MIN_FIGHTS, MIN_ROUNDS = 15, 50
@@ -164,7 +164,7 @@ def block(lg, names, a, b):
             '  <div class="ee-top">\n'
             f'    <div>{ring(pa, "#c0392b", names[0], "%")}<div class="ee-nm" style="color:var(--red)">{names[0]}</div></div>\n'
             f'    <div>{ring(pb, "#1a5276", names[1], "%")}<div class="ee-nm" style="color:var(--blue)">{names[1]}</div></div>\n'
-            f'  </div>\n  <div class="ix-sub">{t["sub"]}</div>\n  <table class="ee-t">' + rows + '</table>\n'
+            f'  </div>\n  <div class="ix-sub">{t["sub"]}</div>\n'
             f'  <div class="ix-note">{t["note"]}</div>\n</div>\n<!-- /Index -->\n')
 
 def upcoming_ids():
