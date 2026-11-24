@@ -27,10 +27,10 @@ W = dict(F=.30, S=.25, K=.15, W=.15, E=.15)
 PT_STOP = ('KO', 'TKO', 'RTD', 'TD')
 
 L = {
- 'ua': dict(title='Імовірність перемоги · 12×3', frozen=' · до бою', sub='Розрахунок за фактичними даними',
+ 'ua': dict(title='Індекс 12×3', frozen=' · до бою', sub='Розрахунок імовірності перемоги за фактичними даними останніх виступів',
             lab=['Форма', 'Місце в рейтингах', 'Нокаути', 'Перемоги', 'Досвід', 'Вік, простій, розмах'],
             note='Не гарантія результату.'),
- 'en': dict(title='Win Probability · 12×3', frozen=' · pre-fight', sub='Calculated from factual data',
+ 'en': dict(title='Index 12×3', frozen=' · pre-fight', sub='Win probability calculated from factual data of recent performances',
             lab=['Form', 'Ranking position', 'Knockouts', 'Wins', 'Experience', 'Age, layoff, reach'],
             note='Not a guarantee of the result.'),
 }

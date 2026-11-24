@@ -11,11 +11,11 @@ FIGHT = {f['id']: f for f in D['fights']}
 MONTH = {'uk': ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'],
          'en': ['January','February','March','April','May','June','July','August','September','October','November','December']}
 L = {
- 'uk': dict(path='ua', k='ua', kicker='ІМОВІРНІСТЬ ПЕРЕМОГИ · 12×3', foot='Кард, прогноз, відсудити', note='Не гарантія результату', copied='Скопійовано',
+ 'uk': dict(path='ua', k='ua', kicker='ІНДЕКС 12×3 · ІМОВІРНІСТЬ ПЕРЕМОГИ', foot='Кард, прогноз, відсудити', note='Не гарантія результату', copied='Скопійовано',
             f_post='Пост 4:5', f_square='Пост 1:1', f_story='Сторіс 9:16', date='{d} {m} {y}',
             open='Поділитися індексом 12×3',
             modal_t='Поділитися індексом 12×3', save='⬇ Зберегти', copy='Копіювати посилання', share='Поділитись', close='Закрити'),
- 'en': dict(path='en', k='en', kicker='WIN PROBABILITY · 12×3', foot='Card, pick, score it', note='Not a guarantee of the result', copied='Copied',
+ 'en': dict(path='en', k='en', kicker='INDEX 12×3 · WIN PROBABILITY', foot='Card, pick, score it', note='Not a guarantee of the result', copied='Copied',
             f_post='Post 4:5', f_square='Post 1:1', f_story='Story 9:16', date='{m} {d}, {y}',
             open='Share 12×3 Index',
             modal_t='Share 12×3 Index', save='⬇ Save', copy='Copy link', share='Share', close='Close'),
