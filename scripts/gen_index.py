@@ -165,7 +165,7 @@ def block(lg, names, a, b):
             f'    <div>{ring(pa, "#c0392b", names[0], "%")}<div class="ee-nm" style="color:var(--red)">{names[0]}</div></div>\n'
             f'    <div>{ring(pb, "#1a5276", names[1], "%")}<div class="ee-nm" style="color:var(--blue)">{names[1]}</div></div>\n'
             f'  </div>\n  <div class="ix-sub">{t["sub"]}</div>\n'
-            f'  <div class="ix-note">{t["note"]}</div>\n</div>\n<!-- /Index -->\n')
+            '</div>\n<!-- /Index -->\n')
 
 def upcoming_ids():
     s = open(ROOT + 'ua/scorecard.html', encoding='utf-8').read()   # FIGHTS lives in the scorecard page since the events-first redesign

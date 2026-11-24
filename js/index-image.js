@@ -143,9 +143,8 @@
       ctx.textAlign = 'center'; ctx.fillStyle = '#9a9a9a'; ctx.font = '600 ' + Math.round(26 * k) + 'px ' + SANS;
       ctx.fillText(r.label.toUpperCase(), W / 2, mid - 2);
     }
-    ctx.textAlign = 'center'; ctx.fillStyle = '#777'; ctx.font = '500 22px ' + SANS;
-    ctx.fillText(T.note, W / 2, ty + n * rowH + 40); ctx.textAlign = 'left';
     // footer
+    ctx.textAlign = 'left';
     ctx.fillStyle = '#fff'; ctx.font = '700 40px ' + DISP; spaced(ctx, 'BOXING12X3.COM', P, footTop + 70, 4, 'left');
     ctx.fillStyle = '#aaa'; ctx.font = '500 26px ' + SANS; ctx.fillText(T.foot, P, footTop + 112);
     // watermark where the QR used to be: big faint mark, hard to crop out
