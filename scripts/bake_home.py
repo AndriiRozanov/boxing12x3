@@ -22,7 +22,7 @@ NOW = datetime.datetime.now(datetime.timezone.utc)
 TODAY = NOW.astimezone(KYIV).date()
 TOUR = C.TOUR
 FIGHT = {f['id']: f for f in D['fights']}
-CSS = open(f'{R}/scripts/home.css', encoding='utf-8').read()
+CSS = open(f'{R}/scripts/home.css', encoding='utf-8').read() + C.NS_CSS
 SC_IDS = set(re.findall(r"\bid:\s*'([^']+)'", open(f'{R}/ua/scorecard.html', encoding='utf-8').read()))
 
 H = {
@@ -223,7 +223,7 @@ def row(f, lk, kind='up'):
             sub = f'{h["won"]}: {esc(wloc)}{" · " + esc(mt) if mt else ""}'
         else: sub = esc(mt)
         return (f'<a class="fr done" href="{href}"><div class="ft">{left}</div><div class="fd"></div><div class="fi">'
-                f'<div class="fp">{wa}<span class="vs">–</span>{wb}</div><div class="fm">{sub}</div></div><div class="fa">›</div></a>')
+                f'<div class="fp">{wa}<span class="vs">–</span>{wb}</div><div class="fm">{C.ns_wrap(sub, lk)}</div></div><div class="fa">›</div></a>')
     city = v['cityUa'] if lk == 'uk' else v['cityEn']
     iso = (v.get('countryIso') or '').lower()
     flag = f'<img class="flag" src="/images/flags/{iso}.png" width="16" height="11" alt=""> ' if iso else ''
@@ -418,6 +418,7 @@ def build(lk):
 <link rel="stylesheet" href="/fonts/fonts.css">
 <script defer src="/_vercel/insights/script.js"></script>
 <style>{CSS}</style>
+{C.NS_HEAD}
 </head>
 <body>
 <div class="wrap">
@@ -433,6 +434,7 @@ def build(lk):
 <div class="note" id="hnote"></div>
 <div class="list" id="next">{nxt}</div></div>
 <div class="sec" id="results"><div class="sh"><span class="sl">{h['sec_results']}</span><a class="sa" href="/{h['path']}/results">{h['all_res']}</a></div>
+{C.ns_bar(lk)}
 <div class="list">{res}</div></div>
 <div class="sec" id="history" style="display:none"></div>
 </div><div class="side">

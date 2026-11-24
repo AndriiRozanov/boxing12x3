@@ -43,6 +43,7 @@ def row(f, lk, pending=False):
         if u: print('no genitive for', wn)
         res = (f'Перемога: {wn}' if u else f'Winner: {wn}') + (f' · {mt}' if mt else '')
     else: res = t['draw'].capitalize() + (f' · {mt}' if mt else '')
+    rs_html = esc(res) if pending else C.ns_wrap(esc(res), lk)
     v = f['venue']; city = v['cityUa'] if u else v['cityEn']
     iso = v.get('countryIso') or ''
     flag = f'<img class="flag" src="/images/flags/{iso.lower()}.png" width="16" height="12" alt="" loading="lazy"> ' if iso else ''
@@ -58,9 +59,9 @@ def row(f, lk, pending=False):
         if f['startUtc']: st = (datetime.datetime.strptime(f['startUtc'], '%Y-%m-%dT%H:%MZ') + datetime.timedelta(hours=6)).strftime('%Y-%m-%dT%H:%MZ')
         else: st = (datetime.datetime.fromisoformat(f['date']) + datetime.timedelta(days=1, hours=6)).strftime('%Y-%m-%dT%H:%MZ')
         return (f'<a class="fr wait" data-from="{st}" href="{f["urls"][k]}"><div class="ft">{dc}</div><div class="fd"></div><div class="fi">'
-                f'<div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div><div class="rs">{esc(res)}</div><div class="fm">{meta}</div></div><div class="fa">›</div></a>')
+                f'<div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div><div class="rs">{rs_html}</div><div class="fm">{meta}</div></div><div class="fa">›</div></a>')
     return (f'<a class="fr" data-y="{f["date"][:4]}" data-ym="{ym}" href="{f["urls"][k]}" data-q="{esc(q)}"><div class="ft">{dc}</div><div class="fd"></div><div class="fi">'
-            f'<div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div><div class="rs">{esc(res)}</div><div class="fm">{meta}</div></div><div class="fa">›</div></a>')
+            f'<div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div><div class="rs">{rs_html}</div><div class="fm">{meta}</div></div><div class="fa">›</div></a>')
 
 JS = r"""
 (function(){
@@ -143,6 +144,7 @@ def build(lk):
 <link rel="preload" href="/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>{css}</style>
+{C.NS_HEAD}
 </head>
 <body>
 <div class="wrap">
@@ -158,6 +160,7 @@ def build(lk):
 <h1>{t['h1']}</h1>
 <div class="chips seg"><a class="chip" href="/{k}/calendar">{t['up']}</a><a class="chip on" href="/{k}/results">{t['past']}</a></div>
 <p class="lead">{t['lead']}</p>
+{C.ns_bar(lk)}
 <div class="filters"><div class="ftop" style="margin-bottom:0"><div class="search">🔎 <input id="q" type="search" placeholder="{esc(t['search'])}" aria-label="{esc(t['search'])}" autocomplete="off"></div></div></div>
 <div class="chips" id="years" style="margin:12px 0 4px;flex-wrap:nowrap;overflow-x:auto">{ychips}</div>
 {pend_html}<div id="list">{body}</div>

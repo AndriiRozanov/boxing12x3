@@ -8,6 +8,7 @@ the page script only filters, groups by day and shows times in the reader's time
 import json, os, datetime, html
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MS = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data/main_start.json'), encoding='utf-8'))
 D = json.load(open(f'{R}/data/events.json', encoding='utf-8'))
 TODAY = datetime.datetime.now(datetime.timezone.utc).date()
 TOUR = {t['id']: t for t in D['tournaments']}
@@ -21,7 +22,7 @@ S = {
    lead='Найближчі боксерські бої світу з часом у вашому часовому поясі. Обирайте країну, континент чи дату або знайдіть бій поруч із собою.',
    months=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'],
    wd=['неділя','понеділок','вівторок','середа','четвер','пʼятниця','субота'], wds=['Нд','Пн','Вт','Ср','Чт','Пт','Сб'],
-   tba='Час уточнюється', fallback_label='за Києвом', fb_tz='Europe/Kyiv', tz_fixed='Час показано за Києвом (увімкніть JavaScript, щоб побачити свій час).',
+   tba='Час уточнюється', card_note='Час у розкладі – початок трансляції карду. Час головного бою вказуємо, коли він відомий.', ms_lbl='Головний бій ≈ {t} за вашим часом', fallback_label='за Києвом', fb_tz='Europe/Kyiv', tz_fixed='Час показано за Києвом (увімкніть JavaScript, щоб побачити свій час).',
    search='Боксер, турнір, місто…', f_date='Дата', f_near='Біля мене', f_cont='Континент', f_ctry='Країна', f_tz='Показувати час',
    filters='Фільтри', tz_change='Змінити', d_all='Усі', d_today='Сьогодні', d_7='7 днів', d_month='Місяць', d_pick='Обрати дати…', from_='З', to_='До',
    near_btn='📍 Показати поруч', near_on='📍 Біля мене', near_denied='Дозвіл на місце не надано. Його можна увімкнути в налаштуваннях браузера.',
@@ -40,7 +41,7 @@ S = {
    lead='Upcoming boxing fights worldwide, with times in your own time zone. Pick a country, a continent or a date, or find a fight near you.',
    months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
    wd=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], wds=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
-   tba='Time TBA', fallback_label='UTC', fb_tz='UTC', tz_fixed='Times are shown in UTC (turn on JavaScript to see your local time).',
+   tba='Time TBA', card_note='The time in the schedule is the start of the card broadcast. We show the main event time when it is known.', ms_lbl='Main event ≈ {t} your time', fallback_label='UTC', fb_tz='UTC', tz_fixed='Times are shown in UTC (turn on JavaScript to see your local time).',
    search='Boxer, event, city…', f_date='Date', f_near='Near me', f_cont='Continent', f_ctry='Country', f_tz='Show times in',
    filters='Filters', tz_change='Change', d_all='All', d_today='Today', d_7='7 days', d_month='Month', d_pick='Pick dates…', from_='From', to_='To',
    near_btn='📍 Show nearby', near_on='📍 Near me', near_denied='Location permission was not granted. You can allow it in your browser settings.',
@@ -177,13 +178,41 @@ a.fr:hover{background:#fcfbf9}
 .site-footer a:hover{color:var(--red)}
 """
 
+NS_CSS = """
+.nsb{display:flex;align-items:center;gap:10px;margin:0 0 10px;padding:9px 12px;background:#fff;border:0.5px solid var(--border);border-radius:10px}
+.nsb .nst{flex:1;min-width:0;font-size:11.5px;color:var(--muted);line-height:1.35}
+.nsb .nst b{display:block;font-size:12.5px;color:var(--text);font-weight:700}
+.nsb .sw{flex-shrink:0;position:relative;width:38px;height:22px;border-radius:11px;border:0;background:#cfcbc3;cursor:pointer;padding:0;transition:background .15s}
+.nsb .sw::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .15s}
+.nsb .sw[aria-checked="true"]{background:var(--red)}
+.nsb .sw[aria-checked="true"]::after{left:18px}
+.sph{display:none;color:var(--muted);font-weight:600}
+html.ns .sp{display:none}
+html.ns .sph{display:inline}
+html.ns .fp .w{color:inherit}
+.tzn{font-size:10.5px;color:var(--muted);margin:-8px 0 12px 12px;line-height:1.4}
+.mst{font-size:11.5px;font-weight:600;color:#333;margin-top:4px}
+"""
+CSS += NS_CSS
+NS_HEAD = "<script>try{if(localStorage.getItem('b12ns')==='1')document.documentElement.classList.add('ns')}catch(e){}</script>"
+NS_T = {'uk': ('Без спойлерів', 'Ховає переможців і методи, поки ви не відкриєте бій', 'Результат прихований'),
+        'en': ('No spoilers', 'Hides winners and methods until you open a fight', 'Result hidden')}
+def ns_bar(lk):
+    a, b, _ = NS_T[lk]
+    return (f'<div class="nsb"><div class="nst"><b>{a}</b>{b}</div>'
+            f'<button type="button" class="sw" id="nsw" role="switch" aria-checked="false" aria-label="{a}"></button></div>'
+            '<script defer src="/js/no-spoilers.js"></script>')
+def ns_wrap(text, lk):
+    return f'<span class="sp">{text}</span><span class="sph">{NS_T[lk][2]}</span>'
+
+
 JS = r"""
 (function(){
 var T=__T__;T.empty_default=document.getElementById('emptytxt').textContent;
 var LANG='__LANG__';
 var els=[].slice.call(document.querySelectorAll('#list .fr'));
 var rows=els.map(function(e){return{el:e,id:e.dataset.id,start:e.dataset.start||'',date:e.dataset.date,iso:e.dataset.iso,cont:e.dataset.cont,
- tour:e.dataset.tour||'',main:e.dataset.main==='1',lat:parseFloat(e.dataset.lat),lon:parseFloat(e.dataset.lon),q:e.dataset.q,tm:e.querySelector('.ft'),nt:e.querySelector('.nt'),meta:e.querySelector('.fm'),metaBase:e.querySelector('.fm').innerHTML};});
+ tour:e.dataset.tour||'',main:e.dataset.main==='1',lat:parseFloat(e.dataset.lat),lon:parseFloat(e.dataset.lon),q:e.dataset.q,ms:e.dataset.ms||'',tm:e.querySelector('.ft'),nt:e.querySelector('.nt'),meta:e.querySelector('.fm'),metaBase:e.querySelector('.fm').innerHTML};});
 var st={q:'',mode:'all',from:'',to:'',day:'',conts:{},ctrs:{},near:false,pos:null,radius:500,tz:'auto'};
 try{var saved=localStorage.getItem('b12x3_cal_tz');if(saved)st.tz=saved;}catch(e){}
 function zone(){if(st.tz!=='auto')return st.tz;try{return Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC';}catch(e){return 'UTC';}}
@@ -237,6 +266,7 @@ function render(){
   if(r.nt){var hh=r.start?hm(new Date(r.start),tz):'';var hr=hh?parseInt(hh.slice(0,2),10):-1;
    if(hr>=0&&hr<8){var rm=Math.round((parseInt(hh.slice(0,2),10)*60+parseInt(hh.slice(3),10))/60)%24;var ts=(rm<10?'0':'')+rm+':00';
     r.nt.querySelector('span').textContent=r.nt.getAttribute('data-r')+' · '+T.night_start.replace('{t}',ts);r.nt.hidden=false;}else{r.nt.hidden=true;}}
+  var mo=r.el.querySelector('.mst');if(r.ms&&!r.el.classList.contains('cx')){if(!mo){mo=document.createElement('div');mo.className='mst';r.el.querySelector('.fi').appendChild(mo);}mo.textContent=T.ms_lbl.replace('{t}',hm(new Date(r.ms),tz));}else if(mo){mo.remove();}
   r.meta.innerHTML=r.metaBase+(r.km!=null?' · '+Math.round(r.km/10)*10+' '+T.km:'');
   if(r.el.classList.contains('cx')){
    if(!cxd){cxd=document.createElement('details');cxd.className='cxg';cxd.innerHTML='<summary></summary>';box.appendChild(cxd);}
@@ -361,7 +391,7 @@ def row_html(f, lk):
         tcell = f'<b class="tba">{s["tba"]}</b>'; start = ''
     q = ' '.join([f['red']['ua'], f['red']['en'], f['blue']['ua'], f['blue']['en'], (t['name']['ua'] or '') if t else '', (t['name']['en'] or '') if t else '', f['venue']['cityUa'] or '', f['venue']['cityEn'] or '',
                   s['countries'].get(iso, iso), S['uk']['countries'].get(iso, ''), S['en']['countries'].get(iso, ''), v.get('name') or '']).lower()
-    attrs = (f'data-tour="{esc(f.get("tournamentId") or "")}" data-main="{1 if f.get("main") else 0}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-iso="{iso}" data-cont="{esc(v.get("continent"))}" '
+    attrs = (f'data-tour="{esc(f.get("tournamentId") or "")}" data-main="{1 if f.get("main") else 0}" data-id="{f["id"]}" data-start="{start}" data-ms="{MS.get(f["id"], "")}" data-date="{f["date"]}" data-iso="{iso}" data-cont="{esc(v.get("continent"))}" '
              f'data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}" data-q="{esc(q)}"')
     inner = (f'<div class="ft{" ap" if f.get("startApprox") and f["startUtc"] else ""}">{tcell}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
              f'<div class="fm">{meta}</div><div class="tags">{tags}</div>{night}</div>')
@@ -411,7 +441,7 @@ def build(lk):
         {'@type': 'BreadcrumbList', 'itemListElement': [
             {'@type': 'ListItem', 'position': 1, 'name': s['crumb'][0], 'item': BASE + ('/' if u else '/en')},
             {'@type': 'ListItem', 'position': 2, 'name': s['crumb'][1], 'item': url}]}]}
-    tdata = {k: s[k] for k in ('tba', 'yourtime', 'yourtime_lbl', 'auto_note', 'chosen_note', 'today', 'km', 'empty_near', 'near_btn', 'near_on', 'near_denied', 'near_unsup', 'tz_names', 'months', 'wd', 'wds')}
+    tdata = {k: s[k] for k in ('tba', 'ms_lbl', 'yourtime', 'yourtime_lbl', 'auto_note', 'chosen_note', 'today', 'km', 'empty_near', 'near_btn', 'near_on', 'near_denied', 'near_unsup', 'tz_names', 'months', 'wd', 'wds')}
     tdata['ph'] = list(s['ph_fights']); tdata['cx_ph'] = list(s['cx_ph']); tdata['night_start'] = s['night_start']
     js = JS.replace('__T__', json.dumps(tdata, ensure_ascii=False)).replace('__LANG__', s['lang'])
     footer = ''.join(f'<a href="{h}">{t}</a>' for h, t in s['footer'])
@@ -466,6 +496,7 @@ def build(lk):
 <div class="chips seg"><a class="chip on" href="/{s['path']}/calendar">{'Майбутні' if s['path']=='ua' else 'Upcoming'}</a><a class="chip" href="/{s['path']}/results">{'Минулі' if s['path']=='ua' else 'Past'}</a></div>
 <p class="lead">{s['lead']}</p>
 <div class="tzl"><i></i><span id="tznote">{s['tz_fixed']}</span><button type="button" class="tzedit" id="tzedit" aria-expanded="false" aria-controls="tzrow">{s['tz_change']}</button></div>
+<div class="tzn">{s['card_note']}</div>
 <div class="sub-row" id="tzrow"><label>{s['f_tz']} <select class="sel" id="tz" aria-label="{esc(s['f_tz'])}" style="width:auto">{zopts}</select></label></div>
 <div class="layout">
 <div>
