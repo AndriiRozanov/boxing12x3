@@ -12,13 +12,13 @@ MONTH = {'uk': ['січня','лютого','березня','квітня','т�
          'en': ['January','February','March','April','May','June','July','August','September','October','November','December']}
 L = {
  'uk': dict(path='ua', k='ua', kicker='ІМОВІРНІСТЬ ПЕРЕМОГИ · 12×3', foot='Кард, прогноз, відсудити', note='Не гарантія результату', copied='Скопійовано',
-            f_post='Пост 4:5 · Instagram', f_square='Квадрат 1:1 · X, Telegram', f_story='Сторіз 9:16', date='{d} {m} {y}',
-            strip_t='Картинка з індексом 12×3', strip_p='Для сторіс, постів і Telegram', open='Зберегти картинку',
-            modal_t='Індекс 12×3 · картинка', save='⬇ Зберегти', copy='Копіювати посилання', share='Поділитись', close='Закрити'),
+            f_post='Пост 4:5', f_square='Пост 1:1', f_story='Сторіс 9:16', date='{d} {m} {y}',
+            open='Поділитися індексом 12×3',
+            modal_t='Поділитися індексом 12×3', save='⬇ Зберегти', copy='Копіювати посилання', share='Поділитись', close='Закрити'),
  'en': dict(path='en', k='en', kicker='WIN PROBABILITY · 12×3', foot='Card, pick, score it', note='Not a guarantee of the result', copied='Copied',
-            f_post='Post 4:5 · Instagram', f_square='Square 1:1 · X, Telegram', f_story='Story 9:16', date='{m} {d}, {y}',
-            strip_t='12×3 Index picture', strip_p='For stories, posts and Telegram', open='Save image',
-            modal_t='12×3 Index picture', save='⬇ Save', copy='Copy link', share='Share', close='Close'),
+            f_post='Post 4:5', f_square='Post 1:1', f_story='Story 9:16', date='{m} {d}, {y}',
+            open='Share 12×3 Index',
+            modal_t='Share 12×3 Index', save='⬇ Save', copy='Copy link', share='Share', close='Close'),
 }
 
 FACTS = {'uk': [('Рекорд', 'Рекорд'), ('Дострокові', 'Нокаути'), ('_age', 'Вік'), ('Розмах', 'Розмах')],
@@ -50,6 +50,7 @@ def data_for(fid, lk):
             'dateLine': f'{s["date"].format(d=int(d), m=MONTH[lk][int(mo)-1], y=y)} · {v.get("name") or ""}, {city}', 'rows': rows, 'url': url,
             't': {x: s[x] for x in ('kicker','foot','note','copied','f_post','f_square','f_story')}}
 
+CSS_EXTRA = '.ix-share{text-align:center;margin:0 0 20px}.ix-share .ri-btn{padding:11px 22px}'
 CSS = open(f'{R}/scripts/bake_result_image.py', encoding='utf-8').read().split('CSS = """')[1].split('"""')[0]
 
 def block(lk, data):
@@ -57,8 +58,8 @@ def block(lk, data):
     tabs = ''.join(f'<button type="button" data-f="{k}">{html.escape(s[l])}</button>' for k, l in (('post', 'f_post'), ('square', 'f_square'), ('story', 'f_story')))
     js = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     return f"""<!-- index-image:start -->
-<style>{CSS}</style>
-<div class="ri-strip"><div class="ri-txt"><b>{html.escape(s['strip_t'])}</b><span>{html.escape(s['strip_p'])}</span></div><button type="button" class="ri-btn red" id="ri-open">{html.escape(s['open'])}</button></div>
+<style>{CSS}{CSS_EXTRA}</style>
+<div class="ix-share"><button type="button" class="ri-btn" id="ri-open">{html.escape(s['open'])}</button></div>
 <div class="ri-modal" id="ri-modal" hidden role="dialog" aria-modal="true" aria-labelledby="ri-h"><div class="ri-box">
 <button type="button" class="ri-x" id="ri-close" aria-label="{html.escape(s['close'])}">×</button>
 <h3 id="ri-h">{html.escape(s['modal_t'])}</h3><div class="ri-tabs" id="ri-tabs">{tabs}</div>
