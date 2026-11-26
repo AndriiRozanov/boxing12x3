@@ -117,7 +117,7 @@ if __name__ == '__main__':
     try: mod = json.load(open(MOD))
     except FileNotFoundError: mod = {}
     today = datetime.date.today().isoformat()
-    ids = g.upcoming_ids()
+    ids = [i for i in g.upcoming_ids() if i not in g.cancelled_ids()]   # cancelled pages keep their hand-written notice
     missing = [i for i in ids if i not in INTRO]
     if missing: sys.exit('No INTRO text for: ' + ', '.join(missing))
     for fid in ids:

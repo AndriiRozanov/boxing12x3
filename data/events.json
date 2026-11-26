@@ -4274,7 +4274,7 @@
    "startPrecision": "time",
    "startApprox": true,
    "startSource": "votes-close.json",
-   "status": "scheduled",
+   "status": "cancelled",
    "tournamentId": null,
    "red": {
     "ua": "Карен Чухаджян",
