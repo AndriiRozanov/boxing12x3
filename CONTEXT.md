@@ -573,3 +573,8 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 - The Index 12×3 caption (`sub` in `gen_index.py`) now reads: "Імовірність перемоги за власним показником сайту, який враховує рекорд, нокаути, рівень суперників і форму спортсменів на момент зустрічі" / EN equivalent. Do not describe weights or the formula publicly (owner's decision).
 - FAQ stays visible (details block) and must match the FAQPage JSON-LD word for word; the older "FAQ is always invisible" rule is retired.
 - Canonical host is `https://boxing12x3.com/` (no www); the owner verified all variants end there.
+
+## Result Nov 26 2026: Yabuki-Fajardo (branch yabuki-result)
+- Yabuki d. Fajardo UD 12, judges Gil Co 116-112, Takeru Okaniwa 118-110, Carl Zappia 118-110, referee Koji Tanaka; IBF flyweight title retained, Yabuki's 4th defence. Records after the fight (computed from the pre-fight card, +1 win / +1 loss, no KO change): Yabuki 21-4 (18 KO), Fajardo 14-4-2 (12 KO). UA transliterations of judges and referee are ours (Гіл Ко, Такеру Оканіва, Карл Заппія, Кодзі Танака).
+- Pages `ua|en/yabuki-fajardo.html` converted to the finished state (Riley-Coupe pattern: Result block, record after, scorecards, visible FAQ + FAQPage rewritten, EventCompleted, lead paragraph rewritten as a result line, title/meta "результат"). Index block frozen (`gen_index.py --freeze yabuki-fajardo`). `ua|en/scorecard.html`: completed:true, featured moved to chukhadzhian-arganaras. `votes-close.json`: 2026-11-26T08:00:00Z. Sitemap lastmod 2026-11-26. Pipeline rerun: build_events, bake_calendar, bake_results, bake_tools, bake_home, bake_scorecard_data, gen_index, bake_geo.
+- bake_geo.py skips finished fights, so a finished page keeps its hand-written result lead paragraph.

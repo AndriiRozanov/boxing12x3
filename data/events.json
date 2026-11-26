@@ -4217,7 +4217,7 @@
    "startPrecision": "time",
    "startApprox": false,
    "startSource": "page JSON-LD",
-   "status": "scheduled",
+   "status": "completed",
    "tournamentId": null,
    "red": {
     "ua": "Масаміці Ябукі",
@@ -4258,7 +4258,10 @@
      "Lemino"
     ]
    },
-   "result": null
+   "result": {
+    "winner": "Масаміці Ябукі",
+    "method": "UD 12"
+   }
   },
   {
    "id": "chukhadzhian-arganaras",
