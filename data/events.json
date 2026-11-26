@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-26",
  "fights": [
   {
    "id": "corrales-freitas",
@@ -4239,10 +4239,7 @@
     "IBF"
    ],
    "pa": 65,
-   "ko": [
-    90,
-    86
-   ],
+   "ko": null,
    "venue": {
     "name": "Ebara Wave Arena Ota",
     "cityUa": "Токіо",
@@ -4292,10 +4289,7 @@
    "belts": [],
    "beltsEn": [],
    "pa": 53,
-   "ko": [
-    54,
-    69
-   ],
+   "ko": null,
    "venue": {
     "name": "EuropaPark Rust",
     "cityUa": "Руст, Баден-Вюртемберг",
@@ -4349,10 +4343,7 @@
     "WBC"
    ],
    "pa": 65,
-   "ko": [
-    70,
-    92
-   ],
+   "ko": null,
    "venue": {
     "name": "ESPRIT arena",
     "cityUa": "Дюссельдорф",
@@ -4423,6 +4414,311 @@
     ],
     "en": [
      "Videoland"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "chelli-hart",
+   "urls": {
+    "ua": "/ua/chelli-hart",
+    "en": "/en/chelli-hart"
+   },
+   "date": "2026-12-04",
+   "startUtc": "2026-12-04T17:00Z",
+   "startPrecision": "time",
+   "startApprox": false,
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-14",
+   "red": {
+    "ua": "Зак Челлі",
+    "en": "Zak Chelli"
+   },
+   "blue": {
+    "ua": "Джессі Гарт",
+    "en": "Jesse Hart"
+   },
+   "division": {
+    "ua": "Напівважка вага",
+    "en": "Light heavyweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "beltsEn": [],
+   "pa": null,
+   "ko": null,
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "massey-tabiti",
+   "urls": {
+    "ua": "/ua/massey-tabiti",
+    "en": "/en/massey-tabiti"
+   },
+   "date": "2026-12-04",
+   "startUtc": "2026-12-04T17:00Z",
+   "startPrecision": "time",
+   "startApprox": false,
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-14",
+   "red": {
+    "ua": "Джек Мессі",
+    "en": "Jack Massey"
+   },
+   "blue": {
+    "ua": "Ендрю Табіті",
+    "en": "Andrew Tabiti"
+   },
+   "division": {
+    "ua": "Важка вага",
+    "en": "Cruiserweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "beltsEn": [],
+   "pa": null,
+   "ko": null,
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "mckenna-aleksejevs",
+   "urls": {
+    "ua": "/ua/mckenna-aleksejevs",
+    "en": "/en/mckenna-aleksejevs"
+   },
+   "date": "2026-12-04",
+   "startUtc": "2026-12-04T17:00Z",
+   "startPrecision": "time",
+   "startApprox": false,
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-14",
+   "red": {
+    "ua": "Аарон Маккена",
+    "en": "Aaron McKenna"
+   },
+   "blue": {
+    "ua": "Євгеній Алексєєв",
+    "en": "Jevgenijs Aleksejevs"
+   },
+   "division": {
+    "ua": "Середня вага",
+    "en": "Middleweight"
+   },
+   "rounds": 12,
+   "belts": [
+    "Пояс IBF"
+   ],
+   "beltsEn": [
+    "IBF"
+   ],
+   "pa": null,
+   "ko": null,
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
+    ]
+   },
+   "result": null,
+   "main": true
+  },
+  {
+   "id": "rozicki-ntambwe",
+   "urls": {
+    "ua": "/ua/rozicki-ntambwe",
+    "en": "/en/rozicki-ntambwe"
+   },
+   "date": "2026-12-04",
+   "startUtc": "2026-12-04T17:00Z",
+   "startPrecision": "time",
+   "startApprox": false,
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-14",
+   "red": {
+    "ua": "Раян Розицький",
+    "en": "Ryan Rozicki"
+   },
+   "blue": {
+    "ua": "Гаетан Нтамбве",
+    "en": "Gaetan Ntambwe"
+   },
+   "division": {
+    "ua": "Важка вага",
+    "en": "Cruiserweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "beltsEn": [],
+   "pa": null,
+   "ko": null,
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "sirenko-martin",
+   "urls": {
+    "ua": "/ua/sirenko-martin",
+    "en": "/en/sirenko-martin"
+   },
+   "date": "2026-12-04",
+   "startUtc": "2026-12-04T17:00Z",
+   "startPrecision": "time",
+   "startApprox": false,
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-14",
+   "red": {
+    "ua": "Владислав Сіренко",
+    "en": "Vladyslav Sirenko"
+   },
+   "blue": {
+    "ua": "Чарльз Мартін",
+    "en": "Charles Martin"
+   },
+   "division": {
+    "ua": "Надважка вага",
+    "en": "Heavyweight"
+   },
+   "rounds": 10,
+   "belts": [],
+   "beltsEn": [],
+   "pa": null,
+   "ko": null,
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
+    ]
+   },
+   "result": null
+  },
+  {
+   "id": "talley-musah",
+   "urls": {
+    "ua": "/ua/talley-musah",
+    "en": "/en/talley-musah"
+   },
+   "date": "2026-12-04",
+   "startUtc": "2026-12-04T17:00Z",
+   "startPrecision": "time",
+   "startApprox": false,
+   "startSource": "votes-close.json",
+   "status": "scheduled",
+   "tournamentId": "zuffa-boxing-14",
+   "red": {
+    "ua": "Джамар Таллі",
+    "en": "Jamar Talley"
+   },
+   "blue": {
+    "ua": "Шеріф Муса",
+    "en": "Sherif Musah"
+   },
+   "division": {
+    "ua": "Важка вага",
+    "en": "Cruiserweight"
+   },
+   "rounds": 8,
+   "belts": [],
+   "beltsEn": [],
+   "pa": null,
+   "ko": null,
+   "venue": {
+    "name": "The Venue (Riyadh Season)",
+    "cityUa": "Ер-Ріяд",
+    "cityEn": "Riyadh",
+    "countryIso": "SA",
+    "continent": "Asia",
+    "tz": "Asia/Riyadh",
+    "lat": 24.71,
+    "lon": 46.68
+   },
+   "broadcast": {
+    "ua": [
+     "Setanta Sports"
+    ],
+    "en": [
+     "Sky Sports · Paramount+ · Setanta Sports"
     ]
    },
    "result": null
@@ -4511,10 +4807,7 @@
    "belts": [],
    "beltsEn": [],
    "pa": 65,
-   "ko": [
-    41,
-    44
-   ],
+   "ko": null,
    "venue": {
     "name": "Stereo Plaza",
     "cityUa": "Київ",
@@ -4668,10 +4961,7 @@
    "belts": [],
    "beltsEn": [],
    "pa": 35,
-   "ko": [
-    76,
-    96
-   ],
+   "ko": null,
    "venue": {
     "name": "Principality Stadium",
     "cityUa": "Кардіфф, Вельс",
@@ -4738,10 +5028,7 @@
     "Vacant WBA (Super)"
    ],
    "pa": 47,
-   "ko": [
-    69,
-    90
-   ],
+   "ko": null,
    "venue": {
     "name": "Principality Stadium",
     "cityUa": "Кардіфф, Вельс",
@@ -4848,10 +5135,7 @@
     "IBF"
    ],
    "pa": 53,
-   "ko": [
-    45,
-    57
-   ],
+   "ko": null,
    "venue": {
     "name": "Chase Center",
     "cityUa": "Сан-Франциско",
@@ -5316,6 +5600,29 @@
     "surace-bednarek"
    ],
    "poster": "/images/cards/zuffa-boxing-13.jpg"
+  },
+  {
+   "id": "zuffa-boxing-14",
+   "urls": {
+    "ua": "/ua/cards/zuffa-boxing-14",
+    "en": "/en/cards/zuffa-boxing-14"
+   },
+   "name": {
+    "ua": "Zuffa Boxing 14",
+    "en": "Zuffa Boxing 14"
+   },
+   "startDate": "2026-12-04",
+   "venue": "The Venue (Riyadh Season)",
+   "organizer": "Zuffa Boxing",
+   "fights": [
+    "mckenna-aleksejevs",
+    "massey-tabiti",
+    "chelli-hart",
+    "rozicki-ntambwe",
+    "sirenko-martin",
+    "talley-musah"
+   ],
+   "poster": "/images/cards/zuffa-boxing-14.jpg"
   }
  ],
  "promoters": [
