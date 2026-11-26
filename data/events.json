@@ -4432,7 +4432,7 @@
    "status": "scheduled",
    "tournamentId": "zuffa-boxing-14",
    "red": {
-    "ua": "Зак Челлі",
+    "ua": "Зак Келлі",
     "en": "Zak Chelli"
    },
    "blue": {
@@ -4446,7 +4446,7 @@
    "rounds": 10,
    "belts": [],
    "beltsEn": [],
-   "pa": null,
+   "pa": 65,
    "ko": null,
    "venue": {
     "name": "The Venue (Riyadh Season)",
@@ -4496,7 +4496,7 @@
    "rounds": 10,
    "belts": [],
    "beltsEn": [],
-   "pa": null,
+   "pa": 53,
    "ko": null,
    "venue": {
     "name": "The Venue (Riyadh Season)",
@@ -4550,7 +4550,7 @@
    "beltsEn": [
     "IBF"
    ],
-   "pa": null,
+   "pa": 65,
    "ko": null,
    "venue": {
     "name": "The Venue (Riyadh Season)",
@@ -4651,7 +4651,7 @@
    "rounds": 10,
    "belts": [],
    "beltsEn": [],
-   "pa": null,
+   "pa": 65,
    "ko": null,
    "venue": {
     "name": "The Venue (Riyadh Season)",

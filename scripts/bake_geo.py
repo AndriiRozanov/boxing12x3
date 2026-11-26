@@ -52,7 +52,7 @@ INTRO = {
   "Бій Мессі – Табіті на 10 раундів у важкій вазі, без пояса, у програмі турніру Zuffa Boxing 14. Бій відбудеться 4 грудня в Ер-Ріяді; трансляція на Setanta Sports, турнір починається о 19:00 за Києвом.",
   "Massey vs Tabiti is a scheduled 10-round non-title cruiserweight fight on the Zuffa Boxing 14 card. It takes place on December 4 in Riyadh; the broadcast starts at 12:00 PM ET / 5:00 PM GMT on Sky Sports (UK and Ireland), Paramount+ (US and Canada) and Setanta Sports (Ukraine)."),
  'chelli-hart': (
-  "Бій Челлі – Гарт на 10 раундів у напівважкій вазі, без пояса, у програмі турніру Zuffa Boxing 14. Бій відбудеться 4 грудня в Ер-Ріяді; трансляція на Setanta Sports, турнір починається о 19:00 за Києвом.",
+  "Бій Келлі – Гарт на 10 раундів у напівважкій вазі, без пояса, у програмі турніру Zuffa Boxing 14. Бій відбудеться 4 грудня в Ер-Ріяді; трансляція на Setanta Sports, турнір починається о 19:00 за Києвом.",
   "Chelli vs Hart is a scheduled 10-round non-title light heavyweight fight on the Zuffa Boxing 14 card. It takes place on December 4 in Riyadh; the broadcast starts at 12:00 PM ET / 5:00 PM GMT on Sky Sports (UK and Ireland), Paramount+ (US and Canada) and Setanta Sports (Ukraine)."),
  'rozicki-ntambwe': (
   "Бій Розицький – Нтамбве на 10 раундів у важкій вазі, без пояса, у програмі турніру Zuffa Boxing 14. Бій відбудеться 4 грудня в Ер-Ріяді; трансляція на Setanta Sports, турнір починається о 19:00 за Києвом.",
