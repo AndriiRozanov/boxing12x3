@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26",
+ "generated": "2026-11-27",
  "fights": [
   {
    "id": "corrales-freitas",
@@ -4291,7 +4291,7 @@
    "rounds": 12,
    "belts": [],
    "beltsEn": [],
-   "pa": 53,
+   "pa": null,
    "ko": null,
    "venue": {
     "name": "EuropaPark Rust",
