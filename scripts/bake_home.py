@@ -126,22 +126,24 @@ if(shown>=0){
   }
 }
 // upcoming list: drop what is shown above or already over; chips filter it in place, keep the first 6
-var up=document.querySelectorAll('#next .fr'),sel=null,pos=null,nearOn=false,RADIUS=1000;
+var up=document.querySelectorAll('#next .fr'),sel=null,pos=null,nearOn=false,RADIUS=700;
 function dist(a,b,c,d){var R=6371,q=Math.PI/180,x=(c-a)*q,y=(d-b)*q;var h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*q)*Math.cos(c*q)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
 function renderNext(){
-  var n=0,total=0,nt=document.getElementById('hnote');
+  var n=0,total=0,far=[],nt=document.getElementById('hnote');
   for(i=0;i<up.length;i++){
     var r2=up[i],id=r2.getAttribute('data-id'),e2=Date.parse(r2.getAttribute('data-end'));
     var ok=!(skip[id]||e2<=now);
     if(ok&&sel&&r2.getAttribute('data-cont')!==sel)ok=false;
-    if(ok&&nearOn&&pos){var la=parseFloat(r2.getAttribute('data-lat')),lo=parseFloat(r2.getAttribute('data-lon'));ok=!isNaN(la)&&dist(pos.lat,pos.lon,la,lo)<=RADIUS;}
+    if(ok&&nearOn&&pos){var la=parseFloat(r2.getAttribute('data-lat')),lo=parseFloat(r2.getAttribute('data-lon'));var dd=isNaN(la)?NaN:dist(pos.lat,pos.lon,la,lo);ok=!isNaN(dd)&&dd<=RADIUS;if(!ok&&!isNaN(dd))far.push({el:r2,d:dd});}
     if(ok)total++;
     if(ok&&n<6){r2.hidden=false;n++;}else{r2.hidden=true;}
   }
+  var fbk=false;
+  if(nearOn&&pos&&n===0&&far.length){far.sort(function(a,b){return a.d-b.d;});var keep=far.slice(0,3).map(function(x){return x.el;});for(i=0;i<up.length;i++){up[i].hidden=keep.indexOf(up[i])<0;}n=keep.length;fbk=true;}
   var nx=document.getElementById('nextsec');
   var filtered=!!sel||nearOn;
   if(nx&&n===0&&!filtered)nx.hidden=true;
-  if(nt){nt.className='note'+((n===0&&filtered)?' show':'');if(n===0&&filtered&&nearOn&&!nt.getAttribute('data-err'))nt.textContent=T.near_none;}
+  if(nt){nt.className='note'+((fbk||(n===0&&filtered))?' show':'');if(fbk)nt.textContent=T.near_fallback.replace('{r}',RADIUS);else if(n===0&&filtered&&nearOn&&!nt.getAttribute('data-err'))nt.textContent=T.near_none;}
   var cl=document.getElementById('callink');
   if(cl)cl.href=T.cal+(nearOn?'?near=1':(sel?'?c='+encodeURIComponent(sel):''));
   var chips=document.querySelectorAll('#nextsec .chip');
@@ -154,8 +156,9 @@ if(nb){nb.addEventListener('click',function(){
   var nt=document.getElementById('hnote');
   if(nearOn){nearOn=false;if(nt)nt.removeAttribute('data-err');renderNext();return;}
   if(!navigator.geolocation){if(nt){nt.textContent=T.near_unsup;nt.setAttribute('data-err','1');nt.className='note show';}return;}
-  navigator.geolocation.getCurrentPosition(function(p){pos={lat:p.coords.latitude,lon:p.coords.longitude};nearOn=true;sel=null;if(nt)nt.removeAttribute('data-err');renderNext();},
-    function(){if(nt){nt.textContent=T.near_denied;nt.setAttribute('data-err','1');nt.className='note show';}},{timeout:8000,maximumAge:600000});
+  var lbl=nb.textContent;nb.disabled=true;nb.textContent=T.near_locating;
+  navigator.geolocation.getCurrentPosition(function(p){nb.disabled=false;nb.textContent=lbl;pos={lat:p.coords.latitude,lon:p.coords.longitude};nearOn=true;sel=null;if(nt)nt.removeAttribute('data-err');renderNext();},
+    function(e){nb.disabled=false;nb.textContent=lbl;var k=e&&e.code;if(nt){nt.textContent=k===1?T.near_denied:(k===3?T.near_timeout:T.near_unavail);nt.setAttribute('data-err','1');nt.className='note show';}},{timeout:20000,maximumAge:600000});
 });}
 renderNext();
 })();
@@ -378,7 +381,7 @@ def build(lk):
         {'@type': 'ItemList', 'name': h['sec_next'], 'itemListElement': [
             {'@type': 'ListItem', 'position': i + 1, 'url': BASE + f['urls'][k], 'name': ' – '.join(names(f, lk))} for i, f in enumerate(up[:10])]}]}
     tdata = {x: C.S[lk][x] for x in ('tz_names',)}
-    tdata.update({'months': h['months'], 'mfull': h['mfull'], 'lang': h['loc_js'], 'yourtime': h['yourtime'], 'tz_auto': h['tz_auto'], 'tz_chosen': h['tz_chosen'], 'now_': h['now_'], 'today': h['today'], 'soon': h['soon'], 'near_denied': C.S[lk]['near_denied'], 'near_unsup': C.S[lk]['near_unsup'], 'near_none': C.S[lk]['empty_near'], 'cal': '/' + h['path'] + '/calendar'})
+    tdata.update({'months': h['months'], 'mfull': h['mfull'], 'lang': h['loc_js'], 'yourtime': h['yourtime'], 'tz_auto': h['tz_auto'], 'tz_chosen': h['tz_chosen'], 'now_': h['now_'], 'today': h['today'], 'soon': h['soon'], 'near_denied': C.S[lk]['near_denied'], 'near_unsup': C.S[lk]['near_unsup'], 'near_unavail': C.S[lk]['near_unavail'], 'near_timeout': C.S[lk]['near_timeout'], 'near_locating': C.S[lk]['near_locating'], 'near_fallback': C.S[lk]['near_fallback'], 'near_none': C.S[lk]['empty_near'], 'cal': '/' + h['path'] + '/calendar'})
     hist_js = open(f'{R}/data/history-home.js', encoding='utf-8').read()
     js = JS.replace('__T__', json.dumps(tdata, ensure_ascii=False))
     ua_url, en_url = f'{BASE}/', f'{BASE}/en'

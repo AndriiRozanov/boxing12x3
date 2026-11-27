@@ -599,3 +599,9 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 - Group 2 "Next on the calendar" / "Далі в календарі": scheduled fights from max(page date + 1 day, today); one fight per date (the latest start that day, usually the main event); 2 rows, 3 if group 1 is empty. Date-only fights show no time.
 - Link text = names from the target page `<title>` before ":". Times: EN ET, UA "за Києвом".
 - GA4 event `also_on_click` {group: same_day|calendar, target_fight, source_fight}.
+
+## "Near me": error codes, 700 km, closest fights (Nov 27 2026, branch near-me-fixes)
+
+- Source of the logic: `scripts/bake_calendar.py` (calendar, UA+EN) and `scripts/bake_home.py` (homepage "Near me" chip). Edit the scripts and rebake, never the HTML.
+- Geolocation errors are told apart: code 1 `near_denied`, code 2 `near_unavail` (Wi-Fi/VPN/location services), code 3 `near_timeout`. Timeout 20 s; the button shows `near_locating` ("Визначаю…") and is disabled while locating. Calendar also sends GA4 `calendar_filter` {filter:'near_error', value:code}.
+- Default radius 700 km (options 500/700/1000/2500/5000/worldwide). If nothing is within the radius, the 3 closest non-cancelled fights are shown automatically (list stays in date order, distance in the row), with the note `near_fallback` ("У радіусі {r} км боїв немає. Найближчі до вас:"). The radius select stays as a minor control. Homepage uses the same rule (RADIUS=700, 3 closest of the upcoming list, no distance label).

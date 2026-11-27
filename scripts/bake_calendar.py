@@ -26,7 +26,7 @@ S = {
    search='Боксер, турнір, місто…', f_date='Дата', f_near='Біля мене', f_cont='Континент', f_ctry='Країна', f_tz='Показувати час',
    filters='Фільтри', tz_change='Змінити', d_all='Усі', d_today='Сьогодні', d_7='7 днів', d_month='Місяць', d_pick='Обрати дати…', from_='З', to_='До',
    near_btn='📍 Показати поруч', near_on='📍 Біля мене', near_denied='Дозвіл на місце не надано. Його можна увімкнути в налаштуваннях браузера.',
-   near_unsup='Браузер не підтримує визначення місця.', radius='Радіус', radius_all='Весь світ', km='км',
+   near_unsup='Браузер не підтримує визначення місця.', near_unavail='Не вдалося визначити місце. Перевірте Wi-Fi, VPN і служби геолокації.', near_timeout='Місце визначається надто довго. Спробуйте ще раз.', near_locating='📍 Визначаю…', near_fallback='У радіусі {r} км боїв немає. Найближчі до вас:', radius='Радіус', radius_all='Весь світ', km='км',
    yourtime='Ваш час', yourtime_lbl='Ваш час', auto_note='визначено автоматично', chosen_note='обрано вами', tz_auto='Автоматично (ваш пояс)',
    empty_near='Поруч із вами боїв не знайдено. Спробуйте збільшити радіус.', today='сьогодні', reset='Скинути фільтри', empty='За цими фільтрами боїв не знайдено.', range_txt='боїв', rounds='раундів', all_fights='Усі бої',
    tz_names={'Europe/Kyiv':'Київ','Europe/London':'Лондон','Europe/Berlin':'Берлін','Europe/Madrid':'Мадрид','America/New_York':'Нью-Йорк','America/Chicago':'Чикаго','America/Los_Angeles':'Лос-Анджелес','Asia/Dubai':'Дубай','Asia/Riyadh':'Ер-Ріяд','Asia/Tokyo':'Токіо','Australia/Sydney':'Сідней','Africa/Johannesburg':'Йоганнесбург','America/Mexico_City':'Мехіко','Asia/Manila':'Маніла','UTC':'UTC'},
@@ -45,7 +45,7 @@ S = {
    search='Boxer, event, city…', f_date='Date', f_near='Near me', f_cont='Continent', f_ctry='Country', f_tz='Show times in',
    filters='Filters', tz_change='Change', d_all='All', d_today='Today', d_7='7 days', d_month='Month', d_pick='Pick dates…', from_='From', to_='To',
    near_btn='📍 Show nearby', near_on='📍 Near me', near_denied='Location permission was not granted. You can allow it in your browser settings.',
-   near_unsup='This browser cannot detect your location.', radius='Radius', radius_all='Worldwide', km='km',
+   near_unsup='This browser cannot detect your location.', near_unavail='Could not detect your location. Check Wi-Fi, VPN and location services.', near_timeout='Locating is taking too long. Please try again.', near_locating='📍 Locating…', near_fallback='No fights within {r} km. Closest to you:', radius='Radius', radius_all='Worldwide', km='km',
    yourtime='Your local time', yourtime_lbl='Your local time', auto_note='detected automatically', chosen_note='chosen by you', tz_auto='Automatic (your zone)',
    empty_near='No fights found near you. Try a larger radius.', today='today', reset='Reset filters', empty='No fights match these filters.', range_txt='fights', rounds='rounds', all_fights='All fights',
    tz_names={'Europe/Kyiv':'Kyiv','Europe/London':'London','Europe/Berlin':'Berlin','Europe/Madrid':'Madrid','America/New_York':'New York','America/Chicago':'Chicago','America/Los_Angeles':'Los Angeles','Asia/Dubai':'Dubai','Asia/Riyadh':'Riyadh','Asia/Tokyo':'Tokyo','Australia/Sydney':'Sydney','Africa/Johannesburg':'Johannesburg','America/Mexico_City':'Mexico City','Asia/Manila':'Manila','UTC':'UTC'},
@@ -213,7 +213,7 @@ var LANG='__LANG__';
 var els=[].slice.call(document.querySelectorAll('#list .fr'));
 var rows=els.map(function(e){return{el:e,id:e.dataset.id,start:e.dataset.start||'',date:e.dataset.date,iso:e.dataset.iso,cont:e.dataset.cont,
  tour:e.dataset.tour||'',main:e.dataset.main==='1',lat:parseFloat(e.dataset.lat),lon:parseFloat(e.dataset.lon),q:e.dataset.q,ms:e.dataset.ms||'',tm:e.querySelector('.ft'),nt:e.querySelector('.nt'),meta:e.querySelector('.fm'),metaBase:e.querySelector('.fm').innerHTML};});
-var st={q:'',mode:'all',from:'',to:'',day:'',conts:{},ctrs:{},near:false,pos:null,radius:500,tz:'auto'};
+var st={q:'',mode:'all',from:'',to:'',day:'',conts:{},ctrs:{},near:false,pos:null,radius:700,tz:'auto'};
 try{var saved=localStorage.getItem('b12x3_cal_tz');if(saved)st.tz=saved;}catch(e){}
 function zone(){if(st.tz!=='auto')return st.tz;try{return Intl.DateTimeFormat().resolvedOptions().timeZone||'UTC';}catch(e){return 'UTC';}}
 function fmt(opts){try{return new Intl.DateTimeFormat('en-GB',opts);}catch(e){return new Intl.DateTimeFormat('en-GB',Object.assign({},opts,{timeZone:'UTC'}));}}
@@ -232,7 +232,7 @@ function render(){
  var tz=zone(),today=ymd(new Date(),tz),weekEnd=addDays(today,6),monthEnd=addDays(today,29);
  var from='',to='';
  if(st.mode==='today'){from=to=today;}else if(st.mode==='7'){from=today;to=weekEnd;}else if(st.mode==='month'){from=today;to=monthEnd;}else if(st.mode==='range'){from=st.from;to=st.to;}
- var base=[];
+ var base=[],far=[];
  rows.forEach(function(r){
   r.day=rowDay(r,tz);
   if(r.day<today){return;}
@@ -242,9 +242,13 @@ function render(){
   if(anyOn(st.conts)&&!st.conts[r.cont])return;
   if(anyOn(st.ctrs)&&!st.ctrs[r.iso])return;
   r.km=null;
-  if(st.near&&st.pos&&!isNaN(r.lat)){r.km=dist(st.pos.lat,st.pos.lon,r.lat,r.lon);if(st.radius&&r.km>st.radius)return;}
+  if(st.near&&st.pos&&!isNaN(r.lat)){r.km=dist(st.pos.lat,st.pos.lon,r.lat,r.lon);if(st.radius&&r.km>st.radius){if(!r.el.classList.contains('cx'))far.push(r);return;}}
   base.push(r);
  });
+ var fb=false;
+ if(st.near&&st.pos&&!base.length&&far.length){far.sort(function(a,b){return a.km-b.km;});base=far.slice(0,3);fb=true;}
+ var nn2=document.getElementById('nearnote');
+ if(st.near&&st.pos&&nn2){if(fb){nn2.textContent=T.near_fallback.replace('{r}',st.radius);nn2.className='note show';}else{nn2.className='note';}}
  // strip counts (ignore the single-day filter)
  var strip=document.getElementById('strip'),h='';
  for(var i=0;i<14;i++){var dd=addDays(today,i),has=base.some(function(r){return r.day===dd&&!r.el.classList.contains('cx');});var p=dd.split('-'),dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));
@@ -300,13 +304,14 @@ function bind(){
  nb.addEventListener('click',function(){
   if(st.near){st.near=false;nb.classList.remove('on');nb.textContent=T.near_btn;nr.className='sub-row';nn.className='note';render();return;}
   if(!navigator.geolocation){nn.textContent=T.near_unsup;nn.className='note show';return;}
-  navigator.geolocation.getCurrentPosition(function(p){st.pos={lat:p.coords.latitude,lon:p.coords.longitude};st.near=true;nb.classList.add('on');nb.textContent=T.near_on;nn.className='note';nr.className='sub-row show';track('near','on');render();},
-   function(){nn.textContent=T.near_denied;nn.className='note show';},{maximumAge:600000,timeout:10000});
+  nb.disabled=true;nb.textContent=T.near_locating;nn.className='note';
+  navigator.geolocation.getCurrentPosition(function(p){nb.disabled=false;st.pos={lat:p.coords.latitude,lon:p.coords.longitude};st.near=true;nb.classList.add('on');nb.textContent=T.near_on;nn.className='note';nr.className='sub-row show';track('near','on');render();},
+   function(e){nb.disabled=false;nb.textContent=T.near_btn;var k=e&&e.code;nn.textContent=k===1?T.near_denied:(k===3?T.near_timeout:T.near_unavail);nn.className='note show';track('near_error',k||0);},{maximumAge:600000,timeout:20000});
  });
  document.getElementById('radius').addEventListener('change',function(e){st.radius=parseInt(e.target.value,10)||0;render();});
  document.getElementById('tz').addEventListener('change',function(e){st.tz=e.target.value;try{localStorage.setItem('b12x3_cal_tz',st.tz);}catch(x){}track('timezone',st.tz);render();document.getElementById('tzrow').classList.remove('show');document.getElementById('tzedit').setAttribute('aria-expanded','false');});
  document.getElementById('reset').addEventListener('click',function(){
-  st.q='';st.mode='all';st.from=st.to=st.day='';st.conts={};st.ctrs={};st.near=false;
+  st.q='';st.mode='all';st.from=st.to=st.day='';st.conts={};st.ctrs={};st.near=false;nn.className='note';
   document.getElementById('q').value='';document.getElementById('from').value='';document.getElementById('to').value='';
   [].forEach.call(document.querySelectorAll('#f-date .chip'),function(c){c.classList.toggle('on',c.dataset.m==='all');});
   [].forEach.call(document.querySelectorAll('#f-cont .chip,#f-ctry .chip'),function(c){c.classList.remove('on');});
@@ -431,7 +436,7 @@ def build(lk):
     chip_k = ''.join(f'<button type="button" class="chip" data-i="{i}"><img class="flag" src="/images/flags/{i.lower()}.png" width="16" height="12" alt=""> {s["countries"].get(i, i)}<small>{n}</small></button>' for i, n in sorted(ctr.items(), key=lambda kv: -kv[1]))
     zones = ['Europe/Kyiv', 'Europe/London', 'Europe/Berlin', 'America/New_York', 'America/Chicago', 'America/Los_Angeles', 'Asia/Dubai', 'Asia/Riyadh', 'Asia/Tokyo', 'Australia/Sydney', 'Africa/Johannesburg', 'Asia/Manila', 'UTC']
     zopts = f'<option value="auto">{s["tz_auto"]}</option>' + ''.join(f'<option value="{z}">{s["tz_names"][z]}</option>' for z in zones)
-    radius = ''.join(f'<option value="{v}"{" selected" if v == 500 else ""}>{v} {s["km"]}</option>' for v in (500, 1000, 2500, 5000)) + f'<option value="0">{s["radius_all"]}</option>'
+    radius = ''.join(f'<option value="{v}"{" selected" if v == 700 else ""}>{v} {s["km"]}</option>' for v in (500, 700, 1000, 2500, 5000)) + f'<option value="0">{s["radius_all"]}</option>'
     url = f'{BASE}/{s["path"]}/calendar'
     ua_url, en_url = f'{BASE}/ua/calendar', f'{BASE}/en/calendar'
     items = [{'@type': 'ListItem', 'position': i + 1, 'url': BASE + f['urls']['ua' if u else 'en'], 'name': f"{f['red']['ua' if u else 'en']} – {f['blue']['ua' if u else 'en']}"} for i, f in enumerate(fa[:50])]
@@ -441,7 +446,7 @@ def build(lk):
         {'@type': 'BreadcrumbList', 'itemListElement': [
             {'@type': 'ListItem', 'position': 1, 'name': s['crumb'][0], 'item': BASE + ('/' if u else '/en')},
             {'@type': 'ListItem', 'position': 2, 'name': s['crumb'][1], 'item': url}]}]}
-    tdata = {k: s[k] for k in ('tba', 'ms_lbl', 'yourtime', 'yourtime_lbl', 'auto_note', 'chosen_note', 'today', 'km', 'empty_near', 'near_btn', 'near_on', 'near_denied', 'near_unsup', 'tz_names', 'months', 'wd', 'wds')}
+    tdata = {k: s[k] for k in ('tba', 'ms_lbl', 'yourtime', 'yourtime_lbl', 'auto_note', 'chosen_note', 'today', 'km', 'empty_near', 'near_btn', 'near_on', 'near_denied', 'near_unsup', 'near_unavail', 'near_timeout', 'near_locating', 'near_fallback', 'tz_names', 'months', 'wd', 'wds')}
     tdata['ph'] = list(s['ph_fights']); tdata['cx_ph'] = list(s['cx_ph']); tdata['night_start'] = s['night_start']
     js = JS.replace('__T__', json.dumps(tdata, ensure_ascii=False)).replace('__LANG__', s['lang'])
     footer = ''.join(f'<a href="{h}">{t}</a>' for h, t in s['footer'])
