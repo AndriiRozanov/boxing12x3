@@ -619,3 +619,8 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 - Rules confirmed: no-contest fights are not counted in the record and show only as "No contests · N"; a no-contest fight in "Last 5 fights" is gray "No contest"; Russian opponents stay in records but get no card; opponent record is omitted when unknown; decisions are written "UD, 8 rounds"; Next fight card has no link when the opponent has no card.
 - Spelling: Mikaelyan is "Ноель Мікаелян" / "Noel Mikaelyan" on all cards (replaced "Norair Mikaeljan").
 - Not done (owner decision pending): other fighters from the datasets; Jack status is "Former world champion in three divisions".
+
+## Personal OG images for active boxers (27 Nov 2026)
+- `scripts/og_boxer.py` generates `og/boxers/ua|en/<slug>.png` (1200x630) for every card with "Активний боксер": name, "Country · Division", "Born in <city> · debuted in YYYY", flag, height and reach (labelled). No record, no titles, no last/next fight (they change after every fight, and Telegram/Facebook cache previews by URL).
+- Data is read from the cards themselves (JSON-LD nationality, fact grid, h1). A new active boxer needs a city in `CITY_LOC` (UA locative, "Народився в Леверкузені") and a country in `COUNTRY`; the script fails loudly otherwise. Missing reach: the reach block is hidden. Long names and division lists shrink to fit.
+- Cards point `og:image` and `twitter:image` at their own image (same pattern as the legends). Regenerate with `python3 scripts/og_boxer.py [slug ...]` after adding a boxer.
