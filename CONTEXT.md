@@ -610,3 +610,5 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 
 - `data/main_events.json` (hand list of fight ids): the main fight for dates where the automatic choice would be wrong or missing. `scripts/bake_also_on.py` picks the face of each date in "Next on the calendar" in this order: hand list, `main` flag in `events.json` (first fight of a card), latest start (title fight wins a tie). Add one id when the rule picks the wrong fight, then rerun `bake_also_on.py`.
 - Homepage "Далі в календарі" / "Coming up next" (`scripts/bake_home.py`, `group_row`, `main_of`): ONE row per event (tournament or single fight), not per fight. A card with several fights shows its main fight, a small line "Card name · N fights" (or "N fights on the card" when the card is named after the main pair) and links to the card page. Continent chip counts count events. Long belt tags are shortened via `BELT_SHORT` (WBA (Super), вакантний / vacant; WBC Youth). CSS `.fgrp` lives in `scripts/home.css`.
+
+**Name spelling:** Zak Chelli is "Зак Челлі" in UA everywhere (was "Келлі", Nov 27 2026). Josh Kelly stays "Джош Келлі" (rankings). Source: `data/names_ua.csv`.
