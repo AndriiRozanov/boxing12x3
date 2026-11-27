@@ -591,3 +591,11 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 - Judge name fixed everywhere: Barry Lindenman (was Lindenmann), UA "Баррі Лінденман". Picasso-Martin and Munguia-Zon already had judges' scorecards (verified against the owner's data).
 - `data/events.json` regenerated: chukhadzhian-arganaras `pa` 53 -> null (Index was stripped from the cancelled page, the file was stale).
 
+
+## "Also on" block on fight pages (Nov 27 2026, branch also-on-block)
+
+- `scripts/bake_also_on.py` bakes `<!-- Also on -->...<!-- /Also on -->` before `<!-- Read next -->` on every fight page that has that marker (166 pages; 27 older pages without it are skipped). Idempotent; reads `data/events.json`, so run `build_events.py` first. Re-run after any change of fights, dates, times or results.
+- Group 1 "Also on {date}" / "Також цього дня · {дата}": other non-cancelled fights with the same `date`; first 3 visible, the rest in `<details class="ao-more">`. Finished fights show "Winner · method" (parsed from the target page title); hidden under `html.ns` (the no-spoilers class, set by an inline script from `localStorage b12ns`).
+- Group 2 "Next on the calendar" / "Далі в календарі": scheduled fights from max(page date + 1 day, today); one fight per date (the latest start that day, usually the main event); 2 rows, 3 if group 1 is empty. Date-only fights show no time.
+- Link text = names from the target page `<title>` before ":". Times: EN ET, UA "за Києвом".
+- GA4 event `also_on_click` {group: same_day|calendar, target_fight, source_fight}.
