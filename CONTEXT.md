@@ -313,7 +313,7 @@ Shows: `#poweredBy` ("Powered by Boxing 12×3 →")
 
 ## Boxer Profile Cards
 
-70 legend profiles are live (UA + EN, `ua/boxers/{slug}.html` and `en/boxers/{slug}.html`), catalogue at `/ua/boxers` and `/en/boxers`. Data source was the owner's table `rtfight_legends.numbers` (open the .numbers file, not the .xlsx: titles and nicknames live only there). 55 more legends ("Not on RTFight" sheet) are not done and need a separate list of height and reach.
+70 legend profiles are live (UA + EN, `ua/boxers/{slug}.html` and `en/boxers/{slug}.html`), catalogue at `/ua/boxers` and `/en/boxers`. Data source was the owner's table `rtfight_legends.numbers` (open the .numbers file, not the .xlsx: titles and nicknames live only there). The 55 legends from the "Not on RTFight" sheet are also done (125 legend cards in total; Chris Eubank = `chris-eubank-sr`, Louis Kaplan = `kid-kaplan`). Later the owner will add a fuller list of legends' fights.
 
 ### Every new boxer touches
 1. Both HTML cards (copy the latest card, change data only; never write a card from scratch).
@@ -345,7 +345,7 @@ Title up to 60 characters ("Ім'я: рекорд, титули, останні�
 Кальзаге, Мастернак, Хопкінс, Фроч, Мікель Кесслер, Ноніто Донейр, Пак'яо, Ріккі Хаттон, Ріддік Боу, Шейн Мозлі, Свен Оттке, Тоні Белью, Аарон Прайор, Томас Хернс, Террі Норріс, Володимир і Віталій Кличко, Вік Дарчинян.
 
 ### Planned next for profiles
-Personal OG images per boxer; "Важливі бої" block (clickable fight card to a historical fight page with an already-published YouTube video and a short "when, for what, where" text); the 55 legends not on RTFight; submit the new URLs in Search Console.
+"Важливі бої" block (clickable fight card to a historical fight page with an already-published YouTube video and a short "when, for what, where" text); submit the new URLs in Search Console (Kabayel, Hysa cards and Kraus-Deines submitted 27 Nov 2026). Personal OG images for active boxers are done (see section above).
 
 ---
 
