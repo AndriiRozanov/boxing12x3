@@ -120,6 +120,20 @@ def row(f, lg, src, grp, mode):
             f'<span class="ao-name">{esc(name)}</span><span class="ao-meta">{meta}</span></a>')
 
 
+MAIN = set(json.load(open(f'{R}/data/main_events.json', encoding='utf-8'))['ids'])
+
+
+def pick_main(day):
+    """Main fight of a date: hand list data/main_events.json, then events.json main flag, then latest start (a title fight wins a tie)."""
+    for f in day:
+        if f['id'] in MAIN:
+            return f
+    for f in day:
+        if f.get('main'):
+            return f
+    return sorted(day, key=lambda f: (f.get('startUtc') or '', bool(f.get('belts')), f['id']))[-1]
+
+
 def sort_key(f):
     return (f['date'], f.get('startUtc') or '9999')
 
@@ -129,11 +143,11 @@ def build(fights, f, lg, today):
                   key=sort_key)
     floor = max((dt.date.fromisoformat(f['date']) + dt.timedelta(days=1)).isoformat(), today)
     cand = [x for x in fights if x['status'] == 'scheduled' and x['date'] >= floor and x['id'] != f['id']]
-    # one fight per date: the last on that day (usually the main event)
+    # one fight per date: the main fight of that day
     by = {}
-    for x in sorted(cand, key=sort_key):
-        by[x['date']] = x
-    nxt = [by[d] for d in sorted(by)][: NEXT_N if same else NEXT_N_ALONE]
+    for x in cand:
+        by.setdefault(x['date'], []).append(x)
+    nxt = [pick_main(by[d]) for d in sorted(by)][: NEXT_N if same else NEXT_N_ALONE]
     t = L[lg]
     out = [START, '<div class="also-on">']
     if same:

@@ -235,7 +235,7 @@ def row(f, lk, kind='up'):
     tags = ''
     bc = (f['broadcast'][k] or [None])[0]
     if bc: tags += f'<span class="tag watch">{esc(bc.split(" · ")[0])}</span>'
-    for x in ((f.get('beltsEn') if lk != 'uk' and f.get('beltsEn') else f['belts']) or [])[:2]: tags += f'<span class="tag">{esc(x)}</span>'
+    for x in ((f.get('beltsEn') if lk != 'uk' and f.get('beltsEn') else f['belts']) or [])[:2]: tags += f'<span class="tag">{esc(BELT_SHORT.get(x, x))}</span>'
     t = TOUR.get(f.get('tournamentId'))
     if t and not tags: tags += f'<span class="tag tour">{esc(t["name"][k])}</span>'
     d = fdt(f)
@@ -249,6 +249,31 @@ def row(f, lk, kind='up'):
     return (f'<a class="fr" href="{href}" data-id="{f["id"]}" data-start="{start}" data-date="{f["date"]}" data-end="{fend(f).strftime("%Y-%m-%dT%H:%MZ")}" data-cont="{esc(v.get("continent"))}" data-lat="{v.get("lat") if v.get("lat") is not None else ""}" data-lon="{v.get("lon") if v.get("lon") is not None else ""}">'
             f'<div class="ft{" ap" if f.get("startApprox") and d else ""}">{left}</div><div class="fd"></div><div class="fi"><div class="fp">{esc(a)}<span class="vs">–</span>{esc(b)}</div>'
             f'<div class="fm">{meta}</div><div class="tags">{tags}</div></div><div class="fa">›</div></a>')
+
+BELT_SHORT = {'Вакантний пояс WBA (Super)': 'WBA (Super), вакантний', 'Vacant WBA (Super)': 'WBA (Super), vacant',
+              'Пояс чемпіона світу WBC серед молоді': 'WBC Youth', 'WBC Youth World title': 'WBC Youth'}
+
+def main_of(key, fl):
+    """The face of an event: first still-scheduled fight of the card (tournament), or the single fight."""
+    t = TOUR.get(key)
+    if t:
+        for fid in t['fights']:
+            if fid in FIGHT and FIGHT[fid]['status'] == 'scheduled': return FIGHT[fid]
+    return fl[0]
+
+def group_row(key, fl, lk):
+    """One row per event: the main fight; a card with more fights gets a line with the card name and fight count and links to the card page."""
+    h = H[lk]; k = 'ua' if lk == 'uk' else 'en'
+    t = TOUR.get(key); main = main_of(key, fl)
+    out = row(main, lk)
+    if t and len(fl) > 1:
+        a, b = names(main, lk); name = t['name'][k]
+        n = count(lk, h['fights'], len(fl))
+        redundant = a.split()[-1] in name and b.split()[-1] in name
+        label = (n + (' в картці' if lk == 'uk' else ' on the card')) if redundant else f'{name} · {n}'
+        out = out.replace('<div class="fm">', f'<div class="fgrp">{esc(label)}</div><div class="fm">', 1)
+        out = out.replace(f'href="{main["urls"][k]}"', f'href="{t["urls"][k]}"', 1)
+    return out
 
 def events(upcoming):
     """Group scheduled fights into events (a tournament or a single fight), earliest first."""
@@ -347,10 +372,11 @@ def build(lk):
     boxes = ''.join(hero(lk, key, fl, up)[0] for key, fl in evs)
     # unhide the first candidate so no-JS readers see an event
     boxes = boxes.replace('<div class="evbox" hidden', '<div class="evbox"', 1)
-    nxt = ''.join(row(f, lk) for f in up[:40]).replace('<a class="fr"', '<a class="fr" hidden')
+    allev = events(up)
+    nxt = ''.join(group_row(key, fl, lk) for key, fl in allev[:40]).replace('<a class="fr"', '<a class="fr" hidden')
     cont = {}
-    for f in up:
-        c = f['venue'].get('continent')
+    for key, fl in allev:
+        c = main_of(key, fl)['venue'].get('continent')
         if c: cont[c] = cont.get(c, 0) + 1
     chips = (''.join(f'<button type="button" class="chip" data-c="{esc(c)}">{h["conts"].get(c, c)}<small>{n}</small></button>'
                      for c, n in sorted(cont.items(), key=lambda kv: -kv[1]))

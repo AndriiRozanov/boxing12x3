@@ -1,0 +1,4 @@
+{
+  "_comment": "Main fight of the evening for dates where the automatic choice (events.json field main, then latest start / belt) would be wrong or missing. Used by scripts/bake_also_on.py. One fight id per date is enough.",
+  "ids": ["kabayel-hysa", "haney-paro", "paul-doumbe", "mckenna-aleksejevs", "lozan-burgos", "fury-joshua"]
+}
