@@ -612,3 +612,10 @@ Source: the owner's per-division table (`heavyweight_dataset.xlsx`: sheets "Бі
 - Homepage "Далі в календарі" / "Coming up next" (`scripts/bake_home.py`, `group_row`, `main_of`): ONE row per event (tournament or single fight), not per fight. A card with several fights shows its main fight, a small line "Card name · N fights" (or "N fights on the card" when the card is named after the main pair) and links to the card page. Continent chip counts count events. Long belt tags are shortened via `BELT_SHORT` (WBA (Super), вакантний / vacant; WBC Youth). CSS `.fgrp` lives in `scripts/home.css`.
 
 **Name spelling:** Zak Chelli is "Зак Челлі" in UA everywhere (was "Келлі", Nov 27 2026). Josh Kelly stays "Джош Келлі" (rankings). Source: `data/names_ua.csv`.
+
+## Active boxers: batches from the owner's Excel datasets (Nov 27 2026)
+- Batch 1: Kabayel, Trujillo (new); Sanchez, Moore got "No contests · 1"; Barriere last fight 21.10.2026; Pero last fight Whitfield TKO 3 (08.08.2026), record 14-0, 11 KO; Ibeh 'Next fight' removed; Milas and Novytskyi removed everywhere (no fight list).
+- Batch 2: Hovhannisyan, Cieslak, Mosquea, Dorticos, Masson. Batch 3: Perez, Harth, Tajima, Jack, Makabu.
+- Rules confirmed: no-contest fights are not counted in the record and show only as "No contests · N"; a no-contest fight in "Last 5 fights" is gray "No contest"; Russian opponents stay in records but get no card; opponent record is omitted when unknown; decisions are written "UD, 8 rounds"; Next fight card has no link when the opponent has no card.
+- Spelling: Mikaelyan is "Ноель Мікаелян" / "Noel Mikaelyan" on all cards (replaced "Norair Mikaeljan").
+- Not done (owner decision pending): other fighters from the datasets; Jack status is "Former world champion in three divisions".
