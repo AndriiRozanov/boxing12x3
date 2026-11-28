@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Fails (exit 1) when a boxer with a card is not linked where he should be.
-Checks: (1) fight pages with a comparison card link every carded fighter; (2) each card lists all its fights
+Checks: (1) fight pages link every carded fighter (comparison card or the "Boxer profiles" line); (2) each card lists all its fights
 and its ranking positions. (Ranking pages are linked by gen_rankings.py itself.)
 Run after bake_boxer_links.py / gen_rankings.py:  python3 scripts/check_boxer_links.py"""
 import re, os, sys, importlib.util
@@ -14,7 +14,6 @@ for fid, sl in b.SIDES.items():
         p = f'{lg}/{fid}.html'
         if not os.path.exists(p): continue
         t = open(p, encoding='utf-8').read()
-        if 'class="f-name' not in t: continue
         for s in sl:
             if s and f'href="/{lg}/boxers/{s}"' not in t: bad.append(f'{p}: no link to {s}')
 for s in b.CARD:

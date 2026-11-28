@@ -20,7 +20,8 @@ START, END = '<!--bl:start-->', '<!--bl:end-->'
 CSS_MARK = '/*bl*/'
 CSS_CARD = (CSS_MARK + '.bl-date{font-size:11px;color:var(--muted);font-weight:500;white-space:nowrap;margin-left:10px;}'
             '.bl-end{display:flex;align-items:center;}.bl-sub{font-size:12px;color:var(--muted);font-weight:500;}\n')
-CSS_FIGHT = (CSS_MARK + '.f-name a{color:inherit;text-decoration:none;border-bottom:1.5px solid currentColor;}\n')
+CSS_FIGHT = (CSS_MARK + '.f-name a{color:inherit;text-decoration:none;border-bottom:1.5px solid currentColor;}'
+             '.bl-meta a{color:var(--text);text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:2px;}\n')
 
 
 def norm(s):
@@ -213,6 +214,16 @@ def bake_fight(fid, lg):
         n[0] += 1
         return m.group(1) + f'<a href="/{lg}/boxers/{s}">{inner}</a>' + m.group(3)
     t2 = F_NAME.sub(rep, t)
+    # old archive pages without a comparison card: one "Boxer profiles" line under the meta line
+    t2 = re.sub(r'<!--blf:start-->.*?<!--blf:end-->\n?', '', t2, flags=re.S)
+    if 'class="f-name' not in t2 and any(sl) and '<div class="meta">' in t2:
+        links = [f'<a href="/{lg}/boxers/{s}">{esc(CARD[s][lg])}</a>' for s in sl if s]
+        lab = (('Картка боксера' if len(links) == 1 else 'Картки боксерів') if lg == 'ua'
+               else ('Boxer profile' if len(links) == 1 else 'Boxer profiles'))
+        line = f'<!--blf:start--><div class="meta bl-meta">{lab}: ' + ' · '.join(links) + '</div><!--blf:end-->\n'
+        m = re.search(r'[ \t]*<div class="meta">.*?</div>\n', t2, re.S)
+        t2 = t2[:m.end()] + '  ' + line + t2[m.end():]
+        n[0] += len(links)
     if n[0] and CSS_MARK not in t2:
         i = t2.index('</style>')
         t2 = t2[:i] + CSS_FIGHT + t2[i:]
