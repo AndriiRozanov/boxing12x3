@@ -29,6 +29,8 @@ NAMES = {
     'albert-ramirez': ('Albert Ramón Ramírez Duran', ['Albert Ramírez']),
     'callum-smith': ('Callum John Smith', []),
     'ben-whittaker': ('Benjamin Whittaker', []),
+    'arlen-lopez': ('Arlen López Cardona', ['Arlen López']),
+    'radivoje-kalajdzic': (None, ['Radivoje Kalajdžić']),
 }
 LBL = {'ua': "Повне ім'я", 'en': 'Full name'}
 BIRTH = re.compile(r'<div class="fact-cell full"><div class="fact-lbl">(?:Місце народження|Place of birth)</div>')
