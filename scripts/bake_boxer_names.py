@@ -23,6 +23,7 @@ NAMES = {
     'ilunga-makabu': ('Junior Ilunga Makabu', []),
     'oleksandr-usyk': (None, ['Усик Олександр Олександрович']),
     'viktor-vykhryst': (None, ['Вихрист Віктор Вікторович']),
+    'oleksandr-khyzhniak': (None, ['Хижняк Олександр Олександрович']),
     'gurgen-hovhannisyan': (None, ['Գուրգեն Հովհաննիսյան']),
     'filip-hrgovic': (None, ['Filip Hrgović']),
     'yuniel-dorticos': (None, ['Yunier Dorticos']),
