@@ -5618,4 +5618,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://boxing12x3.com/ua/boxers/kirra-ruston</loc>
+    <lastmod>2026-11-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/kirra-ruston"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/kirra-ruston"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://boxing12x3.com/en/boxers/kirra-ruston</loc>
+    <lastmod>2026-11-28</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://boxing12x3.com/ua/boxers/kirra-ruston"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://boxing12x3.com/en/boxers/kirra-ruston"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
